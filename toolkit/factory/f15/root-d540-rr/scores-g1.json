@@ -1,0 +1,382 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is partly my own conclusion.",
+  "why": "Extra $120 stack until 15-year payoff captured; flexibility inferred by reader",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "paying more often, such as monthly, pays the loan off sooner than saving up and paying once a year",
+  "why": "Yearly extra payment ends 4 months later; reader inferred action",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might take away that a fallback has a monthly cost and should be weighed.",
+  "why": "Stack beside house priced $120/month as fallback; only weighing caution",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "The animation gives no explicit advice.",
+  "why": "Row of weekly payment bars, smallest marked; gap link missing",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that a 15-year loan has usually been cheaper per dollar borrowed than a 30-year loan.",
+  "why": "Gap brackets and stacks seen; later wider brackets not linked to stacks",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Second figure Leo, Jan 2021, shorter stack all identified",
+  "q5": "own"
+ },
+ "R07": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "paying more often is slightly better than paying once a year",
+  "why": "Yearly payment, ends 4 months later, explained",
+  "q5": "own"
+ },
+ "R08": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might take away that the answer to paying extra versus investing depends on interest rates",
+  "why": "Decade stacks seen; rate line dropping not linked to taller 2010s",
+  "q5": "own"
+ },
+ "R09": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": true,
+  "quote": "compare your loan's rate with what you could earn elsewhere",
+  "why": "Empty slots with labelled sources partly seen; read as caption",
+  "q5": "own"
+ },
+ "R10": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Weekly bars and smallest marked; gap relation not identified",
+  "q5": "own"
+ },
+ "R11": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Figure, house, gold stack priced $120 a month as fallback",
+  "q5": "own"
+ },
+ "R12": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that paying down a mortgage faster saves a large amount of interest.",
+  "why": "Two interest stacks, difference stack beside house; slight confusion",
+  "q5": "own"
+ },
+ "R13": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer could take away that paying a mortgage down early saves a lot of interest.",
+  "why": "Tall 30-year stack versus shorter paid-in-15 stack",
+  "q5": "own"
+ },
+ "R14": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "a low fixed rate like 2.65% sets a high bar for extra payments to beat",
+  "why": "Two houses and stacks seen; fallback bracket and beams missing",
+  "q5": "own"
+ },
+ "R15": {
+  "score": 1,
+  "advice_stated": true,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "30-year paid in 15 = 15-year + a fallback",
+  "why": "Cards merge into 15-year + fallback; reader reads video recommending it",
+  "q5": "own"
+ },
+ "R16": {
+  "score": 1,
+  "advice_stated": true,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "The implied advice is to consider a 30-year mortgage and pay it down on a 15-year schedule",
+  "why": "Cards merge into equation; reader says video implies action",
+  "q5": "video"
+ },
+ "R17": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Median line, Tessa's stack above, under 1 in 5 weeks",
+  "q5": "none"
+ },
+ "R18": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that a 30-year loan keeps a lower required payment as a safety net.",
+  "why": "Fallback gap between bars labelled; tight-month room implied",
+  "q5": "own"
+ },
+ "R19": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap widens/narrows, range 0.2 to 1.0 marked",
+  "q5": "none"
+ },
+ "R20": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap varies across years, smallest and largest marked",
+  "q5": "own"
+ },
+ "R21": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "the answer to \"extra payment or invest?\" depends on which rate environment you are in",
+  "why": "Taller 2010s stack seen; sharp rate drop not described",
+  "q5": "own"
+ },
+ "R22": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "paying down the loan is a sure return, while other uses are untested",
+  "why": "Beam at loan rate, dollar and 'any other use' dollar",
+  "q5": "own"
+ },
+ "R23": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Flat assumed rate versus real lines, 1,833-cell grid, last cell Tessa",
+  "q5": "none"
+ },
+ "R24": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "you could take the 30-year loan and put the $612 difference toward extra payments or investing",
+  "why": "Two bars, 30-year shorter than 15-year",
+  "q5": "own"
+ },
+ "R25": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Tiles past 180 and gold strip shrinking; no visible extra slab",
+  "q5": "none",
+  "extra_layer_seen": false
+ },
+ "R26": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Line at 7.40% across history, early years above it",
+  "q5": "own"
+ },
+ "R27": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Flat assumed rate replaced by real lines and grid, last cell Tessa",
+  "q5": "own"
+ },
+ "R28": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "extra monthly payments cut years off a mortgage",
+  "why": "Tiles and gold strip described; extra layer not seen on tiles",
+  "q5": "own",
+  "extra_layer_seen": false
+ },
+ "R29": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer would learn to treat the mortgage rate as the hurdle that spare cash has to beat.",
+  "why": "Bar at loan rate, dollar on top, 'any other use' dollar",
+  "q5": "own"
+ },
+ "R30": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Line at 7.40% across history, high weeks mostly early",
+  "q5": "own"
+ },
+ "R31": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "taking it and paying extra when affordable keeps flexibility",
+  "why": "Fallback gap between bars, cushion if money tight",
+  "q5": "own"
+ },
+ "R32": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might infer that extra payments shorten the loan and cut interest.",
+  "why": "Mechanism described; flat required line vs shrinking balance not captured",
+  "q5": "own"
+ },
+ "R33": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "a very low mortgage rate makes paying extra less urgent than investing the spare cash",
+  "why": "Two houses and stacks; fallback bracket and beams not described",
+  "q5": "own"
+ },
+ "R34": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Second figure Leo, Jan 2021, shorter stack",
+  "q5": "own"
+ },
+ "R35": {
+  "score": 1,
+  "advice_stated": true,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "The \"fallback\" label and the \"+$120 a month\" and \"extra paid over 15 years\" labels suggest the flexibility idea.",
+  "why": "Raised bar, gold slice dropping into stack to full height",
+  "q5": "video"
+ },
+ "R36": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "taking the 15-year loan has historically cut the cost of borrowing",
+  "why": "Brackets and stacks seen; wider later brackets not linked",
+  "q5": "own"
+ },
+ "R37": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Median line, Tessa's stack above, fewer than 1 in 5 weeks",
+  "q5": "own"
+ },
+ "R38": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer could take away that paying extra on a mortgage saves a lot of interest.",
+  "why": "Tall 30-year stack versus much shorter paid-in-15 stack",
+  "q5": "own"
+ },
+ "R39": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer would probably take away that a shorter term, or paying extra, saves a lot of interest.",
+  "why": "Interest stacks seen; difference stack beside house only vaguely tied",
+  "q5": "own"
+ },
+ "R40": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Two bars, 30-year required payment shorter than 15-year",
+  "q5": "none"
+ },
+ "R41": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer could infer that paying extra shortens the loan and cuts interest.",
+  "why": "Fixed required payment noted; balance shrinking faster under it not seen",
+  "q5": "own"
+ },
+ "R42": {
+  "score": 0.5,
+  "advice_stated": true,
+  "advice_inferred": true,
+  "caution_only": true,
+  "quote": "extra mortgage payments cost them liquidity, so they should weigh the loan's rate against what they could earn elsewhere",
+  "why": "Slots and sources partly seen; blank empty third slot not identified",
+  "q5": "video"
+ }
+}
