@@ -28,6 +28,8 @@ sub('worst_adv_10y_short', 'worst_adv_10y', 'about $82,000')
 for k in ('sell_pct', 'down_pct', 'closing_pct', 'owner_cost_pct'):
     if k in rows and k not in cl:
         cl[k] = {'value': float(rows[k][0]), 'display': rows[k][1].split(' of')[0], 'display_full': rows[k][1], 'param': True}
+for y in (4, 5, 6):   # chữ trên thẻ / nhãn thẻ tiền thuê ở đồ thị (giả định, numbers.md: định nghĩa của share_yield4pct_10y / yield_anchor_pct / share_yield6pct_10y)
+    cl[f'yield{y}_tag'] = {'value': y, 'display': f'{y}%', 'display_full': f'anchor yield {y}% (assumption)', 'param': True}
 cl['_geom'] = {'n10': Q['n_10y']['value'], 'n15': Q['n_15y']['value'], 'renter10': Q['n_renter_ahead_10y']['value']}
 json.dump(cl, open(os.path.join(HERE, 'claims.json'), 'w'), indent=1, ensure_ascii=False)
 print(len(cl) - 1, 'claims')
