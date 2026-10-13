@@ -16,7 +16,7 @@ export async function boot(res) {
     wPair: { pos: [9.5, 5.5, 7.5], tgt: [9.5, 0.3, -4.5], fov: 44, chart: 0 },
     wWalk0: { pos: [-3.2, 2.8, 4.8], tgt: [3.2, 0.3, -4.2], fov: 46, chart: 0 },
     wWalk1: { pos: [7.2, 2.8, 4.8], tgt: [13.2, 0.3, -4.2], fov: 46, chart: 0 },
-    cAdv: { pos: [RX + RW / 2, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2, RY + RH / 2, RZ], fov: 15, chart: 1 },
+    cAdv: { pos: [RX + RW / 2, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2, RY + RH / 2, RZ], fov: 25, chart: 1 },
   };
   const { S, DATA, cue: b, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
   const st10 = DATA.starts10, n = st10.length, street = Street(scene, st10), H = Home8(scene);

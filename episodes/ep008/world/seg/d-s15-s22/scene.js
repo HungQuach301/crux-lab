@@ -13,7 +13,7 @@ export async function boot(res) {
   const poses = {
     cBright: { pos: [BX + 0.4, 1.4, 16], tgt: [BX + 0.4, 1.2, 0], fov: 14, chart: 1 },
     cDark: { pos: [DX + 0.3, 1.2, 16], tgt: [DX + 0.3, 1.0, 0], fov: 14, chart: 1 },
-    cIdx: { pos: [RX + RW / 2, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2, RY + RH / 2, RZ], fov: 15, chart: 1 },
+    cIdx: { pos: [RX + RW / 2, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2, RY + RH / 2, RZ], fov: 25, chart: 1 },
     cGrid: { pos: [11.9, 31, 4.5], tgt: [11.9, 0, -5.2], fov: 34, chart: 1 },
     wNina: { pos: [END_X - 2.6, 2.1, 6.4], tgt: [APT.x + 0.4, 0.7, -0.9], fov: 42, chart: 0 },
   };

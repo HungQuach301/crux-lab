@@ -15,7 +15,7 @@ export async function boot(res) {
     wTwins: { pos: [mid - 1.2, 2.4, 7.4], tgt: [mid, 0.6, -1.2], fov: 42, chart: 0 },
     cTwins: { pos: [mid, 1.0, 22], tgt: [mid, 1.0, -1.2], fov: 17, chart: 1 },
     wBox: { pos: [BOX.x - 1.6, 1.6, 4.4], tgt: [BOX.x + 0.6, 0.5, -0.4], fov: 40, chart: 0 },
-    cRecord: { pos: [RX + RW / 2, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2, RY + RH / 2, RZ], fov: 15, chart: 1 },
+    cRecord: { pos: [RX + RW / 2 + 0.6, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2 + 0.6, RY + RH / 2, RZ], fov: 25, chart: 1 },
     wDoor: { pos: [APT.x - 2.4, 2.0, 5.6], tgt: [APT.x + 0.2, 0.6, -2.6], fov: 42, chart: 0 },
     cTag: { pos: [TAGX + 0.6, 0.75, 9], tgt: [TAGX + 0.6, 0.72, TAGZ], fov: 12, chart: 1 },
     wFlow: { pos: [BOX.x - 0.6, 1.9, 5.2], tgt: [(BOX.x + APT.x) / 2, 0.5, -0.6], fov: 42, chart: 0 },

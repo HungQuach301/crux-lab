@@ -11,7 +11,7 @@ export async function boot(res) {
   const poses = {
     wEnd: { pos: [END_X - 3.2, 2.2, 6.4], tgt: [NINA.x - 0.8, 0.5, -1.2], fov: 44, chart: 0 },
     cStacks: { pos: [SX - 0.15, 0.95, 16], tgt: [SX - 0.15, 0.95, 0.9], fov: 11, chart: 1 },
-    cDots: { pos: [RX + RW / 2 + 0.6, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2 + 0.6, RY + RH / 2, RZ], fov: 15, chart: 1 },
+    cDots: { pos: [RX + RW / 2 + 0.6, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2 + 0.6, RY + RH / 2, RZ], fov: 25, chart: 1 },
     cGrid: { pos: [11.9, 31, 4.5], tgt: [11.9, 0, -5.2], fov: 34, chart: 1 },
     w0: { pos: [-3.5, 4.2, 8.5], tgt: [14, 0.2, -4.5], fov: 44, chart: 0 },
     wDoor: { pos: [END_X - 1.2, 1.9, 6.4], tgt: [APT.x + 1.2, 0.75, -0.6], fov: 40, chart: 0 },
