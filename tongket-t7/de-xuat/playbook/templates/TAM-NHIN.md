@@ -31,7 +31,7 @@
 |---|---|---|---|
 
 ## 5. Footage ngoài (≤ 15 % Tập 8 · ≤ 20 % từ Tập 9; chỉ nguồn trong danh sách trắng RIGHTS §F)
-| Cảnh | Thời lượng | Nguồn (bậc 1–5) | Vai trò (tư liệu / minh hoạ — **không làm bằng chứng**) | Cách ghép (khung trong thế giới / toàn khung ≤ 6 s, hoà từ 3D) |
+| Cảnh | Thời lượng | Nguồn (bậc 1–6) | Vai trò (tư liệu / minh hoạ — **không làm bằng chứng**) | Cách ghép (khung trong thế giới / toàn khung ≤ 6 s, hoà từ 3D) |
 |---|---|---|---|---|
 
 ## 6. Không làm (để giữ gen CHARTER §4)

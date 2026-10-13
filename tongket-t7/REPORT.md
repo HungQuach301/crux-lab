@@ -41,7 +41,7 @@ Nguồn đã đọc: `CHARTER.md` · `playbook/episode.md` · `playbook/lessons.
 | P1 | < 1 (ước) | dữ liệu, bản đọc thử; ledger không ghi giờ |
 | P2 | chưa ghi | 5 đoạn 540p + 2 lượt sửa (ledger không ghi giờ render) |
 | P3 | **≈ 30** | 720p 4 vòng; **1080p 7 lần chạy** (trần 2 h, đĩa đầy 1 lần, cache hỏng 4 cảnh); Shorts dọc S21/S25 > 2 h mỗi lượt |
-| P4 | ≈ 5,8 | theo TONGKET-INPUT h: dựng lại 1080p ≈ 2,9 (2 lần trượt vì môi trường + 1 lần bị cắt) · lấy mẫu trang ≈ 2,9 · Python ≈ 0,3 (chi tiết cộng ra 6,1). `ledger.md` ghi dựng lại ≈ 1,9 h → 5,1. Lấy 5,8 |
+| P4 | ≈ 6,1 | theo TONGKET-INPUT h: dựng lại 1080p ≈ 2,9 (2 lần trượt vì môi trường + 1 lần bị cắt) · lấy mẫu trang ≈ 2,9 · Python ≈ 0,3 (TONGKET-INPUT ghi tổng 5,8, chi tiết cộng ra 6,1); `ledger.md` ghi dựng lại ≈ 1,9 h → 5,1 |
 | **Tập 7** | **≈ 36** (P2 chưa ghi) | mức cảnh báo `lab` ≈ 15 h → **≈ 2,4×**; ≈ 20 h trong số đó là 1080p chạy lại |
 | F-14 | ≈ 10 | 1080p 1 h 55 + dựng lại ≈ 1 h 45 · nháp 7 × 15 phút · checks v3 2 h 12 + v4 2 h 48 |
 
@@ -156,14 +156,14 @@ Mọi mục dưới đây được **thử trước trên tập cũ** (đường
 | **4e SFX ghi âm thật** | Thay tiếng tổng hợp (whoosh, land) bằng tiếng ghi âm thật cho vật thể đổi trạng thái (giấy, kim loại, gỗ, tiền xu); không tăng mật độ (F-2: ≤ 21,7 sự kiện/phút đã là cảnh báo) | Freesound (lọc **CC0** / **CC BY 4.0**; bỏ CC BY-NC, Sampling+); Sonniss/BBC **không** dùng (giấy phép không phải CC0/CC BY; BBC RemArc là phi thương mại) | mỗi tệp một dòng RIGHTS (URL, tác giả, giấy phép trích nguyên văn, ngày tải); CC BY → ghi công trong mô tả | tải + chuẩn hoá ≈ 0,5 h lần đầu, sau đó dùng lại thư viện · ≈ $0,5–1 (tìm + kiểm quyền headless) | Editor · phép thử "mỗi vật đổi trạng thái có tiếng riêng" (chỉ báo cine Q28c đã có) | **Ưu:** âm nghề thật, người nghe tin hơn. **Nhược:** tốn công tìm/cắt lần đầu. **Rủi ro:** Wikimedia/Freesound chặn proxy (cine #82) → tải qua API có khoá hoặc chủ dự án tải tay một lần |
 | **4f Nhạc do người sáng tác, CC BY** (không nhạc AI) | Nhạc hiệu + 3 cue theo hồi của một tác giả có giấy phép **CC BY 4.0**, cắt theo bản đồ căng (thay nhạc bằng mã của D-010 §5) | ứng viên cần **đọc giấy phép lúc tải**: Kevin MacLeod (incompetech), Scott Buckley, Chris Zabriskie; Free Music Archive (lọc CC BY) | dòng RIGHTS + ghi công trong mô tả; **không** NC/ND, không YouTube Audio Library (cine §5.4), không nhạc AI | ≈ 0 · ≈ $0,5 (chọn + cắt cue theo bản đồ căng) | Editor · cue đổi theo hồi, không lặp > 60 s (cine Q28) | **Ưu:** chất lượng nhạc vượt nhạc bằng mã. **Nhược:** không chốt hợp âm đúng từ khoá như nhạc bằng mã → cắt theo câu nhạc; **đổi D-010 §5 = gu → chủ dự án quyết**. **Rủi ro:** Content ID (bên thứ ba đăng ký nhầm bản CC BY) → giữ bản lưu giấy phép để kháng nghị; chọn tác giả không đăng ký Content ID; thử đăng không công khai trước G3 |
 
-**Chi phí cộng thêm mỗi tập khi đã vào nếp (ước):** +$5–8 Console (Thiết kế hình, Previz), +0,5–1,5 h giờ máy (cảnh đinh). Phần này nằm trong đích ở mục 6 vì đã bỏ được các vòng sửa muộn.
+**Chi phí cộng thêm mỗi tập khi đã vào nếp (ước):** +$5–8 Console (Thiết kế hình, Previz, Editor), +0,5–1,5 h giờ máy (cảnh đinh). Phần này nằm trong đích ở mục 6 vì đã bỏ được các vòng sửa muộn.
 
 ---
 
 ## 5. Chính sách footage ngoài: đề xuất sửa CHARTER §4 + RIGHTS.md
 
 Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào §4, CHARTER vẫn < 2 trang) và `tongket-t7/de-xuat/RIGHTS-sF.md` (§F1–F5). Tóm tắt:
-- **Danh sách trắng, theo thứ tự ưu tiên:** (1) tác phẩm của chính phủ liên bang Mỹ, phạm vi công cộng (trừ ảnh của nhà thầu, ảnh được tặng, phù hiệu) → (2) Natural Earth / TIGER / **dữ liệu** OSM do kênh tự vẽ (ODbL, ghi công; không dùng tile vì phần đồ hoạ tile là BY-SA) → (3) CC0 / PDM → (4) Pexels / Pixabay, **đọc giấy phép lúc tải**, lưu bản chụp có băm → (5) CC BY.
+- **Danh sách trắng, theo thứ tự ưu tiên:** (1) tác phẩm của chính phủ liên bang Mỹ, phạm vi công cộng (trừ ảnh của nhà thầu, ảnh được tặng, phù hiệu) → (2) Natural Earth / TIGER / **dữ liệu** OSM do kênh tự vẽ (ODbL, ghi công; không dùng tile vì phần đồ hoạ tile là BY-SA) → (3) CC0 / PDM → (4) Pexels / Pixabay, **đọc giấy phép lúc tải**, lưu bản chụp có băm → (5) NARA/LoC "No known restrictions" (đánh giá của tổ chức, không bảo đảm; lưu bản chụp nhãn) → (6) CC BY.
 - **Danh sách cấm:** NC, ND, BY-SA cho hình, quyền không rõ, logo/nhãn hiệu, người thật trong vai nhân vật, ảnh AI trình bày như tư liệu.
 - **Trần:** ≤ 20 % thời lượng, **Tập 8 thử ≤ 15 %**, mỗi lần ≤ 6 s liền, không ở 5 s đầu.
 - **Giữ ngôn ngữ hình:** luôn có chuyển động, `focus` nằm trên dải chú thích (#49), phủ tông kênh, hoà từ cảnh 3D nối tiếp (#93); ưu tiên đặt ảnh **trong thế giới**; nguồn ảnh bên phải, nguồn số bên trái (#50).
@@ -187,11 +187,11 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 |---|---|---|---|
 | M1 Phát triển | $6–8 (Việc 0, WRITER 1–2 lượt, kiểm mù C1/C2) | ≤ 0,5 | P1 $8,9 |
 | M2 Tiền kỳ | $6–10 (Thiết kế hình, Previz animatic, nhận dạng + cổng gốc, REVIEWER G1) | 1–1,5 (animatic 540p xám) | C3 + C4: ≈ $63, giờ chưa ghi |
-| M3 Nháp 540p | $6–10 (dựng thế giới 1–2 lượt headless) | 1,5–2 | — (Tập 7 dựng thẳng 720p/1080p) |
-| M4 Hậu kỳ | $2–3 | ≤ 0,5 | — |
+| M3 Nháp 540p | $6–10 (dựng thế giới 1–2 lượt headless; gồm cảnh đinh 4a +$3–5) | 1,5–2 | — (Tập 7 dựng thẳng 720p/1080p) |
+| M4 Hậu kỳ | $2–3 (Editor; SFX/nhạc 4e–4f ≈ $1–1,5) | ≤ 0,5 | — |
 | M5 Kiểm định trên nháp | $5–8 (cổng gốc, nhớ lại, ≤ 2 vòng sửa, REVIEWER ý đồ + G2; 3 khung tĩnh 1080p) | 2–3 (đủ bộ, gồm lấy mẫu trang; ít hơn khi A29 qua K) | sửa C5 $25,93 + kiểm $10,8; checks sau G2 2,9 h |
 | M6 1080p + 1 Short | ≤ $1 | 3–4 (1080p một lần ≈ 2,8–3 h + Short + L1 kỹ thuật) | 1080p ≈ 20 h (7 + 3 lần chạy) |
-| **Cộng** | **$25–40** | **8–12 h** | **$115,6 · ≥ 36 h** |
+| **Cộng** | **$25–40** | **≈ 7,5–11,5 h (≈ 8–12)** | **$115,6 · ≥ 36 h** |
 
 **Chủ dự án:** G1 30–40 phút (kịch bản + animatic + vật thể) · G2 25–35 phút (xem nháp 540p + 3 khung 1080p + phiếu L3) · G3 10–15 phút → **≈ 1–1,5 h**. Tập 7: 10 lần chạm, ước ≥ 3–4 h.
 **Token:** **giữ** mức cảnh báo trần 15 triệu (log phiên + headless; Tập 7 ≥ 4,1, dưới). **Thêm hai mức cảnh báo mới:** **đọc cache ≤ 60 triệu/tập** (Tập 7 ≥ 371) và **≤ 150 lượt/phiên** (P3: 358). Hai thước này bắt đúng chỗ tốn của Tập 7, thước trần thì không bắt được (mục 1a).
@@ -230,7 +230,7 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 (a) duyệt cả gói, vào Tập 8 sau G1 · (b) duyệt nhưng giữ 3 vòng mỗi lỗi · (c) chỉ thử trên tập cũ, Tập 8 làm theo mẫu cũ.
 **Khuyến nghị (a).** Chỗ mất hạng 1–3 của Tập 7 (≈ $90 Console, ≈ 20 h máy 1080p chạy lại, S21 qua 7 vòng) đều do sửa muộn trên bản đắt. Đánh đổi: G1 muộn hơn ≈ 0,5 ngày, và hai phép thử mới phải hiệu chuẩn trên tập cũ trước.
 
-**Câu 2 — Footage ngoài + âm thanh** (mục 4–5): sửa CHARTER §4 (thêm 2 dòng) + RIGHTS §F (danh sách trắng 5 bậc, danh sách cấm, ≤ 15 % ở Tập 8, năm + nguồn trên hình); SFX ghi âm thật CC0/CC BY; nhạc do người sáng tác, CC BY, thay nhạc bằng mã (đổi D-010 §5, đây là gu).
+**Câu 2 — Footage ngoài + âm thanh** (mục 4–5): sửa CHARTER §4 (thêm 2 dòng) + RIGHTS §F (danh sách trắng 6 bậc, danh sách cấm, ≤ 15 % ở Tập 8, năm + nguồn trên hình); SFX ghi âm thật CC0/CC BY; nhạc do người sáng tác, CC BY, thay nhạc bằng mã (đổi D-010 §5, đây là gu).
 (a) duyệt cả hai · (b) duyệt footage + SFX, giữ nhạc bằng mã · (c) hoãn.
 **Khuyến nghị (b) cho Tập 8, xét nhạc ở G1 Tập 9.** Footage và SFX đã có thủ tục quyền và luật A39. Nhạc CC BY có rủi ro Content ID và không chốt hợp âm đúng từ khoá; anh nên nghe thử clip 2 cue (đường thử trên tập cũ) trước khi đổi gu. Đánh đổi: giữ nhạc bằng mã thì chất nhạc Tập 8 không tăng; footage tốn +0,5–1 h/tập kiểm quyền.
 
@@ -240,4 +240,4 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 
 **Trả lời gọn:** `1 a/b/c · 2 a/b/c · 3 a/b`
 
-REVIEWER (headless, khoá Console): `tongket-t7/review/REVIEW-r1.md` (ĐẠT có sửa, $1,67; đã áp) · `REVIEW-r2.md`.
+REVIEWER (headless, khoá Console): `tongket-t7/review/REVIEW-r1.md` (ĐẠT có sửa, $1,67; đã áp) · `REVIEW-r2.md` (ĐẠT có sửa, $0,61; đã áp). Chi Console phiên này: $2,28 / trần $8.
