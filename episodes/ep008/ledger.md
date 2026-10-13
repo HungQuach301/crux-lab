@@ -37,3 +37,7 @@
 | 13/10 | Tự quyết: số neo S13.2/S17.2/S24.4 đứng giữa cảnh → nhà máy không giữ hold giữa câu (lặng 0,21–0,56 s < 0,7). Dời câu dẫn sang cuối cảnh trước (S13.1→S12.3, S17.1→S16.3), S24.4→S25.1, S25→S26, S26→S27 — **chữ không đổi**; sinh lại S12/S13/S16/S17/S24/S25 | — | điều phối | lặng trước neo 0,99–1,01 s; checker ĐẠT; +1.133 ký tự | — |
 | 13/10 | S13 "3 in 4": small.en + medium.en + large-v3 nghe "three and four" ở seed 1008/1009/1010/1011 (+720 ký tự thử) → giữ seed 1009 (voice_overrides); sửa triệt để = đổi chữ đã duyệt ("3 out of 4") → G2 | — | điều phối | nêu G2 | — |
 | 13/10 | Timeline nhà máy + nhạc nền (bed.py, khoá dời so Tập 7) | — | lệnh | 626,2 s (10:26); MR1 184,0 · MR2 450,1 | — |
+| 13/10 | Animatic xám cả tập (CRUX_GREY=1; 6 đoạn + ghép; 3 lượt dựng vì F-2 chồng nhãn / khung cắt) | Dựng | lệnh | 10:26, verify 6/6, qc OK lượt cuối; render ≈ 7 s máy/s phim, cả tập ≈ 75 phút | — |
+| 13/10 | Cổng gốc r1 (48 + 1 đọc, 2 × 2 chấm; chấm bổ sung ghi đè → chấm lại gói gốc) | Kiểm mù | headless Sonnet | 13/24, B32 khuyên | (spend_leg) |
+| 13/10 | Vòng sửa 1: chú giải đèn, nhãn chủ ngữ, bảng điểm dạng đo | Dựng | điều phối | — | — |
+| 13/10 | Cổng gốc r2 (22 + 1 đọc, 2 × 2 chấm) | Kiểm mù | headless Sonnet | 19/24 (±5 %), 0 khuyên; B09 B10 B20 B24 B25 → G2 | (spend_leg $5,75 cả chặng) |
