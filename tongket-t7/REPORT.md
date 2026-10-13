@@ -157,3 +157,23 @@ Mọi mục dưới đây được **thử trước trên tập cũ** (đường
 | **4f Nhạc do người sáng tác, CC BY** (không nhạc AI) | Nhạc hiệu + 3 cue theo hồi của một tác giả có giấy phép **CC BY 4.0**, cắt theo bản đồ căng (thay nhạc bằng mã của D-010 §5) | ứng viên cần **đọc giấy phép lúc tải**: Kevin MacLeod (incompetech), Scott Buckley, Chris Zabriskie; Free Music Archive (lọc CC BY) | dòng RIGHTS + ghi công trong mô tả; **không** NC/ND, không YouTube Audio Library (cine §5.4), không nhạc AI | ≈ 0 | Editor · cue đổi theo hồi, không lặp > 60 s (cine Q28) | **Ưu:** chất lượng nhạc vượt nhạc bằng mã. **Nhược:** không chốt hợp âm đúng từ khoá như nhạc bằng mã → cắt theo câu nhạc; **đổi D-010 §5 = gu → chủ dự án quyết**. **Rủi ro:** Content ID (bên thứ ba đăng ký nhầm bản CC BY) → giữ bản lưu giấy phép để kháng nghị; chọn tác giả không đăng ký Content ID; thử đăng không công khai trước G3 |
 
 **Chi phí cộng thêm mỗi tập khi đã vào nếp (ước):** +$5–8 Console (Thiết kế hình, Previz), +0,5–1,5 h giờ máy (cảnh đinh). Phần này nằm trong đích ở mục 6 vì đã bỏ được các vòng sửa muộn.
+
+---
+
+## 5. Chính sách footage ngoài: đề xuất sửa CHARTER §4 + RIGHTS.md
+
+Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào §4, CHARTER vẫn < 2 trang) và `tongket-t7/de-xuat/RIGHTS-sF.md` (§F1–F5). Tóm tắt:
+- **Danh sách trắng, theo thứ tự ưu tiên:** (1) tác phẩm của chính phủ liên bang Mỹ, phạm vi công cộng (trừ ảnh của nhà thầu, ảnh được tặng, phù hiệu) → (2) Natural Earth / TIGER / **dữ liệu** OSM do kênh tự vẽ (ODbL, ghi công; không dùng tile vì phần đồ hoạ tile là BY-SA) → (3) CC0 / PDM → (4) Pexels / Pixabay, **đọc giấy phép lúc tải**, lưu bản chụp có băm → (5) CC BY.
+- **Danh sách cấm:** NC, ND, BY-SA cho hình, quyền không rõ, logo/nhãn hiệu, người thật trong vai nhân vật, ảnh AI trình bày như tư liệu.
+- **Trần:** ≤ 20 % thời lượng, **Tập 8 thử ≤ 15 %**, mỗi lần ≤ 6 s liền, không ở 5 s đầu.
+- **Giữ ngôn ngữ hình:** luôn có chuyển động, `focus` nằm trên dải chú thích (#49), phủ tông kênh, hoà từ cảnh 3D nối tiếp (#93); ưu tiên đặt ảnh **trong thế giới**; nguồn ảnh bên phải, nguồn số bên trái (#50).
+- **Trung thực:** ảnh minh hoạ không làm bằng chứng; tư liệu ghi năm + nguồn trên hình.
+- **Máy kiểm:** `checks-appeal.md` **A39** (CHẶN khi thiếu hồ sơ quyền, giấy phép cấm hoặc vượt trần; CHÍNH khi thiếu chữ năm + nguồn).
+
+| | |
+|---|---|
+| **Ưu** | Thêm chất thật: nơi chốn, thời kỳ, con người thật làm bối cảnh. Đỡ phải dựng 3D cho những cảnh chỉ có vai trò bối cảnh. Nguồn miễn phí, quyền rõ ràng. |
+| **Nhược** | Mỗi tệp phải kiểm quyền (≈ 5–10 phút). Có rủi ro "đổi chất liệu" (cine #93 đo 2/3). Phải sửa gen được bảo vệ, việc này thuộc quyền chủ dự án. |
+| **Chất lượng** | + nếu đặt ảnh trong thế giới hoặc hoà từ 3D. − nếu dùng toàn khung và cắt thẳng (cine #93). Trần 15 % ở Tập 8 giới hạn phần rủi ro. |
+| **Thời gian / token** | Tìm + kiểm quyền ≈ 0,5–1 h/tập (vai Thiết kế hình, headless ≈ $1–2). Giờ máy ≈ 0, ảnh rẻ hơn cảnh 3D. |
+| **Rủi ro** | Pháp lý: ảnh liên bang do nhà thầu chụp, giấy phép Pexels/Pixabay đổi theo thời gian → bản chụp giấy phép có băm, A39 chặn. Trung thực: người xem đọc ảnh minh hoạ như bằng chứng → nhãn + không đi cùng claim. Proxy chặn Wikimedia (cine #82) → nguồn bậc 1 tải qua API của cơ quan. |
