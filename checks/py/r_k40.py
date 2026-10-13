@@ -505,3 +505,49 @@ def s22_mixed_sources(ctx):
         else:
             bad.append(row)
     return verdict('S22', [metric('units mixing sources or periods', len(bad), '<=', 0)], details=[{'namedBoth': named}, *bad[:20]])
+
+
+# ---- K4.4: từ dễ đọc thành lời khuyên (checks-appeal A45 = A41 của nhánh ep008; luật tạm chủ dự án 13/10) ---------------------------------------
+# Danh sách mặc định cho mọi tập (đầu bài WRITER Tập 8, "Danh sách từ dễ đọc thành lời khuyên"; Tập 7 S25 "the bar … measured against" bị đọc
+# thành lời khuyên). Báo sai đã đo trên Tập 5–7 ("paid off" nghĩa đen, "measured against" mô tả dữ liệu) → CHÍNH, không CHẶN (A40 (2)); câu dùng
+# đúng nghĩa thì khai ngoại lệ có lý do ở contract.json claims.allowTerms. S10 (CHẶN) vẫn bắt lời khuyên rõ.
+ADVICE_TERMS = {
+    'should': r"\bshould\b", 'need to': r"\bneeds? to\b", 'have to': r"\b(have|has) to\b", 'better off': r"\bbetter off\b",
+    'the smart move': r"\bthe smart move\b", 'worth it': r"\bworth it\b", 'pays off': r"\bpa(ys|id) off\b", 'wins': r"\b(wins?|won(?!['’]t)|winners?)\b",
+    'beats': r"\bbeats?\b", 'the right time': r"\bthe right time\b", 'time to buy': r"\btime to buy\b", 'wait for': r"\bwait for\b",
+    'lock in': r"\block(s|ed)? in\b", 'safe': r"\bsafe\b", 'risky': r"\brisky\b", 'wasted': r"\bwasted\b|\bthrowing money away\b",
+    'the bar': r"\bthe bar\b|\bthe test\b|\bmeasured against\b|\bthe threshold to clear\b", 'if you … then': r"\bif you\b[^.?!]*\bthen\b",
+    'consider': r"\bconsider\b", 'make sure': r"\bmake sure\b",
+}
+
+
+@rule('S23', 'checks-appeal A45 (ep008 A41; chủ dự án 13/10, luật tạm), DX-I1', 'narration (out/script.json text) and on-screen text (page sampler textTrack, when '
+      'out/checks/page.json exists) against ADVICE_TERMS (the owner\'s list of words that read as advice; case-insensitive; "won\'t" is not "won") plus '
+      'contract.json claims.forbiddenTerms [regex]; a hit is allowed when contract.json claims.allowTerms has {sentence (narration id) or scene (screen), '
+      'term (key of the list or the regex), why (≥ 5 words)}',
+      '0 hits not allowed')
+def s23_advice_terms(ctx):
+    try:
+        cl = ctx.contract().get('claims') or {}
+    except Missing:
+        cl = {}
+    terms = dict(ADVICE_TERMS)
+    for x in cl.get('forbiddenTerms') or []:
+        terms[x] = x
+    allow = [a for a in cl.get('allowTerms') or [] if isinstance(a, dict) and len(str(a.get('why', '')).split()) >= 5]
+    ok = lambda where, key, term: any(a.get('term') in (key, term) and (a.get('sentence') == where or a.get('scene') == where) for a in allow)
+    hits = []
+    for s in ctx.sentences():
+        for k, rx in terms.items():
+            m = re.search(rx, s['text'], re.I)
+            if m and not ok(s.get('id'), k, rx):
+                hits.append({'where': 'narration', 'sentence': s.get('id'), 'term': k, 'text': s['text'][:160]})
+    if ctx.has('out/checks/page.json'):
+        seen = set()
+        for st in ctx.json('out/checks/page.json').get('textTrack') or []:
+            for it in st['items']:
+                for k, rx in terms.items():
+                    if re.search(rx, it['text'], re.I) and not ok(st['scene'], k, rx) and (st['scene'], k, it['text']) not in seen:
+                        seen.add((st['scene'], k, it['text']))
+                        hits.append({'where': 'screen', 'scene': st['scene'], 'term': k, 'text': it['text'][:160], 't': st['t']})
+    return verdict('S23', [metric('advice-like terms not allowed', len(hits), '<=', 0)], details=hits[:40])

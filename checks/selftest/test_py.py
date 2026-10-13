@@ -2928,7 +2928,34 @@ def nature_case(bad):
     return common.Result('A40/nature', 'PASS' if got == want else 'FAIL', [common.metric('natures as A40 says', got == want, '==', True)], details=[got])
 
 
-EXTRA.update({'A40/nature': nature_case, 'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
+def s23_case(bad):
+    """S23 (A45): Tập 7 S25.4 "That rate is the bar any other use of that dollar gets measured against" → hit; good = the data sentence and "It won't say
+    which loan to take" (won't ≠ won)."""
+    f = F('S23')
+    try:
+        f.contract(format='lab')
+        t = ('That rate is the bar any other use of that dollar gets measured against, before taxes.' if bad else
+             "That rate is what each extra dollar earns, before taxes. It won't say which loan to take.")
+        f.json('out/script.json', {'sentences': [{'id': 'S25.4', 'scene': 'S25', 'text': t, 'start': 0, 'end': 3}]})
+        return f.run('S23')
+    finally:
+        f.close()
+
+
+def s23_allow_case(bad):
+    """S23 (A45): a hit allowed by contract claims.allowTerms with a reason (Tập 8 S01.2 "wasted" is Nina's question) → pass; bad = the reason is two words."""
+    f = F('S23-allow')
+    try:
+        why = 'ok then' if bad else "Nina's own question, answered by the counterweight that follows"
+        f.contract(format='lab', claims={'allowTerms': [{'sentence': 'S01.2', 'term': 'wasted', 'why': why}]})
+        f.json('out/script.json', {'sentences': [{'id': 'S01.2', 'scene': 'S01', 'text': 'Is rent money wasted?', 'start': 0, 'end': 2}]})
+        f.json('out/checks/page.json', {'rules': {}, 'textTrack': [{'t': 0.5, 'scene': 'S01', 'items': [{'text': 'rent: 4% / 5% / 6%'}]}]})
+        return f.run('S23')
+    finally:
+        f.close()
+
+
+EXTRA.update({'S23': s23_case, 'S23/allow': s23_allow_case, 'A40/nature': nature_case, 'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
 
 
 # ---- K4.4: quyền + trung thực footage ngoài (A39 + A44; RIGHTS §F; F13 CHẶN, F15 CHÍNH) ------------------------------------------------------------
