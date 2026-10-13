@@ -204,3 +204,13 @@ export async function USMap(scene, { x = 0, z = 0, s = 1 } = {}) {
   line.set(0); return line;
 }
 export function mapCredit(O, a) { if (a > 0.01) label(O, 'Map: Natural Earth (public domain)', 1824, 180, { align: 'right', kind: 'name', px: 40, w: 600, alpha: a, color: C.muted, plate: null }); }
+
+// ---------------------------------------------------------------- chú giải đèn (cổng gốc M2 r1: người đọc thấy sáng/tối nhưng không biết nghĩa) — mọi khung có phố
+// sáng/tối: ô mẫu + chữ (không số → hợp lệ cả ở thế giới), góc phải dưới, trên dòng nguồn
+export function legend(O, a = 1) {
+  if (a <= 0.01) return; const x = 1820, y = 890, c = O.ctx;
+  for (const [k, col, s] of [[0, LIT, 'lit: buyer ahead after ten years'], [1, DARKW, 'dark: renter ahead']]) {
+    const yy = y + 56 * k; c.save(); c.globalAlpha = a; c.fillStyle = col; c.fillRect(x - 36, yy - 32, 30, 30); c.restore();
+    label(O, s, x - 50, yy - 6, { align: 'right', kind: 'name', px: 40, w: 600, alpha: a, plate: PLATE });
+  }
+}

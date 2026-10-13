@@ -1,7 +1,7 @@
 // Tập 8 · ĐOẠN E = S23–S28 (chương 5 "Two neighbors, one tag"). Marcus (nhà tối, June 2006) và Priya (nhà sáng, April 2012) trên cùng phố → đèn tắt:
 // ngày mua không ai thấy → thẻ trên cửa; tiền thuê cao hơn → bó vào hộp ít hơn → cẩu lên phố: thẻ 4 % (số neo 3) đèn tắt dần, 6 % sáng gần hết → dải Census
 // → biến thể T-bill → đèn theo thẻ; bãi trống qua cuối phố.
-import { setup, Street, Home8, figure, GlassBox, nameTag, label, chrome, chapterCard, seg2, followLight, modeLook, show, pulse, ease, lin,
+import { setup, Street, Home8, figure, GlassBox, nameTag, label, chrome, chapterCard, legend, seg2, followLight, modeLook, show, pulse, ease, lin,
   xOf, zOf, colOf, END_X, APT, NINA, BOX, LIT, DARKW, C, THREE } from '/episodes/ep008/world/w8.js';
 
 const SEG = '/episodes/ep008/world/seg/e-s23-s28/';
@@ -62,8 +62,8 @@ export async function boot(res) {
     const gA = ok * (t > MV.m_c.t1 ? 1 : 0), tv = cur[2];
     const tagTxt = tv === 4 ? '4%' : tv === 6 ? '6%' : tv === 5 ? '5%' : null, tagKey = tv === 4 ? 'yield4_tag' : tv === 6 ? 'yield6_tag' : 'yield5_tag';
     if (tagTxt) label(O, `rent tag: ${tagTxt}`, 140, 250, { align: 'left', kind: 'number', px: 56, alpha: gA * (t < b.e12.census || t > b.e14.lights ? 1 : 0), claims: [tagKey] });
-    label(O, '64.2%', 960, 240, { align: 'center', kind: 'number', px: 72, alpha: gA * show(t, b.e9.sixty, b.e10.six - 0.2), claims: ['share_yield4pct_10y'] });
-    label(O, '92.2%', 960, 240, { align: 'center', kind: 'number', px: 72, alpha: gA * show(t, b.e10.ninety, b.e11.share + 1.8), claims: ['share_yield6pct_10y'] });
+    label(O, 'rent tag 4%: buyer ahead in 64.2% of start months', 960, 240, { align: 'center', kind: 'number', px: 56, alpha: gA * show(t, b.e9.sixty, b.e10.six - 0.2), claims: ['share_yield4pct_10y', 'yield4_tag'] });
+    label(O, 'rent tag 6%: buyer ahead in 92.2%', 960, 240, { align: 'center', kind: 'number', px: 56, alpha: gA * show(t, b.e10.ninety, b.e11.share + 1.8), claims: ['share_yield6pct_10y', 'yield6_tag'] });
     label(O, 'the share moves with the rent you assume', 960, 330, { align: 'center', kind: 'name', px: 48, alpha: gA * show(t, b.e11.share, b.e12.census - 0.2) });
     const sx0 = 560, sx1 = 1360, sy = 930, X = (v) => sx0 + (v - 2) / 5 * (sx1 - sx0), sc = gA * show(t, b.e12.census - 0.2, b.e13.treasury - 0.2);
     if (sc > 0.01) {
@@ -81,6 +81,7 @@ export async function boot(res) {
     label(O, 'one month not on the street yet', Math.min(1500, ex - 40), ey + 130, { align: 'right', kind: 'name', px: 44, alpha: ring });
     log.roi['e9.four'] = [100, 180, 1700, 900]; log.roi['e10.six'] = [100, 180, 1700, 900]; log.roi['e12.census'] = [500, 820, 1420, 960]; log.roi['e13.treasury'] = [300, 180, 1620, 900];
     log.roi['e14.month'] = [ex - 120, ey - 120, ex + 120, ey + 160];
+    legend(O, gA);
     chrome(O, {});
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }

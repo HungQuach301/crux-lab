@@ -53,7 +53,7 @@ ev = [{'t': cue['c1']['each'], 'kind': 'rise', 'dur': 2.0}, {'t': cue['c2']['thr
 K.finish(HERE, S, 'ep008 · C = S08–S14 (chương 3, hồi 2 phần 1)', beats, moves, ev,
          {'chapter': [0.25, 'The street lights up']},
          {'c1.january': 'January 1991', 'c1.right': 'July 2016', 'c2.three': '307 start months · ten years each', 'c11.six': '2002 to 2007: 6 of 72 (8.3%)',
-          'c13.every': 'every start 2009 to mid-2016', 'c16.three': 'about 3 in 4 (75.6%)', 'c17.seventy': '75 of 307',
+          'c13.every': 'lit again: every start 2009 to mid-2016', 'c16.three': 'buyer ahead: about 3 in 4 (75.6%)', 'c17.seventy': 'renter ahead: 75 of 307',
           'c18.interest': 'counted: interest · tax · insurance · repairs · buying and selling', 'c19.lit': 'a count of history, not a promise',
           'c20.one': 'middle start month: about $157,000 ahead'},
          [k for b in beats for k in [f"{b['id']}.{c}" for c in b['cues']]], anchors=ANCH)

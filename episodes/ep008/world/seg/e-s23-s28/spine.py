@@ -42,7 +42,7 @@ ev = [{'t': cue['e1']['neighbors'], 'kind': 'tick', 'v': 0.3}, {'t': cue['e5']['
       {'t': cue['e13']['treasury'], 'kind': 'data', 'v': 0.5}, {'t': cue['e14']['month'], 'kind': 'tick', 'v': 0.3}]
 K.finish(HERE, S, 'ep008 · E = S23–S28 (chương 5, hồi 3 phần 1)', beats, moves, ev,
          {'chapter': [0.2, 'Two neighbors, one tag'], 'at': {'flip': S.at('@S28.1:falls')}},
-         {'e9.sixty': '64.2%', 'e10.ninety': '92.2%', 'e11.share': 'the share moves with the rent you assume',
+         {'e9.sixty': 'rent tag 4%: buyer ahead in 64.2% of start months', 'e10.ninety': 'rent tag 6%: buyer ahead in 92.2%', 'e11.share': 'the share moves with the rent you assume',
           'e12.census': 'Census vacancy survey: 4.83% a year · 5.59% a year', 'e12.range': 'buyer ahead: 73.6% · 87.3%', 'e12.reference': "a reference, not Nina's own rent",
           'e13.two': 'Treasury bill interest: about 2 in 3 (66.4%)', 'e14.month': 'one month not on the street yet'},
          [k for b in beats for k in [f"{b['id']}.{c}" for c in b['cues']]], anchors=['S25.1'])

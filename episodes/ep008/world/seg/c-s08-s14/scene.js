@@ -1,7 +1,7 @@
 // Tập 8 · ĐOẠN C = S08–S14 (chương 3 "The street lights up"). Lưới mọc trái → phải (1991 → 2016) → Nina qua cuối phố → luật đèn trên hai nhà ví dụ →
 // đi dọc phố: 1990s sáng, từ April 2001 cửa tối tới December 2007 → đồ thị: 6 trên 72 → sáng lại 2009 → 2016 → đếm tại chỗ (số neo 1: about 3 in 4)
 // → dải chênh lệch theo tháng, trung vị khoảng $157,000, độ trải.
-import { setup, Street, Home8, figure, nameTag, label, chrome, chapterCard, followLight, modeLook, show, pulse, ease, lin,
+import { setup, Street, Home8, figure, nameTag, label, chrome, chapterCard, legend, followLight, modeLook, show, pulse, ease, lin,
   xOf, zOf, colOf, END_X, APT, NINA, LIT, C, THREE } from '/episodes/ep008/world/w8.js';
 import { Ribbon } from '/toolkit/factory/world/lib3d.js';
 
@@ -74,9 +74,9 @@ export async function boot(res) {
     label(O, "renter's cash bigger", e2x, e2y - 40, { align: 'center', kind: 'name', px: 44, alpha: wA * show(t, b.c5.dark, MV.m_walk.t0), color: C.warn });
     log.roi['c4.lights'] = [e1x - 200, e1y - 100, e1x + 200, e1y + 160]; log.roi['c5.dark'] = [e2x - 200, e2y - 100, e2x + 200, e2y + 160];
     label(O, '2002 to 2007: 6 of 72 (8.3%)', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c11.six, b.c13.again), claims: ['era_2002-2007_share', 'era_2002-2007_pct'] });
-    label(O, 'every start 2009 to mid-2016', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c13.every, b.c15.counted), claims: ['era_2009-2016_share'] });
-    label(O, 'about 3 in 4 (75.6%)', 960, 230, { align: 'center', kind: 'number', px: 64, alpha: gA * show(t, b.c16.three, b.c19.lit - 0.3), color: LIT, claims: ['share_buyer_ahead_10y', 'share_buyer_ahead_10y_pct'] });
-    label(O, '75 of 307', 960, 320, { align: 'center', kind: 'number', alpha: gA * show(t, b.c17.seventy, b.c19.lit - 0.3), color: C.warn, claims: ['n_renter_ahead_10y'] });
+    label(O, 'lit again: every start 2009 to mid-2016', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c13.every, b.c15.counted), claims: ['era_2009-2016_share'] });
+    label(O, 'buyer ahead: about 3 in 4 (75.6%)', 960, 230, { align: 'center', kind: 'number', px: 64, alpha: gA * show(t, b.c16.three, b.c19.lit - 0.3), color: LIT, claims: ['share_buyer_ahead_10y', 'share_buyer_ahead_10y_pct'] });
+    label(O, 'renter ahead: 75 of 307', 960, 320, { align: 'center', kind: 'number', alpha: gA * show(t, b.c17.seventy, b.c19.lit - 0.3), color: C.warn, claims: ['n_renter_ahead_10y'] });
     label(O, 'counted: interest · tax · insurance · repairs · buying and selling', 960, 900, { align: 'center', kind: 'name', px: 44, alpha: gA * show(t, b.c18.interest, MV.m_adv.t0) });
     log.roi['c11.six'] = [500, 180, 1420, 900]; log.roi['c16.three'] = [300, 170, 1620, 900]; log.roi['c17.seventy'] = [700, 270, 1220, 350];
     // S14: đồ thị chênh lệch
@@ -90,6 +90,7 @@ export async function boot(res) {
     if (sp > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = sp; c.strokeStyle = C.ink; c.lineWidth = 5; c.beginPath(); c.moveTo(s0x - 14, s0y); c.lineTo(s0x, s0y); c.lineTo(s0x, s1y); c.lineTo(s0x - 14, s1y); c.stroke(); c.restore(); }
     label(O, 'wide spread', s0x + 20, (s0y + s1y) / 2, { align: 'left', kind: 'name', px: 44, alpha: sp });
     log.roi['c20.one'] = [ox, my - 80, mx + 20, my + 40]; log.roi['c21.spread'] = [s0x - 30, s1y, s0x + 300, s0y];
+    legend(O, show(t, b.c4.lights - 0.2, MV.m_adv.t0));
     chrome(O, {});
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }

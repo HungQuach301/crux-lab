@@ -1,7 +1,7 @@
 // Tập 8 · ĐOẠN F = S29–S33 (chương 6 "The end of the street"). Nina ở bãi trống qua cuối phố → hai chồng tháng đầu (đồ thị) → chấm tiền thuê ÷ chi
 // tháng đầu của 307 tháng + chấm của Nina thấp hơn mọi chấm → thẻ V7 → bảng điểm trên phố nhìn từ trên → khung 0:00: cùng phố, nay sáng/tối → câu của Nina →
 // hộp tiền mặt + hộp thứ hai đóng (câu hỏi còn mở) → tắt dần.
-import { setup, Street, Home8, figure, MoneyStack, GlassBox, nameTag, label, chrome, chapterCard, v7Card, dip, followLight, modeLook, show, pulse, ease, lin,
+import { setup, Street, Home8, figure, MoneyStack, GlassBox, nameTag, label, chrome, chapterCard, legend, v7Card, dip, followLight, modeLook, show, pulse, ease, lin,
   xOf, zOf, colOf, END_X, APT, NINA, BOX, LIT, DARKW, C, THREE } from '/episodes/ep008/world/w8.js';
 
 const SEG = '/episodes/ep008/world/seg/f-s29-s33/';
@@ -72,11 +72,13 @@ export async function boot(res) {
     log.roi['f6.card'] = [300, 200, 1620, 800];
     // bảng điểm (đồ thị, trên phố nhìn từ trên): mỗi dòng đúng màu của lựa chọn
     const gA = ok * (t > MV.m_grid.t1 && t < MV.m_w.t0 ? 1 : 0), rows = [['lit', 'most start months: buyer ahead (about 3 in 4)', LIT, ['share_buyer_ahead_10y']],
-      ['stretch', 'dark stretch: April 2001 to December 2007', C.warn, ['renter_first_10y', 'renter_last_10y']], ['stays', 'longer stays: fewer dark doors', C.ink, null],
+      ['stretch', 'dark stretch: April 2001 to December 2007', C.warn, ['renter_first_10y', 'renter_last_10y']], ['stays', 'held fifteen years: no dark doors in the record', C.ink, null],
       ['tag', 'the answer moves with the rent tag', '#C9D0DA', null]];
-    if (gA > 0.01) O.card(330, 170, 1260, 330, { fill: '#0F141B', stroke: C.muted, lw: 3, alpha: 0.92 * gA * show(t, b.f8.lit - 0.3) });
+    if (gA > 0.01) O.card(330, 170, 1260, 400, { fill: '#0F141B', stroke: C.muted, lw: 3, alpha: 0.92 * gA * show(t, b.f8.lit - 0.3) });
     rows.forEach(([k, s, col, cl], j) => label(O, s, 380, 240 + 72 * j, { align: 'left', kind: cl ? 'number' : 'name', px: 50, alpha: gA * show(t, b.f8[k]), color: col, plate: null, ...(cl ? { claims: cl } : {}) }));
-    log.roi['f8.lit'] = [330, 170, 1590, 500];
+    label(O, 'a record of what happened, not a choice for Nina', 380, 240 + 72 * 4, { align: 'left', kind: 'name', px: 44, alpha: gA * show(t, b.f8.tag + 0.6), color: C.muted, plate: null });
+    legend(O, gA);
+    log.roi['f8.lit'] = [330, 170, 1590, 560];
     label(O, 'Is her rent money wasted?', 960, 250, { align: 'center', kind: 'name', px: 64, alpha: wA * show(t, b.f10.answer, MV.m_box.t0) });
     log.roi['f10.answer'] = [400, 180, 1520, 280]; log.roi['f9.same'] = [100, 200, 1820, 900];
     const [b2x, b2y] = O.toScreen(BOX.x - 1.3, 1.1, BOX.z), [b1x, b1y] = O.toScreen(...box.top());

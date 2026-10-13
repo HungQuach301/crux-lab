@@ -50,6 +50,6 @@ K.finish(HERE, S, 'ep008 · D = S15–S22 (chương 4, hồi 2 phần 2) → MR2
           'fifteen': S.at('@S22.3:fifteen')}},
          {'d0.april': 'April 2012', 'd0.about': 'about $484,000 ahead', 'd1.three': '3.91% rate', 'd1.doubled': 'prices more than doubled',
           'd3.june': 'June 2006', 'd4.eighty': '$82,385 behind', 'd5.equity': "buyer's equity $115,374", 'd5.cash': "renter's cash $197,760",
-          'd6.three': 'prices up 3.2% in ten years', 'd7.six': '6.68% rate', 'd8.national': 'national index, not one house', 'd10.seventy': 'five years: 74.4%',
+          'd6.three': 'prices up 3.2% in ten years', 'd7.six': '6.68% rate', 'd8.national': 'national index, not one house', 'd10.seventy': 'held five years: buyer ahead in 74.4%',
           'd11.may': 'May 2006 · $149,392 behind', 'd13.every': '15 years: every one (100%) · 247 start months', 'd14.weakest': 'weakest: $79,829 ahead'},
          [k for b in beats for k in [f"{b['id']}.{c}" for c in b['cues']]], anchors=['S17.1'], silences=[MRSIL])

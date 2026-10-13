@@ -1,7 +1,7 @@
 // Tập 8 · ĐOẠN D = S15–S22 (chương 4 "The darkest house"). Nhà April 2012 nhấc lên + chồng chênh lệch cao → lia ngược xuống June 2006, dừng (số neo 2:
 // cửa tối, "$82,385 behind") → hai chồng: vốn người mua (lit) thấp hơn tiền mặt người thuê (warn) → chỉ số giá gần như phẳng 10 năm → lưới 5 / 10 / 15
 // năm → Nina qua cuối phố, thẻ chưa xoay → MR2.
-import { setup, Street, Home8, figure, MoneyStack, nameTag, label, chrome, chapterCard, followLight, modeLook, show, pulse, ease, lin,
+import { setup, Street, Home8, figure, MoneyStack, nameTag, label, chrome, chapterCard, legend, followLight, modeLook, show, pulse, ease, lin,
   xOf, zOf, colOf, byMonth, END_X, APT, NINA, LIT, C, THREE } from '/episodes/ep008/world/w8.js';
 import { Ribbon } from '/toolkit/factory/world/lib3d.js';
 
@@ -82,13 +82,13 @@ export async function boot(res) {
     label(O, 'national index, not one house', 960, 230, { align: 'center', kind: 'name', alpha: iA * show(t, b.d8.national) });
     log.roi['d6.three'] = [ox, 200, zx + 40, oy + 40]; log.roi['d7.six'] = [700, 840, 1220, 920];
     const gA = ok * (t > MV.m_grid.t1 && t < MV.m_w.t0 ? 1 : 0);
-    label(O, 'five years: 74.4%', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.d10.seventy, b.d13.every - 0.3), claims: ['share_buyer_ahead_5y'] });
+    label(O, 'held five years: buyer ahead in 74.4%', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.d10.seventy, b.d13.every - 0.3), claims: ['share_buyer_ahead_5y'] });
     const [mx, my] = O.toScreen(xOf('2006-05'), 0, zOf('2006-05'));
     label(O, 'May 2006 · $149,392 behind', mx, my + 80, { align: 'center', kind: 'number', px: 48, alpha: gA * mayH, color: C.warn, claims: ['worst_start_5y', 'worst_adv_5y'] });
     label(O, '15 years: every one (100%) · 247 start months', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.d13.every, b.d15.five - 0.3), claims: ['share_buyer_ahead_15y', 'share_15y_pct', 'n_15y'] });
     label(O, 'weakest: $79,829 ahead', 960, 310, { align: 'center', kind: 'number', px: 48, alpha: gA * show(t, b.d14.weakest, b.d15.five - 0.3), color: LIT, claims: ['worst_adv_15y'] });
     const yrs = Hn === 5 ? 'five years' : Hn === 10 ? 'ten years' : 'fifteen years';
-    label(O, yrs, 960, 230, { align: 'center', kind: 'name', px: 64, alpha: gA * show(t, b.d15.five, MV.m_w.t0) });
+    label(O, `held ${yrs}`, 960, 230, { align: 'center', kind: 'name', px: 64, alpha: gA * show(t, b.d15.five, MV.m_w.t0) });
     const [ax, ay] = O.toScreen(0, 0, 0.9);
     label(O, 'January 1991', ax, ay + 60, { align: 'center', kind: 'number', px: 44, alpha: gA, color: C.muted, claims: ['first_10y'] });
     log.roi['d10.seventy'] = [400, 180, 1520, 900]; log.roi['d11.may'] = [mx - 300, my - 60, mx + 300, my + 120]; log.roi['d13.every'] = [300, 180, 1620, 900];
@@ -96,6 +96,9 @@ export async function boot(res) {
     const [tx, ty] = O.toScreen(APT.x + 0.3, 0.95, APT.z + 0.66);
     label(O, 'the rent tag: unchanged', tx, ty - 40, { align: 'center', kind: 'name', px: 44, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.d17.tag) });
     log.roi['d17.tag'] = [tx - 260, ty - 100, tx + 260, ty + 140];
+    legend(O, gA + (t < MV.m_idx.t0 ? ok : 0));
+    const [nx2, ny2] = O.toScreen(NINA.x, 1.3, NINA.z);
+    label(O, "how long Nina stays: unknown", nx2, ny2 - 40, { align: 'center', kind: 'name', px: 44, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.d16.nina - 0.3, b.d17.tag - 0.3) });
     chrome(O, {});
     st.compose(); log.camMoving = CAM.moving(t); return log;
   }

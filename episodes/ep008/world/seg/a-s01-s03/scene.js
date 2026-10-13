@@ -2,7 +2,7 @@
 // (renter, warn) thấp hơn tháng đầu của người mua (buyer, lit) → hai chồng tiền để dành + nhà $400,000 → lưới nhìn từ trên: khối 2002–2007 tối, 6 ô
 // sáng; lưới 15 năm sáng hết; câu hỏi của Nina → mọi ô hiện, April 2012 sáng / June 2006 tối ("opposite answers") → lưới mọc thành phố (thế giới),
 // dòng góc + đối trọng → dọc phố tới Nina + người song sinh ở cửa; ident tối dần.
-import { setup, Street, Home8, figure, MoneyStack, nameTag, label, chrome, seg2, dip, chapterCard, followLight, modeLook, show, pulse, ease, lin,
+import { setup, Street, Home8, figure, MoneyStack, nameTag, label, chrome, seg2, dip, chapterCard, legend, followLight, modeLook, show, pulse, ease, lin,
   xOf, zOf, colOf, END_X, APT, NINA, BUY, LIT, C, THREE } from '/episodes/ep008/world/w8.js';
 
 const SEG = '/episodes/ep008/world/seg/a-s01-s03/';
@@ -90,6 +90,8 @@ export async function boot(res) {
     label(O, 'January 1991', ax, ay + 60, { align: 'center', kind: 'number', px: 48, alpha: ya, color: C.muted, claims: ['first_10y'] });
     label(O, 'July 2016', zx, ay + 60, { align: 'center', kind: 'number', px: 48, alpha: ya, color: C.muted, claims: ['last_10y'] });
     log.roi['a3.seventy'] = [500, 300, 1500, 900]; log.roi['a3.six'] = [500, 180, 1420, 900]; log.roi['a4.every'] = [400, 180, 1520, 900]; log.roi['a6.same'] = [p2x - 120, 280, p1x + 120, p1y + 100];
+    legend(O, gl * show(t, b.a3.seventy - 0.3, MV.m_w.t0));
+    label(O, 'the street ends where the data ends', zx, ay - 60, { align: 'right', kind: 'name', px: 40, alpha: gl * show(t, b.a4.every, b.a5.wasted - 0.4), color: C.muted });
     // S03.2: dòng góc gạch chân ở "history" + đối trọng (không lời khuyên) lên hình từ đó
     { const c = O.ctx; c.save(); c.font = '600 54px Inter'; const w0 = c.measureText('US only · ').width, wAll = c.measureText('US only · history, not a forecast').width; c.restore();
       seg2(O, 96 + w0, 1024, 96 + wAll, 1024, C.ink, 0.9 * show(t, b.a7.history, b.a8.street), 4); log.roi['a7.history'] = [96 + w0 - 6, 960, 96 + wAll + 6, 1030]; }

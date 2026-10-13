@@ -88,20 +88,20 @@ def do_pack(run):
     print(len(labs), 'nhãn')
 
 
-def do_grade(run, n):
-    o = rdir(run); pk = json.load(open(o / 'packet.json'))
+def do_grade(run, n, pkt='packet.json', base=1):
+    o = rdir(run); pk = json.load(open(o / pkt))   # gói bổ sung (người đọc thứ 3) → pkt riêng, điểm ghi scores-g<base+k>.json (không ghi đè)
     body = ('# Grading packet (blind). You are an independent grader. Each label Rxx is one reader\'s answers about a short silent animation from a '
             'personal-finance video. Grade each label literally with the rules and the expected meaning given for it. You know nothing else.\n\n'
             + json.dumps(pk, indent=1, ensure_ascii=False) + '\n\nOutput JSON only (no prose, no code fence), one entry per label: ' + pk['return'] + ' — and add "q5".\n')
     (o / 'grade-prompt.txt').write_text(body)
 
     def one(k):
-        r = blind.run(o / 'grade-prompt.txt', o / f'grade-g{k}.json')
+        r = blind.run(o / 'grade-prompt.txt', o / f'grade-g{k + base - 1}.json')
         txt, dec, objs, i = r['answer'], json.JSONDecoder(), [], 0
         while (j := txt.find('{', i)) >= 0:
             try: ob, e = dec.raw_decode(txt[j:]); objs.append(ob); i = j + e
             except ValueError: i = j + 1
-        json.dump({kk: v for kk, v in objs[-1].items() if isinstance(v, dict)}, open(o / f'scores-g{k}.json', 'w'), indent=1, ensure_ascii=False)
+        json.dump({kk: v for kk, v in objs[-1].items() if isinstance(v, dict)}, open(o / f'scores-g{k + base - 1}.json', 'w'), indent=1, ensure_ascii=False)
         return k
     with cf.ThreadPoolExecutor(n) as ex: print(list(ex.map(one, range(1, n + 1))))
 
