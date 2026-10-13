@@ -47,3 +47,4 @@
 | 2026-10-13 | C5 | cổng gốc bản cuối | `c4/blind_c4.py` root, 42 lượt + chấm 2 lượt độc lập | `c5/root-final/` | ≈ $1 | 5–7/21 (C4 16/21) — hồi quy 10 nhịp; G2 ngay (chủ dự án) |
 | 2026-10-13 | C5 | checks lần 2 | luật Python trên bản sao khoá (`c5/checks-reports/chk-c5py2.log`); bộ lấy mẫu trang dừng (≈ 6–8 h) | — | — | CHẶN: A14 (S15.3, S25.2 "Tessa's"), F11 (gói P4) |
 | 2026-10-13 | G2 | REVIEWER | `briefs/reviewer-g2.md` | `gates/REVIEW-G2.md` | $1,33 | ĐẠT có sửa (4 CHÍNH, 5 PHỤ — áp đủ) |
+| 2026-10-13 | G2 | trả lời chủ dự án | chép nguyên văn | `gates/G2-answer.md`, `taste-ledger.md`, `AUTHORSHIP.md` | — | PHÁT HÀNH bản hiện tại, không sửa hình/lời; chấp nhận cổng gốc 5–7/21, S21, S25 (giữ), B23, A14 (A34) → tổng kết; T2; SH1, SH2 duyệt |
