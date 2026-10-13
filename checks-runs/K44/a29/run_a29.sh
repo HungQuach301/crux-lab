@@ -9,6 +9,6 @@ R="$ROOT/episodes/$EP"
 NOC=""; for a in "$@"; do [ "$a" = "--no-cache" ] && NOC="--no-cache"; [ "$a" = "--clear" ] && rm -rf "$R/out/checks/cache/page-scenes"; done
 export NODE_PATH="$(npm root -g)"
 s=$(date +%s)
-K_PROGRESS=1 node "$ROOT/checks/page/sampler.js" "$R" --jobs 4 $NOC > "$OUT/$EP-$TAG.stdout" 2> "$OUT/$EP-$TAG.log"
+K_PROGRESS=1 node "${A29_CHECKS:-/home/user/k441/checks}/page/sampler.js" "$R" --jobs 4 $NOC > "$OUT/$EP-$TAG.stdout" 2> "$OUT/$EP-$TAG.log"
 cp "$R/out/checks/page.json" "$OUT/$EP-$TAG.json"
 echo "{\"ep\":\"$EP\",\"tag\":\"$TAG\",\"wall_s\":$(( $(date +%s) - s ))}" >> "$OUT/runs.jsonl"
