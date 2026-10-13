@@ -16,6 +16,13 @@ Phạm vi: **YT** = kênh YouTube có quảng cáo; **DL** = tải lại trong r
 | S-OPENAI-M3 | Khoá API OpenAI "OpenAI TTS spike" (tiêm qua proxy, không lộ trong repo) dùng **MỘT LẦN** để sinh 20 luận điểm đối chứng Cổng Mốc 3 bằng `gpt-5.5` (Responses API, effort medium, không công cụ, không dữ liệu) | Dịch vụ LLM (secret) | https://api.openai.com/v1/responses | Chủ dự án cho phép 2026-09-30: *"Cho phép dùng khoá 'OpenAI TTS spike' MỘT LẦN cho M3; ghi RIGHTS và AUTHORSHIP; báo tôi ngay khi sinh xong đối chứng để tôi thu hồi khoá."* | Chỉ Cổng Mốc 3 (thẻ đối chứng, lưu nguyên văn ở `m3/control/`); không dùng trong tập | — | 2026-09-30 |
 | S-OPENAI-DT1 | Khoá API OpenAI "OpenAI TTS spike" (tiêm qua proxy, không lộ trong repo) dùng cho **6 thẻ đề tài đối chứng** vòng 1 Mốc 3 v2 bằng `gpt-5.5` (Responses API, effort medium, không công cụ, không dữ liệu; một lệnh/trụ, gọi lại tối đa 2 lần) | Dịch vụ LLM (secret) | https://api.openai.com/v1/responses | Chủ dự án giao trong lệnh Phiên DT1 2026-10-01: *"BÊN ĐỐI CHỨNG: GPT-5.5 (gpt-5.5, effort medium, không công cụ, không dữ liệu)… Xong thì báo chủ dự án thu hồi khoá."* | Chỉ `topics-r1/control/` (lưu nguyên văn); không dùng trong tập | — | 2026-10-01 |
 
+## Footage ngoài (ảnh, video, bản đồ — luật F13/F15, K4.4, chủ dự án 13/10/2026)
+
+Mọi tệp ảnh/video/bản đồ ngoài đi vào timeline có MỘT dòng ở đây, khai trong `out/timeline.json external[]` bằng `rid` = Mã. Thiếu dòng, thiếu URL / trích nguyên văn (trong ngoặc kép) / ngày tải / SHA-256 khớp tệp → **CHẶN**. Giấy phép **cấm**: NC, ND, BY-SA (mọi footage ở đây là hình). Nhận diện: public domain / CC0 / US government work, CC BY, ODbL (OpenStreetMap); khác → chưa dùng được cho tới khi phiên K thêm. CC BY và OSM: câu ở cột Ghi nguồn phải có trong mô tả YouTube (`out/package/description.md`), OSM kèm chữ "OpenStreetMap" → thiếu = **CHẶN**. Tổng thời lượng footage ngoài > 20 % tập → **CHÍNH** (F15).
+
+| Mã | Tệp | Loại | URL | Giấy phép | Trích nguyên văn | Ngày tải | SHA-256 | Ghi nguồn |
+|---|---|---|---|---|---|---|---|---|
+
 ## Tham chiếu (chỉ để xem; KHÔNG dùng trong tập)
 
 | Mã | Tài sản | Nguồn | Được làm | Không được làm |
