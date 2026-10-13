@@ -2,6 +2,7 @@
 # Mọi tập (dời từ episodes/ep006/c5/api.sh; lessons T6-9): một lượt Claude Code headless chi bằng khoá Console (BƯỚC 0 đạt: apiKeySource=ANTHROPIC_API_KEY). Không in khoá.
 #   bash toolkit/api.sh <build|review> <đầu-bài.md> <log.jsonl> [--model claude-opus-5-5]
 # build: sửa tệp trong repo (Read/Edit/Write/Grep/Glob, Bash python3/node/git diff/status); review: chỉ đọc.
+# 0 agent con kể cả trong headless (chủ dự án 13/10, Tập 8 sau G1): --disallowedTools Task,Agent.
 # In tóm tắt: lượt, token 4 trường, chi USD (total_cost_usd) → ghi vào PLAN §5.
 set -euo pipefail
 mode=$1; brief=$(realpath "$2"); log=$3; shift 3; model=claude-opus-5-5
@@ -15,7 +16,7 @@ esac
 [ -z "${EXTRA_TOOLS:-}" ] || tools="$tools,$EXTRA_TOOLS"   # P3c C5b: vd. Bash(KEEP=1 PYONLY=1 bash episodes/ep006/c5/checks_split.sh *)
 cd "$(dirname "$0")/.."
 ANTHROPIC_API_KEY="$CONSOLE_API_KEY" claude -p --model "$model" --output-format stream-json --verbose \
-  --allowedTools "$tools" --permission-mode dontAsk < "$brief" > "$log" 2> "${log%.jsonl}.err" || true
+  --allowedTools "$tools" --disallowedTools "Task,Agent" --permission-mode dontAsk < "$brief" > "$log" 2> "${log%.jsonl}.err" || true
 python3 - "$log" <<'PY'
 import json, sys
 init = res = None
