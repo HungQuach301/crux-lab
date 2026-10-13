@@ -17,7 +17,7 @@ Nguồn đã đọc: `CHARTER.md` · `playbook/episode.md` · `playbook/lessons.
 | P2 | 11/10 15:32 | ≥ 0,08 | ≥ 0,28 | ≥ 34,79 | **≥ 0,36** | như trên |
 | P3 | 13/10 02:03 | ≥ 0,31 | ≥ 0,71 | ≥ 266,85 | **≥ 1,02** | `logs/usage/p3-result-page.json`; chỉ có tiến trình cuối (26,4 h, 358 lượt) |
 | P4 | 13/10 14:00 | 0,09 | 0,91 | 41,90 | **≥ 1,00** | `list_events(kinds=["result"])` phiên `session_01VsjkDmpFyRxwkeVDGhZy46`, tiến trình cuối: 20 lượt, ngữ cảnh lượt đầu 0,34 triệu, Opus $17,50 tính theo giá niêm yết (thuê bao, không phải Console) |
-| **Tập 7 (P1–P4)** | | **≥ 0,58** | **≥ 2,22** | **≥ 371,05** | **≥ 2,80** | mức cảnh báo `lab`: 15 triệu → **dưới** |
+| **Tập 7 (P1–P4)** | | **≥ 0,58** | **≥ 2,22** | **≥ 371,05** | **≥ 2,79** | mức cảnh báo `lab`: 15 triệu → **dưới** |
 | F-14 (nhà máy, song song) | 12/10 | 0,39 | 1,01 | 210,8 | **1,41** | `toolkit/factory/f14/REPORT.md` §v4 |
 | Headless (thuê bao + Console) | | | | | P1 0,81 · P2 ≈ 0,5 · P3: 189 lượt (chưa cộng token) | PLAN §5 |
 
@@ -68,7 +68,7 @@ P1 1.233 (bản đọc thử 973 + 260) · P2 1.843 (C3 1.493 + S21 350) · P3 1
 |---|---|---|---|---|
 | **1** | **Vòng sửa C5 theo lời đạo diễn máy, sửa thẳng trên bản dựng cuối** | $25,93 + agent con; cổng gốc **16 → 5–7/21**, hồi quy 10 nhịp; kéo theo 7 lần chạy 1080p; chủ dự án phải chạm thêm lần 6–7 | lời đạo diễn máy được dùng như danh sách việc phải sửa; sửa xong không đo lại trên nháp trước khi giữ; không có biên nhiễu (A32) để tách hồi quy thật khỏi nhiễu người chấm | 2 (M5: ≤ 2 vòng, chỉ giữ bản sửa vượt biên nhiễu), 3 |
 | **2** | **1080p dựng lại nhiều lần** | ≈ 20 / 36 h máy; P4 dựng lại 2,9 h vì container mất (p) | dựng 1080p trước khi việc kiểm xong; trần 2 h; đĩa; thiếu đồ dùng ngoài git | 2 (M6: 1080p **một lần**), 6 |
-| **3** | **Thiết kế hình giải quyết trong lúc dựng** (C3 → C4 4 vòng) | dựng C3 + C4 ≈ **$64**; S21 **7 vòng** `extra_layer_seen` 0/2, không đổi loại hình | chưa có tiền kỳ: vật thể và bố cục đi thẳng vào thế giới 3D, không qua animatic xám đo bằng cổng gốc | 2 (M2 tiền kỳ: Previz, Thiết kế hình) |
+| **3** | **Thiết kế hình giải quyết trong lúc dựng** (C3 → C4 4 vòng) | dựng C3 + C4 ≈ **$63** (C3 17,97 + C4 ≈ 45); S21 **7 vòng** `extra_layer_seen` 0/2, không đổi loại hình | chưa có tiền kỳ: vật thể và bố cục đi thẳng vào thế giới 3D, không qua animatic xám đo bằng cổng gốc | 2 (M2 tiền kỳ: Previz, Thiết kế hình) |
 | **4** | **Phiên dài một tiến trình** | đọc cache ≥ 371 triệu; P3 26,4 h / 358 lượt; 14,5 h không push | prompt phiên dài tự viết + chạy tiếp trong container (D-011 sửa) không có điểm cắt | 3 (prompt mẫu "Chạy Tập N", mỗi mốc một phiên ngắn), 6 |
 | **5** | **Kiểm định sau G2** | 4 CHẶN mới (C07, S02, S07, S09) lộ ra sau khi chủ dự án đã duyệt; +1 lượt chạm; lấy mẫu trang 2,9 h | bộ lấy mẫu trang chưa từng chạy trước G2; 3/4 CHẶN là luật bắt nhầm (A35–A37), 1 là lỗi thật (C07 cột tràn) | 2 (M5 chạy đủ bộ trên nháp), 3 (luật bắt nhầm → A35–A37, A40) |
 | 6 | Seed lại giọng vì A14 | 5.839 ký tự EL (37 %), lỗi không hết | luật ASR small.en nghe sai tên riêng (A34) | 3 |
@@ -132,7 +132,7 @@ Mẫu (bản nháp, **chưa đưa vào playbook**): `tongket-t7/de-xuat/playbook
 
 | Bỏ | Thay bằng | Ưu | Nhược | Chất lượng / thời gian / token | Rủi ro |
 |---|---|---|---|---|---|
-| **C3, C4 là cổng riêng** (C3 là một lượt chạm riêng; C4 animatic dựng trên thế giới thật) | Phép thử của C3 (clip có chuyển động + âm, cổng gốc) **dời lên tiền kỳ M2**, gộp vào **G1**. C4 → animatic xám ở M2 + kiểm định trên nháp ở M5 | bớt 1 lượt chạm; lỗi loại S21 lộ trên animatic ≈ $3 thay vì 7 vòng | G1 nặng hơn: chủ dự án xem animatic ≈ 10 phút | chất lượng + (hình thiết kế trước khi dựng) · Tập 7 C3 + C4 ≈ $64 → ước ≈ $15–20 · −1 phiên | animatic xám đánh giá thấp vật thể đẹp → G1 kèm clip 3 s của từng vật thể (bảng vật thể) |
+| **C3, C4 là cổng riêng** (C3 là một lượt chạm riêng; C4 animatic dựng trên thế giới thật) | Phép thử của C3 (clip có chuyển động + âm, cổng gốc) **dời lên tiền kỳ M2**, gộp vào **G1**. C4 → animatic xám ở M2 + kiểm định trên nháp ở M5 | bớt 1 lượt chạm; lỗi loại S21 lộ trên animatic ≈ $3 thay vì 7 vòng | G1 nặng hơn: chủ dự án xem animatic ≈ 10 phút | chất lượng + (hình thiết kế trước khi dựng) · Tập 7 C3 + C4 ≈ $63 → ước ≈ $15–20 · −1 phiên | animatic xám đánh giá thấp vật thể đẹp → G1 kèm clip 3 s của từng vật thể (bảng vật thể) |
 | **REVIEWER trung gian** (C3 ×2, C4 ý đồ, issue tự động) | REVIEWER **chỉ ở gói G1, G2** (headless). Việc soát số và soát gen ở giữa giao cho L1 + Giám sát liền mạch (có phép thử riêng) | −$3,2/tập; −3 lượt chờ | mất một lớp đọc chéo ở giữa chặng | chất lượng ≈: Tập 7 không có REVIEWER trung gian nào đổi quyết định cổng | lỗi chữ ở gói trung gian không ai đọc → gói trung gian không còn (không gửi chủ dự án) |
 | **Prompt phiên dài tự viết** (PLAN tập §7, mỗi chặng 10–15 dòng, chép lại luật) | **Một prompt mẫu "Chạy Tập N"** (`de-xuat/playbook/prompts/CHAY-TAP-N.md`): chủ dự án dán 1 dòng + câu trả lời cổng; luật nằm ở playbook; mốc kế đọc từ PLAN tập mục 1 | chủ dự án không cần đọc/sửa prompt; luật không trôi giữa các bản chép; phiên ngắn theo chặng | phiên phải suy ra mốc từ PLAN (PLAN sai → chạy sai chặng) | token: luật đọc một lần từ playbook; phiên ngắn → đọc cache ↓ (mục 1a: 371 triệu chủ yếu do phiên dài) | PLAN mục 1 ghi sai mốc → `verify.sh` kiểm thêm "mốc PLAN khớp tệp gates/" (việc nhà máy nhỏ) |
 | **Luật đo không bắt lỗi thật** | → `checks-appeal.md` **A40** (nguyên tắc: CHẶN bị chấp nhận giao ở ≥ 2 tập → sửa/hạ; CHẶN mới cần đối chứng dương thật + 0 báo sai trên 3 tập) cùng **A34–A37** đã mở. Ngoài `checks/`: lượt đạo diễn máy và thước nhịp F-14 **chỉ chẩn đoán**; lời phê chỉ thành việc sửa khi phép thử của vai sở hữu cũng trượt ở đó | Tập 7: 4/5 nhóm CHẶN lúc giao là thủ tục; bỏ được seed lại 5.839 ký tự và 1 lượt chạm | luật hạ cấp có thể bỏ sót lỗi thật về sau | chất lượng ≈/+ (vòng sửa C5 theo lời đạo diễn là chỗ làm tụt cổng gốc 16 → 5–7) | hạ nhầm một luật bắt lỗi thật hiếm → A40 chỉ xét luật bị chấp nhận giao ở ≥ 2 tập, K quyết, chủ dự án duyệt |
@@ -186,7 +186,7 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 | Mốc | Console (ước) | Giờ máy (ước) | Tập 7 thực (để so) |
 |---|---|---|---|
 | M1 Phát triển | $6–8 (Việc 0, WRITER 1–2 lượt, kiểm mù C1/C2) | ≤ 0,5 | P1 $8,9 |
-| M2 Tiền kỳ | $6–10 (Thiết kế hình, Previz animatic, nhận dạng + cổng gốc, REVIEWER G1) | 1–1,5 (animatic 540p xám) | C3 + C4: ≈ $64, giờ chưa ghi |
+| M2 Tiền kỳ | $6–10 (Thiết kế hình, Previz animatic, nhận dạng + cổng gốc, REVIEWER G1) | 1–1,5 (animatic 540p xám) | C3 + C4: ≈ $63, giờ chưa ghi |
 | M3 Nháp 540p | $5–9 (dựng thế giới 1–2 lượt headless) | 1,5–2 | — (Tập 7 dựng thẳng 720p/1080p) |
 | M4 Hậu kỳ | $1–3 | ≤ 0,5 | — |
 | M5 Kiểm định trên nháp | $5–8 (cổng gốc, nhớ lại, ≤ 2 vòng sửa, REVIEWER G2) | 2–3 (đủ bộ, gồm lấy mẫu trang; ít hơn khi A29 qua K) | sửa C5 $25,93 + kiểm $10,8; checks sau G2 2,9 h |
@@ -194,7 +194,7 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 | **Cộng** | **$25–40** | **8–12 h** | **$115,6 · ≥ 36 h** |
 
 **Chủ dự án:** G1 30–40 phút (kịch bản + animatic + vật thể) · G2 25–35 phút (xem nháp 720p + phiếu L3) · G3 10–15 phút → **≈ 1–1,5 h**. Tập 7: 10 lần chạm, ước ≥ 3–4 h.
-**Token:** trần phiên ≤ 3 triệu/tập (Tập 7: ≥ 2,80, đạt). **Thêm hai mức cảnh báo mới:** **đọc cache ≤ 60 triệu/tập** (Tập 7 ≥ 371) và **≤ 150 lượt/phiên** (P3: 358). Hai thước này bắt đúng chỗ tốn của Tập 7, thước trần thì không bắt được (mục 1a).
+**Token:** trần phiên ≤ 3 triệu/tập (Tập 7: ≥ 2,79, đạt). **Thêm hai mức cảnh báo mới:** **đọc cache ≤ 60 triệu/tập** (Tập 7 ≥ 371) và **≤ 150 lượt/phiên** (P3: 358). Hai thước này bắt đúng chỗ tốn của Tập 7, thước trần thì không bắt được (mục 1a).
 **EL:** ≤ 8.500 ký tự chữ/tập `lab` (giữ mức cũ). Giọng sinh một lần ở M3; sinh lại chỉ khi lời đổi (Tập 7 có 5.839 ký tự seed lại vì A14).
 **Ghi mới vào PLAN tập §5 (vai Line producer):** $ theo mốc · giờ máy theo mốc · đọc cache · số lượt · **số lần chủ dự án chạm + phút ước**.
 
@@ -236,7 +236,7 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 
 **Câu 3 — Đích kinh tế** (mục 6): Tập 9+ đặt đích 8–12 h máy, $25–40, chủ dự án ≈ 1–1,5 h; Tập 8 chuyển đổi 15–20 h, $45–60. Thêm hai mức cảnh báo: đọc cache ≤ 60 triệu/tập và ≤ 150 lượt/phiên. Ghi thêm số lần chạm + phút chủ dự án.
 (a) duyệt · (b) duyệt đích, chưa thêm mức cảnh báo mới.
-**Khuyến nghị (a).** Ở Tập 7, thước trần (2,80 triệu, đạt) không bắt được chỗ tốn thật (đọc cache ≥ 371 triệu). Vượt đích chỉ là cảnh báo, không cắt bước chất lượng.
+**Khuyến nghị (a).** Ở Tập 7, thước trần (2,79 triệu, đạt) không bắt được chỗ tốn thật (đọc cache ≥ 371 triệu). Vượt đích chỉ là cảnh báo, không cắt bước chất lượng.
 
 **Trả lời gọn:** `1 a/b/c · 2 a/b/c · 3 a/b`
 
