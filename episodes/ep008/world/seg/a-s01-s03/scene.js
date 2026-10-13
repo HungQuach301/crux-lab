@@ -23,8 +23,8 @@ export async function boot(res) {
   // chồng: thang riêng của cảnh S01.2 ($150/bó) và S01.3 ($4,000/bó)
   const rent = MoneyStack(scene, { x: SX - 0.45, z: SZ, color: C.warn, unit: 150, name: 'rent-month1' });
   const buy1 = MoneyStack(scene, { x: SX + 0.35, z: SZ, color: LIT, unit: 150, name: 'buyer-month1' });
-  const down = MoneyStack(scene, { x: SX - 0.45, z: SZ, color: '#9AA4B2', unit: 4000, name: 'down-payment' });
-  const close = MoneyStack(scene, { x: SX + 0.35, z: SZ, color: '#9AA4B2', unit: 4000, name: 'closing-costs' });
+  const down = MoneyStack(scene, { x: SX - 0.45, z: SZ, color: '#9AA4B2', unit: 8000, name: 'down-payment' });
+  const close = MoneyStack(scene, { x: SX + 0.35, z: SZ, color: '#9AA4B2', unit: 8000, name: 'closing-costs' });
   const era = (s) => s >= '2002-01' && s <= '2007-12', ahead = DATA.ahead10['5'];
   const m15 = new Set(DATA.starts15), i12 = st10.indexOf('2012-04'), i06 = st10.indexOf('2006-06');
   const at = S.at;
@@ -71,10 +71,10 @@ export async function boot(res) {
     log.roi['a1.smaller'] = [rx - 120, by - 80, bx + 200, ry + 300]; log.roi['a1.replayed'] = [600, 280, 1320, 350];
     // S01.3: "$80,000 down · $12,000 closing" ở "down", "$400,000 home" ở "four"
     const [dx, dy] = O.toScreen(SX - 0.05, down.top(80000) + 0.15, SZ), lb = ok * s2;
-    label(O, '$80,000 down · $12,000 closing', dx, dy - 20, { align: 'center', kind: 'number', alpha: lb * show(t, b.a2.down), claims: ['down_usd', 'closing_usd'] });
-    const [hx, hy] = O.toScreen(BUY.x, 1.75, BUY.z);
-    label(O, '$400,000 home', hx, hy - 20, { align: 'center', kind: 'number', alpha: lb * show(t, b.a2.four), claims: ['price'] });
-    log.roi['a2.down'] = [dx - 300, dy - 70, dx + 300, dy + 260]; log.roi['a2.four'] = [hx - 260, hy - 80, hx + 260, hy + 200];
+    label(O, '$80,000 down · $12,000 closing', 960, 330, { align: 'center', kind: 'number', alpha: lb * show(t, b.a2.down), claims: ['down_usd', 'closing_usd'] });
+    const [hx, hy] = [960, 250];
+    label(O, '$400,000 home', 960, 250, { align: 'center', kind: 'number', alpha: lb * show(t, b.a2.four), claims: ['price'] });
+    log.roi['a2.down'] = [500, 270, 1420, 350]; log.roi['a2.four'] = [600, 190, 1320, 270];
     // lưới: nhãn
     const gl = ok * (t > MV.m_grid.t1 ? 1 : 0);
     label(O, '72 start months in a row: 6 of 72', 960, 230, { align: 'center', kind: 'number', alpha: gl * show(t, b.a3.six, b.a4.fifteen - 0.3), claims: ['era_2002-2007_n', 'era_2002-2007_share'] });
