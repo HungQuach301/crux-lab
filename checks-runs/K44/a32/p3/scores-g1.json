@@ -1,0 +1,479 @@
+{
+ "R01": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might then look at the option that adjusts for inflation",
+  "why": "Line drops below baseline at end, but hedged; reads 'returns to baseline' first.",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "I might compare a flat payout, a fixed-escalator payout and an inflation-linked payout",
+  "why": "9 of 10 crates with +2% check captured.",
+  "q5": "own"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Ruth's stretch is one of 715 stretches; captured.",
+  "q5": "none"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That could matter when comparing a level payout with one that rises over time.",
+  "why": "9 of 10 crates correct; mild own takeaway.",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "such as asking whether either one adjusts for inflation",
+  "why": "Line near first-check line, ends below; correct.",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That might lead a 64-year-old comparing annuity payouts to look closely at an inflation-adjusted option",
+  "why": "Ladder of raises and shares correct.",
+  "q5": "own"
+ },
+ "R07": {
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Says crates don't shrink; misses core idea.",
+  "q5": "none"
+ },
+ "R08": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Level check falls, 9 in 10 by year 5, '?' noted.",
+  "q5": "none"
+ },
+ "R09": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "I'd also weigh a lower starting payment that rises against a higher flat payment.",
+  "why": "17 of 715 kept up captured.",
+  "q5": "own"
+ },
+ "R10": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "a quote with no cost-of-living adjustment deserves caution",
+  "why": "Dips and 12 of 15 seen, but reading muddled.",
+  "q5": "own"
+ },
+ "R11": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might then weigh an inflation-adjusted option against a level one",
+  "why": "Median 80.7%, 8 of 10 crates correct.",
+  "q5": "own"
+ },
+ "R12": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might also take from it that a rising option is worth a closer look.",
+  "why": "Level 6 of 10, different starting sizes noted.",
+  "q5": "own"
+ },
+ "R13": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might then weigh the option with inflation adjustments or increases more seriously.",
+  "why": "0 of 655 kept up captured.",
+  "q5": "own"
+ },
+ "R14": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "whether a rising payout is worth a lower first check",
+  "why": "Carl's fewer-than-half and level under a third captured.",
+  "q5": "own"
+ },
+ "R15": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might weigh that when comparing a level payout against one that adjusts for inflation.",
+  "why": "CPI-W and PCE grids described correctly.",
+  "q5": "own"
+ },
+ "R16": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "so a payout option that adjusts for inflation deserves a look",
+  "why": "Early left cluster, none since, Ruth captured.",
+  "q5": "own"
+ },
+ "R17": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "they should think about inflation when comparing a level payout with a rising one",
+  "why": "Two cards, unmodeled gap '?' captured.",
+  "q5": "own"
+ },
+ "R18": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "they should compare a fixed payout with a payout that rises each year",
+  "why": "Notes greyed crate and '?', not 9 of 10 outcome.",
+  "q5": "own"
+ },
+ "R19": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "they should think about whether either one adjusts for inflation",
+  "why": "Median 54.3%, about half, year 8 captured.",
+  "q5": "own"
+ },
+ "R20": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "inflation protection matters when choosing between a level payout and a rising payout",
+  "why": "Level 6 of 10, starting sizes unmodeled.",
+  "q5": "own"
+ },
+ "R21": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "it suggests asking how each option handles inflation",
+  "why": "Edna 10, Ruth 9, Carl 4 captured.",
+  "q5": "own"
+ },
+ "R22": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "I might then look more closely at an option with inflation adjustment or a built-in annual increase.",
+  "why": "9 of 10 crates lit captured.",
+  "q5": "own"
+ },
+ "R23": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "inflation protection matters over a 20-year retirement",
+  "why": "+48.6% versus +64.3% bars captured.",
+  "q5": "own"
+ },
+ "R24": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "a payment that rises over time could protect buying power better than a flat one",
+  "why": "Carl crates, 43.1% vs 29.0% captured.",
+  "q5": "own"
+ },
+ "R25": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "they might check whether either one adjusts for inflation and by how much",
+  "why": "Two bars +48.6 and +64.3 captured.",
+  "q5": "own"
+ },
+ "R26": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "they should weigh an inflation-adjusted option against a level one",
+  "why": "1990s and 2000s starts all fell short; Ruth captured.",
+  "q5": "own"
+ },
+ "R27": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "this matters when choosing between a flat payout and one that adjusts for inflation",
+  "why": "Ruth's stretch among 715 captured.",
+  "q5": "own"
+ },
+ "R28": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "asking how each option's payments compare with likely inflation",
+  "why": "Greyed crate and '?' seen; not 9 lit outcome.",
+  "q5": "own"
+ },
+ "R29": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "inflation matters when comparing a level payout with one that adjusts for inflation",
+  "why": "Line ends just under first-check line.",
+  "q5": "own"
+ },
+ "R30": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "they should weigh that when comparing a fixed payout with one that adjusts for inflation",
+  "why": "Carl 1966, dimming to 4 of 10, Ruth inset.",
+  "q5": "own"
+ },
+ "R31": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "As the 64-year-old, I'd weigh that against my two quotes.",
+  "why": "Carl dimming to 4 of 10 captured.",
+  "q5": "own"
+ },
+ "R32": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "looking closely at whether either one adjusts for inflation",
+  "why": "0 of 120, 0 of 79, Ruth 90.4% captured.",
+  "q5": "own"
+ },
+ "R33": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "I'd ask how each payout option handles rising prices",
+  "why": "Edna fully lit, overlap with Carl captured.",
+  "q5": "own"
+ },
+ "R34": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "that means comparing a level payout with one that adjusts for inflation",
+  "why": "Carl's shrinking crates to 4 captured.",
+  "q5": "own"
+ },
+ "R35": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer could take away that inflation matters when comparing a level payout with a rising one.",
+  "why": "Level falls fast, 9 in 10 at year 5, '?'.",
+  "q5": "own"
+ },
+ "R36": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might then lean toward an option with inflation adjustment",
+  "why": "Early cluster, none since, Ruth captured.",
+  "q5": "own"
+ },
+ "R37": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "I'd take that as a question to ask, not a conclusion.",
+  "why": "Line peak then return; unsure what it means.",
+  "q5": "own"
+ },
+ "R38": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "I'd weigh the higher starting income of a flat payout against the protection a rising payout gives.",
+  "why": "Median ~80.7%, 8 of 10 crates.",
+  "q5": "own"
+ },
+ "R39": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might also compare the starting payout of a level option with that of an inflation-adjusted option",
+  "why": "Edna 10, Ruth 9, Carl 4 captured.",
+  "q5": "own"
+ },
+ "R40": {
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Says line ends at baseline; misses drop below.",
+  "q5": "none"
+ },
+ "R41": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "inflation is a risk to weigh when comparing a level payout with one that adjusts for inflation",
+  "why": "Edna lit, shared-years overlap captured.",
+  "q5": "own"
+ },
+ "R42": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "that could mean looking closely at whether one option adjusts for inflation",
+  "why": "0 of 655, no kept-up tiles captured.",
+  "q5": "own"
+ },
+ "R43": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "a rising payout is worth weighing",
+  "why": "Two cards, unmodeled gap '?' captured.",
+  "q5": "own"
+ },
+ "R44": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might therefore weigh an option with inflation adjustments",
+  "why": "Carl's dimming to about 4 of 10 captured.",
+  "q5": "own"
+ },
+ "R45": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Falls below baseline noted; meaning hedged, thin.",
+  "q5": "none"
+ },
+ "R46": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "might therefore look at how each one handles inflation",
+  "why": "9 of 10 crates, +2% captured.",
+  "q5": "own"
+ },
+ "R47": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "think about whether to pay attention to inflation when comparing the two payout options",
+  "why": "12 of 15 noted, but meaning muddled.",
+  "q5": "own"
+ },
+ "R48": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "they might ask whether a fixed payment will still cover their costs",
+  "why": "Ruth's stretch among 715 captured.",
+  "q5": "own"
+ },
+ "R49": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "They might then want to look at the inflation protection offered by the two annuity options.",
+  "why": "Raise ladder and shares correct.",
+  "q5": "own"
+ },
+ "R50": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "they might want to compare a payout that rises with inflation against a level one",
+  "why": "Median 54.3%, about year 8 captured.",
+  "q5": "own"
+ },
+ "R51": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might compare a fixed payout with one that rises each year, such as a 2% escalator.",
+  "why": "Greyed crate and '?', not 9 lit outcome.",
+  "q5": "own"
+ },
+ "R52": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "I might therefore ask whether either option adjusts for inflation.",
+  "why": "17 of 715, 1 in 42 captured.",
+  "q5": "own"
+ },
+ "R53": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "inflation matters when choosing between a fixed payout and one that adjusts with prices",
+  "why": "Extra grids for CPI-W and PCE captured.",
+  "q5": "own"
+ }
+}

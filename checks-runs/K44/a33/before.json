@@ -1,0 +1,88 @@
+{
+ "ep004": {
+  "takesPlaced": 0,
+  "A12": {
+   "status": "MISSING",
+   "note": "artifact missing: out/tempo-map.json",
+   "metrics": {}
+  },
+  "A13": {
+   "status": "ERROR",
+   "note": "KeyError: 'raw'",
+   "metrics": {}
+  },
+  "R01": {
+   "status": "MISSING",
+   "note": "artifact missing: out/tension-map.json",
+   "metrics": {}
+  }
+ },
+ "ep005": {
+  "takesPlaced": 20,
+  "A12": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "accents": 0,
+    "accents on a cut (%)": null,
+    "accents confirmed by onset (%)": null,
+    "beats confirmed by onset (%)": null
+   }
+  },
+  "A13": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "takes": 20,
+    "max |stretch-1|": 80.485062
+   }
+  },
+  "R01": {
+   "status": "MISSING",
+   "note": "artifact missing: out/tension-map.png",
+   "metrics": {}
+  }
+ },
+ "ep006": {
+  "takesPlaced": 30,
+  "A12": {
+   "status": "ERROR",
+   "note": "TypeError: unsupported operand type(s) for -: 'float' and 'dict'",
+   "metrics": {}
+  },
+  "A13": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "takes": 30,
+    "max |stretch-1|": 165.74571
+   }
+  },
+  "R01": {
+   "status": "MISSING",
+   "note": "artifact missing: out/tension-map.png",
+   "metrics": {}
+  }
+ },
+ "ep007": {
+  "takesPlaced": 33,
+  "A12": {
+   "status": "ERROR",
+   "note": "TypeError: unsupported operand type(s) for -: 'float' and 'dict'",
+   "metrics": {}
+  },
+  "A13": {
+   "status": "FAIL",
+   "note": "",
+   "metrics": {
+    "takes": 33,
+    "max |stretch-1|": 223.565863
+   }
+  },
+  "R01": {
+   "status": "MISSING",
+   "note": "artifact missing: out/tension-map.png",
+   "metrics": {}
+  }
+ }
+}

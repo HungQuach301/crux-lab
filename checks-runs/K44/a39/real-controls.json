@@ -1,0 +1,56 @@
+{
+ "neg-complete": {
+  "F13": {
+   "status": "PASS",
+   "fail": {},
+   "note": null
+  },
+  "F15": {
+   "status": "MISSING",
+   "fail": {},
+   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+  }
+ },
+ "pos1-no-row": {
+  "F13": {
+   "status": "FAIL",
+   "fail": {
+    "footage without a complete rights record": 1
+   },
+   "note": null
+  },
+  "F15": {
+   "status": "MISSING",
+   "fail": {},
+   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+  }
+ },
+ "pos2-resaved": {
+  "F13": {
+   "status": "FAIL",
+   "fail": {
+    "footage without a complete rights record": 1
+   },
+   "note": null
+  },
+  "F15": {
+   "status": "MISSING",
+   "fail": {},
+   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+  }
+ },
+ "pos3-share": {
+  "F13": {
+   "status": "FAIL",
+   "fail": {
+    "external footage share (%)": 21.426211
+   },
+   "note": null
+  },
+  "F15": {
+   "status": "MISSING",
+   "fail": {},
+   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+  }
+ }
+}

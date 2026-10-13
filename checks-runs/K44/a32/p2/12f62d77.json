@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation shows how inflation wears down a fixed income. A first annuity check stays at the same size, while the price of what it buys keeps rising. It uses US consumer prices (CPI-U) from Aug 2006 to Aug 2026 as an illustrative example.\n\n2. The gray bar for the first check stays the same height. The blue bar for prices starts at zero and grows past it. A dotted line marks what 20 annual raises of 2% would add up to, which is +48.6%. Actual prices rose +64.3%, so the blue bar ends above that line. The last two frames add the captions \"consumer prices: a national average\" and \"not one retiree's own basket.\"\n\n3. A check that never changes buys less each year. Even a 2% yearly raise would have fallen short of the real price increase over these 20 years (+48.6% against +64.3%). The caveats say this is US-only history and not a forecast. They also say the CPI is a national average, so an individual retiree's own costs could be higher or lower.\n\n4. The animation gives no direct instruction. A viewer might take away that a level payout loses purchasing power over a long retirement. They might also take away that a payout with a built-in raise may not fully keep up either. That could lead them to compare the two options with inflation in mind. The animation doesn't say which option to pick.\n\n5. The animation itself supports the idea of inflation eroding purchasing power, through the bars, the +48.6% and +64.3% figures, and the caveats. The step to \"compare the payout options with inflation in mind\" is my own inference, and it comes from the annuity-quote setting you gave me, not from anything in the frames.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3707,
+   "cache_read": 6318,
+   "output": 606,
+   "in": 10029,
+   "out": 606
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0215278
+}

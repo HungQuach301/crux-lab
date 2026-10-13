@@ -1,0 +1,15 @@
+{
+ "answer": "1. The animation shows how inflation wears down the buying power of a fixed income payment. It uses US history from 1947 to August 2006. A payment that doesn't adjust for inflation (a \"first check\") buys less and less as prices rise.\n\n2. In frame 1, the bars show the purchasing power of a first check for each possible starting month. They fall, recover somewhat, then drop sharply at the right edge. Frames 2 to 6 show three measures in turn:\n   - CPI-U: \"17 of 715 kept up.\"\n   - CPI-W, Social Security's index: \"21 of 715.\"\n   - PCE, from 1959: \"19.2% kept up · typical 88.0%.\"\n   \n   Teal marks the starting months where payments kept up. These are only a few thin slices on the CPI charts, and a wider block on the PCE chart.\n\n3. Across 715 possible starting months, a flat payment kept pace with inflation in very few of them, about 17 to 21 under the two CPI measures. The result also depends on which inflation measure you use. The PCE panel looks better, at 19.2% kept up, but that's still a minority. The slide labels the data \"illustrative\" and \"history, not a forecast,\" and says it covers the US only.\n\n4. The animation gives no explicit advice. A viewer might take away that a fixed payout loses value over a long retirement. They might then look harder at an option with inflation adjustment, or at least plan for rising costs. Past data doesn't predict future inflation, though, and the animation doesn't compare the two payout options.\n\n5. The advice in 4 is my own inference. The animation only shows the historical pattern and warns that it isn't a forecast. It never recommends a choice.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3703,
+   "cache_read": 6314,
+   "output": 628,
+   "in": 10021,
+   "out": 628
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.021731399999999998
+}

@@ -1,0 +1,446 @@
+{
+ "ctl": {
+  "candidate_set": "ctl",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "ctl",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "+2% check, crates darkening, '?' captured. / Crates go dark, +2%, '?' captured",
+     "+2% check, 10 crates, one greyed captured. / 10 crates, +2%, one goes dark captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B03",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Fixed 100% line, Ruth's line ends just under. / Fixed line and Ruth ending under it captured",
+     "Defines keeping up; line ends just under; only asking. / Keeping-up definition and dip under line captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B04",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Level vs rising cards with unmeasured gap captured. / Level vs rising, hatched '?' gap unknown, correct",
+     "Level vs rising cards, unmeasured gap; only general care. / Idea correct, gap 'not modeled'; general care only"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B06",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "+48.6% vs +64.3% captured; general care only. / +48.6 vs +64.3 bars correct",
+     "Check +48.6% vs prices +64.3% captured. / Both bars correct; reader's inference"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B07",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "9 of 10 crates lit captured; asks about cost only. / 9 of 10 crates correct; reader compares options",
+     "9 of 10 crates lit today captured. / 9 of 10 crates, 90.4% captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B08",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Level check 6 of 10, different sizes note captured. / 6 of 10 and different sizes note captured",
+     "Level 6 of 10, rising 9 in 10, sizes not modeled. / 6 of 10 vs 9 of 10, starting sizes not modeled"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B09",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Dips and 12 of 15 seen, but reads direction inverted. / Early dips seen but 'then mostly above' reading muddled",
+     "12 of 15 and dips seen, direction read inverted. / Dips early seen, but interpretation muddled"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B10",
+    "kind": "image",
+    "scores": [
+     0.5,
+     1,
+     1
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Line above then drops below baseline; only general care. / Drop under line captured but reading hedged and muddled",
+     "Peak 100.3% then drop below baseline captured. / Peak near baseline then drop below captured",
+     "Line above baseline then falls below; only asking. / Slightly above, then falls below and stays; asks only"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B12",
+    "kind": "image",
+    "scores": [
+     0.5,
+     1
+    ],
+    "readers": 2,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "NEED_3RD",
+    "why": [
+     "Level check falls fast, 9 in 10 at year 5, '?'. / Year 5 vs 20 seen, but rising check misread",
+     "Level check at 9 in 10 by year 5; rising at year 20. / Level 9 in 10 at year 5; rising reaches it at 20"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B13",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "FAIL",
+    "why": [
+     "Ruth's chart as last of 715 tiles captured. / 715 stretches and Ruth at end; tile grid vague",
+     "715 stretches, Ruth's last tile captured. / 715 stretches and Ruth's tile; grid idea vague"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B14",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "17 of 715 captured; reader weighs rising vs flat payout. / 17 of 715 correct; reader weighs adjusted payout",
+     "17 of 715, almost all warn; reader infers rising payout. / 17 of 715, 1 in 42 right; reader's inference"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B15",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Left window, everything right below line, Ruth at end. / Green early window, none since, Ruth at right",
+     "Left cluster window, rest below line, Ruth at end. / Left cluster, none since, Ruth at right captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B16",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "80.7% median and 8 of 10 crates captured. / 80.7% median and 8 of 10 crates correct",
+     "80.7% median and 8-of-10 crates captured; reader infers comparing. / 80.7% median and 8 of 10 crates correct"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B17",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Median near half, year 8 captured; only general care. / Median near half, year 8 captured; general care",
+     "54.3% median, year 8 captured; reader infers comparison. / Median half and year 8 captured; reader compares"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B19",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "All tiles warn, tall, Ruth 90.4%; reader weighs inflation-adjusted payout. / All key figures right; reader weighs inflation-adjusted payout",
+     "1990s tiles 94.8%, 2000s 99.5%, Ruth 90.4% captured. / 1990s and 2000-06 figures, Ruth 90.4% correct"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B21",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "0 of 655 captured; reader infers comparing inflation-adjusted option. / 0 of 655 correct; reader compares inflation-adjusted option",
+     "0 of 655 kept up captured; reader weighs adjusted option. / 0 of 655 correct; reader weighs adjusted option"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B22",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "CPI-W and PCE side grids captured. / CPI-U, CPI-W, PCE grids and counts captured",
+     "CPI-W and PCE grids captured; reader infers inflation-adjusted payout. / Three indexes and counts right; reader's own inference"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Carl's crates dim to ~4, Ruth inset captured. / Carl 10 to 4 crates and Ruth inset captured",
+     "Carl ~4 crates, Ruth inset captured. / Carl crates dim to 4, Ruth inset captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B25",
+    "kind": "image",
+    "scores": [
+     0.5,
+     1,
+     1
+    ],
+    "readers": 3,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl ~4, 43.1/29.0 seen; misreads rising check keeps crates. / Carl 4 of 10 seen; percentages and rising check misread",
+     "Carl ~4 of 10, level 29.0%; reader infers inflation-adjusted better. / 4 of 10 crates, 43.1% and 29.0% captured; no action",
+     "Carl ~4 crates, 43.1% vs 29.0% captured. / Carl 4 of 10, 43.1/29.0 captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B27",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Edna all lit; Edna/Carl bars overlap 1966–69 captured. / Edna all lit, overlap 1966-69 captured",
+     "Edna fully lit; overlapping 20-year bars captured. / Edna lit, overlap years captured; Carl hedged"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B29",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Edna 10, Ruth 9, Carl 4 crates captured. / Edna 10, Ruth 9, Carl 4 crates correct",
+     "Edna 10, Ruth 9, Carl 4 crates; asks about costs only. / Edna 10, Ruth 9, Carl 4 correct; asks about cost"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B30",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Ladder of raises, half at 3.1, all at 6.38 captured. / Ladder of raises, half at 3.1, all at top correct",
+     "Raise ladder with shares, half at 3.1, all at top. / Ladder, half at 3.1, all at Carl's stretch correct"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B32",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "About 9 of 10 crates lit at 85 captured. / Opening frame, 9 of 10 crates, correct",
+     "Opening frame with 9 of 10 crates lit captured. / 9 of 10 crates lit captured"
+    ]
+   }
+  ],
+  "gate_beats": 23,
+  "gate_pass": 20,
+  "pending": [
+   "B12"
+  ],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "verdict": "PENDING"
+ },
+ "cost_usd": 2.007,
+ "third_reader": [
+  [
+   "ctl",
+   "B10"
+  ],
+  [
+   "ctl",
+   "B25"
+  ]
+ ]
+}

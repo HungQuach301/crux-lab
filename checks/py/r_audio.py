@@ -285,11 +285,13 @@ def cut_times(ctx):
 
 
 @rule('A12', 'DX-A3', 'out/tempo-map.json: accents[] and beats[]; cuts from out/transitions.json. Music onsets detected in the music stem (spectral flux). '
-      'An accent "lands" when a cut is within ±1 frame (±33.3 ms); it is "real" when a music onset is within ±1 frame',
+      'An accent "lands" when a cut is within ±1 frame (±33.3 ms); it is "real" when a music onset is within ±1 frame. An accent or beat is a time or {t, …} (K4.4, A33: the factory form)',
       '≥ 5 accents; 100% of accents land on a cut; ≥ 90% of accents are real; ≥ 70% of beats while music is audible have an onset within ±50 ms')
 def a12_accents(ctx):
     tm = ctx.json('out/tempo-map.json')
-    acc, beats = tm.get('accents', []), tm.get('beats', [])
+    # K4.4 (A33): the factory writes an accent as {at, t} (its cue and its time); the old pipeline as a bare time
+    acc = [float(a['t']) if isinstance(a, dict) else float(a) for a in tm.get('accents', [])]
+    beats = [float(b['t']) if isinstance(b, dict) else float(b) for b in tm.get('beats', [])]
     cuts = np.array(cut_times(ctx))
     m = stem_audio(ctx, 'music')
     on = onsets(m)
@@ -313,13 +315,32 @@ def active_span(x, thr=-45.0):
 
 
 @rule('A13', 'DX-A7', 'out/voice/takes.json: for each take, the raw TTS file and the final (stretched) file; stretch = active speech span of final / of raw '
-      '(span between first and last 20 ms window above −45 dBFS)', 'every |stretch − 1| ≤ 0.10')
+      '(span between first and last 20 ms window above −45 dBFS). K4.4 (A33): a final shared by several takes is the episode voice stem — the take\'s final is the stem '
+      'cut to its scene [start, end) of out/timeline.json (take id = scene id)', 'every |stretch − 1| ≤ 0.10')
 def a13_stretch(ctx):
     takes = ctx.json('out/voice/takes.json')['takes']
     bad, worst = [], 0.0
+    # K4.4 (A33): a `final` shared by several takes is the episode's voice stem (the factory places each take in its scene and writes one stem):
+    # the take's final is then the stem cut to its scene [start, end) of out/timeline.json (take id = scene id)
+    finals = [tk.get('final') for tk in takes]
+    shared = {x for x in finals if x and finals.count(x) > 1}
+    scenes = {s['id']: s for s in ctx.scenes()} if shared else {}
+    stem = {}
     for tk in takes:
+        if not tk.get('raw') or not tk.get('final'):
+            raise Missing(f"out/voice/takes.json: take {tk.get('id')} without raw/final")
         r = active_span(load_audio(ctx, tk['raw'], channels=1))
-        f = active_span(load_audio(ctx, tk['final'], channels=1))
+        if tk['final'] in shared:
+            sc = scenes.get(tk.get('id'))
+            if sc is None:
+                raise Missing(f"out/timeline.json: no scene {tk.get('id')} for take {tk.get('id')} (final {tk['final']} is shared by several takes)")
+            if tk['final'] not in stem:
+                stem[tk['final']] = load_audio(ctx, tk['final'], channels=1)
+            x = stem[tk['final']]
+            end = sc.get('end', sc['start'] + sc.get('dur', 0))
+            f = active_span(x[int(round(sc['start'] * SR)):int(round(end * SR))])
+        else:
+            f = active_span(load_audio(ctx, tk['final'], channels=1))
         st = f / r if r else float('inf')
         worst = max(worst, abs(st - 1))
         if abs(st - 1) > 0.10:
