@@ -22,6 +22,12 @@ for k in ('hvs_yield_2025Q4', 'hvs_yield_2026Q1'):
     out['ahead10'][k] = [run(s, 10, y0=Q[k]['value'] / 100 if Q[k]['value'] > 1 else Q[k]['value'])['adv'] > 0 for s in s10]
 st = M.starts(10, D, tbills=True)
 out['ahead10']['tbills'] = [run(s, 10, tbills=True)['adv'] > 0 for s in s10] if st == s10 else None
+# chuỗi tháng cho nhịp S06 (bản ghi thật): giá nhà (FHFA), tiền thuê (CPI rent), lãi 30 năm (trung bình tháng) — chuẩn hoá 1991-01 = 1
+ms = sorted(m for m in hpi if m >= '1991-01' and m in cpi)
+out['months'] = ms
+out['hpi'] = [round(hpi[m] / hpi[ms[0]], 4) for m in ms]
+out['rent'] = [round(cpi[m] / cpi[ms[0]], 4) for m in ms]
+out['rate'] = [round(rate[m], 3) if m in rate else None for m in ms]
 chk = [(len(s10), Q['n_10y']['value']), (len(s15), Q['n_15y']['value']), (sum(not a for a in out['ahead10']['5']), Q['n_renter_ahead_10y']['value'])]
 for a, b in chk: assert a == b, chk
 for y, k in (('4', 'share_yield4pct_10y'), ('6', 'share_yield6pct_10y'), ('5', 'share_buyer_ahead_10y')):

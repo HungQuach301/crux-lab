@@ -9,7 +9,7 @@ import { Studio, House, Apartment, Person, setOpacity, PALETTE } from '/toolkit/
 import { Camera, Stage, loadJSON, fonts, C, CK, ease, lin, mix } from '/toolkit/factory/world/core.js';
 
 export { THREE, C, ease, lin, mix, setOpacity, PALETTE };
-export const LIT = '#F6D58E', LAMP = '#FFB86B', PLATE = '#0B0E13', FIG = PALETTE.person2, DIM = '#3A3E46';
+export const LIT = '#F6D58E', DARKW = '#8C5E14', LAMP = '#FFB86B', PLATE = '#0B0E13', FIG = PALETTE.person2, DIM = '#3A3E46';
 export const POP = 0.2;
 export const kf = (k, t) => { if (!k || !k.length) return 0; if (t <= k[0][0]) return k[0][1];
   for (let i = 1; i < k.length; i++) if (t <= k[i][0]) { const [a, x] = k[i - 1], [b, y] = k[i]; return b > a ? x + (y - x) * (t - a) / (b - a) : y; }
@@ -61,25 +61,26 @@ export function Street(scene, starts, { name = 'street' } = {}) {
     return { h, ...parts, s };
   });
   const cellG = new THREE.BoxGeometry(GAP * 0.86, 0.015, ROW * 0.86);
-  const cells = new THREE.InstancedMesh(cellG, new THREE.MeshStandardMaterial({ roughness: 0.6, transparent: true, emissive: new THREE.Color('#000') }), starts.length);
+  const cells = new THREE.InstancedMesh(cellG, new THREE.MeshBasicMaterial({ transparent: true }), starts.length);   // ô không đổ bóng: màu đúng như khai (đọc được ở bản xám)
   cells.frustumCulled = false; g.add(cells);
-  const M4 = new THREE.Matrix4(), col = new THREE.Color(), cLit = new THREE.Color(LIT), cWarn = new THREE.Color(C.warn), cOff = new THREE.Color('#2A303B'), cHi = new THREE.Color(C.ink);
+  const M4 = new THREE.Matrix4(), col = new THREE.Color(), cLit = new THREE.Color(LIT), cWarn = new THREE.Color(C.warn), cDark = new THREE.Color(DARKW), cOff = new THREE.Color('#2A303B'), cHi = new THREE.Color(C.ink);
   const wall0 = new THREE.Color('#7E838C'), roof0 = new THREE.Color('#5B5F66'), roofLit = new THREE.Color('#C98A4E'), door0 = new THREE.Color('#3B4A5A'), dim = new THREE.Color(DIM), glow = new THREE.Color(LIT);
   const api = { g, houses, starts, n: starts.length, idx: Object.fromEntries(starts.map((s, i) => [s, i])),
-    set({ lit = () => 0, dark = () => 0, hi = () => 0, vis = () => 1, cellA = 0, rise = () => 1 } = {}) {
+    set({ lit = () => 0, dark = () => 0, hi = () => 0, vis = () => 1, cellA = 0, rise = () => 1, lift = () => 0, big = () => 1 } = {}) {
       houses.forEach((o, i) => {
         const a = lit(i), d = dark(i), v = vis(i), e = hi(i), r = rise(i);
-        o.h.visible = v > 0.01; o.h.scale.set(1, Math.max(0.001, r * v), 1);
+        const L = lift(i), bg = big(i), hv = v * (1 - 0.97 * Math.min(1, cellA) * (L > 0.01 ? 0 : 1)); o.h.visible = hv > 0.01;   // nhìn từ trên: chỉ còn ô (trừ nhà đang nhấc lên)
+        o.h.scale.set(bg, Math.max(0.001, r * hv * bg), bg); o.h.position.y = L;
         for (const m of o.wins) { m.material.emissiveIntensity = 1.6 * a + 0.8 * e; }
         for (const m of o.walls) { m.material.color.copy(wall0).lerp(glow, 0.55 * a).lerp(dim, 0.7 * d); m.material.emissive = glow; m.material.emissiveIntensity = 0.45 * a + 0.4 * e; }
         for (const m of o.roofs) { m.material.color.copy(roof0).lerp(roofLit, a).lerp(dim, 0.7 * d); }
         if (o.door) { o.door.material.color.copy(door0).lerp(cWarn, d); o.door.material.emissive = cWarn; o.door.material.emissiveIntensity = 0.6 * d; }
-        const sc = cellA > 0.005 ? 1 : 0;
+        const sc = cellA > 0.005 && v > 0.01 ? Math.min(1, v * 1.2) : 0;
         M4.makeScale(sc, 1, sc).setPosition(xOf(o.s), 0.02, zOf(o.s)); cells.setMatrixAt(i, M4);
-        col.copy(cOff).lerp(cLit, a).lerp(cWarn, d).lerp(cHi, 0.6 * e); cells.setColorAt(i, col);
+        col.copy(cOff).lerp(cLit, a).lerp(cDark, d).lerp(cHi, 0.6 * e); cells.setColorAt(i, col);
       });
       cells.instanceMatrix.needsUpdate = true; if (cells.instanceColor) cells.instanceColor.needsUpdate = true;
-      cells.material.opacity = cellA; cells.material.emissive.set(cellA > 0.5 ? '#111' : '#000'); cells.visible = cellA > 0.005;
+      cells.material.opacity = cellA; cells.visible = cellA > 0.005;
     },
     pos: (s, y = 0.3) => [xOf(s), y, zOf(s)] };
   api.set({});
@@ -190,3 +191,16 @@ export function v7Card(O, title, lines, a, { x = 300, y = 210, w = 1320 } = {}) 
   label(O, title, x + 48, y + 80, { kind: 'title', px: 56, w: 700, alpha: a, plate: null, role: 'title' });
   lines.forEach((s, i) => label(O, s, x + 48, y + 150 + 66 * i, { kind: /\d/.test(s) ? 'number' : 'name', px: 48, w: 600, alpha: a, plate: null, color: '#D5DAE2' }));
 }
+
+// ---------------------------------------------------------------- "US only": đường viền 48 bang (Natural Earth, phạm vi công cộng; usmap.json) nằm trên mặt đất,
+// hoà vào/ra (footage duy nhất Tập 8, G1 câu 3; RIGHTS.md M-NE-ADM1). set(a); nguồn + năm ghi trên hình ở lớp phủ (mapCredit)
+export async function USMap(scene, { x = 0, z = 0, s = 1 } = {}) {
+  const M = await loadJSON('/episodes/ep008/world/usmap.json'), pts = [];
+  for (const p of M.polys) for (let i = 0; i < p.length; i++) { const a = p[i], b = p[(i + 1) % p.length]; pts.push(a[0] * s + x, 0.03, a[1] * s + z, b[0] * s + x, 0.03, b[1] * s + z); }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+  const line = new THREE.LineSegments(geo, new THREE.LineBasicMaterial({ color: PALETTE.muted, transparent: true, opacity: 0 })); scene.add(line);
+  line.userData.checks = { role: 'mark', key: 'us-map', footage: 'M-NE-ADM1' };
+  line.set = (a) => { line.material.opacity = 0.85 * a; line.visible = a > 0.01; };
+  line.set(0); return line;
+}
+export function mapCredit(O, a) { if (a > 0.01) label(O, 'Map: Natural Earth (public domain)', 1824, 180, { align: 'right', kind: 'name', px: 40, w: 600, alpha: a, color: C.muted, plate: null }); }

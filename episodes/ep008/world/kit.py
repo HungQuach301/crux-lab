@@ -150,7 +150,7 @@ def anchor_windows(S, sids):
     for sid in sids:
         t = S.at('@' + sid)
         a = round(t - ANCHOR_SIL - 0.05, 3)
-        prev = max((w['e'] for w in S.words if w['e'] <= t - 0.01), default=-1.0)
+        prev = max((w['e'] for w in S.words if w['e'] <= t - 0.01 and not w['w'].startswith('[')), default=-1.0)   # thẻ cảm xúc eleven_v3 không phải lời
         if a < prev + 0.05:
             raise SystemExit(f'số neo {sid}: lặng {a} lấn vào lời trước (hết {prev})')
         out.append([a, round(t - 0.05, 3)])
@@ -172,7 +172,7 @@ def finish(here, S, name, beats, moves, events, extra, label_cues, visual_cues, 
     """Ghép spine.json, tự kiểm quy tắc 2/3/7 (mọi đoạn: verify đòi 5 s đầu thế giới), không sfx/whoosh trong lặng (neo, mid-roll), không 'land'
     ngoài chạm đổi chế độ (episode.md §5b), ghi inputs.json; thoát 1 nếu vi phạm."""
     ev = sorted(events + SV.move_sounds(moves, lambda m: {'mode': 0.6, 'pan': 0.8, 'push': 0.7, 'pull': 0.9}[m['verb']]), key=lambda e: e['t'])
-    errs = SV.check_rules(beats, moves, PAD)
+    errs = SV.check_rules(beats, moves, PAD, episode_t0=S.t0)   # F-14 (c): quy tắc 7 chỉ 5 s đầu TẬP (episode.yaml f14: true)
     aw = anchor_windows(S, anchors)
     for b in beats:
         if b['sid'] in anchors:
@@ -194,7 +194,7 @@ def finish(here, S, name, beats, moves, events, extra, label_cues, visual_cues, 
              'words': S.words, 'beats': beats, 'moves': moves, 'events': ev, 'tension': tension, 'shots': SV.shots_for(moves, S.total),
              'music_plan': music_plan(S, accents), 'mix': {'music_db': music_db(S), 'data_db': 25.0, 'silences': [list(x) for x in silences]},
              'anchor_silences': aw, 'start': S.start, 'end': S.end, 'last': {k: round(v, 3) for k, v in S.last.items()},
-             **extra, 'label_cues': label_cues, 'visual_cues': visual_cues, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
+             'f14': True, 'changes': {k: 'major' for k in visual_cues}, **extra, 'label_cues': label_cues, 'visual_cues': visual_cues, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
     json.dump(spine, open(os.path.join(here, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(INPUTS + list(inputs), open(os.path.join(here, 'inputs.json'), 'w'))
     sfx = [e['t'] for e in ev if e['kind'] != 'data']
