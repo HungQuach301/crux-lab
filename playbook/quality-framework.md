@@ -49,7 +49,7 @@ Thứ tự khi xung đột (Murch, mở rộng): **cảm xúc > truyện > nhị
 | **Chính** | Lỗi nghề đo được (chữ đè, tương phản, lời bị lấn) | **Sửa trước phát hành** (D-009 a); ngoại lệ theo banner Mốc V, kèm số đo |
 | **Tham khảo** | Nhịp, mật độ số, wpm, độ lặp nhạc, độ dài cold open… | Chỉ báo cáo |
 
-Gán cấp là việc của Phiên K, chủ dự án duyệt. **Checks khi dựng:** chỉ chạy luật liên quan cảnh vừa sửa. **Chạy đủ bộ hai lần:** cuối C4 và ở C5.
+Gán cấp là việc của Phiên K, chủ dự án duyệt. **Checks khi dựng:** chỉ chạy luật liên quan cảnh vừa sửa. **Chạy đủ bộ ở M5 trên nháp, trước G2** (D-013); trên 1080p ở M6 chỉ nhóm kỹ thuật + SSIM.
 
 ## 4. Sáu cổng: 3 GU, 3 TỰ ĐỘNG
 
@@ -98,13 +98,13 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 - cấu trúc truyện, cold open, logline, tiêu đề, thumbnail;
 - phát hành.
 
-**Ngoại lệ (D-006 Q4):** móc 30 s đầu do máy chọn trong 3 phương án (`episode.md` §3); chủ dự án đổi ở G1 khi muốn. Cùng các việc ở CHARTER §6 ("Chỉ chủ dự án quyết").
+**Ngoại lệ (D-006 Q4):** móc (phần mở đầu ≤ 50 s, D-013) do máy chọn trong 3 phương án (`episode.md` §3); chủ dự án đổi ở G1 khi muốn. Cùng các việc ở CHARTER §6 ("Chỉ chủ dự án quyết").
 
 ## 7. Gói gửi chủ dự án
 
 - **Gói cổng GU:** ≤ 3 câu hỏi, mỗi câu có phương án và **khuyến nghị**. Có clip xem được trên điện thoại (≤ 2 phút; C6 ≤ 3 phút). Có 1 dòng kiểm số độc lập, 1 dòng kiểm mù và **kết quả soát của REVIEWER**. Gói hiện ngay trong phiên; đồng thời mở issue `[Cổng Cx] Tập N — cần quyết định`.
 - **Issue cổng TỰ ĐỘNG:** `[Cổng Cx · tự động] Tập N — qua/ngoại lệ`, **≤ 5 dòng**: kết quả, ngưỡng, số vòng, có dùng dự phòng không (cái nào), link file. Không hỏi, không chờ.
-- Câu trả lời của chủ dự án ghi vào `taste-ledger.md`, `AUTHORSHIP.md` và `episodes/<tập>/ledger.md` trên nhánh tập; phiên điều phối chặng cuối (P4, D-011) merge vào `main`.
+- Câu trả lời của chủ dự án ghi vào `taste-ledger.md`, `AUTHORSHIP.md` và `episodes/<tập>/ledger.md` trên nhánh tập; phiên chặng M6 (D-013) merge vào `main`.
 
 **Vai REVIEWER** (agent độc lập, đọc repo; Opus, effort Medium). REVIEWER soát mọi gói GU và mọi issue TỰ ĐỘNG trước khi gửi, theo checklist cố định:
 1. Gói khớp khung chất lượng: đúng loại cổng, đúng ngưỡng ghi trước, không sửa ý đồ sau kết quả.
@@ -118,6 +118,7 @@ Phiên **chỉ** tự quyết những việc sau, mỗi việc ghi một dòng l
 9. Cổng gốc (checks-appeal A15, nhóm 3 — lệnh chủ dự án mở phiên K 08/10 "Nhóm 3 (A15, A12) làm luôn nếu chỉ là chữ"; vào main cùng K4.1): `gates/Cx-root.md` / `Cx-blind.md` ghi **mỗi vòng sửa** một dòng `fix: picture` hoặc `fix: label` kèm lý do; vòng `label` phải nêu vòng `picture` đã thử trước (E6) và vì sao chưa đủ. Thiếu trường, hoặc `label` không có lý do "đã thử hình" → REVIEWER trượt dòng này.
 
 10. Hồ sơ cầu (C2, G1; Phiên Thị trường, `episode.md` §1b): kịch bản trả lời **≥ 3/5 câu hỏi khán giả** của `market/topics/<đề tài>.md` — REVIEWER đếm từ bảng nhịp (câu → cảnh) và đọc lại cảnh đó; logline trả lời câu hỏi trọng số cao nhất; có một nhịp xử lý điểm yếu đối thủ, không nêu tên kênh; gói G1 có dòng "trả lời câu hỏi X, Y, Z" + 3 video vượt trội với nhãn "tự tính". Không có hồ sơ cầu → ghi "chưa có", không trượt. Dưới 3/5 → trượt dòng này, WRITER mới sửa.
+11. **Công thức mở–chương–kết (D-013, `story.md` §1–§3):** M7/M8 đạt; tên chương gợi hình + câu chốt cuối chương; bảng điểm kết **không khuyên** chọn bên nào; chuyền tập kế **không hứa ngày**; số nói bằng tỉ lệ con người có claim; mỗi lựa chọn một màu; **không** chép lời, hình, tên chương hay thương hiệu của kênh tham chiếu.
 
 Kết quả soát (đạt / các dòng trượt) in kèm gói. REVIEWER thay cho việc chủ dự án chuyển gói sang chat chiến lược.
 

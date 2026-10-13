@@ -1,6 +1,6 @@
 # Hướng dẫn đăng — Tập {N}
 
-Mẫu chuẩn mỗi tập (Mốc B, theo `episodes/ep003/HUONG-DAN-DANG.md`). P3 điền sau G2. Chủ dự án làm theo ở G3.
+Mẫu chuẩn mỗi tập (Mốc B, theo `episodes/ep003/HUONG-DAN-DANG.md`). Phiên M6 điền sau G2. Chủ dự án làm theo ở G3.
 
 ## File
 - **Video:** `ep{NNN}-youtube.mp4`. Ghép các phần trên nhánh tạm `ep{NNN}-delivery` theo lệnh trong `JOIN.md`. SHA-256 phải là `<sha>`, mã hoá từ bản gốc `<sha bản gốc>`.

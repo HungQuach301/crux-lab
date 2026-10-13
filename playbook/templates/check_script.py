@@ -306,7 +306,8 @@ def mconds(rs, name):
         else:
             bstart = None
     out['M4'] = best
-    ret = next((r for r in rs if p and r['start'] >= p['end'] and (r['role'] == 'hook' or any(c in r['text'] for c in CAST + ['buyers']))), None)
+    # M5 (D-013): lần ĐẦU nhân vật (hoặc câu hook có người) xuất hiện kết thúc ≤ 45 s — không còn đòi sau lời hứa (lời hứa nay ≤ 50 s)
+    ret = next((r for r in rs if r['role'] == 'hook' or any(c in r['text'] for c in CAST + ['buyers'])), None)
     out['M5'] = ret['end'] if ret else None
     # M6: mỗi lời hứa về nhân vật được trả (tên trong CAST xuất hiện) ≤ 90 s sau câu hứa; không có lời hứa → 0
     m6 = 0.0
@@ -327,10 +328,11 @@ def mconds(rs, name):
     res = []
     for k in ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'):
         ok = out[k] is not None and out[k] <= lim[k]
-        res.append(f'{k} {"–" if out[k] is None else f"{out[k]:.1f}"} s {"ĐẠT" if ok else "TRƯỢT"}')
+        unit = 'câu' if k == 'M8' else 's'
+        res.append(f'{k} {"–" if out[k] is None else f"{out[k]:.1f}"} {unit} {"ĐẠT" if ok else "TRƯỢT"}')
         if not ok:
             fail.append(f'{name}: {k} = {out[k]} (ngưỡng {lim[k]})')
-        elif out[k] and out[k] >= lim[k] * 0.95:
+        elif out[k] and k != 'M8' and out[k] >= lim[k] * 0.95:
             warn.append(f'{name}: {k} = {out[k]:.1f} s trong ±5 % ngưỡng {lim[k]} (nêu tên, CHARTER §4)')
     return ' · '.join(res)
 
@@ -441,7 +443,7 @@ if os.path.exists(HOOKS):
                                                       ids=[c.strip() for c in m.group(6).split(';')[0].split(',') if c.strip() not in ('', '—')]))
     if len(hv) != 3:
         warn.append(f'hooks.md có {len(hv)} phương án (cần 3)')
-    cont = [dict(r) for r in rows if r['scene'] == 'S03']   # phần nối chung sau 30 s đầu (S03 của script.md)
+    cont = [dict(r) for r in rows if r['scene'] == 'S03']   # phần nối chung sau phần mở đầu của phương án (S03 của script.md; D-013: mở đầu tới 50 s)
     for h, rs in sorted(hv.items()):
         t = 0.0
         n_own = len(rs)

@@ -35,7 +35,7 @@ Xây hợp đồng, không xây cơ chế (code là đồ dùng một lần). T�
   - "history, not a forecast" với dữ liệu lịch sử;
   - nhân vật minh hoạ mang nhãn ILLUSTRATIVE;
   - thế giới 3D tối giản: low-poly, màu kênh, không chân thực ảnh, nhân vật không mặt, không chi tiết trang trí không mang nghĩa (D-010). **Thế giới 3D là hình chính;**
-  - **footage ngoài** (ảnh, video, bản đồ) chỉ làm **tư liệu**, không thay thế thế giới: chỉ nguồn trong danh sách trắng `RIGHTS.md` §F, ≤ 20 % thời lượng (trần riêng từng tập ở §F), mỗi lần ≤ 6 s liền, luôn có chuyển động, hoà từ cảnh 3D hoặc đặt trong khung của thế giới, phủ tông kênh; **năm + nguồn trên hình**; ảnh minh hoạ **không làm bằng chứng** cho số; không người thật trong vai nhân vật (D-013).
+  - **footage ngoài** chỉ làm tư liệu, ≤ 20 % thời lượng, năm + nguồn trên hình, không làm bằng chứng, không người thật vai nhân vật — luật đủ ở `RIGHTS.md` §F (D-013).
 
 ## 5. Ba cổng (`playbook/episode.md`)
 | Cổng | Khi | Chủ dự án quyết |

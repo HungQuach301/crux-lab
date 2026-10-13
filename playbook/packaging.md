@@ -102,7 +102,7 @@ Kết quả: `episodes/ep001/review-c6/pack-test/results.md`. Chủ dự án ch�
    - Tập đóng vai **phần tiếp theo tự nhiên** của video neo. Khác biệt chính là **lịch sử thật**. Gói có 1 dòng "neo: …; khác biệt: …".
    - Ý tưởng tiêu đề: cụm từ khán giả gõ đứng đầu, theo khuôn thắng.
    - Ý tưởng thumbnail: **chữ + vật thể trung tâm của chính video** (≤ 4 từ) — để chủ dự án đưa vào ChatGPT sau.
-   - WRITER trả lời lời hứa trong 30 s đầu và đúng khoảng trống của video neo (`episode.md` §3 mục 12).
+   - WRITER trả lời lời hứa trong 50 s đầu (D-013) và đúng khoảng trống của video neo (`episode.md` §3 mục 12).
 2. **P4, khi video hoàn tất, trước G3 — Claude giao `out/package/PACKAGING-BRIEF.md`** (tiếng Anh, chủ dự án dán thẳng vào ChatGPT; mẫu `templates/PACKAGING-BRIEF.md`; `python3 toolkit/market/brief.py episodes/epNNN --topic <id> --trend <trend.json> --anchors <neo.json> --g1-title "…" --objects "…" --banned "…" --frame <png> ×3–4`):
    - (a) **quét tốc độ 7 ngày** của đề tài (`anchors.py trend --save`, lọc nội dung ngoài Mỹ): khuôn tiêu đề, kiểu thumbnail, cụm tìm kiếm đang lên;
    - (b) **1–3 video neo** + cụm từ chính + điểm khác biệt;

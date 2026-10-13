@@ -20,3 +20,5 @@ Ghi quyết định: `decisions/D-013.md`.
 | Công thức mở–chương–kết, số tỉ lệ người, màu lựa chọn | `playbook/story.md` §1, §1b, §1c, §3; `episode.md` §3.9; `templates/check_script.py` (M2 50 s, M3 40 s, M7, M8; test M6 vẫn qua) |
 | Khiếu nại | `checks-appeal.md` A38–A41 (ep008 → A42–A45) |
 | Bài học | `playbook/lessons.md` mục T7 |
+
+REVIEWER phần áp (headless): `tongket-t7/review/REVIEW-apply.md` — ĐẠT có sửa (2 CHẶN, 4 CHÍNH, 12 PHỤ), đã áp hết trước merge.

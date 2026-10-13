@@ -4,11 +4,11 @@ WRITER đọc file này **trước** khi viết treatment hoặc kịch bản (`
 
 ## 1. Móc: 50 giây đầu (D-013, chủ dự án 13/10 — học công thức kênh tham chiếu "Fortune of Nations Animated"; **không** sao chép lời, hình, tên chương hay thương hiệu của kênh đó)
 1. **0:00 là tin thời sự hoặc một nghịch lý**, dựa trên sự thật hiện tại (có claim, có ngày): một con số vừa công bố, một khoản được–mất của người như người xem, hay hai sự thật tưởng không thể cùng đúng. Không mở bằng định nghĩa, lịch sử hay phương pháp. Câu móc kết thúc ≤ 5 s (**M1**).
-2. **Ba sự thật lật kỳ vọng trước 0:35** (**M7**, vai `fact`): mỗi câu một sự thật có claim, mỗi câu đẩy người xem xa thêm khỏi điều họ tưởng. Câu ngắn, không số thứ ba trong một câu (số dư lên hình).
+2. **Ba sự thật lật kỳ vọng trước 0:35** (**M7**, vai `fact`): mỗi câu một sự thật có claim, mỗi câu đẩy người xem xa thêm khỏi điều họ tưởng. Ba sự thật trải **≥ 2 cảnh**, mỗi sự thật ≤ 1 số nói (luật ≤ 2 số mới mỗi cảnh, §3); số dư lên hình. **Ít nhất 1 trong 3 sự thật gắn với nhân vật dẫn đường hoặc người như người xem** (người trước số, G-007).
 3. **Câu hỏi của người xem trước 0:40** (**M3**): câu họ tự hỏi khi đứng trước quyết định này, đúng câu hỏi trọng số cao nhất của hồ sơ cầu.
 4. **Hứa đáp án bằng một nghịch lý trước 0:50** (**M2**): lời hứa cụ thể, đo được (G-013), nói dưới dạng hai vế tưởng ngược nhau mà tập sẽ gỡ ("cheaper and more expensive at the same time" là dạng, không phải câu mẫu). Tập giữ đúng lời hứa đó.
-5. **Câu miễn trừ ≤ 1 vế trong lời mở đầu** (**M8**: ≤ 1 câu vai `constraint` trong 0:00–1:00), đặt **sau** lời hứa; phần còn lại ("US only", "history, not a forecast", giả định, ILLUSTRATIVE) **lên hình** (nhãn, thẻ V7) và mô tả. Không chen vào giữa câu hỏi và lời hứa.
-6. Người trước số: nhân vật dẫn đường xuất hiện trước 0:45 (**M5**, §2b), bối cảnh đủ để hiểu vì sao người đó đứng trước quyết định (G-007, G-009).
+5. **Câu miễn trừ ≤ 1 vế trong lời mở đầu** (**M8**: ≤ 1 câu vai `constraint` trong 0:00–1:00), đặt **sau** lời hứa. "US only" và "history, not a forecast" **vẫn nói một lần trong lời** (luật máy): một cụm là câu miễn trừ duy nhất của phần mở đầu, cụm kia ở thẻ phương pháp hoặc phần giới hạn; giả định và ILLUSTRATIVE **lên hình** (nhãn, thẻ V7) và mô tả. Không chen vào giữa câu hỏi và lời hứa.
+6. Người trước số: nhân vật dẫn đường xuất hiện lần đầu trước 0:45 (**M5**, có thể trước lời hứa, §2b), bối cảnh đủ để hiểu vì sao người đó đứng trước quyết định (G-007, G-009).
 7. **Ba phương án móc:** WRITER viết 3 phương án cho 50 s đầu, mỗi phương án một kiểu mở (tin thời sự / nghịch lý / được–mất), cùng theo 1–5 (`packaging.md` §2). Cách chọn ở `episode.md` §3.
 
 ## 1b. Chương (D-013)

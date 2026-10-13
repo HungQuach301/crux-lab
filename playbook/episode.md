@@ -1,4 +1,4 @@
-# Sổ tay chạy một tập (playbook v4, Mốc V, 06/10/2026)
+# Sổ tay chạy một tập (playbook v5, D-013, 13/10/2026)
 
 Áp từ Tập 4 (`decisions/D-006.md`); v4 áp D-009 (chất lượng là ưu tiên tuyệt đối) và D-010 (thế giới 3D, 8 quy tắc hình–âm) từ Tập 5; **v5 áp D-013 (mô hình xưởng 6 mốc, tổng kết Tập 7) từ Tập 8, ở ranh giới sau G1 Tập 8**. Khung: `playbook/quality-framework.md`. Biên kịch: `playbook/story.md`. Một tập chạy bằng **một prompt mẫu**: `playbook/prompts/CHAY-TAP-N.md` ("Chạy Tập N." + câu trả lời cổng nếu có); mỗi chặng tới cổng kế là một phiên ngắn.
 
@@ -20,7 +20,7 @@
 
 - **Chủ dự án chạm G1, G2, G3** (+ lệnh "Chạy Tập N"). Ngoài cổng chỉ hỏi khi gặp ngoại lệ CHARTER §5. Mỗi lượt chạm ghi vào PLAN tập §5 kèm phút ước.
 - **Mỗi chặng một phiên ngắn** (M1–M2 → G1; M3–M5 → G2; M6 → G3). Đóng chặng: PLAN tập ≤ 1 trang theo `templates/PLAN-tap.md` (mục 1 = mốc kế), commit, push, dừng. Phiên kế mở bằng "Chạy Tập N" — không viết prompt riêng. Tệp lớn ngoài git còn ở container thì chạy tiếp trong phiên đó sau `/compact` (sửa D-011, T6-3); không thì dựng lại theo `episode.yaml`.
-- **Tập 8 (chuyển đổi):** P1 Tập 8 chạy theo mẫu cũ tới G1; sau G1 làm M2 (tiền kỳ) rồi M3–M6. G1 Tập 8 đã ghi "cần C3" thì kiểm tiền kỳ thay đúng chỗ C3 (không thêm chạm); không thì thêm 1 lượt chạm, chỉ ở Tập 8.
+- **Tập 8 (chuyển đổi):** P1 Tập 8 chạy theo mẫu cũ tới G1 — kiểm kịch bản bằng `check_script.py` bản `c7358285` (M2/M3 30 s, không M7/M8; kịch bản cũ không có vai `fact` nên M7 bản mới luôn trượt); công thức mở đầu D-013 áp từ kịch bản Tập 9 hoặc khi WRITER Tập 8 viết lại sau G1; sau G1 làm M2 (tiền kỳ) rồi M3–M6. G1 Tập 8 đã ghi "cần C3" thì kiểm tiền kỳ thay đúng chỗ C3 (không thêm chạm); không thì thêm 1 lượt chạm, chỉ ở Tập 8.
 
 ### 1a. Thẻ vai — vai là một đầu bài (một lượt headless khoá Console hoặc lệnh máy, 0 agent con), không phải agent sống. Vai không có phép thử riêng thì không thêm.
 | Vai | Đầu vào | Đầu ra | Phép thử riêng (ai đo) | Quyền / không được |
@@ -121,7 +121,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
    - **M2** lời hứa đáp án dạng nghịch lý ≤ 50 s;
    - **M8** ≤ 1 câu `constraint` (miễn trừ ≤ 1 vế) trong 0:00–1:00 — phần còn lại lên hình;
    - **M4** 0:00–1:00 không khối `constraint`/`define` liền > 10 s;
-   - **M5** nhân vật hoặc cái được–mất quay lại ≤ 0:45;
+   - **M5** nhân vật hoặc cái được–mất xuất hiện lần đầu ≤ 0:45;
    - **M6** (`story.md` §2b.2) mọi lời hứa về nhân vật được trả ≤ 90 s sau câu hứa; WRITER gắn vai `promise_character`.
    Trượt → WRITER mới sửa (≤ 2 vòng), vẫn trượt → nêu ở G1. G1 báo 8 mốc thành một dòng. **Chương** (`story.md` §1b) và **kết** (§1c) ghi trong bảng nhịp: tên chương gợi hình, câu chốt cuối chương, bảng điểm 3–4 mục, hình mở đầu quay lại, câu chuyền tập kế. **Số nói bằng tỉ lệ con người, mỗi lựa chọn một màu** (`story.md` §3).
 

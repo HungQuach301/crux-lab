@@ -240,4 +240,4 @@ Bản nháp đầy đủ: `tongket-t7/de-xuat/CHARTER-s4.md` (thêm 2 dòng vào
 
 **Trả lời gọn:** `1 a/b/c · 2 a/b/c · 3 a/b`
 
-REVIEWER (headless, khoá Console): `tongket-t7/review/REVIEW-r1.md` (ĐẠT có sửa, $1,67; đã áp) · `REVIEW-r2.md` (ĐẠT có sửa, $0,61; đã áp). Chi Console phiên này: $2,28 / trần $8.
+REVIEWER (headless, khoá Console): `tongket-t7/review/REVIEW-r1.md` (ĐẠT có sửa, $1,67; đã áp) · `REVIEW-r2.md` (ĐẠT có sửa, $0,61; đã áp) · phần áp D-013: `REVIEW-apply.md` (ĐẠT có sửa, $1,30; đã áp). Chi Console phiên này: $3,58 / trần $8.

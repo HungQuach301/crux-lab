@@ -1,5 +1,5 @@
 # Packaging brief — Episode {N}: {working title}
-<!-- ĐƯỜNG CHÍNH từ Tập 7 (câu trả lời tổng kết Tập 6 câu 3, 11/10; `playbook/packaging.md` §7). P4 (video hoàn tất, trước G3) sinh bản điền sẵn:
+<!-- BỎ từ Tập 8 (D-013: không thumbnail, không ChatGPT) — chỉ tham chiếu. Trước đây: ĐƯỜNG CHÍNH từ Tập 7 (câu trả lời tổng kết Tập 6 câu 3, 11/10; `playbook/packaging.md` §7). P4 (video hoàn tất, trước G3) sinh bản điền sẵn:
      python3 toolkit/market/brief.py episodes/epNNN --topic <id> --trend <trend7.json> --anchors <neo.json> --objects "…" --banned "…" --frame <png> ×3–4
      → episodes/epNNN/out/package/PACKAGING-BRIEF.md. Tiếng Anh; chủ dự án dán NGUYÊN khối dưới vạch vào ChatGPT, đính kèm 3–4 khung PNG (f).
      ChatGPT làm tiêu đề, mô tả, thumbnail, tag; chủ dự án dán kết quả lại vào P4 → P4 kiểm (package_check.py + rescore.py + đọc) → câu sửa sẵn nếu lệch. -->

@@ -50,7 +50,7 @@ CC **NC** (phi thương mại: kênh có quảng cáo) · CC **ND** (không cho 
 3. Checks A39 chặn khi thiếu hồ sơ, giấy phép cấm hoặc vượt trần. Ngoài danh sách trắng → **hỏi chủ dự án** (ngoại lệ pháp lý, CHARTER §5).
 
 ## G. SFX ghi âm thật (D-013)
-Chỉ **CC0** hoặc **CC BY 4.0** (Freesound lọc theo giấy phép; trang tệp, không trang bộ sưu tập). Cấm: CC BY-NC, Sampling+, BBC RemArc (phi thương mại), kho trả phí, YouTube Audio Library. Mỗi tệp một dòng ở bảng trên (mã `S-<tên>`, URL tệp, tác giả, giấy phép trích nguyên văn + link, ngày tải); CC BY → ghi công trong mô tả tập dùng nó. Nhạc vẫn bằng mã (A-MUSIC); nhạc người sáng tác CC BY xét lại ở G1 Tập 9; không nhạc AI.
+Chỉ **CC0** hoặc **CC BY** (4.0 ưu tiên; 3.0 nhận được khi ghi công đủ tiêu đề–tác giả–nguồn–giấy phép) (Freesound lọc theo giấy phép; trang tệp, không trang bộ sưu tập). Cấm: CC BY-NC, Sampling+, BBC RemArc (phi thương mại), kho trả phí, YouTube Audio Library. Mỗi tệp một dòng ở bảng trên (mã `S-<tên>`, URL tệp, tác giả, giấy phép trích nguyên văn + link, ngày tải); CC BY → ghi công trong mô tả tập dùng nó. Nhạc vẫn bằng mã (A-MUSIC); nhạc người sáng tác CC BY xét lại ở G1 Tập 9; không nhạc AI.
 
 ## Tham chiếu (chỉ để xem; KHÔNG dùng trong tập)
 
