@@ -2992,7 +2992,7 @@ CC_QUOTE = '"You are free to: Share — copy and redistribute the material in an
 
 def rights_fixture(name, *, lic='CC BY 4.0', quote=CC_QUOTE, sha_ok=True, desc_credit=True, rid='X-PIC', undeclared=False, kind='archival',
                    credit='Photo: Jane Doe, CC BY 4.0', ext_t=(10.0, 15.0), total=60.0, cap=None, episode='ep009', rule='F13', texts=None,
-                   via='timeline', ymlcap=None, yaml_scenes=('S02',)):
+                   via='timeline', ymlcap=None, yaml_scenes=('S02',), more_ext=(), va_paths=None):
     import hashlib as _h
     f = F(name)
     try:
@@ -3003,7 +3003,10 @@ def rights_fixture(name, *, lic='CC BY 4.0', quote=CC_QUOTE, sha_ok=True, desc_c
         f.text('RIGHTS.md', '# RIGHTS\n\n' + RIGHTS_HEAD + f'| X-PIC | work/external/pic.png | image | https://example.org/pic | {lic} | {quote} | 2026-10-13 | {sha} | {credit} |\n')
         sc = [{'id': 'S01', 'start': 0.0, 'dur': 10.0, 'end': 10.0}, {'id': 'S02', 'start': 10.0, 'dur': 5.0, 'end': 15.0},
               {'id': 'S03', 'start': 15.0, 'dur': total - 15.0, 'end': total, **({'bg': 'media/other.jpg'} if undeclared else {})}]
-        ext = [{'file': 'work/external/pic.png', 'rid': rid, 'kind': kind, 't0': ext_t[0], 't1': ext_t[1]}]
+        ext = [{'file': 'work/external/pic.png', 'rid': rid, 'kind': kind, 't0': ext_t[0], 't1': ext_t[1]}] + [
+            {'file': 'work/external/pic.png', 'rid': rid, 'kind': kind, 't0': a, 't1': b} for a, b in more_ext]
+        if va_paths is not None:
+            f.json('out/visual-assets.json', {'assets': [{'name': 'photo', 'kind': 'image', 'paths': va_paths}], 'generated': [{'glob': 'work/*', 'generator': 'x.py'}]})
         f.json('out/timeline.json', {'total': total, 'scenes': sc, **({'external': ext} if via == 'timeline' else {})})
         yml = {}
         if via == 'yaml':
@@ -3048,7 +3051,35 @@ F13_CASES = {
                                                    texts=[(10.0, ['Illustration', 'gap $613' if bad else 'a tight month'])]),
     'F15/run': lambda bad: rights_fixture('F15-run', rule='F15', ext_t=(10.0, 17.0) if bad else (10.0, 16.0), texts=ARCH_OK),
     'F15/opening': lambda bad: rights_fixture('F15-open', rule='F15', ext_t=(3.0, 8.0) if bad else (5.0, 10.0), texts=[(0.0, ['Source: Library of Congress, 1936'])]),
+    'F13/visual-assets': lambda bad: rights_fixture('F13-va', va_paths=['work/external/other.jpg'] if bad else ['work/external/pic.png']),
+    'F13/osm-tiles': lambda bad: rights_fixture('F13-osm-tiles', lic='OpenStreetMap tiles' if bad else 'ODbL 1.0 (OpenStreetMap data)',
+                                                quote='"You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors."',
+                                                credit='© OpenStreetMap contributors'),
+    'F15/run-joined': lambda bad: rights_fixture('F15-joined', rule='F15', ext_t=(10.0, 14.0), more_ext=[(14.0, 18.0)] if bad else [(20.0, 24.0)],
+                                                 texts=ARCH_OK + [(19.0, ['Source: Library of Congress, 1936'])]),
+    'F15/yaml-approx': lambda bad: rights_fixture('F15-approx', rule='F15', via='yaml', yaml_scenes=['S02', 'S03'],
+                                                  texts=[(9.0, ['chart']), (10.0, ['A crowded office' if bad else 'Source: Library of Congress, 1936'])]),
 }
+# REVIEWER K4.4 PHỤ 10: the bad fixture must fail on the metric the case is about, not on another one
+WANT_METRIC = {'F13': 'record', 'F13/verbatim': 'record', 'F13/row': 'record', 'F13/nc': 'licence', 'F13/nd': 'licence', 'F13/by-sa': 'licence',
+               'F13/whitelist': 'licence', 'F13/undeclared': 'record', 'F13/credit': 'credit', 'F13/osm': 'credit', 'F13/kind': 'record',
+               'F13/share-ep8': 'share', 'F13/share-ep9': 'share', 'F13/share-raise-ignored': 'share', 'F13/share-yaml-lower': 'share',
+               'F13/yaml-scenes': 'share', 'F13/visual-assets': 'record', 'F13/osm-tiles': 'licence', 'F15': 'year + source',
+               'F15/illustrative': 'illustrative', 'F15/run': 'over 6 s', 'F15/run-joined': 'over 6 s', 'F15/opening': 'first 5 s',
+               'F15/yaml-approx': 'year + source'}
+
+
+def _want(name, fn):
+    def g(bad):
+        r = fn(bad)
+        failing = [m['name'] for m in r.get('metrics', []) if not m['pass']]
+        if bad and r['status'] == 'FAIL' and (len(failing) != 1 or WANT_METRIC[name] not in failing[0]):
+            return common.Result(name.split('/')[0], 'FIXTURE-ERROR', note=f'failed on {failing}, want only "{WANT_METRIC[name]}"')
+        return r
+    return g
+
+
+F13_CASES = {k: _want(k, v) for k, v in F13_CASES.items()}
 EXTRA.update(F13_CASES)
 
 

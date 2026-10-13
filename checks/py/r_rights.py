@@ -45,7 +45,8 @@ def share_cap(ctx):
 
 # giấy phép CẤM (RIGHTS §F2; mọi footage là hình): NC, ND, BY-SA
 FORBIDDEN = [('NC', re.compile(r'\bNC\b|non-?commercial', re.I)), ('ND', re.compile(r'\bND\b|no-?deriv', re.I)),
-             ('BY-SA', re.compile(r'\bBY-SA\b|share-?alike', re.I))]
+             ('BY-SA', re.compile(r'\bBY-SA\b|share-?alike', re.I)),
+             ('OSM tiles (BY-SA)', re.compile(r'openstreetmap[^|]*\btiles?\b|\btiles?\b[^|]*openstreetmap', re.I))]   # §F1 bậc 2: dữ liệu OSM, không ô bản đồ
 # danh sách trắng RIGHTS §F1 (bậc 1–6); attribution = phải ghi nguồn trong mô tả YouTube
 KNOWN = [('public domain', re.compile(r'public domain|\bCC0\b|\bPDM\b|u\.?s\.? government work|17 u\.s\.c\. ?§ ?105|natural earth|tiger/line', re.I), False),
          ('no known restrictions (organisation assessment)', re.compile(r'no known restrictions', re.I), False),
@@ -131,7 +132,7 @@ def external_items(ctx):
             if ss:
                 t0, t1 = min(s['start'] for s in ss), max(s.get('end', s['start'] + s.get('dur', 0)) for s in ss)
         items.append({'file': it.get('file'), 'rid': it.get('rights') or it.get('rid'), 'kind': it.get('kind'), 't0': t0, 't1': t1, 'id': it.get('id'),
-                      'from': 'episode.yaml'})
+                      'from': 'episode.yaml', 'approx': it.get('t0') is None})
     return items
 
 
@@ -212,10 +213,11 @@ def _intervals(items):
 @rule('F13', 'checks-appeal A39 (+ A44), RIGHTS.md §F (D-013, chủ dự án 13/10/2026), cine-lab rights_check',
       'external footage = out/timeline.json external[] ∪ scenes[].external[] {file, rid, kind, t0, t1} ∪ episode.yaml external[] {id, rights, kind, file, '
       'scenes | t0, t1} (merged by file; no times → the span of its scenes), plus every string of out/timeline.json naming an image/video/map file '
-      '(MEDIA suffixes) not declared there and not matching a generated rule. Each item: a RIGHTS.md row (repo §F6, or the episode\'s) whose first cell '
+      '(MEDIA suffixes), of out/visual-assets.json assets[] and of episode.yaml (outside external/map) not declared there and not matching a generated rule '
+      '(a file under work/external/ is never exempt). Each item: a RIGHTS.md row (repo §F6, or the episode\'s) whose first cell '
       '= rid, with source URL (http/https), licence, the licence text quoted verbatim ("…", ≥ 20 characters), download date YYYY-MM-DD, SHA-256 equal to '
-      'the file in use, a credit line, kind archival|illustrative, t0 < t1. Licence (licence cell, else the row) against RIGHTS §F: NC, ND, BY-SA → '
-      'forbidden; recognised = public domain / CC0 / PDM / US government work / Natural Earth / TIGER, "No known restrictions", Pexels / Pixabay, '
+      'the file in use, a credit line, kind archival|illustrative, t0 < t1. Licence (licence cell, else the row) against RIGHTS §F: NC, ND, BY-SA, '
+      'OpenStreetMap tiles → forbidden; recognised = public domain / CC0 / PDM / US government work / Natural Earth / TIGER, "No known restrictions", Pexels / Pixabay, '
       'CC BY, ODbL / OpenStreetMap data; anything else = not usable (ask the owner, CHARTER §5). CC BY and ODbL need their credit line in '
       'out/package/description.md (whitespace and case ignored; (c) = ©), OpenStreetMap items also the word "OpenStreetMap". Share = union of '
       '[t0, t1) / timeline total, ceiling 15 % in Episode 8, 20 % otherwise (episode.yaml footage.max_share, contract rights.externalMaxShare only lower it)',
@@ -227,7 +229,11 @@ def f13_external_rights(ctx):
     gen = _generated(ctx)
     loose = []
     _media_strings(ctx.timeline(), loose)
-    undeclared = sorted({s for s in loose if s not in declared and not any(fnmatch.fnmatch(s, g) or fnmatch.fnmatch(os.path.basename(s), g) for g in gen)})
+    if ctx.has('out/visual-assets.json'):   # REVIEWER K4.4: the F12 picture list and the spec are scanned too
+        _media_strings(ctx.json('out/visual-assets.json').get('assets') or [], loose)
+    _media_strings({k: v for k, v in _yaml(ctx).items() if k not in ('external', 'map')}, loose)
+    exempt = lambda s: 'work/external/' not in s and any(fnmatch.fnmatch(s, g) or fnmatch.fnmatch(os.path.basename(s), g) for g in gen)
+    undeclared = sorted({s for s in loose if s not in declared and not exempt(s)})
     rows = rights_rows(ctx) if (items or undeclared) else {}
     desc = _norm(open(ctx.path('out/package/description.md'), encoding='utf-8').read()) if ctx.has('out/package/description.md') else None
     norecord, banned, nocredit = [{'file': s, 'why': 'not declared as external footage (no rights record)'} for s in undeclared], [], []
@@ -312,8 +318,9 @@ def _states(track, a, b):
 @rule('F15', 'checks-appeal A39 (CHÍNH: trung thực footage), RIGHTS.md §F3–F4 (D-013)',
       'per declared external footage interval [t0, t1) (F13 sources): the on-screen text states of the page sampler text track (out/checks/page.json '
       'textTrack) that are visible in it. archival: every state shows a year (1600–2099) and a source word (Source/Photo/Courtesy/©/Data:); illustrative: '
-      'every state shows an "illustrat…" label and no number that equals a claim display (out/claims.json). Each footage run ≤ 6 s; none starts in the '
-      'first 5 s of the episode. No declared footage = nothing to check',
+      'every state shows an "illustrat…" label and no number that equals a claim display (out/claims.json). Each run of consecutive footage (union of '
+      'items) ≤ 6 s; none starts in the first 5 s of the episode (items timed only by their scenes are left out of these two). No declared footage = '
+      'nothing to check',
       '0 archival intervals without year + source on screen; 0 illustrative intervals without the label or with a claim number; 0 runs > 6 s; 0 runs in the first 5 s')
 def f15_external_honesty(ctx):
     items = [it for it in external_items(ctx) if it.get('t0') is not None and it.get('t1') is not None]
@@ -341,10 +348,12 @@ def f15_external_honesty(ctx):
             nums = sorted({cn for t in texts for cn, _ in numbers_in_text(t) if cn in claims})
             if nolab or nums or not st:
                 illus.append({'file': it.get('file'), 'rid': it.get('rid'), 'statesWithoutLabel': nolab[:10], 'claimNumbers': nums[:10]})
+    exact = [it for it in items if not it.get('approx')]   # times from the span of scenes are an upper bound: no run / opening check on them
+    for a, b in _intervals(exact):   # REVIEWER K4.4: a run = consecutive footage, joined across items
         if b - a > RUN_MAX + 1e-6:
-            long_.append({'file': it.get('file'), 'seconds': round(b - a, 3)})
+            long_.append({'t0': a, 'seconds': round(b - a, 3)})
         if a < OPEN_S:
-            opening.append({'file': it.get('file'), 't0': a})
+            opening.append({'t0': a})
     return verdict('F15', [metric('external footage intervals', len(items), '>=', 0),
                            metric('archival footage without year + source on screen', len(noyear), '<=', 0),
                            metric('illustrative footage without label or with a claim number', len(illus), '<=', 0),

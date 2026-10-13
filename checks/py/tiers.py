@@ -108,6 +108,7 @@ def tier(rid):
 NATURE = {
     ('F11', '*'): 'procedure', ('F12', '*'): 'legal', ('S03', '*'): 'legal', ('F13', 'footage without a complete rights record'): 'legal',
     ('F13', 'footage under a forbidden or unrecognised licence'): 'legal', ('F13', 'attribution licences without the credit in the description'): 'legal',
+    ('F13', 'external footage share (%)'): 'legal',
     ('S07', 'unregistered numbers in narration'): 'procedure', ('S07', 'claims without formula'): 'procedure',
     ('S07', 'unsourced non-illustrative claims'): 'procedure', ('S07', 'sourced claims without dataYear'): 'procedure',
     ('S09', 'money claims without basis'): 'procedure', ('REG', '*'): 'procedure',

@@ -43,7 +43,9 @@ function videoReader(file, every, pix = 'rgb24', start = 0) {
   const w = 1920, h = 1080, size = w * h * (pix === 'gray' ? 1 : 3);
   const ss = start > 0 ? ['-ss', ((start - 0.5) / FPS).toFixed(6)] : [];
   // K4.4 (A41 a): a draft rendered at another size (540p at M5) is scaled to the 1920×1080 page frame the rules measure in; 1080p reads as before
-  const up = videoSize(file) === '1920x1080' ? '' : ',scale=1920:1080:flags=bicubic';
+  const vs = videoSize(file);
+  if (!vs) throw new Error('ffprobe: no video size for ' + file);
+  const up = vs === '1920x1080' ? '' : ',scale=1920:1080:flags=bicubic';
   const ff = spawn('ffmpeg', ['-v', 'error', ...ss, '-i', file, '-vf', `select='not(mod(n\\,${every}))'${up}`, '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', pix, '-'], { stdio: ['ignore', 'pipe', 'inherit'] });
   let chunks = [], have = 0, done = false, waiters = [], idx = -1;
   ff.stdout.on('data', (c) => { chunks.push(c); have += c.length; ff.stdout.pause(); flush(); });

@@ -5,7 +5,7 @@ assets/ll/archive/fsa-8b28380.jpg, RIGHTS.md LOC-8b28380: "No known restrictions
   dương 1: không có dòng RIGHTS (lỗi hay gặp nhất: tải ảnh rồi dựng)             → F13 TRƯỢT
   dương 2: tệp bị lưu lại sau khi ghi hồ sơ (JPEG nén lại, khác byte)           → F13 TRƯỢT (SHA)
   dương 3: footage 120–250 s (130 s / 606,7 s = 21,4 % > 20 %)                  → F13 TRƯỢT (trần)
-  F15 (CHÍNH): trang thật của Tập 7 không có chữ năm + nguồn ở 120–125 s        → F15 TRƯỢT (đúng: ảnh không có dòng nguồn trên hình)
+  F15 (CHÍNH): cần out/checks/page.json Tập 7 (A29 --no-cache); không có lúc chạy → MISSING; đối chứng thật F15 làm ở K4.4.1
   python3 checks-runs/K44/a39/real_controls.py <out.json>"""
 import hashlib, io, json, os, shutil, sys, tempfile
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
