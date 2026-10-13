@@ -131,6 +131,15 @@ class Ctx:
                 self._memo[key] = json.load(f)
         return self._memo[key]
 
+    def episode_no(self):
+        """K4.4: the episode number from contract.json `episode` ("ep008" → 8); None when there is no contract or no number in it.
+        Rules that changed for later episodes (1 Short, no thumbnail from Episode 8, chủ dự án 13/10) keep the old rule when this is None."""
+        try:
+            m = re.search(r'(\d+)', str(self.contract().get('episode', '')))
+        except Missing:
+            return None
+        return int(m.group(1)) if m else None
+
     def cfield(self, *path, kind=None):
         """A required contract field: contract[path[0]][path[1]]…; absent (or of the wrong type) = MISSING, naming the field."""
         o = self.contract()
@@ -485,3 +494,7 @@ def rule(rid, section, measure, threshold, needs=()):
         RULES.append(fn)
         return fn
     return deco
+
+
+# K4.4 (chủ dự án 13/10/2026): from Episode 8 one Short per episode (D-006 Q3 had 2–3) and no thumbnail in the delivery; earlier episodes keep the old rules
+ONE_SHORT_FROM = 8

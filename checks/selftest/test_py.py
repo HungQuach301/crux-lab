@@ -2794,6 +2794,295 @@ def s15_deep_case(bad):
 
 EXTRA.update({'S14/deep': s14_deep_case, 'S14/lab-gap': s14_lab_gap_case, 'S15/deep': s15_deep_case})
 
+# ---- K4.4: A33 (lỗi máy luật THAM KHẢO trên tập nhà máy) -----------------------------------------------------------------------------------------
+def a12_dict_case(bad):
+    """A12 with the factory tempo map: accents {at, t} (Tập 6 form; K4.3 raised TypeError). bad = cuts 0.2 s off the accents."""
+    f = F('A12-dict')
+    try:
+        T['A12'](f, bad)
+        tm = json.load(open(f.p('out/tempo-map.json')))
+        tm['accents'] = [{'at': f'S{k + 1:02d}.1:word', 't': a} for k, a in enumerate(tm['accents'])]
+        f.json('out/tempo-map.json', tm)
+        return f.run('A12')
+    finally:
+        f.close()
+
+
+def a13_stem_case(bad):
+    """A13 with the factory takes list: every take's final is the episode voice stem (Tập 6 form; K4.3 divided the stem's span by one take's: 165.7).
+    Three takes placed in scenes S01–S03 of one stem; bad = the S02 take is stretched 1.2× in the stem."""
+    f = F('A13-stem')
+    try:
+        scenes, stem, takes = [], [], []
+        for k, (start, dur, speech) in enumerate([(0.0, 4.0, 3.0), (4.0, 5.0, 3.5), (9.0, 4.0, 2.8)]):
+            sid = f'S{k + 1:02d}'
+            raw = voice_like(speech + 0.2, [(0.1, 0.1 + speech)])
+            f.wav(f'voice-takes/{sid}.wav', raw)
+            st = 1.2 if (bad and sid == 'S02') else 1.0
+            stem.append(voice_like(dur, [(0.3, 0.3 + speech * st)]))
+            scenes.append({'id': sid, 'start': start, 'dur': dur, 'end': start + dur})
+            takes.append({'id': sid, 'raw': f'voice-takes/{sid}.wav', 'final': 'out/audio/stems/voice.wav'})
+        x = np.concatenate(stem)
+        f.wav('out/audio/stems/voice.wav', np.stack([x, x], 1))
+        f.json('out/voice/takes.json', {'takes': takes})
+        f.json('out/timeline.json', {'total': 13.0, 'scenes': scenes})
+        return f.run('A13')
+    finally:
+        f.close()
+
+
+def r01_no_png_case(bad):
+    """R01 judged from out/tension-map.json alone (the factory writes no PNG; K4.3 = MISSING). bad = the R01 bad fixture without its PNG."""
+    f = F('R01-no-png')
+    try:
+        T['R01'](f, bad)
+        os.remove(f.p('out/tension-map.png'))
+        return f.run('R01')
+    finally:
+        f.close()
+
+
+EXTRA.update({'A12/factory-dict': a12_dict_case, 'A13/episode-stem': a13_stem_case, 'R01/no-png': r01_no_png_case})
+
+
+# ---- K4.4: 1 Short, no thumbnail from Episode 8 (chủ dự án 13/10) -----------------------------------------------------------------------------------
+def sh07_case(bad):
+    """SH07 Episode 8: exactly one Short; bad = two Shorts (the D-006 count)."""
+    f = F('SH07')
+    try:
+        f.json('contract.json', {'episode': 'ep008', 'format': 'lab', 'shorts': [{'id': 'SH1', 'file': 'out/shorts/SH1.mp4'}] + ([{'id': 'SH2', 'file': 'out/shorts/SH2.mp4'}] if bad else [])})
+        return f.run('SH07')
+    finally:
+        f.close()
+
+
+def sh07_before_case(bad):
+    """SH07 keeps the old rule before Episode 8: three Shorts in Episode 7 pass (reported only); bad = the same three Shorts in Episode 8."""
+    f = F('SH07-before')
+    try:
+        f.json('contract.json', {'episode': 'ep008' if bad else 'ep007', 'format': 'lab', 'shorts': [{'id': f'SH{k}', 'file': f'out/shorts/SH{k}.mp4'} for k in (1, 2, 3)]})
+        return f.run('SH07')
+    finally:
+        f.close()
+
+
+def f11_no_thumbs_case(bad):
+    """F11 factory list from Episode 8 has no thumbnails: a factory build without out/package/thumb-*.png passes in Episode 8; bad = the same files in Episode 7."""
+    import r_file
+    f = F('F11-no-thumbs')
+    try:
+        f.json('out/timeline.json', {'total': 60.0, 'scenes': []})
+        f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 60.0}}})
+        f.json('contract.json', {'episode': 'ep007' if bad else 'ep008', 'format': 'lab'})
+        for x in r_file.FACTORY_CORE:
+            if x not in r_file.THUMBS and not os.path.exists(f.p(x)):
+                f.text(x.replace('.*', '.flac'), 'x')
+        return f.run('F11')
+    finally:
+        f.close()
+
+
+def f11_thumbs_declared_case(bad):
+    """F11 (A38): contract.json package.thumbnails = 2 (Tập 7: the owner asked for two) → thumb-1, thumb-2 suffice in Episode 7; bad = only thumb-1."""
+    import r_file
+    f = F('F11-thumbs-declared')
+    try:
+        f.json('out/timeline.json', {'total': 60.0, 'scenes': []})
+        f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 60.0}}})
+        f.json('contract.json', {'episode': 'ep007', 'format': 'lab', 'package': {'thumbnails': 2}})
+        for x in r_file.FACTORY_CORE:
+            if x not in r_file.THUMBS and not os.path.exists(f.p(x)):
+                f.text(x.replace('.*', '.flac'), 'x')
+        for x in r_file.THUMBS[:1 if bad else 2]:
+            f.text(x, 'x')
+        return f.run('F11')
+    finally:
+        f.close()
+
+
+def p01_none_case(bad):
+    """P01 (A38): Episode 8 with no thumbnail passes with a note; bad = the same tree in Episode 7 with package.thumbnails 1 and a 640×360 thumb-1."""
+    f = F('P01-none')
+    try:
+        f.json('contract.json', {'episode': 'ep007', 'package': {'thumbnails': 1}} if bad else {'episode': 'ep008'})
+        f.json('design/tokens.json', {'colors': {'bg': '#000000', 'grid': '#222222', 'muted': '#888888'}})
+        if bad:
+            f.ff('-f', 'lavfi', '-i', 'color=c=black:s=640x360', '-frames:v', '1', f.p('out/package/thumb-1.png'))
+            f.json('out/package/thumb-1.json', {'texts': []})
+        return f.run('P01')
+    finally:
+        f.close()
+
+
+def nature_case(bad):
+    """A40 (3): non-passing rules split lỗi thật / pháp lý / thủ tục from their failing metrics (S07 unregistered narration numbers = thủ tục, S07 orphan
+    numbers on screen = lỗi thật, F12 = pháp lý, MISSING = thủ tục). bad = a classifier that calls every failure lỗi thật must not pass."""
+    import tiers
+    m = lambda name, ok=False: {'name': name, 'pass': ok}
+    rows = [{'id': 'S07', 'status': 'FAIL', 'metrics': [m('unregistered numbers in narration'), m('orphan numbers on screen', True)]},
+            {'id': 'S07', 'status': 'FAIL', 'metrics': [m('unregistered numbers in narration'), m('orphan numbers on screen')]},
+            {'id': 'F12', 'status': 'FAIL', 'metrics': [m('listed visuals without a rights entry')]},
+            {'id': 'C07', 'status': 'FAIL', 'metrics': [m('bars cut')]}, {'id': 'S02', 'status': 'MISSING', 'metrics': []}]
+    got = ['real' for _ in rows] if bad else [tiers.nature(r) for r in rows]
+    want = ['procedure', 'real', 'legal', 'real', 'procedure']
+    return common.Result('A40/nature', 'PASS' if got == want else 'FAIL', [common.metric('natures as A40 says', got == want, '==', True)], details=[got])
+
+
+def s23_case(bad):
+    """S23 (A45): Tập 7 S25.4 "That rate is the bar any other use of that dollar gets measured against" → hit; good = the data sentence and "It won't say
+    which loan to take" (won't ≠ won)."""
+    f = F('S23')
+    try:
+        f.contract(format='lab')
+        t = ('That rate is the bar any other use of that dollar gets measured against, before taxes.' if bad else
+             "That rate is what each extra dollar earns, before taxes. It won't say which loan to take.")
+        f.json('out/script.json', {'sentences': [{'id': 'S25.4', 'scene': 'S25', 'text': t, 'start': 0, 'end': 3}]})
+        return f.run('S23')
+    finally:
+        f.close()
+
+
+def s23_allow_case(bad):
+    """S23 (A45): a hit allowed by contract claims.allowTerms with a reason (Tập 8 S01.2 "wasted" is Nina's question) → pass; bad = the reason is two words."""
+    f = F('S23-allow')
+    try:
+        why = 'ok then' if bad else "Nina's own question, answered by the counterweight that follows"
+        f.contract(format='lab', claims={'allowTerms': [{'sentence': 'S01.2', 'term': 'wasted', 'why': why}]})
+        f.json('out/script.json', {'sentences': [{'id': 'S01.2', 'scene': 'S01', 'text': 'Is rent money wasted?', 'start': 0, 'end': 2}]})
+        f.json('out/checks/page.json', {'rules': {}, 'textTrack': [{'t': 0.5, 'scene': 'S01', 'items': [{'text': 'rent: 4% / 5% / 6%'}]}]})
+        return f.run('S23')
+    finally:
+        f.close()
+
+
+def r09_case(bad):
+    """R09 (A41 b): the act1 → act2 turn at 50 s is a J-cut (audio "j") → pass; bad = a plain hard cut there."""
+    f = F('R09')
+    try:
+        f.json('out/timeline.json', {'total': 100, 'scenes': [{'id': 'S01', 'act': 'act1', 'start': 0, 'dur': 50, 'end': 50}, {'id': 'S02', 'act': 'act2', 'start': 50, 'dur': 50, 'end': 100}]})
+        f.json('out/transitions.json', {'cuts': [{'t': 50.0, 'type': 'cut', 'match': None, 'audio': None if bad else 'j'}]})
+        return f.run('R09')
+    finally:
+        f.close()
+
+
+def r09_view_case(bad):
+    """R09 (A41 b): camera frames spread over 6 views (max 1/6) → pass; bad = 30 % of the frames in one view."""
+    f = F('R09-view')
+    try:
+        f.json('out/timeline.json', {'total': 100, 'scenes': [{'id': 'S01', 'act': 'act1', 'start': 0, 'dur': 100, 'end': 100}]})
+        views = [(960, 540, 1.0), (300, 300, 2.0), (1500, 800, 4.0), (300, 800, 1.0), (1500, 300, 2.0), (960, 540, 8.0)]
+        fr = []
+        for i in range(600):
+            v = views[0] if (bad and i < 180) else views[i % 6] if not bad else views[1 + i % 5]
+            fr.append({'t': i / 6, 'x': v[0], 'y': v[1], 'zoom': v[2]})
+        f.json('out/camera.json', {'frames': fr})
+        return f.run('R09')
+    finally:
+        f.close()
+
+
+EXTRA.update({'R09': r09_case, 'R09/view': r09_view_case, 'S23': s23_case, 'S23/allow': s23_allow_case, 'A40/nature': nature_case, 'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
+
+
+# ---- K4.4: quyền + trung thực footage ngoài (A39 + A44; RIGHTS §F; F13 CHẶN, F15 CHÍNH) ------------------------------------------------------------
+RIGHTS_HEAD = '| Mã | Tệp | Loại | URL | Giấy phép | Trích nguyên văn | Ngày tải | SHA-256 | Ghi nguồn |\n|---|---|---|---|---|---|---|---|---|\n'
+CC_QUOTE = '"You are free to: Share — copy and redistribute the material in any medium or format for any purpose, even commercially."'
+
+
+def rights_fixture(name, *, lic='CC BY 4.0', quote=CC_QUOTE, sha_ok=True, desc_credit=True, rid='X-PIC', undeclared=False, kind='archival',
+                   credit='Photo: Jane Doe, CC BY 4.0', ext_t=(10.0, 15.0), total=60.0, cap=None, episode='ep009', rule='F13', texts=None,
+                   via='timeline', ymlcap=None, yaml_scenes=('S02',), more_ext=(), va_paths=None):
+    import hashlib as _h
+    f = F(name)
+    try:
+        blob = b'\x89PNG fixture ' + name.encode()
+        os.makedirs(f.p('work/external'), exist_ok=True)
+        open(f.p('work/external/pic.png'), 'wb').write(blob)
+        sha = _h.sha256(blob).hexdigest() if sha_ok else '0' * 64
+        f.text('RIGHTS.md', '# RIGHTS\n\n' + RIGHTS_HEAD + f'| X-PIC | work/external/pic.png | image | https://example.org/pic | {lic} | {quote} | 2026-10-13 | {sha} | {credit} |\n')
+        sc = [{'id': 'S01', 'start': 0.0, 'dur': 10.0, 'end': 10.0}, {'id': 'S02', 'start': 10.0, 'dur': 5.0, 'end': 15.0},
+              {'id': 'S03', 'start': 15.0, 'dur': total - 15.0, 'end': total, **({'bg': 'media/other.jpg'} if undeclared else {})}]
+        ext = [{'file': 'work/external/pic.png', 'rid': rid, 'kind': kind, 't0': ext_t[0], 't1': ext_t[1]}] + [
+            {'file': 'work/external/pic.png', 'rid': rid, 'kind': kind, 't0': a, 't1': b} for a, b in more_ext]
+        if va_paths is not None:
+            f.json('out/visual-assets.json', {'assets': [{'name': 'photo', 'kind': 'image', 'paths': va_paths}], 'generated': [{'glob': 'work/*', 'generator': 'x.py'}]})
+        f.json('out/timeline.json', {'total': total, 'scenes': sc, **({'external': ext} if via == 'timeline' else {})})
+        yml = {}
+        if via == 'yaml':
+            yml['external'] = [{'id': 'f1', 'rights': rid, 'kind': kind, 'file': 'work/external/pic.png', 'scenes': list(yaml_scenes)}]
+        if ymlcap is not None:
+            yml['footage'] = {'max_share': ymlcap}
+        if yml:
+            import yaml as _y
+            f.text('episode.yaml', _y.safe_dump(yml))
+        f.text('out/package/description.md', 'About this video.\n\nCredits: ' + (credit if desc_credit else 'none') + '\n')
+        f.json('contract.json', {'episode': episode, 'format': 'lab', **({'rights': {'externalMaxShare': cap}} if cap is not None else {})})
+        if texts is not None:
+            f.json('out/checks/page.json', {'rules': {}, 'textTrack': [{'t': t, 'scene': 'S02', 'items': [{'text': x} for x in xs]} for t, xs in texts]})
+            f.json('out/claims.json', {'claims': [{'claimId': 'p', 'value': 613, 'display': '$613', 'formula': 'gap', 'shownIn': ['S02']}]})
+        return f.run(rule)
+    finally:
+        f.close()
+
+
+ARCH_OK = [(9.0, ['chart']), (10.0, ['Source: Library of Congress, 1936'])]
+F13_CASES = {
+    'F13': lambda bad: rights_fixture('F13-sha', sha_ok=not bad),
+    'F13/verbatim': lambda bad: rights_fixture('F13-verbatim', quote='CC BY 4.0 (see link)' if bad else CC_QUOTE),
+    'F13/row': lambda bad: rights_fixture('F13-row', rid='X-NONE' if bad else 'X-PIC'),
+    'F13/nc': lambda bad: rights_fixture('F13-nc', lic='CC BY-NC 4.0' if bad else 'CC BY 4.0'),
+    'F13/nd': lambda bad: rights_fixture('F13-nd', lic='CC BY-ND 4.0' if bad else 'CC BY 4.0'),
+    'F13/by-sa': lambda bad: rights_fixture('F13-by-sa', lic='CC BY-SA 4.0' if bad else 'CC BY 4.0'),
+    'F13/whitelist': lambda bad: rights_fixture('F13-whitelist', lic='Stock licence (custom)' if bad else 'Pexels License'),
+    'F13/undeclared': lambda bad: rights_fixture('F13-undeclared', undeclared=bad),
+    'F13/credit': lambda bad: rights_fixture('F13-credit', desc_credit=not bad),
+    'F13/osm': lambda bad: rights_fixture('F13-osm', lic='ODbL 1.0 (OpenStreetMap data)',
+                                          quote='"You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors."',
+                                          credit='© OpenStreetMap contributors' if not bad else '—'),
+    'F13/kind': lambda bad: rights_fixture('F13-kind', kind='image' if bad else 'illustrative'),
+    'F13/share-ep8': lambda bad: rights_fixture('F13-share8', episode='ep008', ext_t=(10.0, 20.0) if bad else (10.0, 18.0)),   # 16.7 % / 13.3 % vs 15 %
+    'F13/share-ep9': lambda bad: rights_fixture('F13-share9', ext_t=(10.0, 23.0) if bad else (10.0, 20.0)),                  # 21.7 % / 16.7 % vs 20 %
+    'F13/share-raise-ignored': lambda bad: rights_fixture('F13-raise', cap=0.5, ext_t=(10.0, 23.0) if bad else (10.0, 20.0)),
+    'F13/share-yaml-lower': lambda bad: rights_fixture('F13-ymlcap', ymlcap=0.10 if bad else 0.20, ext_t=(10.0, 17.0)),       # 11.7 %
+    'F13/yaml-scenes': lambda bad: rights_fixture('F13-yaml', via='yaml', yaml_scenes=['S02', 'S03'] if bad else ['S02']),   # episode.yaml external, times = its scenes: 50 s / 5 s of 60
+    'F15': lambda bad: rights_fixture('F15', rule='F15', texts=[(9.0, ['chart']), (10.0, ['A crowded office' if bad else 'Source: Library of Congress, 1936'])]),
+    'F15/illustrative': lambda bad: rights_fixture('F15-illus', rule='F15', kind='illustrative',
+                                                   texts=[(10.0, ['Illustration', 'gap $613' if bad else 'a tight month'])]),
+    'F15/run': lambda bad: rights_fixture('F15-run', rule='F15', ext_t=(10.0, 17.0) if bad else (10.0, 16.0), texts=ARCH_OK),
+    'F15/opening': lambda bad: rights_fixture('F15-open', rule='F15', ext_t=(3.0, 8.0) if bad else (5.0, 10.0), texts=[(0.0, ['Source: Library of Congress, 1936'])]),
+    'F13/visual-assets': lambda bad: rights_fixture('F13-va', va_paths=['work/external/other.jpg'] if bad else ['work/external/pic.png']),
+    'F13/osm-tiles': lambda bad: rights_fixture('F13-osm-tiles', lic='OpenStreetMap tiles' if bad else 'ODbL 1.0 (OpenStreetMap data)',
+                                                quote='"You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors."',
+                                                credit='© OpenStreetMap contributors'),
+    'F15/run-joined': lambda bad: rights_fixture('F15-joined', rule='F15', ext_t=(10.0, 14.0), more_ext=[(14.0, 18.0)] if bad else [(20.0, 24.0)],
+                                                 texts=ARCH_OK + [(19.0, ['Source: Library of Congress, 1936'])]),
+    'F15/yaml-approx': lambda bad: rights_fixture('F15-approx', rule='F15', via='yaml', yaml_scenes=['S02', 'S03'],
+                                                  texts=[(9.0, ['chart']), (10.0, ['A crowded office' if bad else 'Source: Library of Congress, 1936'])]),
+}
+# REVIEWER K4.4 PHỤ 10: the bad fixture must fail on the metric the case is about, not on another one
+WANT_METRIC = {'F13': 'record', 'F13/verbatim': 'record', 'F13/row': 'record', 'F13/nc': 'licence', 'F13/nd': 'licence', 'F13/by-sa': 'licence',
+               'F13/whitelist': 'licence', 'F13/undeclared': 'record', 'F13/credit': 'credit', 'F13/osm': 'credit', 'F13/kind': 'record',
+               'F13/share-ep8': 'share', 'F13/share-ep9': 'share', 'F13/share-raise-ignored': 'share', 'F13/share-yaml-lower': 'share',
+               'F13/yaml-scenes': 'share', 'F13/visual-assets': 'record', 'F13/osm-tiles': 'licence', 'F15': 'year + source',
+               'F15/illustrative': 'illustrative', 'F15/run': 'over 6 s', 'F15/run-joined': 'over 6 s', 'F15/opening': 'first 5 s',
+               'F15/yaml-approx': 'year + source'}
+
+
+def _want(name, fn):
+    def g(bad):
+        r = fn(bad)
+        failing = [m['name'] for m in r.get('metrics', []) if not m['pass']]
+        if bad and r['status'] == 'FAIL' and (len(failing) != 1 or WANT_METRIC[name] not in failing[0]):
+            return common.Result(name.split('/')[0], 'FIXTURE-ERROR', note=f'failed on {failing}, want only "{WANT_METRIC[name]}"')
+        return r
+    return g
+
+
+F13_CASES = {k: _want(k, v) for k, v in F13_CASES.items()}
+EXTRA.update(F13_CASES)
+
+
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
     rows = []

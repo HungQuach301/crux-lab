@@ -323,11 +323,15 @@ def token_share(img, tokens, tol=12):
 
 @rule('P01', 'DX-P2', 'out/package/thumb-1..3.png with sidecars thumb-N.json texts[] (text, box [x,y,w,h], fontPx); design/tokens.json colours. Token share = pixels within 12 (RGB) of a token '
       'or of a blend of two tokens. Readability at 10%: area-downscale to 128×72; in each text box, WCAG contrast between the 95th and 5th luminance percentile',
-      '3 thumbnails, each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1')
+      'N thumbnails (see measure), each 1280×720; token share ≥ 97%; every text fontPx ≥ 90 (≥ 9 px at 10%) and contrast at 10% ≥ 3:1 (K4.4, A38: N = contract.json package.thumbnails, else 0 from Episode 8 and 3 before)')
 def p01_thumbs(ctx):
+    from r_file import thumbs_required
+    k = thumbs_required(ctx)   # K4.4 (A38): contract.json package.thumbnails, else 0 from Episode 8 (chủ dự án 13/10) and 3 before
+    if k == 0:
+        return verdict('P01', [metric('thumbnails required', 0, '==', 0)], note='no thumbnail in the delivery (package.thumbnails 0, or Episode 8 on: chủ dự án 13/10)')
     tokens = list(ctx.json('design/tokens.json')['colors'].values())
     ms, det = [], []
-    for n in (1, 2, 3):
+    for n in range(1, k + 1):
         p = ctx.need(f'out/package/thumb-{n}.png')
         meta = ctx.json(f'out/package/thumb-{n}.json')
         img = read_png(p)

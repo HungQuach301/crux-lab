@@ -22,17 +22,19 @@ Máy kiểm không đọc mã dựng. Số liệu tự đo (ffprobe, giải mã 
 | `out/camera.json` | máy quay 2.5D, mỗi khung: `{frames:[{t, x, y, zoom}]}` — `x, y` = tâm khung trên mặt phẳng biểu đồ (px của trang), `zoom` = tỉ lệ (1 = cả trang). Dạng cũ của bài D `{fovAxis, frames:[{t, pos, target, fovDeg, focusDist}]}` vẫn đọc được. Có file này thì "khung đang trong cú máy" đo từ nó, `scenes[].move` bị bỏ qua | A10, V05, V13, trang |
 | `out/sfx-events.json` | `{events:[{t, x}]}` — `x` = toạ độ ngang (px) của vật phát tiếng | A11 |
 | `out/sonify-events.json` | `{fps, bar:[{id, f0, f1, value}], line:[{f, id, slope}], dot:[{f, id, y}]}` — khung bắt đầu của mỗi tiếng theo dữ liệu. Máy kiểm hợp nhất với các sự kiện biểu đồ tự đo trên trang (camera đứng yên), nên khai thiếu không làm sự kiện biến mất | T1 |
-| `out/tempo-map.json` | `{bpm, beats:[t], accents:[t]}` | A12, R04, T2 |
+| `out/tempo-map.json` | `{bpm, beats:[t], accents:[t]}` — K4.4 (A33): mỗi mục beats/accents là số giây hoặc `{t, …}` (dạng nhà máy `{at, t}`) | A12, R04, T2 |
 | `out/transitions.json` | `{cuts:[{t, from, to, type:"cut"\|"dissolve"\|…, match:"geometric"\|"semantic"\|null, audio:"j"\|"l"\|null, action?:true, reason}]}` | A12, R01, R04, R06, V10 |
 | `out/cues.json` | `{cues:[{t, end, function, key, tempo, layer}], silences:[…]}` | R02 |
-| `out/tension-map.json` + `.png` | `{samples:[{t, cutRate, audioDensity, musicLevel, tension}], peaks:[{t}], valleys:[{t}]}` | R01 |
+| `out/tension-map.json` (K4.4, A33: `.png` không còn bắt buộc cho R01) | `{samples:[{t, cutRate, audioDensity, musicLevel, tension}], peaks:[{t}], valleys:[{t}]}` | R01 |
 | `out/adbreaks.json` | `{breaks:[t]}` | S14 |
 | file mô hình (`model.output` của hợp đồng tập, thường `out/model.json`) | dạng theo loại mô hình (`model.kind`, mục "Loại mô hình" dưới đây) | S01 |
 | file nguồn (`data.sources` của hợp đồng tập, thường `data/sources.json`) | `{files:[{path, role:"primary"\|"crosscheck", url, sha256, downloaded, terms:{quote, url}}], mismatches:[{key\|year, series, note}]}` | S03, S04 |
 | các chuỗi dữ liệu đã chuẩn hoá mà hợp đồng tập khai trong `data.crosscheck[]` và `model.params` | CSV có dòng tiêu đề; cột khoá và cột giá trị do hợp đồng tập chỉ ra | S01, S04, S05 |
 | `preprod/shotlist.json`, `preprod/storyboard.*`, `preprod/color-script.*` | `{shots:[{id, scene, size, move, moveReason}]}` (2.5D: không có tiêu cự giả lập, không có góc máy 3D) | V01 |
 | `design/tokens.json` | `{colors:{name:hex}, series:{key:hex}, seriesOf:{series:hex}}` — `colors.bg`, `colors.grid`, `colors.muted` bắt buộc | trang, P01 |
-| `out/package/thumb-{1,2,3}.png` + `.json` | ảnh 1280×720; `{texts:[{text, box:[x,y,w,h], fontPx}]}` | P01 |
+| `out/package/thumb-{1,2,3}.png` + `.json` | ảnh 1280×720; `{texts:[{text, box:[x,y,w,h], fontPx}]}` — K4.4: **từ Tập 8 không giao thumbnail** (chủ dự án 13/10; số tập lấy từ `contract.json episode`): F11 bỏ ba tệp này khỏi danh sách phát hành, P01 đạt kèm ghi chú | P01, F11 |
+| `out/timeline.json external[]` (+ `scenes[].external[]`), hoặc `episode.yaml external[]` (K4.4, A39 + A44) | **footage ngoài** (RIGHTS.md §F) — mọi tệp ảnh/video/bản đồ không do dự án tự sinh đi vào hình. Timeline (nhà máy ghi, giờ chính xác): `{file, rid, kind: archival\|illustrative, t0, t1}`. `episode.yaml` (tay, trước khi nhà máy ghi): `{id, rights, kind, file, scenes?: [..] \| t0?, t1?}` — không có `t0/t1` thì lấy trọn khoảng các cảnh (cận trên cho trần). `file` từ gốc tập (tệp ở `work/external/`, ngoài git, có mặt ở container chạy checks) hoặc từ gốc repo khi bắt đầu bằng `episodes/`; `rid`/`rights` = Mã dòng RIGHTS.md §F6 (cột: Mã · Tệp · Loại · URL · Giấy phép · Bậc (F1) · Trích nguyên văn · Ngày tải · SHA-256 · Ghi nguồn). Mọi chuỗi trong `out/timeline.json` trỏ tới tệp ảnh/video/bản đồ mà không khai và không khớp luật tự sinh (`generated[].glob`) = footage không hồ sơ. Trần: Tập 8 15 %, sau 20 %; `episode.yaml footage.max_share` / `contract rights.externalMaxShare` chỉ hạ được. F15 đọc chữ trên hình qua `out/checks/page.json textTrack` | F13, F15, R09 |
+| `episode.yaml map:` (K4.4, A41 b; tuỳ chọn) | bản đồ liền mạch máy đọc: `{<cảnh>: {in: cắt\|cắt khớp hình\|J-cut\|L-cut\|hoà, …}}` — R09 so kiểu vào ở các chuyển hồi với `out/transitions.json` (match / audio j·l). Các cột khác của `BAN-DO-LIEN-MACH.md` (màu hồi, vật thể ±1 s) chờ cờ nhà máy | R09 |
 | `out/page.json` | `{url, ready?}` — trang dựng, cùng trang đã sinh ra video | trang, F12 (K3.1: tài nguyên trang nạp) |
 
 ## Trang dựng (§Page)
@@ -63,7 +65,7 @@ Mỗi tập có một hợp đồng ở `episodes/<tập>/contract.json`. Bên d
 | `claims.core`, `claims.decisive`, `claims.illustrative` | có (S05: `illustrative`; S16: `decisive`) | mảng `claimId` | S05, S16 |
 | `claims.conditions` | có khi có claim `conditional` (K3.8, S17) | `[{id, pattern, claims?}]`: nhãn điều kiện phải có trên **mọi khung** hiện số của claim điều kiện; `pattern` = biểu thức chính quy, không phân biệt hoa thường; `claims` = claim phải mang cờ `conditional: <id>` trong `out/claims.json`. Tập 3: "IF today's guarantee had existed"; Tập 4: "a home that rose like its metro area's average" (hoặc dạng rút gọn đã khoá) | S17 |
 | `format` | có từ D-006 (K3.8) | `"lab"`, `"101"` hoặc `"deep"` (D-012, K4.2b). F07: 101 480–540 s, lab 540–660 s, deep 840–1020 s (CHÍNH); S14: lab 2 điểm chèn, 101 1 điểm, deep 2–3 điểm cách nhau ≥ 180 s; S15: tổng lab ≥ 540 s, deep ≥ 840 s, 101 không sàn. Hợp đồng trước D-006 (không có `format`) đọc là `lab` | F07, S14, S15, SH01–SH06 |
-| `shorts` | có khi có `format` (K3.8, D-006 Q3) | `[{file}]`: đường dẫn (từ gốc tập) của mỗi Short 9:16 đã giao. Hợp đồng không có `format` và không có `shorts` (Tập 1–3): luật Shorts đạt, ghi chú "không có Short" | SH01–SH05 |
+| `shorts` | có khi có `format` (K3.8, D-006 Q3) | `[{file}]`: đường dẫn (từ gốc tập) của mỗi Short 9:16 đã giao. Hợp đồng không có `format` và không có `shorts` (Tập 1–3): luật Shorts đạt, ghi chú "không có Short" K4.4 (chủ dự án 13/10): **từ Tập 8 đúng 1 Short** (SH07, CHÍNH; `episode` = "ep008" trở đi); Tập 4–7 giữ 2–3 của D-006 (chỉ báo). | SH01–SH05, SH07 |
 | `claims.assumptions` | có (K3, S02) | `[{id, pattern}]`: giả định của mô hình phải hiện trên màn hình (thẻ phương pháp và ngoài thẻ); `pattern` = biểu thức chính quy, không phân biệt hoa thường. Bài D: `no-tax`, `no-fee` (regex K1 `NO_TAX`, `NO_FEE`) | S02 |
 | `model.kind` | có | tên loại mô hình mà máy kiểm có bản tính lại độc lập (bảng "Loại mô hình") | S01, S05 |
 | `model.output` | có | đường dẫn file mô hình của bên dựng | S01 |
@@ -77,6 +79,9 @@ Mỗi tập có một hợp đồng ở `episodes/<tập>/contract.json`. Bên d
 | `sonification.bandsHz` | có | `[[lo, hi], …]` Hz: dải tần tiếng dữ liệu được đặt, lấy từ cue sheet của tập. Phải chứa ≥ 50% năng lượng của stem `sonify` (T1 đo lại) | T1 |
 | `artefacts` | có (`M3`) | `{<mốc>: [đường dẫn hoặc glob]}`: artefact bên dựng phải giao ở từng mốc (M1, M2, M3). Mốc phát hành `M3` phải gồm mọi file phát hành ở bảng đầu trang này | F11 |
 | `rights.visual`, `rights.generated` | không (K3.1: F12 cần `rights.visual` **hoặc** `out/visual-assets.json`) | `visual: [{name, kind, path?, paths?, family?}]`, `generated: [{glob, generator}]` (như manifest); `kind` ∈ `image`, `document`, `font`, `model3d`, `texture`, `quote-card`: tài sản hình của tập (ảnh, tài liệu, phông chữ, mô hình và texture 3D, thẻ trích dẫn dựng lại). Hợp nhất với manifest của bên dựng; không có cả hai thì F12 MISSING | F12 |
+| `rights.externalMaxShare` (K4.4) | không | số 0–0,2: hạ trần thời lượng footage ngoài của tập (mặc định Tập 8 0,15, sau 0,20; không nâng được) | F13 |
+| `package.thumbnails` (K4.4, A38) | không | số thumbnail giao (0–3); không khai = 0 từ Tập 8, 3 trước | F11, P01 |
+| `claims.forbiddenTerms`, `claims.allowTerms` (K4.4, A45) | không | `forbiddenTerms: [regex]` thêm vào danh sách từ dễ đọc thành lời khuyên (`ADVICE_TERMS`); `allowTerms: [{sentence \| scene, term, why}]` cho phép một từ ở một câu/cảnh (lý do ≥ 5 từ, vd câu hỏi của nhân vật) | S23 |
 
 ### Loại mô hình (`model.kind`)
 

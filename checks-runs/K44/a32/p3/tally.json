@@ -1,0 +1,979 @@
+{
+ "ctl": {
+  "candidate_set": "ctl",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "ctl",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Greyed crate and '?', not 9 lit outcome. / Grey crate and question mark; no dark crates",
+     "Greyed crate and '?' seen; not 9 lit outcome. / Question mark only; misses dark crates to 9"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B03",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Line near first-check line, ends below; correct. / Line ends just under first-check line; only asks",
+     "Line ends just under first-check line. / Line ends slightly below first-check line"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B04",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Two cards, unmodeled gap '?' captured. / Two cards, greyed unmeasured gap with question mark",
+     "Two cards, unmodeled gap '?' captured. / Two cards, unmeasured gap with question mark"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B06",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "+48.6% versus +64.3% bars captured. / Check +48.6% versus prices +64.3%",
+     "Two bars +48.6 and +64.3 captured. / Two bars 48.6 versus 64.3"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B07",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "9 of 10 crates, +2% captured. / 9 of 10 crates lit today",
+     "9 of 10 crates lit captured. / 9 of 10 crates lit"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B08",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Level 6 of 10, different starting sizes noted. / Level row 6 of 10, different sizes noted",
+     "Level 6 of 10, starting sizes unmodeled. / Level row 6 of 10, sizes not modeled"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B09",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "FAIL",
+    "why": [
+     "12 of 15 noted, but meaning muddled. / Dips noted, 12 of 15 read as periods",
+     "Dips and 12 of 15 seen, but reading muddled. / Walk along line with dips; reads as price level"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B10",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Falls below baseline noted; meaning hedged, thin. / Line and dimming block seen, wrong ending, unsure",
+     "Line drops below baseline at end, but hedged; reads 'returns to baseline' first. / Peak and later drop below baseline seen, but vague; own advice"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B12",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Level check falls, 9 in 10 by year 5, '?' noted. / Level line 9 in 10 by year 5, question mark",
+     "Level falls fast, 9 in 10 at year 5, '?'. / Level 9 in 10 at year 5, question mark"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B13",
+    "kind": "image",
+    "scores": [
+     1,
+     0.5,
+     0.5
+    ],
+    "readers": 3,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Ruth's stretch among 715 captured. / Ruth's stretch among 715 lined up",
+     "Ruth's stretch among 715 captured. / Ruth one of 715; shrinking into tile missed",
+     "Ruth's stretch is one of 715 stretches; captured. / 715 stretches noted; Ruth's chart shrinking into last tile missed"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B14",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "17 of 715, 1 in 42 captured. / 17 of 715, 1 in 42",
+     "17 of 715 kept up captured. / 17 of 715 kept up, nearly all fell short"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B15",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Early cluster, none since, Ruth captured. / Early cluster, rest low, Ruth at end",
+     "Early left cluster, none since, Ruth captured. / Early cluster, none since, Ruth at end"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B16",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Median ~80.7%, 8 of 10 crates. / 80.7% median, 8 of 10 crates",
+     "Median 80.7%, 8 of 10 crates correct. / Median 80.7%, 8 of 10 crates"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B17",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Median 54.3%, about year 8 captured. / 54.3% median, year 8 marker",
+     "Median 54.3%, about half, year 8 captured. / Median 54.3% about half, year 8"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B19",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "0 of 120, 0 of 79, Ruth 90.4% captured. / 0 of 120, 0 of 79, Ruth 90.4%",
+     "1990s and 2000s starts all fell short; Ruth captured. / 1990s and 2000s tiles all short; Ruth"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B21",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "0 of 655 kept up captured. / 0 of 655 kept up, no cushion tile",
+     "0 of 655, no kept-up tiles captured. / 0 of 655 kept up, no cushion tile"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B22",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "CPI-W and PCE grids described correctly. / CPI-W similar, PCE more scattered captured",
+     "Extra grids for CPI-W and PCE captured. / CPI-W, PCE grids captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl dimming to 4 of 10 captured. / Carl crates fade to 4, Ruth inset",
+     "Carl's dimming to about 4 of 10 captured. / Carl crates fade to 4; Ruth inset"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B25",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl's fewer-than-half and level under a third captured. / Carl under half, level under a third",
+     "Carl crates, 43.1% vs 29.0% captured. / Carl under half, level 29.0%"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B27",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Edna fully lit, overlap with Carl captured. / Edna fully lit, overlap years",
+     "Edna lit, shared-years overlap captured. / Edna lit, shared-years overlap captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B29",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Edna 10, Ruth 9, Carl 4 captured. / Edna 10, Ruth 9, Carl 4",
+     "Edna 10, Ruth 9, Carl 4 captured. / Edna 10, Ruth 9, Carl 4 crates"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B30",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Raise ladder and shares correct. / Ladder of raises, half at 3.1, all at 6.38",
+     "Ladder of raises and shares correct. / Ladder of raises, half at 3.1, all at top"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B32",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "9 of 10 crates correct; mild own takeaway. / 9 of 10 crates, rising card correct; no action drawn",
+     "9 of 10 crates with +2% check captured. / 9 of 10 crates, +2% card captured"
+    ]
+   },
+   {
+    "set": "pos",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     0,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Says crates don't shrink; misses core idea. / Says crates don't change; misses crates going dark",
+     "Notes greyed crate and '?', not 9 of 10 outcome. / Misses crates going dark to 9"
+    ]
+   },
+   {
+    "set": "pos",
+    "id": "B10",
+    "kind": "image",
+    "scores": [
+     0,
+     0
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "FAIL",
+    "why": [
+     "Says line ends at baseline; misses drop below. / Unsure; says tail removed, line ends at baseline",
+     "Line peak then return; unsure what it means. / Misreads: tail removed, line returns to baseline"
+    ]
+   },
+   {
+    "set": "pos",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl's shrinking crates to 4 captured. / Carl crates down to 4 of 10",
+     "Carl 1966, dimming to 4 of 10, Ruth inset. / Carl crates dim to 4; Ruth inset"
+    ]
+   }
+  ],
+  "gate_beats": 23,
+  "gate_pass": 19,
+  "pending": [],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "share": 0.826,
+  "verdict": "PASS",
+  "near_threshold": true
+ },
+ "pos": {
+  "candidate_set": "pos",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "pos",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     0,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Says crates don't shrink; misses core idea. / Says crates don't change; misses crates going dark",
+     "Notes greyed crate and '?', not 9 of 10 outcome. / Misses crates going dark to 9"
+    ]
+   },
+   {
+    "set": "pos",
+    "id": "B10",
+    "kind": "image",
+    "scores": [
+     0,
+     0
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "FAIL",
+    "why": [
+     "Says line ends at baseline; misses drop below. / Unsure; says tail removed, line ends at baseline",
+     "Line peak then return; unsure what it means. / Misreads: tail removed, line returns to baseline"
+    ]
+   },
+   {
+    "set": "pos",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl's shrinking crates to 4 captured. / Carl crates down to 4 of 10",
+     "Carl 1966, dimming to 4 of 10, Ruth inset. / Carl crates dim to 4; Ruth inset"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Greyed crate and '?', not 9 lit outcome. / Grey crate and question mark; no dark crates",
+     "Greyed crate and '?' seen; not 9 lit outcome. / Question mark only; misses dark crates to 9"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B03",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Line near first-check line, ends below; correct. / Line ends just under first-check line; only asks",
+     "Line ends just under first-check line. / Line ends slightly below first-check line"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B04",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Two cards, unmodeled gap '?' captured. / Two cards, greyed unmeasured gap with question mark",
+     "Two cards, unmodeled gap '?' captured. / Two cards, unmeasured gap with question mark"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B06",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "+48.6% versus +64.3% bars captured. / Check +48.6% versus prices +64.3%",
+     "Two bars +48.6 and +64.3 captured. / Two bars 48.6 versus 64.3"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B07",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "9 of 10 crates, +2% captured. / 9 of 10 crates lit today",
+     "9 of 10 crates lit captured. / 9 of 10 crates lit"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B08",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Level 6 of 10, different starting sizes noted. / Level row 6 of 10, different sizes noted",
+     "Level 6 of 10, starting sizes unmodeled. / Level row 6 of 10, sizes not modeled"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B09",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "FAIL",
+    "why": [
+     "12 of 15 noted, but meaning muddled. / Dips noted, 12 of 15 read as periods",
+     "Dips and 12 of 15 seen, but reading muddled. / Walk along line with dips; reads as price level"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B10",
+    "kind": "image",
+    "scores": [
+     0.5,
+     0.5
+    ],
+    "readers": 2,
+    "correct": 0,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Falls below baseline noted; meaning hedged, thin. / Line and dimming block seen, wrong ending, unsure",
+     "Line drops below baseline at end, but hedged; reads 'returns to baseline' first. / Peak and later drop below baseline seen, but vague; own advice"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B12",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Level check falls, 9 in 10 by year 5, '?' noted. / Level line 9 in 10 by year 5, question mark",
+     "Level falls fast, 9 in 10 at year 5, '?'. / Level 9 in 10 at year 5, question mark"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B13",
+    "kind": "image",
+    "scores": [
+     1,
+     0.5,
+     0.5
+    ],
+    "readers": 3,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "FAIL",
+    "why": [
+     "Ruth's stretch among 715 captured. / Ruth's stretch among 715 lined up",
+     "Ruth's stretch among 715 captured. / Ruth one of 715; shrinking into tile missed",
+     "Ruth's stretch is one of 715 stretches; captured. / 715 stretches noted; Ruth's chart shrinking into last tile missed"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B14",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "17 of 715, 1 in 42 captured. / 17 of 715, 1 in 42",
+     "17 of 715 kept up captured. / 17 of 715 kept up, nearly all fell short"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B15",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Early cluster, none since, Ruth captured. / Early cluster, rest low, Ruth at end",
+     "Early left cluster, none since, Ruth captured. / Early cluster, none since, Ruth at end"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B16",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Median ~80.7%, 8 of 10 crates. / 80.7% median, 8 of 10 crates",
+     "Median 80.7%, 8 of 10 crates correct. / Median 80.7%, 8 of 10 crates"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B17",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Median 54.3%, about year 8 captured. / 54.3% median, year 8 marker",
+     "Median 54.3%, about half, year 8 captured. / Median 54.3% about half, year 8"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B19",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "0 of 120, 0 of 79, Ruth 90.4% captured. / 0 of 120, 0 of 79, Ruth 90.4%",
+     "1990s and 2000s starts all fell short; Ruth captured. / 1990s and 2000s tiles all short; Ruth"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B21",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "0 of 655 kept up captured. / 0 of 655 kept up, no cushion tile",
+     "0 of 655, no kept-up tiles captured. / 0 of 655 kept up, no cushion tile"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B22",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "CPI-W and PCE grids described correctly. / CPI-W similar, PCE more scattered captured",
+     "Extra grids for CPI-W and PCE captured. / CPI-W, PCE grids captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B24",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl dimming to 4 of 10 captured. / Carl crates fade to 4, Ruth inset",
+     "Carl's dimming to about 4 of 10 captured. / Carl crates fade to 4; Ruth inset"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B25",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Carl's fewer-than-half and level under a third captured. / Carl under half, level under a third",
+     "Carl crates, 43.1% vs 29.0% captured. / Carl under half, level 29.0%"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B27",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Edna fully lit, overlap with Carl captured. / Edna fully lit, overlap years",
+     "Edna lit, shared-years overlap captured. / Edna lit, shared-years overlap captured"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B29",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Edna 10, Ruth 9, Carl 4 captured. / Edna 10, Ruth 9, Carl 4",
+     "Edna 10, Ruth 9, Carl 4 captured. / Edna 10, Ruth 9, Carl 4 crates"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B30",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Raise ladder and shares correct. / Ladder of raises, half at 3.1, all at 6.38",
+     "Ladder of raises and shares correct. / Ladder of raises, half at 3.1, all at top"
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B32",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "9 of 10 crates correct; mild own takeaway. / 9 of 10 crates, rising card correct; no action drawn",
+     "9 of 10 crates with +2% check captured. / 9 of 10 crates, +2% card captured"
+    ]
+   }
+  ],
+  "gate_beats": 3,
+  "gate_pass": 1,
+  "pending": [],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "share": 0.333,
+  "verdict": "FAIL",
+  "near_threshold": false
+ },
+ "cost_usd": 2.263,
+ "third_reader": [
+  [
+   "ctl",
+   "B13"
+  ]
+ ]
+}

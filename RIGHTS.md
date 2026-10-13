@@ -49,6 +49,12 @@ CC **NC** (phi thương mại: kênh có quảng cáo) · CC **ND** (không cho 
 2. Lưu tệp gốc ngoài git (`work/external/`); trong repo chỉ có RIGHTS + băm SHA-256.
 3. Checks A39 chặn khi thiếu hồ sơ, giấy phép cấm hoặc vượt trần. Ngoài danh sách trắng → **hỏi chủ dự án** (ngoại lệ pháp lý, CHARTER §5).
 
+### F6. Bảng footage ngoài (checks F13/F15, K4.4 — A39)
+Mỗi tệp ảnh/video/bản đồ ngoài một dòng, trước khi dựng (F5). Tập khai tệp trong `out/timeline.json external[]` hoặc `episode.yaml external[]` bằng `rid`/`rights` = Mã (`checks/CONTRACT.md`). Cột Giấy phép = tên ngắn (vd `CC BY 4.0`, `CC0`, `Pexels License`, `ODbL 1.0 (OpenStreetMap data)`, `Public domain (17 U.S.C. §105)`, `No known restrictions (LoC)`); Trích nguyên văn = câu giấy phép trong ngoặc kép; SHA-256 = băm tệp đang dùng (tệp ở `work/external/`).
+
+| Mã | Tệp | Loại | URL | Giấy phép | Bậc (F1) | Trích nguyên văn | Ngày tải | SHA-256 | Ghi nguồn |
+|---|---|---|---|---|---|---|---|---|---|
+
 ## G. SFX ghi âm thật (D-013)
 Chỉ **CC0** hoặc **CC BY** (4.0 ưu tiên; 3.0 nhận được khi ghi công đủ tiêu đề–tác giả–nguồn–giấy phép) (Freesound lọc theo giấy phép; trang tệp, không trang bộ sưu tập). Cấm: CC BY-NC, Sampling+, BBC RemArc (phi thương mại), kho trả phí, YouTube Audio Library. Mỗi tệp một dòng ở bảng trên (mã `S-<tên>`, URL tệp, tác giả, giấy phép trích nguyên văn + link, ngày tải); CC BY → ghi công trong mô tả tập dùng nó. Nhạc vẫn bằng mã (A-MUSIC); nhạc người sáng tác CC BY xét lại ở G1 Tập 9; không nhạc AI.
 

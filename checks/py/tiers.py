@@ -18,6 +18,8 @@ TIERS = {
     'F08': (BLOCK, 'kỹ thuật file: banding do mã hoá'),
     'F09': (BLOCK, 'kỹ thuật file: phụ đề đúng lời, đúng quy cách'),
     'F10': (BLOCK, 'kỹ thuật file: chapters hợp lệ với YouTube (≥ 3, từ 0:00, mỗi chương ≥ 10 s)'),
+    'F13': (BLOCK, 'quyền footage ngoài (A39, RIGHTS §F, D-013): hồ sơ RIGHTS.md đủ (URL, giấy phép nguyên văn, ngày tải, SHA khớp), giấy phép thuộc danh sách trắng và không NC/ND/BY-SA, ghi nguồn CC BY/OSM trong mô tả, thời lượng ≤ trần (Tập 8 15 %, sau 20 %) (K4.4)'),
+    'F15': (MAJOR, 'trung thực footage ngoài (A39, RIGHTS §F3–F4): tư liệu có năm + nguồn trên hình, minh hoạ có nhãn và không đi cùng số claim, mỗi lần ≤ 6 s, không trong 5 s đầu (K4.4)'),
     'F11': (BLOCK, 'kỹ thuật file: artefact phát hành đã giao'),
     'F12': (BLOCK, 'quyền tài sản'),
     # loudness, true peak, the master's audio technique
@@ -55,11 +57,14 @@ TIERS = {
     'V17': (REFERENCE, 'đọc kịp: nhãn ≥ 1 s mỗi 3 từ (K4.0, A24): chỉ báo cho tới khi hiệu chuẩn (A24)'),
     'R08': (REFERENCE, 'nhịp trên spine: quãng tĩnh có lời ≤ 8 s (K4.0, A23): chỉ báo — đối chứng dương C4 Tập 5 trúng 2/4, chưa hiệu chuẩn'),
     'S21': (MAJOR, 'lỗi số = 0 cả trong mô tả YouTube (K4.0, A25; hiệu chuẩn: Tập 3 bắt đúng 1954 không claim, Tập 4, Tập 5 đạt)'),
+    'S23': (MAJOR, 'từ dễ đọc thành lời khuyên (A45, luật tạm chủ dự án 13/10): CHÍNH vì danh sách báo sai trên Tập 5–7 (A40 (2)); ngoại lệ khai theo câu'),
+    'R09': (REFERENCE, 'bản đồ liền mạch (A41 b): chuyển hồi không cắt cứng, khung nhìn ≤ 20 %, bố cục ≤ 2 cảnh liền — chỉ báo tới khi hiệu chuẩn'),
     'S22': (REFERENCE, 'claim-risk: một câu/khung không ghép số khác nguồn/kỳ (K4.0, A26): chỉ báo — Tập 5 còn 3 câu nghi vấn chưa phân xử'),
     # Shorts 9:16 (K3.8, A5)
     'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),
     'SH03': (BLOCK, 'âm lượng: Short'), 'SH04': (BLOCK, 'true peak: Short'),
     'SH05': (BLOCK, 'claim: Short không khuyên, không dự báo (gen được bảo vệ)'),
+    'SH07': (MAJOR, 'số Short: từ Tập 8 đúng 1 Short mỗi tập (chủ dự án 13/10; K4.4)'),
     'SH06': (MAJOR, 'chữ: móc Short một dòng trong vùng an toàn dọc, đo trên spec trước render (A30)'),
     # rhythm
     'R01': (REFERENCE, 'luật nhịp'), 'R02': (REFERENCE, 'luật nhịp'), 'R03': (REFERENCE, 'luật nhịp'),
@@ -93,3 +98,33 @@ TIERS = {
 
 def tier(rid):
     return TIERS[rid][0]
+
+
+# K4.4 (checks-appeal A40 (3), chủ dự án duyệt 13/10): every non-passing rule is reported as one of three natures, from its failing metrics.
+#   real      = an error a viewer can see or hear (default: any failing metric not listed below);
+#   legal     = rights / terms (not visible, never waived: CHARTER §5 asks the owner);
+#   procedure = a bookkeeping gap in the dossier (a declaration, a registration, a file not delivered) — the film may be right.
+# MISSING / ERROR are procedure (the rule could not measure). Keys: (rule, metric name) or (rule, '*').
+NATURE = {
+    ('F11', '*'): 'procedure', ('F12', '*'): 'legal', ('S03', '*'): 'legal', ('F13', 'footage without a complete rights record'): 'legal',
+    ('F13', 'footage under a forbidden or unrecognised licence'): 'legal', ('F13', 'attribution licences without the credit in the description'): 'legal',
+    ('F13', 'external footage share (%)'): 'legal',
+    ('S07', 'unregistered numbers in narration'): 'procedure', ('S07', 'claims without formula'): 'procedure',
+    ('S07', 'unsourced non-illustrative claims'): 'procedure', ('S07', 'sourced claims without dataYear'): 'procedure',
+    ('S09', 'money claims without basis'): 'procedure', ('REG', '*'): 'procedure',
+}
+NATURE_LABEL = {'real': 'lỗi thật', 'legal': 'pháp lý', 'procedure': 'thủ tục'}
+
+
+def nature(r):
+    """Nature of a non-passing result (dict with id, status, metrics): real > legal > procedure over its failing metrics."""
+    if r['status'] in ('MISSING', 'ERROR'):
+        return 'procedure'
+    got = set()
+    for m in r.get('metrics', []):
+        if not m.get('pass'):
+            got.add(NATURE.get((r['id'], m['name'])) or NATURE.get((r['id'], '*')) or 'real')
+    for k in ('real', 'legal', 'procedure'):
+        if k in got:
+            return k
+    return 'real'
