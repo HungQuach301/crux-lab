@@ -58,6 +58,7 @@ TIERS = {
     'R08': (REFERENCE, 'nhịp trên spine: quãng tĩnh có lời ≤ 8 s (K4.0, A23): chỉ báo — đối chứng dương C4 Tập 5 trúng 2/4, chưa hiệu chuẩn'),
     'S21': (MAJOR, 'lỗi số = 0 cả trong mô tả YouTube (K4.0, A25; hiệu chuẩn: Tập 3 bắt đúng 1954 không claim, Tập 4, Tập 5 đạt)'),
     'S23': (MAJOR, 'từ dễ đọc thành lời khuyên (A45, luật tạm chủ dự án 13/10): CHÍNH vì danh sách báo sai trên Tập 5–7 (A40 (2)); ngoại lệ khai theo câu'),
+    'R09': (REFERENCE, 'bản đồ liền mạch (A41 b): chuyển hồi không cắt cứng, khung nhìn ≤ 20 %, bố cục ≤ 2 cảnh liền — chỉ báo tới khi hiệu chuẩn'),
     'S22': (REFERENCE, 'claim-risk: một câu/khung không ghép số khác nguồn/kỳ (K4.0, A26): chỉ báo — Tập 5 còn 3 câu nghi vấn chưa phân xử'),
     # Shorts 9:16 (K3.8, A5)
     'SH01': (BLOCK, 'kỹ thuật file: Short 1080×1920'), 'SH02': (BLOCK, 'kỹ thuật file: Short ≤ 180 s'),

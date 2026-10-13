@@ -2955,7 +2955,34 @@ def s23_allow_case(bad):
         f.close()
 
 
-EXTRA.update({'S23': s23_case, 'S23/allow': s23_allow_case, 'A40/nature': nature_case, 'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
+def r09_case(bad):
+    """R09 (A41 b): the act1 → act2 turn at 50 s is a J-cut (audio "j") → pass; bad = a plain hard cut there."""
+    f = F('R09')
+    try:
+        f.json('out/timeline.json', {'total': 100, 'scenes': [{'id': 'S01', 'act': 'act1', 'start': 0, 'dur': 50, 'end': 50}, {'id': 'S02', 'act': 'act2', 'start': 50, 'dur': 50, 'end': 100}]})
+        f.json('out/transitions.json', {'cuts': [{'t': 50.0, 'type': 'cut', 'match': None, 'audio': None if bad else 'j'}]})
+        return f.run('R09')
+    finally:
+        f.close()
+
+
+def r09_view_case(bad):
+    """R09 (A41 b): camera frames spread over 6 views (max 1/6) → pass; bad = 30 % of the frames in one view."""
+    f = F('R09-view')
+    try:
+        f.json('out/timeline.json', {'total': 100, 'scenes': [{'id': 'S01', 'act': 'act1', 'start': 0, 'dur': 100, 'end': 100}]})
+        views = [(960, 540, 1.0), (300, 300, 2.0), (1500, 800, 4.0), (300, 800, 1.0), (1500, 300, 2.0), (960, 540, 8.0)]
+        fr = []
+        for i in range(600):
+            v = views[0] if (bad and i < 180) else views[i % 6] if not bad else views[1 + i % 5]
+            fr.append({'t': i / 6, 'x': v[0], 'y': v[1], 'zoom': v[2]})
+        f.json('out/camera.json', {'frames': fr})
+        return f.run('R09')
+    finally:
+        f.close()
+
+
+EXTRA.update({'R09': r09_case, 'R09/view': r09_view_case, 'S23': s23_case, 'S23/allow': s23_allow_case, 'A40/nature': nature_case, 'F11/package-thumbnails': f11_thumbs_declared_case, 'P01/none': p01_none_case, 'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
 
 
 # ---- K4.4: quyền + trung thực footage ngoài (A39 + A44; RIGHTS §F; F13 CHẶN, F15 CHÍNH) ------------------------------------------------------------

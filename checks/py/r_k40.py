@@ -551,3 +551,70 @@ def s23_advice_terms(ctx):
                         seen.add((st['scene'], k, it['text']))
                         hits.append({'where': 'screen', 'scene': st['scene'], 'term': k, 'text': it['text'][:160], 't': st['t']})
     return verdict('S23', [metric('advice-like terms not allowed', len(hits), '<=', 0)], details=hits[:40])
+
+
+# ---- K4.4: bản đồ liền mạch (checks-appeal A41 (b), chủ dự án duyệt 13/10; playbook/templates/BAN-DO-LIEN-MACH.md, luật 1 và 4) ------------------------
+MAP_TURN_OK = ('match', 'j', 'l')    # chuyển hồi: cắt khớp hình, J-cut, L-cut (hoà chỉ hợp lệ khi nối 3D ↔ footage)
+VIEW_SHARE_MAX = 0.20
+VIEW_ZOOM_BIN = 0.25                 # log2(zoom) mỗi 0,25 ≈ 19 %; tâm theo lưới 4 × 4 của trang 1920 × 1080
+
+
+def _turns(ctx):
+    sc = ctx.scenes()
+    return [(b['start'], a.get('act'), b.get('act'), b['id']) for a, b in zip(sc, sc[1:]) if a.get('act') != b.get('act')]
+
+
+@rule('R09', 'checks-appeal A41 (b) (bản đồ liền mạch, chỉ báo tới khi hiệu chuẩn), BAN-DO-LIEN-MACH luật 1 và 4',
+      'act turns = scene starts where out/timeline.json scenes[].act changes; the cut of out/transitions.json within ±0.5 s of each turn is "joined" when '
+      'match is set or audio is j/l (or type match), else a hard cut (no cut listed = hard cut); a dissolve counts as joined only next to declared external '
+      'footage. Views = camera frames of out/camera.json binned by log2(zoom) per 0.25 and the centre on a 4 × 4 grid of the 1920 × 1080 page; share of the '
+      'most used view over the camera frames. Layout runs: consecutive scenes with the same scenes[].layout family (text before "/"), when layouts are given. '
+      'episode.yaml map: {<scene>: {in: cắt|cắt khớp hình|J-cut|L-cut|hoà}} declared at a turn is compared with the measured join',
+      'act turns with a hard cut = 0; most used view ≤ 20 % of the frames; layout runs ≤ 2 scenes; declared map joins = measured')
+def r09_continuity(ctx):
+    import math
+    cuts = ctx.json('out/transitions.json').get('cuts', []) if ctx.has('out/transitions.json') else []
+    try:
+        from r_rights import external_items
+        ext = [(float(x['t0']), float(x['t1'])) for x in external_items(ctx) if x.get('t0') is not None]
+    except Exception:  # noqa: BLE001
+        ext = []
+    near_ext = lambda t: any(a - 1.0 <= t <= b + 1.0 for a, b in ext)
+    hard, joined = [], []
+    for t, a, b, sid in _turns(ctx):
+        c = min((c for c in cuts if abs(c['t'] - t) <= 0.5), key=lambda c: abs(c['t'] - t), default=None)
+        ok = bool(c) and (bool(c.get('match')) or str(c.get('audio') or '').lower() in ('j', 'l') or c.get('type') == 'match'
+                          or (c.get('type') == 'dissolve' and near_ext(t)))
+        (joined if ok else hard).append({'t': round(t, 3), 'from': a, 'to': b, 'scene': sid, 'cut': (c or {}).get('type')})
+    share, top = None, None
+    if ctx.has('out/camera.json'):
+        fr = ctx.json('out/camera.json').get('frames') or []
+        bins = {}
+        for f in fr:
+            if f.get('zoom'):
+                k = (round(math.log2(f['zoom']) / VIEW_ZOOM_BIN), int(f['x'] // 480), int(f['y'] // 270))
+                bins[k] = bins.get(k, 0) + 1
+        if bins:
+            top, n = max(bins.items(), key=lambda kv: kv[1])
+            share = n / sum(bins.values())
+    fam = [str(s.get('layout', '')).split('/')[0] for s in ctx.scenes()]
+    run, best = 1, 1
+    for x, y in zip(fam, fam[1:]):
+        run = run + 1 if x and x == y else 1
+        best = max(best, run)
+    mism = []
+    if ctx.has('episode.yaml'):
+        import yaml
+        mp = (yaml.safe_load(open(ctx.path('episode.yaml'), encoding='utf-8')) or {}).get('map') or {}
+        want = {'cắt': False, 'hoà': None, 'cắt khớp hình': True, 'j-cut': True, 'l-cut': True}
+        got = {j['scene']: True for j in joined} | {h['scene']: False for h in hard}
+        for sid, d in (mp.items() if isinstance(mp, dict) else []):
+            w = want.get(str((d or {}).get('in', '')).lower()) if isinstance(d, dict) else None
+            if w is not None and sid in got and got[sid] != w:
+                mism.append({'scene': sid, 'declared': d.get('in'), 'measured': 'joined' if got[sid] else 'hard cut'})
+    ms = [metric('act turns', len(hard) + len(joined), '>=', 0), metric('act turns with a hard cut', len(hard), '<=', 0),
+          metric('most used view share (%)', None if share is None else 100 * share, '<=', 100 * VIEW_SHARE_MAX, '%'),
+          metric('longest same-layout run (scenes)', best, '<=', 2), metric('declared map joins not measured', len(mism), '<=', 0)]
+    if share is None:
+        ms = [m for m in ms if m['name'] != 'most used view share (%)']
+    return verdict('R09', ms, details=[{'hardTurns': hard, 'joinedTurns': joined, 'topView': top, 'mapMismatch': mism}])
