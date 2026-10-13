@@ -7,7 +7,7 @@ tokenCeiling: {episode: 15000000, consoleUsd: 45, p1HardUsd: 12, note: "lab (epi
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1008, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
 music: {style: C}      # mỗi hồi một cue (episode.md §5b); bản đồ liền mạch preprod/continuity.md
 f14: true              # nhà máy F-14 opt-in: mọi spine.json của đoạn thế giới có khoá `f14` (life / changes / label_at; README nhà máy §F-14 (a)–(e)) — chủ dự án 13/10
-asr_hotwords: [Maya, Sam]   # tên nhân vật (luật tạm 13/10) — chốt theo kịch bản C2
+asr_hotwords: [Nina]   # tên nhân vật (luật tạm 13/10) — chốt theo kịch bản C2
 footage: {max_share: 0.15, rights: RIGHTS.md, map: preprod/continuity.md}   # luật tạm 13/10: footage ngoài ≤ 15 % thời lượng
 shorts: 1              # 1 Short, không thumbnail (chủ dự án 13/10)
 dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json}

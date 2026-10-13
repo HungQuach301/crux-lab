@@ -1,0 +1,62 @@
+[
+ {
+  "file": "19390d9d",
+  "sample": "L2",
+  "role": "G",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers buy vs rent, real-data replay across 307 months since 1991, and how often buying won plus the 2006 loss, with all costs counted."
+ },
+ {
+  "file": "1ddabff5",
+  "sample": "L1",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers the buy-or-rent choice, a replay of every start month since 1991 with real data, and the share where buying won or lost, with all costs."
+ },
+ {
+  "file": "26aa600c",
+  "sample": "L2",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers all three ideas, including how often buying won and the 2006 shortfall; the takeaway is general caution, not an action."
+ },
+ {
+  "file": "69ea9b2b",
+  "sample": "L1",
+  "role": "G",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers buy vs rent, a replay since 1991 with real data, and the share of months buying won and when it lost, with full costs."
+ },
+ {
+  "file": "b6eb1fd1",
+  "sample": "L1",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers the buy-or-rent choice, a replay for every month since 1991 with real data, and the share where buying won and when it lost, with full costs."
+ },
+ {
+  "file": "d74b3c4f",
+  "sample": "L2",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers all three ideas (307 months since 1991, how often buying won, 2006), and the takeaway is only general caution."
+ }
+]
