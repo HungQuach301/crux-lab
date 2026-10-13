@@ -11,6 +11,11 @@
 //   Cảnh đã có trong cache (work/cache/<seg>/<res>/) thì bỏ qua → chỉ render lại cảnh đã sửa; chạy lại sau khi container khởi động lại = resume.
 // - Mỗi khung thứ 3 (0,1 s) ghi nhật ký trang (chữ: hộp, cỡ, độ mờ, loại; chartW; camMoving; vi phạm quy tắc 1) → <cảnh>.log.json.
 // - In thời gian render từng cảnh + tổng → <out>.render.json.
+// F-15 (opt-in; không khai = trùng byte bản cũ):
+//   --spp 0|N    0 = tắt khử răng cưa WebGL (nháp nhanh); N ≥ 2 = siêu lấy mẫu N×N (render N lần kích thước rồi thu về). Vào tham số trang → khoá cache.
+//   --resume     dựng tiếp THEO KHUNG (cine-lab #94): mỗi khung ghi JPEG + nhật ký vào <cảnh>.frames/ rồi mới mã hoá từ tệp; lượt bị ngắt (trần 2 h,
+//                dừng theo PID) chạy lại cùng lệnh → giữ khung đã có (trừ khung cuối, có thể ghi dở), chỉ render phần còn lại. Mã hoá cùng thông số
+//                → tệp cảnh trùng byte với lượt không ngắt (test_factory_f15.py). Thư mục khung xoá khi cảnh xong.
 const { chromium } = require('playwright');
 const { spawn, execFileSync } = require('child_process');
 const fs = require('fs'), path = require('path'), crypto = require('crypto'), os = require('os');
@@ -24,6 +29,8 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
   const vq = new URLSearchParams();
   if (orient === 'v') { vq.set('orient', 'v'); for (const k of ['vs', 'hook', 'cws', 'vt0', 'vcy']) if (arg('--' + k) !== undefined) vq.set(k, arg('--' + k)); }
   if (arg('--dither') !== undefined) vq.set('dither', arg('--dither'));
+  if (arg('--spp') !== undefined) vq.set('spp', arg('--spp'));
+  const RESUME = process.argv.includes('--resume');
   const view = vq.toString();
   const spine = JSON.parse(fs.readFileSync(path.join(ROOT, segDir, 'spine.json'), 'utf8'));
   const LIB = 'toolkit/factory/world/', inputs = path.join(ROOT, segDir, 'inputs.json');
@@ -68,13 +75,37 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
   const todo = jobs.filter((j) => !fs.existsSync(j.file) && (!only || only.has(j.id)));
   console.log(`shots: ${jobs.length}, cached: ${jobs.length - todo.length}, to render: ${todo.map((j) => j.id).join(',') || '—'}`);
   const times = {}, t0all = Date.now(), queue = [...todo];
+  const encArgs = (input, tmp) => [...input, '-c:v', 'libx264',
+    '-profile:v', 'high', '-preset', res >= 1080 ? 'medium' : 'fast', '-crf', res >= 1080 ? '16' : '20', '-pix_fmt', 'yuv420p', '-vf', 'scale=out_color_matrix=bt709:out_range=tv',
+    '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-r', String(FPS), '-video_track_timescale', '15360', tmp];
   const work = async () => {
     const page = await open();
     for (let j; (j = queue.shift());) {
       const w0 = Date.now(), tmp = j.file + '.part.mp4', logs = [], cams = [];
-      const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', String(FPS), '-i', '-', '-c:v', 'libx264',
-        '-profile:v', 'high', '-preset', res >= 1080 ? 'medium' : 'fast', '-crf', res >= 1080 ? '16' : '20', '-pix_fmt', 'yuv420p', '-vf', 'scale=out_color_matrix=bt709:out_range=tv',
-        '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-r', String(FPS), '-video_track_timescale', '15360', tmp], { stdio: ['pipe', 'inherit', 'inherit'] });
+      if (RESUME) {   // F-15: khung → tệp (+ nhật ký), giữ khung đã có; mã hoá từ tệp khi đủ
+        const fd = j.file.replace(/\.mp4$/, '.frames'); fs.mkdirSync(fd, { recursive: true });
+        const nm = (f) => path.join(fd, String(f - j.f0).padStart(6, '0'));
+        const have = []; for (let f = j.f0; f < j.f1; f++) { try { if (fs.statSync(nm(f) + '.jpg').size > 0 && fs.existsSync(nm(f) + '.json')) have.push(f); } catch (e) { /* chưa có */ } }
+        const keep = new Set(have.slice(0, -1));
+        if (keep.size) console.log(`shot ${j.id}: dựng tiếp — giữ ${keep.size}/${j.f1 - j.f0} khung`);
+        for (let f = j.f0; f < j.f1; f++) {
+          if (keep.has(f)) continue;
+          const r = await page.evaluate(([t, want]) => { const log = APP.frame(t); return { img: APP.canvas.toDataURL('image/jpeg', 0.95).split(',')[1], log: want ? log : null, cam: log.cam || null }; }, [f / FPS, f % 3 === 0]);
+          fs.writeFileSync(nm(f) + '.jpg.part', Buffer.from(r.img, 'base64')); fs.renameSync(nm(f) + '.jpg.part', nm(f) + '.jpg');
+          fs.writeFileSync(nm(f) + '.json', JSON.stringify({ log: r.log, cam: r.cam }));
+          if (process.env.CRUX_TEST_STOP_AFTER && f - j.f0 + 1 >= +process.env.CRUX_TEST_STOP_AFTER) { console.error('CRUX_TEST_STOP_AFTER: dừng giữa cảnh (test ngắt)'); process.exit(9); }
+        }
+        for (let f = j.f0; f < j.f1; f++) { const x = JSON.parse(fs.readFileSync(nm(f) + '.json', 'utf8')); if (x.log) logs.push(x.log); cams.push({ f, t: +(f / FPS).toFixed(5), ...(x.cam || {}) }); }
+        const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', ...encArgs(['-f', 'image2', '-c:v', 'mjpeg', '-framerate', String(FPS), '-i', path.join(fd, '%06d.jpg')], tmp)], { stdio: ['ignore', 'inherit', 'inherit'] });
+        const code = await new Promise((rs) => ff.on('close', rs)); if (code) throw new Error('ffmpeg ' + j.id);
+        fs.writeFileSync(j.file.replace(/\.mp4$/, '.cam.json'), JSON.stringify(cams));
+        fs.renameSync(tmp, j.file); fs.writeFileSync(j.file.replace(/\.mp4$/, '.log.json'), JSON.stringify(logs));
+        fs.rmSync(fd, { recursive: true, force: true });
+        times[j.id] = +((Date.now() - w0) / 1000).toFixed(1);
+        console.log(`shot ${j.id} ${j.t0}–${j.t1} done in ${times[j.id]} s (${(times[j.id] / (j.t1 - j.t0)).toFixed(2)} s/s)`);
+        continue;
+      }
+      const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', ...encArgs(['-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', String(FPS), '-i', '-'], tmp)], { stdio: ['pipe', 'inherit', 'inherit'] });
       for (let f = j.f0; f < j.f1; f++) {
         const r = await page.evaluate(([t, want]) => { const log = APP.frame(t); return { img: APP.canvas.toDataURL('image/jpeg', 0.95).split(',')[1], log: want ? log : null, cam: log.cam || null }; }, [f / FPS, f % 3 === 0]);
         if (r.log) logs.push(r.log);

@@ -124,13 +124,15 @@ def episode_segments(ep_root, Y, timeline):
     return out
 
 
-def write_episode(ep_root, Y, timeline, claims_file, out_html, fps=30):
-    """Trang kiểm + <tập>/out/page.json. claims_file: out/claims.json (hoặc `claims:` của episode.yaml)."""
+def write_episode(ep_root, Y, timeline, claims_file, out_html, fps=30, final_html=None, pj_dir=None):
+    """Trang kiểm + <tập>/out/page.json. claims_file: out/claims.json (hoặc `claims:` của episode.yaml).
+    F-15 (build nguyên tử): final_html = chỗ trang SẼ nằm sau khi build thay bản cũ (url trong page.json), pj_dir = nơi ghi page.json (thư mục tạm)."""
     cl = json.load(open(claims_file))['claims'] if claims_file and os.path.exists(claims_file) else []
     info = build(episode_segments(ep_root, Y, timeline), [{'id': c['claimId'], 'display': c.get('display')} for c in cl], out_html, fps)
-    pj = {'url': os.path.relpath(out_html, ep_root), 'ready': READY, '_about': 'toolkit/factory/world/episode_page.py: trang một-file, window.CHECKS trên mọi đoạn world:'}
-    os.makedirs(os.path.join(ep_root, 'out'), exist_ok=True)
-    json.dump(pj, open(os.path.join(ep_root, 'out', 'page.json'), 'w'), indent=1, ensure_ascii=False)
+    pj = {'url': os.path.relpath(final_html or out_html, ep_root), 'ready': READY, '_about': 'toolkit/factory/world/episode_page.py: trang một-file, window.CHECKS trên mọi đoạn world:'}
+    pj_dir = pj_dir or os.path.join(ep_root, 'out')
+    os.makedirs(pj_dir, exist_ok=True)
+    json.dump(pj, open(os.path.join(pj_dir, 'page.json'), 'w'), indent=1, ensure_ascii=False)
     return {**info, 'page': pj['url']}
 
 

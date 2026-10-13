@@ -1,6 +1,16 @@
 """Crux factory build (Mốc B): one command from episode.yaml to master, parts, Shorts and the qc table.
 
   bash toolkit/build.sh episodes/epNNN/episode.yaml [--workers 4] [--fmt jpeg|rgba] [--no-cache] [--checks]
+        [--res 540] [--spp 0|N] [--resume] [--no-atomic]
+F-15 (toolkit/factory/f15/; không khai cờ mới = sản phẩm trùng byte bản cũ):
+  --res N     nháp cả tập ở độ phân giải N (vd 540) từ CÙNG episode.yaml; khác `res:` của tập → sản phẩm vào work/factory-rN/, out/factory-rN/
+              (artefact out/*.json của tập vào out/factory-rN/ep-out/), cache đoạn thế giới theo res riêng; Short thế giới dọc ở N/1080 rồi phóng 1080×1920.
+              Kiểm trên nháp: `DRAFT=rN EP=… bash toolkit/checks_split.sh <outdir>` (video nháp phóng 1080 trong bản sao checks).
+  --spp K     0 = tắt khử răng cưa WebGL · K ≥ 2 = siêu lấy mẫu (render_shots.js); tag thư mục thêm `sK`.
+  --resume    dựng tiếp theo khung trong từng cảnh thế giới (render_shots.js --resume).
+  dựng nguyên tử: mọi sản phẩm (hình, tiếng, stem, phần, Shorts, báo cáo, trang kiểm) ghi vào <work>/.new-<pid>/ và CHỈ thay bản cũ khi mọi bước
+              đạt (cine-lab #70, #94); trượt → bản cũ giữ nguyên, <work>/build.failed.json. `--no-atomic` = ghi thẳng như cũ.
+  worker ≤ số nhân − 1 (guard.max_workers; CRUX_ALL_CORES=1 bỏ).
 
 Steps (each timed → out/factory/build-report.json):
   spec    toolkit/factory/spec.py (BLOCK/ASK stop the build before any API call)
@@ -44,6 +54,19 @@ import voice as VOICE  # noqa: E402
 ENCODE_H = {'cbr': '17M', 'preset': 'fast'}   # master picture (render.js encoder; world/splice.py re-encodes with the same)
 CHUNK = 150  # frames per segment (5 s at 30 fps): enough pieces for 4 workers on a 70 s scene
 CODE = ['lib/engine.js', 'lib/templates.js', 'page.html', 'render.js']
+
+
+def _rel(B, p):
+    """B.rel (build nguyên tử F-15) hoặc relpath như cũ — các test dựng Build giả bằng SimpleNamespace."""
+    return B.rel(p) if hasattr(B, 'rel') else os.path.relpath(p, ROOT)
+
+
+def _res(B):
+    return getattr(B, 'res', None) or B.S.get('res', 1080)
+
+
+def _cdir(B, *p):
+    return B.cdir(*p) if hasattr(B, 'cdir') else os.path.join(B.work, *p)
 
 
 def sh(cmd, **kw):
@@ -161,20 +184,63 @@ def caption_cues(sents, words):
 
 
 class Build:
-    def __init__(self, yml, argv):
+    def __init__(self, yml, argv, atomic=False):
         self.yml = os.path.abspath(yml)
         self.root = os.path.dirname(self.yml)
         self.S = yaml.safe_load(open(self.yml))
         self.argv = argv
-        self.workers = int(argv[argv.index('--workers') + 1]) if '--workers' in argv else 4
+        import guard
+        self.workers = guard.max_workers(int(argv[argv.index('--workers') + 1]) if '--workers' in argv else 4)   # F-15: ≤ số nhân − 1
         self.fmt = argv[argv.index('--fmt') + 1] if '--fmt' in argv else 'jpeg'
         self.nocache = '--no-cache' in argv
-        self.work = os.path.join(self.root, 'work', 'factory')
-        self.out = os.path.join(self.root, 'out', 'factory')
-        for d in (self.work, self.out, os.path.join(self.work, 'cache'), os.path.join(self.work, 'jobs')):
+        # F-15 (a): nháp cùng đặc tả — --res/--spp khác tập → thư mục riêng (không đè sản phẩm 1080p, cache theo res)
+        self.res = int(argv[argv.index('--res') + 1]) if '--res' in argv else self.S.get('res', 1080)
+        self.spp = argv[argv.index('--spp') + 1] if '--spp' in argv else None
+        self.resume = '--resume' in argv
+        tag = (f'-r{self.res}' if self.res != self.S.get('res', 1080) or self.spp is not None else '') + (f's{self.spp}' if self.spp is not None else '')
+        self.draft = bool(tag)
+        self.work_final = os.path.join(self.root, 'work', 'factory' + tag)
+        self.out_final = os.path.join(self.root, 'out', 'factory' + tag)
+        self.epout_final = os.path.join(self.out_final, 'ep-out') if tag else os.path.join(self.root, 'out')
+        # F-15 (b): build nguyên tử — sản phẩm vào thư mục tạm, thay bản cũ khi mọi bước đạt; cache (render, giọng, đoạn thế giới) dùng chung
+        self.atomic = atomic and '--no-atomic' not in argv   # chỉ lệnh build (main); dùng như thư viện (build_inputs --timeline) ghi thẳng như cũ
+        self.stage = os.path.join(self.work_final, f'.new-{os.getpid()}') if self.atomic else None
+        self.work = os.path.join(self.stage, 'work') if self.atomic else self.work_final
+        self.out = os.path.join(self.stage, 'out-factory') if self.atomic else self.out_final
+        self.epout = os.path.join(self.stage, 'ep-out') if self.atomic else self.epout_final
+        for d in (self.work, self.out, self.epout, self.work_final, self.out_final, os.path.join(self.work_final, 'cache'), os.path.join(self.work_final, 'jobs')):
             os.makedirs(d, exist_ok=True)
         self.fps = self.S.get('fps', 30)
         self.report = {'episode': self.S['episode'], 'yaml': os.path.relpath(self.yml, ROOT), 'steps': {}, 'started': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
+
+    def cdir(self, *p):
+        """Thư mục cache dùng chung giữa các lượt (không nằm trong thư mục tạm của build nguyên tử)."""
+        return os.path.join(getattr(self, 'work_final', None) or self.work, *p)
+
+    def rel(self, p):
+        """Đường dẫn ghi vào báo cáo = chỗ tệp SẼ nằm sau khi thay bản cũ (trùng chữ với build không nguyên tử)."""
+        p = os.path.abspath(p)
+        if getattr(self, 'atomic', False):
+            for a, b in ((self.work, self.work_final), (self.out, self.out_final), (self.epout, self.epout_final)):
+                if p == a or p.startswith(a + os.sep):
+                    p = b + p[len(a):]
+                    break
+        return os.path.relpath(p, ROOT)
+
+    def promote(self):
+        """Mọi bước đạt → đưa sản phẩm từ thư mục tạm vào chỗ thật (tệp: os.replace; thư mục: đổi tên bản cũ rồi xoá)."""
+        if not self.atomic:
+            return
+        for a, b in ((self.work, self.work_final), (self.out, self.out_final), (self.epout, self.epout_final)):
+            os.makedirs(b, exist_ok=True)
+            for f in sorted(os.listdir(a)):
+                src, dst = os.path.join(a, f), os.path.join(b, f)
+                if os.path.isdir(src) and os.path.isdir(dst):
+                    old = dst + f'.old-{os.getpid()}'
+                    os.replace(dst, old); os.replace(src, dst); shutil.rmtree(old, ignore_errors=True)
+                else:
+                    os.replace(src, dst)
+        shutil.rmtree(self.stage, ignore_errors=True)
 
     def step(self, name, fn):
         t = time.time()
@@ -190,7 +256,7 @@ class Build:
         for p in P:
             print(f"  spec {p['level']} {p['rule']}: {p['msg']}")
         if any(p['level'] in ('BLOCK', 'ASK') for p in P):
-            json.dump(self.report, open(os.path.join(self.out, 'build-report.json'), 'w'), indent=1, ensure_ascii=False)
+            json.dump(self.report, open(os.path.join(self.out_final, 'build-report.json'), 'w'), indent=1, ensure_ascii=False)
             raise SystemExit('spec: blocked (see above); ASK items go to the owner')
         return {'problems': len(P)}
 
@@ -218,7 +284,7 @@ class Build:
         for sc in self.S['scenes']:
             sents = [s for s in self.script.values() if s['scene'] == sc['id']]
             cfg = VOICE.scene_cfg(self.S['voice'], self.S.get('voice_overrides'), sc['id'])   # B+1: seed/take per scene
-            v = VOICE.voice_scene(cfg, sents, os.path.join(self.root, 'voice-takes'), os.path.join(self.work, 'voice'))
+            v = VOICE.voice_scene(cfg, sents, os.path.join(self.root, 'voice-takes'), _cdir(self, 'voice'))
             self.voices[sc['id']] = v
             hits += v['cached']
             chars += 0 if v['cached'] else v['chars']
@@ -258,7 +324,7 @@ class Build:
     # ---- render (shared by master and Shorts)
     def render(self, name, shots, orient, total, hook=None, encode=None, res=None):
         """shots: [{id, template, t0, t1, p}] in job-local seconds. Returns the ordered segment files (cache paths)."""
-        fps, res = self.fps, res or self.S.get('res', 1080)
+        fps, res = self.fps, res or _res(self)
         size = frame_size(orient, res)
         encode = encode or (ENCODE_H if orient == 'h' else {'crf': 14, 'preset': 'fast'})
         base = {'orient': orient, 'res': res, 'fps': fps, 'fmt': self.fmt, 'quality': 0.95, 'encode': encode, 'hook': hook,
@@ -270,7 +336,7 @@ class Build:
             for a in range(0, f1 - f0, CHUNK):
                 b = min(a + CHUNK, f1 - f0)
                 h = sha({**base, 'shot': local, 'range': [a, b]})[:20]
-                out = os.path.join(self.work, 'cache', f'{h}.mp4')
+                out = os.path.join(_cdir(self, 'cache'), f'{h}.mp4')
                 seg = {'id': f"{s['id']}#{a // CHUNK}", 'shot': s['id'], 'f0': a, 'f1': b, 'out': out, 'hash': h, 'local': local}
                 segs.append(seg)
                 if self.nocache or not os.path.exists(out + '.log.json'):
@@ -282,7 +348,7 @@ class Build:
             job = {'name': name, **base, 'size': size, 'tokens': self.tokens, 'claims': self.claims, 'data': self.data,
                    'floor': {'h': 40, 'v': 56}, 'counterweights': self.counterweights, 'symbols': self.symbols, 'shots': list(shots_local.values()),
                    'segments': [{k: g[k] for k in ('id', 'shot', 'f0', 'f1', 'out')} for g in todo]}
-            jp = os.path.join(self.work, 'jobs', f'{name}.json')
+            jp = os.path.join(_cdir(self, 'jobs'), f'{name}.json')
             json.dump(job, open(jp, 'w'))
             env = {**os.environ, 'NODE_PATH': subprocess.run(['npm', 'root', '-g'], capture_output=True, text=True).stdout.strip()}
             r = subprocess.run(['node', os.path.join(HERE, 'render.js'), jp, '--workers', str(self.workers), '--fmt', self.fmt],
@@ -301,9 +367,10 @@ class Build:
         for w in self.S.get('world') or []:
             seg = os.path.join(self.root, w['dir'])
             env = {**os.environ, 'CRUX_TIMELINE': os.path.join(self.out, 'timeline.json'), 'CRUX_WORLD_SCENES': ','.join(w['scenes'])}
-            mp4 = os.path.join(self.work, 'world', f"{w['id']}-{self.S.get('res', 1080)}.mp4")
-            r = subprocess.run([sys.executable, os.path.join(HERE, 'world', 'build_seg.py'), seg, '--res', str(self.S.get('res', 1080)), '--out', mp4,
-                                '--workers', str(self.workers)], env=env, capture_output=True, text=True)
+            mp4 = os.path.join(_cdir(self, 'world'), f"{w['id']}-{_res(self)}{'s' + str(self.spp) if getattr(self, 'spp', None) is not None else ''}.mp4")   # đoạn: nguyên tử riêng (build_seg)
+            extra = (['--spp', str(self.spp)] if getattr(self, 'spp', None) is not None else []) + (['--resume'] if getattr(self, 'resume', False) else [])
+            r = subprocess.run([sys.executable, os.path.join(HERE, 'world', 'build_seg.py'), seg, '--res', str(_res(self)), '--out', mp4,
+                                '--workers', str(self.workers), *extra], env=env, capture_output=True, text=True)
             print(r.stdout[-1500:])
             if r.returncode:
                 print(r.stderr[-3000:])
@@ -331,7 +398,7 @@ class Build:
             if not self.S.get('world'):
                 raise SystemExit('render: no 2D shot and no world segment')
             self.picture = os.path.join(self.work, 'picture.mp4')
-            n = blank_picture(self.picture, frame_size('h', self.S.get('res', 1080)), self.fps, self.total)
+            n = blank_picture(self.picture, frame_size('h', _res(self)), self.fps, self.total)
             json.dump([], open(os.path.join(self.work, 'frame-log.json'), 'w'))
             return {'segments': 0, 'rendered': 0, 'cache_hits': 0, 'frames': n, 'blank': True}
         segs, st = self.render(self.S['episode'], shots, 'h', self.total)
@@ -357,13 +424,13 @@ class Build:
                          'stems': os.path.join(mp4[:-4] + '.audio', 'stems')})
         pic = os.path.join(self.work, 'picture-spliced.mp4')
         r = SPLICE.splice_video(self.picture, segs, pic, self.fps, ENCODE_H)
-        rec['picture'] = {'in': os.path.relpath(self.picture, ROOT), 'in_sha256': SPLICE.sha_file(self.picture),
-                          'out': os.path.relpath(pic, ROOT), 'out_sha256': SPLICE.sha_file(pic), 'frames': r['frames'], 'encode': ENCODE_H}
+        rec['picture'] = {'in': _rel(self, self.picture), 'in_sha256': SPLICE.sha_file(self.picture),
+                          'out': _rel(self, pic), 'out_sha256': SPLICE.sha_file(pic), 'frames': r['frames'], 'encode': ENCODE_H}
         self.picture = pic
         cov = {}
         for g in segs:
             rec['segments'].append({'id': g['id'], 'scenes': g['scenes'], 't0': g['t0'], 't1': g['t1'], 'f0': g['f0'], 'f1': g['f1'],
-                                    'frames': g['f1'] - g['f0'], 'video': os.path.relpath(g['mp4'], ROOT), 'video_sha256': SPLICE.sha_file(g['mp4']),
+                                    'frames': g['f1'] - g['f0'], 'video': _rel(self, g['mp4']), 'video_sha256': SPLICE.sha_file(g['mp4']),
                                     'stems': {k: SPLICE.sha_file(p) for k, p in SPLICE.stem_files(g['stems']).items()}})
             cov.update({sc: g['id'] for sc in g['scenes']})
         for sc in self.tl['scenes']:
@@ -432,9 +499,9 @@ class Build:
             import splice as SPLICE
             self.splice_rec['audio'] = {**info['world'], 'stems_sha256': {k: SPLICE.sha_file(p) for k, p in SPLICE.stem_files(stems).items()},
                                         'mix_raw_sha256': SPLICE.sha_file(raw), 'master_wav_sha256': SPLICE.sha_file(self.master_wav)}
-            self.splice_rec['video'] = {'file': os.path.relpath(self.video, ROOT), 'sha256': SPLICE.sha_file(self.video)}
+            self.splice_rec['video'] = {'file': _rel(self, self.video), 'sha256': SPLICE.sha_file(self.video)}
             json.dump(self.splice_rec, open(os.path.join(self.out, 'splice.json'), 'w'), indent=1, ensure_ascii=False)
-        return {**info, 'video': os.path.relpath(self.video, ROOT), 'sha256': sha(open(self.video, 'rb').read()), 'mb': round(os.path.getsize(self.video) / 1e6, 2)}
+        return {**info, 'video': _rel(self, self.video), 'sha256': sha(open(self.video, 'rb').read()), 'mb': round(os.path.getsize(self.video) / 1e6, 2)}
 
     # ---- parts
     def do_parts(self):
@@ -450,7 +517,7 @@ class Build:
             p = os.path.join(self.work, f"{self.S['episode']}-part{i + 1}-720p.mp4")
             sh(['ffmpeg', '-y', '-loglevel', 'error', '-ss', str(bounds[i]), '-to', str(bounds[i + 1]), '-i', self.video, '-vf', 'scale=1280:720',
                 '-c:v', 'libx264', '-preset', 'fast', '-b:v', '5M', '-maxrate', '6M', '-bufsize', '10M', '-c:a', 'aac', '-b:a', '192k', p])
-            parts.append({'file': os.path.relpath(p, ROOT), 'from': bounds[i], 'to': bounds[i + 1], 'mb': round(os.path.getsize(p) / 1e6, 2)})
+            parts.append({'file': _rel(self, p), 'from': bounds[i], 'to': bounds[i + 1], 'mb': round(os.path.getsize(p) / 1e6, 2)})
         self.parts = parts
         return {'parts': parts}
 
@@ -461,9 +528,10 @@ class Build:
         by = {w['id']: w for w in self.S['world']}
         segs = [{'id': g['id'], 'mp4': g['mp4'], 't0': g['t0'], 'f0': g['f0'], 'f1': g['f1'],
                  'spine': json.load(open(os.path.join(self.root, by[g['id']]['dir'], 'spine.json')))} for g in self.splice_segs]
-        out = os.path.join(self.root, 'out')
-        rep = ART.write(out, self.total, self.fps, segs)
-        rep['page'] = EPG.write_episode(self.root, self.S, self.tl, os.path.join(self.root, self.S['claims']), os.path.join(self.work, 'page', 'index.html'), self.fps)
+        rep = ART.write(getattr(self, 'epout', os.path.join(self.root, 'out')), self.total, self.fps, segs)   # F-15: <tập>/out (hoặc out/factory-rN/ep-out của nháp), qua thư mục tạm
+        html = os.path.join(self.work, 'page', 'index.html')
+        rep['page'] = EPG.write_episode(self.root, self.S, self.tl, os.path.join(self.root, self.S['claims']), html, self.fps,
+                                        final_html=os.path.join(ROOT, _rel(self, html)), pj_dir=getattr(self, 'epout', None))
         rep['page'].pop('json', None)
         return rep
 
@@ -474,8 +542,10 @@ class Build:
         w = next(x for x in self.S['world'] if x['id'] == g['id'])
         pic = os.path.join(self.work, f"{S['id']}-world.mp4")
         cws = [{'id': c['id'], 'text': c['text']} for c in self.counterweights]
+        vres = round(1920 * _res(self) / 1080) if getattr(self, 'draft', False) and _res(self) < 1080 else 1920   # F-15: nháp → Short dọc ở res nháp, phóng 1080×1920 khi ghép
         st = WS.render_world(os.path.join(self.root, w['dir']), a - g['t0'], b - g['t0'], pic, S.get('hook'), cws, self.workers,
-                             cache=os.path.join(self.work, 'world-shorts-cache', g['id']), vs=float(S.get('scale', WS.VS_DEFAULT)))
+                             cache=_cdir(self, 'world-shorts-cache', g['id'] + ('' if vres == 1920 else f'-{vres}')), vs=float(S.get('scale', WS.VS_DEFAULT)),
+                             res=vres, extra=['--spp', str(self.spp)] if getattr(self, 'spp', None) is not None else None)
         end = [{'id': S['id'] + '-end', 'template': 'endcard', 't0': 0.0, 't1': 1.5, 'p': {'next': S.get('end', ''), 'at': 0}}]
         segs, st2 = self.render(S['id'] + '-end', end, 'v', 1.5, hook=S.get('hook'), res=1080)
         endp = os.path.join(self.work, f"{S['id']}-end.mp4")
@@ -483,7 +553,7 @@ class Build:
         wav = os.path.join(self.work, f"{S['id']}.wav")
         au = WS.short_audio(self.master_wav, a, L, 1.5, wav)
         out = os.path.join(self.work, f"{S['id']}.mp4")
-        WS.assemble(pic, endp, wav, out, self.fps)
+        WS.assemble(pic, endp, wav, out, self.fps, scale=vres != 1920)
         f0 = round(L * self.fps)
         endlogs = [{**x, 'f': x['f'] + f0} for gg in segs for x in json.load(open(gg['out'] + '.log.json'))['logs']]
         logs = WS.frame_logs(json.load(open(pic.replace('.mp4', '.log.json'))), a - g['t0'], self.fps, endlogs)
@@ -509,7 +579,7 @@ class Build:
             if g:   # D-010: the span is a world segment → re-render it vertical from the segment's scene
                 info = self.world_short(S, a, b, g)
                 out = os.path.join(self.work, f"{S['id']}.mp4")
-                res.append({'id': S['id'], 'file': os.path.relpath(out, ROOT), 'from': a, 'to': b, 'duration': round(probe_dur(out), 3), **info})
+                res.append({'id': S['id'], 'file': _rel(self, out), 'from': a, 'to': b, 'duration': round(probe_dur(out), 3), **info})
                 continue
             shots = []  # a shot entered mid-way keeps its own clock (lead) and length (dur): same picture as the master at that moment
             for s in self.tl['shots']:
@@ -530,7 +600,7 @@ class Build:
                 t0 = next(s['t0'] for s in shots if s['id'] == g['shot'])
                 logs += [{**x, 'f': x['f'] + round(t0 * self.fps), 'shot': g['shot']} for x in json.load(open(g['out'] + '.log.json'))['logs']]
             json.dump(logs, open(os.path.join(self.work, f"{S['id']}-frame-log.json"), 'w'))
-            res.append({'id': S['id'], 'file': os.path.relpath(out, ROOT), 'from': a, 'to': b, 'duration': round(probe_dur(out), 3), **st})
+            res.append({'id': S['id'], 'file': _rel(self, out), 'from': a, 'to': b, 'duration': round(probe_dur(out), 3), **st})
         self.shorts = res
         return {'shorts': res}
 
@@ -539,7 +609,7 @@ def main():
     import guard
     guard.assert_idle('build')   # tổng kết Tập 5 mục 12 (cine-lab #67): không chạy chồng lên một build/render khác
     argv = sys.argv[1:]
-    B = Build(argv[0], argv)
+    B = Build(argv[0], argv, atomic=True)
     sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'tests'))
     import comment_guard   # mục 13 (cine-lab #42, #76): mã thế giới của tập + thư viện, trước mọi bước
     bad, n = comment_guard.check([os.path.join(HERE, 'world')] + [os.path.join(B.root, w['dir']) for w in B.S.get('world') or []])
@@ -547,6 +617,23 @@ def main():
         print('\n'.join(bad))
         raise SystemExit(f'comment_guard: {len(bad)} lỗi (chú thích nuốt mã / cú pháp) — sửa trước khi dựng')
     t = time.time()
+    try:
+        run_steps(B)
+    except BaseException as e:   # F-15: bản cũ giữ nguyên; báo cáo trượt cạnh thư mục làm việc thật
+        if B.atomic:
+            B.report.update(failed=str(e)[:2000], staging=os.path.relpath(B.stage, ROOT))
+            json.dump(B.report, open(os.path.join(B.work_final, 'build.failed.json'), 'w'), indent=1, ensure_ascii=False)
+            print(f'build: TRƯỢT — sản phẩm cũ giữ nguyên; thư mục tạm {os.path.relpath(B.stage, ROOT)}', file=sys.stderr, flush=True)
+        raise
+    B.report['total_seconds'] = round(time.time() - t, 2)
+    json.dump(B.report, open(os.path.join(B.out, 'build-report.json'), 'w'), indent=1, ensure_ascii=False)
+    B.promote()
+    if os.path.exists(os.path.join(B.work_final, 'build.failed.json')):
+        os.remove(os.path.join(B.work_final, 'build.failed.json'))
+    print(f"build: {B.report['total_seconds']} s → {os.path.relpath(B.out_final, ROOT)}")
+
+
+def run_steps(B):
     B.step('spec', B.do_spec)
     B.load_inputs()
     B.step('voice', B.do_voice)
@@ -563,9 +650,6 @@ def main():
     B.step('shorts', B.do_shorts)
     import qc as QC
     B.step('qc', lambda: QC.run(B))
-    B.report['total_seconds'] = round(time.time() - t, 2)
-    json.dump(B.report, open(os.path.join(B.out, 'build-report.json'), 'w'), indent=1, ensure_ascii=False)
-    print(f"build: {B.report['total_seconds']} s → {os.path.relpath(B.out, ROOT)}")
 
 
 if __name__ == '__main__':

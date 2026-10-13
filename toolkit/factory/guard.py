@@ -7,7 +7,8 @@ tiến trình này và mọi tiến trình cha của nó (shell, `build.sh`, `bu
 import os, re, subprocess, sys
 
 PATTERNS = [r'toolkit/build\.sh', r'factory/build\.py', r'world/build_seg\.py', r'world/render_shots\.js', r'factory/render\.js',
-            r'world/shorts\.py', r'world/splice\.py']
+            r'world/shorts\.py', r'world/splice\.py',
+            r'checks/page/sampler\.js', r'checks/run\.sh', r'toolkit/checks_split\.sh']   # F-15: checks không chạy song song với render (§11b)
 BUSY_EXIT = 3
 
 
@@ -45,6 +46,15 @@ def busy(pid=None):
             continue
         res.append((p, args[:160]))
     return res
+
+
+def max_workers(n):
+    """F-15 (cine-lab #110): số tiến trình/worker dựng song song ≤ số nhân − 1 (chừa một nhân cho ghép, ASR, qc). CRUX_ALL_CORES=1 bỏ giới hạn.
+    Số worker không đổi byte khung (mỗi cảnh/khúc render độc lập), chỉ đổi giờ máy."""
+    n = max(1, int(n))
+    if os.environ.get('CRUX_ALL_CORES') == '1':
+        return n
+    return max(1, min(n, (os.cpu_count() or 2) - 1))
 
 
 def assert_idle(what='build'):
