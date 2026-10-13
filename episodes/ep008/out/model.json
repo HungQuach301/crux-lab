@@ -1,0 +1,505 @@
+{
+ "params": {
+  "price": 400000.0,
+  "down": 0.2,
+  "closing": 0.03,
+  "ownerCost": 0.025,
+  "sell": 0.06,
+  "term": 360,
+  "anchor": "2026-07",
+  "anchorYield": 0.05
+ },
+ "quantities": {
+  "hpi_last": {
+   "value": "2026-07",
+   "unit": "month",
+   "definition": "Last month of the FHFA index file."
+  },
+  "cpi_last": {
+   "value": "2026-08",
+   "unit": "month",
+   "definition": "Last month of the CPI rent file."
+  },
+  "tb_last": {
+   "value": "2026-09",
+   "unit": "month",
+   "definition": "Last month of the T-bill file."
+  },
+  "rate_last_week": {
+   "value": "2026-10-08",
+   "unit": "date",
+   "definition": "Last weekly PMMS date."
+  },
+  "rate_month_latest": {
+   "value": "2026-09",
+   "unit": "month",
+   "definition": "Latest complete month of weekly rates."
+  },
+  "rate_latest": {
+   "value": 6.86,
+   "unit": "%",
+   "definition": "Mean weekly 30-year rate in rate_month_latest."
+  },
+  "n_5y": {
+   "value": 367,
+   "unit": "windows",
+   "definition": "5-year windows from 1991-01"
+  },
+  "first_5y": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "first start"
+  },
+  "last_5y": {
+   "value": "2021-07",
+   "unit": "month",
+   "definition": "last start"
+  },
+  "share_buyer_ahead_5y": {
+   "value": 74.4,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0"
+  },
+  "median_adv_5y": {
+   "value": 79931,
+   "unit": "USD",
+   "definition": "median buyer advantage"
+  },
+  "best_start_5y": {
+   "value": "2017-05",
+   "unit": "month",
+   "definition": "start with largest advantage"
+  },
+  "best_adv_5y": {
+   "value": 213918,
+   "unit": "USD",
+   "definition": "largest advantage"
+  },
+  "worst_start_5y": {
+   "value": "2006-05",
+   "unit": "month",
+   "definition": "start with smallest advantage"
+  },
+  "worst_adv_5y": {
+   "value": -149392,
+   "unit": "USD",
+   "definition": "smallest advantage"
+  },
+  "n_renter_ahead_5y": {
+   "value": 94,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0"
+  },
+  "n_10y": {
+   "value": 307,
+   "unit": "windows",
+   "definition": "10-year windows from 1991-01"
+  },
+  "first_10y": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "first start"
+  },
+  "last_10y": {
+   "value": "2016-07",
+   "unit": "month",
+   "definition": "last start"
+  },
+  "share_buyer_ahead_10y": {
+   "value": 75.6,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0"
+  },
+  "median_adv_10y": {
+   "value": 157104,
+   "unit": "USD",
+   "definition": "median buyer advantage"
+  },
+  "best_start_10y": {
+   "value": "2012-04",
+   "unit": "month",
+   "definition": "start with largest advantage"
+  },
+  "best_adv_10y": {
+   "value": 483975,
+   "unit": "USD",
+   "definition": "largest advantage"
+  },
+  "worst_start_10y": {
+   "value": "2006-06",
+   "unit": "month",
+   "definition": "start with smallest advantage"
+  },
+  "worst_adv_10y": {
+   "value": -82385,
+   "unit": "USD",
+   "definition": "smallest advantage"
+  },
+  "n_renter_ahead_10y": {
+   "value": 75,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0"
+  },
+  "n_15y": {
+   "value": 247,
+   "unit": "windows",
+   "definition": "15-year windows from 1991-01"
+  },
+  "first_15y": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "first start"
+  },
+  "last_15y": {
+   "value": "2011-07",
+   "unit": "month",
+   "definition": "last start"
+  },
+  "share_buyer_ahead_15y": {
+   "value": 100.0,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0"
+  },
+  "median_adv_15y": {
+   "value": 187511,
+   "unit": "USD",
+   "definition": "median buyer advantage"
+  },
+  "best_start_15y": {
+   "value": "2011-05",
+   "unit": "month",
+   "definition": "start with largest advantage"
+  },
+  "best_adv_15y": {
+   "value": 663211,
+   "unit": "USD",
+   "definition": "largest advantage"
+  },
+  "worst_start_15y": {
+   "value": "2005-11",
+   "unit": "month",
+   "definition": "start with smallest advantage"
+  },
+  "worst_adv_15y": {
+   "value": 79829,
+   "unit": "USD",
+   "definition": "smallest advantage"
+  },
+  "n_renter_ahead_15y": {
+   "value": 0,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0"
+  },
+  "best_rate_10y": {
+   "value": 3.91,
+   "unit": "%",
+   "definition": "start-month rate"
+  },
+  "best_price_change_10y": {
+   "value": 114.3,
+   "unit": "%",
+   "definition": "index change over the window"
+  },
+  "best_rent_change_10y": {
+   "value": 40.2,
+   "unit": "%",
+   "definition": "CPI rent change over the window"
+  },
+  "best_equity_10y": {
+   "value": 554248,
+   "unit": "USD",
+   "definition": "buyer net equity at the end"
+  },
+  "best_pot_10y": {
+   "value": 70273,
+   "unit": "USD",
+   "definition": "renter pot at the end"
+  },
+  "worst_rate_10y": {
+   "value": 6.68,
+   "unit": "%",
+   "definition": "start-month rate"
+  },
+  "worst_price_change_10y": {
+   "value": 3.2,
+   "unit": "%",
+   "definition": "index change over the window"
+  },
+  "worst_rent_change_10y": {
+   "value": 31.9,
+   "unit": "%",
+   "definition": "CPI rent change over the window"
+  },
+  "worst_equity_10y": {
+   "value": 115374,
+   "unit": "USD",
+   "definition": "buyer net equity at the end"
+  },
+  "worst_pot_10y": {
+   "value": 197760,
+   "unit": "USD",
+   "definition": "renter pot at the end"
+  },
+  "era_1990s_n": {
+   "value": 108,
+   "unit": "windows",
+   "definition": "era windows"
+  },
+  "era_1990s_share": {
+   "value": 100.0,
+   "unit": "%",
+   "definition": "era share buyer ahead"
+  },
+  "era_1990s_median": {
+   "value": 187313,
+   "unit": "USD",
+   "definition": "era median advantage"
+  },
+  "era_2002-2007_n": {
+   "value": 72,
+   "unit": "windows",
+   "definition": "era windows"
+  },
+  "era_2002-2007_share": {
+   "value": 8.3,
+   "unit": "%",
+   "definition": "era share buyer ahead"
+  },
+  "era_2002-2007_median": {
+   "value": -32538,
+   "unit": "USD",
+   "definition": "era median advantage"
+  },
+  "era_2009-2016_n": {
+   "value": 91,
+   "unit": "windows",
+   "definition": "era windows"
+  },
+  "era_2009-2016_share": {
+   "value": 100.0,
+   "unit": "%",
+   "definition": "era share buyer ahead"
+  },
+  "era_2009-2016_median": {
+   "value": 408914,
+   "unit": "USD",
+   "definition": "era median advantage"
+  },
+  "renter_first_10y": {
+   "value": "2001-04",
+   "unit": "month",
+   "definition": "first renter-ahead start"
+  },
+  "renter_last_10y": {
+   "value": "2007-12",
+   "unit": "month",
+   "definition": "last renter-ahead start"
+  },
+  "yield_median_10y": {
+   "value": 6.71,
+   "unit": "%",
+   "definition": "median starting rent/price"
+  },
+  "yield_max_renter_ahead_10y": {
+   "value": 6.43,
+   "unit": "%",
+   "definition": "highest starting rent/price where renter ahead"
+  },
+  "yield_min_10y": {
+   "value": 5.03,
+   "unit": "%",
+   "definition": "lowest starting rent/price"
+  },
+  "yield_max_10y": {
+   "value": 7.39,
+   "unit": "%",
+   "definition": "highest starting rent/price"
+  },
+  "yield_first_10y": {
+   "value": 7.12,
+   "unit": "%",
+   "definition": "starting rent/price of the first window"
+  },
+  "yield_worst_10y": {
+   "value": 5.04,
+   "unit": "%",
+   "definition": "starting rent/price of the worst window"
+  },
+  "rent_to_outlay_min_10y": {
+   "value": 57.9,
+   "unit": "%",
+   "definition": "lowest month-1 rent / buyer outlay"
+  },
+  "rent_to_outlay_min_start_10y": {
+   "value": "2006-07",
+   "unit": "month",
+   "definition": "start of that minimum"
+  },
+  "today_buyer_month1": {
+   "value": 2933,
+   "unit": "USD/month",
+   "definition": "month-1 buyer outlay at rate_latest"
+  },
+  "today_rent_month1": {
+   "value": 1667,
+   "unit": "USD/month",
+   "definition": "month-1 rent at the anchor yield"
+  },
+  "today_rent_to_outlay": {
+   "value": 56.8,
+   "unit": "%",
+   "definition": "ratio"
+  },
+  "n_tbills_10y": {
+   "value": 307,
+   "unit": "windows",
+   "definition": "windows with T-bill data"
+  },
+  "share_tbills_10y": {
+   "value": 66.4,
+   "unit": "%",
+   "definition": "pot earns T-bill"
+  },
+  "share_fixedyield_10y": {
+   "value": 61.6,
+   "unit": "%",
+   "definition": "fixed 5% every start"
+  },
+  "share_yield4pct_10y": {
+   "value": 64.2,
+   "unit": "%",
+   "definition": "anchor yield 4%"
+  },
+  "share_yield6pct_10y": {
+   "value": 92.2,
+   "unit": "%",
+   "definition": "anchor yield 6%"
+  },
+  "flip_yield_10y": {
+   "value": 2.42,
+   "unit": "%",
+   "definition": "anchor yield at which buyer-ahead share falls to 50% (10y)"
+  },
+  "hvs_yield_2025Q4": {
+   "value": 4.83,
+   "unit": "%",
+   "definition": "Census HVS 12 x median asking rent / median asking sales price, 2025Q4"
+  },
+  "share_hvs_2025Q4_10y": {
+   "value": 73.6,
+   "unit": "%",
+   "definition": "share buyer ahead with that anchor"
+  },
+  "hvs_yield_2026Q1": {
+   "value": 5.59,
+   "unit": "%",
+   "definition": "Census HVS 12 x median asking rent / median asking sales price, 2026Q1"
+  },
+  "share_hvs_2026Q1_10y": {
+   "value": 87.3,
+   "unit": "%",
+   "definition": "share buyer ahead with that anchor"
+  },
+  "price": {
+   "value": 400000.0,
+   "unit": "USD",
+   "definition": "ILLUSTRATIVE price"
+  },
+  "yield_anchor_pct": {
+   "value": 5.0,
+   "unit": "%",
+   "definition": "anchor yield (assumption)"
+  },
+  "anchor_month": {
+   "value": "2026-07",
+   "unit": "month",
+   "definition": "anchor month"
+  }
+ },
+ "sweep": [
+  {
+   "anchorYieldPct": 3.0,
+   "shareBuyerAhead10y": 56.0
+  },
+  {
+   "anchorYieldPct": 3.2,
+   "shareBuyerAhead10y": 57.3
+  },
+  {
+   "anchorYieldPct": 3.4,
+   "shareBuyerAhead10y": 59.0
+  },
+  {
+   "anchorYieldPct": 3.6,
+   "shareBuyerAhead10y": 60.9
+  },
+  {
+   "anchorYieldPct": 3.8,
+   "shareBuyerAhead10y": 62.2
+  },
+  {
+   "anchorYieldPct": 4.0,
+   "shareBuyerAhead10y": 64.2
+  },
+  {
+   "anchorYieldPct": 4.2,
+   "shareBuyerAhead10y": 66.1
+  },
+  {
+   "anchorYieldPct": 4.4,
+   "shareBuyerAhead10y": 67.8
+  },
+  {
+   "anchorYieldPct": 4.6,
+   "shareBuyerAhead10y": 69.7
+  },
+  {
+   "anchorYieldPct": 4.8,
+   "shareBuyerAhead10y": 72.6
+  },
+  {
+   "anchorYieldPct": 5.0,
+   "shareBuyerAhead10y": 75.6
+  },
+  {
+   "anchorYieldPct": 5.2,
+   "shareBuyerAhead10y": 83.4
+  },
+  {
+   "anchorYieldPct": 5.4,
+   "shareBuyerAhead10y": 85.7
+  },
+  {
+   "anchorYieldPct": 5.6,
+   "shareBuyerAhead10y": 87.3
+  },
+  {
+   "anchorYieldPct": 5.8,
+   "shareBuyerAhead10y": 90.2
+  },
+  {
+   "anchorYieldPct": 6.0,
+   "shareBuyerAhead10y": 92.2
+  },
+  {
+   "anchorYieldPct": 6.2,
+   "shareBuyerAhead10y": 94.5
+  },
+  {
+   "anchorYieldPct": 6.4,
+   "shareBuyerAhead10y": 95.8
+  },
+  {
+   "anchorYieldPct": 6.6,
+   "shareBuyerAhead10y": 97.1
+  },
+  {
+   "anchorYieldPct": 6.8,
+   "shareBuyerAhead10y": 100.0
+  },
+  {
+   "anchorYieldPct": 7.0,
+   "shareBuyerAhead10y": 100.0
+  }
+ ]
+}

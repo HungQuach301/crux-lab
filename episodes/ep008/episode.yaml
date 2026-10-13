@@ -1,0 +1,13 @@
+episode: ep008
+format: "lab"          # F-14 v4 TRƯỢT cổng gốc (19/23) → không deep; chủ dự án 12/10 (PLAN kênh)
+topic: "queue #20 — topics-r2/machine/rent-buy-1 (dự phòng #6 retire-2 nếu G1 lô trượt điều kiện tỉ lệ thuê/giá)"
+title: null           # nháp ở G1 (gates/G1.md câu 3)
+pillar: vay nợ
+tokenCeiling: {episode: 15000000, consoleUsd: 45, p1HardUsd: 12, note: "lab (episode.md §8); P1 trần CỨNG $12 Console (chủ dự án 13/10)"}
+voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1008, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
+music: {style: C}      # mỗi hồi một cue (episode.md §5b); bản đồ liền mạch preprod/continuity.md
+f14: true              # nhà máy F-14 opt-in: mọi spine.json của đoạn thế giới có khoá `f14` (life / changes / label_at; README nhà máy §F-14 (a)–(e)) — chủ dự án 13/10
+asr_hotwords: [Maya, Sam]   # tên nhân vật (luật tạm 13/10) — chốt theo kịch bản C2
+footage: {max_share: 0.15, rights: RIGHTS.md, map: preprod/continuity.md}   # luật tạm 13/10: footage ngoài ≤ 15 % thời lượng
+shorts: 1              # 1 Short, không thumbnail (chủ dự án 13/10)
+dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json}
