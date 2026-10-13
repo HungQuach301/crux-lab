@@ -36,6 +36,8 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
   const LIB = 'toolkit/factory/world/', inputs = path.join(ROOT, segDir, 'inputs.json');
   const files = [LIB + 'lib3d.js', LIB + 'core.js', LIB + 'page.html', LIB + 'render_shots.js', LIB + 'vendor/package.json', `${segDir}/scene.js`,
     `${segDir}/spine.json`, ...(fs.existsSync(inputs) ? JSON.parse(fs.readFileSync(inputs)) : [])];
+  // F-15: cảnh dùng plate.js (footage) → mã plate vào khoá; cảnh không dùng → danh sách như cũ (khoá cache đoạn cũ không đổi)
+  if (/plate\.js/.test(fs.readFileSync(path.join(ROOT, segDir, 'scene.js'), 'utf8')) && !files.includes(LIB + 'plate.js')) files.push(LIB + 'plate.js');
   const codeHash = crypto.createHash('sha256'); for (const f of files) codeHash.update(f + '\0' + fs.readFileSync(path.join(ROOT, f)));
   codeHash.update('view\0' + view); const codeKey = codeHash.digest('hex');
   const cacheDir = arg('--cache') ? path.resolve(arg('--cache')) : path.join(ROOT, segDir, '..', '..', 'work', 'cache', seg, String(res)); fs.mkdirSync(cacheDir, { recursive: true });
