@@ -17,8 +17,8 @@ def spans(log, a, b):
     return s, e
 
 
-def main(video, voice):
-    fl = ff(['-i', video, '-vf', 'freezedetect=n=0.003:d=3', '-an'])
+def main(video, voice, n='0.003'):
+    fl = ff(['-i', video, '-vf', f'freezedetect=n={n}:d=3', '-an'])
     fs, fe = spans(fl, 'freeze_start', 'freeze_end')
     h, m, x = re.search(r'Duration: (\d+):(\d+):([\d.]+)', fl).groups(); dur = 3600 * int(h) + 60 * int(m) + float(x)
     fe += [dur] * (len(fs) - len(fe))
@@ -47,4 +47,4 @@ def main(video, voice):
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else str(EP / 'work/factory/stems/voice.flac'))
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 and sys.argv[2] != '-' else str(EP / 'work/factory/stems/voice.flac'), sys.argv[3] if len(sys.argv) > 3 else '0.003')
