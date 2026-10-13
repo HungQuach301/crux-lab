@@ -1736,6 +1736,62 @@
   "ok": true
  },
  {
+  "rule": "F13/visual-assets",
+  "fixture": "must fail",
+  "want": "FAIL",
+  "got": "FAIL",
+  "ok": true
+ },
+ {
+  "rule": "F13/visual-assets",
+  "fixture": "must pass",
+  "want": "PASS",
+  "got": "PASS",
+  "ok": true
+ },
+ {
+  "rule": "F13/osm-tiles",
+  "fixture": "must fail",
+  "want": "FAIL",
+  "got": "FAIL",
+  "ok": true
+ },
+ {
+  "rule": "F13/osm-tiles",
+  "fixture": "must pass",
+  "want": "PASS",
+  "got": "PASS",
+  "ok": true
+ },
+ {
+  "rule": "F15/run-joined",
+  "fixture": "must fail",
+  "want": "FAIL",
+  "got": "FAIL",
+  "ok": true
+ },
+ {
+  "rule": "F15/run-joined",
+  "fixture": "must pass",
+  "want": "PASS",
+  "got": "PASS",
+  "ok": true
+ },
+ {
+  "rule": "F15/yaml-approx",
+  "fixture": "must fail",
+  "want": "FAIL",
+  "got": "FAIL",
+  "ok": true
+ },
+ {
+  "rule": "F15/yaml-approx",
+  "fixture": "must pass",
+  "want": "PASS",
+  "got": "PASS",
+  "ok": true
+ },
+ {
   "rule": "F01",
   "fixture": "must fail",
   "want": "FAIL",
@@ -1840,7 +1896,7 @@
   "metrics": [
    {
     "name": "video Mbps",
-    "value": 2.313864,
+    "value": 2.3217,
     "op": ">=",
     "threshold": 16.0,
     "unit": "Mbps",
