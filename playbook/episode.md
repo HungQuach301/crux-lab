@@ -32,7 +32,7 @@
 | **Giám sát liền mạch** | bản tầm nhìn, kịch bản, `numbers.md`, nháp | `BAN-DO-LIEN-MACH.md` → `map:`; báo cáo lệch | **máy đối chiếu nháp với bản đồ**: số neo/danh từ chính có vật thể ±1 s; chuyển hồi đúng kiểu khai; màu hồi và màu lựa chọn đúng; số trên hình = lời; footage có năm + nguồn (A41b, A39 — trước khi khoá: đối chiếu tay) | báo lệch cho vai sở hữu; **không** tự sửa hình |
 | **Line producer** | trần theo format, ledger, `build-report.json`, log phiên | sổ chi theo mốc (PLAN tập §5) | **sổ chi khớp nguồn** ±2 % (`total_cost_usd`, `from_events.py`, `build-report.json`). Kèm luật ngắt: một mốc vượt 150 % ngân sách mốc → dừng mốc, báo trong gói; 1080p chạy lần 2 phải có lý do ghi trước | ngắt và báo; **không** quyết chi tiêu mới, **không** cắt bước chất lượng |
 | WRITER | hồ sơ cầu, `story.md` | kịch bản, bảng nhịp, chương, 3 phương án mở | kiểm mù lời + M1–M8 | như cũ (§3) |
-| K | `checks-appeal.md` | luật khoá + LOCK | selftest; 0 lệch tập cũ; luật CHẶN mới cần đối chứng dương thật (A40, chờ duyệt) | như cũ (§7) |
+| K | `checks-appeal.md` | luật khoá + LOCK | selftest; 0 lệch tập cũ; luật CHẶN mới cần đối chứng dương thật (A40, D-013) | như cũ (§7) |
 | Nhà máy | spine, thế giới, lời | nháp 540p, 1080p, Short | verify đoạn, đồng bộ, trùng byte so cache | như cũ |
 
 - **REVIEWER** (headless) chỉ ở gói G1, ý đồ kiểm định trước M5, gói G2 — không ở bước trung gian (D-013).

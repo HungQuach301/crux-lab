@@ -2,6 +2,8 @@
 
 v1 (29/09/2026) rút từ khung Cine Lab. v2 áp `decisions/D-005.md`: 3 cổng GU, 3 cổng TỰ ĐỘNG; bỏ phép che chữ/số; mọi kiểm mù do agent độc lập, mù tập chấm. Tài liệu này đứng ngay sau `CHARTER.md`. Cách chạy một tập: `playbook/episode.md`.
 
+> **D-013 (13/10/2026, từ Tập 8 sau G1) — thay các điểm trái dưới đây:** cổng chủ dự án G1 (sau tiền kỳ M2, gồm vật thể + animatic — **C3 gộp vào G1**), G2 (sau kiểm định trên nháp M5), G3 (sau 1080p một lần). C4 → animatic xám ở M2 + kiểm định trên nháp ở M5; C5/C6 → M5–M6. **≤ 2 vòng mỗi lỗi.** REVIEWER chỉ ở gói G1, ý đồ M5, gói G2. 1 Short, **không thumbnail** (bỏ so cặp/chấm thumbnail ở C6). Thẻ vai và phép thử: `episode.md` §1a. Các tên cổng C1–C6 dưới đây giữ làm tên bước kiểm.
+
 > **Mốc B (D-006, áp từ Tập 4) — cổng chủ dự án đổi thành G1/G2/G3:** **G1** sau C2 (đề tài + logline + kịch bản gồm cấu trúc, cold open, móc + tiêu đề nháp; C1 thành bước máy của P1). **C3** chỉ mở khi tập cần ký hiệu ngoài thư viện (≤ 2 ký hiệu mới/tập). **G2 = C6**, kèm Shorts. **G3** = phát hành. Bảng §4 giữ thước đo và ngưỡng của từng bước; cột "Loại"/"Ai quyết" đọc theo `episode.md` §1. Nguyên tắc tốc độ: chỉ mở vòng sửa khi CHẶN, hoặc lỗi sai nghĩa / claim / pháp lý; CHÍNH không đổi nghĩa → hàng chờ trong gói G2. Biên kịch: `playbook/story.md`.
 
 > **Mốc V (D-009, D-010, áp từ Tập 5) — chất lượng là ưu tiên tuyệt đối; thay các điểm trái chiều ở banner trên:**

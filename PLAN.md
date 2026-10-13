@@ -1,6 +1,6 @@
-# PLAN kênh Crux (≤ 1 trang) — cập nhật 13/10/2026 (tổng kết Tập 7)
+# PLAN kênh Crux (≤ 1 trang) — cập nhật 13/10/2026 (tổng kết Tập 7 đã áp, D-013)
 
-PLAN từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.md`). Thẩm quyền: `CHARTER.md` → `decisions/` (mới nhất D-012). Bản PLAN kênh trước khi dọn: `archive/PLAN-kenh-history.md`.
+PLAN từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.md`). Thẩm quyền: `CHARTER.md` (v5) → `decisions/` (mới nhất D-013). Bản PLAN kênh trước khi dọn: `archive/PLAN-kenh-history.md`.
 
 ## Tập
 | Tập | Đề tài | Format | Trạng thái |
@@ -11,10 +11,9 @@ PLAN từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.
 | **8** | **#20 thuê vs mua — phát lại lịch sử thật** (dự phòng #6) | `lab` | **P1 đang chạy** (nhánh `ep008`); điều kiện G1 lô: tỉ lệ thuê/giá có nguồn công khai hoặc kể như độ nhạy |
 
 ## Tiếp
-1. **Chủ dự án trả lời gói tổng kết Tập 7** (`tongket-t7/REPORT.md` mục 8: mô hình xưởng 6 mốc, footage + CHARTER §4, đích kinh tế). Duyệt → phiên áp (playbook, prompt "Chạy Tập N", CHARTER, RIGHTS §F) — **chỉ áp vào Tập 8 ở ranh giới sau G1**.
-2. **Lô K Tập 8:** A34–A37 (Tập 7) + A38 (1 Short, 0 thumbnail) + A39 (quyền footage, trước M3 Tập 8 nếu dùng footage) + A41a; A40 chờ chủ dự án; A32, A33, A29 mang sang.
-3. **Bài học P4 Tập 7 áp ngay cho Tập 8 (mẫu cũ hay mới đều vậy):** bộ lấy mẫu trang (checks đủ bộ) chạy **trước G2** (TONGKET-INPUT o).
-4. **Đường thử trên tập cũ** (`factory-t7lab`, tổng kết Tập 7 §6b): animatic S21/S25, hiệu chuẩn "nhớ lại", J/L-cut + màu hồi + SFX, checks nháp vs 1080p — song song P1 Tập 8, không chạm `ep008`.
+1. **Tổng kết Tập 7 đã áp (D-013, chủ dự án 13/10: 1a · 2b · 3a):** mô hình xưởng 6 mốc, `playbook/prompts/CHAY-TAP-N.md`, 1 Short, 0 thumbnail, footage ngoài (`RIGHTS.md` §F), SFX CC0/CC BY, công thức mở–chương–kết (`story.md`). **Tập 8 vào mô hình mới sau G1** (P1 đang chạy mẫu cũ); bộ lấy mẫu trang chạy **trước G2** dù mẫu nào.
+2. **Lô K Tập 8:** A34–A37 + A38 (1 Short, 0 thumbnail) + A39 (quyền footage, trước M3 Tập 8 nếu dùng footage) + A40 (nguyên tắc, duyệt) + A41a; A32, A33, A29 mang sang. `ep008` đổi số khiếu nại của mình thành A42–A45.
+3. **Đường thử trên tập cũ** (`factory-t7lab`, `tongket-t7/REPORT.md` §6b): animatic S21/S25, hiệu chuẩn "nhớ lại", J/L-cut + màu hồi + SFX thật, checks nháp vs 1080p — song song P1 Tập 8, không chạm `ep008`. Nhạc người sáng tác CC BY: xét ở G1 Tập 9.
 
 ## Việc treo
 - Nhà máy (`toolkit/factory/BACKLOG.md`): J/L-cut qua biên đoạn ở `splice.py`; `api.sh` không chặn agent con trong headless (Tập 7 C5); đồ dùng ngoài git khi container mới (bed.wav, three `node_modules`, FRED, PyAV < 15 — TONGKET-INPUT p); F-14 đóng TRƯỢT (12/10), Tập 8 `lab`.

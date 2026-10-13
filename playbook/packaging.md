@@ -91,6 +91,8 @@ Kết quả: `episodes/ep001/review-c6/pack-test/results.md`. Chủ dự án ch�
 
 ## 7. Gói phát hành khớp video + xu hướng + đề xuất (D-012 mục 3 sửa theo câu trả lời tổng kết Tập 6 câu 3, 11/10; từ Tập 7) — LUẬT
 
+> **D-013 (13/10/2026, từ Tập 8): không thumbnail, 1 Short; đường ChatGPT (brief, khung tham chiếu, ảnh) bỏ.** Mô tả/chương/tag do máy viết ở M6 và kiểm `package_check.py` (`episode.md` §5). Phần dưới giữ làm tham chiếu (chữ gói, claim-risk, chương khớp timeline vẫn áp).
+
 **Vì sao:** gói ChatGPT Tập 6 lệch video. Ảnh vẽ "baskets" thay vì crates của video, vẽ ảnh chụp đồ vật thay vì thế giới 3D, mỗi thumbnail một màu, và tiêu đề khác T1 đã duyệt (lessons T6-11). Nguyên nhân là **đầu vào** thiếu (brief không ghi tên vật thể, không có neo, không có xu hướng), không phải công cụ. Người bấm vào phải thấy đúng thứ đã được hứa (§1.7).
 
 **Chủ dự án quyết 11/10:** thumbnail API lai **KHÔNG ĐẠT** — không dùng, không render đối chứng 2D; bộ nhận diện `tongket-t6/thumbs/api-*.png` (logo "M.", chữ dưới trái, màu theo trụ) **không duyệt**. **Gói phát hành (tiêu đề, mô tả, thumbnail, tag) do chủ dự án làm trên ChatGPT.** Claude cung cấp đầu vào và kiểm đầu ra.
