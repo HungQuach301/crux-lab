@@ -2845,6 +2845,90 @@ def r01_no_png_case(bad):
 EXTRA.update({'A12/factory-dict': a12_dict_case, 'A13/episode-stem': a13_stem_case, 'R01/no-png': r01_no_png_case})
 
 
+# ---- K4.4: 1 Short, no thumbnail from Episode 8 (chủ dự án 13/10) -----------------------------------------------------------------------------------
+def sh07_case(bad):
+    """SH07 Episode 8: exactly one Short; bad = two Shorts (the D-006 count)."""
+    f = F('SH07')
+    try:
+        f.json('contract.json', {'episode': 'ep008', 'format': 'lab', 'shorts': [{'id': 'SH1', 'file': 'out/shorts/SH1.mp4'}] + ([{'id': 'SH2', 'file': 'out/shorts/SH2.mp4'}] if bad else [])})
+        return f.run('SH07')
+    finally:
+        f.close()
+
+
+def sh07_before_case(bad):
+    """SH07 keeps the old rule before Episode 8: three Shorts in Episode 7 pass (reported only); bad = the same three Shorts in Episode 8."""
+    f = F('SH07-before')
+    try:
+        f.json('contract.json', {'episode': 'ep008' if bad else 'ep007', 'format': 'lab', 'shorts': [{'id': f'SH{k}', 'file': f'out/shorts/SH{k}.mp4'} for k in (1, 2, 3)]})
+        return f.run('SH07')
+    finally:
+        f.close()
+
+
+def f11_no_thumbs_case(bad):
+    """F11 factory list from Episode 8 has no thumbnails: a factory build without out/package/thumb-*.png passes in Episode 8; bad = the same files in Episode 7."""
+    import r_file
+    f = F('F11-no-thumbs')
+    try:
+        f.json('out/timeline.json', {'total': 60.0, 'scenes': []})
+        f.json('out/factory/build-report.json', {'steps': {'resolve': {'total': 60.0}}})
+        f.json('contract.json', {'episode': 'ep007' if bad else 'ep008', 'format': 'lab'})
+        for x in r_file.FACTORY_CORE:
+            if x not in r_file.THUMBS and not os.path.exists(f.p(x)):
+                f.text(x.replace('.*', '.flac'), 'x')
+        return f.run('F11')
+    finally:
+        f.close()
+
+
+EXTRA.update({'SH07': sh07_case, 'SH07/before-ep8': sh07_before_case, 'F11/ep008-no-thumbs': f11_no_thumbs_case})
+
+
+# ---- K4.4: quyền footage ngoài (F13 CHẶN, F15 CHÍNH; chủ dự án 13/10) -------------------------------------------------------------------------------
+RIGHTS_HEAD = '| Mã | Tệp | Loại | URL | Giấy phép | Trích nguyên văn | Ngày tải | SHA-256 | Ghi nguồn |\n|---|---|---|---|---|---|---|---|---|\n'
+CC_QUOTE = '"You are free to: Share — copy and redistribute the material in any medium or format for any purpose, even commercially."'
+
+
+def rights_fixture(name, *, lic='CC BY 4.0', quote=CC_QUOTE, sha_ok=True, desc_credit=True, rid='X-PIC', undeclared=False, kind='image',
+                   credit='Photo: Jane Doe, CC BY 4.0', ext_t=(1.0, 5.0), total=60.0, cap=None, rule='F13'):
+    import hashlib as _h
+    f = F(name)
+    try:
+        blob = b'\x89PNG fixture ' + name.encode()
+        os.makedirs(f.p('media'), exist_ok=True)
+        open(f.p('media/pic.png'), 'wb').write(blob)
+        sha = _h.sha256(blob).hexdigest() if sha_ok else '0' * 64
+        f.text('RIGHTS.md', '# RIGHTS\n\n' + RIGHTS_HEAD + f'| X-PIC | media/pic.png | {kind} | https://example.org/pic | {lic} | {quote} | 2026-10-13 | {sha} | {credit} |\n')
+        sc = [{'id': 'S01', 'start': 0.0, 'dur': total, 'end': total, **({'bg': 'media/other.jpg'} if undeclared else {})}]
+        f.json('out/timeline.json', {'total': total, 'scenes': sc, 'external': [{'file': 'media/pic.png', 'rid': rid, 'kind': kind, 't0': ext_t[0], 't1': ext_t[1]}]})
+        f.text('out/package/description.md', 'About this video.\n\nCredits: ' + (credit if desc_credit else 'none') + '\n')
+        f.json('contract.json', {'episode': 'ep008', 'format': 'lab', **({'rights': {'externalMaxShare': cap}} if cap is not None else {})})
+        return f.run(rule)
+    finally:
+        f.close()
+
+
+F13_CASES = {
+    'F13': lambda bad: rights_fixture('F13-sha', sha_ok=not bad),
+    'F13/verbatim': lambda bad: rights_fixture('F13-verbatim', quote='CC BY 4.0 (see link)' if bad else CC_QUOTE),
+    'F13/row': lambda bad: rights_fixture('F13-row', rid='X-NONE' if bad else 'X-PIC'),
+    'F13/nc': lambda bad: rights_fixture('F13-nc', lic='CC BY-NC 4.0' if bad else 'CC BY 4.0'),
+    'F13/nd': lambda bad: rights_fixture('F13-nd', lic='CC BY-ND 4.0' if bad else 'CC BY 4.0'),
+    'F13/by-sa': lambda bad: rights_fixture('F13-by-sa', lic='CC BY-SA 4.0' if bad else 'CC BY 4.0'),
+    'F13/unknown-licence': lambda bad: rights_fixture('F13-unknown', lic='Stock licence (custom)' if bad else 'Public domain (CC0 1.0)'),
+    'F13/undeclared': lambda bad: rights_fixture('F13-undeclared', undeclared=bad),
+    'F13/credit': lambda bad: rights_fixture('F13-credit', desc_credit=not bad),
+    'F13/osm': lambda bad: rights_fixture('F13-osm', kind='map', lic='ODbL 1.0 (OpenStreetMap)',
+                                          quote='"You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors."',
+                                          credit='© OpenStreetMap contributors' if not bad else '—'),
+    'F15': lambda bad: rights_fixture('F15', ext_t=(0.0, 20.0) if bad else (0.0, 10.0), rule='F15'),
+    'F15/raise-ignored': lambda bad: rights_fixture('F15-raise', ext_t=(0.0, 15.0) if bad else (0.0, 10.0), cap=0.5, rule='F15'),
+    'F15/lower': lambda bad: rights_fixture('F15-lower', ext_t=(0.0, 10.0), cap=0.10 if bad else 0.20, rule='F15'),
+}
+EXTRA.update(F13_CASES)
+
+
 def main():
     only = set(sys.argv[sys.argv.index('--only') + 1].split(',')) if '--only' in sys.argv else None
     rows = []
