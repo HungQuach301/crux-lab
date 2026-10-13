@@ -81,6 +81,8 @@ Mỗi tập có một hợp đồng ở `episodes/<tập>/contract.json`. Bên d
 | `rights.visual`, `rights.generated` | không (K3.1: F12 cần `rights.visual` **hoặc** `out/visual-assets.json`) | `visual: [{name, kind, path?, paths?, family?}]`, `generated: [{glob, generator}]` (như manifest); `kind` ∈ `image`, `document`, `font`, `model3d`, `texture`, `quote-card`: tài sản hình của tập (ảnh, tài liệu, phông chữ, mô hình và texture 3D, thẻ trích dẫn dựng lại). Hợp nhất với manifest của bên dựng; không có cả hai thì F12 MISSING | F12 |
 | `rights.externalMaxShare` (K4.4) | không | số 0–0,2: hạ trần thời lượng footage ngoài của tập (mặc định Tập 8 0,15, sau 0,20; không nâng được) | F13 |
 | `package.thumbnails` (K4.4, A38) | không | số thumbnail giao (0–3); không khai = 0 từ Tập 8, 3 trước | F11, P01 |
+| `claims.methodActs` (K4.4b, A35) | không | hồi được tính là thẻ phương pháp ngoài `method` và `limits` (mặc định) | S02 |
+| `claims.termNames` (K4.4b, A36) | không | `[regex]`: số nằm trong tên sản phẩm (vd `\\b(15\|30)-year\\b`) không phải claim trong lời đọc | S07 |
 | `claims.forbiddenTerms`, `claims.allowTerms` (K4.4, A45) | không | `forbiddenTerms: [regex]` thêm vào danh sách từ dễ đọc thành lời khuyên (`ADVICE_TERMS`); `allowTerms: [{sentence \| scene, term, why}]` cho phép một từ ở một câu/cảnh (lý do ≥ 5 từ, vd câu hỏi của nhân vật) | S23 |
 
 ### Loại mô hình (`model.kind`)
