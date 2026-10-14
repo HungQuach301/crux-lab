@@ -99,8 +99,8 @@ S03.4 {hook} Each house holds the same pair of twins, and the same choice. <!-- 
 ## S04 — What each twin pays (viewer questions 1 and 3)
 
 S04.1 {question} So what does each twin actually pay? <!-- claims: — -->
-S04.2 {define} The twin who buys pays the down payment and the closing costs, then takes a 30-year fixed mortgage at that month's average rate. <!-- claims: rate_latest, term_30y -->
-S04.3 {hook} Every month after that, Nina's buying twin pays interest, property tax, insurance and repairs, and at the end, the cost of selling. <!-- claims: — -->
+S04.2 {define} The twin who buys pays the down payment and the closing costs, in dollars of the day, then takes a 30-year fixed mortgage at that month's average rate. <!-- claims: rate_latest, term_30y -->
+S04.3 {hook} Every month after that, Nina's buying twin pays interest and the costs of owning, and at the end, the cost of selling. <!-- claims: — -->
 S04.4 {define} Property tax, insurance and repairs come to 2.5 percent of the home's value a year. <!-- claims: owner_cost_pct -->
 S04.5 The twin who rents moves into an equivalent home and keeps the same savings. <!-- claims: — -->
 
@@ -109,14 +109,12 @@ S04.5 The twin who rents moves into an equivalent home and keeps the same saving
 S05.1 Here is the part most people picture differently: the renting twin's savings sit in cash, not in stocks. <!-- claims: — -->
 S05.2 That pile starts as the down payment and closing costs that never went into a house. <!-- claims: — -->
 S05.3 Whatever renting saves each month is added to the same pile. <!-- claims: — -->
-S05.4 In one variant, the cash earns Treasury bill interest, and nothing more. <!-- claims: — -->
-S05.5 So whether investing the difference would have done better is a different question, and this episode doesn't answer it. <!-- claims: — -->
+S05.4 In one variant, the cash earns Treasury bill interest; whether investing it would have done better is a different question, and this episode doesn't answer it. <!-- claims: — -->
 S05.6 A few costs are left out on both sides, and the card lists them. <!-- claims: —; hold: 0.5 -->
 
 ## S06 — One assumption, in plain sight (competitor weakness, anchor gap)
 
 S06.1 Most rent or buy math picks one growth rate for prices and one for rents, then shows a single answer. <!-- claims: — -->
-S06.2 It doesn't show how that answer moves when the assumptions move, and it doesn't replay what actually happened in the US. <!-- claims: — -->
 S06.3 Here, prices, rents and mortgage rates come from the real monthly US record. <!-- claims: — -->
 S06.4 One thing can't come from that record: the rent level the renting twin starts at. <!-- claims: — -->
 
@@ -166,7 +164,7 @@ S12.3 Counted along the whole street, the picture is this. <!-- claims: —; hol
 
 ## S13 — The count (anchor 1: the lights; lead-in S12.3)
 
-S13.1 In about 3 in 4 of the 307 start months, the buyer ended ahead. <!-- claims: share_buyer_ahead_10y, n_10y; hold: 1.5 -->
+S13.1 In about 3 out of 4 of the 307 start months, the buyer ended ahead. <!-- claims: share_buyer_ahead_10y, n_10y; hold: 1.5 -->
 S13.2 In the other 75, the renter did. <!-- claims: n_renter_ahead_10y -->
 S13.3 That count already includes interest, property tax, insurance, repairs, and the cost of buying and of selling. <!-- claims: — -->
 
@@ -229,9 +227,7 @@ S22.5 The month and the stay moved the lights; the tag hasn't turned yet. <!-- c
 ## S23 — Two neighbors (counterweights, ILLUSTRATIVE)
 
 S23.1 What made one house bright and another dark? <!-- claims: — -->
-S23.2 A pair of illustrative neighbors on that street show what the month alone did. <!-- claims: — -->
-S23.3 Marcus bought in June 2006, at the darkest house, and ten years later his renting twin was ahead. <!-- claims: worst_start_10y, n_10y -->
-S23.4 Priya bought in April 2012, at the brightest, and ended far ahead of hers. <!-- claims: best_start_10y -->
+S23.3 Marcus bought at the darkest house, June 2006; Priya at the brightest, April 2012. <!-- claims: worst_start_10y, best_start_10y -->
 S23.5 Same rent tag, same costs, same street; only the month was different. <!-- claims: — -->
 S23.6 And on the day each of them bought, neither could see which house they were standing in. <!-- claims: —; hold: 0.5 -->
 
@@ -256,7 +252,7 @@ S27.1 The Census Bureau's public figures sit inside the range we turned, and the
 
 ## S28 — The Treasury bill variant
 
-S28.1 And if the renter's cash earns Treasury bill interest, the buyer's share falls to about 2 in 3. <!-- claims: share_tbills_10y, flip_yield_10y; hold: 0.5 -->
+S28.1 And if the renter's cash earns Treasury bill interest, the buyer's share falls to about 2 out of 3. <!-- claims: share_tbills_10y, flip_yield_10y; hold: 0.5 -->
 S28.2 The lights follow the tag, but one month is not on the street yet. <!-- claims: —; hold: 1.0 -->
 
 >>> CHAPTER 6: "The end of the street" (on screen + YouTube chapter)

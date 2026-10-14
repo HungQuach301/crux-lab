@@ -37,7 +37,7 @@ export async function boot(res) {
       dark: (i) => { const v = cw > 0.5 ? ((1 - on(prev[1], i)) * (1 - tr(i)) + (1 - on(cur[1], i)) * tr(i)) : A['5'][i] ? 0 : 1; return v * ((i === iB || i === iD) ? 1 - off : 1); },
       lift: (i) => (i === iB || i === iD ? 0.9 * up : 0), big: (i) => (i === iB || i === iD ? 1 + 1.4 * up : 1), cellA: cw,
     });
-    marcus.p.visible = priya.p.visible = t > b.e1.neighbors - 0.2 && t < MV.m_tag.t1;
+    marcus.p.visible = priya.p.visible = t > MV.m_p1.t0 && t < MV.m_tag.t1;   // G2 câu 5d: S23.2 bỏ → hai người hiện khi máy tới
     // thẻ: 5 % → lên ở "higher" (thuê đắt hơn) → bó vào hộp ít hơn; ở đồ thị theo chuỗi seq
     const tagV = t < b.e7.higher ? 5 : t < MV.m_c.t0 ? 6 : cur[2];
     H.tag.set({ value: tagV, swing: 0.2 * pulse(t, b.e7.higher, 1.2) * Math.sin((t - b.e7.higher) * 8) + 0.05 * Math.sin(t * 1.3) });
@@ -50,8 +50,8 @@ export async function boot(res) {
     nameTag(O, marcus, wA * show(t, b.e2.marcus - 0.2, MV.m_tag.t0)); nameTag(O, priya, wA * show(t, b.e3.priya - 0.2, MV.m_tag.t0));
     nameTag(O, nina, wA * (t > MV.m_tag.t1 ? 1 : 0));
     const [dx, dy] = O.toScreen(DX, 2.2, DZ), [bx, by] = O.toScreen(BX, 2.2, BZ);
-    label(O, 'renter ahead', dx, dy - 30, { align: 'center', kind: 'name', px: 44, alpha: wA * show(t, b.e2.renting, b.e5.neither), color: C.warn });
-    label(O, 'buyer far ahead', bx, by - 30, { align: 'center', kind: 'name', px: 44, alpha: wA * show(t, b.e3.far, b.e5.neither), color: LIT });
+    label(O, 'renter ahead', dx, dy - 30, { align: 'center', kind: 'name', px: 44, alpha: wA * show(t, b.e2.darkest, b.e5.neither), color: C.warn });
+    label(O, 'buyer far ahead', bx, by - 30, { align: 'center', kind: 'name', px: 44, alpha: wA * show(t, b.e3.brightest, b.e5.neither), color: LIT });
     label(O, 'same tag · same costs · same street · different month', 960, 250, { align: 'center', kind: 'name', px: 48, alpha: wA * show(t, b.e4.month, b.e5.neither + 1.5) });
     label(O, 'on the day they bought: no light to see', 960, 250, { align: 'center', kind: 'name', px: 48, alpha: wA * show(t, b.e5.neither + 1.5, MV.m_tag.t0) });
     log.roi['e2.marcus'] = [dx - 300, dy - 80, dx + 300, dy + 500]; log.roi['e3.priya'] = [bx - 300, by - 80, bx + 300, by + 500]; log.roi['e5.neither'] = [300, 200, 1600, 800];
@@ -75,7 +75,7 @@ export async function boot(res) {
     label(O, 'buyer ahead: 73.6% · 87.3%', 960, 240, { align: 'center', kind: 'number', px: 64, alpha: gA * show(t, b.e12.range, b.e13.treasury - 0.2), claims: ['share_hvs_2025Q4_10y', 'share_hvs_2026Q1_10y'] });
     label(O, "a reference, not Nina's own rent", 960, 330, { align: 'center', kind: 'name', px: 48, alpha: gA * show(t, b.e12.reference, b.e13.treasury - 0.2) });
     label(O, 'majority flips only below about 2.4%', 960, 330, { align: 'center', kind: 'number', px: 48, alpha: gA * show(t, S.at.flip, b.e14.lights - 0.2), claims: ['flip_yield_10y'] });
-    label(O, 'Treasury bill interest: about 2 in 3 (66.4%)', 960, 240, { align: 'center', kind: 'number', px: 56, alpha: gA * show(t, b.e13.two, b.e14.lights - 0.2), claims: ['share_tbills_10y', 'share_tbills_10y_pct'] });
+    label(O, 'Treasury bill interest: about 2 out of 3 (66.4%)', 960, 240, { align: 'center', kind: 'number', px: 56, alpha: gA * show(t, b.e13.two, b.e14.lights - 0.2), claims: ['share_tbills_10y', 'share_tbills_10y_pct'] });
     const [ex, ey] = O.toScreen(END_X + 0.6, 0, -2), ring = gA * show(t, b.e14.month);
     if (ring > 0.01) { const c = O.ctx; c.save(); c.globalAlpha = ring; c.strokeStyle = C.ink; c.lineWidth = 5; c.setLineDash([12, 10]); c.beginPath(); c.arc(ex, ey, 70, 0, 7); c.stroke(); c.restore(); }
     label(O, 'one month not on the street yet', Math.min(1500, ex - 40), ey + 130, { align: 'right', kind: 'name', px: 44, alpha: ring });

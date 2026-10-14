@@ -8,8 +8,8 @@ rows = {}
 for ln in open(os.path.join(EP, 'numbers.md'), encoding='utf-8'):
     m = re.match(r'^\| `([\w-]+)` \| ([^|]+) \| ([^|]+) \|', ln)
     if m: rows[m.group(1)] = (m.group(2).strip(), m.group(3).strip())
-short = {'share_buyer_ahead_10y': 'about 3 in 4', 'median_adv_10y': 'about $157,000', 'best_adv_10y': 'about $484,000', 'worst_adv_10y': '$82,385 behind',
-         'share_tbills_10y': 'about 2 in 3', 'best_price_change_10y': 'more than doubled', 'rate_latest': '6.86%', 'yield_anchor_pct': '5% a year',
+short = {'share_buyer_ahead_10y': 'about 3 out of 4', 'median_adv_10y': 'about $157,000', 'best_adv_10y': 'about $484,000', 'worst_adv_10y': '$82,385 behind',
+         'share_tbills_10y': 'about 2 out of 3', 'best_price_change_10y': 'more than doubled', 'rate_latest': '6.86%', 'yield_anchor_pct': '5% a year',
          'owner_cost_pct': '2.5 percent', 'era_2002-2007_share': '6 of 72', 'share_buyer_ahead_15y': 'every one'}
 cl = {}
 for k, (v, full) in rows.items():

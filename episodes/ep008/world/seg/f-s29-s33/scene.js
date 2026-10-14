@@ -75,7 +75,7 @@ export async function boot(res) {
       'no income taxes · no interest deduction · no refinancing', 'no moving costs · no renter\'s insurance', 'full method in the description'], show(t, b.f6.card - 0.3, MV.m_grid.t0 + 0.3));
     log.roi['f6.card'] = [300, 200, 1620, 800];
     // bảng điểm (đồ thị, trên phố nhìn từ trên): mỗi dòng đúng màu của lựa chọn
-    const gA = ok * (t > MV.m_grid.t1 && t < MV.m_w.t0 ? 1 : 0), rows = [['lit', 'most start months: buyer ahead (about 3 in 4)', LIT, ['share_buyer_ahead_10y']],
+    const gA = ok * (t > MV.m_grid.t1 && t < MV.m_w.t0 ? 1 : 0), rows = [['lit', 'most start months: buyer ahead (about 3 out of 4)', LIT, ['share_buyer_ahead_10y']],
       ['stretch', 'dark stretch: April 2001 to December 2007', C.warn, ['renter_first_10y', 'renter_last_10y']], ['stays', 'held fifteen years: no dark doors in the record', C.ink, null],
       ['tag', 'the answer moves with the rent tag', '#C9D0DA', null]];
     if (gA > 0.01) O.card(330, 170, 1260, 400, { fill: '#0F141B', stroke: C.muted, lw: 3, alpha: 0.92 * gA * show(t, b.f8.lit - 0.3) });

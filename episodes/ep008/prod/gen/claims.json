@@ -448,10 +448,6 @@
     {
      "scene": "S22",
      "sentence": "S22.3"
-    },
-    {
-     "scene": "S23",
-     "sentence": "S23.3"
     }
    ]
   },
@@ -518,7 +514,7 @@
   {
    "claimId": "share_buyer_ahead_10y",
    "value": 75.6,
-   "display": "about 3 in 4",
+   "display": "about 3 out of 4",
    "unit": "%",
    "formula": "share of windows with buyer advantage > 0",
    "source": {
@@ -611,7 +607,7 @@
     },
     {
      "scene": "S23",
-     "sentence": "S23.4"
+     "sentence": "S23.3"
     }
    ]
   },
@@ -1778,7 +1774,7 @@
   {
    "claimId": "share_tbills_10y",
    "value": 66.4,
-   "display": "about 2 in 3",
+   "display": "about 2 out of 3",
    "unit": "%",
    "formula": "pot earns T-bill",
    "source": {
@@ -2249,7 +2245,7 @@
    "value": 75.6,
    "display": "75.6%",
    "unit": "%",
-   "formula": "same quantity as share_buyer_ahead_10y: about 3 in 4 (75.6%)",
+   "formula": "same quantity as share_buyer_ahead_10y: about 3 out of 4 (75.6%)",
    "source": {
     "id": "model",
     "url": null
@@ -2293,7 +2289,7 @@
    "value": 66.4,
    "display": "66.4%",
    "unit": "%",
-   "formula": "same quantity as share_tbills_10y: 66.4% (about 2 in 3)",
+   "formula": "same quantity as share_tbills_10y: 66.4% (about 2 out of 3)",
    "source": {
     "id": "model",
     "url": null

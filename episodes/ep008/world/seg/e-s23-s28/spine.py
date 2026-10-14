@@ -12,9 +12,8 @@ SV = K.SV
 S = K.Seg(['S23', 'S24', 'S25', 'S26', 'S27', 'S28'])
 B = [
  ('e0', 'S23.1', 'world', 'Điều gì làm nhà này sáng, nhà kia tối?', 'hai nhà nhấc lên trên phố.', {'bright': '@S23.1:bright'}, [], 0.44, 'đồng cảm', '—'),
- ('e1', 'S23.2', 'world', 'Hai hàng xóm minh hoạ cho thấy riêng tháng đã làm gì.', 'hai người hiện trước hai nhà.', {'neighbors': '@S23.2:neighbors'}, ['bước chân'], 0.46, 'đồng cảm', '—'),
- ('e2', 'S23.3', 'world', 'Marcus mua June 2006 ở nhà tối nhất; mười năm sau người song sinh thuê hơn.', 'Marcus trước nhà cửa tối.', {'marcus': '@S23.3:Marcus', 'renting': '@S23.3:renting'}, ['bước chân'], 0.5, 'căng', 'lia máy'),
- ('e3', 'S23.4', 'world', 'Priya mua April 2012 ở nhà sáng nhất, hơn xa.', 'Priya trước nhà sáng.', {'priya': '@S23.4:Priya', 'far': '@S23.4:far'}, ['bước chân'], 0.5, 'căng', 'lia máy'),
+ ('e2', 'S23.3', 'world', 'Marcus mua ở nhà tối nhất, June 2006 (G2 câu 5d: S23.2 bỏ, S23.3–S23.4 gộp).', 'Marcus trước nhà cửa tối.', {'marcus': '@S23.3:Marcus', 'darkest': '@S23.3:darkest'}, ['bước chân'], 0.5, 'căng', 'lia máy'),
+ ('e3', 'S23.3', 'world', 'Priya ở nhà sáng nhất, April 2012.', 'Priya trước nhà sáng.', {'priya': '@S23.3:Priya', 'brightest': '@S23.3:brightest'}, ['bước chân'], 0.5, 'căng', 'lia máy'),
  ('e4', 'S23.5', 'world', 'Cùng thẻ, cùng chi phí, cùng phố; chỉ khác tháng.', 'nhìn cả hai.', {'month': '@S23.5:month'}, [], 0.54, 'rõ', '—'),
  ('e5', 'S23.6', 'world', 'Ngày mua, không ai thấy mình đứng ở nhà nào.', 'đèn hai nhà tắt.', {'neither': '@S23.6:neither'}, ['tắt đèn'], 0.5, 'trầm', 'lia máy'),
  ('e6', 'S24.1', 'world', 'Đến giờ mọi nhà dùng cùng thẻ 5 %.', 'thẻ trên cửa.', {'tag': '@S24.1:tag'}, ['lật thẻ'], 0.52, 'căng', '—'),
@@ -30,13 +29,13 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_of([
-    ('m_p1', 'pan', 'wPair', 'wMarcus', cue['e1']['neighbors'], cue['e2']['marcus'], 1.4, 'tới Marcus ở nhà June 2006', 'whoosh_soft', {}),
-    ('m_p2', 'pan', 'wMarcus', 'wPriya', cue['e2']['renting'], cue['e3']['priya'], 1.4, 'lia ngang sang Priya: cùng phố, khác tháng', 'whoosh_soft', {}),
-    ('m_p3', 'pull', 'wPriya', 'wPair', cue['e3']['far'], cue['e4']['month'], 1.6, 'lùi lại nhìn cả hai: chỉ khác tháng', 'whoosh_soft', {}),
+    ('m_p1', 'pan', 'wPair', 'wMarcus', cue['e0']['bright'], cue['e2']['marcus'], 1.4, 'tới Marcus ở nhà June 2006', 'whoosh_soft', {}),
+    ('m_p2', 'pan', 'wMarcus', 'wPriya', cue['e2']['darkest'], cue['e3']['priya'], 1.4, 'lia ngang sang Priya: cùng phố, khác tháng', 'whoosh_soft', {}),
+    ('m_p3', 'pull', 'wPriya', 'wPair', cue['e3']['brightest'], cue['e4']['month'], 1.6, 'lùi lại nhìn cả hai: chỉ khác tháng', 'whoosh_soft', {}),
     ('m_tag', 'push', 'wPair', 'wTag', cue['e5']['neither'], cue['e6']['tag'], 2.0, 'về thẻ trên cửa của Nina', 'whoosh_push', {}),
     ('m_c', 'mode', 'wTag', 'cGrid', cue['e7']['less'], cue['e8']['turns'], 2.0, 'đẩy vào thẻ rồi cẩu lên phố trong một cú máy (nhân → quả); số chỉ ở đồ thị', 'whoosh_mode', {}),
 ])
-ev = [{'t': cue['e1']['neighbors'], 'kind': 'tick', 'v': 0.3}, {'t': cue['e5']['neither'], 'kind': 'data', 'v': 0.2}, {'t': cue['e6']['tag'], 'kind': 'tick', 'v': 0.45},
+ev = [{'t': cue['e2']['marcus'], 'kind': 'tick', 'v': 0.3}, {'t': cue['e5']['neither'], 'kind': 'data', 'v': 0.2}, {'t': cue['e6']['tag'], 'kind': 'tick', 'v': 0.45},
       {'t': cue['e7']['higher'], 'kind': 'tick', 'v': 0.55}, {'t': cue['e9']['four'], 'kind': 'data', 'v': 0.3}, {'t': cue['e9']['sixty'], 'kind': 'data', 'v': 0.64},
       {'t': cue['e10']['six'], 'kind': 'data', 'v': 0.7}, {'t': cue['e10']['ninety'], 'kind': 'data', 'v': 0.92}, {'t': cue['e12']['census'], 'kind': 'tick', 'v': 0.4},
       {'t': cue['e13']['treasury'], 'kind': 'data', 'v': 0.5}, {'t': cue['e14']['month'], 'kind': 'tick', 'v': 0.3}]
@@ -44,5 +43,5 @@ K.finish(HERE, S, 'ep008 · E = S23–S28 (chương 5, hồi 3 phần 1)', beats
          {'chapter': [0.2, 'Two neighbors, one tag'], 'at': {'flip': S.at('@S28.1:falls')}},
          {'e9.sixty': 'rent tag 4%: buyer ahead in 64.2% of start months', 'e10.ninety': 'rent tag 6%: buyer ahead in 92.2%', 'e11.share': 'the share moves with the rent you assume',
           'e12.census': 'Census vacancy survey: 4.83% a year · 5.59% a year', 'e12.range': 'buyer ahead: 73.6% · 87.3%', 'e12.reference': "a reference, not Nina's own rent",
-          'e13.two': 'Treasury bill interest: about 2 in 3 (66.4%)', 'e14.month': 'one month not on the street yet'},
+          'e13.two': 'Treasury bill interest: about 2 out of 3 (66.4%)', 'e14.month': 'one month not on the street yet'},
          [k for b in beats for k in [f"{b['id']}.{c}" for c in b['cues']]], anchors=['S25.1'])

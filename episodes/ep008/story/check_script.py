@@ -64,7 +64,7 @@ CAST = ['Nina']     # TẬP: tên nhân vật minh hoạ của tập (nhân vậ
 if '--cast' in sys.argv:
     CAST = [x for x in sys.argv[sys.argv.index('--cast') + 1].split(',') if x]
 PERSON_PROMISE = re.compile(r'\b(meet|buyers?|people|person|illustrative|retirees?|borrowers?|families|workers?|savers?)\b', re.I)
-CORE = [('share_buyer_ahead_10y', r'\b3 in 4\b')]   # TẬP: [(claim_id, regex số đọc lên)] số cốt lõi — đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
+CORE = [('share_buyer_ahead_10y', r'\b3 out of 4\b')]   # TẬP: [(claim_id, regex số đọc lên)] số cốt lõi — đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
 FULL_FORM = {'CPI': 'consumer price index'}   # TẬP: {'PMI': 'private mortgage insurance'} viết tắt phải có dạng đầy đủ ở lần đầu
 ROLES = ('hook', 'promise', 'question', 'constraint', 'define', 'promise_character', 'peak', 'fact')  # fact: sự thật lật kỳ vọng (M7, story §1 D-013 — port từ tongket-t7 e0f8fe95, G1 Tập 8 câu 2)
 IMPERATIVE = re.compile(r'(^|[.!?;:]\s+|^(so|and|but|now),?\s+)(say|take|imagine|picture|look|think|remember|check|compare|ask|wait|buy|sell|keep|consider|make|avoid|'
@@ -228,7 +228,8 @@ for r in rows:
     for ex in WORD_EXEMPT:
         s2 = re.sub(ex, '', s2, flags=re.I)
     toks = []
-    for m in re.finditer(r'(\d+) in (\d+)|\$?\d[\d,]*(?:\.\d+)?', s2):
+    # G2 Tập 8 (14/10): "3 out of 4" = một tỉ lệ như "3 in 4" (dòng ngoài TẬP, nêu tên)
+    for m in re.finditer(r'(\d+) (?:in|out of) (\d+)|\$?\d[\d,]*(?:\.\d+)?', s2):
         if m.group(1):
             toks.append((m.group(0), [float(m.group(1)), float(m.group(2))]))
         else:

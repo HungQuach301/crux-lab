@@ -75,8 +75,8 @@ scenes:
 voice_overrides:   # A14 (ASR): S13 seed 1008 đọc "3 in 4" thành "three and four" (small.en + medium.en) → seed khác, chữ không đổi
   S13: {seed: 1009}
 midrolls:   # giờ = lời thật (out/factory/timeline.json 13/10): lặng [t − 0,65; hết cảnh] ≥ 1 s sau chữ cuối
-  - {after_act: act1, scene: S07, t: 184.00}   # lời S07 hết 183,28 s, cảnh hết 184,767 s
-  - {after_act: act2, scene: S22, t: 450.10}   # lời S22 hết 449,366 s, cảnh hết 450,867 s; 175 s tới cuối
+  - {after_act: act1, scene: S07, t: 174.73}   # M6 (sau cắt G2 câu 5): lời S07 hết 174,013 s, cảnh hết 175,500 s
+  - {after_act: act2, scene: S22, t: 439.07}   # M6: lời S22 hết 438,333 s, cảnh hết 439,833 s; 167 s tới cuối
 counterweights:
   - {id: us-only, text: "US only · history, not a forecast", when: historical}
   - {id: illustrative, text: "Nina and her twin are illustrative · real prices, rents and rates", claims: [price, down_usd, closing_usd, today_buyer_month1, today_rent_month1, today_rent_to_outlay]}
@@ -89,4 +89,4 @@ world:    # sáu đoạn = sáu chương (script.md >>> CHAPTER)
   - {id: e-s23-s28, dir: world/seg/e-s23-s28, scenes: [S23, S24, S25, S26, S27, S28]}
   - {id: f-s29-s33, dir: world/seg/f-s29-s33, scenes: [S29, S30, S31, S32, S33]}
 shorts:
-  - {id: SH1, from: "@S17.1", to: "@S19.3$", hook: "The darkest house", end: "About 3 in 4 start months: the buyer ended ahead · dark stretch 2001–2007 · history, not a forecast"}   # thẻ cuối đối trọng (G1 câu 3)
+  - {id: SH1, from: "@S17.1", to: "@S19.3$", hook: "The darkest house", end: "About 3 out of 4 start months: the buyer ended ahead · dark stretch 2001–2007 · history, not a forecast"}   # thẻ cuối đối trọng (G1 câu 3)

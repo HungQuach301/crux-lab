@@ -2,7 +2,7 @@
 B08 (S08): lưới nhìn từ trên — mỗi tháng một ô/nhà mọc trái → phải (January 1991 → July 2016, 307 nhà, mười năm mỗi nhà); về thế giới: tháng của Nina ở qua
 cuối phố, chưa có nhà; một nhà sáng (vốn người mua sau phí bán lớn hơn tiền mặt người thuê), một nhà cửa tối. B09: đi dọc phố từ 1991, cả thập niên 1990
 sáng dần. B10: từ April 2001 cửa tối dần tới December 2007. B11 (đồ thị): 2002–2007 chỉ 6 trên 72. B12: sáng lại 2009 → 2016; nhìn toàn phố.
-B13 (số neo 1, lặng 0,75 s trước câu): chính các ô sáng/tối được đếm tại chỗ — "about 3 in 4 (75.6%)", "75 of 307"; chi phí đã tính đủ. B14: đếm lịch sử,
+B13 (số neo 1, lặng 0,75 s trước câu): chính các ô sáng/tối được đếm tại chỗ — "about 3 out of 4 (75.6%)", "75 of 307"; chi phí đã tính đủ. B14: đếm lịch sử,
 không phải lời hứa; dải chênh lệch theo tháng (trung vị khoảng $157,000), độ trải rộng."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); W8 = os.path.dirname(os.path.dirname(HERE))
@@ -55,7 +55,7 @@ ev = [{'t': cue['c1']['each'], 'kind': 'rise', 'dur': 2.0}, {'t': cue['c2']['thr
 K.finish(HERE, S, 'ep008 · C = S08–S14 (chương 3, hồi 2 phần 1)', beats, moves, ev,
          {'chapter': [0.25, 'The street lights up']},
          {'c1.january': 'January 1991', 'c1.right': 'July 2016', 'c2.three': '307 start months · ten years each', 'c11.six': '2002 to 2007: 6 of 72 (8.3%)',
-          'c13.every': 'lit again: every start 2009 to mid-2016', 'c16.three': 'buyer ahead: about 3 in 4 (75.6%)', 'c17.seventy': 'renter ahead: 75 of 307',
+          'c13.every': 'lit again: every start 2009 to mid-2016', 'c16.three': 'buyer ahead: about 3 out of 4 (75.6%)', 'c17.seventy': 'renter ahead: 75 of 307',
           'c18.interest': 'counted: interest · tax · insurance · repairs · buying and selling', 'c19.lit': 'a count of history, not a promise',
           'c20.one': 'middle start month: about $157,000 ahead'},
          [k for b in beats for k in [f"{b['id']}.{c}" for c in b['cues']]], anchors=ANCH)

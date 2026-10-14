@@ -41,7 +41,7 @@ K.finish(HERE, S, 'ep008 · F = S29–S33 (chương 6, giới hạn + kết)', b
          {'chapter': [0.2, 'The end of the street']},
          {'f2.six': 'September 2026 average: 6.86%', 'f2.two': "buyer's first month: $2,933", 'f3.fifty': '$1,667 = 56.8% of $2,933',
           'f4.lowest': 'lowest replayed: 57.9%, July 2006', 'f5.compares': 'first months only, not a forecast',
-          'f8.lit': 'most start months: buyer ahead (about 3 in 4)', 'f8.stretch': 'dark stretch: April 2001 to December 2007',
+          'f8.lit': 'most start months: buyer ahead (about 3 out of 4)', 'f8.stretch': 'dark stretch: April 2001 to December 2007',
           'f8.stays': 'held fifteen years: no dark doors in the record', 'f8.tag': 'the answer moves with the rent tag', 'f10.answer': 'Is her rent money wasted?',
           'f11.invested': 'invested? not measured here'},
          [k for b in beats for k in [f"{b['id']}.{c}" for c in b['cues']]])

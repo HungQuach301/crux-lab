@@ -17,8 +17,8 @@ B = [
  ('b1', 'S04.2', 'world', 'Người mua trả đặt cọc + chi phí đóng, vay 30 năm cố định ở lãi trung bình tháng đó.', 'hai chồng bay vào nhà; giấy vay ở cửa nhà.',
   {'down': '@S04.2:down', 'closing': '@S04.2:closing', 'mortgage': '@S04.2:mortgage'}, ['bịch giấy ×2', 'tick'], 0.26, 'tập trung', '—'),
  ('b2', 'S04.3', 'world', 'Mỗi tháng: lãi, thuế, bảo hiểm, sửa chữa; cuối cùng: chi phí bán.', 'chi phí rơi vào khe nhà, mỗi khoản một nhãn chữ.',
-  {'interest': '@S04.3:interest', 'property': '@S04.3:property', 'insurance': '@S04.3:insurance', 'repairs': '@S04.3:repairs', 'selling': '@S04.3:selling'},
-  ['tích ×5'], 0.3, 'tập trung', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
+  {'interest': '@S04.3:interest', 'owning': '@S04.3:owning', 'selling': '@S04.3:selling'},
+  ['tích ×3'], 0.3, 'tập trung', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
  ('b3', 'S04.4', 'chart', 'Thuế + bảo hiểm + sửa chữa = 2,5 % giá trị nhà mỗi năm.', 'nhãn mức chi sở hữu + chi phí bán.', {'two': '@S04.4:two'}, ['tick'], 0.3, 'tập trung', '—'),
  ('b4', 'S04.5', 'chart', 'Người thuê vào căn hộ tương đương, giữ cùng khoản để dành.', 'người thuê bước vào cửa căn hộ; chồng để dành cạnh.',
   {'rents': '@S04.5:rents', 'savings': '@S04.5:savings'}, ['bước chân'], 0.3, 'tập trung', 'CHUYỂN CHẾ ĐỘ → thế giới'),
@@ -27,11 +27,9 @@ B = [
  ('b6', 'S05.2', 'world', 'Đống tiền bắt đầu bằng đặt cọc + chi phí đóng không vào nhà.', 'hai chồng bay vào hộp.', {'down': '@S05.2:down'}, ['bịch giấy'], 0.32, 'rõ', '—'),
  ('b7', 'S05.3', 'world', 'Tiền thuê tiết kiệm mỗi tháng cộng vào cùng đống.', 'mỗi tháng một bó bay từ cửa căn hộ vào hộp.', {'month': '@S05.3:month'}, ['bịch nhỏ'], 0.32, 'rõ', '—'),
  ('b8', 'S05.4', 'world', 'Biến thể: tiền mặt có lãi T-bill, không hơn.', 'hộp ánh nhẹ.', {'treasury': '@S05.4:Treasury'}, [], 0.32, 'rõ', '—'),
- ('b9', 'S05.5', 'world', 'Đầu tư phần chênh: câu hỏi khác, tập này không trả lời.', 'hộp thứ hai đóng, không nhãn.', {'investing': '@S05.5:investing'}, [], 0.34, 'rõ', '—'),
+ ('b9', 'S05.4', 'world', 'Đầu tư phần chênh: câu hỏi khác, tập này không trả lời.', 'hộp thứ hai đóng, không nhãn.', {'investing': '@S05.4:investing'}, [], 0.34, 'rõ', '—'),
  ('b10', 'S05.6', 'world', 'Vài khoản không tính, thẻ liệt kê.', 'thẻ V7.', {'card': '@S05.6:card'}, ['thẻ trượt'], 0.32, 'rõ', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
  ('b11', 'S06.1', 'chart', 'Phép tính quen: một tốc độ tăng cho giá, một cho tiền thuê, một đáp án.', 'một đường phẳng vẽ ra.', {'growth': '@S06.1:growth', 'single': '@S06.1:single'}, ['bút vạch'], 0.32, 'nghi', '—'),
- ('b12', 'S06.2', 'chart', 'Không cho thấy đáp án đổi khi giả định đổi; không phát lại lịch sử thật.', 'đường phẳng nghiêng lên/xuống; dấu hỏi ở lịch sử.',
-  {'moves': '@S06.2:moves', 'replay': '@S06.2:replay'}, ['bút'], 0.34, 'nghi', '—'),
  ('b13', 'S06.3', 'chart', 'Ở đây: giá, tiền thuê, lãi từ bản ghi tháng thật của Mỹ.', 'ba dải bản ghi thật tích từng tháng.',
   {'prices': '@S06.3:prices', 'rents': '@S06.3:rents', 'rates': '@S06.3:rates'}, ['tích từng tháng'], 0.38, 'chú ý', '—'),
  ('b14', 'S06.4', 'chart', 'Một thứ không lấy được từ bản ghi: mức tiền thuê khởi đầu.', 'ô trống "starting rent".', {'rent': '@S06.4:rent'}, ['tick'], 0.4, 'chú ý', 'CHUYỂN CHẾ ĐỘ → thế giới'),
@@ -55,18 +53,18 @@ moves = K.moves_of([
     ('m_w3', 'mode', 'cTag', 'wFlow', cue['b16']['history'], cue['b17']['aside'], 1.4, 'thẻ → hộp: tiền thuê quyết phần để dành (thế giới)', 'whoosh_mode', {}),
 ])
 ev = [{'t': cue['b1'][k], 'kind': 'data', 'v': v} for k, v in (('down', 0.4), ('closing', 0.3))]
-ev += [{'t': cue['b2'][k], 'kind': 'tick', 'v': 0.35} for k in ('interest', 'property', 'insurance', 'repairs', 'selling')]
+ev += [{'t': cue['b2'][k], 'kind': 'tick', 'v': 0.35} for k in ('interest', 'owning', 'selling')]
 ev += [{'t': cue['b3']['two'], 'kind': 'tick', 'v': 0.4}, {'t': cue['b5']['cash'], 'kind': 'tick', 'v': 0.5}, {'t': cue['b6']['down'], 'kind': 'data', 'v': 0.45},
        {'t': cue['b7']['month'], 'kind': 'data', 'v': 0.3}, {'t': cue['b10']['card'], 'kind': 'tick', 'v': 0.35}, {'t': cue['b11']['growth'], 'kind': 'tick', 'v': 0.3},
        {'t': cue['b13']['prices'], 'kind': 'rise', 'dur': 1.6}, {'t': cue['b15']['tag'], 'kind': 'tick', 'v': 0.45}, {'t': cue['b16']['one'], 'kind': 'tick', 'v': 0.45},
        {'t': cue['b17']['aside'], 'kind': 'data', 'v': 0.35}, {'t': cue['b18']['turns'], 'kind': 'tick', 'v': 0.4}]
 K.finish(HERE, S, 'ep008 · B = S04–S07 (chương 2, hồi 1) → MR1', beats, moves, ev,
          {'chapter': [0.2, 'Two twins, one rent tag'], 'midroll': MR,
-          'at': {k: S.at('@' + k) for k in ('S05.3:Whatever', 'S07.3:month', 'S06.3:record', 'S05.5:different')}},
+          'at': {k: S.at('@' + k) for k in ('S05.3:Whatever', 'S07.3:month', 'S06.3:record', 'S05.4:different')}},
          {'b3.two': '2.5% a year · cost of selling: 6%', 'b5.stocks': 'cash, not stocks', 'b9.investing': 'invested? not measured here',
           'b11.growth': 'one assumed growth rate', 'b13.prices': 'the real monthly US record', 'b14.rent': 'starting rent: ?',
           'b16.one': 'starting rent: 5% a year (assumption) · $1,667 a month'},
-         ['b0.pay', 'b1.down', 'b1.closing', 'b1.mortgage', 'b2.interest', 'b2.property', 'b2.insurance', 'b2.repairs', 'b2.selling', 'b3.two', 'b4.rents', 'b4.savings',
-          'b5.cash', 'b5.stocks', 'b6.down', 'b7.month', 'b8.treasury', 'b9.investing', 'b10.card', 'b11.growth', 'b11.single', 'b12.moves', 'b12.replay', 'b13.prices',
+         ['b0.pay', 'b1.down', 'b1.closing', 'b1.mortgage', 'b2.interest', 'b2.owning', 'b2.selling', 'b3.two', 'b4.rents', 'b4.savings',
+          'b5.cash', 'b5.stocks', 'b6.down', 'b7.month', 'b8.treasury', 'b9.investing', 'b10.card', 'b11.growth', 'b11.single', 'b13.prices',
           'b13.rents', 'b13.rates', 'b14.rent', 'b15.tag', 'b15.five', 'b16.one', 'b16.history', 'b17.aside', 'b17.grows', 'b18.turns'],
          silences=[MRSIL])

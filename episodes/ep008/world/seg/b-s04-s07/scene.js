@@ -29,7 +29,7 @@ export async function boot(res) {
   const savR = MoneyStack(scene, { x: APT.x - 1.5, z: 0.6, color: '#9AA4B2', unit: 4000, name: 'renter-savings' });
   // chi phí hằng tháng của người mua: viên nhỏ rơi vào khe mái nhà
   const coin = (c) => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.05, 0.12), new THREE.MeshStandardMaterial({ color: c, transparent: true })); scene.add(m); return m; };
-  const coins = [0, 1, 2, 3, 4].map(() => coin(LIT));
+  const coins = [0, 1, 2].map(() => coin(LIT));   // G2 câu 5c: 3 khoản (lãi · chi sở hữu · bán)
   const flyB = [0, 1, 2, 3, 4, 5].map(() => coin(C.warn));
   // đồ thị bản ghi thật: một đường giả định (thẳng) + ba dải (giá nhà, tiền thuê, lãi), x = tháng 1991-01 → 2026-07
   const n = DATA.months.length, X = (i) => RX + RW * i / (n - 1), Yi = (v) => RY + (v - 1) / 3.6 * RH, Yr = (v) => RY + v / 12 * RH;
@@ -49,7 +49,7 @@ export async function boot(res) {
     sav.set({ usd: 92000 * (1 - 0.87 * ease(t, b.b1.down, b.b1.down + 0.6) - 0.13 * ease(t, b.b1.closing, b.b1.closing + 0.5)), a: show(t, 0.3, b.b1.closing + 0.6) });
     H.house.setLit(0.6 * ease(t, b.b1.mortgage, b.b1.mortgage + 0.4));
     // S04.3: mỗi khoản chi một viên rơi vào khe mái nhà
-    ['interest', 'property', 'insurance', 'repairs', 'selling'].forEach((k, i) => { const c = coins[i], p = (t - b.b2[k] + 0.2) / 0.6; c.visible = p > 0 && p < 1;
+    ['interest', 'owning', 'selling'].forEach((k, i) => { const c = coins[i], p = (t - b.b2[k] + 0.2) / 0.6; c.visible = p > 0 && p < 1;
       if (c.visible) c.position.set(BUY.x - 0.2 + 0.1 * i, 1.6 - 1.0 * p * p, BUY.z + 0.2); });
     // S04.5: người thuê bước tới cửa căn hộ ở "rents"; chồng tiền để dành cạnh cửa
     tR.p.position.x = APT.x - 0.9 + 0.5 * ease(t, b.b4.rents, b.b4.rents + 1.0);
@@ -65,7 +65,7 @@ export async function boot(res) {
       const p = (t - t0 - k * dt) / 0.6, f = flyB[fi]; if (p <= 0 || p >= 1) continue; f.visible = true;
       f.position.set(DOOR[0] + (BOX.x - DOOR[0]) * p, DOOR[1] + 0.6 * Math.sin(Math.PI * p) + (0.5 - DOOR[1]) * p, DOOR[2] + (BOX.z - DOOR[2]) * p); }
     // S06: đường giả định (thẳng) → nghiêng ở "moves"; bản ghi thật tích từng tháng từ "prices"/"rents"/"rates"
-    const asA = show(t, b.b11.growth - 0.2, MV.m_w2.t0), tilt = 0.6 * Math.sin(Math.max(0, t - b.b12.moves) * 2.2) * (t > b.b12.moves && t < b.b12.replay ? 1 : 0);
+    const asA = show(t, b.b11.growth - 0.2, MV.m_w2.t0), tilt = 0;   // G2 câu 5a: S06.2 bỏ → đường giả định không còn nghiêng
     assumed.set([[X(0), Yi(1)], [X(n - 1), Yi(1) + (2.2 + tilt) * ease(t, b.b11.growth - 0.2, b.b11.growth + 1.0)]]); assumed.visible = asA > 0.01; assumed.material.opacity = asA;
     const grow = (c) => Math.max(2, Math.floor(n * ease(t, c, c + 2.6)));
     rP.set(DATA.hpi.slice(0, grow(b.b13.prices)).map((v, i) => [X(i), Yi(v)])); rR.set(DATA.rent.slice(0, grow(b.b13.rents)).map((v, i) => [X(i), Yi(v)])); rM.set(rate.slice(0, grow(b.b13.rates)).map((v, i) => [X(i), Yr(v)]));
@@ -86,7 +86,7 @@ export async function boot(res) {
     label(O, 'buys', hx, hy - 30, { align: 'center', kind: 'name', px: 48, alpha: wl * show(t, Math.max(b.b0.pay, S.chapter[0] + 2.7), b.b2.selling + 1), color: LIT });
     label(O, 'rents', ax2, ay2 - 30, { align: 'center', kind: 'name', px: 48, alpha: wl * show(t, Math.max(b.b0.pay, S.chapter[0] + 2.7), MV.m_w1.t0 - 0.3), color: C.warn });
     label(O, 'mortgage', hx + 160, hy + 90, { align: 'left', kind: 'name', px: 44, alpha: wl * show(t, b.b1.mortgage, b.b2.interest - 0.1) });
-    [['interest', 'interest'], ['property', 'property tax'], ['insurance', 'insurance'], ['repairs', 'repairs'], ['selling', 'cost of selling']].forEach(([k, s], i) =>
+    [['interest', 'interest'], ['owning', 'costs of owning: tax · insurance · repairs'], ['selling', 'cost of selling']].forEach(([k, s], i) =>   // G2 câu 5c
       label(O, s, hx + 170, hy - 40 + 52 * i, { align: 'left', kind: 'name', px: 44, alpha: wl * show(t, b.b2[k], MV.m_c1.t0 + 0.2) }));
     log.roi['b2.interest'] = [hx - 120, hy - 100, hx + 520, hy + 220];
     label(O, "upkeep: 2.5 percent a year · selling: 6 percent", 960, 250, { align: 'center', kind: 'number', alpha: ok * show(t, b.b3.two, MV.m_w1.t0), claims: ['owner_cost_pct', 'sell_pct'] });

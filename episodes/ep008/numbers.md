@@ -11,7 +11,7 @@ Dữ liệu (FRED, tải 2026-10-13, `data/fetch.py`; không commit): HPIPONM226
 | `n_10y` | 307 | 307 start months | 10-year windows from 1991-01 |
 | `first_10y` | 1991-01 | January 1991 | first start |
 | `last_10y` | 2016-07 | July 2016 | last start |
-| `share_buyer_ahead_10y` | 75.6 | about 3 in 4 (75.6%) | share of windows with buyer advantage > 0 |
+| `share_buyer_ahead_10y` | 75.6 | about 3 out of 4 (75.6%) | share of windows with buyer advantage > 0 |
 | `median_adv_10y` | 157104 | $157,104 (about $157,000) | median buyer advantage |
 | `best_start_10y` | 2012-04 | April 2012 | start with largest advantage |
 | `best_adv_10y` | 483975 | $483,975 (about $484,000) | largest advantage |
@@ -36,7 +36,7 @@ Dữ liệu (FRED, tải 2026-10-13, `data/fetch.py`; không commit): HPIPONM226
 | `best_rate_10y` | 3.91 | 3.91% | start-month rate |
 | `worst_equity_10y` | 115374 | $115,374 | buyer net equity at the end |
 | `worst_pot_10y` | 197760 | $197,760 | renter pot at the end |
-| `share_tbills_10y` | 66.4 | 66.4% (about 2 in 3) | pot earns T-bill |
+| `share_tbills_10y` | 66.4 | 66.4% (about 2 out of 3) | pot earns T-bill |
 | `share_yield4pct_10y` | 64.2 | 64.2% | anchor yield 4% |
 | `share_yield6pct_10y` | 92.2 | 92.2% | anchor yield 6% |
 | `hvs_yield_2025Q4` | 4.83 | 4.83% a year | Census HVS 12 x median asking rent / median asking sales price, 2025Q4 |
@@ -62,3 +62,8 @@ Dữ liệu (FRED, tải 2026-10-13, `data/fetch.py`; không commit): HPIPONM226
 | `yield_anchor_pct` | 5.0 | 5% a year (assumption) | anchor yield (assumption) |
 
 Đại lượng còn lại ở `out/model.json`; chỉ dòng trên được nói/hiện. Câu "today" so tháng đầu, **không phải dự báo** (claim-risk hồ sơ).
+| `term_30y` | 30 | 30-year | loan term of the buying twin (model parameter; M5 checks S07, 14/10) |
+| `era_2002-2007_span` | 2002-2007 | 2002 to 2007 | start months 2002 through 2007 (era name for era_2002-2007_*) |
+| `hold_15y` | 15 | 15 years | holding period of the 15-year comparison (model parameter) |
+| `yield4_tag` | 4 | 4% | rent tag shown at the 4% anchor yield (assumption; definition of share_yield4pct_10y) |
+| `yield6_tag` | 6 | 6% | rent tag shown at the 6% anchor yield (assumption; definition of share_yield6pct_10y) |
