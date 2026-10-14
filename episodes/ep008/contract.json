@@ -244,6 +244,23 @@
      "anchor_month"
     ]
    }
+  ],
+  "allowTerms": [
+   {
+    "sentence": "S02.3",
+    "term": "wasted",
+    "why": "Nina's own question, which the episode answers with history, not advice (owner G2 14/10, answer 7)"
+   },
+   {
+    "scene": "S02",
+    "term": "wasted",
+    "why": "Nina's own question, which the episode answers with history, not advice (owner G2 14/10, answer 7)"
+   },
+   {
+    "scene": "S32",
+    "term": "wasted",
+    "why": "Nina's own question, which the episode answers with history, not advice (owner G2 14/10, answer 7)"
+   }
   ]
  },
  "model": {
@@ -274,5 +291,16 @@
  ],
  "package": {
   "thumbnails": 0
- }
+ },
+ "coverage": [
+  {
+   "attribute": "year",
+   "act": "act2",
+   "range": [
+    1991,
+    2016
+   ],
+   "note": "every start year of the 10-year street (houses 1991-01 … 2016-07) is walked or seen in act 2 (M6, S06)"
+  }
+ ]
 }

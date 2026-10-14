@@ -97,6 +97,9 @@ def claims():
         if x['illustrative']:
             x['character'] = 'nina'
         out.append(x)
+    for x in out:   # G2 câu 6 (checks S09): mọi số $ là đô la danh nghĩa (mô hình không hiệu chỉnh lạm phát)
+        if '$' in str(x['display']):
+            x['basis'] = 'nominal'
     ids = [c['claimId'] for c in out]
     assert len(ids) == len(set(ids)), 'claimId trùng'
     return {'claims': out}

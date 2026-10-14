@@ -22,6 +22,9 @@ def sub(k, of, d):
     assert d in rows[of][1], (k, d, rows[of][1]); cl[k] = {'value': Q[of]['value'], 'display': d, 'display_full': rows[of][1], 'of': of}
 sub('share_buyer_ahead_10y_pct', 'share_buyer_ahead_10y', '75.6%')
 sub('era_2002-2007_pct', 'era_2002-2007_share', '8.3%')
+# M6 checks S07 (14/10): nhãn trên hình cần một khoảng claim nguyên vẹn
+sub('today_buyer_month1_usd', 'today_buyer_month1', '$2,933')
+sub('today_rent_month1_usd', 'today_rent_month1', '$1,667')
 sub('share_tbills_10y_pct', 'share_tbills_10y', '66.4%')
 sub('share_15y_pct', 'share_buyer_ahead_15y', '100%')
 sub('worst_adv_10y_short', 'worst_adv_10y', 'about $82,000')
@@ -34,6 +37,10 @@ for y in (4, 5, 6):   # chữ trên thẻ / nhãn thẻ tiền thuê ở đồ t
 cl['term_30y'] = {'value': 30, 'display': '30-year', 'display_full': '30-year fixed mortgage (assumption, numbers.md)', 'param': True}
 cl['era_2002-2007_span'] = {'value': '2002-2007', 'display': '2002 to 2007', 'display_full': 'start months 2002 through 2007', 'param': True}
 cl['hold_15y'] = {'value': 15, 'display': '15 years', 'display_full': 'held fifteen years', 'param': True}
+# G2 câu 6 (S09): mọi số $ là đô la danh nghĩa (mô hình không hiệu chỉnh lạm phát)
+for k, v in cl.items():
+    if isinstance(v, dict) and '$' in str(v.get('display', '')) + str(v.get('display_full', '')):
+        v['basis'] = 'nominal'
 cl['_geom'] = {'n10': Q['n_10y']['value'], 'n15': Q['n_15y']['value'], 'renter10': Q['n_renter_ahead_10y']['value']}
 json.dump(cl, open(os.path.join(HERE, 'claims.json'), 'w'), indent=1, ensure_ascii=False)
 print(len(cl) - 1, 'claims')

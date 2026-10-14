@@ -203,7 +203,8 @@ def finish(here, S, name, beats, moves, events, extra, label_cues, visual_cues, 
     tension = [[0, 0.2]] + [[b['t0'], 0.2 + 0.6 * TEN[b['id']]] for b in beats] + [[S.total, 0.1]]
     spine = {'segment': name, 'version': 8, 'grey': os.environ.get('CRUX_GREY') == '1', 'total': S.total, 'fps': 30, 'pad': PAD, 'episode_t0': S.t0, 'scenes': S.scenes, 'takes': S.takes,
              'words': S.words, 'beats': beats, 'moves': moves, 'events': ev, 'tension': tension, 'shots': SV.shots_for(moves, S.total),
-             'music_plan': music_plan(S, accents), 'mix': {'music_db': music_db(S), 'data_db': 25.0, 'silences': [list(x) for x in silences]},
+             'music_plan': music_plan(S, accents), 'mix': {'music_db': music_db(S), 'data_db': 31.0,   # M6 (checks L1 15,1 → ≥ 20 dB): tiếng dữ liệu dưới lời 25 → 31 dB
+                     'silences': [list(x) for x in silences]},
              'anchor_silences': aw, 'start': S.start, 'end': S.end, 'last': {k: round(v, 3) for k, v in S.last.items()},
              'f14': True, 'hold_push': HOLD_PUSH, 'changes': {k: 'major' for k in visual_cues}, **extra, 'label_cues': label_cues, 'visual_cues': visual_cues, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
     json.dump(spine, open(os.path.join(here, 'spine.json'), 'w'), indent=1, ensure_ascii=False)

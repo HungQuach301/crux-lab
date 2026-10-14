@@ -77,8 +77,8 @@ export async function boot(res) {
     log.roi['a2.down'] = [500, 270, 1420, 350]; log.roi['a2.four'] = [600, 190, 1320, 270];
     // lưới: nhãn
     const gl = ok * (t > MV.m_grid.t1 ? 1 : 0);
-    label(O, '72 start months in a row: 6 of 72', 960, 230, { align: 'center', kind: 'number', alpha: gl * show(t, b.a3.six, b.a4.fifteen - 0.3), claims: ['era_2002-2007_n', 'era_2002-2007_share'] });
-    label(O, '15 years: every one (100%)', 960, 230, { align: 'center', kind: 'number', alpha: gl * show(t, b.a4.every, b.a5.wasted - 0.5), claims: ['share_buyer_ahead_15y', 'share_15y_pct'] });
+    label(O, '6 of 72 start months in a row', 960, 230, { align: 'center', kind: 'number', alpha: gl * show(t, b.a3.six, b.a4.fifteen - 0.3), claims: ['era_2002-2007_share'] });
+    label(O, '15 years: every one (100%)', 960, 230, { align: 'center', kind: 'number', alpha: gl * show(t, b.a4.every, b.a5.wasted - 0.5), claims: ['hold_15y', 'share_buyer_ahead_15y', 'share_15y_pct'] });
     label(O, 'Is her rent money wasted?', 960, 560, { align: 'center', kind: 'name', px: 72, alpha: gl * show(t, b.a5.wasted - 0.1, b.a6.every - 0.4) });
     label(O, 'every start month since January 1991 · ten years each', 960, 230, { align: 'center', kind: 'number', px: 48, alpha: gl * show(t, b.a6.every, b.a6.same - 0.3), claims: ['first_10y'] });
     const [p1x, p1y] = O.toScreen(xOf('2012-04'), 0, zOf('2012-04')), [p2x, p2y] = O.toScreen(xOf('2006-06'), 0, zOf('2006-06'));

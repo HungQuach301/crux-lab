@@ -101,8 +101,8 @@ export function Street(scene, starts, { name = 'street' } = {}) {
   const cellG = new THREE.BoxGeometry(GAP * 0.86, 0.015, ROW * 0.86);
   const cells = new THREE.InstancedMesh(cellG, new THREE.MeshBasicMaterial({ transparent: true }), starts.length);   // ô không đổ bóng: màu đúng như khai (đọc được ở bản xám)
   cells.frustumCulled = false; g.add(cells);
-  const M4 = new THREE.Matrix4(), col = new THREE.Color(), cLit = new THREE.Color(LIT), cWarn = new THREE.Color(C.warn), cDark = new THREE.Color(DARKW), cOff = new THREE.Color('#2A303B'), cHi = new THREE.Color(C.ink);
-  const wall0 = new THREE.Color('#7E838C'), roof0 = new THREE.Color('#5B5F66'), roofLit = new THREE.Color('#C98A4E'), door0 = new THREE.Color('#3B4A5A'), dim = new THREE.Color(DIM), glow = new THREE.Color(LIT);
+  const M4 = new THREE.Matrix4(), col = new THREE.Color(), cLit = new THREE.Color(LIT), cWarn = new THREE.Color(C.warn), cDark = new THREE.Color(DARKW), cOff = new THREE.Color('#45484E')   /* G2 câu 3: ô chưa lộ xám trung tính (trước: navy #2A303B, tối hơn ô "dark") */, cHi = new THREE.Color(C.ink);
+  const wall0 = new THREE.Color('#7E838C'), roof0 = new THREE.Color('#5B5F66'), roofLit = new THREE.Color('#C98A4E'), door0 = new THREE.Color('#3B4A5A'), doorDark = new THREE.Color('#0E1014'), dim = new THREE.Color(DIM), glow = new THREE.Color(LIT);
   const api = { g, houses, starts, n: starts.length, idx: Object.fromEntries(starts.map((s, i) => [s, i])),
     set({ lit = () => 0, dark = () => 0, hi = () => 0, vis = () => 1, cellA = 0, rise = () => 1, lift = () => 0, big = () => 1 } = {}) {
       houses.forEach((o, i) => {
@@ -112,7 +112,7 @@ export function Street(scene, starts, { name = 'street' } = {}) {
         for (const m of o.wins) { m.material.emissiveIntensity = 1.6 * a + 0.8 * e; }
         for (const m of o.walls) { m.material.color.copy(wall0).lerp(glow, 0.55 * a).lerp(dim, 0.7 * d); m.material.emissive = glow; m.material.emissiveIntensity = 0.45 * a + 0.4 * e; }
         for (const m of o.roofs) { m.material.color.copy(roof0).lerp(roofLit, a).lerp(dim, 0.7 * d); }
-        if (o.door) { o.door.material.color.copy(door0).lerp(cWarn, d); o.door.material.emissive = cWarn; o.door.material.emissiveIntensity = 0.6 * d; }
+        if (o.door) { o.door.material.color.copy(door0).lerp(doorDark, d); o.door.material.emissiveIntensity = 0; }   // G2 câu 3: cửa người-thuê-hơn tối hẳn, không phát sáng (trước: warn phát sáng → đọc thành "sáng")
         const sc = cellA > 0.005 && v > 0.01 ? Math.min(1, v * 1.2) : 0;
         M4.makeScale(sc, 1, sc).setPosition(xOf(o.s), 0.02, zOf(o.s)); cells.setMatrixAt(i, M4);
         col.copy(cOff).lerp(cLit, a).lerp(cDark, d).lerp(cHi, 0.6 * e); cells.setColorAt(i, col);
@@ -204,14 +204,17 @@ export function GlassBox(scene, { x, z, w = 1.0, h = 0.9, d = 0.7, max = 12 } = 
 }
 
 // ---------------------------------------------------------------- nhãn, tên, lớp bắt buộc
-export function label(O, s, x, y, o = {}) { return O.text(s, x, y, o.px || 52, { plate: PLATE, plateA: 0.72, ...o }); }
+// G2 câu 6: khung có số $ đang hiện → chrome thêm nhãn gốc tiền "All $ in dollars of the day" (BASIS_LABEL.nominal; chrome vẽ cuối khung)
+const MONEY = { a: 0 };
+export function label(O, s, x, y, o = {}) { if (/\$/.test(s)) MONEY.a = Math.max(MONEY.a, o.alpha ?? 1); return O.text(s, x, y, o.px || 52, { plate: PLATE, plateA: 0.72, ...o }); }
 export function nameTag(O, fig, a = 1, o = {}) {
   const [fx, fy] = O.toScreen(fig.p.position.x, 0, fig.p.position.z), v = Math.min(1, Math.max(0, Math.min(fx - 40, 1880 - fx) / 80));
   return label(O, `${fig.char} · ILLUSTRATIVE`, Math.min(1500, Math.max(330, fx + (o.dx || 0))), Math.min(880, fy + 50 + (o.dy || 0)), { align: 'center', kind: 'name', px: 48, w: 600, alpha: a * v, char: fig.char });
 }
 export const SRC = 'FHFA home prices · BLS rents · Freddie Mac rates';
 export function chrome(O, { illus = 1, cw = null, cwA = 1, src = SRC } = {}) {
-  O.chrome({ illus: illus > 0.01, illusA: illus, src, hist: true, ...(cw && cwA > 0.01 ? { cw, cwA } : {}) });
+  const ba = MONEY.a; MONEY.a = 0;
+  O.chrome({ illus: illus > 0.01, illusA: illus, src, hist: true, ...(cw && cwA > 0.01 ? { cw, cwA } : {}), ...(ba > 0.05 ? { basis: 'nominal', basisA: Math.min(1, ba) } : {}) });
 }
 export function seg2(O, x0, y0, x1, y1, color, a, lw = 4) {
   if (a <= 0.01) return; const c = O.ctx; c.save(); c.globalAlpha = a; c.strokeStyle = color; c.lineWidth = lw; c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y1); c.stroke(); c.restore();

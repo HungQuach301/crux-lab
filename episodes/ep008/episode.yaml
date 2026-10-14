@@ -19,7 +19,7 @@ dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json
 #   CRUX_GREY=1 (animatic xám, M2) / không đặt (nháp màu, M3) → spine.py từng đoạn → bash toolkit/build.sh episodes/ep008/episode.yaml
 audio:
   lufs: -14
-  true_peak: -2.0
+  true_peak: -2.3   # M6: bản G2 ra −1,9 dBTP (> −2,0) → đích −2,3 để có biên
   music: work/factory/music/bed.wav
   music_cmd: "python3 episodes/ep008/world/music/bed.py {total} {out} --timeline episodes/ep008/out/factory/timeline.json"
   ident: {after: S03}

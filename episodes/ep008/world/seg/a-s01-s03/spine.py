@@ -54,7 +54,7 @@ ev = [{'t': cue['a1']['smaller'], 'kind': 'tick', 'v': 0.4}, {'t': cue['a1']['re
 K.finish(HERE, S, 'ep008 · A = S01–S03 + ident (cold open, chương 1)', beats, moves, ev,
          {'ident': IDENT, 'chapter': [0.3, "Nina's door"], 'at': {k: S.at('@' + k) for k in ('S01.2:buyers', 'S01.2:rent', 'S01.3:payment', 'S03.1:one', 'S03.1:renting')}},
          {'a1.smaller': "rent ÷ buyer's first month: 56.8%", 'a1.replayed': 'lowest replayed: 57.9%', 'a2.down': '$80,000 down · $12,000 closing', 'a2.four': '$400,000 home',
-          'a3.six': '72 start months in a row: 6 of 72', 'a4.every': '15 years: every one (100%)', 'a5.wasted': 'Is her rent money wasted?',
+          'a3.six': '6 of 72 start months in a row', 'a4.every': '15 years: every one (100%)', 'a5.wasted': 'Is her rent money wasted?',
           'a6.ten': 'every start month since January 1991 · ten years each', 'a6.same': 'same rules · opposite answers'},
          ['a0.cheap', 'a1.smaller', 'a1.replayed', 'a2.down', 'a2.four', 'a3.seventy', 'a3.six', 'a4.fifteen', 'a4.every', 'a5.wasted', 'a6.every', 'a6.ten', 'a6.same',
           'a7.history', 'a8.street', 'a8.house', 'a9.twins'])

@@ -62,8 +62,8 @@ export async function boot(res) {
     label(O, 'rent', rx, gy + 56, { align: 'center', kind: 'name', px: 48, alpha: sA, color: C.warn });
     label(O, "buyer's first month", bx + 60, gy + 56, { align: 'center', kind: 'name', px: 48, alpha: sA, color: LIT });
     label(O, 'September 2026 average: 6.86%', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.f2.six), claims: ['rate_month_latest', 'rate_latest'] });
-    label(O, "buyer's first month: $2,933", 960, 310, { align: 'center', kind: 'number', alpha: sA * show(t, b.f2.two), color: LIT, claims: ['today_buyer_month1'] });
-    label(O, '$1,667 = 56.8% of $2,933', 960, 390, { align: 'center', kind: 'number', alpha: sA * show(t, b.f3.fifty), color: C.warn, claims: ['today_rent_month1', 'today_rent_to_outlay', 'today_buyer_month1'] });
+    label(O, "buyer's first month: $2,933", 960, 310, { align: 'center', kind: 'number', alpha: sA * show(t, b.f2.two), color: LIT, claims: ['today_buyer_month1_usd'] });
+    label(O, '$1,667 = 56.8% of $2,933', 960, 390, { align: 'center', kind: 'number', alpha: sA * show(t, b.f3.fifty), color: C.warn, claims: ['today_rent_month1_usd', 'today_rent_to_outlay', 'today_buyer_month1_usd'] });
     log.roi['f2.six'] = [500, 170, 1420, 250]; log.roi['f2.two'] = [500, 250, 1420, 330]; log.roi['f3.fifty'] = [500, 330, 1420, 410];
     const pA = ok * dA, [mx, my] = O.toScreen(X(iMin), Y(r1[iMin]), RZ), [qx, qy] = O.toScreen(NX, Y(0.568), RZ), [ox, oy] = O.toScreen(RX, Y(0.5), RZ);
     label(O, 'lowest replayed: 57.9%, July 2006', mx, my + 70, { align: 'center', kind: 'number', px: 44, alpha: pA * show(t, b.f4.lowest) * (1 - 0.6 * show(t, b.f5.and)), claims: ['rent_to_outlay_min_10y', 'rent_to_outlay_min_start_10y'] });

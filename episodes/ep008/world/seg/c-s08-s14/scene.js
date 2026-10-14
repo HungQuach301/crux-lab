@@ -73,7 +73,7 @@ export async function boot(res) {
     label(O, "buyer's equity > renter's cash", e1x, e1y - 40, { align: 'center', kind: 'name', px: 44, alpha: wA * show(t, b.c4.lights, MV.m_walk.t0), color: LIT });
     label(O, "renter's cash bigger", e2x, e2y - 40, { align: 'center', kind: 'name', px: 44, alpha: wA * show(t, b.c5.dark, MV.m_walk.t0), color: C.warn });
     log.roi['c4.lights'] = [e1x - 200, e1y - 100, e1x + 200, e1y + 160]; log.roi['c5.dark'] = [e2x - 200, e2y - 100, e2x + 200, e2y + 160];
-    label(O, '2002 to 2007: 6 of 72 (8.3%)', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c11.six, b.c13.again), claims: ['era_2002-2007_share', 'era_2002-2007_pct'] });
+    label(O, '2002 to 2007: 6 of 72 (8.3%)', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c11.six, b.c13.again), claims: ['era_2002-2007_span', 'era_2002-2007_share', 'era_2002-2007_pct'] });
     label(O, 'lit again: every start 2009 to mid-2016', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.c13.every, b.c15.counted), claims: ['era_2009-2016_share'] });
     label(O, 'buyer ahead: about 3 out of 4 (75.6%)', 960, 230, { align: 'center', kind: 'number', px: 64, alpha: gA * show(t, b.c16.three, b.c19.lit - 0.3), color: LIT, claims: ['share_buyer_ahead_10y', 'share_buyer_ahead_10y_pct'] });
     label(O, 'renter ahead: 75 of 307', 960, 320, { align: 'center', kind: 'number', alpha: gA * show(t, b.c17.seventy, b.c19.lit - 0.3), color: C.warn, claims: ['n_renter_ahead_10y'] });

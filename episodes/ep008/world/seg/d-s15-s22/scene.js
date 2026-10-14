@@ -86,7 +86,7 @@ export async function boot(res) {
     label(O, 'held five years: buyer ahead in 74.4%', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.d10.seventy, b.d13.every - 0.3), claims: ['share_buyer_ahead_5y'] });
     const [mx, my] = O.toScreen(xOf('2006-05'), 0, zOf('2006-05'));
     label(O, 'May 2006 · $149,392 behind', mx, my + 80, { align: 'center', kind: 'number', px: 48, alpha: gA * mayH, color: C.warn, claims: ['worst_start_5y', 'worst_adv_5y'] });
-    label(O, '15 years: every one (100%) · 247 start months', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.d13.every, b.d15.five - 0.3), claims: ['share_buyer_ahead_15y', 'share_15y_pct', 'n_15y'] });
+    label(O, '15 years: every one (100%) · 247 start months', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.d13.every, b.d15.five - 0.3), claims: ['hold_15y', 'share_buyer_ahead_15y', 'share_15y_pct', 'n_15y'] });
     label(O, 'weakest: $79,829 ahead', 960, 310, { align: 'center', kind: 'number', px: 48, alpha: gA * show(t, b.d14.weakest, b.d15.five - 0.3), color: LIT, claims: ['worst_adv_15y'] });
     const yrs = Hn === 5 ? 'five years' : Hn === 10 ? 'ten years' : 'fifteen years';
     label(O, `held ${yrs}`, 960, 230, { align: 'center', kind: 'name', px: 64, alpha: gA * show(t, b.d15.five, MV.m_w.t0) });
