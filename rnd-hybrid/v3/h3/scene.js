@@ -44,7 +44,7 @@ export async function boot(res) {
   const ID = { 'male-a': 'walt', 'male-b': 'q1', 'male-c': 'q3', 'male-d': 'q4', 'male-e': 'q1', 'male-f': 'q3', 'female-a': 'ruth', 'female-b': 'q2', 'female-c': 'q5', 'female-d': 'q2', 'female-e': 'ruth', 'female-f': 'q5' };
   const face = (o, x, z, tw = 0) => { o.rotation.y = Math.atan2(CAMS.S1.pos[0] - x, CAMS.S1.pos[2] - z) + tw; };
   for (const [x, z, , file, , , clip, expr] of CROWD) { const id = ID[file], pose = clip === 'emote-no' ? POSES.shock : clip === 'holding-right' ? POSES.phone : POSES.stand;
-    const f = layered({ id, pose, expr }, { s: 0.95, pxPerM: 400 }); at(f, x, 0.16, z); face(f, x, z, 0.15); }
+    const f = layered({ id, pose, expr }, { s: 0.95, pxPerM: 400, dots: 0 });   // đám đông: bỏ bán sắc (khởi động trang < 180 s) at(f, x, 0.16, z); face(f, x, z, 0.15); }
   const wPose = { ...blendPose(POSES.stand, POSES.slump, 0.3), head: 9, uaR: 22, faR: 100, uaL: 14, faL: -20 };
   const walt = layered({ id: 'walt', pose: wPose, expr: 'worried' }, { s: 1.0, pxPerM: 400, wPx: 720, hPx: 980 }); at(walt, ...WALT); face(walt, WALT[0], WALT[2], 0.25);
 

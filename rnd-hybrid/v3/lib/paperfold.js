@@ -53,12 +53,12 @@ const LAYERS = [['uaL', 'faL'], ['thL', 'shL'], ['thR', 'shR', 'torso'], ['head'
 const kraft = new THREE.MeshStandardMaterial({ color: '#B98E5E', roughness: 1, side: THREE.BackSide });
 function bentPlane(w, h, bend) { const g = new THREE.PlaneGeometry(w, h, 16, 1), p = g.attributes.position;
   for (let i = 0; i < p.count; i++) { const x = p.getX(i) / (w / 2); p.setZ(i, -bend * x * x); } g.computeVertexNormals(); return g; }
-export function layered(c, { s = 1.0, pxPerM = 420, wPx = 640, hPx = 900, pad = 24, gap = 0.035, bend = 0.03, print = true } = {}) {
+export function layered(c, { s = 1.0, pxPerM = 420, wPx = 640, hPx = 900, pad = 24, gap = 0.035, bend = 0.03, print = true, dots = 0.22 } = {}) {
   const g = new THREE.Group(), w = wPx / pxPerM, h = hPx / pxPerM;
   LAYERS.forEach((only, li) => {
     const cv = document.createElement('canvas'); cv.width = wPx; cv.height = hPx; const x = cv.getContext('2d'); x.translate(wPx / 2, hPx - pad);
     const draw = (gg) => drawCharacter(gg, { x: 0, y: 0, s, id: c.id, pose: c.pose, expr: c.expr, flip: c.flip, noShadow: true, only });
-    if (print) inked(x, draw, { x: 0, y: 0, w: wPx, h: hPx, pad, outline: 4, light: [-0.7, -0.85], shade: 0.3, dots: 0.22, grain: 0.3 }); else draw(x);
+    if (print) inked(x, draw, { x: 0, y: 0, w: wPx, h: hPx, pad, outline: 4, light: [-0.7, -0.85], shade: 0.3, dots, grain: 0.3 }); else draw(x);
     const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
     const geo = bentPlane(w, h, bend * (li === 3 ? 1.6 : 1)); geo.translate(0, h / 2 - pad / pxPerM, 0);
     const front = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: t, alphaTest: 0.5, roughness: 0.92 }));

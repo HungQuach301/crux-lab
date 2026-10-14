@@ -31,7 +31,7 @@ export function inked(ctx, draw, { x, y, w = 760, h = 1120, pad = 30, outline = 
   g.save(); g.globalCompositeOperation = 'source-atop';
   g.fillStyle = lg(g, w * (0.5 + 0.5 * light[0]), h * (0.5 + 0.5 * light[1]), w * (0.5 - 0.5 * light[0]), h * (0.5 - 0.5 * light[1]),
     [[0, 'rgba(255,240,215,0.22)'], [0.45, 'rgba(0,0,0,0)'], [1, `rgba(10,14,24,${shade})`]]); g.fillRect(0, 0, w, h);
-  halftone(g, 0, 0, w, h, (px, py) => ((px / w - 0.5) * -light[0] + (py / h - 0.5) * -light[1]) * 1.6 - 0.15, { step: 8, alpha: dots });
+  if (dots > 0) halftone(g, 0, 0, w, h, (px, py) => ((px / w - 0.5) * -light[0] + (py / h - 0.5) * -light[1]) * 1.6 - 0.15, { step: 8, alpha: dots });
   g.globalAlpha = grain; g.globalCompositeOperation = 'multiply'; paperGrain(g, w, h, 1); g.restore();
   g.save(); g.globalCompositeOperation = 'destination-in'; g.drawImage(sil, 0, 0); g.restore();   // cắt lại theo hình (vân giấy tràn)
   const ox = x - w / 2, oy = y - (h - pad);
