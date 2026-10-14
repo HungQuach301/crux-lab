@@ -1,0 +1,56 @@
+{
+ "labels": {
+  "R1": "067bd0a7",
+  "R2": "24ad4df1",
+  "R3": "84cccae5"
+ },
+ "scores": {
+  "R1": {
+   "skip": [
+    "S04",
+    "S05",
+    "S06",
+    "S07"
+   ],
+   "engaged": [
+    "S12",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S24",
+    "S25",
+    "S26",
+    "S27",
+    "S28"
+   ],
+   "why": "Skips the long definitions and caveats from 1:23 to 3:03 before any result appears; engaged by the street relighting and the brightest and darkest houses, plus the tag turning at 8:04 to 8:55."
+  },
+  "R2": {
+   "skip": [
+    "S05",
+    "S06",
+    "S07"
+   ],
+   "engaged": [
+    "S12",
+    "S13",
+    "S14",
+    "S15"
+   ],
+   "why": "Skips from 1:56 through the list of what each twin pays and the rent-tag explanation up to 3:04; engaged from the street relighting at 4:34 through the darkest-house reveal at 5:22."
+  },
+  "R3": {
+   "skip": [
+    "S04",
+    "S05",
+    "S06"
+   ],
+   "engaged": [
+    "S12",
+    "S16"
+   ],
+   "why": "Skips the 1:01 to 2:00 stretch on what each twin pays and the 1:57 to 2:23 growth-rate passage; engaged by the street lighting up at 4:34 and the darkest house at 5:44."
+  }
+ }
+}

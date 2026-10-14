@@ -1,0 +1,11 @@
+# M5 nhớ lại + chỗ muốn tua (r3)
+
+- **Nhớ lại (chỉ báo):** 3/3 người kể ≥ 2/3 khoảnh khắc · câu hỏi đúng 3/3
+- **Chỗ muốn tua (ngưỡng: không cảnh nào ≥ 2/3):** {'S05': 3, 'S07': 2, 'S04': 2, 'S06': 3} → **TRƯỢT**
+
+- recall R1: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': "Recalls the dark 2001–2007 block in the lit street, the June 2006 house at $82,385 behind, and the rent tag at 4% and 6%; frames the question as whether buying beats renting and whether Nina's rent is wasted."}
+- recall R2: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': 'Recalls the street lighting with the 72-month dark band, the June 2006 house at $82,385 behind, and the rent tag at 4% and 6%; frames the question as whether buying beats renting.'}
+- recall R3: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': "Recalls the street of 307 houses with the 72-start dark band, the June 2006 house at $82,385 behind, and the rent tag at 4% and 6%; frames the question as 'Is her rent money wasted?', meaning buying versus renting."}
+- skip R1: {'skip': ['S04', 'S05', 'S06', 'S07'], 'engaged': ['S12', 'S13', 'S14', 'S15', 'S16', 'S24', 'S25', 'S26', 'S27', 'S28'], 'why': 'Skips the long definitions and caveats from 1:23 to 3:03 before any result appears; engaged by the street relighting and the brightest and darkest houses, plus the tag turning at 8:04 to 8:55.'}
+- skip R2: {'skip': ['S05', 'S06', 'S07'], 'engaged': ['S12', 'S13', 'S14', 'S15'], 'why': 'Skips from 1:56 through the list of what each twin pays and the rent-tag explanation up to 3:04; engaged from the street relighting at 4:34 through the darkest-house reveal at 5:22.'}
+- skip R3: {'skip': ['S04', 'S05', 'S06'], 'engaged': ['S12', 'S16'], 'why': 'Skips the 1:01 to 2:00 stretch on what each twin pays and the 1:57 to 2:23 growth-rate passage; engaged by the street lighting up at 4:34 and the darkest house at 5:44.'}

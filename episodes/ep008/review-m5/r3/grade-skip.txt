@@ -1,0 +1,26 @@
+# Grading packet (blind). You are an independent grader. Grade each reader label literally.
+
+Scenes with start/end seconds: [["S01", 0.0, 15.6], ["S02", 15.6, 29.3], ["S03", 29.3, 55.9], ["S04", 55.9, 89.7], ["S05", 89.7, 121.6], ["S06", 121.6, 150.8], ["S07", 150.8, 184.8], ["S08", 184.8, 224.7], ["S09", 224.7, 246.7], ["S10", 246.7, 262.0], ["S11", 262.0, 274.6], ["S12", 274.6, 290.6], ["S13", 290.6, 309.2], ["S14", 309.2, 322.7], ["S15", 322.7, 333.0], ["S16", 333.0, 349.5], ["S17", 349.5, 357.4], ["S18", 357.4, 371.0], ["S19", 371.0, 394.4], ["S20", 394.4, 404.8], ["S21", 404.8, 419.8], ["S22", 419.8, 450.9], ["S23", 450.9, 484.4], ["S24", 484.4, 500.2], ["S25", 500.2, 507.0], ["S26", 507.0, 515.8], ["S27", 515.8, 523.6], ["S28", 523.6, 535.8], ["S29", 535.8, 555.0], ["S30", 555.0, 579.9], ["S31", 579.9, 588.1], ["S32", 588.1, 619.5], ["S33", 619.5, 626.2]]
+For each label return {"skip": [scene ids the reader would skip ahead in, from the times they give; [] if none], "engaged": [scene ids], "why": "<one line>"}.
+
+### R1
+1. I'd skip ahead at 1:23 (the second paragraph of the setup, running to about 3:03). That stretch covers the cash-not-stocks variant, then why most rent-or-buy math is a single answer, then the rent tag. It's a lot of definitions and caveats before I've seen any result. The visuals are mostly static: Nina and a box of gold bars, a flat growth line, and the "5%" sign on the door. I'd also skim 1:56 to 2:16, where the narration compares itself to other calculators, which doesn't help me follow the story. The tag does matter later, but I could pick it up when it turns at 8:04. I'd jump to 3:04, where the street of houses starts lighting up.
+
+2. I was most engaged at 4:34 to 5:48. The street goes dark in the 2000s and then lights up again after 2009. After that come the "3 in 4" count, the brightest house (April 2012, $484,000 ahead) and the darkest house (June 2006, $82,385 behind). The visuals and the numbers work together there, and the dark stripe in the middle of the grid stands out. A second peak is the 8:04 to 8:55 stretch, where the tag turns and the lit share jumps from 64% to 92%.
+
+### R2
+1. I'd skip ahead at 1:56 and again at 2:48.
+   - **1:56:** The setup turns into a long list of what each twin pays. That covers the mortgage, the 2.5 percent upkeep, the cash pile and the left-out costs. It's a lot of numbers while I still don't know where the video is going. The visuals during this stretch are mostly two figures and a box of gold bars, so there's little to hold my attention.
+   - **2:48:** This is the explanation of why the rent tag matters, and it runs about 15 seconds. The video already said earlier that the tag is an assumption, and it comes back to it at 8:04. I'd jump from there to 3:04, where the street of houses begins.
+   - **9:20:** I might also skim here, though only a little. The "56.8 percent of the first month" comparison is a hard idea to follow by ear.
+
+2. I was most engaged at 4:34, where the street lights up again after the dark stretch, and I stayed hooked through the "darkest house" reveal at 5:22. Before that, the buyer was ahead in every house in the 1990s, then the doors went dark in 2001–2007, and then they came back on. The tension from the opening question ("6 times out of 72") pays off visually there. The April 2012 and June 2006 houses, with the $484,000 ahead and $82,385 behind stacks, make the spread concrete.
+
+### R3
+1. I'd skip ahead at 1:01, the stretch on what each twin pays. It runs from there to about 2:00 and covers the mortgage, the 2.5 percent upkeep, the cash pile and the Treasury bill variant. It's a lot of setup and it's mostly narration over the same two buildings. The "cash, not stocks" point at 1:23 is worth hearing, but the rest I'd skim.
+
+   I'd also skip at 1:57, the "most rent or buy math picks one growth rate" part, which runs to about 2:23. It restates things the intro already told me, and the line-chart visual doesn't add much. That's the only other place I'd skip, because the street sections that follow carry the video.
+
+2. I was most engaged at 4:34, when the street lights up again from 2009. That's the payoff after the dark stretch, and the grid makes it easy to see. A close second is 5:44, the darkest house, June 2006, with the two stacks of $115,374 and $197,760 side by side. It gave me a concrete case I could picture.
+
+Output JSON only: {"R1": {...}, ...}

@@ -1,0 +1,161 @@
+{
+ "root": "/home/user/chk-ep008/episodes/ep008",
+ "contract": "/home/user/chk-ep008/episodes/ep008/contract.json",
+ "lock": "a35970a866c5d9cd11b9dd7dcbf374e908259c7b16f64dc99b0de39d0b954fd8",
+ "video_sha256": "4149bd41a3d6100819e209f87f7b89facc979c34d51674aca24240047232babf",
+ "episode": "TRƯỢT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 1,
+   "pass": 0,
+   "notPass": [
+    "A14 FAIL"
+   ],
+   "byNature": {
+    "real": [
+     "A14"
+    ],
+    "legal": [],
+    "procedure": []
+   }
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 1,
+   "pass": 0,
+   "notPass": [
+    "L1 FAIL"
+   ],
+   "byNature": {
+    "real": [
+     "L1"
+    ],
+    "legal": [],
+    "procedure": []
+   },
+   "explained": {},
+   "unexplained": [
+    "L1"
+   ]
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "byNature": {
+    "real": [],
+    "legal": [],
+    "procedure": []
+   }
+  }
+ },
+ "counts": {
+  "PASS": 0,
+  "FAIL": 2,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "A14",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "key words",
+     "value": 114,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "key words missing",
+     "value": 3,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": false,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "sentence": "S12.1",
+     "t": 274.567,
+     "missing": [
+      "2016"
+     ],
+     "heard": "Then the street lights up again. Every start from 2009 to mid -2016 ended with the buyer ahead. Those buyers started"
+    },
+    {
+     "sentence": "S28.1",
+     "t": 523.566,
+     "missing": [
+      "2",
+      "3"
+     ],
+     "heard": "And if the renter's cash earns Treasury bill interest, the buyer's share falls to about two and three. The lights follow"
+    }
+   ],
+   "note": null,
+   "section": "DX-A7",
+   "threshold": "0 key words missing (no percentage threshold)",
+   "fingerprint": "01110949f33e3fce",
+   "tier": "BLOCK",
+   "nature": "real",
+   "seconds": 454.4
+  },
+  {
+   "id": "L1",
+   "status": "FAIL",
+   "metrics": [
+    {
+     "name": "voice-active windows",
+     "value": 4583,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
+     "value": 15.103469,
+     "op": ">=",
+     "threshold": 20.0,
+     "unit": "dB",
+     "pass": false,
+     "near": false
+    },
+    {
+     "name": "key words lost to the data sounds",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "windowsWithDataSound": 36,
+     "medianRatioDb": 38.6,
+     "minRatioDb": 4.8,
+     "keyWords": 114
+    }
+   ],
+   "note": null,
+   "section": "DX-A1, DX-A9 (sổ gu G-006)",
+   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
+   "fingerprint": "01832a4e805c145e",
+   "tier": "MAJOR",
+   "nature": "real",
+   "seconds": 1287.6
+  }
+ ]
+}
