@@ -1,7 +1,7 @@
 {
  "segment": "ep008 · C = S08–S14 (chương 3, hồi 2 phần 1)",
  "version": 8,
- "grey": true,
+ "grey": false,
  "total": 137.9,
  "fps": 30,
  "pad": 0.25,
@@ -2772,6 +2772,28 @@
    "sound": "whoosh_soft"
   },
   {
+   "id": "m_r1",
+   "verb": "push",
+   "from": "wWalk0",
+   "to": "wWalk0~",
+   "t0": 43.397,
+   "t1": 44.597,
+   "reason": "câu hỏi \"bao nhiêu lần\": lại gần dãy nhà đầu phố",
+   "sound": "whoosh_soft",
+   "change": "major"
+  },
+  {
+   "id": "m_r2",
+   "verb": "pull",
+   "from": "wWalk0~",
+   "to": "wWalk0",
+   "t0": 50.893,
+   "t1": 52.493,
+   "reason": "giá tăng, dư nợ giảm: lùi thấy dãy sáng tiếp",
+   "sound": "whoosh_soft",
+   "change": "major"
+  },
+  {
    "id": "m_walk2",
    "verb": "pan",
    "from": "wWalk0",
@@ -2858,9 +2880,21 @@
    "gain": 0.8
   },
   {
+   "t": 43.397,
+   "kind": "whoosh_soft",
+   "dur": 1.2,
+   "gain": 0.7
+  },
+  {
    "t": 48.8,
    "kind": "rise",
    "dur": 1.6
+  },
+  {
+   "t": 50.893,
+   "kind": "whoosh_soft",
+   "dur": 1.6,
+   "gain": 0.9
   },
   {
    "t": 59.562,
@@ -3044,20 +3078,30 @@
   {
    "id": "s4",
    "t0": 38.993,
-   "t1": 59.562
+   "t1": 43.397
   },
   {
    "id": "s5",
+   "t0": 43.397,
+   "t1": 50.893
+  },
+  {
+   "id": "s6",
+   "t0": 50.893,
+   "t1": 59.562
+  },
+  {
+   "id": "s7",
    "t0": 59.562,
    "t1": 75.275
   },
   {
-   "id": "s6",
+   "id": "s8",
    "t0": 75.275,
    "t1": 126.195
   },
   {
-   "id": "s7",
+   "id": "s9",
    "t0": 126.195,
    "t1": 137.9
   }
@@ -3111,6 +3155,16 @@
   "S14": 136.913
  },
  "f14": true,
+ "hold_push": {
+  "world": [
+   0.008,
+   0.08
+  ],
+  "chart": [
+   0.002,
+   0.012
+  ]
+ },
  "changes": {
   "c0.record": "major",
   "c1.each": "major",

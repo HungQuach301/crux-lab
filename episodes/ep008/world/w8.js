@@ -38,9 +38,35 @@ export async function setup(seg, res, poses, { shadowBox = 30 } = {}) {
   const compose0 = st.compose.bind(st);
   st.compose = () => { compose0(); if (!grey || CK.on) return; const c = st.out.getContext('2d'), w = st.out.width, h = st.out.height, im = c.getImageData(0, 0, w, h), p = im.data;
     for (let i = 0; i < p.length; i += 4) { const y = 0.2126 * p[i] + 0.7152 * p[i + 1] + 0.0722 * p[i + 2]; p[i] = p[i + 1] = p[i + 2] = y; } c.putImageData(im, 0, 0); };
+  // M5 vòng nhịp 1: tư thế "X~" = X lại gần điểm nhìn (90 % khoảng cách; chỉ thế giới) cho cú đẩy ở từ mở ý (spine.py, change: major)
+  for (const m of S.moves) for (const n of [m.from, m.to]) if (n.endsWith('~') && !poses[n]) {
+    const b = poses[n.slice(0, -1)], f = 0.9;   // chỉ tư thế thế giới (đồ thị: nhãn sát dòng chrome)
+    poses[n] = { ...b, pos: b.pos.map((v, j) => b.tgt[j] + (v - b.tgt[j]) * f) };
+  }
   const CAM = Camera(poses, S.moves);
   // M4 màu theo hồi (grade8.js): tông ánh sáng + nền theo GIỜ TẬP, mỗi khung (CAM.apply là lệnh đầu của mọi frame); bản xám M2 không dùng
   if (!grey) { const apply0 = CAM.apply.bind(CAM); CAM.apply = (t) => { grade(scene, key, (S.episode_t0 || 0) + t); return apply0(t); }; }
+  // M5 vòng nhịp 1 (Editor, "đổi vì thước" — gates/M5-pace.md): khi máy đứng giữa hai động tác, máy tiến chậm về điểm nhìn (đẩy chú ý vào vật
+  // đang nói). k = phần khoảng cách bớt đi: tăng đều theo giờ đứng (không tính ±pad quanh từ khoá → quy tắc 2 giữ), tối đa r·L và cap
+  // (thế giới 0,8 %/s ≤ 8 %; đồ thị 0,2 %/s ≤ 1,2 % — nhãn sát dòng chrome: lệch ≤ 6 px); quãng đứng < 3 s: không đẩy; vào động tác kế: k về 0 theo ease của động tác → tư thế đích không đổi.
+  if (S.hold_push) {
+    const HP = S.hold_push, ms = [...S.moves].sort((a, b) => a.t0 - b.t0), apply1 = CAM.apply, pad = S.pad ?? 0.25;
+    const cw = (S.beats || []).flatMap((b) => Object.values(b.cues || {})).sort((a, b) => a - b);
+    const run = (a, b) => cw.reduce((q, c) => q - Math.max(0, Math.min(b, c + pad) - Math.max(a, c - pad)), Math.max(0, b - a));   // giờ đứng trừ ±pad quanh cue
+    const holds = ms.map((m, i) => [i ? ms[i - 1].t1 : 0, m.t0]).concat([[ms.length ? ms[ms.length - 1].t1 : 0, S.total]]);
+    const capOf = (h0, h1) => { if (h1 - h0 < 3) return 0; const [r, cap] = CAM.poseAt((h0 + h1) / 2).chart > 0.5 ? HP.chart : HP.world; return Math.min(r * run(h0, h1), cap); };
+    const K = holds.map(([h0, h1]) => capOf(h0, h1));
+    CAM.apply = (t) => {
+      const p = apply1(t); let k = 0;
+      for (let i = 0; i < holds.length; i++) {
+        const [h0, h1] = holds[i];
+        if (t >= h0 && t < h1) { const L = run(h0, h1); k = L > 0 ? K[i] * run(h0, t) / L : 0; break; }
+        if (i < ms.length && t >= ms[i].t0 && t < ms[i].t1) { k = K[i] * (1 - ease(t, ms[i].t0, ms[i].t1)); break; }
+      }
+      if (k > 0) { const c = CAM.cam; c.position.set(...p.pos.map((v, j) => p.tgt[j] + (v - p.tgt[j]) * (1 - k))); c.lookAt(...p.tgt); c.updateMatrixWorld(); }
+      return p;
+    };
+  }
   return { S, CL, D, DATA, cue, MV, st, O: st.O, renderer: st.renderer, scene, floor, key, CAM, grey };
 }
 export function followLight(key, tgt) {

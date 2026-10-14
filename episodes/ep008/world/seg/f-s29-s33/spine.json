@@ -1,7 +1,7 @@
 {
  "segment": "ep008 · F = S29–S33 (chương 6, giới hạn + kết)",
  "version": 8,
- "grey": true,
+ "grey": false,
  "total": 90.3333,
  "fps": 30,
  "pad": 0.25,
@@ -1685,6 +1685,7 @@
    "t0": 19.227,
    "t1": 25.567,
    "cues": {
+    "rent": 19.791,
     "fifty": 23.447
    }
   },
@@ -1721,7 +1722,8 @@
    "t0": 34.027,
    "t1": 43.087,
    "cues": {
-    "compares": 34.1
+    "compares": 34.1,
+    "and": 39.267
    }
   },
   {
@@ -1872,7 +1874,8 @@
    "t0": 48.166,
    "t1": 49.366,
    "reason": "trở lại câu hỏi: cả phố từ trên",
-   "sound": "whoosh_soft"
+   "sound": "whoosh_soft",
+   "change": "major"
   },
   {
    "id": "m_w",
@@ -2141,14 +2144,26 @@
   "S33": 88.833
  },
  "f14": true,
+ "hold_push": {
+  "world": [
+   0.008,
+   0.08
+  ],
+  "chart": [
+   0.002,
+   0.012
+  ]
+ },
  "changes": {
   "f0.past": "major",
   "f1.first": "major",
   "f2.six": "major",
   "f2.two": "major",
+  "f3.rent": "major",
   "f3.fifty": "major",
   "f4.lowest": "major",
   "f5.compares": "major",
+  "f5.and": "major",
   "f6.card": "major",
   "f7.question": "major",
   "f8.lit": "major",
@@ -2184,9 +2199,11 @@
   "f1.first",
   "f2.six",
   "f2.two",
+  "f3.rent",
   "f3.fifty",
   "f4.lowest",
   "f5.compares",
+  "f5.and",
   "f6.card",
   "f7.question",
   "f8.lit",

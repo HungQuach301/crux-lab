@@ -41,6 +41,8 @@ moves = K.moves_of([
     ('m_w1', 'mode', 'cGrid', 'wEnd', cue['c2']['ten'], cue['c3']['past'], 1.4, 'tháng của Nina ở qua cuối phố: về thế giới', 'whoosh_mode', {}),
     ('m_pair', 'pan', 'wEnd', 'wPair', cue['c3']['stands'], cue['c4']['lights'], 1.6, 'luật đèn: hai nhà ví dụ giữa phố', 'whoosh_soft', {}),
     ('m_walk', 'pan', 'wPair', 'wWalk0', cue['c5']['dark'], cue['c6']['walking'], 1.0, 'đi dọc phố từ đầu (1991)', 'whoosh_soft', {}),
+    K.reframe(S, beats, 'm_r1', 'push', 'wWalk0', 'wWalk0~', 'S09.1:how', 'câu hỏi "bao nhiêu lần": lại gần dãy nhà đầu phố'),
+    K.reframe(S, beats, 'm_r2', 'pull', 'wWalk0~', 'wWalk0', 'S09.3:Prices', 'giá tăng, dư nợ giảm: lùi thấy dãy sáng tiếp', dur=1.6),
     ('m_walk2', 'pan', 'wWalk0', 'wWalk1', cue['c8']['start'], cue['c9']['april'], 2.0, 'đi tiếp tới 2001: máy chậm lại (do dự)', 'whoosh_soft', {}),
     ('m_c2', 'mode', 'wWalk1', 'cGrid', cue['c10']['december'], cue['c11']['seventy'], 1.0, 'đếm cần nhìn toàn cảnh + số chỉ ở đồ thị', 'whoosh_mode', {}),
     ('m_adv', 'pan', 'cGrid', 'cAdv', cue['c19']['lit'], cue['c20']['middle'], 1.6, 'từ đếm sang độ lớn: dải chênh lệch theo tháng', 'whoosh_soft', {}),

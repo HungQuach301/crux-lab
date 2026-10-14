@@ -134,13 +134,24 @@ def spread(a, b, n):
     return [a + (b - a) * i / max(1, n - 1) for i in range(n)]
 
 
+HOLD_PUSH = {'world': [0.008, 0.08], 'chart': [0.002, 0.012]}   # M5 vòng nhịp 1 (w8.js setup): máy tiến chậm khi đứng — [tốc độ/s, trần]
+
+
 def moves_of(specs, eps=0.01):
     """specs: (id, verb, from, to, after, before, dur, lý do, âm, {late|start}) → động tác (cửa sổ của spine.window)."""
     out = []
     for mid, verb, a, b, after, before, dur, reason, snd, kw in specs:
+        kw = dict(kw); ch = kw.pop('change', None)   # M5 vòng nhịp 1: cú đẩy/lùi ở từ mở ý khai change: major (F-14 (b))
         t0, t1 = SV.window(after, before, dur, PAD, eps=eps, **kw)
-        out.append({'id': mid, 'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd})
+        out.append({'id': mid, 'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd, **({'change': ch} if ch else {})})
     return out
+
+
+def reframe(S, beats, mid, verb, a, b, word, reason, dur=1.2, snd='whoosh_soft'):
+    """M5 vòng nhịp 1: cú đẩy/lùi (change: major) bắt đầu ở từ MỞ ý `word` (@Sxx.n:w), xong trước từ khoá kế (quy tắc 2: ±PAD quanh cue)."""
+    t = S.at('@' + word)
+    nxt = min([c for b_ in beats for c in b_['cues'].values() if c > t + 0.05] + [S.total + PAD])
+    return (mid, verb, a, b, t - PAD, nxt, dur, reason, snd, {'start': t, 'change': 'major'})
 
 
 def anchor_windows(S, sids):
@@ -194,7 +205,7 @@ def finish(here, S, name, beats, moves, events, extra, label_cues, visual_cues, 
              'words': S.words, 'beats': beats, 'moves': moves, 'events': ev, 'tension': tension, 'shots': SV.shots_for(moves, S.total),
              'music_plan': music_plan(S, accents), 'mix': {'music_db': music_db(S), 'data_db': 25.0, 'silences': [list(x) for x in silences]},
              'anchor_silences': aw, 'start': S.start, 'end': S.end, 'last': {k: round(v, 3) for k, v in S.last.items()},
-             'f14': True, 'changes': {k: 'major' for k in visual_cues}, **extra, 'label_cues': label_cues, 'visual_cues': visual_cues, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
+             'f14': True, 'hold_push': HOLD_PUSH, 'changes': {k: 'major' for k in visual_cues}, **extra, 'label_cues': label_cues, 'visual_cues': visual_cues, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
     json.dump(spine, open(os.path.join(here, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(INPUTS + list(inputs), open(os.path.join(here, 'inputs.json'), 'w'))
     sfx = [e['t'] for e in ev if e['kind'] != 'data']

@@ -30,6 +30,9 @@ export async function boot(res) {
   const M4 = new THREE.Matrix4(); r1.forEach((v, i) => { M4.makeTranslation(X(i), Y(v), RZ); dots.setMatrixAt(i, M4); }); dots.instanceMatrix.needsUpdate = true;
   const nd = new THREE.Mesh(new THREE.SphereGeometry(0.08, 12, 8), new THREE.MeshBasicMaterial({ color: '#FFB86B', transparent: true })); nd.position.set(NX, Y(0.568), RZ); scene.add(nd);
   const iMin = r1.indexOf(Math.min(...r1));
+  // M5 nhịp: vạch mức tiền thuê ($1,667) kéo ngang sang chồng người mua từ "Her assumed rent" — đọc được 56.8 % trước khi nhãn tỉ lệ hiện
+  const guide = new THREE.Mesh(new THREE.BoxGeometry(1.45, 0.016, 0.46), new THREE.MeshBasicMaterial({ color: C.warn, transparent: true }));
+  guide.position.set(SX - 0.05, rent.top(1667), SZ); scene.add(guide); guide.userData.checks = { role: 'mark', key: 'rent-level' };
 
   function frame(t) {
     const pose = CAM.apply(t), cw = pose.chart, cam = CAM.cam;
@@ -43,6 +46,7 @@ export async function boot(res) {
     rent.set({ usd: 1667 * ease(t, b.f1.first + 0.2, b.f1.first + 0.8), a: s1 });
     const dA = t > MV.m_dots.t0 && t < MV.m_grid.t1 ? 1 : 0; dots.visible = nd.visible = dA > 0;
     nd.scale.setScalar(1 + 0.5 * pulse(t, b.f4.lowest, 1.0));
+    const rlA = s1 * show(t, b.f3.rent); guide.material.opacity = rlA; guide.visible = rlA > 0.005;
     box.set({ n: 9, a: 1, glow: 0 }); box2.set({ n: 0, a: 0.7 * show(t, b.f11.open) });
     H.tag.set({ value: 5, swing: 0.05 * Math.sin(t * 1.3) });
     renderer.render(scene, cam);
@@ -62,7 +66,7 @@ export async function boot(res) {
     label(O, '$1,667 = 56.8% of $2,933', 960, 390, { align: 'center', kind: 'number', alpha: sA * show(t, b.f3.fifty), color: C.warn, claims: ['today_rent_month1', 'today_rent_to_outlay', 'today_buyer_month1'] });
     log.roi['f2.six'] = [500, 170, 1420, 250]; log.roi['f2.two'] = [500, 250, 1420, 330]; log.roi['f3.fifty'] = [500, 330, 1420, 410];
     const pA = ok * dA, [mx, my] = O.toScreen(X(iMin), Y(r1[iMin]), RZ), [qx, qy] = O.toScreen(NX, Y(0.568), RZ), [ox, oy] = O.toScreen(RX, Y(0.5), RZ);
-    label(O, 'lowest replayed: 57.9%, July 2006', mx, my + 70, { align: 'center', kind: 'number', px: 44, alpha: pA * show(t, b.f4.lowest), claims: ['rent_to_outlay_min_10y', 'rent_to_outlay_min_start_10y'] });
+    label(O, 'lowest replayed: 57.9%, July 2006', mx, my + 70, { align: 'center', kind: 'number', px: 44, alpha: pA * show(t, b.f4.lowest) * (1 - 0.6 * show(t, b.f5.and)), claims: ['rent_to_outlay_min_10y', 'rent_to_outlay_min_start_10y'] });
     label(O, "Nina's first month", qx - 20, qy - 40, { align: 'right', kind: 'name', px: 44, alpha: pA * (1 - show(t, b.f6.card - 0.3)), color: '#FFB86B' });
     label(O, 'first months only, not a forecast', 960, 230, { align: 'center', kind: 'name', alpha: pA * show(t, b.f5.compares) });
     label(O, 'rent ÷ buyer\'s first month, each start month', ox, 900, { align: 'left', kind: 'name', px: 40, alpha: pA, color: C.muted });

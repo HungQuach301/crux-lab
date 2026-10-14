@@ -2349,6 +2349,57 @@
     2026
    ],
    "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "yield4_tag",
+   "value": 4,
+   "display": "4%",
+   "unit": "const",
+   "formula": "same quantity as params.yield4_tag: anchor yield 4% (assumption)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.yield4_tag",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield5_tag",
+   "value": 5,
+   "display": "5%",
+   "unit": "const",
+   "formula": "same quantity as params.yield5_tag: anchor yield 5% (assumption)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.yield5_tag",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield6_tag",
+   "value": 6,
+   "display": "6%",
+   "unit": "const",
+   "formula": "same quantity as params.yield6_tag: anchor yield 6% (assumption)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.yield6_tag",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
   }
  ]
 }

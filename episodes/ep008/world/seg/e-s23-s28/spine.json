@@ -1,7 +1,7 @@
 {
  "segment": "ep008 · E = S23–S28 (chương 5, hồi 3 phần 1)",
  "version": 8,
- "grey": true,
+ "grey": false,
  "total": 84.9666,
  "fps": 30,
  "pad": 0.25,
@@ -2118,6 +2118,16 @@
   "S28": 83.98
  },
  "f14": true,
+ "hold_push": {
+  "world": [
+   0.008,
+   0.08
+  ],
+  "chart": [
+   0.002,
+   0.012
+  ]
+ },
  "changes": {
   "e0.bright": "major",
   "e1.neighbors": "major",

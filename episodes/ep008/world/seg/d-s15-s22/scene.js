@@ -48,8 +48,9 @@ export async function boot(res) {
       cellA: inGrid ? cw : 0,
     });
     advB.set({ usd: 483975 * ease(t, b.d0.about - 0.3, b.d0.about + 0.8), a: upB });
-    eq.set({ usd: 115374 * ease(t, b.d5.equity - 0.1, b.d5.equity + 0.6), a: show(t, b.d5.equity - 0.2, MV.m_idx.t0 + 0.4) });
-    cash.set({ usd: 197760 * ease(t, b.d5.cash - 0.1, b.d5.cash + 0.6), a: show(t, b.d5.cash - 0.2, MV.m_idx.t0 + 0.4) });
+    // M5 nhịp: hai chồng mọc từ "a pair of stacks" (từ mở ý), đủ giá trị trước khi nhãn số hiện (F-14 (d))
+    eq.set({ usd: 115374 * ease(t, b.d5.pair, Math.min(b.d5.pair + 1.4, b.d5.equity - 0.1)), a: show(t, b.d5.pair - 0.2, MV.m_idx.t0 + 0.4) });
+    cash.set({ usd: 197760 * ease(t, b.d5.pair + 0.2, Math.min(b.d5.pair + 1.6, b.d5.equity - 0.1)), a: show(t, b.d5.pair - 0.2, MV.m_idx.t0 + 0.4) });
     const g = Math.max(2, Math.floor(win.length * ease(t, MV.m_idx.t1, b.d6.three + 1.2)));
     rib.set(win.slice(0, g).map((v, i) => [X(i), Y(v)])); rib.visible = t > MV.m_idx.t0 && t < MV.m_grid.t1;
     base.set([[X(0), Y(1)], [X(win.length - 1), Y(1)]]); base.visible = rib.visible;
