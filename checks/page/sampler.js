@@ -66,7 +66,8 @@ function videoReader(file, every, pix = 'rgb24', start = 0) {
       while (idx < (n - start) / every) { f = await new Promise((res) => { waiters.push(res); flush(); }); idx++; if (!f) return null; }
       return f;
     },
-    close() { try { ff.kill(); } catch (e) { /* ignore */ } },
+    // K4.4b: SIGTERM does not stop an ffmpeg blocked on a paused pipe (66 left behind ≈ 10 GB, then the OOM killer took a browser and the run hung)
+    close() { try { ff.stdout.destroy(); ff.kill('SIGKILL'); } catch (e) { /* ignore */ } },
   };
 }
 

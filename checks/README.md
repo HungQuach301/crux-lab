@@ -530,6 +530,7 @@ Nguồn: gói `checks-runs/K44/GOI-chu-du-an.md`. Câu 1a (A32) ngoài `checks/`
 | S09 (CHẶN, giữ cấp) | tập mà **mọi** claim tiền khai `basis: nominal` không cần nhãn cơ sở trên hình; vẫn phải khai `basis` và nói cơ sở một lần (K3.2). Có `real` → giữ nguyên | 3a (A37) |
 
 - **Trước/sau Tập 4–7** (`checks-runs/K44/k44b/`): {BA}
+- **Lỗi máy bộ lấy mẫu (sửa ở K4.4b):** `videoReader.close()` gửi SIGTERM cho ffmpeg đang chặn ở ống đã tạm dừng → ffmpeg không thoát; một lượt cả tập để lại 66 tiến trình (≈ 10 GB), rồi OOM giết một trình duyệt và lượt treo (gặp 2 lần khi đo A29). Nay đóng ống + SIGKILL. Không đổi số đo.
 - **Chứng cứ A34** (`checks-runs/K44/a34/`): small.en "Tesla's" / medium.en "Tessa's" ở S09.3, S15.3, S25.2 (master Tập 7); đối chứng âm thật (âm tên thay bằng âm từ khác, cùng giọng) → cả hai mô hình mất tên → vẫn trượt. medium.en ≈ 1,5 GB, tải lần đầu từ Hugging Face.
 - Selftest: {ST}
 
