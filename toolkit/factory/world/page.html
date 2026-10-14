@@ -13,6 +13,7 @@ const q = new URLSearchParams(location.search);
 // core.CK (nhà máy): ?dither=0|1|2 (mặc định 2, F08) · ?orient=v[&vs=1&vcy=920&hook=…&cws=<JSON [{id,text}]>&vt0=<s>] = Short dọc 1080×1920 (res = 1920)
 const { CK } = await import('/toolkit/factory/world/core.js');
 if (q.has('dither')) CK.dither = +q.get('dither');
+if (q.has('spp')) CK.spp = +q.get('spp');   // F-15: 0 = tắt khử răng cưa (nháp) · N ≥ 2 = siêu lấy mẫu; không khai = như cũ
 if (q.get('orient') === 'v') CK.view = { orient: 'v', s: +(q.get('vs') || 1), cy: q.has('vcy') ? +q.get('vcy') : undefined, hook: q.get('hook') || '', cws: JSON.parse(q.get('cws') || '[]'), t0: +(q.get('vt0') || 0) };
 const { boot } = await import(`/${q.get('seg')}/scene.js`)   // seg = thư mục đoạn tính từ gốc repo;
 const S = await boot(+(q.get('res') || 540));

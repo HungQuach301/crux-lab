@@ -1,0 +1,84 @@
+{
+ "rules": 100,
+ "agree": 95,
+ "agree_pct": 95.0,
+ "missed_block_major_outside_Rpix": [],
+ "missed_in_Rpix": [],
+ "draft_only_fail": [
+  {
+   "id": "F04",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL"
+  },
+  {
+   "id": "F05",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL"
+  },
+  {
+   "id": "F08",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL"
+  },
+  {
+   "id": "F11",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL"
+  },
+  {
+   "id": "REG",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL"
+  }
+ ],
+ "errors": {
+  "draft": [
+   "A12"
+  ],
+  "1080": [
+   "A12"
+  ]
+ },
+ "differ": [
+  {
+   "id": "F04",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL",
+   "R_pix": false
+  },
+  {
+   "id": "F05",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL",
+   "R_pix": true
+  },
+  {
+   "id": "F08",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL",
+   "R_pix": true
+  },
+  {
+   "id": "F11",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL",
+   "R_pix": false
+  },
+  {
+   "id": "REG",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL",
+   "R_pix": false
+  }
+ ]
+}

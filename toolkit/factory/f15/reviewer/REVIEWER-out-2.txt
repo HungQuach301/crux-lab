@@ -1,0 +1,33 @@
+apiKeySource: ANTHROPIC_API_KEY · công cụ: không Task/Agent/Workflow
+{"turns": 42, "is_error": false, "cost_usd": 2.253154, "input": 62, "cache_write": 142105, "cache_read": 2921830, "output": 26585}
+--- trả về ---
+cùng phán quyết 10/21 | có |
+| T10 | 25/25 SHA, `diff` rỗng | có |
+| T11 lượt lại | 162 s, `rc=0` | có |
+| T13 | 0/41, 0 khung chữ đè chữ | có |
+
+Chỗ nói quá hoặc sai:
+- **CHÍNH** `REPORT.md:25` (T12): REPORT viết "init không có Task/Agent/Workflow". Nhưng `out/T12-api.json:3-5,19-21` cho thấy **`Workflow` có trong công cụ lúc init** ở `cap.jsonl` và `sub.jsonl`. `sub.jsonl` chính là lượt thử agent con. Chỉ `cap2` sạch. Cách sửa: chạy lại lượt thử agent con với `api.sh` hiện tại (≈ $0,01), hoặc hạ T12 xuống "ĐẠT một phần".
+- **PHỤ** `REPORT.md:8`: còn câu "**Không merge.**", trái với dòng 3.
+- **PHỤ** `REPORT.md:7,86,68`: các SHA `6c42086`, `086fcee`, `dcf23c1` là SHA trước rebase, không còn trên nhánh và sẽ mất sau squash. SHA hiện tại: 989fc39, 0622a13, e22fd2d. Đầu bài lượt này cũng dẫn 6c42086.
+- **PHỤ** `REPORT.md:36`: câu "6/7 đoạn hình + toàn bộ tiếng trùng bản giao" trên mã rebase không có tệp bằng chứng mới; `T2-segments-vs-delivered.json` là của ngày 13/10. T1 rebase và T11 lượt lại chạy trên cùng container, không phải "container mới".
+- **PHỤ** §3/§1b: T4–T6 đo dưới LOCK `dc4981b3`, chưa chạy lại dưới `b4551642`. §3 có ghi LOCK, nhưng §1b nên nói rõ.
+- **PHỤ:** bằng chứng T9 là số chép tay (cache đã xoá, `out/T9-T14.md:1`).
+
+## 4. Bản quyền và an toàn
+- **Ba dòng X-F15-1..3 (`RIGHTS.md:57-59`): đúng.** Đủ 10 cột, bậc đúng (2/2/5), trích nguyên văn, có ngày và SHA. Bản chụp LoC có `rights_advisory` "No known restrictions on publication." khớp, kèm câu "không bảo đảm".
+- **CHÍNH: ảnh LoC (X-F15-3) có logo và chữ "Fifth Third Bank" rõ trên hình** (`footage-trial/out/sheet.jpg`). RIGHTS F2 cấm "logo, nhãn hiệu", nhưng REPORT §1b gọi T13 là ĐẠT và dòng RIGHTS ghi như đã sạch. Clip 540p và `sheet.jpg` (có ảnh này) lại được commit, trái F5.2 ("trong repo chỉ RIGHTS + băm"). Cách sửa: thay ảnh, hoặc bỏ mp4/sheet khỏi commit và ghi "vi phạm F2, chỉ dùng thử" vào dòng RIGHTS.
+- **PHỤ:** X-F15-1 trích TechDoc của TIGER/Line, trong khi dữ liệu là GENZ2017 qua us-atlas. Cột Ghi nguồn và dòng nguồn trên hình bản đồ thiếu năm (F4, xem `map.py:143`).
+- **Clip theo F3/F4: đạt.** Mở bằng 3D, plate từ 1,0 s, hoà vào 1,2 s; năm 2009 + nguồn có trên hình; dòng nguồn không đè chú thích (0 khung chữ đè chữ).
+
+## 5. README nhà máy và phạm vi tệp
+- **Đạt.** `toolkit/factory/README.md:11-14` ghi đủ quy ước nháp: F08, F01, SH01 chỉ tin ở 1080p; bộ lấy mẫu trang không rẻ hơn ở nháp, chờ A29.
+- **Đạt.** Diff chỉ chạm `toolkit/` và `RIGHTS.md`. Không đụng `episodes/` (kể cả ep008) hay `checks/`.
+- **PHỤ:** squash sẽ đưa vào main khoảng 52 nghìn dòng (`ssim-frames.log` 18 nghìn dòng, ba báo cáo checks khoảng 7 nghìn dòng mỗi tệp) và 2 MB mp4. Nên cân nhắc cắt bớt.
+
+## 6. Kết luận
+**ĐẠT có sửa.** Trước squash cần:
+1. Sửa T12: chạy lại lượt thử agent con, hoặc ghi "ĐẠT một phần".
+2. Xử lý ảnh LoC có logo (F2): thay ảnh, hoặc bỏ clip/sheet khỏi commit.
+3. Thêm năm dữ liệu vào dòng nguồn của `map.py`.
+4. Bỏ câu "Không merge." và cập nhật các SHA sau rebase trong REPORT.

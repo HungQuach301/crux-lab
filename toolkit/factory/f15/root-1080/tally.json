@@ -1,0 +1,445 @@
+{
+ "candidate_set": "ep007",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep007",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Figure by house, stack with $120 monthly fallback price. / Figure, house, bill stack, $120 fallback price",
+    "Figure by house, stack with monthly price of fallback. / Figure, house, bill stack with monthly fallback price"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Two payment bars, 30-year shorter than 15-year. / 30-year required bar shorter than 15-year bar",
+    "Two payment bars; 30-year required shorter than 15-year. / Required 30-year bar shorter than 15-year bar"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B05",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Bracket between payment bars as the 'fallback' room. / Bracket between bars marks fallback room, captured",
+    "Gap between payment bars labelled fallback, room for tight month. / Gap between bars marked as fallback room"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "+$120 slice on 30-year bar, bars drop into growing stack. / +$120 slice becomes bills dropping on stack",
+    "30-year raised, +$120 slice becomes bills dropping onto growing stack. / +$120 slice drops as bills onto stack, captured"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B08",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Tall 30-year interest stack versus much shorter paid-in-15 stack. / Tall versus short interest stacks",
+    "Very tall 30-year stack versus much shorter paid-in-15 stack. / Very tall versus much shorter interest stacks"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Interest stacks compared; gap as gold stack moves beside house. / Interest stacks and gold difference stack by house captured",
+    "Two interest stacks, difference becomes gold stack by house. / Two interest stacks and difference stack by house captured"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Flat line, history line, 1,833 grid, last lit; no 15-year card. / Flat assumed rate, weekly history grid, last week is Tessa's",
+    "Flat line, then history line and 1,833-week grid with last lit; no real 15-year card. / Flat assumed rate replaced by history, 1,833-week grid, last week is Tessa's"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B11",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Gap between lines varies, markers on narrowest and widest. / Gap between lines varies, smallest and largest marked",
+    "Gap widens/narrows, bracket marks smallest and largest. / Gap widening and narrowing, smallest and largest marked"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Row of bars with shortest marked; ribbon and tracking the gap missing. / Weekly row of bars with ribbon top and marked lowest",
+    "Row of bars with lowest marked; ribbon and gap tracking missing. / Weekly row of bars, lowest marked Dec 2008"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Median line, Tessa's stack above, few weeks as tall. / Median line, Tessa's stack above it, under 1 in 5 weeks as tall",
+    "Median line, Tessa's stack above, under 1 in 5 weeks reach it. / Median line, Tessa above, few weeks as tall"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B18",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Rate line under bars, 2010s tallest; sharp drop not explicit. / 2010s stack tallest while rate line falls to 4%",
+    "Rate line falling, 2010s stack tallest; but doesn't link contrast as meaning. / 2010s stack tallest while rate near 4% is lower"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B19",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Gap brackets wider later; stacks not tied to brackets rather than rate. / Gap brackets per decade, later ones wider",
+    "Gap brackets noted wider later, but stacks-line-up-with-brackets point missing. / Gap brackets per era, later two wider, captured"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Month tiles to 180 with gold strip; no visible extra slab on tiles. / 180 and 195 months seen, but no clear extra slab",
+    "180 tiles, gold strip shrinks; no visible extra slab on tiles. / 195 and 180 months seen, no distinct extra slab"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Required payment fixed, interest shrinks; balance-under-flat-line not described. / Fixed payment, interest shrinking, loan ends sooner",
+    "Captures shrinking interest with fixed payment, but not the flat line/balance. / Fixed payment with falling interest and shorter loan captured"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B23",
+   "kind": "image",
+   "scores": [
+    0.5,
+    1
+   ],
+   "readers": 2,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "NEED_3RD",
+   "why": [
+    "Yearly lump ends 4 months later, but not extra principal on month track. / Yearly lump payment ends 4 months later, correctly read",
+    "Yearly lump delays payments; loan ends 4 months later. / Yearly lump payment ends 4 months later"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Bar at loan rate, extra dollar, 'any other use' dollar compared. / Rate beam, extra dollar and 'any other use' dollar captured",
+    "Bar at 7.40%, dollar on it, 'any other use' dollar. / 7.40% bar, extra dollar, 'any other use' dollar"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B28",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Dashed 7.40% line, highlighted early weeks; misses 'whole history, scattered stretches above'. / Line and highlighted weeks seen, but placed at the start, not scattered",
+    "Dashed line with line above only early; frames it as rare, not scattered stretches. / Dashed line and high stretch seen, only early 1990s noted"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Leo's shorter stack seen; misses second figure/house placement left, Jan 2021 emphasis. / Second figure and house, Jan 2021, shorter stack",
+    "Leo's shorter stack seen; second figure/house left of Tessa's not clearly placed. / Second figure and house, Jan 2021, shorter stack"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Reader confused; misses wide fallback bracket and low beam contrast. / Two stacks and bar seen, no fallback bracket or contrast",
+    "Reader unsure; no fallback bracket or two-house contrast described. / Two homes and stacks seen, no fallback bracket or beams"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B31",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Describes a different scene (Tessa, stack, padlock), not the empty third slot. / Dashed slot with bar and document noticed, but not read as empty slot",
+    "Different scene; no empty third slot with blank beam and stack. / Dashed second figure, bar and document seen, not read as an empty slot"
+   ]
+  },
+  {
+   "set": "ep007",
+   "id": "B33",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Has 15-year + fallback idea, but mis-sees merging cards and cold-open. / Cold-open scene and 15-year + fallback equation captured",
+    "Gets 15-year + fallback equation; cold-open and merging cards missing. / Cold-open scene and merged 15-year + fallback captured"
+   ]
+  }
+ ],
+ "gate_beats": 21,
+ "gate_pass": 9,
+ "pending": [
+  "B23"
+ ],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "verdict": "PENDING",
+ "verdict_old": "FAIL",
+ "verdict_new": "PENDING",
+ "advice_beats_old": [
+  "B01",
+  "B04",
+  "B05",
+  "B06",
+  "B08",
+  "B09",
+  "B10",
+  "B11",
+  "B13",
+  "B15",
+  "B18",
+  "B19",
+  "B21",
+  "B22",
+  "B23",
+  "B25",
+  "B28",
+  "B29",
+  "B30",
+  "B31",
+  "B33"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 2,
+ "B21_extra_layer": {
+  "readers": [
+   {
+    "slot": 1,
+    "meaning1": false,
+    "extra": false,
+    "quote": [
+     "",
+     ""
+    ]
+   },
+   {
+    "slot": 2,
+    "meaning1": false,
+    "extra": false,
+    "quote": [
+     "The suggestion about flexibility is my own conclusion.",
+     "The suggestion about flexibility is my own conclusion."
+    ]
+   }
+  ],
+  "ok": 0,
+  "verdict": "TRƯỢT"
+ }
+}

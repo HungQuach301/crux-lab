@@ -1,0 +1,34 @@
+apiKeySource: ANTHROPIC_API_KEY · công cụ: không Task/Agent/Workflow
+{"turns": 34, "is_error": false, "cost_usd": 1.9698032, "input": 50, "cache_write": 134251, "cache_read": 2183176, "output": 22948}
+--- trả về ---
+Thứ tự "không có giấy phép thì không tải" đúng.
+- `map.py`: đúng cho thử nghiệm. Biến `cut` chỉ dùng khi có `--values`.
+- **PHỤ** `plate.js:2`: chú thích ghi "khoá cache không gồm plate.js trừ khi inputs.json khai", ngược với `render_shots.js:40`, nơi plate.js được tự thêm khi `scene.js` nhắc tới nó. Câu "core.js không đổi" cũng sai.
+
+## 3. REPORT so với bằng chứng và INTENT
+Khớp tệp bằng chứng:
+- **T1:** 9/9 trùng.
+- **T2:** SSIM 0,9843, 18.202 khung, S23 0,9813, khung thấp nhất 0,9748.
+- **T4–T6:** 95 % rồi 98 %, 0 bỏ sót, A12 ERROR ở cả hai bản.
+- **§3:** 55/43/1/1 và danh sách CHẶN/CHÍNH.
+- **T7:** 17, 9, 10, 7 và 10/21; tôi tự đếm lại hai lượt 1080p cùng dải được 14/21.
+
+Không đích nào bị hạ: T3, T7 và T13 vẫn ghi TRƯỢT.
+
+Các chỗ nói quá hoặc chưa có bằng chứng:
+- **CHÍNH** `REPORT.md:20` (T11): INTENT ghi "chỉ ĐẠT khi mạng cho" FRED, nhưng REPORT chấm **ĐẠT** dù FRED bị chặn. Dữ liệu lấy từ tệp có sẵn trong nhánh. Nên ghi "ĐẠT một phần, chờ mạng", giống T13.
+- **CHÍNH** `REPORT.md:19,71` (T10 "thật"): đây là lượt nháp đầu tiên, nên rất có thể `work/factory-r540/` chưa có "bản cũ" để so. Bằng chứng SHA trước/sau chỉ có ở test tổng hợp.
+- **CHÍNH** T3, T8, T9, T11, T12, T14 không có tệp bằng chứng trong `out/`: không có `build-report` giờ máy, nhật ký resume, log `verify`, `api.sh` jsonl hay MD5 của T14. Cần commit, hoặc ghi rõ "chỉ có trong /var/tmp".
+- **PHỤ** `REPORT.md:10`: câu "`camera.json`, `page.json`… mọi `out/*` cũng trùng" vượt phạm vi `T1-bytes.json` (chỉ 9 tệp).
+- **PHỤ** `REPORT.md:64`: "SSIM dải 0,977–0,986" không có tệp. §5.2 "6/7 đoạn trùng byte bản giao" cũng không có tệp.
+- **PHỤ** `REPORT.md:12`: "trong ±5 %" làm nhẹ một kết quả TRƯỢT. Bảng §2 cột nháp cộng ra 6.176 s, lệch 44 s so với 6.220 s. Lượt nháp chạy chồng việc khác (đã ghi).
+- **PHỤ** T12: chứng cứ "từ chối" là danh sách công cụ lúc init cộng lời model tự báo, không phải một lệnh gọi bị từ chối. Cổng gốc chạy 4 lượt, $5,52, so với dự kiến 2 × ≈$1: vẫn dưới trần $15, đã ghi rõ.
+- **PHỤ** `REPORT.md:93`: §8 token còn trống.
+
+## 4. An toàn và bản quyền (`RIGHTS.md:18–19`)
+- **M-NE-ADM1:** có trích nguyên văn LICENSE.md trên GitHub và có ghi "trang gốc bị mạng chặn". Đạt.
+- **CHÍNH** **M-USATLAS:** có trích nguyên văn ISC của gói (khớp `.source.json`). Nhưng phần dữ liệu Census chỉ ghi "cơ quan liên bang", **không trích điều khoản Census, và không ghi rằng chưa trích được vì `www2.census.gov` bị chặn (403)**. Điều đó chỉ có ở REPORT §6. Theo CHARTER §5 ("chưa trích nguyên văn = chưa được dùng") cần thêm ghi chú này vào dòng RIGHTS. Dòng đang ghi "chưa dùng trong tập" nên không có rủi ro trước mắt.
+- Ảnh LoC chưa tải. Plate dùng khung tự dựng (`standin.png`, không commit, nguồn ghi "project render"). Không có rủi ro.
+
+## 5. Kết luận
+**ĐẠT có sửa.** Mã giữ bất biến khi không bật cờ, và REPORT trung thực về kết luận TRƯỢT. Cần sửa trước khi gửi: T11 chấm "một phần", bằng chứng T10, commit hoặc chỉ chỗ bằng chứng của T3/T8–T12/T14, và ghi chú Census trong dòng M-USATLAS.

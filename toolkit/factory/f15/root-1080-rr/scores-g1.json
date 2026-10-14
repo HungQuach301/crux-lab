@@ -1,0 +1,382 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own conclusion.",
+  "why": "Both payment bars described; 30-year shorter",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "The animation gives no direct instruction to pay down the loan or to invest.",
+  "why": "Beam at loan rate, other-use dollar held against it",
+  "q5": "video"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own reading.",
+  "why": "Gold sliver on 30-year bar drops onto growing stack",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in point 4 is my own conclusion.",
+  "why": "Required payment flat, loan ends sooner",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "the takeaway that paying extra saves interest is my own conclusion",
+  "why": "Stacks compared, but beside-house stack meaning left unclear",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Anything I said in 4 is my own inference",
+  "why": "2010s stack tallest with low-rate line",
+  "q5": "own"
+ },
+ "R07": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "any advice is my own conclusion, not something the animation suggested",
+  "why": "Tall vs short interest stacks correctly described",
+  "q5": "own"
+ },
+ "R08": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "the idea that monthly is better is also mine",
+  "why": "Yearly payment ends 4 months later",
+  "q5": "own"
+ },
+ "R09": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Weekly stacks and smallest marked; gap link missed",
+  "q5": "none"
+ },
+ "R10": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is partly my own conclusion.",
+  "why": "Annual lump payment ends 4 months later",
+  "q5": "own"
+ },
+ "R11": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any advice about paying down the mortgage versus investing is my own conclusion.",
+  "why": "Got $120 price of fallback; misread stack as cushion",
+  "q5": "own"
+ },
+ "R12": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The takeaway in 4 is my own conclusion",
+  "why": "2010s stack tallest, rate near 4.03%",
+  "q5": "own"
+ },
+ "R13": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The conclusion that someone should choose that option is my own.",
+  "why": "Equation merges into 15-year plus fallback",
+  "q5": "own"
+ },
+ "R14": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "It is my own conclusion.",
+  "why": "Gap brackets per era, later two wider",
+  "q5": "own"
+ },
+ "R15": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer could infer that rates change a lot, so they should compare the two loan structures using real rate history",
+  "why": "Flat assumed rate to real history and replay grid",
+  "q5": "own"
+ },
+ "R16": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Median line, Tessa above, under 1 in 5 weeks",
+  "q5": "none"
+ },
+ "R17": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "a viewer would mainly take away a caution",
+  "why": "Weekly payment bars and smallest marked; gap link missed",
+  "q5": "none"
+ },
+ "R18": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The \"pay extra versus invest\" framing is my own reading",
+  "why": "Stacks seen; side stack meaning uncertain",
+  "q5": "own"
+ },
+ "R19": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice to weigh that cost is my own conclusion.",
+  "why": "$120 price noted; fallback meaning guessed",
+  "q5": "own"
+ },
+ "R20": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own reading.",
+  "why": "Leo Jan 2021 with shorter stack",
+  "q5": "own"
+ },
+ "R21": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "the answer depends on the rates in effect, so a single assumed rate may not be enough to decide on",
+  "why": "Assumed rate then real history, 1,833-week grid",
+  "q5": "video"
+ },
+ "R22": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": true,
+  "quote": "investing only makes sense if it can reasonably beat 7.40%",
+  "why": "Rate beam with extra dollar and other-use dollar",
+  "q5": "own"
+ },
+ "R23": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Two houses, stacks, bar noted; fallback bracket idea missed",
+  "q5": "none"
+ },
+ "R24": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "This is partly my own conclusion.",
+  "why": "+$120 sliver drops onto growing stack",
+  "q5": "own"
+ },
+ "R25": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The flexibility inference in answer 4 is my own reading",
+  "why": "Fallback gap between payment bars",
+  "q5": "own"
+ },
+ "R26": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own conclusion.",
+  "why": "Leo's house dated Jan 2021, shorter stack",
+  "q5": "own"
+ },
+ "R27": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "The only thing the animation itself suggests is the caution about illiquidity",
+  "why": "Captions say where bar and stack come from",
+  "q5": "video"
+ },
+ "R28": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "any takeaway about paying extra versus investing would be my own inference",
+  "why": "Median line, Tessa above, few weeks as tall",
+  "q5": "own"
+ },
+ "R29": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer might lean toward keeping a very low-rate mortgage and investing the spare cash",
+  "why": "Two houses and stacks; fallback bracket missed",
+  "q5": "own"
+ },
+ "R30": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any takeaway ... is my own inference.",
+  "why": "Gap labels per era, later two wider",
+  "q5": "own"
+ },
+ "R31": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "Any advice would be my own conclusion.",
+  "why": "Dashed line across history, about 1 week in 5",
+  "q5": "own"
+ },
+ "R32": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice to take the 30-year and prepay voluntarily is my interpretation",
+  "why": "$613 fallback gap between payment bars",
+  "q5": "own"
+ },
+ "R33": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own inference",
+  "why": "Line at current rate, about 1 week in 5 above",
+  "q5": "own"
+ },
+ "R34": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The takeaway in my answer to question 4 is my own reading",
+  "why": "Tall vs short interest stacks",
+  "q5": "own"
+ },
+ "R35": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "That takeaway is my own reading.",
+  "why": "Gap between lines varies, 0.2 to 1.0 marked",
+  "q5": "own"
+ },
+ "R36": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice-like takeaway in 4 is my own inference.",
+  "why": "Equation: 30-year paid in 15 = 15-year + fallback",
+  "q5": "own"
+ },
+ "R37": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "past rates don't predict future ones",
+  "why": "Gap widens and narrows; range 0.2 to 1.0",
+  "q5": "own"
+ },
+ "R38": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "small green marks appear across the tiles, which I read as extra payments",
+  "why": "195-month tail removed to 180 by extra payments",
+  "q5": "own",
+  "extra_layer_seen": true
+ },
+ "R39": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "the grid fills in with small green marks, which look like extra payments",
+  "why": "Extra payments shorten 195 months to 180",
+  "q5": "own",
+  "extra_layer_seen": true
+ },
+ "R40": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The inference in point 4 about what a viewer might do is my own conclusion.",
+  "why": "Payment fixed at $2,216, loan ends sooner",
+  "q5": "own"
+ },
+ "R41": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might take that as a reason to think about liquidity before paying extra.",
+  "why": "Bar/stack captions plus hard-to-get-back lock",
+  "q5": "own"
+ },
+ "R42": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice in 4 is my own conclusion.",
+  "why": "30-year required payment bar shorter than 15-year",
+  "q5": "own"
+ }
+}

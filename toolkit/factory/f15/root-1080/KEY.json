@@ -1,0 +1,301 @@
+{
+ "_": "GIẢI MÃ — không đưa cho người đọc hay người chấm.",
+ "question": "C4 Tập 7: vai T + câu 1–5 (gates/C4-intent.md)",
+ "candidate_set": "ep007",
+ "items": {
+  "4dd2364e": {
+   "id": "B01",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "80da58b69f405809310a3a42b286a009bb6ad10b92c15c4a580c11918ececacb"
+  },
+  "be97833e": {
+   "id": "B01",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "6ebf2032474f896ca952746c51d07f52aeea6e9ae6b6b21c636c551c0efd89db"
+  },
+  "6d157511": {
+   "id": "B04",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "541d858fef0f1822f72f248c078f6d6729aac77557d35ea9dfd7ac6cca7354e1"
+  },
+  "1448f6ad": {
+   "id": "B04",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "9d4c85881fa6e6c5db7687aed0407add8396bd0477006333c2887d1cf5db8544"
+  },
+  "1f4a0ac8": {
+   "id": "B05",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "e86dbd686a8d72c619e4faa5532782c625b0a6da234bb2ade50f792fe59ad416"
+  },
+  "cb148005": {
+   "id": "B05",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "3624d72c8a45b121660c02d11813f83c390a3a83709221d47ccd4bc54716a3fb"
+  },
+  "2740e5dd": {
+   "id": "B06",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "f59ef40c308540cb4a9a249e0a5971692cc9158ec8fa993c67985295c21fd174"
+  },
+  "634c335b": {
+   "id": "B06",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "fc4830fac73e28884264e69bd4799443d3bd15e2c0d85e138b001d33ad1c8a04"
+  },
+  "0b82b747": {
+   "id": "B08",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "a5d3ee370424f4c2c565586d8fd65c4c8a30337303ae59c2cbb0100c0636af1e"
+  },
+  "fc22ff5a": {
+   "id": "B08",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "62a38559496f9fcf66d53996d823c776773a66705a5b5daee0f0c20f9a327d77"
+  },
+  "1935b699": {
+   "id": "B09",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "2b5be6d0bc860a9bd4408cfb3fa5322ecd25484f5dc767c5f89148693cab1449"
+  },
+  "af8ccc71": {
+   "id": "B09",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "ea2c90a19ce4ac6fff88a598fb519037dfc4a0c14af5a26eee88f7ebda022351"
+  },
+  "fd7a128d": {
+   "id": "B10",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "b1ee2c163d43ce754acfe1f4d302972652dfddee6661379411be6c37b2c26365"
+  },
+  "ca453859": {
+   "id": "B10",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "81f9ddf2385fd0acf4be99db84cffaa8fd7b9a333a30183e661326dbd07e35a9"
+  },
+  "03c8fe86": {
+   "id": "B11",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "1aac479446b837b7a7d9a8727a2d955eea6bfd87aa2cdc02b0bbdef2a0e9680b"
+  },
+  "14a5478b": {
+   "id": "B11",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "b5494912c1d9f56dc96a23a8142dfe4421ead8851a0e065a8ea5ae00d92bc04f"
+  },
+  "3c4eead4": {
+   "id": "B13",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "52aad6e2df702a46d16ea3f6af6425d1dcc2ebd1379a3f91ca3c5d277afa898d"
+  },
+  "226ed523": {
+   "id": "B13",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "33526e6262847313d122cfc13baefcf635efc320675358291f998f277da91753"
+  },
+  "293572a0": {
+   "id": "B15",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "766223eeb00089c1c343025b7e59b60ce345036ab24a9f7f86e182bb2dc7544e"
+  },
+  "0793560c": {
+   "id": "B15",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "bdcf4dff8d2a8d2f2464e904c8c7191ece0ff71423f444f422dd85397fef1e44"
+  },
+  "66109618": {
+   "id": "B18",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "2260e517d6e328eda2662c7b8364fdfd61e3baa487a3b3205a112a8838736cff"
+  },
+  "e9bc5d56": {
+   "id": "B18",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "c359f1737c8b32216823d55d028760c92ecf927292ee25f8b9a9d68f2ce2262f"
+  },
+  "a4abf6b1": {
+   "id": "B19",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "ea9264b6e3765ecde3b51b875413b79f097aea7dd84b42ef4612d0aa97d4f4da"
+  },
+  "bc86c2c3": {
+   "id": "B19",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "404a395df18e56ddd8d915ab1872c2b283fa0f8ef1c162c715a189768530d1a5"
+  },
+  "252b7f69": {
+   "id": "B21",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "fcbd26b72d6ee234896de0a178a8ae37f66d685cdff3d8beafce1450670a67e4"
+  },
+  "c98da31a": {
+   "id": "B21",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "31c75b8aedc29bddb4c71e06ab485cd8913a310f0d0d1a694a918197ec7faa7c"
+  },
+  "2279c799": {
+   "id": "B22",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "056fdb84d6e73b2e613da28c2e76f74206bbac773fb167967697e152726d0ddd"
+  },
+  "95053d25": {
+   "id": "B22",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "8c78313a9a894a9439a9b1fced0780230e8df5d0f2cb4c169be78129a9b2d0c5"
+  },
+  "9d6d8695": {
+   "id": "B23",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "3214ef2952d9ac27c12cfef2479fef85a0187374d482d8c8d2d8af5214df84c2"
+  },
+  "9fe88737": {
+   "id": "B23",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "cb4b0aa1732a711204138ea06b81e965ff7dac405196dd91b7e126979258a2c4"
+  },
+  "da75b7da": {
+   "id": "B25",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "901b658a6496a1a9231c238369aac335e06dbf1e48475fa793ed7b06cd70b799"
+  },
+  "f8fe1264": {
+   "id": "B25",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "e2a90cf11f48ff4d575e556ed94b78973a75bbcaed7a079918d765ccfee2f686"
+  },
+  "3e4e8adc": {
+   "id": "B28",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "dfc18782d961ffd3c1907f56d5a0c31346c223b0a9eaebf04cd9e03245e6e338"
+  },
+  "3c557728": {
+   "id": "B28",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "f14b16525e091b293a30b81189131ca9ba36cefd87ec2689e8237193b2dfa6b3"
+  },
+  "02ff3d6d": {
+   "id": "B29",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "5693436d483aabb98b9dac3d30a13be6cc4f30affbdbf252ddc16c1eb3d76e20"
+  },
+  "e5124d33": {
+   "id": "B29",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "bf3cab2fb1fc5973b099fc1e06228acf2accbe7c2b2046e504bc5b2a2dab9941"
+  },
+  "d1e43cbc": {
+   "id": "B30",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "7c24d5d9c24cd8ac726bc90fcb6261e2336934960aa77daa904619d7a677a983"
+  },
+  "8c26fa98": {
+   "id": "B30",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "406ae65cb6f95f25360a8215677baee9c95494de7fde77f3f77ca000e1fc2948"
+  },
+  "bf3c0b98": {
+   "id": "B31",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "0fc7f6204b448a326cc782c7c7930e686c442aacb0689ef2e970db4af0c06724"
+  },
+  "6e7c7c26": {
+   "id": "B31",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "52d7563252cf412a84059ae8a000d74fee1c89f645f151226aeb5050e29c8d4d"
+  },
+  "c1a95c28": {
+   "id": "B33",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 1,
+   "sha256": "14c6005e56eeeea4a609dc473df53eb29115280ebe85f6e408852ac10733fd0f"
+  },
+  "e0834a0c": {
+   "id": "B33",
+   "set": "ep007",
+   "kind": "image",
+   "slot": 2,
+   "sha256": "dea53ac4e62de32c48c72991ca92ad2904b647383f556c025a76cc26f92e2fe5"
+  }
+ }
+}

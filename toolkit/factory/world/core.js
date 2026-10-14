@@ -376,8 +376,10 @@ export function Stage(res) {
   const vs = V ? (V.s || 1) : 1, cy = V ? (V.cy ?? (VZONE.y0 + VZONE.y1) / 2) : 0;
   const gl = document.createElement('canvas');
   // alpha: true — nền là scene.background (đục) nên khung render như cũ; lớp 'graphics' của trang kiểm cần nền trong suốt
-  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, preserveDrawingBuffer: true, powerPreference: 'low-power', alpha: true });
-  renderer.setPixelRatio(1); renderer.setSize(W, H, false);
+  // F-15: CK.spp (?spp=, mặc định không khai = như cũ: khử răng cưa WebGL, pixelRatio 1) · 0 = tắt khử răng cưa (nháp) · N ≥ 2 = siêu lấy mẫu N×N
+  const SPP = CK.spp, PR = SPP >= 2 ? SPP : 1;
+  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: SPP === undefined || SPP !== 0, preserveDrawingBuffer: true, powerPreference: 'low-power', alpha: true });
+  renderer.setPixelRatio(PR); renderer.setSize(W, H, false);
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
   const ov = document.createElement('canvas'), out = document.createElement('canvas'); out.width = W; out.height = H; document.body.appendChild(out);
@@ -403,9 +405,9 @@ export function Stage(res) {
     compose() {
       O.finish();
       const m = CK.mode;
-      if (m === 'all') { octx.drawImage(gl, 0, 0); octx.drawImage(ov, 0, 0); if (CK.dither >= 2 && !CK.on) darkDither(octx, W, H); return; }
+      if (m === 'all') { if (PR > 1) { octx.imageSmoothingQuality = 'high'; octx.drawImage(gl, 0, 0, W, H); } else octx.drawImage(gl, 0, 0); octx.drawImage(ov, 0, 0); if (CK.dither >= 2 && !CK.on) darkDither(octx, W, H); return; }
       octx.clearRect(0, 0, W, H);
-      if (m === 'graphics' || m === 'graphics3d' || m === 'notext') octx.drawImage(gl, 0, 0);
+      if (m === 'graphics' || m === 'graphics3d' || m === 'notext') { if (PR > 1) octx.drawImage(gl, 0, 0, W, H); else octx.drawImage(gl, 0, 0); }
       octx.drawImage(ov, 0, 0);
     },
   };
