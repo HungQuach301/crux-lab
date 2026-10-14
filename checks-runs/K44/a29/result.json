@@ -1,0 +1,91 @@
+{
+ "ignored": [
+  "seconds",
+  "sceneCacheHits"
+ ],
+ "runs": [
+  {
+   "ep": "ep007",
+   "tag": "nocache",
+   "wall_s": 11322
+  },
+  {
+   "ep": "ep006",
+   "tag": "nocache",
+   "wall_s": 6615
+  },
+  {
+   "ep": "ep006",
+   "tag": "cold",
+   "wall_s": 6459
+  },
+  {
+   "ep": "ep006",
+   "tag": "warm",
+   "wall_s": 65
+  },
+  {
+   "ep": "ep007",
+   "tag": "cold",
+   "wall_s": 11204
+  },
+  {
+   "ep": "ep007",
+   "tag": "warm",
+   "wall_s": 116
+  },
+  {
+   "ep": "ep007",
+   "tag": "nocache2",
+   "wall_s": 11449
+  }
+ ],
+ "episodes": {
+  "ep006": {
+   "nocache_sha256": "06ff55630ec7ec7ead187fed113fb0a1754925bf8f9e0d3b0ad435f64a07881c",
+   "cold": {
+    "sha256": "06ff55630ec7ec7ead187fed113fb0a1754925bf8f9e0d3b0ad435f64a07881c",
+    "identical": true,
+    "sceneCacheHits": 0,
+    "sceneJobs": 31,
+    "seconds": 6458.1
+   },
+   "warm": {
+    "sha256": "06ff55630ec7ec7ead187fed113fb0a1754925bf8f9e0d3b0ad435f64a07881c",
+    "identical": true,
+    "sceneCacheHits": 31,
+    "sceneJobs": 31,
+    "seconds": 64.8
+   },
+   "nocache_seconds": 6614.8
+  },
+  "ep007": {
+   "nocache_sha256": "58da4f9dd77e871ce58cc86241ce77d902840f03289231449f479582ad83dd85",
+   "cold": {
+    "sha256": "7777b8ddf1e8044d109ea10ee7558fff6cbffa001a9f80715f558cb424997ecd",
+    "identical": false,
+    "sceneCacheHits": 0,
+    "sceneJobs": 34,
+    "seconds": 11203.4,
+    "diffKeys": [
+     "chartEvents",
+     "motionTrack",
+     "rules"
+    ]
+   },
+   "warm": {
+    "sha256": "7777b8ddf1e8044d109ea10ee7558fff6cbffa001a9f80715f558cb424997ecd",
+    "identical": false,
+    "sceneCacheHits": 34,
+    "sceneJobs": 34,
+    "seconds": 115.5,
+    "diffKeys": [
+     "chartEvents",
+     "motionTrack",
+     "rules"
+    ]
+   },
+   "nocache_seconds": 11321.4
+  }
+ }
+}
