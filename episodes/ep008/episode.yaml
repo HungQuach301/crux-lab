@@ -30,7 +30,7 @@ claims: prod/gen/claims.json
 tokens: prod/gen/tokens.json
 data: {file: prod/gen/data.json}
 fps: 30
-res: 540     # M2 animatic + M3 nháp; 1080p chỉ sau G2 (chủ dự án 13/10)
+res: 1080    # M6 sau G2 (chủ dự án 14/10); M2–M5 dùng 540
 acts:   # theo các dòng `=== … ===` của story/script.md
   - {id: cold-open, scenes: [S01, S02, S03]}
   - {id: ident, scenes: [S03]}
