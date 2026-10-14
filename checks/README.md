@@ -518,6 +518,17 @@ Nguồn: `checks-appeal.md` khối K4.4 (A29, A33, A38–A45). Bằng chứng: `
 - **Fingerprint** (`checks-runs/K44/fingerprints-K44.json`): 95/100 luật cũ trùng fingerprint và cấp với `main` @ `c735828`; đổi có chủ ý F11, A12, A13, R01, P01; mới F13, F15, SH07, S23, R09. Số luật: **37 CHẶN · 17 CHÍNH · 51 THAM KHẢO** (105).
 - Selftest (`checks-runs/K44/selftest/`): **Python 440/440, trang 67/67.** Ca mới: `A12/factory-dict`, `A13/episode-stem`, `R01/no-png` (cả ba tái hiện lỗi trên mã `main`), `SH07`, `SH07/before-ep8`, `F11/ep008-no-thumbs`, `F11/package-thumbnails`, `P01/none`, `F13` ×18 (SHA, trích nguyên văn, dòng, NC, ND, BY-SA, danh sách trắng, chuỗi media không khai, ghi nguồn, OSM, kind, trần Tập 8/9, không nâng trần, hạ trần bằng `episode.yaml`, khai `episode.yaml` theo cảnh, footage trong `visual-assets.json`, ô bản đồ OSM), `F15` ×6 (năm + nguồn, minh hoạ, ≤ 6 s, lần liền nối hai mục, 5 s đầu, mục khai theo cảnh bỏ qua đo lần/5 s); mọi ca F13/F15 bad kiểm cả tên chỉ số trượt (REVIEWER PHỤ 10), `S23`, `S23/allow`, `R09`, `R09/view`, `A40/nature`.
 
+## Thay đổi ở khoá K4.4.1 (A29 — chủ dự án duyệt 14/10, `checks-runs/K44/a29/ANSWER.md`: (a))
+
+| Mã | Thay đổi | Nguồn |
+|---|---|---|
+| bộ lấy mẫu trang | **A29:** cache `out/checks/cache/page-scenes` theo cảnh với khoá gồm: mã bộ lấy mẫu, bước mẫu, đầu vào cả tập (timeline, claims, tokens, page.json, điều kiện `contract.json claims.conditions`), khung video của cảnh (MD5 gói từ khung khoá), **lát máy quay của cảnh** (`out/camera.json`), **đoạn trang** của cảnh (trang một-file: Merkle băm module + JSON thư mục spine của đoạn; trang khác: kiểm cả tệp như cũ) và **trạng thái mang vào** (`warmState`: hộp chữ, claim đang hiện, va chạm chữ chạy) → sửa một đoạn chỉ lấy mẫu lại cảnh của đoạn đó | A29 |
+| bộ lấy mẫu trang | vòng lấy mẫu trong `try … finally` đóng hai bộ đọc video cả khi một mẫu ném lỗi | REVIEWER K4.4b PHỤ 8 |
+
+- **Tiêu chí (chủ dự án 14/10, (a)):** cache = lượt đã điền nó, từng byte, và mọi luật trang trùng mọi chỉ số với lượt `--no-cache`. Đo (`checks-runs/K44/a29/RESULT.md`): **Tập 6** lượt cache trống và lượt ấm **trùng byte** với `--no-cache` (bỏ `seconds`, `sceneCacheHits`; chuẩn hoá UUID `blob:`), ấm **65 s** thay 6.615 s (31/31 cảnh). **Tập 7** ấm = cache trống từng byte, **116 s** thay 11.322 s (34/34); hai lượt `--no-cache` khác nhau ở C12 (1 số đo), 6/19.538 chartEvents (S11, S26), motionTrack — bộ lấy mẫu không tái lập sẵn có, không do cache; **33 luật trang trùng trạng thái và mọi chỉ số trên cả 4 lượt**. Nguồn không tái lập → hàng chờ lô K (không chặn sản xuất).
+- Mã khoá khác mã đo ở: chặn lỗi ffprobe (nhánh không chạy khi đọc được video) và `try … finally` (không đổi số đo). Khoá cache gồm mã bộ lấy mẫu → cache cũ tự trượt.
+- Selftest: {ST441}
+
 ## Thay đổi ở khoá K4.4b (SỬA LUẬT CŨ — chủ dự án duyệt 14/10, `checks-runs/K44/GOI-answer.md`: 1a, 2a, 3a)
 
 Nguồn: gói `checks-runs/K44/GOI-chu-du-an.md`. Câu 1a (A32) ngoài `checks/`: cổng gốc khi so hai bản = chẩn đoán (`playbook/quality-framework.md` mục Cổng gốc); hiệu chuẩn 5 người đọc/nhịp vào hàng chờ lô K.
