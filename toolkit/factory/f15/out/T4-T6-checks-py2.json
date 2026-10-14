@@ -1,0 +1,45 @@
+{
+ "rules": 100,
+ "agree": 98,
+ "agree_pct": 98.0,
+ "missed_block_major_outside_Rpix": [],
+ "missed_in_Rpix": [],
+ "draft_only_fail": [
+  {
+   "id": "F08",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL"
+  },
+  {
+   "id": "REG",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL"
+  }
+ ],
+ "errors": {
+  "draft": [
+   "A12"
+  ],
+  "1080": [
+   "A12"
+  ]
+ },
+ "differ": [
+  {
+   "id": "F08",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL",
+   "R_pix": true
+  },
+  {
+   "id": "REG",
+   "tier": "BLOCK",
+   "1080": "PASS",
+   "draft": "FAIL",
+   "R_pix": false
+  }
+ ]
+}

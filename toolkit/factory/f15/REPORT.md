@@ -10,9 +10,9 @@
 | T1 | 7 spine + timeline + captions, 1080p không cờ, container mới | trùng byte | **9/9 trùng** (`out/T1-bytes.json`); `camera.json`, `page.json`, `sonify-events.json`, mọi `out/*` hợp đồng cũng trùng | **ĐẠT** |
 | T2 | SSIM 1080p mới (thu 720p) vs `review-g2/full-720p.mp4` | ≥ 0,97 | **0,9843** (18.202 khung); cảnh kém nhất S23 0,9813; khung thấp nhất 0,9748 (`out/T2-ssim.json`) | **ĐẠT** |
 | T3 | giờ máy nháp 540p / 1080p, cache trống | ≤ 0,40 | nháp **6.220 s (1,73 h)** / 1080p **14.855 s (4,13 h)** = **0,419** | **TRƯỢT** (sát ngưỡng, trong ±5 %) |
-| T4 | checks đủ bộ chạy hết trên nháp | thoát 0, 0 ERROR mới | §3 | §3 |
-| T5 | CHẶN/CHÍNH FAIL ở 1080p cũng FAIL ở nháp, ngoài R_pix | 0 bỏ sót | §3 | §3 |
-| T6 | đồng phán quyết nháp ↔ 1080p | ≥ 90 % (chỉ báo) | §3 | §3 |
+| T4 | checks đủ bộ chạy hết trên nháp | thoát 0, 0 ERROR mới | bộ lấy mẫu trang + 100 luật, thoát 0; ERROR duy nhất A12 có ở cả hai bản | **ĐẠT** |
+| T5 | CHẶN/CHÍNH FAIL ở 1080p cũng FAIL ở nháp, ngoài R_pix | 0 bỏ sót | **0 bỏ sót** (cả trong R_pix) | **ĐẠT** |
+| T6 | đồng phán quyết nháp ↔ 1080p | ≥ 90 % (chỉ báo) | lượt 1: 95 %; sau sửa đường nháp (§3): **98 %** | **ĐẠT** |
 | T7 | cổng gốc nháp ↔ 1080p | \|Δ\| ≤ 2 và ≥ 80 % cùng phán quyết | lượt đầu: nháp **17/21** · 1080p **9/21**; cùng phán quyết 10/21 | **TRƯỢT** (xem §4: thước nhiễu hơn đích) |
 | T8 | dải kiểm mù trên nháp | đủ dải | 22 dải + 4 tấm (`blind_c4.py strips` → `toolkit/blind/strips.py`) | **ĐẠT** |
 | T9 | resume theo khung, ngắt bằng PID | trùng byte | Tập 7 đoạn a cảnh s1 (540p): dừng ở khung 63/142 (`bg.sh stop`), chạy lại giữ 62, dựng 80 → mp4 + nhật ký **trùng byte**; test tổng hợp 9/18 → trùng byte | **ĐẠT** (giới hạn §5.2) |
@@ -39,7 +39,20 @@ qua trần 2 h** (setsid nohup).
 **Checks không rẻ hơn ở nháp:** bộ lấy mẫu trang tốn giờ theo trang thế giới 3D, không theo độ phân giải video (1080p: 5,9 h lượt 1 + 0,7 h chạy tiếp).
 
 ## 3. Checks đủ bộ (LOCK `dc4981b3`, baseline = báo cáo P4)
-(điền sau khi checks nháp xong)
+| | 1080p mới (`checks/report-1080.json`) | nháp 540p lượt 1 (`report-d540.json`) | nháp, luật Python sau sửa overlay (`report-d540-py2.json`) |
+|---|---|---|---|
+| PASS/FAIL/MISSING/ERROR | 55/43/1/1 | 50/48/1/1 | 53/45/1/1 |
+| CHẶN chưa đạt | A14 S02 S07 S09 C07 | + F04 F05 F08 F11 REG | + **F08** REG |
+| CHÍNH chưa đạt | V08 V09 V11 V12 L1 | như 1080p | như 1080p |
+| giờ | 5,9 h (treo 1,5 h ở cảnh 34, §5.3) + 0,7 h chạy tiếp | 5,9 h, không treo | 0,34 h (PYONLY) |
+CHẶN/CHÍNH chưa đạt của 1080p mới = đúng danh sách P4 trên bản đã giao (`c5/checks-reports/chk-p4-report.json`; P4 thêm SH01–05/REG
+MISSING vì thiếu tệp) → bản 1080p dựng lại giữ nguyên chất lượng theo luật.
+Năm CHẶN thừa ở nháp lượt 1 đều do **đường nháp**, không do nội dung: F04 (bitrate bản phóng 1,2 Mbps — mã hoá crf thay vì CBR 17M của master;
+F04 lọt khỏi R_pix quét trước: luật đọc bitrate qua ffprobe), F05 (vọng lanczos đẩy Y ra ngoài 16–235 0,38 %), F11 (`splice.json` nháp trỏ
+`work/factory-r540/world`, bản sao chưa có đường đó), REG (hệ quả). Sửa `draft_overlay.py` (`d0…` commit sau `2e8b328`): CBR 17M như master,
+kẹp Y/C, chép world vào cả hai đường → chạy lại luật Python (`PYONLY=1 RESUME=1`, mẫu trang giữ): còn **F08** (banding 22 % ở 126 s, 134 s,
+582 s — dither cố định theo ô 2×2 ở 1080 thành ô 1×1 ở 540 rồi phóng; khác độ phân giải thật, trong R_pix) + REG. **Quy ước dùng nháp:** F08,
+F01 (cỡ khung, nay phóng nên ĐẠT), SH01 chỉ tin ở bản 1080p.
 
 ## 4. Cổng gốc tắt tiếng (`c4/blind_c4.py` root, 21 nhịp, 2 người đọc, 2 người chấm, không người thứ 3 cho bản nào)
 | Lượt | Dải | ĐẠT | chờ người 3 |
