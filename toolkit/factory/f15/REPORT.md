@@ -33,6 +33,9 @@
 |---|---|---|
 | T11 | `verify.sh factory-f15 --install episodes/ep007` trên checkout chính (không có `data/raw`): `fetch.py --verify` **tải thật** 4 chuỗi FRED + bản ghim hồ sơ, SHA khớp; ASR thử 100 %; `bed.wav` `57c57cae…`; cây git sạch; 162 s (`out/T11-rerun.txt`) | **ĐẠT** |
 | T13 | ảnh LoC thật **X-F15-3**: https://www.loc.gov/item/2010630116/ (Carol M. Highsmith, 2009, ngân hàng Main Street, không có người), `rights_advisory` "No known restrictions on publication." + bản chụp JSON mục (SHA), 1634×972; dòng RIGHTS **F6** bậc 5 (+ X-F15-1 Census bậc 2 — nay có trích nguyên văn TIGER 2017 TechDoc tr. 1-2; X-F15-2 Natural Earth bậc 2). Clip 540p 8 s (`footage-trial/out/footage-trial-540.mp4`, `sheet.jpg`): 0/41 khung chữ đè chủ thể, **0 khung chữ đè chữ** (phép kiểm mới), nhãn trễ mốc từ 0–0,08 s | **ĐẠT** |
+| T1 (rebase) | mã rebase lên `7f8a0da`, dựng 1080p lại cả tập (render không trúng cache vì khoá gồm `render_shots.js` đã sửa sau lượt 13/10 — 16.674 s): **9/9 spine/timeline/captions trùng byte** (`out/T1-bytes-rebased.json`); 6/7 đoạn hình + toàn bộ tiếng trùng byte bản giao P4 và lượt 13/10, đoạn e khác (không tất định, §5.2) | **ĐẠT** |
+| T14 (rebase) | Tập 7 đoạn a cảnh s0, s1 (540p), mã rebase vs `main` c7358285: mp4 + nhật ký trùng byte (`out/T9-T14.md`) | **ĐẠT** |
+| test | `python3 -m unittest discover -s toolkit/tests` trên mã rebase: **113 OK** (1 bỏ qua) | **ĐẠT** |
 loc.gov sau Cloudflare: JSON mục trả 429 `cf-mitigated: challenge` nhiều lần → `fetch.py --loc` thử lại lùi dần (lần 6 qua). Phép kiểm "chữ đè chữ" mới thêm
 lộ lỗi của lượt 13/10 mà phép kiểm cũ không đo: chú thích và dòng nguồn plate đè nhau, nhãn "Maryland" đè "South Atlantic" → đã sửa (`plate.js`
 `drawCredits` đẩy dòng nguồn lên một dòng khi hai dòng giao nhau; nhãn bản đồ đặt lại).
