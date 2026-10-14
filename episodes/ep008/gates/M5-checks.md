@@ -13,7 +13,7 @@ Lệnh: `EP=episodes/ep008 bash toolkit/checks_split.sh /home/user/chk-ep008` (b
 | S06 | MISSING | contract chưa khai `coverage[]` | khai ở M6 (hồi 2: năm 1991–2016; hồi 3: thẻ 4/5/6 %) |
 | S07 | TRƯỢT: số nói chưa đăng ký 7 → **0**; số trên hình không claim **6** | lần 1 thiếu claim tham số → **đã thêm** `term_30y`, `era_2002-2007_span`, `hold_15y` + đăng ký `yield4_tag`, `yield6_tag`, `rate_month_latest`; 6 số hình ("6 of 72", "15 years", "2002 to 2007", "$2,933" ở S29/S30) cần gắn claim trên nhãn → **trang lấy mẫu lại ở M6** | M6 |
 | S09 | TRƯỢT: 14 claim $ thiếu `basis`; 664 khung thiếu nhãn gốc tiền | claim chưa khai nominal/real; chrome chưa bật `basis`; lời chỉ nói "today" (máy đọc là real) | **câu hỏi G2**: các số $ là "dollars of the day" (danh nghĩa) → cần nói một lần ("in dollars of the day") + nhãn chrome "All $ in dollars of the day" — đổi lời là của chủ dự án |
-| A14 | ERROR | công cụ: PyAV 19 bỏ tham số `metadata_errors` mà faster-whisper 1.2.1 dùng → đã cài PyAV 16.0.1 (giải mã chạy) | chạy lại A14/L1 (bên dưới) |
+| A14 | lần 1–2 ERROR (công cụ: PyAV 19 bỏ `metadata_errors` của faster-whisper 1.2.1 → cài PyAV 16.0.1); **chạy lại (`run.py --only A14,L1`, `report-partial.json`): TRƯỢT — 3/114 từ khoá mất**: S28.1 "about 2 in 3" → ASR "two and three" (cùng kiểu S13 "3 in 4"); S12.1 "mid-2016" → "mid -2016" (tách chữ của ASR) | **câu hỏi G2** (lời "2 out of 3" cùng "3 out of 4"); "mid-2016" → A34-loại (K) hoặc lời "the middle of 2016" |
 | F01 | TRƯỢT `size 960x540` | nháp 540p (đo ở M6, 1080p) | M6 |
 | F10, F11, S21 | MISSING/TRƯỢT `description.md` | gói phát hành làm ở M6/P4 | M6 |
 | SH01–SH05 | MISSING `out/shorts/SH1.mp4` | Short dựng ở M6 (lệnh G1) | M6 |
@@ -27,10 +27,10 @@ Lệnh: `EP=episodes/ep008 bash toolkit/checks_split.sh /home/user/chk-ep008` (b
 | V03 | 402 mẫu chữ ra vùng an toàn | phần lớn dòng chrome "US only…" mực x 95 < 96 (1 px) + nhãn đồ thị sát mép; nhà máy (chrome) → BACKLOG; nhãn tập sửa ở M6 |
 | V11 | 1.135 va chạm chữ × hình (nhãn 1.127) | chrome/nhãn đè hình 3D (nhà, lưới) — loại cũ Tập 6–7; một phần do máy tiến/thở (nhãn trôi qua vật) — G2 |
 | V12 | 4.776 mẫu NCC < 0,97 | **phụ thuộc độ phân giải (C3)** — 540p chỉ báo, đo ở M6 |
-| L1 | ERROR | như A14 |
+| L1 | **TRƯỢT** (chạy lại): tỉ lệ lời/tiếng dữ liệu 1–4 kHz phân vị 10 = 15,1 dB < 20 (trung vị 38,6; thấp nhất 4,8; 36 cửa sổ có tiếng dữ liệu); 0 từ khoá mất vì tiếng dữ liệu | hạ tiếng dữ liệu (mix `data_db` 25 → ≥ 30 hoặc né 1–4 kHz) ở M6 — không đổi lời |
 
 ## THAM KHẢO (chỉ báo) — đáng nêu
 R07 ERROR (chạy lại ở M6), R09 TRƯỢT (J/L-cut lệch G1 — `M5-continuity.md`), V14 (3 nhịp 5 s đầu "không ở thế giới" — cold open bắt đầu bằng thế giới rồi vào đồ thị ở 5 s, như thiết kế quy tắc 7), V17 (14 nhãn hiện quá ngắn), C11 (bố cục lặp > 2 trong 90 s: 32 — lưới từ trên dùng nhiều), T2–T4 (sfx dày/lặp — sfx tổng hợp, chưa có tiếng ghi thật), T1 MISSING (`sonification.bandsHz` chưa khai).
 
 ## Kết luận
-**TRƯỢT** (luật C2): ngoài S01 S04 S05 ghi trước, còn CHẶN trượt thật — S03 (đối chiếu), S06, S07 (hình), S09, A14 (công cụ), và các mục thuộc mốc phát hành M6 (F01 540p, F10/F11 mô tả, SH01–05, REG). CHẶN sửa được bằng hồ sơ đã sửa và đo lại (S02 ĐẠT; S07 lời 0; S03 phần tệp). Còn lại: hợp đồng chưa có (S01 S04 S05, phiên K), M6 (F01 F10 F11 SH S06, S07 hình, V09), **câu hỏi lời S09** (G2), công cụ A14/L1 (chạy lại).
+**TRƯỢT** (luật C2): ngoài S01 S04 S05 ghi trước, còn CHẶN trượt thật — S03 (đối chiếu), S06, S07 (hình), S09, A14 (2 chỗ ASR — lời), và các mục thuộc mốc phát hành M6 (F01 540p, F10/F11 mô tả, SH01–05, REG). CHẶN sửa được bằng hồ sơ đã sửa và đo lại (S02 ĐẠT; S07 lời 0; S03 phần tệp). Còn lại: hợp đồng chưa có (S01 S04 S05, phiên K), M6 (F01 F10 F11 SH S06, S07 hình, V09), **câu hỏi lời S09** (G2), công cụ A14/L1 (chạy lại).
