@@ -29,3 +29,61 @@
 - **G2:19:** "qc đối trọng 0 khung log = loại cũ" là lời giải thích chưa có bằng chứng → dẫn khung hoặc log.
 
 **Những phần giữ đúng lệnh:** footage chỉ có bản đồ Natural Earth (5,98 s, có nhãn nguồn). 1 Short kèm thẻ đối trọng. Không thumbnail. Ngoài 3 khung tĩnh thì chưa dựng 1080p. Màu theo hồi đạt. Cổng gốc được ghi là chẩn đoán, có ảnh trước/sau. L3 là thước cuối. Freezedetect giữ ngưỡng n = 0,003, không đổi thước sau khi thấy kết quả. Mức gợi ý dòng 3 (71 % → 3) đúng bảng quy đổi.
+
+
+---
+# REVIEWER — lượt 2 (14/10; chi $1.02)
+
+**Kết luận: ĐẠT có sửa.** Lượt 1 đã sửa gần đủ. Còn ba lỗi trung thực, đều sửa bằng chữ hoặc một lần đo nhỏ, không cần đo lại cả bộ.
+
+**Soát từng mục lượt 1**
+- C1 chi Console: ✓ $10,08 = M2 5,74 + M5 4,34 (cộng khớp từng khoản), dưới ngắt $8,3.
+- C2 S03 + 4 số: ✓ (G2:18).
+- C3 A14/L1: ✓ có kết quả chạy lại (M5-checks:16, :30).
+- Chính 1, chỗ muốn tua: **một phần.** Đã nêu lệch ý đồ, nhưng có lỗi mới, xem CHÍNH 1–2.
+- Chính 2, khuyến nghị cắt: ✓ có dự kiến "còn 1–2 cảnh". Mục S20 không còn áp dụng ở r3.
+- Chính 3, cold open (b): ✓ đã chuyển thành chỉ báo (G2:17).
+- Chính 4, R09: ✓. Chính 5, V11 + F-2: ✓. Chính 6, ba mốc giây: ✓.
+- Chính 7, L3 dòng 1–2: **một phần.** Dòng 2 đã có nguồn. Dòng 1 vẫn chưa có số x/6 "câu hỏi mang tới được trả lời" (C2-blind:18–24: Partly 6/6).
+- Chính 8, L3 dòng 4 "R07 ERROR": ✓. Chính 9, dòng 5: ✓.
+- Chính 10, dòng trả lời gọn (5)–(8): ✓.
+- Các mục PHỤ 1–7: ✓. Riêng mục qc "đối trọng" mới dẫn khung hình, chưa dẫn mã/log. Tạm chấp nhận.
+
+**CHẶN**
+- (không có)
+
+**CHÍNH**
+1. **Chỗ:** G2:17 và G2:4.
+   **Lỗi:** G2:17 viết "khớp phép thử trượt ở S07 (đã sửa bằng vòng hình trên)", nhưng S07 vẫn 2/3 ở r3 (r3/tally:4), tức là chưa sửa được. Ngoài ra r3 không vượt r2 (S05 tăng 1 → 3, phép thử vẫn TRƯỢT), mà M5-intent §6 ghi trước: "vòng chỉ giữ khi vượt bản tốt nhất ngoài biên nhiễu".
+   **Sửa:** ghi "vòng hình không cải thiện S07". Chọn một trong hai: gửi r2 (mọi số đo đều trên r2), hoặc giữ r3 và nêu đích danh là lệch §6.
+2. **Chỗ:** G2:14.
+   **Lỗi:** câu "cả ba nêu cùng một lý do … 1:01 tới 3:04" là trích ghép, không đúng nguồn. Ba người nêu ba quãng khác nhau: R1 1:23–3:03 (định nghĩa/lưu ý), R2 1:56–3:04 (chi phí + thẻ tiền thuê), R3 1:01–2:23 (chi phí + tốc độ tăng giá).
+   **Sửa:** ghi riêng từng người. Bỏ câu "lý do nằm ở cấu trúc lời, không phải hình", thay bằng "bên dựng dừng ở 1/2 vòng" (S04 ở r2 bị chê "static", là lỗi hình).
+3. **Chỗ:** G2:13 và ảnh `flip-B07.png`.
+   **Lỗi:** vòng r3 không có hồ sơ nào: M5-pace và M5-director không ghi gì về r3; chưa có verify/F-2, pace hay qc trên r3. Vậy mà G2:13 báo nhịp "ĐẠT" như thể đo trên nháp đang gửi. Ảnh dưới của flip-B07 là r2, trong khi S07.3 sửa đúng ý "thẻ trên cửa" mà B07 thiếu.
+   **Sửa:** ghi vòng r3 vào M5-pace, chạy verify + pace cho đoạn b, ghi "đo trên r2/r3" ở từng dòng. Nếu không làm được thì ghi rõ "B07 chưa đo trên r3".
+4. **Chỗ:** phiếu L3, dòng 4.
+   **Lỗi:** mẫu (L3.md:10) đòi số "mất chú ý kiểm mù (loại khối ≥ 2/6)", nhưng phiếu thiếu: phương pháp 4/6 ở S06.1, nhân vật 2/6 ở S23 (C2-blind:35). Mức gợi ý 3–4 vẫn đúng bảng, vì bảng quy đổi chỉ dùng spine, freezedetect và R07.
+   **Sửa:** thêm số này vào cột máy.
+5. **Chỗ:** mục Câu hỏi mở.
+   **Lỗi:** bỏ sót khối nhân vật S23 (Marcus/Priya "nhắc lại kết quả", 2/6). C2-blind:37 cam kết "G2 nêu hai khối này kèm câu chữ đề xuất rút gọn", nhưng G2 mới nêu S06.
+   **Sửa:** thêm phương án rút gọn S23 vào câu 5, hoặc một câu riêng có khuyến nghị.
+
+**PHỤ**
+- **Chỗ:** G2:18, câu 1, L3 dòng 5. **Lỗi:** A14 báo "3/114 từ khoá mất", nhưng ba nơi kể ba bộ khác nhau: S12/S28, S13/S28, S13/S28. **Sửa:** kể đúng 3 từ khoá, thống nhất ở cả ba chỗ.
+- **Chỗ:** G2:22 và câu 5. **Lỗi:** chưa nói rằng nếu cắt 25–35 s lời và đổi lời câu 1/6, chủ dự án sẽ chấm L3 trên bản không phải bản phát hành, và M6 không mở lại G2. **Sửa:** thêm lựa chọn "(5) cắt và xem lại / cắt, không xem lại".
+- **Chỗ:** mục 1, cold open. **Lỗi:** chưa xác nhận trên nháp các mục G1 câu 2: tên chương gợi hình, câu chốt cuối chương, bảng điểm 3–4 mục, quay lại "the street". **Sửa:** thêm một dòng ĐẠT kèm mốc giây.
+- **Chỗ:** L3 dòng 5. **Lỗi:** thiếu "số cảnh sinh lại" mà mẫu đòi. **Sửa:** điền số (0 nếu chưa sinh lại cảnh nào).
+
+**Những phần giữ đúng lệnh G1 + 14/10:**
+- Footage chỉ có bản đồ (5,98 s, có nhãn nguồn).
+- 1 Short + thẻ cuối đối trọng; không thumbnail.
+- Chưa dựng 1080p, ngoài 3 khung tĩnh.
+- Màu theo hồi đạt.
+- J/L-cut nêu lệch đích danh, có R09.
+- Cổng gốc ghi là chẩn đoán, có ảnh trước/sau.
+- L3 là thước cuối.
+- Freezedetect giữ n = 0,003, không đổi thước sau khi thấy kết quả.
+- Mức gợi ý dòng 3 (71 % → 3) và các dòng 1, 2, 4, 5 (3–4) đúng bảng quy đổi.
+
+Tôi chỉ đọc, chưa ghi lượt 2 này vào `gates/REVIEW-G2.md`.

@@ -18,7 +18,7 @@ export async function boot(res) {
     cRecord: { pos: [RX + RW / 2 + 0.6, RY + RH / 2, RZ + 18], tgt: [RX + RW / 2 + 0.6, RY + RH / 2, RZ], fov: 25, chart: 1 },
     wDoor: { pos: [APT.x - 2.4, 2.0, 5.6], tgt: [APT.x + 0.2, 0.6, -2.6], fov: 42, chart: 0 },
     cTag: { pos: [TAGX + 0.6, 0.75, 9], tgt: [TAGX + 0.6, 0.72, TAGZ], fov: 12, chart: 1 },
-    wFlow: { pos: [BOX.x - 0.6, 3.2, 5.2], tgt: [(BOX.x + APT.x) / 2, 0.45, -0.6], fov: 22, chart: 0 },   // M5 "chỗ muốn tua" vòng 1: thẻ 5 % trên cửa đọc được cạnh hộp (S07.3; fov 42 → 22, máy cao hơn để đầu người song sinh không che thẻ)
+    wFlow: { pos: [BOX.x - 0.6, 1.9, 5.2], tgt: [(BOX.x + APT.x) / 2, 0.5, -0.6], fov: 42, chart: 0 },   // M5 vòng hình "chỗ muốn tua" r3 (fov 22, máy cao: thẻ đọc được) KHÔNG giữ — không vượt r2 (M5-intent §6); phương án cho M6 nếu chủ dự án muốn
   };
   const { S, DATA, cue: b, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
   const street = Street(scene, DATA.starts10), H = Home8(scene), map = await USMap(scene, { x: APT.x - 1, z: -7.5, s: 0.7 });
