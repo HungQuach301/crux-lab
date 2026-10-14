@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>@font-face{font-family:Inter;font-weight:700;src:url(/toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}html,body{margin:0;background:#0E1116}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+// Contact sheet: 3 characters × 6 expressions + props (preview only).
+import { drawCharacter, drawProp, POSES, EXPRESSIONS, CHARACTERS, PALETTE } from './rig.js';
+await document.fonts.load('700 40px Inter');
+const ctx = document.getElementById('c').getContext('2d');
+ctx.fillStyle = PALETTE.bg; ctx.fillRect(0, 0, 1920, 1080);
+const ex = Object.keys(EXPRESSIONS), ids = Object.keys(CHARACTERS), poses = ['stand', 'wave', 'shock', 'hold', 'slump', 'cheer'];
+ids.forEach((id, r) => ex.forEach((e, i) => drawCharacter(ctx, { id, x: 110 + i * 190, y: 340 + r * 350, s: 0.55, pose: POSES[poses[i]], expr: e })));
+drawProp(ctx, 'house', { x: 1420, y: 330, s: 0.5 }); drawProp(ctx, 'houseModern', { x: 1740, y: 330, s: 0.45 });
+drawProp(ctx, 'bank', { x: 1430, y: 690, s: 0.45, doors: 0.6 }); drawProp(ctx, 'note', { x: 1740, y: 690, s: 0.6, label: 'MORTGAGE' });
+for (let k = 0; k < 5; k++) drawProp(ctx, 'person', { x: 1330 + k * 70, y: 1030, s: 0.9 });
+drawProp(ctx, 'coin', { x: 1800, y: 1000, s: 1.2 });
+ctx.fillStyle = '#9AA4B2'; ctx.font = '700 22px Inter'; ex.forEach((e, i) => ctx.fillText(e, 70 + i * 190, 40));
+window.READY = true;
+</script></body></html>
