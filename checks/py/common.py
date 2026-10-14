@@ -233,7 +233,7 @@ _WHISPER_M = []
 
 
 def whisper_medium():
-    """K4.4b (A34, nháp): faster-whisper medium.en (CPU, int8), the second listener A14 asks only for a possessive proper name small.en missed."""
+    """K4.4b (A34, chủ dự án 14/10: 2a): faster-whisper medium.en (CPU, int8), the second listener A14 asks only for a possessive proper name small.en missed."""
     if not _WHISPER_M:
         from faster_whisper import WhisperModel
         _WHISPER_M.append(WhisperModel('medium.en', device='cpu', compute_type='int8'))

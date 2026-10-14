@@ -64,7 +64,7 @@ def s02_assumptions(ctx):
     decl = ctx.cfield('claims', 'assumptions', kind=list)
     acts = scene_acts(ctx)
     tx = visible_texts(ctx)
-    # K4.4b (A35, nháp): the methodology card is the act named "method" or "limits" (Tập 7 named it limits), or the acts contract.json claims.methodActs lists
+    # K4.4b (A35, chủ dự án 14/10: 3a): the methodology card is the act named "method" or "limits" (Tập 7 named it limits), or the acts contract.json claims.methodActs lists
     ma = set(METHOD_ACTS) | set((ctx.contract().get('claims') or {}).get('methodActs') or [])
     inm = [x for x in tx if acts.get(x[1]) in ma]
     out = [x for x in tx if acts.get(x[1]) not in ma]
@@ -275,7 +275,7 @@ def s07_claims(ctx):
         for sc in c.get('shownIn', []) + [s.get('scene') for s in c.get('spoken', [])]:
             by_scene.setdefault(sc, []).extend(claim_canons(c))
     unreg = []
-    # K4.4b (A36, nháp): a number inside a product name the contract declares (claims.termNames: [regex], e.g. "\\b(15|30)-year\\b") is a name, not a claim
+    # K4.4b (A36, chủ dự án 14/10: 3a): a number inside a product name the contract declares (claims.termNames: [regex], e.g. "\\b(15|30)-year\\b") is a name, not a claim
     try:
         tn = [re.compile(x, re.I) for x in ((ctx.contract().get('claims') or {}).get('termNames') or [])]
     except Missing:
@@ -325,7 +325,7 @@ def s09_basis(ctx):
     money = [c for c in cl if '$' in str(c.get('display', ''))]
     nob = [c['claimId'] for c in money if c.get('basis') not in ('nominal', 'real')]
     r = page(ctx)['rules'].get('S09', {'framesMissing': None})
-    # K4.4b (A37, nháp): nominal is how a loan contract states money; the on-screen basis label is required only when the episode uses a real basis
+    # K4.4b (A37, chủ dự án 14/10: 3a): nominal is how a loan contract states money; the on-screen basis label is required only when the episode uses a real basis
     # (alone or mixed with nominal). A nominal-only episode needs no label on screen (its claims still declare basis and the narration still says it once, K3.2)
     if {c.get('basis') for c in money} <= {'nominal'} and not nob:
         r = dict(r, framesMissing=0, examples=[])

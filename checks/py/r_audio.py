@@ -415,7 +415,7 @@ def asr_master(ctx):
 
 
 def asr_sentence_medium(ctx, s):
-    """K4.4b (A34, nháp): one sentence of the video's audio recognised by medium.en — the clip, decode and word share of asr_master. Cached."""
+    """K4.4b (A34, chủ dự án 14/10: 2a): one sentence of the video's audio recognised by medium.en — the clip, decode and word share of asr_master. Cached."""
     def get():
         from common import sha256_file, whisper_medium
         sents = sorted(ctx.sentences(), key=lambda x: x['start'])
@@ -517,26 +517,26 @@ def a14_keywords(ctx):
         m = match_keys(k, win)
         if m:
             miss.append({'sentence': s.get('id'), 't': s['start'], 'missing': m, 'heard': asr_join(win)[:200]})
-    # K4.4b (A34, nháp): a possessive proper name ("Tessa's") small.en missed is listened to again by medium.en on the same clip, same decode; it is missing
+    # K4.4b (A34, chủ dự án 14/10: 2a): a possessive proper name ("Tessa's") small.en missed is listened to again by medium.en on the same clip, same decode; it is missing
     # only when both miss it
     poss = re.compile(r"^[A-Z][a-z]+['’]s$")
     second = []
     for m in miss:
-        p = [w for w in m['missing'] if poss.match(w)]
+        s = next(x for x in sents if x.get('id') == m['sentence'])
+        ks = keys[sents.index(s)]
+        p = [w for w in m['missing'] if poss.match(w) and any(x['kind'] == 'name' and x['text'] == w for x in ks)]
         if not p:
             continue
-        s = next(x for x in sents if x.get('id') == m['sentence'])
         heard = asr_sentence_medium(ctx, s)
-        k = [x for x in keys[sents.index(s)] if x['text'] in p]
+        k = [x for x in ks if x['kind'] == 'name' and x['text'] in p]
         still = set(match_keys(k, heard))
         if len(still) < len(p):
             second.append({'sentence': m['sentence'], 'heardByMedium': [w for w in p if w not in still], 'medium': asr_join(heard)[:200]})
         m['missing'] = [w for w in m['missing'] if not (w in p and w not in still)]
     miss = [m for m in miss if m['missing']]
     nmiss = sum(len(m['missing']) for m in miss)
-    if second:
-        miss = miss + [{'secondListener': second}]
-    return verdict('A14', [metric('key words', total, '>=', 1), metric('key words missing', nmiss, '<=', 0)], details=miss[:30])
+    return verdict('A14', [metric('key words', total, '>=', 1), metric('key words missing', nmiss, '<=', 0)],
+                   details=miss[:29] + ([{'secondListener': second}] if second else []))
 
 
 @rule('A15', 'DX-A7', 'own ASR words inside each sentence window; sentence rate = words of `spoken` / (last ASR word end − first ASR word start) × 60; '

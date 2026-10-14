@@ -678,7 +678,7 @@ def s09_both_case(bad):
 
 def s09_screen_case(bad):
     """K3.2 keeps the on-screen part: narration says the basis, but frames showing a $ claim without its basis label must still fail."""
-    # K4.4b (A37, nháp): a nominal-only episode no longer needs the on-screen label, so the kept on-screen part is shown on the real claims of S09_CLAIMS
+    # K4.4b (A37, chủ dự án 14/10: 3a): a nominal-only episode no longer needs the on-screen label, so the kept on-screen part is shown on the real claims of S09_CLAIMS
     return s09_variant('screen', [('a', 'In nominal dollars, Maya paid $5,124.'), ('a', 'In real terms the balance ends at $120,000.')],
                        frames_missing=4 if bad else 0, claims=S09_CLAIMS)
 
@@ -3085,7 +3085,7 @@ F13_CASES = {k: _want(k, v) for k, v in F13_CASES.items()}
 EXTRA.update(F13_CASES)
 
 
-# ---- K4.4b (nháp, chờ gói chủ dự án): A35 S02 thẻ "limits", A36 S07 tên kỳ hạn, A37 S09 tập chỉ danh nghĩa ------------------------------------------
+# ---- K4.4b (chủ dự án 14/10: 2a, 3a): A35 S02 thẻ "limits", A36 S07 tên kỳ hạn, A37 S09 tập chỉ danh nghĩa ------------------------------------------
 def s02_limits_case(bad):
     """S02 (A35): the methodology card in an act named "limits" (Tập 7) with "US only · History, not a forecast" → pass; bad = the same card without "US only"."""
     f = F('S02-limits')
@@ -3153,7 +3153,9 @@ def a14_medium_case(bad):
         f.close()
 
 
-EXTRA.update({'A14/medium-second': a14_medium_case, 'S02/limits': s02_limits_case, 'S07/term-names': s07_term_case, 'S09/nominal-only': s09_nominal_case})
+WANT_METRIC.update({'A14/medium-second': 'key words missing', 'S02/limits': 'us-only', 'S07/term-names': 'unregistered', 'S09/nominal-only': 'frames missing basis'})
+EXTRA.update({k: _want(k, v) for k, v in {'A14/medium-second': a14_medium_case, 'S02/limits': s02_limits_case, 'S07/term-names': s07_term_case,
+                                          'S09/nominal-only': s09_nominal_case}.items()})
 
 
 def main():
