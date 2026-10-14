@@ -85,7 +85,7 @@ cổng gốc cần ≥ 3 lượt đọc hoặc người thứ 3 bắt buộc tr�
 Đã sửa theo REVIEWER: T11 → "một phần"; T10 đo lại trên bản 1080p có sẵn (25/25 SHA); bằng chứng T3/T9–T12/T14 vào `out/`; dòng RIGHTS
 M-USATLAS ghi rõ điều khoản Census chưa trích; `bg.sh stop` kiểm cả nhóm; chú thích `plate.js`; README ghi trần mặc định $5 của `api.sh`.
 Để lại (PHỤ, ghi để điều phối quyết): `promote()` thay từng tệp (chết giữa promote → lẫn cũ/mới, cửa sổ < 1 s); `spec.yaml_bool_traps` đọc
-`<root>/episode.yaml` chứ không đọc yml truyền vào; chưa có nhánh `ep008` trên origin để quét bẫy YAML (kiểm khi mở Tập 8); `--resume` dùng chung
+`<root>/episode.yaml` chứ không đọc yml truyền vào; `episodes/ep008/episode.yaml` của nhánh `ep008` @ `24a6565` (chỉ đọc qua `git show`): 0 bẫy YAML boolean; `--resume` dùng chung
 khoá cache — với scene không thuần (đoạn e) tệp cảnh dựng tiếp là bản gần trùng; `fetch.py` không tự kiểm chữ giấy phép với `license_url`;
 `--name` bắt buộc nên tiêu đề LoC không tự điền; ASR thử chạy ở mọi lần `verify.sh` (≈ 20–60 s, cần model trong cache).
 
