@@ -57,6 +57,13 @@
    "moveReason": "S05: hộp tiền mặt của người thuê cần khung riêng (bài học C1)"
   },
   {
+   "id": "b-s04-s07:m_r1",
+   "scene": "S05",
+   "size": "world",
+   "move": "push",
+   "moveReason": "các khoản không tính: lại gần hộp tiền mặt + thẻ"
+  },
+  {
    "id": "b-s04-s07:m_c2",
    "scene": "S05",
    "size": "chart",
@@ -113,6 +120,20 @@
    "moveReason": "đi dọc phố từ đầu (1991)"
   },
   {
+   "id": "c-s08-s14:m_r1",
+   "scene": "S09",
+   "size": "world",
+   "move": "push",
+   "moveReason": "câu hỏi \"bao nhiêu lần\": lại gần dãy nhà đầu phố"
+  },
+  {
+   "id": "c-s08-s14:m_r2",
+   "scene": "S09",
+   "size": "world",
+   "move": "pull",
+   "moveReason": "giá tăng, dư nợ giảm: lùi thấy dãy sáng tiếp"
+  },
+  {
    "id": "c-s08-s14:m_walk2",
    "scene": "S09",
    "size": "world",
@@ -152,7 +173,7 @@
    "scene": "S19",
    "size": "chart",
    "move": "pull",
-   "moveReason": "thời gian ở: cả lưới, đổi 5 / 10 / 15 năm"
+   "moveReason": "thời gian ở: cả lưới, đổi 5 / 10 / 15 năm (M5 nhịp: bắt đầu ở \"worse\", không chờ sát câu hỏi)"
   },
   {
    "id": "d-s15-s22:m_w",
