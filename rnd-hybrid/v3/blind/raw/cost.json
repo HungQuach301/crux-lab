@@ -1,0 +1,33 @@
+{
+ "runs": [
+  {
+   "who": "A",
+   "model": "sonnet",
+   "pass": 1,
+   "cost_usd": 0.0896206,
+   "turns": 8
+  },
+  {
+   "who": "A",
+   "model": "sonnet",
+   "pass": 2,
+   "cost_usd": 0.07906860000000002,
+   "turns": 8
+  },
+  {
+   "who": "B",
+   "model": "opus",
+   "pass": 1,
+   "cost_usd": 0.205662,
+   "turns": 8
+  },
+  {
+   "who": "B",
+   "model": "opus",
+   "pass": 2,
+   "cost_usd": 0.17415380000000003,
+   "turns": 8
+  }
+ ],
+ "total_usd": 0.5485
+}
