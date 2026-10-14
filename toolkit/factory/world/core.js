@@ -79,6 +79,10 @@ export const SAFE_H = { x0: 96, y0: 54, x1: 1824, y1: 1026 }, NUDGE = { full: 60
 export const CHROME_H = { right: 1800, base: 1006, base2: 936, top: 108 };
 export const BASIS_LABEL = { nominal: 'All $ in dollars of the day', real: "All $ in today's dollars" };
 const TAG_RE = /^ILLUSTRATIVE$|history, not a forecast/;
+// F-17 (v4 K1): chữ in serif qua O.text({font: 'serif'}) → vào nhật ký (log.texts.font) và trang kiểm (đối tượng .font) như mọi chữ; không khai = Inter như cũ.
+// Phông hệ thống (DejaVu Serif của ảnh container; không đóng gói) — đổi máy có thể đổi nét chữ serif.
+export const SERIF = '"DejaVu Serif", Georgia, serif';
+const fam = (o) => (o && o.font === 'serif' ? SERIF : 'Inter');
 const lumHex = (hex) => { const n = parseInt(String(hex).slice(1, 7), 16), f = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
   return 0.2126 * f(n >> 16) + 0.7152 * f((n >> 8) & 255) + 0.0722 * f(n & 255); };
 export const contrastHex = (a, b) => { const x = lumHex(a), y = lumHex(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
@@ -157,7 +161,7 @@ export function Overlay(canvas, res) {
   // dọc: chữ ≥ 56 px, xuống dòng khi rộng hơn vùng an toàn, đẩy vào vùng (nội dung: VZONE; chrome trực tiếp: VSAFE) → {px, lines, x, y, box}
   function vfit(s, x, y, px, o, wfont) {
     let p = px; const raised = p * vs < VFLOOR - 1e-6; if (raised) p = VFLOOR / vs;
-    ctx.font = `${wfont} ${p}px Inter`;
+    ctx.font = `${wfont} ${p}px ${fam(o)}`;
     const pad = o.plate ? p * 0.32 : 0, room = (VSAFE.x1 - VSAFE.x0) / vs - 2 * pad, mw = (q) => ctx.measureText(q).width;
     let lines = [s];
     if (mw(s) > room && s.includes(' ')) { lines = []; let cur = ''; for (const w of s.split(' ')) { const tr = cur ? cur + ' ' + w : w; if (cur && mw(tr) > room) { lines.push(cur); cur = w; } else cur = tr; } if (cur) lines.push(cur); }
@@ -200,7 +204,7 @@ export function Overlay(canvas, res) {
       if (q.op === 'fill') { bgDraw = true; const dr = draws(false); bgDraw = false; if (dr) { ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = q.alpha; ctx.fillStyle = q.style; ctx.fillRect(0, 0, canvas.width, canvas.height); ctx.restore(); } continue; }
       if (q.drop) continue;
       const o = q.o, P = q.P, box = q.box;
-      ctx.save(); base(); ctx.globalAlpha = q.a; ctx.font = `${q.wfont} ${P}px Inter`; ctx.fontVariantNumeric = 'tabular-nums'; ctx.textAlign = o.align || 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.save(); base(); ctx.globalAlpha = q.a; ctx.font = `${q.wfont} ${P}px ${fam(o)}`; ctx.fontVariantNumeric = 'tabular-nums'; ctx.textAlign = o.align || 'left'; ctx.textBaseline = 'alphabetic';
       inText = true;
       if (o.plate && m !== 'glyph' && m !== 'only' && draws(true)) { const pad = P * 0.32; ctx.fillStyle = rgba(o.plate, o.plateA ?? 0.72); roundRect(ctx, box[0] - pad, box[1] - pad * 0.7, box[2] - box[0] + 2 * pad, box[3] - box[1] + pad * 1.4, P * 0.3); ctx.fill(); }
       ctx.fillStyle = o.color || C.ink;
@@ -238,7 +242,7 @@ export function Overlay(canvas, res) {
       const kind = o.kind || 'name';
       if ((kind === 'number' || kind === 'compare') && chartW < 0.95 && a > 0.05) log.violations.push({ rule: 1, text: s, chartW: +chartW.toFixed(3) });
       const wfont = o.w || 700, id = 't' + seq, m = CK.mode, onlyHit = m !== 'only' || (CK.ids && CK.ids.has(id));
-      ctx.save(); ctx.globalAlpha = a; ctx.font = `${wfont} ${px}px Inter`; ctx.fontVariantNumeric = 'tabular-nums';
+      ctx.save(); ctx.globalAlpha = a; ctx.font = `${wfont} ${px}px ${fam(o)}`; ctx.fontVariantNumeric = 'tabular-nums';
       ctx.textAlign = o.align || 'left'; ctx.textBaseline = 'alphabetic';
       let w = ctx.measureText(s).width, x0 = o.align === 'center' ? x - w / 2 : o.align === 'right' ? x - w : x;
       let box = [x0, y - px * 0.78, x0 + w, y + px * 0.24], P = px, lines = null, lh = 0;
@@ -249,7 +253,7 @@ export function Overlay(canvas, res) {
         const dx = push(SAFE_H.x0, SAFE_H.x1, box[0], box[2]), dy = push(SAFE_H.y0, SAFE_H.y1, box[1] - px * 0.08, box[3]);
         if (dx || dy) { x += dx; y += dy; x0 += dx; box = [box[0] + dx, box[1] + dy, box[2] + dx, box[3] + dy]; }
       }
-      if (V) { const f = vfit(s, x, y, px, o, wfont); ({ box, lines, lh } = f); P = f.p; x = f.x; y = f.y; w = f.W; x0 = box[0]; ctx.font = `${wfont} ${P}px Inter`; }
+      if (V) { const f = vfit(s, x, y, px, o, wfont); ({ box, lines, lh } = f); P = f.p; x = f.x; y = f.y; w = f.W; x0 = box[0]; ctx.font = `${wfont} ${P}px ${fam(o)}`; }
       let obj = null;
       if (CK.on) {   // objet hợp đồng window.CHECKS (trước restore: phông đang đặt → đo khoảng claim)
         const col = hexOf(o.color || C.ink), occ = log.objects.filter((q) => q.kind === 'text' && q.text === s).length;
@@ -259,7 +263,7 @@ export function Overlay(canvas, res) {
         obj = { id, n: seq, kind: 'text', tid: `${s}#${occ}`, role, text: s, box: box.map(r1), opacity: +a.toFixed(3), level: o.level ?? null, emph: !!o.emph,
           series: o.series ?? null, anchor: o.anchor ?? null, chart: o.chart ?? null, year: o.year ?? null, case: o.case ?? null, char: o.char ?? null,
           runs: [{ color: col, size: px }], color: col, fontPx: px, background: o.plate ? hexOf(o.plate) : null, parent: null, claims, key: `${s}#${occ}`,
-          sig: `${kind}|${s}|${box.map(Math.round)}`, kindHint: kind };
+          sig: `${kind}|${s}|${box.map(Math.round)}`, kindHint: kind, ...(o.font === 'serif' ? { font: 'serif' } : {}) };
         log.objects.push(obj);
       }
       if (V) {   // khung dọc: vào hàng, finish() xếp chỗ rồi vẽ (layoutV)
@@ -273,7 +277,7 @@ export function Overlay(canvas, res) {
         inText = false;
       }
       ctx.restore();
-      log.texts.push({ text: s, kind, px, opacity: +a.toFixed(3), box: box.map((v) => +v.toFixed(1)), n: seq++, ...(o.plate ? { plate: 1 } : {}) });
+      log.texts.push({ text: s, kind, px, opacity: +a.toFixed(3), box: box.map((v) => +v.toFixed(1)), n: seq++, ...(o.plate ? { plate: 1 } : {}), ...(o.font === 'serif' ? { font: 'serif' } : {}) });
       return box;
     },
     // C5 ep005 (V11): thẻ nền trung tính (thẻ phương pháp, khung chú thích) — vẽ như NỀN (bgDraw): không vào lớp 'graphics' của trang kiểm

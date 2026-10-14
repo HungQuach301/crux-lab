@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Crux · thế giới 3D + lớp ánh sáng điện ảnh (F-17)</title>
+<style>
+@font-face{font-family:Inter;font-weight:400;src:url(/toolkit/render/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:600;src:url(/toolkit/render/fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-weight:700;src:url(/toolkit/render/fonts/inter-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0e1116} canvas{display:block}
+</style>
+<script type="importmap">{"imports":{"three":"/toolkit/factory/world/vendor/node_modules/three/build/three.module.js","three/addons/":"/toolkit/factory/world/vendor/node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+// F-17: như world/page.html + lớp cine. ?cine=on → install(spine.cine) trước boot, prepare sau boot · ?cine=off → lớp không vẽ gì (chỉ bắt renderer
+// cho phép đo: ảnh gốc của cine_check.js). render_shots.js chỉ mở trang này khi spine.json có `cine`, res ≥ 1080, khung ngang.
+const q = new URLSearchParams(location.search);
+const { CK } = await import('/toolkit/factory/world/core.js');
+if (q.has('dither')) CK.dither = +q.get('dither');
+if (q.has('spp')) CK.spp = +q.get('spp');
+const seg = q.get('seg'), res = +(q.get('res') || 1080);
+const sp = await (await fetch(`/${seg}/spine.json`)).json();
+const { install } = await import('/toolkit/factory/world/cine/cine.js');
+const L = install(q.get('cine') === 'on' ? { ...sp.cine, shotList: sp.shots || [] } : { off: true });
+const { boot } = await import(`/${seg}/scene.js`);
+const S = await boot(res);
+await L.prepare(S.frame);
+window.CINE = L;
+window.APP = { canvas: S.canvas, frame: (t) => { L.state.t = t; return S.frame(t); } };
+window.READY = true;
+</script>
+</body></html>

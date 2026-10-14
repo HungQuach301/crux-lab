@@ -34,3 +34,7 @@ moc-v/work/
 # three.js của thế giới 3D (npm ci trong toolkit/factory/world/vendor)
 toolkit/factory/world/vendor/node_modules/
 checks-runs/K40/cache/
+
+# F-17: tài sản cine > 2 MB tải lúc dựng (fetch.py, SHA-256); sản phẩm thử của phiên
+toolkit/factory/world/cine/assets/dl/
+toolkit/factory/f17/work/

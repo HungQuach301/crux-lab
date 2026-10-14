@@ -93,6 +93,19 @@ track còn đi sau mốc nhãn + 0,2 s. (e) **neo nhãn vào từ MỞ ý**, kh�
 khỏi dải nhịp): `check_f14` CẢNH BÁO nhãn chữ (không chứa số) neo vào từ ở 30 % cuối câu > 1 s (nhãn số neo vào chính từ đọc số: không cảnh báo).
 Cả hai chỉ cảnh báo (chưa hiệu chuẩn). Đổi hình chỉ để qua thước (biên độ, nhịp mọc) phải ghi trong REPORT là "đổi vì thước" và soát nghĩa ở cổng gốc.
 
+**Lớp ánh sáng điện ảnh (F-17, `world/cine/`, `f17/INTENT.md`, `f17/REPORT.md`; opt-in: spine.json có khoá `cine`, mặc định TẮT):** HDRI Poly Haven
+theo hồi (`cine/looks.js`: `day`/`afternoon`/`dusk`, bảng `ACT` của Tập 7) + vân CC0 theo màu vật liệu + bóng mềm + grade + hạt phim tất định; **DOF và AO
+chỉ ở shot khai `shot: 'close'`** (AO nửa độ phân giải; DOF nới độ sâu 3×3 — hết vệt sáng trên đầu của v4); mái < `roof.minPx` không vân ngói. Khai trong
+spine.py: `S['cine'] = {look, sky?, shots?: {<id shot>: {shot: 'close', focus: 'char'|'center'|m, aperture?, silhouette?: true, override?: {keyAz, keyEl…}}}}`.
+**Chỉ bật ở 1080p ngang** (`render_shots.js` mở `cine/cine.html`; nháp `--res 540` của F-15, `--spp`, Short dọc và trang kiểm `CK.on` **không** bật lớp →
+không khai = trùng byte bản cũ, khoá cache cũ không đổi). **Khoá màu dữ liệu:** vật `userData.checks.role` ∈ series/bar/grid (và con) không nhận vân,
+phản xạ ≤ 0,15, được vẽ lại dưới ánh sáng gốc của cảnh và ghép trước DOF; grade/viền tối bỏ qua điểm ảnh đó. Luật mới (bước `cine` của build_seg, chỉ
+1080p + `cine`): `cine/cine_check.js` (trang không lớp vs có lớp, cùng t, 3 mẫu/shot, mặt nạ màu dữ liệu co 2 px) → `cine/cine_color.py`:
+**ΔE2000 > 5 hoặc đảo thứ tự độ sáng (|ΔL\*| ≥ 1 trước, ≥ 0,5 sau) = CHẶN**. Người (`checks.char`): giữ màu nhận diện, viền = Fresnel × max(0, n·đèn) (phía
+xa đèn = 0); thân sẫm chỉ khi shot khai `silhouette: true`. `v4: true` = cấu hình nguyên mẫu (chỉ để đối chứng). Tài sản: `cine/assets/` (18 tệp CC0 ≤ 2 MB
+trong git, `fetch.py --verify` kiểm SHA-256; tệp > 2 MB tải vào `dl/`), RIGHTS §F9. Chữ serif: `O.text(s, x, y, px, {font: 'serif'})` (vào `log.texts` +
+trang kiểm; phông hệ thống DejaVu Serif). Thử: `toolkit/factory/f17/trial/` (cảnh Tập 7 re-export + spine có `cine`).
+
 **Shorts từ đoạn thế giới (F-9):** Short có khoảng nằm trọn trong một đoạn `world:` được DỰNG LẠI 1080×1920 từ scene.js của đoạn
 (`world/shorts.py`, `render_shots.js --span a,b --orient v`): cùng máy quay, khung = cửa sổ dọc của mặt phẳng thiết kế rộng 1080/`scale` px
 (`scale` của Short trong `episode.yaml`, mặc định 0,75; 3D render đúng cửa sổ bằng `setViewOffset`, không cắt ảnh 16:9); chữ của cảnh nâng lên
