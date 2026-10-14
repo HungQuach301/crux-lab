@@ -49,7 +49,7 @@ CHẶN/CHÍNH chưa đạt của 1080p mới = đúng danh sách P4 trên bản 
 MISSING vì thiếu tệp) → bản 1080p dựng lại giữ nguyên chất lượng theo luật.
 Năm CHẶN thừa ở nháp lượt 1 đều do **đường nháp**, không do nội dung: F04 (bitrate bản phóng 1,2 Mbps — mã hoá crf thay vì CBR 17M của master;
 F04 lọt khỏi R_pix quét trước: luật đọc bitrate qua ffprobe), F05 (vọng lanczos đẩy Y ra ngoài 16–235 0,38 %), F11 (`splice.json` nháp trỏ
-`work/factory-r540/world`, bản sao chưa có đường đó), REG (hệ quả). Sửa `draft_overlay.py` (`d0…` commit sau `2e8b328`): CBR 17M như master,
+`work/factory-r540/world`, bản sao chưa có đường đó), REG (hệ quả). Sửa `draft_overlay.py` (`dcf23c1`): CBR 17M như master,
 kẹp Y/C, chép world vào cả hai đường → chạy lại luật Python (`PYONLY=1 RESUME=1`, mẫu trang giữ): còn **F08** (banding 22 % ở 126 s, 134 s,
 582 s — dither cố định theo ô 2×2 ở 1080 thành ô 1×1 ở 540 rồi phóng; khác độ phân giải thật, trong R_pix) + REG. **Quy ước dùng nháp:** F08,
 F01 (cỡ khung, nay phóng nên ĐẠT), SH01 chỉ tin ở bản 1080p.

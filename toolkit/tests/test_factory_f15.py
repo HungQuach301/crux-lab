@@ -44,6 +44,8 @@ class F15(unittest.TestCase):
         rx = re.compile(r'\b(pkill\s+-f|pgrep\s+-f|killall)\b')
         hits = []
         for f in tracked('*.sh', '*.py', '*.js', '*.mjs'):
+            if f == 'toolkit/tests/test_factory_f15.py':   # chính test này nêu tên lệnh cấm
+                continue
             for i, ln in enumerate(open(os.path.join(ROOT, f), errors='replace'), 1):
                 code = ln.split('#', 1)[0] if f.endswith(('.sh', '.py')) else ln.split('//', 1)[0]
                 if rx.search(code) and 'rx = re.compile' not in ln:
