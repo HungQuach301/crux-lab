@@ -1,5 +1,9 @@
 # F-15 · Báo cáo (13–14/10/2026) — vòng dựng ngắn + footage ngoài
 
+**Chủ dự án 14/10: MERGE** dù thử TRƯỢT — ghi rõ: **T3 = 0,419 > 0,40 TRƯỢT** và **T7 TRƯỢT** (thước cổng gốc nhiễu — A32, nay ở main là "chẩn đoán");
+**không hạ đích**. Trước merge: mạng mở → chạy lại T11 (FRED tải thật) và T13 (ảnh LoC thật) — §1b; rebase lên `origin/main` @ `7f8a0da` (LOCK
+`b4551642`), chạy lại toàn bộ test + T1/T14, REVIEWER một lượt (§5c).
+
 Ý đồ + ngưỡng ghi trước: `INTENT.md` (commit `6c42086`, trước mọi lần đo). Nhánh làm việc `factory-f15` (từ `origin/main` @ `c7358285`), đẩy lên
 `claude/clever-hopper-qkzobc`. **Không merge.** Không chạm `episodes/ep007`, `ep008`, `checks/` (đo Tập 7 trên bản sao `git worktree` của nhánh `ep007`
 ở `/var/tmp/f15/ep007wt` + toolkit F-15 chép đè).
@@ -17,12 +21,21 @@
 | T8 | dải kiểm mù trên nháp | đủ dải | 22 dải + 4 tấm (`blind_c4.py strips` → `toolkit/blind/strips.py`) | **ĐẠT** |
 | T9 | resume theo khung, ngắt bằng PID | trùng byte | Tập 7 đoạn a cảnh s1 (540p): dừng ở khung 63/142 (`bg.sh stop`), chạy lại giữ 62, dựng 80 → mp4 + nhật ký **trùng byte**; test tổng hợp 9/18 → trùng byte (`out/T9-T14.md`) | **ĐẠT** (chỉ scene thuần, §5.2) |
 | T10 | build nguyên tử, lượt trượt | bản cũ trùng byte | lượt 1080p thứ hai trên bản 1080p đã dựng, dừng theo PID giữa build (thư mục tạm đã có timeline): **25/25 tệp** (video, master, stem, Short, phần, báo cáo, artefact) trùng SHA trước/sau (`out/T10-*.sha`); lượt nháp đầu trượt ở `qc` (§5.1) không thay gì (thư mục chưa có bản cũ — chỉ chứng minh không promote); test promote | **ĐẠT** |
-| T11 | `verify.sh --install` container mới | dựng được không bước tay; ASR thử đúng | 98 s (`out/T11-verify-install.txt`): `npm ci` three 0.186.1, ASR thử (PyAV 19 hỏng → tự ghim 14.2.0 → 100 % từ), `bed.wav` SHA `57c57cae…` = đường `build_inputs`; rồi 1080p **một lượt, 0 trượt môi trường**. Dữ liệu FRED: `fetch.py --verify` ĐẠT chỉ vì tệp có sẵn trong nhánh `ep007`; tải thật bị mạng chặn | **ĐẠT một phần** (FRED chờ mạng, §6) |
+| T11 | `verify.sh --install` container mới (13/10; 14/10 → §1b ĐẠT) | dựng được không bước tay; ASR thử đúng | 98 s (`out/T11-verify-install.txt`): `npm ci` three 0.186.1, ASR thử (PyAV 19 hỏng → tự ghim 14.2.0 → 100 % từ), `bed.wav` SHA `57c57cae…` = đường `build_inputs`; rồi 1080p **một lượt, 0 trượt môi trường**. Dữ liệu FRED: `fetch.py --verify` ĐẠT chỉ vì tệp có sẵn trong nhánh `ep007`; tải thật bị mạng chặn | **ĐẠT một phần** (FRED chờ mạng, §6) |
 | T12 | `api.sh` chặn agent con + trần chi | Task/Agent từ chối; trần hiệu lực | công cụ lúc init không có Task/Agent/Workflow (công cụ không được cấp, nên không có lệnh gọi nào để từ chối; Haiku tự báo "NO SUBAGENT TOOL"); trần $0,005 → `error_max_budget_usd` sau 1 lượt ($0,0065) (`out/T12-api.json`) | **ĐẠT** (trần kiểm giữa lượt: vượt ≤ 1 lượt) |
-| T13 | clip footage 540p 8 s: 1 ảnh LoC + 1 bản đồ | 0 chữ đè chủ thể; 2 dòng RIGHTS | bản đồ South Atlantic (Census qua us-atlas + Natural Earth) + plate **ảnh THAY THẾ** (khung tự dựng) vì `www.loc.gov`/`tile.loc.gov` bị chặn (403); 0/41 khung chữ đè chủ thể; nhãn trễ mốc từ 0–0,08 s; 2 dòng RIGHTS tự ghi (M-USATLAS, M-NE-ADM1) | **ĐẠT một phần** — phần LoC chờ mạng |
+| T13 | clip footage 540p 8 s: 1 ảnh LoC + 1 bản đồ (13/10; 14/10 → §1b ĐẠT) | 0 chữ đè chủ thể; 2 dòng RIGHTS | bản đồ South Atlantic (Census qua us-atlas + Natural Earth) + plate **ảnh THAY THẾ** (khung tự dựng) vì `www.loc.gov`/`tile.loc.gov` bị chặn (403); 0/41 khung chữ đè chủ thể; nhãn trễ mốc từ 0–0,08 s; 2 dòng RIGHTS tự ghi (M-USATLAS, M-NE-ADM1) | **ĐẠT một phần** — phần LoC chờ mạng |
 | T14 | không bật plate: khung trùng mã cũ | trùng MD5 | Tập 7 đoạn a cảnh s0, s1 (540p) dựng bằng `main` cũ và F-15: mp4 + nhật ký **trùng byte** (`out/T9-T14.md`) | **ĐẠT** |
 
 **Kết luận: TRƯỢT** (T3 0,419 > 0,40; T7 trượt — thước cổng gốc nhiễu hơn đích; T11, T13 một phần — mạng chặn FRED, LoC). Không hạ đích. Điều phối/chủ dự án quyết.
+
+## 1b. Chạy lại sau khi mở mạng (14/10)
+| # | Đo | Kết quả |
+|---|---|---|
+| T11 | `verify.sh factory-f15 --install episodes/ep007` trên checkout chính (không có `data/raw`): `fetch.py --verify` **tải thật** 4 chuỗi FRED + bản ghim hồ sơ, SHA khớp; ASR thử 100 %; `bed.wav` `57c57cae…`; cây git sạch; 162 s (`out/T11-rerun.txt`) | **ĐẠT** |
+| T13 | ảnh LoC thật **X-F15-3**: https://www.loc.gov/item/2010630116/ (Carol M. Highsmith, 2009, ngân hàng Main Street, không có người), `rights_advisory` "No known restrictions on publication." + bản chụp JSON mục (SHA), 1634×972; dòng RIGHTS **F6** bậc 5 (+ X-F15-1 Census bậc 2 — nay có trích nguyên văn TIGER 2017 TechDoc tr. 1-2; X-F15-2 Natural Earth bậc 2). Clip 540p 8 s (`footage-trial/out/footage-trial-540.mp4`, `sheet.jpg`): 0/41 khung chữ đè chủ thể, **0 khung chữ đè chữ** (phép kiểm mới), nhãn trễ mốc từ 0–0,08 s | **ĐẠT** |
+loc.gov sau Cloudflare: JSON mục trả 429 `cf-mitigated: challenge` nhiều lần → `fetch.py --loc` thử lại lùi dần (lần 6 qua). Phép kiểm "chữ đè chữ" mới thêm
+lộ lỗi của lượt 13/10 mà phép kiểm cũ không đo: chú thích và dòng nguồn plate đè nhau, nhãn "Maryland" đè "South Atlantic" → đã sửa (`plate.js`
+`drawCredits` đẩy dòng nguồn lên một dòng khi hai dòng giao nhau; nhãn bản đồ đặt lại).
 
 ## 2. Giờ máy (Tập 7, 606,7 s, 4 nhân, SwiftShader, 3 worker = số nhân − 1)
 | Bước | nháp 540p | 1080p | tỉ lệ |

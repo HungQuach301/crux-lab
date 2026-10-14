@@ -8,6 +8,11 @@ Một lệnh: `bash toolkit/build.sh episodes/epNNN/episode.yaml [--workers 4] [
   kiểm mù/cổng gốc (`toolkit/blind/strips.py` trên `work/factory-r540/video.mp4`), checks đủ bộ kể cả bộ lấy mẫu trang:
   `DRAFT=r540 EP=episodes/epNNN bash toolkit/checks_split.sh <outdir ngoài repo>` (`draft_overlay.py`: video nháp phóng 1920×1080 trong bản sao).
   Nháp đạt → **1080p dựng MỘT lần** (bỏ `--res`).
+  **Quy ước nháp (F-15, Tập 7 đo 13–14/10; chủ dự án 14/10):** checks trên nháp cùng phán quyết 98 % với 1080p, 0 CHẶN/CHÍNH bỏ sót — nhưng
+  **F08 (banding), F01 (cỡ khung), SH01 (cỡ Short) chỉ tin ở bản 1080p** (nháp: dither 2×2 thành 1×1 rồi phóng → F08 báo thừa; khung/Short nháp phóng
+  lên nên F01/SH01 không đo được bản thật). **Bộ lấy mẫu trang KHÔNG rẻ hơn ở nháp** (≈ 5,9 h cả hai: tốn theo trang thế giới 3D, không theo độ
+  phân giải video) → chờ A29 (cache trang theo cảnh giữa các lượt) trước khi tính giờ checks vào lợi ích của nháp. Nháp cắt giờ DỰNG (1,73 h so 4,13 h).
+  Cổng gốc so hai bản chỉ là chẩn đoán (A32): cùng dải ảnh, hai lượt lệch tới 10 nhịp.
 - **Build nguyên tử:** mọi sản phẩm ghi vào `<work>/.new-<pid>/`, chỉ thay bản cũ khi mọi bước đạt; trượt → bản cũ nguyên, `<work>/build.failed.json`.
   Đoạn thế giới vẫn nguyên tử riêng (`build_seg.py`). `--resume` = dựng tiếp **theo khung** trong cảnh đang dở (`render_shots.js --resume`, cine-lab #94).
 - **Chạy nền:** `bash toolkit/bg.sh start <tên> -- bash toolkit/build.sh …` (`setsid nohup`, kiểm `guard.py` trước, PID/log/mã thoát ở `/var/tmp/crux-bg/`),
@@ -17,7 +22,9 @@ Một lệnh: `bash toolkit/build.sh episodes/epNNN/episode.yaml [--workers 4] [
   không có trần — lượt dựng cỡ $12–14 của Tập 7 cần khai trần cao hơn); trần kiểm giữa các lượt nên có thể vượt tối đa một lượt.
 - **Container mới:** `bash toolkit/verify.sh <nhánh> --install episodes/epNNN` (three.js `npm ci`, PyAV ghim khi nhận dạng thử hỏng, `data/fetch.py --verify`,
   `bed.wav` qua `music_cmd`) — luôn có MỘT lần nhận dạng thử thật (không chỉ import; ≈ 20–60 s, cần model small.en trong cache HF).
-- **Footage ngoài** (`toolkit/footage/`, `world/plate.js`): `fetch.py` (tải + SHA-256 + dòng RIGHTS.md nguyên văn; `--loc` đọc quyền của mục LoC),
+- **Footage ngoài** (`toolkit/footage/`, `world/plate.js`; luật ở RIGHTS §F, checks F13/F15): `fetch.py` (tải + SHA-256 + một dòng bảng RIGHTS **F6**
+  — bậc F1, giấy phép trích nguyên văn, ngày, ghi nguồn; `--loc` đọc `rights_advisory` của mục LoC, lưu bản chụp nhãn quyền, thử lại khi loc.gov trả 429;
+  tệp gốc ở `work/external/` theo F5),
   `map.py` (Census cartographic boundary qua us-atlas + Natural Earth → đường chiếu Albers + neo nhãn), `plate.js` (`drawPlate` Ken Burns quanh `focus`
   ở `anchor`, `toneImage` tông kênh, `envelope` hoà vào/ra từ 3D, `drawCredits` dải chữ né hộp `subject`, `drawMap` tô theo dữ liệu + nhãn đúng mốc từ).
   Opt-in: chỉ scene.js import `plate.js` mới dùng (khoá cache tự gồm `plate.js` khi đó). Thử: `bash toolkit/factory/f15/footage-trial/run.sh`.
