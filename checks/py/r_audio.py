@@ -414,6 +414,32 @@ def asr_master(ctx):
     return ctx.memo(('asr',), get)
 
 
+def asr_sentence_medium(ctx, s):
+    """K4.4b (A34, chủ dự án 14/10: 2a): one sentence of the video's audio recognised by medium.en — the clip, decode and word share of asr_master. Cached."""
+    def get():
+        from common import sha256_file, whisper_medium
+        sents = sorted(ctx.sentences(), key=lambda x: x['start'])
+        cp = os.path.join(ctx.cache_dir, f"asr-medium-{sha256_file(ctx.video())[:16]}-{asr_key(sents)}-{s.get('id')}.json")
+        if os.path.exists(cp):
+            return json.load(open(cp))
+        x = master(ctx).mean(1)
+        clips = dict(zip([x_.get('id') for x_ in sents], sentence_clips(sents, len(x) / SR)))
+        a, b, lo, hi = clips[s.get('id')]
+        p = write_wav_tmp(x[int(a * SR): int(b * SR)])
+        mdl = whisper_medium()
+        try:
+            def decode(vad):
+                segs, _ = mdl.transcribe(p, word_timestamps=True, beam_size=5, language='en', condition_on_previous_text=False, vad_filter=vad)
+                return [{'w': w.word.strip(), 'start': round(a + w.start, 3), 'end': round(a + w.end, 3), 'sentence': s.get('id')}
+                        for sg in segs for w in (sg.words or []) if lo <= (2 * a + w.start + w.end) / 2 < hi]
+            ws = choose_pass(decode(False), lambda: decode(True), len(words(s.get('spoken') or s['text'])))
+        finally:
+            os.unlink(p)
+        json.dump(ws, open(cp, 'w'))
+        return ws
+    return ctx.memo(('asr-medium', s.get('id')), get)
+
+
 # Terms the brief defines (locked list). A term is key wherever the script uses it. D may add terms in out/terms.json, never remove.
 DEFINED_TERMS = ['average', 'geometric', 'arithmetic', 'real', 'nominal', 'inflation', 'inflation-adjusted', 'withdrawal', 'withdraw', 'rebalanced',
                  'rebalance', 'sequence', 'order', 'portfolio', 'stocks', 'bonds', 'dividends', 'treasury', 'retiree', 'mirror', 'illustrative',
@@ -475,7 +501,8 @@ def match_keys(keys, asr_words):
       'Key words per script sentence (out/script.json): every number, every proper name, every defined term (locked list DEFINED_TERMS + out/terms.json). '
       'A key word is heard if the ASR has it (numbers compared as values; names/terms by stem(), the same normal form on both sides: possessive, then one '
       'inflection, then a final e; "S&P" as S&P or "S and P", ASR tokens "S" "&P" joined; a joined token also counts by its parts, so "Standard&Poor’s" has standard and poor) among words starting within the sentence window [start − 1.5 s, end + 1.5 s]',
-      '0 key words missing (no percentage threshold)')
+      '0 key words missing (no percentage threshold). K4.4b (A34): a possessive proper name small.en missed counts as missing only when medium.en, on the same '
+      'clip and decode, misses it too')
 def a14_keywords(ctx):
     sents = ctx.sentences()
     extra = ctx.json('out/terms.json').get('terms', []) if ctx.has('out/terms.json') else []
@@ -490,8 +517,26 @@ def a14_keywords(ctx):
         m = match_keys(k, win)
         if m:
             miss.append({'sentence': s.get('id'), 't': s['start'], 'missing': m, 'heard': asr_join(win)[:200]})
+    # K4.4b (A34, chủ dự án 14/10: 2a): a possessive proper name ("Tessa's") small.en missed is listened to again by medium.en on the same clip, same decode; it is missing
+    # only when both miss it
+    poss = re.compile(r"^[A-Z][a-z]+['’]s$")
+    second = []
+    for m in miss:
+        s = next(x for x in sents if x.get('id') == m['sentence'])
+        ks = keys[sents.index(s)]
+        p = [w for w in m['missing'] if poss.match(w) and any(x['kind'] == 'name' and x['text'] == w for x in ks)]
+        if not p:
+            continue
+        heard = asr_sentence_medium(ctx, s)
+        k = [x for x in ks if x['kind'] == 'name' and x['text'] in p]
+        still = set(match_keys(k, heard))
+        if len(still) < len(p):
+            second.append({'sentence': m['sentence'], 'heardByMedium': [w for w in p if w not in still], 'medium': asr_join(heard)[:200]})
+        m['missing'] = [w for w in m['missing'] if not (w in p and w not in still)]
+    miss = [m for m in miss if m['missing']]
     nmiss = sum(len(m['missing']) for m in miss)
-    return verdict('A14', [metric('key words', total, '>=', 1), metric('key words missing', nmiss, '<=', 0)], details=miss[:30])
+    return verdict('A14', [metric('key words', total, '>=', 1), metric('key words missing', nmiss, '<=', 0)],
+                   details=miss[:29] + ([{'secondListener': second}] if second else []))
 
 
 @rule('A15', 'DX-A7', 'own ASR words inside each sentence window; sentence rate = words of `spoken` / (last ASR word end − first ASR word start) × 60; '
