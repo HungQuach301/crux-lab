@@ -3,7 +3,7 @@
 ## Gói (3 câu)
 1. Nhà máy canvas hiện có dựng được clip lịch sử 46,9 s bằng nhân vật cắt giấy SVG do Claude vẽ (3 nhân vật × 6 biểu cảm), sticker, một cảnh dữ liệu có sẵn (`bignum`, `bars`) và ô ảnh tư liệu Ken Burns + tông kênh. Clip có 17 cảnh, trung vị 2,79 s, 30 fps, hai lần dựng lại trùng byte; máy chạy 100 s ở 1080p; giọng ElevenLabs 666 ký tự; nhà cung cấp hình 0 $.
 2. Phiên chưa tải được ảnh tư liệu nào: LoC, NARA, HUD và Wikimedia đều bị chính sách mạng chặn, nên clip đang mang 2 **ô chờ ảnh** ghi rõ hồ sơ cần tải (`archival/SOURCES.md`). Đọc mù tắt tiếng 2 người cũng chưa đo, vì phiên không có agent con và headless khoá Console (`blind/PHIEU.md`).
-3. **Khuyến nghị:** duyệt thử "hình lai" (chế độ b của `CHARTER-PROPOSAL.md` §A) trên **một chương lịch sử của Tập 9**, với hai điều kiện: anh mở host `www.loc.gov`, `tile.loc.gov`, `catalog.archives.gov` (hoặc tự tải 2 ảnh trong bảng), và 2 người đọc mù clip này đạt ngưỡng ghi trước. Thumbnail 3 chữ tự dựng từ khung 1080p (§B, mẫu `thumb/thumb-sample.jpg`) nên duyệt ngay, vì tốn 0 $ và khoảng 1 phút công anh mỗi tập.
+3. **Khuyến nghị:** duyệt thử "hình lai" (chế độ b của `CHARTER-PROPOSAL.md` §A) trên **một chương lịch sử của Tập 9**, với hai điều kiện: anh mở host `www.loc.gov`, `tile.loc.gov`, `catalog.archives.gov` (hoặc tự tải 2 ảnh trong bảng), và 2 người đọc mù clip này đạt ngưỡng ghi trước.
 
 **Clip:** `rnd-hybrid/clip/out/clip-1080.mp4` (1920×1080, 30 fps, 46,94 s, 6,9 MB, SHA-256 `736f1e06…af1bb9`).
 
@@ -35,7 +35,7 @@
    - "Inauthentic content" (từ 15/07/2025) đặt rủi ro lên chính khuôn mẫu. Cách giảm rủi ro: mỗi tập một mô phỏng riêng.
    - Lồng tiếng: auto dubbing của YouTube 0 $ (27 thứ tiếng, theo báo chí 02/2026); ElevenLabs tính 3.000 credit/phút (≈ 30 k cho một tập 10 phút, mỗi thứ tiếng); dịch rồi TTS lại bằng nhà máy ≈ 10 k, và dịch được cả chữ trên hình.
    - Các trang support.google.com bị chặn, nên câu trích YouTube lấy qua kết quả tìm kiếm.
-5. **Đề xuất CHARTER** (`CHARTER-PROPOSAL.md`): §A gen hình hai chế độ; §B thumbnail ≤ 3 chữ. Phiên **không** áp dụng và không sửa CHARTER, RIGHTS hay checks.
+5. **Đề xuất CHARTER** (`CHARTER-PROPOSAL.md`): chỉ đề xuất mở rộng gen hình §4 thành hai chế độ (thumbnail đã bỏ theo quyết định chủ dự án 14/10: giữ không thumbnail). Phiên **không** áp dụng và không sửa CHARTER, RIGHTS hay checks.
 
 ## Chưa đạt / cần biết
 - Lời nháp có 3 claim mới cần đọc nguồn gốc trước khi vào tập: 5 năm/ít trả gốc, ≈ 1.000/ngày năm 1933, FHA 1934 → 30 năm. Hiện chỉ có thông cáo St. Louis Fed 2008 qua kết quả tìm kiếm (`archival/SOURCES.md`). Clip là bản nháp R&D, **không phát hành**.
@@ -46,5 +46,5 @@
 
 ## Tệp
 `archival/SOURCES.md` · `cutout/{rig.js,templates.js,export_svg.mjs,sheet.html,svg/}` · `clip/{narration.json,voice_clip.py,make_clip.py,voice-takes/,out/}` ·
-`thumb/{thumb.html,job-thumb.json,thumb-sample.jpg}` · `blind/PHIEU.md` · `POLICY.md` · `CHARTER-PROPOSAL.md`. Tái lập: `python3 rnd-hybrid/clip/voice_clip.py`
+`blind/PHIEU.md` · `POLICY.md` · `CHARTER-PROPOSAL.md`. Tái lập: `python3 rnd-hybrid/clip/voice_clip.py`
 (dùng cache, 0 ký tự) → `python3 rnd-hybrid/clip/make_clip.py --res 1080 --workers 4`.

@@ -1,4 +1,4 @@
-# Đề xuất sửa CHARTER §4 (gen được bảo vệ) và §5 (thumbnail) — rnd-hybrid, 14/10/2026
+# Đề xuất sửa CHARTER §4 (gen được bảo vệ) — rnd-hybrid, 14/10/2026
 
 Phiên R&D **không áp dụng**: sửa hiến chương / gen được bảo vệ là việc chỉ chủ dự án quyết (CHARTER §6). Dưới đây là văn bản đề xuất, sẵn để dán
 nếu duyệt, kèm điều kiện và việc kéo theo ở `checks/` (gom sang `checks-appeal.md` cho phiên K, phiên này không chạm `checks/`).
@@ -31,13 +31,4 @@ của YouTube tăng nếu khuôn mẫu lặp (`POLICY.md` §2). Công chủ dự
    tham chiếu **công thức**, không sao chép (như D-013 §5).
 4. Chuyển `rnd-hybrid/cutout/` → `toolkit/cutout/` khi đã dùng ở ≥ 1 tập (CHARTER §2.1).
 
-## B. Thumbnail tự dựng từ khung 1080p (thay "không thumbnail")
-**Hiện tại:** §5 G2 "Không thumbnail; mô tả/chương/tag do máy viết ở M6" (D-013 mục 2: bỏ thumbnail vì gói ChatGPT tốn công chủ dự án).
-
-**Đề xuất:**
-> **G2:** … Thumbnail **tự dựng ở M6 từ một khung 1080p của chính tập** (không ảnh AI, không ảnh ngoài): ≤ 3 chữ, một vai màu, giữ nhãn ILLUSTRATIVE
-> nếu khung có nhân vật minh hoạ; máy đề xuất 2 khung, chủ dự án chọn 1 ở G2 (một lượt chạm, ≤ 1 phút).
-
-**Mẫu:** `rnd-hybrid/thumb/thumb-sample.jpg` (1280×720, 76 KB) = khung cảnh E dựng lại không sticker + "ALL DUE. / NOW." (3 chữ), `thumb.html` chặn > 3
-chữ. **Đánh đổi:** CTR là chỉ số khán giả §8 — thumbnail mặc định của YouTube (khung tự chọn) thường kém; công thêm ≈ 1 phút chủ dự án/tập, 0 $.
-Rủi ro: chữ thumbnail là lời hứa → phải khớp nội dung (không clickbait, không số chưa có claim).
+(Thumbnail: chủ dự án 14/10 giữ quyết định **không thumbnail** (D-013 mục 2) — phần đề xuất thumbnail đã bỏ.)
