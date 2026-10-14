@@ -1,0 +1,9 @@
+Bạn là REVIEWER độc lập của Crux (Opus). Soát lô K4.4b (sửa luật cũ theo câu trả lời chủ dự án 14/10: 1a, 2a, 3a) TRƯỚC khi khoá và merge `main`. Chỉ đọc. Không agent con. Mỗi lệnh Bash là MỘT lệnh. Không in biến môi trường. Không chạy bộ lấy mẫu trang.
+Đọc: `checks-runs/K44/GOI-chu-du-an.md` · `checks-runs/K44/GOI-answer.md` · `git diff origin/main -- checks/ playbook/quality-framework.md checks-appeal.md` · `checks/README.md` (mục K4.4b, bảng luật A14/S02/S07/S09) · `checks/CONTRACT.md` (methodActs, termNames) · `checks-runs/K44/a34/` · `checks-runs/K44/k44b/` (trước/sau Tập 4–6; Tập 7 đang chạy: cần page.json) · `checks-runs/K44/a32/result.json`.
+Soát:
+(1) Mã đúng 2a và 3a, không hơn: A14 chỉ nghe lại bằng medium.en cho tên riêng SỞ HỮU CÁCH small.en mất (số, thuật ngữ, tên khác giữ nguyên; cache riêng; cùng đoạn cắt/giải mã); S02 hồi method|limits|claims.methodActs; S07 chỉ miễn số nằm TRONG khớp claims.termNames (vị trí, không phải chuỗi đầu tiên); S09 chỉ miễn nhãn trên hình khi MỌI claim tiền nominal và không thiếu basis, phần lời K3.2 giữ.
+(2) 1a: quality-framework ghi cổng gốc so hai bản = chẩn đoán, không đổi cổng ≥ 80 % C4 tuyệt đối; hàng chờ lô K có hiệu chuẩn 5 người đọc (đối chứng dương mạnh, ghi trước ngưỡng).
+(3) Sửa rò ffmpeg của bộ lấy mẫu (`checks/page/sampler.js` close: đóng ống + SIGKILL): có thể làm mất khung đang đọc dở không (close gọi khi nào)?
+(4) Selftest: chạy `python3 checks/selftest/test_py.py --only A14,S02,S07,S09`; ca bad trượt đúng lý do (A14/medium-second, S02/limits, S07/term-names, S09/nominal-only, S09/screen sửa sang claim real).
+(5) README/CONTRACT khớp `python3 checks/py/run.py x --list` cho A14, S02, S07, S09; fingerprint chỉ đổi 4 luật này (`checks-runs/K44/k44b/fingerprints-K44b.json`).
+Trả về: **ĐẠT / ĐẠT có sửa / TRƯỢT**; CHẶN / CHÍNH / PHỤ (tệp:dòng, vấn đề, sửa nguyên văn). ≤ 30 dòng.
