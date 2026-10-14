@@ -39,10 +39,12 @@ def main():
     os.makedirs(out, exist_ok=True)
     vd = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=duration', '-of', 'csv=p=0',
                          os.path.join(DW, 'video.mp4')], capture_output=True, text=True, check=True).stdout.strip()
+    # mã hoá như master (world/splice.py encode_args: CBR 17M — F04 đo bitrate) và kẹp Y 16–235 / C 16–240 sau phóng (vọng lanczos — F05)
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'world'))
+    import splice as SPLICE
     run(['ffmpeg', '-v', 'error', '-y', '-i', os.path.join(DW, 'video.mp4'), '-map', '0:v', '-map', '0:a', '-vf',
-         'scale=1920:1080:flags=lanczos:out_color_matrix=bt709:out_range=tv', '-c:v', 'libx264', '-preset', 'fast', '-crf', '16', '-pix_fmt', 'yuv420p',
-         '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-c:a', 'copy', '-t', vd, '-movflags', '+faststart',
-         os.path.join(out, 'video.mp4')])
+         'scale=1920:1080:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p,lutyuv=y=clip(val\\,16\\,235):u=clip(val\\,16\\,240):v=clip(val\\,16\\,240)',
+         *SPLICE.encode_args({'cbr': '17M', 'preset': 'fast'}, 30), '-c:a', 'copy', '-t', vd, '-movflags', '+faststart', os.path.join(out, 'video.mp4')])
     rep['video'] = {'from': os.path.join(DW, 'video.mp4'), 'scaled_to': '1920x1080', 'duration': vd}
     st = os.path.join(out, 'audio', 'stems')
     os.makedirs(st, exist_ok=True)
@@ -65,8 +67,9 @@ def main():
     for f in sh:
         shutil.copy(os.path.join(DW, f), os.path.join(out, 'shorts', f))
     rep['shorts'] = sh
-    if os.path.isdir(os.path.join(DW, 'world')):
+    if os.path.isdir(os.path.join(DW, 'world')):   # cả hai đường: splice.json của nháp trỏ work/factory-<tag>/world (F11 đọc danh sách tệp nhà máy)
         copytree(os.path.join(DW, 'world'), os.path.join(dst, 'work', 'factory', 'world'))
+        copytree(os.path.join(DW, 'world'), os.path.join(dst, 'work', f'factory-{tag}', 'world'))
     # lời/timeline nháp so bản hợp đồng của bản sao
     warn = []
     ct = os.path.join(out, 'timeline.json')
