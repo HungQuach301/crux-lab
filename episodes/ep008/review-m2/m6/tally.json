@@ -1,0 +1,477 @@
+{
+ "candidate_set": "ep008",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep008",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Nina's rent smaller than buyer's first month; upfront cash noted. / Nina's rent below buyer's first month; savings stack beside her.",
+    "Rent 56.8% of buyer's first month; upfront cash. / Rent smaller than buyer's first month; upfront cash shown."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B02",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Dark run, fifteen years all lit, grid ends with data. / Dark run, then 15 years every cell lit; data ends.",
+    "Long dark run, fifteen years all lit, grid ends with data. / Dark run, 15 years all lit, grid ends where data ends."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B03",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "One tile per start month, illustrative twins, explicitly not advice. / One tile per start month, illustrative twins, explicit not advice.",
+    "One cell per start month, illustrative, no advice disclaimer. / One cell per start month, same twins, disclaims advice."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B05",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Renter's cash only; investing not measured. / Cash only; investing not measured.",
+    "Savings held as cash; investing not measured. / Renter's savings held as cash, investing not measured."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Assumed single growth rate versus real history. / One assumed rate versus real record.",
+    "Single assumed rate versus real record. / Fixed assumed rate versus real history."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B07",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Assumptions and rent 5% noted; assumption-on-door idea partial. / Rent 5% noted as assumption; link to her door weak.",
+    "5% rent sign noted as assumption; not framed as sitting on her door. / 5% rent tag seen as assumption; not tied to her door."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B08",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "One house per month; Nina's month has no house. / One house per month; Nina's month no house yet.",
+    "One cell per month; Nina's month has no house yet. / One house per start month; Nina's month no house yet."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Houses light up from front-left but no 1990s meaning stated. / Houses light up, but no 1990s start-date link.",
+    "Houses light from front-left; no 1990s idea. / Houses light up from front-left; no 1990s link."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Notes dark band and right dark region; 2001 onward not explicit. / Mixed middle band; no 2001-onward darkening stated.",
+    "Lit left, dark band, grey right; 2001 onward not explicit. / Mixed lit and dark, gray right; no 2001 darkening."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B11",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "2002–2007 block mostly dark, 6 of 72 months. / 2002–2007 mostly dark, 6 of 72 lit.",
+    "2002–2007 buyer ahead only 6 of 72 months, mostly dark. / 2002–2007 block: only 6 of 72 lit, nearly all dark."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Dark squares light again from 2009 to mid-2016. / Dark tiles relight, every start 2009 to mid-2016.",
+    "Reader says dark tiles light up from 2009; matches meaning. / Late-start dark tiles relight from 2009; matches expected meaning."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Buyer ahead 75.6%, renter 75 of 307 dark. / 75.6% lit, renter ahead 75 of 307.",
+    "Buyer ahead about 3 of 4; 75 of 307 dark. / 75.6% lit, 75 of 307 dark."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "One bright house with tall stack, $484,000 ahead. / Brightest house April 2012 with tall $484k stack.",
+    "April 2012 house with tall stack, $484,000 ahead. / Brightest house April 2012, tall $484k stack."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B17",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Darkest house June 2006, renter ahead $82,385. / Darkest house, June 2006, renter ahead $82,385.",
+    "Darkest house June 2006, renter ahead. / Darkest house, renter ahead by $82,385."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B18",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Renter's cash stack taller than buyer's equity. / Renter's gold stack taller than buyer's equity.",
+    "Renter's cash stack taller than buyer's equity. / Renter's cash stack taller than buyer's equity."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B20",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Five-year caption, dark clusters; unsure of five versus ten years. / Five-year caption, dark clusters; unsure of hold, more dark not stated.",
+    "Notes five-year caption, dark cells, but confused with ten-year legend. / Five-year caption and 74.4% noted; more dark doors not stated."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Fifteen years all lit; Nina's stay unknown. / 15 years all lit; Nina's stay unknown.",
+    "Fifteen years all lit; Nina's stay unknown. / 15 years all lit; Nina's stay unknown."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B23",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Same tag, costs, street; different month; clearly captured. / Same conditions, different months, different outcomes; fully captured.",
+    "Two neighbors, same terms, different months. / Same tag and costs, different month, different result."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B24",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Rent tag 4%, buyer ahead 64.2%, more dark. / Rent tag 4% darkens band; buyer ahead drops to 64.2%.",
+    "Rent tag 4%, buyer ahead 64.2%, more dark. / Rent tag 4% drops buyer share to 64.2%."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5,
+    0.5
+   ],
+   "readers": 3,
+   "correct": 1,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Rent tag 6% yields 92.2% buyer ahead; share moves with rent. / Rent tag 6% gives 92.2%; share moves with rent.",
+    "Rent tag 6% share 92.2%, grid barely changes; direction partial. / Share depends on rent tag; but says 6% tag with 92.2%, grid unchanged.",
+    "Gets rent-assumption sensitivity and buyer-ahead share, but misses the tag-rising/street-filling-light dynamic; no action advice. / Gets buyer ahead ~92% at 6% rent and rent sensitivity; no rising-tag/filling-street image."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B27",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Most lit, depends on rent assumption; range idea unclear. / Buying wins most; two figures guessed, public range not captured.",
+    "Says buyer ahead most cases within range, but not clearly the public range idea. / Buyer mostly ahead with percentages; range idea only partly captured."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Notes first month only, no house yet, compared with rent. / Rent vs first month right; 'no house yet' unexplained.",
+    "No house yet; first month compared with rent. / Buyer's first month taller; 'no house yet' noted but not explained."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B32",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Notes disclaimer, history, Nina's question; scoreboard-doesn't-choose idea partial. / Not-advice scoreboard and Nina's question noted; 'street now history' missing.",
+    "Disclaimer and Nina's question noted; scoreboard idea partial. / Not-advice and question noted; scoreboard-measures idea only partial."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B33",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Cash stays cash; investing not measured here. / Cash kept in cash; investing not measured here.",
+    "Cash stays cash; investing not measured. / Cash held; investing not measured."
+   ]
+  }
+ ],
+ "gate_beats": 24,
+ "gate_pass": 16,
+ "pending": [],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "share": 0.667,
+ "verdict": "FAIL",
+ "near_threshold": false,
+ "verdict_old": "FAIL",
+ "verdict_new": "FAIL",
+ "advice_beats_old": [
+  "B01",
+  "B02",
+  "B05",
+  "B06",
+  "B08",
+  "B09",
+  "B10",
+  "B11",
+  "B12",
+  "B13",
+  "B15",
+  "B17",
+  "B18",
+  "B20",
+  "B22",
+  "B23",
+  "B24",
+  "B25",
+  "B27",
+  "B29",
+  "B32"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 4
+}

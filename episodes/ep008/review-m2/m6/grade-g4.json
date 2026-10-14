@@ -1,0 +1,15 @@
+{
+ "answer": "{\"R49\": {\"score\": 0.5, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"quote\": \"A viewer could take away that the result is sensitive to the rent assumption, so they should test it against their own local rent and costs.\", \"why\": \"Gets buyer ahead ~92% at 6% rent and rent sensitivity; no rising-tag/filling-street image.\"}, \"q5\": \"video\"}",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2737,
+   "cache_read": 1382,
+   "output": 142,
+   "in": 4121,
+   "out": 142
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.012510199999999999
+}
