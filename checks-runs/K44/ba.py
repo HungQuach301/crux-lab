@@ -78,7 +78,8 @@ for ep in EPS:
         t0 = time.time()
         r = common.safe(R[rid], ctx)
         row[rid] = {'status': r['status'], 'fail': {m['name']: m['value'] for m in r.get('metrics', []) if not m['pass']},
-                    'note': (r.get('note') or '')[:200], 'fingerprint': R[rid].meta['fingerprint'], 's': round(time.time() - t0, 1)}
+                    'note': (r.get('note') or '')[:200], 'fingerprint': R[rid].meta['fingerprint'], 's': round(time.time() - t0, 1),
+                    'details': json.loads(json.dumps(r.get('details'), default=str))[:3] if r['status'] != 'PASS' else None}
         print(ep, rid, row[rid]['status'], json.dumps(row[rid]['fail'], ensure_ascii=False)[:160], row[rid]['note'][:100], flush=True)
     res['episodes'][ep] = row
     shutil.rmtree(d, ignore_errors=True)
