@@ -134,7 +134,7 @@ def spread(a, b, n):
     return [a + (b - a) * i / max(1, n - 1) for i in range(n)]
 
 
-HOLD_PUSH = {'world': [0.008, 0.08], 'chart': [0.005, 0.025], 'breathe': True}   # M5 vòng nhịp 1–2 (w8.js setup): máy tiến chậm khi đứng — [tốc độ/s, trần]; vòng 2: đồ thị thở 0 ↔ trần
+HOLD_PUSH = {'world': [0.008, 0.08], 'chart': [0.005, 0.025], 'breathe': True, 'caps': {'cStacks': 0.012}}   # M5 vòng nhịp 1–2 (w8.js setup): máy tiến chậm khi đứng — [tốc độ/s, trần]; vòng 2: đồ thị thở 0 ↔ trần
 
 
 def moves_of(specs, eps=0.01):

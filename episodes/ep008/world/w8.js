@@ -58,7 +58,9 @@ export async function setup(seg, res, poses, { shadowBox = 30 } = {}) {
     const tri = (x) => 1 - Math.abs(1 - (x % 2));
     const kOf = holds.map(([h0, h1]) => {
       if (h1 - h0 < 3) return () => 0;
-      const chart = CAM.poseAt((h0 + h1) / 2).chart > 0.5, [r, cap] = chart ? HP.chart : HP.world, L = run(h0, h1);
+      const pn = ms.length ? (h0 > 0 ? ms.find((m) => m.t1 === h0)?.to : ms[0].from) : null;   // tư thế của quãng đứng
+      const chart = CAM.poseAt((h0 + h1) / 2).chart > 0.5, [r, cap0] = chart ? HP.chart : HP.world, L = run(h0, h1);
+      const cap = chart && HP.caps && pn && HP.caps[pn] !== undefined ? HP.caps[pn] : cap0;   // nhãn dưới sát dòng chrome (verify F-2: cStacks "rent")
       if (chart && HP.breathe) return (t) => cap * tri(r * run(h0, t) / cap);
       const K = Math.min(r * L, cap); return (t) => (L > 0 ? K * run(h0, t) / L : 0);
     });
