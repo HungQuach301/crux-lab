@@ -1,0 +1,15 @@
+{
+ "answer": "{\"R1\": {\"skip\": [\"S06\", \"S07\", \"S14\", \"S20\", \"S21\", \"S22\", \"S31\"], \"engaged\": [\"S02\", \"S15\", \"S16\", \"S17\", \"S18\"], \"why\": \"Skips the generic critique, the rent-tag setup and recaps, and the number-heavy 5- and 15-year comparison; most engaged when the brightest and darkest houses and their two stacks appear, plus the opening hook.\"}, \"R2\": {\"skip\": [\"S04\", \"S06\", \"S07\", \"S31\", \"S32\"], \"engaged\": [\"S09\", \"S10\", \"S11\", \"S14\", \"S15\", \"S16\", \"S17\"], \"why\": \"Skips the static cost list, the method critique and rent-tag explanation, and the closing recap; most engaged when the street lights up and the dark doors appear, and at the 72-starts, 6-wins payoff and the brightest and darkest houses.\"}, \"R3\": {\"skip\": [\"S04\", \"S05\", \"S06\", \"S20\", \"S21\", \"S22\"], \"engaged\": [\"S09\", \"S10\", \"S14\", \"S15\", \"S16\"], \"why\": \"Skips the long cost list, the method and rent-tag explanation, and the figure-heavy 5- and 15-year stays section; most engaged when the street of lit and dark houses pays off visually and in the brightest versus darkest house contrast.\"}}",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3092,
+   "cache_read": 1382,
+   "output": 1826,
+   "in": 4476,
+   "out": 1826
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0307702
+}
