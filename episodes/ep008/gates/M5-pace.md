@@ -22,4 +22,18 @@ Phân bố 212 s (−60 dB) theo tư thế máy: **đồ thị ≈ 146 s** (cGri
    - f S30.1 "rent": **vạch mức $1,667 kéo ngang sang chồng người mua** (đọc được tỉ lệ trước nhãn 56.8 %); S30.3 "and": nhãn "lowest replayed … July 2006" mờ còn 40 % khi lời nói "không biến 2026 thành 2006"; `m_grid` (chấm → cả lưới) khai major.
    - Spine sau sửa: 0 quãng > 8 s, quy tắc 2/3/7 OK cả 6 đoạn.
 
-Kết quả vòng 1: (điền sau khi dựng — `review-m5/pace-r1*.json`).
+**Kết quả vòng 1** (`work/animatic/draft-r1.mp4`, `review-m5/pace-r1*.json`; container khởi động lại giữa chừng → đoạn d–f dựng lại, cùng mã):
+
+| Thước | c1 | **r1** | Ngưỡng |
+|---|---|---|---|
+| freezedetect n = 0,003 (ghi trước) ∩ lời | 281,6 s | **67,9 s** — TRƯỢT | ≤ 30 s |
+| freezedetect −60 dB (`qc.py`/F-14) ∩ lời | 212,0 s | **6,4 s** — đạt | ≤ 30 s |
+| spine: quãng có lời > 8 s không major | 9 | **0** — ĐẠT | 0 |
+| quãng đứng hình có lời > 8 s (freezedetect) | 1 | 0 | — |
+
+67,9 s còn lại **toàn ở quãng đứng đồ thị** (21 quãng: cDots 13,8 · cIdx 10,6 · cRecord 10,0 · cStacks 10,0 · cGrid 8,9 · cDark 6,5 …): quãng đồ thị dài 17–50 s, trần 1,2 % trải một chiều → ≈ 0,05–0,12 %/s, quá chậm cho n = 0,003 trên đồ thị thưa (nét mảnh, nền tối). Thước ghi trước giữ nguyên (không đổi sang −60 dB sau khi thấy số); cả hai số nêu ở G2.
+
+## Vòng 2 (cuối, 14/10) — "đổi vì thước"
+Đồ thị: k **thở** tam giác 0 ↔ 2,5 % ở 0,5 %/s (thử trên quãng cIdx 47–66 s: 1,2 % ở 0,3 %/s còn một quãng 4,0 s; 2,5 % ở 0,5 %/s: 0). Khung đỉnh (2,5 %) soát tay: "January 1991" còn trên dòng chrome; "rent"/"buyer's first month" sát dòng chrome như bản c1 (verify F-2 báo nếu chạm). Nghĩa: không có — đây là chuyển động để qua thước, nêu đích danh ở G2; cổng gốc (chẩn đoán) soát nghĩa.
+
+Kết quả vòng 2: (điền sau khi dựng).
