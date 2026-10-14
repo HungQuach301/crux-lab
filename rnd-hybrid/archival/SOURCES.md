@@ -1,6 +1,6 @@
 # Tư liệu phạm vi công cộng — rnd-hybrid (14/10/2026)
 
-## Kết quả truy cập: **bị chặn, chưa tải tệp nào**
+## Kết quả truy cập (vòng 1): **bị chặn, chưa tải tệp nào** — vòng 2 (14/10, mạng mở): đã tải LoC cph.3c17261, ghi RIGHTS §F6 X-RND-1
 Thử từ container (curl qua proxy) và WebFetch, 06:16–06:45 UTC 14/10/2026:
 
 | Host | curl (proxy) | WebFetch |

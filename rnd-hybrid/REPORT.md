@@ -48,3 +48,53 @@
 `archival/SOURCES.md` · `cutout/{rig.js,templates.js,export_svg.mjs,sheet.html,svg/}` · `clip/{narration.json,voice_clip.py,make_clip.py,voice-takes/,out/}` ·
 `blind/PHIEU.md` · `POLICY.md` · `CHARTER-PROPOSAL.md`. Tái lập: `python3 rnd-hybrid/clip/voice_clip.py`
 (dùng cache, 0 ký tự) → `python3 rnd-hybrid/clip/make_clip.py --res 1080 --workers 4`.
+
+---
+
+# Vòng 2 (14/10/2026): phong cách A + chất in B + tư liệu C đứng riêng
+
+## Gói (3 câu)
+1. Clip mới `v2/clip/out/clip-1080.mp4` (46,9 s, 19 cảnh, trung vị **2,17 s**) theo phong cách chủ dự án chọn: giấy trong thế giới 3D (khung A, đã sửa đèn bù, cột đèn, tờ CLOSED), mặt giấy in nét mực/bán sắc/vân giấy (B), ảnh LoC 1931 đứng riêng toàn khung 4,27 s rồi hoà về cảnh A. Mọi claim số đã đối chiếu nguồn gốc (`v2/CLAIMS.md`), kể cả nguyên văn luật 1934 §203: "not to exceed twenty years", 80 % giá thẩm định.
+2. Chi **≈ 0,19 $** (ElevenLabs +870 credit cho 3 take, OpenAI 0, Console 0) trên trần 10 $. Nhưng giờ máy tăng vọt: **42,5 phút** cho 46,9 s phim (≈ 54 s máy mỗi giây phim, 4 lõi, swiftshader + bóng 4096 px), so với 1,7 phút ở vòng 1. Đọc mù 2 người **vẫn chưa đo** vì không có người đọc độc lập (0 agent con, Console khoá).
+3. **Khuyến nghị:** chủ dự án xem clip và tờ trước/sau `v2/BEFORE-AFTER.jpg`. Nếu giữ hướng này, việc kế tiếp là (a) chọn 2 người đọc mù theo `blind/PHIEU-v2.md`, (b) một phiên tối ưu render (bóng 2048, PCF thường, bỏ đèn thừa) trước khi dùng cho một chương Tập 9. Đề xuất CHARTER §4 "gen lai A+C": `CHARTER-PROPOSAL.md` mục B (chỉ đề xuất).
+
+## Số đo
+| Mục | Số | Ghi chú |
+|---|---|---|
+| Thời lượng | 46,87 s (lời 45,36 s sau atempo 1,06 + 0,3 s đầu + 1,2 s đuôi) | take speed 0,9 dài 48,08 s; take speed 1,0 lại dài hơn (51,4 s), nên giữ 0,9 và tăng nhịp bằng atempo (giữ cao độ) |
+| Cảnh | 19 cảnh · **trung vị 2,17 s** · ngắn nhất 1,07 s (J, cảnh hoà ra) · dài nhất 4,70 s (P) | vòng 1: 2,79 s · GoDocs: 1,9 s |
+| Tư liệu | 1 lần, **4,27 s** liền (hoà vào 0,7 s + đầy khung + hoà ra 0,8 s về cảnh A) = **9,1 %** | ≤ 6 s liền, ≤ 20 % (RIGHTS §F3); không có nhân vật trên ảnh |
+| Chi API | ElevenLabs: đồng hồ `/v1/user/subscription` 98.507 → 99.377 (**+870 credit**, eleven_v3) cho 3 take (679 + 679 + 619 ký tự gửi). Theo giá gói Creator ≈ **0,19 $** · OpenAI 0 · Console 0 | 2 take bỏ đi (dài quá 45 s) đã xoá khỏi repo |
+| Giờ máy | 1080p: **2.548 s tường** (4 worker, 4 lõi) = 54 s máy mỗi giây phim; tổng worker-giây 9.141. Cảnh J dựng 1 worker: 89 s/s. Xem trước 540p (19 khung tĩnh): 70 s | Vòng 1: 100 s cho 46,9 s. Nghi chính: WebGL phần mềm (swiftshader) + bóng PCFSoft 4096 px + nhiều tấm alpha. **Chưa tối ưu** |
+| Tất định | Dựng lại cảnh J vào cache khác: SHA-256 `00dbab8b…` trùng byte | không Math.random, không đồng hồ |
+| Lời (ASR faster-whisper small.en) | khớp toàn văn; chỉ khác cách viết số ("80" so với "eighty") | |
+| Âm lượng | −14,6 LUFS, đỉnh −1,5 dBFS | loudnorm 1 lượt |
+| Tệp | `v2/clip/out/clip-1080.mp4`: 22 MB (mã lại crf 21 cho repo), SHA-256 `940c36d9…f94b7c6`; bản gốc crf 16 48 MB ở `work/v2/` (ngoài git) `bce020a6…09f795dc9` | |
+| Đọc mù tắt tiếng 2 người | **chưa đo** | phiếu + đáp án mới: `blind/PHIEU-v2.md`; dải 6 khung: `v2/blind-strips/` |
+
+## Claim đã sửa (chi tiết ở `v2/CLAIMS.md`)
+- **"five years"** sửa thành **"three to five years"**, kèm "about half the price" (HUD: "limited to 50 percent… three to five years… balloon payment").
+- **FHA 1934:** "up to eighty percent of the value… paid down every month, for up to twenty years". Nguồn: 48 Stat. 1246 §203(b)(2)–(4), FHA *First Annual Report* (1935) và Fed History.
+- **Mốc 30 năm:** "In 1954, the limit stretched to thirty years". Nguồn: St. Louis Fed *Review* 11/1955 (Housing Act 1954: nhà mới 25 → 30 năm, nhà cũ 20 → 30 năm).
+- **Ngày đóng cửa Bank of United States:** **11/12/1930** (Fed History). LoC ghi năm **1931** cho tấm ảnh, và tiêu đề có chữ "after its failure", nên hai nguồn không mâu thuẫn. Lời chia thành hai câu: "In December 1930… closed." rồi "In 1931, its depositors still crowded outside."
+- **Đã bỏ:**
+  - "≈ 1,000 foreclosures a day": PDF Wheelock 2008 tải không được, chưa có nguồn gốc;
+  - "most people simply signed a new one": không có nguồn;
+  - "still the standard today": không có nguồn.
+
+## Đã làm theo yêu cầu sửa A
+- **Hàng người trung cảnh:** thêm đèn bù ấm phía máy quay, cộng một đèn bù đi theo máy quay trong mọi cảnh.
+- **Cột đèn:** dời khỏi bậc thềm, sang (13,5; −6,2).
+- **Tờ CLOSED:** thẻ giấy 2,0 m, chữ 150 px trên texture, máy đẩy vào ở cảnh H. Đọc được ở 1080p (tờ trước/sau, hàng 2).
+
+## Chưa đạt / cần biết
+- **Giờ máy là vấn đề lớn nhất của hướng này.** Ở mức hiện tại, một tập 10 phút cần ≈ 9 giờ máy (4 lõi). Phải tối ưu trước khi dùng thật.
+- **Chữ trên thẻ giấy 3D** nằm trong texture, nên không vào log chữ của trang kiểm. `checks/` chưa chạy trên clip (phiên không chạm `checks/`).
+- **Cảnh J chỉ 1,07 s** (phần đuôi sau lần hoà ra từ ảnh), có thể thấy hơi vội.
+- **Cảnh "Today"** vẫn có dãy nhà phố tối phía sau, vì hồi `today` chưa phủ hết thế giới.
+- **Lời và năm trên hình:** lời nói "In December 1930", năm trên hình là "December 1930". Đây là năm của sự kiện; ảnh mang năm LoC (1931) ở dòng nguồn.
+
+## Tệp vòng 2
+`v2/clip/{narration.json, voice_v2.py, build.py, seg/{world.js, scene.js, spine.json, timeline.json, inputs.json}, voice-takes/, out/}` · `v2/{paper3d.js, illus2d.js}` ·
+`v2/CLAIMS.md` · `v2/BEFORE-AFTER.jpg` · `v2/blind-strips/` · `blind/PHIEU-v2.md` · `CHARTER-PROPOSAL.md` mục B · RIGHTS §F6 `X-RND-1`.
+Tái lập: `python3 rnd-hybrid/v2/clip/voice_v2.py` (dùng cache, 0 ký tự) → `python3 rnd-hybrid/v2/clip/build.py --res 1080 --workers 4`.
