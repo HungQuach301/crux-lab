@@ -109,6 +109,10 @@
      "sentence": "S01.1"
     },
     {
+     "scene": "S29",
+     "sentence": "S29.3"
+    },
+    {
      "scene": "S30",
      "sentence": "S30.3"
     }
@@ -2365,7 +2369,12 @@
    "of": "params.yield4_tag",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [
+    {
+     "scene": "S25",
+     "sentence": "S25.1"
+    }
+   ]
   },
   {
    "claimId": "yield5_tag",
@@ -2399,7 +2408,78 @@
    "of": "params.yield6_tag",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [
+    {
+     "scene": "S26",
+     "sentence": "S26.1"
+    }
+   ]
+  },
+  {
+   "claimId": "term_30y",
+   "value": 30,
+   "display": "30-year",
+   "unit": "const",
+   "formula": "same quantity as params.term_30y: 30-year fixed mortgage (assumption, numbers.md)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.term_30y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2002-2007_span",
+   "value": "2002-2007",
+   "display": "2002 to 2007",
+   "unit": "const",
+   "formula": "same quantity as params.era_2002-2007_span: start months 2002 through 2007",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.era_2002-2007_span",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.1"
+    }
+   ]
+  },
+  {
+   "claimId": "hold_15y",
+   "value": 15,
+   "display": "15 years",
+   "unit": "const",
+   "formula": "same quantity as params.hold_15y: held fifteen years",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.hold_15y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
   }
  ]
 }

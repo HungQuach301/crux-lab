@@ -150,5 +150,68 @@
    "refetchSha": "631bc444a8c5370c3a2df12f484a67ae7b9a68c00fe8a33215895fb49c8cc08c",
    "match": true
   }
- ]
+ ],
+ "files": [
+  {
+   "path": "data/raw/HPIPONM226N.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N&coed=2026-07-01",
+   "sha256": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+   "downloaded": "2026-10-13",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/HPIPONM226N",
+    "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "U.S. Federal Housing Finance Agency, HPIPONM226N, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HPIPONM226N"
+   },
+   "series": "HPIPONM226N"
+  },
+  {
+   "path": "data/raw/CUUR0000SEHA.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUUR0000SEHA&coed=2026-08-01",
+   "sha256": "ffc374b21c6d71037484a3061d06bfaa453c79b75d2c38fbe771b7de826c93ff",
+   "downloaded": "2026-10-13",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CUUR0000SEHA",
+    "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "U.S. Bureau of Labor Statistics, CUUR0000SEHA, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CUUR0000SEHA"
+   },
+   "series": "CUUR0000SEHA"
+  },
+  {
+   "path": "data/raw/MORTGAGE30US.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-10-08",
+   "sha256": "93663891f9167cf71dfd50b7cbe54ef60fab42f788371d84bf665fb1c5e6c354",
+   "downloaded": "2026-10-13",
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "legalQuote": "Copyrighted: Citation required These series are under copyright; but, provided you have not engaged in any prohibited uses, you may use these data series with proper attribution of the source and acknowledgment that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "Freddie Mac, MORTGAGE30US, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "series": "MORTGAGE30US"
+  },
+  {
+   "path": "data/raw/TB3MS.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-09-01",
+   "sha256": "631bc444a8c5370c3a2df12f484a67ae7b9a68c00fe8a33215895fb49c8cc08c",
+   "downloaded": "2026-10-13",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS",
+    "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "Board of Governors of the Federal Reserve System (US), TB3MS, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "series": "TB3MS"
+  }
+ ],
+ "files_note": "checks/CONTRACT.md §S03 (M5 14/10): 4 chuỗi FRED ghim, vai primary; không có chuỗi đối chiếu độc lập (hồ sơ #20 — S04 MISSING đã biết)"
 }

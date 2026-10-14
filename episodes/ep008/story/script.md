@@ -99,7 +99,7 @@ S03.4 {hook} Each house holds the same pair of twins, and the same choice. <!-- 
 ## S04 — What each twin pays (viewer questions 1 and 3)
 
 S04.1 {question} So what does each twin actually pay? <!-- claims: — -->
-S04.2 {define} The twin who buys pays the down payment and the closing costs, then takes a 30-year fixed mortgage at that month's average rate. <!-- claims: rate_latest -->
+S04.2 {define} The twin who buys pays the down payment and the closing costs, then takes a 30-year fixed mortgage at that month's average rate. <!-- claims: rate_latest, term_30y -->
 S04.3 {hook} Every month after that, Nina's buying twin pays interest, property tax, insurance and repairs, and at the end, the cost of selling. <!-- claims: — -->
 S04.4 {define} Property tax, insurance and repairs come to 2.5 percent of the home's value a year. <!-- claims: owner_cost_pct -->
 S04.5 The twin who rents moves into an equivalent home and keeps the same savings. <!-- claims: — -->
@@ -155,7 +155,7 @@ S10.2 Every house where the renting twin came out ahead sits between April 2001 
 
 ## S11 — 2002 through 2007
 
-S11.1 Of the 72 start months from 2002 through 2007, the buyer ended ahead in just 6. <!-- claims: era_2002-2007_n, era_2002-2007_share -->
+S11.1 Of the 72 start months from 2002 through 2007, the buyer ended ahead in just 6. <!-- claims: era_2002-2007_n, era_2002-2007_share, era_2002-2007_span -->
 S11.2 Those starts ran straight into the fall in national home prices. <!-- claims: — -->
 
 ## S12 — Lit again
@@ -214,7 +214,7 @@ S21.2 Five years leaves little time to cover the cost of buying and then selling
 
 ## S22 — Fifteen years
 
-S22.1 Over 15 years, every start month that history allows ended with the buyer ahead. <!-- claims: n_15y, share_buyer_ahead_15y -->
+S22.1 Over 15 years, every start month that history allows ended with the buyer ahead. <!-- claims: n_15y, share_buyer_ahead_15y, hold_15y -->
 S22.2 Even the weakest of them left the buyer $79,829 ahead. <!-- claims: worst_adv_15y -->
 S22.3 From five years to ten to fifteen, the dark doors thin out, and then they're gone. <!-- claims: worst_start_5y, n_10y -->
 S22.4 Fifteen years is a long stay, and this street says nothing about how long Nina stays. <!-- claims: n_15y; hold: 0.5 -->
@@ -243,11 +243,11 @@ S24.3 What happens to the street when the tag turns? <!-- claims: —; hold: 0.8
 
 ## S25 — Four percent (anchor 3: the rent tag)
 
-S25.1 At 4 percent, the buyer ended ahead in 64.2 percent of start months. <!-- claims: share_yield4pct_10y -->
+S25.1 At 4 percent, the buyer ended ahead in 64.2 percent of start months. <!-- claims: share_yield4pct_10y, yield4_tag -->
 
 ## S26 — Six percent
 
-S26.1 At 6 percent, 92.2 percent. <!-- claims: share_yield6pct_10y; hold: 1.0 -->
+S26.1 At 6 percent, 92.2 percent. <!-- claims: share_yield6pct_10y, yield6_tag; hold: 1.0 -->
 S26.2 [thoughtful] The share moves with the rent you assume. <!-- claims: share_buyer_ahead_10y -->
 
 ## S27 — The public range (Census range, its shares and the flip point on screen, B26–B28)
@@ -265,7 +265,7 @@ S28.2 The lights follow the tag, but one month is not on the street yet. <!-- cl
 
 S29.1 And Nina's own month, past the end of the street? <!-- claims: — -->
 S29.2 History can't finish it, but it can set her first month beside the others. <!-- claims: — -->
-S29.3 At 6.86 percent, the September 2026 average, her buying twin's first month costs $2,933. <!-- claims: rate_latest, today_buyer_month1 -->
+S29.3 At 6.86 percent, the September 2026 average, her buying twin's first month costs $2,933. <!-- claims: rate_latest, today_buyer_month1, rate_month_latest -->
 
 ## S30 — First months only
 

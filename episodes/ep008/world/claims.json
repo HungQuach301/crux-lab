@@ -307,6 +307,24 @@
   "display_full": "anchor yield 6% (assumption)",
   "param": true
  },
+ "term_30y": {
+  "value": 30,
+  "display": "30-year",
+  "display_full": "30-year fixed mortgage (assumption, numbers.md)",
+  "param": true
+ },
+ "era_2002-2007_span": {
+  "value": "2002-2007",
+  "display": "2002 to 2007",
+  "display_full": "start months 2002 through 2007",
+  "param": true
+ },
+ "hold_15y": {
+  "value": 15,
+  "display": "15 years",
+  "display_full": "held fifteen years",
+  "param": true
+ },
  "_geom": {
   "n10": 307,
   "n15": 247,

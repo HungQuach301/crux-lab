@@ -21,7 +21,7 @@ def kd(run): d = (EP / 'review-m5' / (run + '.key')).resolve(); d.mkdir(parents=
 def sheets(video, run):
     tl = json.load(open(EP / 'out/factory/timeline.json')); S = {s['id']: s for s in tl['scenes']}
     Y = yaml.safe_load(open(EP / 'episode.yaml'))
-    groups = [['cold-open', 'act1'], ['act2'], ['act3'], ['limits']]
+    groups = [['cold-open', 'act1'], ['act2'], ['act3'], ['method']]
     acts = {a['id']: a['scenes'] for a in Y['acts']}
     for k, g in enumerate(groups):
         sc = [S[s] for a in g for s in acts[a]]

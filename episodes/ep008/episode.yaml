@@ -37,7 +37,7 @@ acts:   # theo các dòng `=== … ===` của story/script.md
   - {id: act1, scenes: [S04, S05, S06, S07]}
   - {id: act2, scenes: [S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22]}
   - {id: act3, scenes: [S23, S24, S25, S26, S27, S28, S29, S30]}
-  - {id: limits, scenes: [S31, S32, S33]}
+  - {id: method, scenes: [S31, S32, S33]}   # thẻ phương pháp + kết (checks S02 đọc hồi "method"; trước 14/10: limits)
 scenes:
   - {id: S01, tail: 1.0, shots: []}
   - {id: S02, tail: 1.0, shots: []}

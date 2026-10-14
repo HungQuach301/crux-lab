@@ -17,7 +17,7 @@ def main(run):
     o = EP / 'review-m5' / run
     tl = json.load(open(EP / 'out/factory/timeline.json')); S = {s['id']: s for s in tl['scenes']}
     acts = {a['id']: a['scenes'] for a in yaml.safe_load(open(EP / 'episode.yaml'))['acts']}
-    groups = [['cold-open', 'act1'], ['act2'], ['act3'], ['limits']]
+    groups = [['cold-open', 'act1'], ['act2'], ['act3'], ['method']]
     parts = ["You are a film director reviewing a full 3D explainer episode (about 10 minutes) for a faceless US personal-finance YouTube channel "
              "(low-poly world, faceless illustrative characters, a street where each house is one start month). You get four contact sheets of 12 "
              "frames each, one per part, in time order, plus the full narration with times. Use the Read tool to open exactly the four listed PNG "

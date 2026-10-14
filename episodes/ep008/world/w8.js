@@ -156,7 +156,7 @@ export function Home8(scene) {
 // ---------------------------------------------------------------- người (W4, không mặt) + đèn riêng của Nina (N3)
 export function figure(scene, { x, z, color = FIG, h = 0.95, char = 'Nina', lamp = false }) {
   const p = Person({ h, color }); p.position.set(x, 0, z); scene.add(p);
-  p.userData.checks = { role: 'mark', char, shape: 'person', key: `person-${char.toLowerCase()}` };
+  p.userData.checks = { role: 'mark', char: char.toLowerCase(), shape: 'person', key: `person-${char.toLowerCase()}` };   // khoá = contract.json characters (V09, M5 14/10)
   const out = { p, h, char, lamp: null };
   if (lamp) {
     const g = new THREE.Group(), bulb = new THREE.Mesh(new THREE.SphereGeometry(0.06, 12, 8), new THREE.MeshStandardMaterial({ color: LAMP, emissive: new THREE.Color(LAMP), emissiveIntensity: 2 }));

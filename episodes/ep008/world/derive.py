@@ -30,6 +30,10 @@ for k in ('sell_pct', 'down_pct', 'closing_pct', 'owner_cost_pct'):
         cl[k] = {'value': float(rows[k][0]), 'display': rows[k][1].split(' of')[0], 'display_full': rows[k][1], 'param': True}
 for y in (4, 5, 6):   # chữ trên thẻ / nhãn thẻ tiền thuê ở đồ thị (giả định, numbers.md: định nghĩa của share_yield4pct_10y / yield_anchor_pct / share_yield6pct_10y)
     cl[f'yield{y}_tag'] = {'value': y, 'display': f'{y}%', 'display_full': f'anchor yield {y}% (assumption)', 'param': True}
+# M5 checks S07 (14/10): số nói ra là tham số/khoảng của mô hình, chưa có claim
+cl['term_30y'] = {'value': 30, 'display': '30-year', 'display_full': '30-year fixed mortgage (assumption, numbers.md)', 'param': True}
+cl['era_2002-2007_span'] = {'value': '2002-2007', 'display': '2002 to 2007', 'display_full': 'start months 2002 through 2007', 'param': True}
+cl['hold_15y'] = {'value': 15, 'display': '15 years', 'display_full': 'held fifteen years', 'param': True}
 cl['_geom'] = {'n10': Q['n_10y']['value'], 'n15': Q['n_15y']['value'], 'renter10': Q['n_renter_ahead_10y']['value']}
 json.dump(cl, open(os.path.join(HERE, 'claims.json'), 'w'), indent=1, ensure_ascii=False)
 print(len(cl) - 1, 'claims')
