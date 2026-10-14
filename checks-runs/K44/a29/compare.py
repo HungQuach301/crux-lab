@@ -1,4 +1,4 @@
-"""K4.4.1 · A29: so page.json của lượt có cache (cold: cache trống → điền; warm: cache đầy) với lượt --no-cache, cùng trang + cùng master + cùng mã (b0e529ae).
+"""K4.4.1 · A29: so page.json của lượt có cache (cold: cache trống → điền; warm: cache đầy) với lượt --no-cache, cùng trang + cùng master + cùng mã (A29 `3a00e910`/`ddb3e387` + sửa rò ffmpeg; `code.sha`).
 Trường bỏ qua: chỉ hai trường đo lượt chạy — `seconds` (giờ máy) và `sceneCacheHits` (số cảnh lấy từ cache). Chuẩn hoá: URL `blob:null/<uuid>` →
 `blob:null/*` (trang một-file nạp module qua blob: UUID ngẫu nhiên mỗi lần nạp trang — hai lượt --no-cache cũng khác ở đây). Mọi thứ khác phải trùng
 từng byte (json.dumps sort_keys, separators gọn).

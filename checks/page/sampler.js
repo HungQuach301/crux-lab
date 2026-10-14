@@ -593,6 +593,7 @@ const sha = (x) => require('crypto').createHash('sha256').update(x).digest('hex'
 function videoPackets() {
   const r = require('child_process').spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_data_hash', 'MD5', '-show_entries', 'packet=pts_time,flags,data_hash',
     '-of', 'csv=p=0', path.join(ROOT, 'out/video.mp4')], { maxBuffer: 1 << 28 });
+  if (r.status !== 0 || !String(r.stdout).trim()) throw new Error('ffprobe: no video packets');   // REVIEWER K4.4.1 PHỤ
   return String(r.stdout).trim().split('\n').map((l) => { const [t, h, fl] = l.split(','); return { t: +t, key: (fl || '').includes('K'), h }; });
 }
 function sceneKey(base, pk, frames, cam, segKey, warm) {
@@ -603,7 +604,7 @@ function sceneKey(base, pk, frames, cam, segKey, warm) {
   for (let i = i0 + 1; i < pk.length; i++) if (pk[i].key && pk[i].t > b + 1e-6) { i1 = i; break; }
   // A29: camera frames the scene's samples read (speed at t uses the neighbouring frames), the page segment the scene is drawn by, and the carried-in state
   const camPart = cam ? JSON.stringify(cam.filter((f) => f.t >= a - 3 / FPS && f.t <= b + 3 / FPS)) : '-';
-  const segPart = segKey ? segKey.at(a) : '-';
+  const segPart = segKey ? segKey.over(a, b) : '-';   // REVIEWER K4.4.1 C1: every segment the scene's samples touch (and a 2D start)
   return sha(base + '|' + frames.join(',') + '|' + pk.slice(i0, i1).map((p) => p.h).join('') + '|' + camPart + '|' + segPart + '|' + JSON.stringify(warm || null));
 }
 // A29: a one-file world page (toolkit/factory/world/episode_page.py: window.__CRUX = {mods, segs, json, …}) is keyed per segment instead of as one file, so
@@ -641,7 +642,9 @@ function pageSegments(url) {
     const shared = sha([html.replace(m[0], ''), modHash(B.core), jsonIn((k) => !segDirs.some((d) => k.startsWith(d))), JSON.stringify(B.claims), B.fps, JSON.stringify(B.view || null)].join('|'));
     const keys = B.segs.map((g) => ({ t0: g.t0, t1: g.t1, k: sha([shared, g.id, g.t0, g.t1, modHash(g.mod), jsonIn((k) => k.startsWith(dirOf[g.id]))].join('|')) }));
     const EPS = 1e-6;
-    return { page: file, at: (t) => { const g = keys.find((x) => t >= x.t0 - EPS && t < x.t1 - EPS) || (t >= keys[keys.length - 1].t1 - EPS ? keys[keys.length - 1] : null); return g ? g.k : 'no-segment:' + shared; } };
+    const over = (a, b) => sha(JSON.stringify([shared, keys.filter((x) => x.t1 - EPS > a && x.t0 - EPS <= b).map((x) => x.k),
+      keys.some((x) => a >= x.t0 - EPS && a < x.t1 - EPS) ? 'in' : 'no-segment-start']));
+    return { page: file, over, at: (t) => { const g = keys.find((x) => t >= x.t0 - EPS && t < x.t1 - EPS) || (t >= keys[keys.length - 1].t1 - EPS ? keys[keys.length - 1] : null); return g ? g.k : 'no-segment:' + shared; } };
   } catch (e) { return null; }
 }
 function localFiles(env, skip) {
@@ -684,7 +687,8 @@ async function run() {
   const inputs = ['out/timeline.json', 'out/claims.json', 'design/tokens.json', 'out/page.json'].map((f) => fs.existsSync(path.join(ROOT, f)) ? fs.readFileSync(path.join(ROOT, f), 'utf8') : '-').join('|');
   const cpath = process.env.K_CONTRACT ? path.resolve(process.env.K_CONTRACT) : path.join(ROOT, 'contract.json');
   const conds = fs.existsSync(cpath) ? JSON.stringify((JSON.parse(fs.readFileSync(cpath, 'utf8')).claims || {}).conditions || []) : '-';
-  const base = sha(code + '|' + STEP + '|' + PSTEP + '|' + inputs + '|' + conds);
+  // REVIEWER K4.4.1 PHỤ: the browser build is in the key (a new Chromium may draw text differently)
+  const base = sha(code + '|' + STEP + '|' + PSTEP + '|' + inputs + '|' + conds + '|' + envs[0].browser.version());
   const pk = NO_CACHE ? [] : videoPackets();
   const cam = NO_CACHE || !fs.existsSync(path.join(ROOT, 'out/camera.json')) ? null : J('out/camera.json').frames || [];
   const segKey = NO_CACHE ? null : pageSegments(envs[0].url);

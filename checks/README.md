@@ -526,7 +526,7 @@ Nguồn: `checks-appeal.md` khối K4.4 (A29, A33, A38–A45). Bằng chứng: `
 | bộ lấy mẫu trang | vòng lấy mẫu trong `try … finally` đóng hai bộ đọc video cả khi một mẫu ném lỗi | REVIEWER K4.4b PHỤ 8 |
 
 - **Tiêu chí (chủ dự án 14/10, (a)):** cache = lượt đã điền nó, từng byte, và mọi luật trang trùng mọi chỉ số với lượt `--no-cache`. Đo (`checks-runs/K44/a29/RESULT.md`): **Tập 6** lượt cache trống và lượt ấm **trùng byte** với `--no-cache` (bỏ `seconds`, `sceneCacheHits`; chuẩn hoá UUID `blob:`), ấm **65 s** thay 6.615 s (31/31 cảnh). **Tập 7** ấm = cache trống từng byte, **116 s** thay 11.322 s (34/34); hai lượt `--no-cache` khác nhau ở C12 (1 số đo), 6/19.538 chartEvents (S11, S26), motionTrack — bộ lấy mẫu không tái lập sẵn có, không do cache; **33 luật trang trùng trạng thái và mọi chỉ số trên cả 4 lượt**. Nguồn không tái lập → hàng chờ lô K (không chặn sản xuất).
-- Mã khoá khác mã đo ở: chặn lỗi ffprobe (nhánh không chạy khi đọc được video) và `try … finally` (không đổi số đo). Khoá cache gồm mã bộ lấy mẫu → cache cũ tự trượt.
+- Mã khoá khác mã đo ở: chặn lỗi ffprobe (kích thước, gói video), `try … finally` (không đổi số đo), và theo REVIEWER K4.4.1: khoá đoạn của cảnh = **mọi đoạn mẫu của cảnh chạm tới** (cảnh vắt hai đoạn hoặc mở ở khung 2D đổi khoá khi một trong các đoạn đổi; trước: chỉ đoạn của mẫu đầu) và **phiên bản trình duyệt** trong khoá. Hai sửa này chỉ đổi khoá (Tập 6, 7: ranh giới cảnh trùng ranh giới đoạn). Khoá cache gồm mã bộ lấy mẫu → cache cũ tự trượt.
 - Selftest: {ST441}
 
 ## Thay đổi ở khoá K4.4b (SỬA LUẬT CŨ — chủ dự án duyệt 14/10, `checks-runs/K44/GOI-answer.md`: 1a, 2a, 3a)
