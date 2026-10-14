@@ -187,7 +187,7 @@ export function drawCharacter(ctx, c) {
   const M = partMatrices(rig, pose, base);
   const back = ['uaL', 'faL', 'thL', 'shL'], front = ['thR', 'shR', 'torso', 'head', 'uaR', 'faR'];
   ctx.save(); ctx.globalAlpha = c.alpha ?? 1;
-  for (const pass of ['shadow', 'paper']) {
+  for (const pass of c.noShadow ? ['paper'] : ['shadow', 'paper']) { // noShadow: paper in a lit 3D scene casts a real shadow (v2/paper3d.js)
     ctx.save(); if (pass === 'shadow') ctx.translate(7 * c.s, 9 * c.s);
     for (const k of [...back, ...front]) {
       const j = rig[k]; ctx.save(); ctx.setTransform(ctx.getTransform().multiply(M[k]));
@@ -207,7 +207,7 @@ export function drawCharacter(ctx, c) {
 
 export function drawProp(ctx, id, o) { // o: {x, y, s, rot, alpha, doors (0 open → 1 closed), label}
   const pr = PROPS[id]; ctx.save(); ctx.globalAlpha = o.alpha ?? 1; ctx.translate(o.x, o.y); ctx.rotate(rad(o.rot || 0)); ctx.scale(o.s, o.s);
-  for (const pass of ['shadow', 'paper']) { ctx.save(); if (pass === 'shadow') ctx.translate(8, 10);
+  for (const pass of o.noShadow ? ['paper'] : ['shadow', 'paper']) { ctx.save(); if (pass === 'shadow') ctx.translate(8, 10);
     for (const part of pr.parts) fillPath(ctx, part.d, pass === 'shadow' ? P.shadow : part.fill, pass !== 'shadow');
     ctx.restore(); if (pass === 'shadow') continue;
     if (pr.doors && o.doors) { const D = pr.doors, w = (D.x1 - D.x0) / 2 * o.doors;
