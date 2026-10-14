@@ -30,28 +30,28 @@ export async function boot(res) {
   // hồi ánh sáng: [nền, hemi màu, hemi cường độ, key màu, key cường độ, hướng key, đèn bù]
   const ACT = { calm: ['#8C7A66', '#F3DDBB', 1.15, '#FFD9A0', 2.4, [-8, 12, 6], 2.5], crisis: ['#3B4556', '#B8C8E2', 1.35, '#C9D6EA', 1.7, [-8, 12, 6], 9],
     relief: ['#9FB3C8', '#E9F0FA', 1.2, '#FFF1DC', 2.4, [-6, 12, 8], 3], office: ['#B9A27E', '#FFF1DC', 1.1, '#FFE8C2', 2.0, [-4, 6, 6], 4], today: ['#CFE0F0', '#F4F8FF', 1.2, '#FFF6E6', 2.4, [-6, 12, 8], 2.5] };
-  const W0 = [HX - 1.6, 0.16, -7.6], R0 = [HX - 2.6, 0.16, -7.9];
+  const W0 = [HX - 1.6, 0.16, -5.6], R0 = [HX - 2.6, 0.16, -5.9];
   const face = (o, cpos, tw = 0) => { o.rotation.y = Math.atan2(cpos[0] - o.position.x, cpos[2] - o.position.z) + tw; };
   // máy quay theo cảnh: [từ, đến]
   const CAM = {
-    A1: [P([HX + 5, 2.4, 4], [HX, 2.2, -10], 40), P([HX + 3.8, 1.9, 1.2], [HX - 0.8, 2.0, -9], 36)],
-    A2: [P([HX - 0.7, 1.62, -5.6], [HX - 1.75, 1.55, -7.6], 32), P([HX - 0.75, 1.62, -5.9], [HX - 1.75, 1.55, -7.6], 30)],          // cận Walt
+    A1: [P([HX + 4, 2.2, 4], [HX - 1, 2.0, -10], 40), P([HX + 2.6, 1.8, 1.4], [HX - 1.6, 1.8, -9], 36)],
+    A2: [P([HX - 0.7, 1.62, -3.6], [HX - 1.75, 1.55, -5.6], 32), P([HX - 0.75, 1.62, -3.9], [HX - 1.75, 1.55, -5.6], 30)],          // cận Walt
     B: [P([9, 1.7, -1.2], [1.5, 2.4, -11], 40), P([8, 1.7, -2.2], [1.2, 2.4, -11], 37)],
-    C: [P([HX + 2.6, 1.55, -3.4], [HX + 0.4, 1.15, -7.0], 38), P([HX + 2.3, 1.5, -3.8], [HX + 0.4, 1.15, -7.0], 36)],                 // trung cận Walt + lịch
-    D: [P([HX + 3.0, 1.0, -2.6], [HX + 0.2, 1.8, -7.6], 44), P([HX + 2.8, 1.0, -3.0], [HX + 0.2, 1.8, -7.6], 42)],
-    E: [P([2.6, 1.68, -6.3], [1.6, 1.6, -8.4], 32), P([2.6, 1.66, -6.6], [1.5, 1.6, -8.4], 30)],                                     // cận Walt, cửa đóng sau lưng
-    F: [P([HX + 0.9, 1.5, -4.8], [HX - 2.0, 1.4, -7.8], 36), P([HX + 0.7, 1.5, -5.2], [HX - 2.0, 1.4, -7.8], 34)],                   // trung cận Walt + Ruth
+    C: [P([HX + 2.6, 1.6, -1.2], [HX + 0.2, 1.2, -6.0], 40), P([HX + 2.4, 1.6, -1.6], [HX + 0.2, 1.2, -6.0], 38)],                 // trung cận Walt + lịch
+    D: [P([HX + 3.0, 1.0, -0.6], [HX + 0.2, 1.8, -5.6], 44), P([HX + 2.8, 1.0, -1.0], [HX + 0.2, 1.8, -5.6], 42)],
+    E: [P([6.6, 1.68, -3.9], [5.2, 1.6, -6.2], 34), P([6.5, 1.66, -4.2], [5.1, 1.6, -6.2], 32)],                                     // cận Walt, cửa đóng sau lưng
+    F: [P([HX + 0.9, 1.5, -2.8], [HX - 2.0, 1.4, -5.8], 36), P([HX + 0.7, 1.5, -3.2], [HX - 2.0, 1.4, -5.8], 34)],                   // trung cận Walt + Ruth
     G: [P([16, 2.8, 2.5], [1.2, 3.4, -12.5], 40), P([14.2, 2.0, 0.6], [1.2, 3.2, -12.5], 37)],
-    H: [P([3.6, 1.75, -7.4], [0, 2.5, -14.3], 36), P([2.6, 1.85, -9.0], [0, 2.4, -14.3], 32)],                                         // cột trụ + người ở cửa + Walt tiền cảnh
+    H: [P([5.6, 1.9, -4.6], [0, 2.2, -13.5], 38), P([4.6, 1.95, -6.0], [0, 2.3, -13.8], 34)],                                         // cột trụ + người ở cửa + Walt tiền cảnh
     J: [P([WALT[0] + 0.7, 1.66, WALT[2] + 1.2], [WALT[0] - 0.1, 1.55, WALT[2]], 32), P([WALT[0] + 0.6, 1.66, WALT[2] + 1.05], [WALT[0] - 0.1, 1.55, WALT[2]], 30)], // cận Walt trong đám đông
     K1: [P([13, 1.5, -1], [2, 3.2, -13], 36), P([16, 4.0, 4], [2, 3.4, -13], 38)],
     K2: [P([OX + 1.2, 1.75, 1.6], [OX + 0.5, 1.7, -3.4], 38), P([OX + 0.9, 1.75, 1.2], [OX + 0.5, 1.7, -3.4], 36)],
-    L1: [P([OX + 0.75, 1.3, 0.2], [OX + 0.05, 1.05, -1.75], 32), P([OX + 0.6, 1.3, -0.05], [OX + 0.05, 1.05, -1.75], 30)],         // trung cận ký hợp đồng
-    L2: [P([HX + 6.4, 2.0, -1.4], [HX + 3.0, 1.5, -6.8], 40), P([HX + 6.0, 1.9, -2.0], [HX + 3.0, 1.5, -6.8], 38)],
+    L1: [P([OX + 0.75, 1.25, 0.4], [OX + 0.05, 0.95, -1.75], 34), P([OX + 0.6, 1.25, 0.15], [OX + 0.05, 0.95, -1.75], 32)],         // trung cận ký hợp đồng
+    L2: [P([HX + 6.0, 2.0, 0.6], [HX + 2.6, 1.5, -5.4], 40), P([HX + 5.6, 1.9, 0.0], [HX + 2.6, 1.5, -5.4], 38)],
     M: [P([GX - 1.0, 2.4, 4.4], [GX - 1.0, 0.8, -1.0], 44), P([GX + 0.6, 2.6, 5.2], [GX + 0.2, 0.8, -1.2], 44)],
     N: [P([GX + 3.6, 1.6, 1.6], [GX + 2.7, 1.45, -0.3], 32), P([GX + 3.5, 1.6, 1.4], [GX + 2.7, 1.45, -0.3], 30)],                   // cận Walt nhẹ nhõm cạnh cột cuối
     O: [P([GX + 1.5, 3.4, 7.5], [GX + 1.0, 0.8, -1.4], 46), P([GX + 2.5, 3.0, 6.8], [GX + 1.4, 0.8, -1.6], 44)],
-    P: [P([TX + 0.4, 1.55, -5.2], [TX - 1.0, 1.5, -8.0], 34), P([TX + 2.4, 2.0, -1.0], [TX - 0.5, 1.9, -9.5], 38)],
+    P: [P([TX + 0.4, 1.6, -2.4], [TX - 1.0, 1.5, -5.4], 34), P([TX + 2.6, 2.2, 1.8], [TX - 0.6, 2.0, -8.5], 40)],
   };
   CAM.I = [CAM.H[1], CAM.H[1]];
   const ACTOF = { A1: 'calm', A2: 'calm', B: 'calm', C: 'calm', D: 'calm', E: ['calm', 'crisis'], F: 'crisis', G: 'crisis', H: 'crisis', I: 'crisis', J: 'crisis',
@@ -73,34 +73,34 @@ export async function boot(res) {
     const lt = t - sh.t0; doors(1); Wd.closed.visible = false;
     for (const c of Wd.crowd) c.p.pose(c.clip, t + c.off);
     switch (id) {
-      case 'A1': case 'A2': show(Wd.walt, ...W0, toCam(W0[0], W0[2], cp, 0.2), id === 'A2' && t > A.home ? 'Idle_Talking_Loop' : 'Idle_Loop', t, 'happy');
+      case 'A1': case 'A2': show(Wd.walt, ...W0, toCam(W0[0], W0[2], cp, 0.2), 'Idle_Talking_Loop', t, 'happy');
         show(Wd.ruth, ...R0, toCam(R0[0], R0[2], cp, 0.35), 'Idle_Loop', t + 0.7, 'happy'); break;
       case 'B': { doors(0); const k = ease(t, sh.t0, A.half + 0.2), x = mix(8.5, 5.2, k), z = mix(-5.2, -8.2, k);
         show(Wd.walt, x, 0.16, z, Math.atan2(-3.3, -3.0), k < 0.98 ? 'Walk_Formal_Loop' : 'Idle_Loop', t, t > A.half ? 'neutral' : 'happy');
         place(C.half, 3.0, 1.4, -8.6, backOut(t, A.half), cp); break; }
-      case 'C': show(Wd.walt, HX - 0.9, 0.16, -6.8, toCam(HX - 0.9, -6.8, cp, 0.2), 'Idle_Talking_Loop', t, 'neutral');
-        Wd.cal.forEach((c, i) => place(c, HX + 0.3 + i * 0.7, 0.75, -6.5, backOut(t, i < 3 ? A.three + i * 0.12 : A.five + (i - 3) * 0.12), cp));
-        place(C.years, HX + 1.7, 1.75, -6.9, backOut(t, A.five + 0.3), cp); break;
+      case 'C': show(Wd.walt, HX - 0.9, 0.16, -5.4, toCam(HX - 0.9, -5.4, cp, 0.2), 'Idle_Talking_Loop', t, 'neutral');
+        Wd.cal.forEach((c, i) => place(c, HX + 0.1 + i * 0.7, 0.75, -5.6, backOut(t, i < 3 ? A.three + i * 0.12 : A.five + (i - 3) * 0.12), cp));
+        place(C.years, HX + 1.5, 1.85, -6.6, backOut(t, A.five + 0.3), cp); break;
       case 'D': { show(Wd.walt, ...W0, toCam(W0[0], W0[2], cp, 0.3), t > A.whole + 0.25 ? 'Hit_Chest' : 'Idle_Loop', t > A.whole + 0.25 ? clamp(t - A.whole - 0.25, 0, 0.6) : t, t > A.whole + 0.25 ? 'shocked' : 'neutral');
-        const f = ease(t, A.whole - 0.1, A.once + 0.1); place(C.due, HX + 0.9, 0.16 + (1 - f) * 7, -7.4, 1, cp, 0.1 - (1 - f) * 0.8); C.due.rotation.z = (1 - f) * 0.5; break; }
-      case 'E': doors(ease(t, A.noloan, A.noloan + 0.8)); Wd.closed.visible = t > A.noloan + 0.6; show(Wd.walt, 1.4, 0.16, -8.6, toCam(1.4, -8.6, cp, 0.15), 'Idle_Loop', t, 'worried'); break;
-      case 'F': show(Wd.walt, ...W0, toCam(W0[0], W0[2], cp, 0.2), 'Idle_Loop', t, 'sad'); show(Wd.ruth, ...R0, toCam(R0[0], R0[2], cp, 0.3), 'Idle_Talking_Loop', t, 'worried'); break;
+        const f = ease(t, A.whole - 0.1, A.once + 0.1); place(C.due, HX + 0.9, 0.16 + (1 - f) * 7, -5.4, 1, cp, 0.1 - (1 - f) * 0.8); C.due.rotation.z = (1 - f) * 0.5; break; }
+      case 'E': doors(ease(t, A.noloan, A.noloan + 0.8)); Wd.closed.visible = t > A.noloan + 0.6; show(Wd.walt, 5.2, 0.16, -6.2, toCam(5.2, -6.2, cp, 0.2), 'Idle_Talking_Loop', t, 'worried'); break;
+      case 'F': show(Wd.walt, ...W0, toCam(W0[0], W0[2], cp, 0.2), 'Idle_Talking_Loop', t + 1.3, 'sad'); show(Wd.ruth, ...R0, toCam(R0[0], R0[2], cp, 0.3), 'Idle_Talking_Loop', t, 'worried'); break;
       case 'G': Wd.closed.visible = true; break;
       case 'H': Wd.closed.visible = true; Wd.closed.scale.setScalar(Math.max(0.001, backOut(t, A.closed, 0.3)));
-        show(Wd.walt, 2.0, 0.16, -9.4, Math.atan2(-2.0, -5.0), 'Idle_Loop', t, 'worried'); break;   // Walt nhìn về cửa (tiền cảnh); đám đông ở bậc thềm
-      case 'I': case 'J': Wd.closed.visible = true; Wd.closed.scale.setScalar(1); show(Wd.walt, WALT[0], WALT[1], WALT[2], toCam(WALT[0], WALT[2], cp, 0.25), 'Idle_Loop', t, 'worried'); break;
+        show(Wd.walt, 3.2, 0.16, -8.0, Math.atan2(-3.2, -5.6), 'Idle_Loop', t, 'worried'); break;   // Walt nhìn về cửa (tiền cảnh); đám đông ở bậc thềm
+      case 'I': case 'J': Wd.closed.visible = true; Wd.closed.scale.setScalar(1); show(Wd.walt, WALT[0], WALT[1], WALT[2], toCam(WALT[0], WALT[2], cp, 0.25), 'Idle_Talking_Loop', t, 'worried'); break;
       case 'K1': Wd.closed.visible = true; break;
       case 'K2': place(C.fha, OX + 0.5, 2.0, -3.3, backOut(t, A.fha), cp, 0); W_sit(t, 'happy'); break;
       case 'L1': W_sit(t, 'happy'); place(C.insured, OX - 0.55, 1.55, -1.3, backOut(t, A.insured + 0.1), cp); break;
-      case 'L2': show(Wd.walt, ...W0, toCam(W0[0], W0[2], cp, 0.2), 'Idle_Loop', t, 'happy');
+      case 'L2': show(Wd.walt, ...W0, toCam(W0[0], W0[2], cp, 0.2), 'Idle_Talking_Loop', t, 'happy');
         Wd.val.forEach((m, i) => { m.visible = true; m.material = m.material.clone(); m.material.color.set(t > A.eighty + i * 0.05 && i < 8 ? '#4C8DFF' : '#EDE4CF'); face(m, cp, 0); });
-        place(C.eighty, HX + 4.4, 2.0, -7.0, backOut(t, A.eighty + 0.2), cp); break;
+        place(C.eighty, HX + 3.8, 2.0, -5.8, backOut(t, A.eighty + 0.2), cp); break;
       case 'M': case 'N': case 'O': { const n20 = id === 'M' ? Math.floor(clamp(lin(t, A.paid, A.twenty + 0.2)) * 20) + 1 : 20;
         Wd.g20.forEach((c, i) => (c.visible = i < n20)); if (id !== 'N') place(C.twenty, GX - 1.6, 1.5, -0.4, id === 'M' ? backOut(t, A.twenty) : 1, cp, 0);
         if (id === 'O') { const n30 = Math.floor(clamp(lin(t, A.y1954, A.thirty + 0.4)) * 30) + 1; Wd.g30.forEach((c, i) => (c.visible = i < n30)); place(C.thirty, GX + 2.4, 1.75, -2.0, backOut(t, A.y1954), cp, 0); }
         if (id === 'N') show(Wd.walt, GX + 2.6, 0.1, 0.4, toCam(GX + 2.6, 0.4, cp, 0.2), 'Idle_Talking_Loop', t, t > A.bill ? 'relieved' : 'happy');
         if (id === 'M') show(Wd.walt, GX + 3.2, 0.1, 1.6, toCam(GX + 3.2, 1.6, cp, 0.4), 'Idle_Talking_Loop', t, 'happy'); break; }
-      case 'P': show(Wd.sam, TX - 1.2, 0.16, -8.2, toCam(TX - 1.2, -8.2, cp, 0.3), 'Idle_Talking_Loop', t, 'happy'); break;
+      case 'P': show(Wd.sam, TX - 1.2, 0.16, -5.4, toCam(TX - 1.2, -5.4, cp, 0.3), 'Idle_Talking_Loop', t, 'happy'); break;
     }
   }
   function W_sit(t, expr) { show(Wd.waltBare, OX, 0.1, -1.95, 0, 'Sitting_Idle_Loop', 1.0 + (t % 3), expr); Wd.waltBare.pose('Sitting_Idle_Loop', 1.0 + (t % 3), { arm: 'Interact' }); Wd.clerk.pose('Idle_Talking_Loop', t); }

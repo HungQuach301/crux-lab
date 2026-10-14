@@ -62,11 +62,11 @@ export async function buildWorld(scene) {
   W.clerk = await adult({ sex: 'f', skin: 'dark', hair: 'Buns', hairColor: 'black', outfit: 'dressNavy', hat: false }); W.clerk.root.position.set(OX + 1.25, 0.1, -2.2); W.clerk.root.rotation.y = -0.45; W.clerk.face('happy'); scene.add(W.clerk.root);
   W.sam = await adult({ sex: 'm', skin: 'tan', hair: 'Buzzed', hairColor: 'black', outfit: 'navy', hat: false }); W.sam.face('happy'); scene.add(W.sam.root);
   // ---- khu nhà 1930
-  for (const [dx, dz, f, s] of [[0, -11, 'building-type-a', 5.2], [-9, -13, 'building-type-c', 4.6], [9, -12.5, 'building-type-f', 4.8], [-17, -15, 'building-type-a', 4.4], [17, -15, 'building-type-c', 4.4]]) {
+  for (const [dx, dz, f, s] of [[0, -14, 'building-type-a', 4.8], [-9.5, -15.5, 'building-type-c', 4.4], [9.5, -15, 'building-type-f', 4.6], [-18, -17, 'building-type-a', 4.2], [18, -17, 'building-type-c', 4.2]]) {
     const h = await fit('city-kit-suburban/' + f + '.glb', s); h.position.set(HX + dx, 0.16, dz); scene.add(h); if (dx === 0) W.house = h; }
-  for (const [dx, dz] of [[-5, -8.5], [5.5, -8.8], [-12, -11], [12.5, -10.5]]) { const t = await fit('city-kit-suburban/tree-large.glb', 4.2); t.position.set(HX + dx, 0.16, dz); scene.add(t); }
+  for (const [dx, dz] of [[-5.2, -10.5], [5.6, -10.8], [-12.5, -13], [13, -12.5]]) { const t = await fit('city-kit-suburban/tree-large.glb', 4.2); t.position.set(HX + dx, 0.16, dz); scene.add(t); }
   // 10 ô giá trị nhà (80 % = 8 ô xanh)
-  W.val = Array.from({ length: 10 }, (_, i) => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.08), toonMat({ color: '#EDE4CF' })); m.castShadow = true; m.position.set(HX + 2.2 + i * 0.47, 1.25, -6.6); scene.add(m); return m; });
+  W.val = Array.from({ length: 10 }, (_, i) => { const m = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.08), toonMat({ color: '#EDE4CF' })); m.castShadow = true; m.position.set(HX + 1.6 + i * 0.47, 1.25, -5.4); scene.add(m); return m; });
   W.cal = [1, 2, 3, 4, 5].map((k) => { const c = card(String(k), { w: 0.6, h: 0.6, px: 170, sub: 'yr', subPx: 54, accent: k >= 3 ? '#F2B441' : null }); c.position.set(HX + 0.6 + (k - 1) * 0.72, 0.62, -6.4); scene.add(c); return c; });
   // ---- văn phòng FHA
   const floor2 = new THREE.Mesh(new THREE.BoxGeometry(9, 0.1, 7), toonMat({ color: '#8A6A4C' })); floor2.position.set(OX, 0.05, -1.5); floor2.receiveShadow = true; scene.add(floor2);
@@ -90,8 +90,8 @@ export async function buildWorld(scene) {
   W.g20 = grid(20, -0.4, '#4C8DFF', h20); W.g30 = grid(30, -2.0, '#3FBF7F', h30);
   for (const [x, z] of [[GX + 9, -4], [GX - 6.5, -4.5]]) { const tr = await fit('city-kit-suburban/tree-large.glb', 3.6); tr.position.set(x, 0.1, z); scene.add(tr); }
   // ---- hôm nay
-  for (const [dx, dz, f, s] of [[0, -11, 'building-type-f', 5.4], [-9, -13, 'building-type-a', 4.6], [9, -12.5, 'building-type-c', 4.8]]) { const h = await fit('city-kit-suburban/' + f + '.glb', s); h.position.set(TX + dx, 0.16, dz); scene.add(h); }
-  for (const [dx, dz] of [[-5, -8.5], [5.5, -8.8]]) { const t = await fit('city-kit-suburban/tree-small.glb', 3.0); t.position.set(TX + dx, 0.16, dz); scene.add(t); }
+  for (const [dx, dz, f, s] of [[0, -14, 'building-type-f', 5.0], [-9.5, -15.5, 'building-type-a', 4.4], [9.5, -15, 'building-type-c', 4.6]]) { const h = await fit('city-kit-suburban/' + f + '.glb', s); h.position.set(TX + dx, 0.16, dz); scene.add(h); }
+  for (const [dx, dz] of [[-5.2, -10.5], [5.6, -10.8]]) { const t = await fit('city-kit-suburban/tree-small.glb', 3.0); t.position.set(TX + dx, 0.16, dz); scene.add(t); }
   // ---- thẻ (số có nguồn: v2/CLAIMS.md)
   W.C = {
     half: card(['≈ HALF', 'THE PRICE'], { w: 2.4, h: 1.2, px: 120, sub: 'most a bank would lend', accent: '#F2B441' }),
