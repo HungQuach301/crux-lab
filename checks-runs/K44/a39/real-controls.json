@@ -6,9 +6,11 @@
    "note": null
   },
   "F15": {
-   "status": "MISSING",
-   "fail": {},
-   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+   "status": "FAIL",
+   "fail": {
+    "archival footage without year + source on screen": 1
+   },
+   "note": null
   }
  },
  "pos1-no-row": {
@@ -20,9 +22,11 @@
    "note": null
   },
   "F15": {
-   "status": "MISSING",
-   "fail": {},
-   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+   "status": "FAIL",
+   "fail": {
+    "archival footage without year + source on screen": 1
+   },
+   "note": null
   }
  },
  "pos2-resaved": {
@@ -34,9 +38,11 @@
    "note": null
   },
   "F15": {
-   "status": "MISSING",
-   "fail": {},
-   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+   "status": "FAIL",
+   "fail": {
+    "archival footage without year + source on screen": 1
+   },
+   "note": null
   }
  },
  "pos3-share": {
@@ -48,9 +54,12 @@
    "note": null
   },
   "F15": {
-   "status": "MISSING",
-   "fail": {},
-   "note": "artifact missing: out/checks/page.json (page sampler text track) for the on-screen year + source of external footage"
+   "status": "FAIL",
+   "fail": {
+    "archival footage without year + source on screen": 1,
+    "footage runs over 6 s": 1
+   },
+   "note": null
   }
  }
 }

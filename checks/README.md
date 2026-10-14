@@ -508,7 +508,7 @@ Nguồn: `checks-appeal.md` khối K4.4 (A29, A33, A38–A45). Bằng chứng: `
 | ngoài `checks/` | `playbook/templates/check_script.py` đọc `numbers.md` 4 hoặc 5 cột (A42); RIGHTS §F6 bảng footage | A42, A39 |
 
 - **A40 áp:** (2) luật CHẶN mới F13 có đối chứng dương **thật** — bản sao Tập 7 chèn ảnh LoC FSA 1936 thật (tệp + dòng quyền thật của cine-lab): hồ sơ đủ → ĐẠT; không dòng RIGHTS / tệp lưu lại sau khi ghi SHA / 130 s (21,4 %) → TRƯỢT (`a39/real-controls.json`); 0 báo sai trên Tập 5–7 (0 footage). S23 báo trên Tập 5–7 (2 / 4 / 8 câu, phần lớn đúng nghĩa đen) → **CHÍNH**, không CHẶN. (1) Không luật CHẶN nào FAIL trên ≥ 2 tập đã đăng (Tập 4–7: S02, S07, S09, C07 chỉ FAIL ở Tập 7; Tập 4 MISSING). (3) báo cáo như bảng trên.
-- **Đối chứng thật (A40 (2)) — giới hạn:** lỗi được chèn vào siêu dữ liệu của bản sao Tập 7 (không dựng lại video). Giấy phép cấm, thiếu ghi nguồn và trần 15 % của Tập 8 mới có selftest. F15 chưa có đối chứng thật (cần `page.json` Tập 7, làm ở K4.4.1).
+- **Đối chứng thật (A40 (2)) — giới hạn:** lỗi được chèn vào siêu dữ liệu của bản sao Tập 7 (không dựng lại video). Giấy phép cấm, thiếu ghi nguồn và trần 15 % của Tập 8 mới có selftest. F15: đối chứng dương thật (14/10, trang thật Tập 7 ở 120–125 s không có năm + nguồn → TRƯỢT, `a39/real-controls.json`); đối chứng âm thật cần dựng lại hình → selftest.
 - **Kiểm tay ở M3 (RIGHTS §F máy không đọc được):** bậc 4 Pexels/Pixabay — mặt người, logo, tác phẩm nghệ thuật, ảnh AI, bản chụp + SHA văn bản giấy phép; bậc 1 — ảnh nhà thầu, ảnh chính quyền bang, phù hiệu cơ quan; bậc 5 — câu "đánh giá của tổ chức, không bảo đảm" trong RIGHTS; §F3 — không trùng số neo, chuyển động máy, phủ tông, hoà từ 3D ≥ 0,8 s; §F4 — năm xác minh được. Ô bản đồ OSM (tile) bị chặn khi dòng Giấy phép ghi "tiles"; dữ liệu OSM ghi "ODbL … data".
 - **A13 — giới hạn:** cắt stem theo cảnh đúng khi mỗi take là một cảnh (cách nhà máy ghi). Take tràn ranh cảnh (L-cut) bị cắt mất phần tràn; nhiều take một cảnh phải mang id cảnh; take không khớp cảnh → MISSING (không đạt giả). Số ĐẠT Tập 5–7 đo trên stem tái dựng từ chính take thô: chứng minh hết lỗi máy, không phải đo kéo giãn của nhà máy.
 - **A43** (quy tắc 1 cho nhãn giả định trên vật): quy tắc 1 đo ở `toolkit/factory/world/verify_seg.py` — chuyển nhánh nhà máy.
@@ -529,10 +529,10 @@ Nguồn: gói `checks-runs/K44/GOI-chu-du-an.md`. Câu 1a (A32) ngoài `checks/`
 | S07 (CHẶN, giữ cấp) | số trong lời nằm trong một khớp của `claims.termNames` (tên sản phẩm, vd "15-year") không phải claim; số khác giữ nguyên | 3a (A36) |
 | S09 (CHẶN, giữ cấp) | tập mà **mọi** claim tiền khai `basis: nominal` không cần nhãn cơ sở trên hình; vẫn phải khai `basis` và nói cơ sở một lần (K3.2). Có `real` → giữ nguyên | 3a (A37) |
 
-- **Trước/sau Tập 4–7** (`checks-runs/K44/k44b/`): {BA}
+- **Trước/sau Tập 4–7** (`checks-runs/K44/k44b/BEFORE-AFTER-K44b.md`): Tập 4–6 không đổi (Tập 4 MISSING, Tập 5, 6 PASS). Tập 7 (master bản giao, page A29 --no-cache): A14 FAIL 3 → **PASS**; S02 FAIL → **PASS**; S07 FAIL 52 → 52 (chưa khai), **18** khi hợp đồng khai `termNames` (còn "$320,000" chưa gắn câu, năm chưa đăng ký); S09 2.384 khung thiếu nhãn → **0** khi khai `basis: nominal` (còn "nominal" chưa nói một lần, K3.2 giữ).
 - **Lỗi máy bộ lấy mẫu (sửa ở K4.4b):** `videoReader.close()` gửi SIGTERM cho ffmpeg đang chặn ở ống đã tạm dừng → ffmpeg không thoát; một lượt cả tập để lại 66 tiến trình (≈ 10 GB), rồi OOM giết một trình duyệt và lượt treo (gặp 2 lần khi đo A29). Nay đóng ống + SIGKILL. Không đổi số đo.
 - **Chứng cứ A34** (`checks-runs/K44/a34/`): small.en "Tesla's" / medium.en "Tessa's" ở S09.3, S15.3, S25.2 (master Tập 7); đối chứng âm thật (âm tên thay bằng âm từ khác, cùng giọng) → cả hai mô hình mất tên → vẫn trượt. medium.en ≈ 1,5 GB, tải lần đầu từ Hugging Face.
-- Selftest: {ST}
+- Selftest (`checks-runs/K44/k44b/selftest/`): **Python 448/448, trang 67/67.** Ca mới: `A14/medium-second`, `S02/limits`, `S07/term-names`, `S09/nominal-only` (cả bốn kiểm tên chỉ số trượt); `S09/screen` đổi sang claim `real` (tập chỉ danh nghĩa không còn đòi nhãn trên hình).
 
 ## Test tự chứng minh
 
