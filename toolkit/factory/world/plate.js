@@ -108,6 +108,7 @@ export function drawMap(O, M, t, { a = 1, reveal = {}, labels = [], ramp = 0.35 
   for (const L of labels) {
     if (t < L.at) continue;   // nhãn hiện ĐÚNG mốc từ (không trước)
     const f = L.id ? M.features.find((x) => x.id === L.id) : null;
+    if (L.id && !f) continue;   // nhãn trỏ vùng không có trong bản đồ → bỏ (không sập trang)
     const [x, y] = [L.x ?? f.label[0], L.y ?? f.label[1]];
     const la = a * smooth((t - L.at) / 0.25);
     const b = O.text(L.text, x, y + (L.px || 48) * 0.3, L.px || 48, { kind: 'name', w: 700, color: '#F2F4F7', plate: '#0B0E13', plateA: 0.78, align: 'center', alpha: la });

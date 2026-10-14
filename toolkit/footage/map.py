@@ -3,7 +3,8 @@ thuộc tính Natural Earth admin-1 (vùng/phân vùng Census, postal, FIPS) →
 
   python3 -I toolkit/footage/map.py --topo <us-atlas-3.0.1.tgz>[:package/states-10m.json] --attrs <ne_110m_admin_1_states_provinces.geojson>
           (--division "South Atlantic" [--context "East South Central,Middle Atlantic"] | --states FL,GA,…) [--values <csv postal,value>]
-          [--box 700,150,1800,960] --out map.json
+          --census-year 2017 --ne-version 5.2.0 [--box 700,150,1800,960] --out map.json
+Dòng nguồn trên hình ghi nguồn + NĂM/PHIÊN BẢN dữ liệu (RIGHTS F4): "Map data: U.S. Census Bureau <năm>; Natural Earth <phiên bản>" — us-atlas 3.x = GENZ2017.
 Tô theo dữ liệu: `--values` (số theo bang → 5 lớp phân vị, thang tuần tự của kênh) hoặc mặc định thuộc tính phân loại `region_sub`
 (phân vùng Census): bang trong `--division` = lớp 'focus', bang ngữ cảnh = 'context'. Nhãn: điểm xa biên nhất của mảnh lớn nhất (không phải
 trọng tâm — bang cong như FL/MD lệch ra biển); world/plate.js `drawMap` hiện nhãn ĐÚNG mốc từ (label_at của spine) và tô vùng dần từ mốc đó.
@@ -102,6 +103,8 @@ def main():
     ap.add_argument('--topo', required=True); ap.add_argument('--attrs', required=True); ap.add_argument('--division'); ap.add_argument('--context', default='')
     ap.add_argument('--states', default=''); ap.add_argument('--values'); ap.add_argument('--box', default='700,150,1800,960'); ap.add_argument('--out', required=True)
     ap.add_argument('--osm-attrib', action='store_true')
+    ap.add_argument('--census-year', required=True, help='năm của ranh giới Census (us-atlas 3.x = 2017)')
+    ap.add_argument('--ne-version', required=True, help='phiên bản Natural Earth (tệp VERSION của kho)')
     a = ap.parse_args()
     NE = {f['properties']['fips'][2:]: f['properties'] for f in json.load(open(a.attrs))['features'] if f['properties'].get('iso_a2') == 'US'}
     want_div = [d.strip() for d in ([a.division] if a.division else []) + a.context.split(',') if d.strip()]
@@ -140,7 +143,7 @@ def main():
     rep = {'_about': 'toolkit/footage/map.py (F-15): toạ độ thiết kế 1920×1080, Albers USGS', 'box': bx,
            'sources': ['Census Bureau cartographic state boundaries 2017 (GENZ2017) via us-atlas 3.0.1 (TopoJSON)',
                        'Natural Earth admin-1 states/provinces 1:110m (attributes: postal, region, region_sub)'] + (['© OpenStreetMap contributors (ODbL)'] if a.osm_attrib else []),
-           'source_line': 'Map: U.S. Census Bureau; Natural Earth', 'division': a.division, 'features': feats,
+           'source_line': f'Map data: U.S. Census Bureau {a.census_year}; Natural Earth {a.ne_version}', 'division': a.division, 'features': feats,
            'focus_box': [min(x for f in focus for R in f['rings'] for x, _ in R), min(y for f in focus for R in f['rings'] for _, y in R),
                          max(x for f in focus for R in f['rings'] for x, _ in R), max(y for f in focus for R in f['rings'] for _, y in R)] if focus else None}
     json.dump(rep, open(a.out, 'w'), separators=(',', ':'), ensure_ascii=False)

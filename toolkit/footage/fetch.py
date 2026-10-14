@@ -55,7 +55,7 @@ def loc_item(url):
 def rights_row(a):
     """Dòng bảng F6: Mã | Tệp | Loại | URL | Giấy phép | Bậc (F1) | Trích nguyên văn | Ngày tải | SHA-256 | Ghi nguồn."""
     cell = lambda s: str(s).replace('|', '\\|').replace('\n', ' ')
-    quote = f"\"{cell(a['license_text'])}\" — {cell(a['license_url'])}" + (f" (bản chụp nhãn quyền `{a['snapshot']['file']}`, SHA-256 `{a['snapshot']['sha256'][:16]}…`)" if a.get('snapshot') else '')
+    quote = f"\"{cell(a['license_text'])}\" — {cell(a['license_url'])}" + (f" (bản chụp nhãn quyền `{a['snapshot']['file']}`, SHA-256 `{a['snapshot']['sha256']}`)" if a.get('snapshot') else '')
     return (f"| {a['id']} | `{a['file']}` ({cell(a['name'])}) | {cell(a['kind'])} | {a['url']} | {cell(a['license_name'])} | {a['tier']} | {quote} | "
             f"{a['date']} | `{a['sha256']}` | {cell(a['credit'])} |")
 
@@ -86,6 +86,8 @@ def main():
     ap.add_argument('--rights', default=os.path.join(ROOT, 'RIGHTS.md')); ap.add_argument('--no-rights', action='store_true')
     a = ap.parse_args()
     file_url, lic, lic_url, snap = a.url, a.license_text, a.license_url, None
+    if a.loc and a.tier != '5':
+        raise SystemExit('fetch --loc: tư liệu LoC "No known restrictions" là bậc 5 (RIGHTS F1) — khai --tier 5')
     if a.loc:
         file_url, lic, title, raw = loc_item(a.url)
         lic_url = lic_url or a.url

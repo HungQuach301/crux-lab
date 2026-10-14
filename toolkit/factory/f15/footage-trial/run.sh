@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # F-15 (f) · clip thử footage 540p 8 s. Chạy từ gốc repo: bash toolkit/factory/f15/footage-trial/run.sh
-#   1. ảnh: assets/loc.jpg = X-F15-3 (`fetch.py https://www.loc.gov/item/2010630116/ --loc --id X-F15-3 --tier 5 --license-name "No known restrictions (LoC)"
+#   1. ảnh: assets/loc.jpg = X-F15-3 (`fetch.py https://www.loc.gov/item/2015631813/ --loc --id X-F15-3 --tier 5 --license-name "No known restrictions (LoC)"
 #      --dest toolkit/factory/f15/footage-trial/assets --out-name loc.jpg --credit …`); chưa có → ẢNH THAY THẾ = khung
 #      thế giới 3D của chính cảnh này (tự dựng, không phải tư liệu), ghi rõ trên chú thích và trong REPORT
 #   2. bản đồ: map.py (Census qua us-atlas + Natural Earth) → seg/map.json (+ giờ hiện)
@@ -13,10 +13,11 @@ python3 toolkit/factory/guard.py >/dev/null || { echo "còn build/render — ch�
 if [ -f $A/loc.jpg ]; then
   python3 - "$S/plate.json" <<'PY'
 import json, sys
-# X-F15-3 (RIGHTS F6): LoC 2010630116, Carol M. Highsmith 2009, "No known restrictions on publication." — chủ thể = mặt tiền ngân hàng (biển + cửa sổ),
-# rà khung 13/10: x 0,24–0,69 · y 0,15–0,78 của ảnh 1634×972; RIGHTS F4: tư liệu ghi năm + nguồn trên hình
-json.dump({'src': '/toolkit/factory/f15/footage-trial/assets/loc.jpg', 'subject': [0.24, 0.15, 0.69, 0.78], 'zoom': [1.0, 1.12], 'anchor': [0.47, 0.42],
-           't0': 1.0, 't1': 5.2, 'fade': [1.2, 1.0], 'caption': 'Main Street bank, Poseyville, Indiana, 2009',
+# X-F15-3 (RIGHTS F6): LoC 2015631813, Carol M. Highsmith 2015-05-07, "No known restrictions on publication." — không người, không logo/nhãn hiệu
+# (F2; ảnh đầu 2010630116 có logo ngân hàng → bỏ, REVIEWER 14/10). Chủ thể = dãy nhà, rà khung 14/10: x 0,12–0,95 · y 0,23–0,68 của ảnh 1840×1228;
+# RIGHTS F4: tư liệu ghi năm + nguồn trên hình
+json.dump({'src': '/toolkit/factory/f15/footage-trial/assets/loc.jpg', 'subject': [0.12, 0.23, 0.95, 0.68], 'zoom': [1.0, 1.12], 'anchor': [0.5, 0.40],
+           't0': 1.0, 't1': 5.2, 'fade': [1.2, 1.0], 'caption': 'Bungalows, Huntington, West Virginia, 2015',
            'source': 'Photo: Carol M. Highsmith, Library of Congress', 'key': 'plate-loc'},
           open(sys.argv[1], 'w'), indent=1)
 PY
@@ -33,7 +34,7 @@ json.dump({'src': '/toolkit/factory/f15/footage-trial/assets/standin.png', 'subj
 PY
 fi
 python3 -I toolkit/footage/map.py --topo $A/us-atlas-3.0.1.tgz --attrs $A/ne_110m_admin_1_states_provinces.geojson --division "South Atlantic" \
-  --context "East South Central" --box 640,190,1700,880 --out $S/map.json
+  --context "East South Central" --census-year 2017 --ne-version "$(cat $A/NE-VERSION 2>/dev/null || echo 5.2.0-pre)" --box 640,190,1700,880 --out $S/map.json
 python3 - "$S/map.json" <<'PY'
 import json, sys
 m = json.load(open(sys.argv[1])); m.update(t0=4.3, t1=7.4, fade=[1.0, 0.7]); json.dump(m, open(sys.argv[1], 'w'), separators=(',', ':'))
