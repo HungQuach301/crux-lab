@@ -56,6 +56,23 @@ Mỗi tệp ảnh/video/bản đồ ngoài một dòng, trước khi dựng (F5)
 |---|---|---|---|---|---|---|---|---|---|
 | X-RND-1 | `rnd-hybrid/work/external/3c17261u.tif` (gốc TIFF 4096×3298, LoC cph.3c17261, *Crowd of depositors gather in the rain outside Bank of United States after its failure*, 1931, NYWT&S staff photo); bản dùng: `bank1931_crop.jpg` (cắt 3750×2109+175+560 → 1920×1080) | ảnh | https://tile.loc.gov/storage-services/master/pnp/cph/3c10000/3c17000/3c17200/3c17261u.tif · nhãn: https://www.loc.gov/item/96521489/?fo=json (`item.rights_advisory`) · https://hdl.loc.gov/loc.pnp/cph.3c17261 | No known restrictions (LoC) — **đánh giá của tổ chức, không bảo đảm** | 5 | "No known restrictions on publication for NYWT&S staff photographs. For information see \"New York World-Telegram & Sun...\" https://hdl.loc.gov/loc.pnp/res.076.nyw" (`rights_advisory`; `access_restricted` = False) | 14/10/2026 | TIFF `a5617e7035b691aab4f7aecd96caa9442abd8effd2e8b9ae40dafe9faf67769e` · crop `27769d3f8582c6daac5a5c94b6cf055fdf3e16854013f65c3a9695139f5fedb6` · nhãn JSON `19a43d1959ffb2750d177186ccc883dfbd5ecbbc5e0586ad803982b625144a5f` | "Photo: Library of Congress (NYWT&S), 1931" — R&D `rnd-hybrid` khung C (vòng 2), chưa dùng trong tập; đám đông là tư liệu, không đóng vai nhân vật (§F2) |
 
+### F7. Mô hình 3D ngoài (R&D rnd-hybrid vòng 3, 14/10/2026)
+Repo **công khai**: chỉ commit tệp **CC0**. Tệp có giấy phép khác tải lúc dựng vào `rnd-hybrid/work/` hoặc `rnd-hybrid/v3/assets/nonfree/`, cả hai nằm trong `.gitignore`. Vòng 3 bước 1 **không dùng tệp nào ngoài CC0**. Mỗi gói ghi một dòng. Gói dựng lại được từ URL cộng SHA-256 của zip. Tệp trong repo giữ nguyên `License.txt` của tác giả.
+
+| Mã | Gói (phiên bản) | Tệp dùng (trong repo) | URL tải | Giấy phép | Trích nguyên văn (`License.txt`) | Ngày tải | SHA-256 zip | Ghi công (tự nguyện) |
+|---|---|---|---|---|---|---|---|---|
+| M-KEN-MINI | Kenney *Mini Characters* (1.0, 17-07-2024) | `rnd-hybrid/v3/assets/kenney/mini-characters/` (12 `character-*.glb` + `Textures/colormap.png` + `License.txt`) | https://kenney.nl/media/pages/assets/mini-characters/bfc7e272b4-1774770718/kenney_mini-characters.zip (trang: https://kenney.nl/assets/mini-characters) | CC0 1.0 | "License: (Creative Commons Zero, CC0) http://creativecommons.org/publicdomain/zero/1.0/ You can use this content for personal, educational, and commercial purposes." | 14/10/2026 | `9e1d48e6d7b8479ebbe84df71eb5bd8e1b3f0da546dea641890dccc8a02d0999` | "Kenney (www.kenney.nl)" |
+| M-KEN-FURN | Kenney *Furniture Kit* (2.0) | `rnd-hybrid/v3/assets/kenney/furniture-kit/` (9 `.glb` + `License.txt`) | https://kenney.nl/media/pages/assets/furniture-kit/440e0608a4-1677580847/kenney_furniture-kit.zip | CC0 1.0 | như trên | 14/10/2026 | `e67652d0932cee41683f74711c03d3e192a2af9979ef8e6b237711f5482d46b0` | như trên |
+| M-KEN-CITYC | Kenney *City Kit Commercial* (2.1) | `rnd-hybrid/v3/assets/kenney/city-kit-commercial/` (13 `.glb` + colormap + `License.txt`) | https://kenney.nl/media/pages/assets/city-kit-commercial/a742d900eb-1753115042/kenney_city-kit-commercial_2.1.zip | CC0 1.0 | như trên | 14/10/2026 | `f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b` | như trên |
+| M-KEN-CITYS | Kenney *City Kit Suburban* (2.0) | `rnd-hybrid/v3/assets/kenney/city-kit-suburban/` (6 `.glb` + colormap + `License.txt`) | https://kenney.nl/media/pages/assets/city-kit-suburban/2c871b7af2-1745479373/kenney_city-kit-suburban_20.zip | CC0 1.0 | như trên | 14/10/2026 | `5869c35cf30b1c87bdb2d197b6d325eebadd2ef08ea27f04797e8e08d77a9a39` | như trên |
+
+Đã xét nhưng không dùng:
+- **KayKit Adventurers (CC0):** nhân vật là hiệp sĩ, pháp sư, không hợp năm 1930.
+- **Quaternius:** chưa cần.
+- **Poly Pizza, Mixamo:** không dùng (Mixamo cần tài khoản).
+
+Nhân vật Kenney là hình hoạt hình chibi, không mang diện mạo người thật. Mặt được thay bằng decal vẽ từ `rig.js`, nên nhân vật vẫn mang nhãn ILLUSTRATIVE.
+
 ## G. SFX ghi âm thật (D-013)
 Chỉ **CC0** hoặc **CC BY** (4.0 ưu tiên; 3.0 nhận được khi ghi công đủ tiêu đề–tác giả–nguồn–giấy phép) (Freesound lọc theo giấy phép; trang tệp, không trang bộ sưu tập). Cấm: CC BY-NC, Sampling+, BBC RemArc (phi thương mại), kho trả phí, YouTube Audio Library. Mỗi tệp một dòng ở bảng trên (mã `S-<tên>`, URL tệp, tác giả, giấy phép trích nguyên văn + link, ngày tải); CC BY → ghi công trong mô tả tập dùng nó. Nhạc vẫn bằng mã (A-MUSIC); nhạc người sáng tác CC BY xét lại ở G1 Tập 9; không nhạc AI.
 

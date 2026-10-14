@@ -190,6 +190,7 @@ export function drawCharacter(ctx, c) {
   for (const pass of c.noShadow ? ['paper'] : ['shadow', 'paper']) { // noShadow: paper in a lit 3D scene casts a real shadow (v2/paper3d.js)
     ctx.save(); if (pass === 'shadow') ctx.translate(7 * c.s, 9 * c.s);
     for (const k of [...back, ...front]) {
+      if (c.only && !c.only.includes(k)) continue;   // only: vẽ một lớp (giấy nhiều lớp, v3/lib/paperfold.js)
       const j = rig[k]; ctx.save(); ctx.setTransform(ctx.getTransform().multiply(M[k]));
       const sh = pass === 'shadow';
       if (k === 'head') for (const x of ch.extras) if (EXTRA[x].on === 'head' && !EXTRA[x].front) fillPath(ctx, EXTRA[x].d, sh ? P.shadow : EXTRA[x].fill, !sh);
