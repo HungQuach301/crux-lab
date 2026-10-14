@@ -28,8 +28,9 @@ export async function boot(res) {
   const at = (w) => W.words.find((x) => x.w.replace(/[^A-Za-z]/g, '') === w).s;
   const reveal = {}, order = ['FL', 'GA', 'SC', 'NC', 'VA', 'WV', 'MD', 'DE', 'DC'];
   if (M) order.forEach((id, i) => { reveal[id] = at('South') + i * 0.12; });   // phân vùng tô dần từ "South" (theo bờ biển, nam → bắc)
-  const labels = M ? [{ text: 'South Atlantic', at: at('South'), x: (M.focus_box[0] + M.focus_box[2]) / 2 + 40, y: 140, px: 56 },
-    { id: 'FL', text: 'Florida', at: at('Florida') }, { id: 'MD', text: 'Maryland', at: at('Maryland'), y: 150 }] : [];
+  // nhãn neo vào từ; chỗ đặt không chồng nhau: tên phân vùng dưới bản đồ, "Maryland" lệch phải (bang nhỏ, sát mép trên)
+  const labels = M ? [{ text: 'South Atlantic', at: at('South'), x: (M.focus_box[0] + M.focus_box[2]) / 2, y: M.focus_box[3] + 40, px: 56 },
+    { id: 'FL', text: 'Florida', at: at('Florida') }, { id: 'MD', text: 'Maryland', at: at('Maryland'), x: M.features.find((f) => f.id === 'MD').label[0] + 190 }] : [];
   function frame(t) {
     const u = sm(t / 8), c = { pos: lerp(A.pos, B.pos, u), tgt: lerp(A.tgt, B.tgt, u) };
     cam.position.fromArray(c.pos); cam.lookAt(...c.tgt); cam.updateMatrixWorld(true);

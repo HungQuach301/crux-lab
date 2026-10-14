@@ -74,9 +74,13 @@ export function drawCredits(O, log, subject, { caption, source, numbers }, a = 1
   const g = O.ctx; g.save(); g.globalAlpha = 0.86 * a; const grd = g.createLinearGradient(0, band.side === 'bottom' ? 880 : 0, 0, band.side === 'bottom' ? 1080 : 200);
   grd.addColorStop(band.side === 'bottom' ? 0 : 1, rgba('#0B0E13', 0)); grd.addColorStop(band.side === 'bottom' ? 0.45 : 0.55, rgba('#0B0E13', 0.9)); grd.addColorStop(band.side === 'bottom' ? 1 : 0, rgba('#0B0E13', 0.95));
   g.fillStyle = grd; g.fillRect(0, band.side === 'bottom' ? 880 : 0, 1920, 200); g.restore();
+  // nguồn ảnh bên phải, cùng dòng chú thích; hai dòng sẽ giao nhau (đo trước bằng measureText) → nguồn lên một dòng trong dải (cine-lab #50)
+  const g2 = O.ctx, wOf = (t, px, w) => { g2.save(); g2.font = `${w} ${px}px Inter`; const v = g2.measureText(t).width; g2.restore(); return v; };
+  const capR = caption ? 96 + wOf(caption, 48, 600) : 0, srcL = source ? 1824 - wOf(source, 40, 600) : 1920;
+  const ys = capR + 32 > srcL ? (band.side === 'bottom' ? y - 58 : y + 58) : y;
   if (caption) boxes.push(['caption', O.text(caption, 96, y, 48, { kind: 'name', w: 600, color: '#F2F4F7', alpha: a })]);
   if (numbers) boxes.push(['numbers', O.text(numbers, 96, y - 62, 40, { kind: 'chrome', w: 600, color: '#C9D1DC', alpha: a })]);
-  if (source) boxes.push(['source', O.text(source, 1824, y, 40, { kind: 'chrome', w: 600, color: '#C9D1DC', align: 'right', alpha: a })]);
+  if (source) boxes.push(['source', O.text(source, 1824, ys, 40, { kind: 'chrome', w: 600, color: '#C9D1DC', align: 'right', alpha: a })]);
   const hit = (b) => b && subject && b[0] < subject[2] && b[2] > subject[0] && b[1] < subject[3] && b[3] > subject[1];
   log.plate = { side: band.side, subject, boxes: boxes.map(([k, b]) => ({ k, box: b && b.map((v) => +v.toFixed(1)), hitsSubject: !!hit(b) })) };
   return band;

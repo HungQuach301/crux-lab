@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # F-15 (f) · clip thử footage 540p 8 s. Chạy từ gốc repo: bash toolkit/factory/f15/footage-trial/run.sh
-#   1. ảnh: assets/loc.jpg nếu đã tải (`fetch.py <mục LoC> --loc …`, cần mạng cho www.loc.gov + tile.loc.gov); chưa có → ẢNH THAY THẾ = khung
+#   1. ảnh: assets/loc.jpg = X-F15-3 (`fetch.py https://www.loc.gov/item/2010630116/ --loc --id X-F15-3 --tier 5 --license-name "No known restrictions (LoC)"
+#      --dest toolkit/factory/f15/footage-trial/assets --out-name loc.jpg --credit …`); chưa có → ẢNH THAY THẾ = khung
 #      thế giới 3D của chính cảnh này (tự dựng, không phải tư liệu), ghi rõ trên chú thích và trong REPORT
 #   2. bản đồ: map.py (Census qua us-atlas + Natural Earth) → seg/map.json (+ giờ hiện)
 #   3. render_shots.js 540 → out/footage-trial-540.mp4; 4. kiểm: hộp chữ ∩ hộp chủ thể = 0, nhãn hiện ≥ mốc từ và ≤ mốc + 0,2 s
@@ -12,8 +13,11 @@ python3 toolkit/factory/guard.py >/dev/null || { echo "còn build/render — ch�
 if [ -f $A/loc.jpg ]; then
   python3 - "$S/plate.json" <<'PY'
 import json, sys
-json.dump({'src': '/toolkit/factory/f15/footage-trial/assets/loc.jpg', 'subject': [0.30, 0.18, 0.72, 0.80], 'zoom': [1.0, 1.12], 'anchor': [0.5, 0.40],
-           't0': 1.0, 't1': 5.2, 'fade': [1.2, 1.0], 'caption': 'Archive photo', 'source': 'Photo: Library of Congress', 'key': 'plate-loc'},
+# X-F15-3 (RIGHTS F6): LoC 2010630116, Carol M. Highsmith 2009, "No known restrictions on publication." — chủ thể = mặt tiền ngân hàng (biển + cửa sổ),
+# rà khung 13/10: x 0,24–0,69 · y 0,15–0,78 của ảnh 1634×972; RIGHTS F4: tư liệu ghi năm + nguồn trên hình
+json.dump({'src': '/toolkit/factory/f15/footage-trial/assets/loc.jpg', 'subject': [0.24, 0.15, 0.69, 0.78], 'zoom': [1.0, 1.12], 'anchor': [0.47, 0.42],
+           't0': 1.0, 't1': 5.2, 'fade': [1.2, 1.0], 'caption': 'Main Street bank, Poseyville, Indiana, 2009',
+           'source': 'Photo: Carol M. Highsmith, Library of Congress', 'key': 'plate-loc'},
           open(sys.argv[1], 'w'), indent=1)
 PY
 else
@@ -48,11 +52,17 @@ for x in L:
     for lb in (x.get('map') or {}).get('labels', []):
         first.setdefault(lb['text'], x['t'])
 want = {'South Atlantic': W['South'], 'Florida': W['Florida'], 'Maryland': W['Maryland']}
+# chữ đè chữ: mọi cặp hộp chữ cùng hiện (độ hiện ≥ 0,5) giao nhau > 1 px (cine-lab #50: không để dòng này che dòng kia)
+def inter(a, b):
+    return min(a[2], b[2]) - max(a[0], b[0]) > 1 and min(a[3], b[3]) - max(a[1], b[1]) > 1
+tt = [(x['t'], p['text'], q['text']) for x in L for i, p in enumerate(x['texts']) for q in x['texts'][i + 1:]
+      if p['opacity'] >= 0.5 and q['opacity'] >= 0.5 and inter(p['box'], q['box'])]
 lag = {k: round(first.get(k, 99) - v, 3) for k, v in want.items()}
 pr = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'stream=width,height,nb_frames,codec_name', '-of', 'json', f'{H}/out/footage-trial-540.mp4'],
                                capture_output=True, text=True).stdout)['streams'][0]
 rep = {'video': pr, 'plate_frames_logged': sum('plate' in x for x in L), 'band_sides': sides, 'text_hits_subject': len(hits),
-       'label_lag_s (log 0,1 s)': lag, 'labels_ok': all(0 <= v <= 0.2 for v in lag.values())}
+       'label_lag_s (log 0,1 s)': lag, 'labels_ok': all(0 <= v <= 0.2 for v in lag.values()),
+       'text_on_text_frames': len({t for t, *_ in tt}), 'text_on_text_pairs': sorted({f'{a} × {b}' for _, a, b in tt})}
 json.dump(rep, open(f'{H}/out/check.json', 'w'), indent=1); print(json.dumps(rep, ensure_ascii=False))
-sys.exit(0 if not hits and rep['labels_ok'] else 1)
+sys.exit(0 if not hits and rep['labels_ok'] and not tt else 1)
 PY
