@@ -12,12 +12,14 @@ export const CAMS = {
   S2: { pos: [X2 + 0.9, 1.75, 2.6], tgt: [X2 + 0.3, 0.95, -1.4], fov: 36 },
   S3: { pos: [X3 + 1.6, 3.4, 8.8], tgt: [X3 + 0.4, 0.8, -1.2], fov: 44 },
 };
+// CLOSE (t ≥ 20): cận mặt Walt ở S1 (kiểm mặt chiếu, không ma-nơ-canh)
+export const closeCam = () => ({ pos: [WALT[0] + 0.55, 1.68, WALT[2] + 0.95], tgt: [WALT[0] - 0.02, 1.6, WALT[2]], fov: 30 });
 export function orbitCam(t) {   // t ∈ [10,16): góc −12° → +13°, ease
   const k = Math.min(1, Math.max(0, (t - 10) / 6)), e = k * k * (3 - 2 * k), a = THREE.MathUtils.degToRad(-12 + 25 * e), r = 4.6;
   const c = new THREE.Vector3(WALT[0], 1.05, WALT[2]);
   return { pos: [c.x + Math.sin(a + 0.55) * r, 1.45, c.z + Math.cos(a + 0.55) * r], tgt: [c.x - 0.3, 1.05, c.z - 0.6], fov: 34 };
 }
-export const which = (t) => (t >= 10 ? 'ORBIT' : t >= 2 ? 'S3' : t >= 1 ? 'S2' : 'S1');
+export const which = (t) => (t >= 20 ? 'CLOSE' : t >= 10 ? 'ORBIT' : t >= 2 ? 'S3' : t >= 1 ? 'S2' : 'S1');
 // đám đông S1: [x, z, quay(độ), giới, trang phục, mũ, clip, cảm xúc]
 export const CROWD = [
   [-3.6, -8.6, 10, 'male-b', 'brown', 1, 'idle', 'worried'], [-2.4, -9.2, 0, 'female-a', 'dress', 0, 'idle', 'sad'], [-1.2, -8.4, -8, 'male-c', 'grey', 1, 'emote-no', 'worried'],
