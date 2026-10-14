@@ -3,11 +3,11 @@
 **Nhánh:** `ep008` · **Đề tài:** #20 · **Format:** `lab` · **Mô hình:** xưởng 6 mốc (D-013) · **Chặng vừa đóng:** sau G1 → **dừng ở G2** (`session_01D3z2xMwUwt9NXv8xLDkV6d`)
 
 ## 1. Trạng thái
-**G2 chờ chủ dự án** (`gates/G2.md`; nháp `review-g2/draft-540p.mp4` 10:26). M2: cold open v3 + kiểm mù lời 6/6, 0 khuyên; animatic xám, cổng gốc 19/24 (5 nhịp so sánh giữa cảnh → G2). M3–M4: nháp màu theo hồi (`grade8.js`), giọng một lần (S13 seed 1009). M5: nhịp ĐẠT sau 2 vòng (freezedetect 0 s, spine 0); nhớ lại 3/3; **chỗ muốn tua TRƯỢT** (lý do ở lời → G2); cổng gốc chẩn đoán 17/24, 0 khuyên; liền mạch ĐẠT trừ J/L-cut; đạo diễn chẩn đoán; checks đủ bộ khoá `a35970a8` (`gates/M5-checks.md`).
+**G2 chờ chủ dự án** (`gates/G2.md`, REVIEWER lượt 2 ĐẠT có sửa — đã áp; nháp r2 `review-g2/draft-540p.mp4` 10:26). M2: cold open v3 + kiểm mù lời 6/6, 0 khuyên; animatic xám, cổng gốc 19/24 (5 nhịp so sánh giữa cảnh → G2). M3–M4: nháp màu theo hồi (`grade8.js`), giọng một lần (S13 seed 1009). M5: nhịp ĐẠT sau 2 vòng (freezedetect 0 s, spine 0); nhớ lại 3/3; **chỗ muốn tua TRƯỢT** (vòng hình r3 S07 không vượt r2 → hoàn; cắt lời → G2 câu 5); cổng gốc chẩn đoán 17/24, 0 khuyên; liền mạch ĐẠT trừ J/L-cut; đạo diễn chẩn đoán; checks đủ bộ khoá `a35970a8` TRƯỢT (ngoài S01 S04 S05 ghi trước: S03 S06 S07 S09 A14 + mục M6; `gates/M5-checks.md`, báo cáo `review-m5/checks-r2/`).
 
 ## 2. Việc tiếp (≤ 3) và việc treo
-1. Chép G2 → `gates/G2-answer.md`; áp lựa chọn (cắt lời theo "chỗ muốn tua", S13 "3 out of 4", màu "tối", sửa hình S07/cold open).
-2. M6: dựng 1080p + Short SH1 (dọc, thẻ cuối đối trọng) + checks đủ bộ ở 1080p (luật độ phân giải F05 F08 R03 R04 V05 V10 V08 V12 C14) → G3.
+1. Chép G2 → `gates/G2-answer.md`; áp lựa chọn (câu 1 "out of", câu 5 cắt lời, câu 6 "dollars of the day", câu 7 S23 allowTerms, màu câu 3/8); sinh lại giọng các câu đổi.
+2. M6: S06 coverage, nhãn claim trên hình (S07), chrome basis (S09), hạ tiếng dữ liệu (L1), −2,0 dBTP → dựng 1080p + Short SH1 + mô tả → checks đủ bộ 1080p (`--baseline review-m5/checks-r2/report.json`; luật độ phân giải F05 F08 R03 R04 V05 V10 V08 V12 C14) → G3.
 3. Khi K4.4b vào `main`: merge vào `ep008` trước checks đủ bộ (lệnh 14/10).
 - Treo: J/L-cut qua biên đoạn (nhà máy `splice.py`, BACKLOG); tiếng ghi thật (cần tài khoản Freesound); kind `rent-buy-twin-replay` chưa có ở `checks/CONTRACT.md` (phiên K).
 
@@ -25,7 +25,7 @@
 ## 5. Mức cảnh báo, token, chi (`lab`: 15 triệu · Console $45; **chặng trần CỨNG $25**)
 | Chặng | Console | Theo mốc | EL | Giờ máy |
 |---|---|---|---|---|
-| sau G1 → G2 | **$X** (`logs/usage/spend_leg.py`) | M2 ≈ $5,7 (WRITER cold open $3,37, kiểm mù, cổng gốc ×2) · M3–M4 $0 · M5 ≈ $Y (REVIEWER ý đồ $0,69, cổng gốc, nhớ lại/tua, đạo diễn $0,26, REVIEWER G2) | đã dùng 98.214 / 144.034 (còn 45.820, làm mới 01/11) | nháp 3 lần ≈ 4,5 h; checks ≈ 6–8 h; 2 lần container khởi động lại |
+| sau G1 → G2 | **$11,10** / $25 (`logs/usage/spend_leg.py`) | M2 ≈ $5,74 (WRITER cold open $3,37, kiểm mù, cổng gốc ×2) · M3–M4 $0 · M5 ≈ $5,36 (REVIEWER ý đồ $0,69, cổng gốc, nhớ lại/tua ×2, đạo diễn $0,26, REVIEWER G2 ×2 $1,74) | đã dùng 98.214 / 144.034 (còn 45.820, làm mới 01/11) | nháp 4 lần ≈ 6 h; checks ≈ 6,5 h; 2 lần container khởi động lại |
 Token phiên: đọc ở chặng sau bằng `list_events(session_id="session_01D3z2xMwUwt9NXv8xLDkV6d", kinds=["result"])` → `toolkit/usage/from_events.py`. Agent con 0 (api.sh `--disallowedTools "Task,Agent"`).
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
