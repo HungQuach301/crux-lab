@@ -267,6 +267,10 @@ def out():
                           {'name': WORLD3D, 'kind': 'model3d'}],
                'generated': [{'glob': 'world/claims.json', 'generator': 'world/derive.py'}]}, open(os.path.join(EP, 'out', 'visual-assets.json'), 'w'), indent=1)
     extras(Y, tl)
+    # M6: Short nhà máy (work/factory/SH*.mp4 + nhật ký khung) → out/shorts/ (contract.json shorts[].file)
+    import glob as _gl, shutil as _sh
+    for f in sorted(_gl.glob(os.path.join(EP, 'work', 'factory', 'SH[0-9].mp4'))) + sorted(_gl.glob(os.path.join(EP, 'work', 'factory', 'SH[0-9]-frame-log.json'))):
+        os.makedirs(os.path.join(EP, 'out', 'shorts'), exist_ok=True); _sh.copy2(f, os.path.join(EP, 'out', 'shorts', os.path.basename(f)))
     print('out: script.json', len(sents), '· claims.json · captions.srt · timeline.json · adbreaks.json · video.mp4 · stems · takes.json')
 
 

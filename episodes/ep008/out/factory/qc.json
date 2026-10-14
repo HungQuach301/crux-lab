@@ -87,16 +87,93 @@
   {
    "item": "loudness",
    "result": "TRƯỢT",
-   "value": "-14.0 LUFS / -1.9 dBTP",
-   "threshold": "-14 ± 1 LUFS, ≤ -2.0 dBTP",
+   "value": "-14.0 LUFS / -2.2 dBTP",
+   "threshold": "-14 ± 1 LUFS, ≤ -2.3 dBTP",
    "note": ""
   },
   {
    "item": "kích thước phần",
    "result": "TRƯỢT",
-   "value": 132.11,
+   "value": 130.4,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
+  },
+  {
+   "item": "SH1 thời lượng",
+   "result": "ĐẠT",
+   "value": 45.833,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "706 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH1 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH1 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH1 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "230 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH1 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 1332,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Nina and her twin are illustrative · real prices, rents and rates\"",
+   "result": "ĐẠT",
+   "value": 702,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Not advice on whether to buy or rent\"",
+   "result": "ĐẠT",
+   "value": 630,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 loudness",
+   "result": "ĐẠT",
+   "value": "-13.9 LUFS / -2.1 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
   },
   {
    "item": "luật format",
@@ -106,6 +183,17 @@
    "note": ""
   }
  ],
- "near": [],
+ "near": [
+  {
+   "item": "loudness TP",
+   "value": -2.2,
+   "threshold": -2.3
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  }
+ ],
  "pass": false
 }

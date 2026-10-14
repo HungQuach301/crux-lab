@@ -3,23 +3,23 @@
  "yaml": "episodes/ep008/episode.yaml",
  "steps": {
   "spec": {
-   "seconds": 1.84,
+   "seconds": 1.07,
    "problems": 0
   },
   "voice": {
-   "seconds": 7.89,
+   "seconds": 4.64,
    "scenes": 33,
    "cache_hits": 33,
    "el_chars_spent": 0
   },
   "resolve": {
-   "seconds": 5.48,
-   "total": 626.1664,
+   "seconds": 5.49,
+   "total": 606.0996,
    "shots": 0,
    "anchors": 0
   },
   "world": {
-   "seconds": 4033.06,
+   "seconds": 4552.39,
    "segments": {
     "a-s01-s03": {
      "lint": {
@@ -29,7 +29,7 @@
       "files": 18
      },
      "spine": {
-      "seconds": 20.2,
+      "seconds": 20.1,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -40,26 +40,26 @@
       }
      },
      "render": {
-      "seconds": 1.6,
+      "seconds": 1.8,
       "ok": true,
       "shots": 6,
       "rendered": [],
       "cached": 6,
-      "wall_s": 0.9,
+      "wall_s": 1.1,
       "film_s": 55.8999,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 33.8,
+      "seconds": 33.6,
       "ok": true
      },
      "mux": {
-      "seconds": 3.5,
+      "seconds": 3.6,
       "ok": true
      },
      "verify": {
-      "seconds": 5.4,
+      "seconds": 106.2,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -67,7 +67,9 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+       "samples": 1670,
+       "violations": 0,
+       "examples": []
       },
       "modes": {
        "world_share": 0.403,
@@ -109,7 +111,7 @@
       "files": 18
      },
      "spine": {
-      "seconds": 20.4,
+      "seconds": 20.7,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -120,36 +122,26 @@
       }
      },
      "render": {
-      "seconds": 698.4,
+      "seconds": 2.2,
       "ok": true,
       "shots": 9,
-      "rendered": [
-       "s0",
-       "s4",
-       "s2",
-       "s1",
-       "s6",
-       "s3",
-       "s5",
-       "s7",
-       "s8"
-      ],
-      "cached": 0,
-      "wall_s": 697.7,
-      "film_s": 128.8667,
-      "wall_per_film_s_rendered": 20.27,
+      "rendered": [],
+      "cached": 9,
+      "wall_s": 1.5,
+      "film_s": 119.6,
+      "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 72.6,
+      "seconds": 76.4,
       "ok": true
      },
      "mux": {
-      "seconds": 8.1,
+      "seconds": 8.3,
       "ok": true
      },
      "verify": {
-      "seconds": 11.8,
+      "seconds": 223.7,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -157,28 +149,28 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+       "samples": 3089,
+       "violations": 0,
+       "examples": []
       },
       "modes": {
-       "world_share": 0.583,
-       "chart_share": 0.417,
+       "world_share": 0.629,
+       "chart_share": 0.371,
        "first_5s_world": true
       },
       "F2": {
-       "level": "WARN",
-       "sfx_per_min": 12.6,
-       "sfx_max_10s": 8,
-       "sfx_on_speech": 19,
-       "sfx_on_plain_words": 6,
-       "sfx_events": 27,
-       "keyword_hits": 14,
-       "min_keyword_snr_db": 19.4,
+       "level": "OK",
+       "sfx_per_min": 12.5,
+       "sfx_max_10s": 6,
+       "sfx_on_speech": 18,
+       "sfx_on_plain_words": 7,
+       "sfx_events": 25,
+       "keyword_hits": 13,
+       "min_keyword_snr_db": 21.0,
        "label_overlaps": 0,
        "line_crossings": 0,
        "block": [],
-       "warn": [
-        "sfx 8 sự kiện trong 10 s từ 14.284 > 6"
-       ]
+       "warn": []
       },
       "labels": {
        "n": 7,
@@ -186,12 +178,12 @@
        "late": [
         {
          "cue": "b3.two",
-         "t": 24.04,
+         "t": 22.78,
          "lag": null
         },
         {
          "cue": "b16.one",
-         "t": 105.04,
+         "t": 95.773,
          "lag": null
         }
        ]
@@ -206,7 +198,7 @@
       "files": 18
      },
      "spine": {
-      "seconds": 20.7,
+      "seconds": 21.8,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -217,37 +209,26 @@
       }
      },
      "render": {
-      "seconds": 1143.5,
+      "seconds": 2.5,
       "ok": true,
       "shots": 10,
-      "rendered": [
-       "s0",
-       "s4",
-       "s2",
-       "s5",
-       "s3",
-       "s6",
-       "s1",
-       "s9",
-       "s7",
-       "s8"
-      ],
-      "cached": 0,
-      "wall_s": 1142.7,
-      "film_s": 137.9,
-      "wall_per_film_s_rendered": 23.52,
+      "rendered": [],
+      "cached": 10,
+      "wall_s": 1.6,
+      "film_s": 136.1333,
+      "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 77.9,
+      "seconds": 78.0,
       "ok": true
      },
      "mux": {
-      "seconds": 8.0,
+      "seconds": 10.0,
       "ok": true
      },
      "verify": {
-      "seconds": 12.1,
+      "seconds": 267.3,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -255,27 +236,29 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+       "samples": 4119,
+       "violations": 0,
+       "examples": []
       },
       "modes": {
-       "world_share": 0.432,
-       "chart_share": 0.568,
+       "world_share": 0.438,
+       "chart_share": 0.562,
        "first_5s_world": true
       },
       "F2": {
        "level": "WARN",
-       "sfx_per_min": 7.4,
+       "sfx_per_min": 7.5,
        "sfx_max_10s": 3,
        "sfx_on_speech": 12,
        "sfx_on_plain_words": 7,
        "sfx_events": 17,
        "keyword_hits": 6,
-       "min_keyword_snr_db": 12.9,
+       "min_keyword_snr_db": 13.3,
        "label_overlaps": 0,
        "line_crossings": 0,
        "block": [],
        "warn": [
-        "sfx [(90.747, 'rise')] trên từ khoá c13.again 'again:' 90.747–91.72 SNR 12.9 dB"
+        "sfx [(90.747, 'rise')] trên từ khoá c13.again 'again:' 90.747–91.72 SNR 13.3 dB"
        ]
       },
       "labels": {
@@ -287,13 +270,13 @@
     },
     "d-s15-s22": {
      "lint": {
-      "seconds": 0.3,
+      "seconds": 0.5,
       "ok": true,
       "problems": [],
       "files": 18
      },
      "spine": {
-      "seconds": 19.1,
+      "seconds": 21.1,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -304,32 +287,26 @@
       }
      },
      "render": {
-      "seconds": 914.4,
+      "seconds": 2.1,
       "ok": true,
       "shots": 5,
-      "rendered": [
-       "s0",
-       "s2",
-       "s1",
-       "s4",
-       "s3"
-      ],
-      "cached": 0,
-      "wall_s": 913.5,
+      "rendered": [],
+      "cached": 5,
+      "wall_s": 1.3,
       "film_s": 128.1999,
-      "wall_per_film_s_rendered": 24,
+      "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 71.2,
+      "seconds": 75.7,
       "ok": true
      },
      "mux": {
-      "seconds": 8.1,
+      "seconds": 9.3,
       "ok": true
      },
      "verify": {
-      "seconds": 11.7,
+      "seconds": 242.5,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -337,7 +314,9 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+       "samples": 4396,
+       "violations": 0,
+       "examples": []
       },
       "modes": {
        "world_share": 0.083,
@@ -387,7 +366,7 @@
       "files": 18
      },
      "spine": {
-      "seconds": 20.5,
+      "seconds": 22.1,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -398,25 +377,20 @@
       }
      },
      "render": {
-      "seconds": 699.7,
+      "seconds": 1140.3,
       "ok": true,
       "shots": 6,
       "rendered": [
-       "s0",
-       "s2",
-       "s1",
-       "s3",
-       "s4",
        "s5"
       ],
-      "cached": 0,
-      "wall_s": 698.9,
-      "film_s": 84.9666,
-      "wall_per_film_s_rendered": 19.61,
+      "cached": 5,
+      "wall_s": 1139.4,
+      "film_s": 75.9332,
+      "wall_per_film_s_rendered": 27.75,
       "cores": 4
      },
      "audio": {
-      "seconds": 45.1,
+      "seconds": 47.2,
       "ok": true
      },
      "mux": {
@@ -424,7 +398,7 @@
       "ok": true
      },
      "verify": {
-      "seconds": 8.2,
+      "seconds": 120.2,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -432,28 +406,29 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+       "samples": 2097,
+       "violations": 0,
+       "examples": []
       },
       "modes": {
-       "world_share": 0.539,
-       "chart_share": 0.461,
+       "world_share": 0.474,
+       "chart_share": 0.526,
        "first_5s_world": true
       },
       "F2": {
        "level": "WARN",
-       "sfx_per_min": 7.8,
+       "sfx_per_min": 8.7,
        "sfx_max_10s": 3,
-       "sfx_on_speech": 10,
-       "sfx_on_plain_words": 5,
+       "sfx_on_speech": 8,
+       "sfx_on_plain_words": 3,
        "sfx_events": 11,
        "keyword_hits": 5,
-       "min_keyword_snr_db": 26.9,
-       "label_overlaps": 4,
+       "min_keyword_snr_db": 27.8,
+       "label_overlaps": 2,
        "line_crossings": 0,
        "block": [],
        "warn": [
-        "on the day they bought: no light to see × same tag · same costs · same street · different month 31.7–31.9 s (3 mẫu)",
-        "Treasury bill interest: about 2 in 3 (66.4%) × rent tag: 5% 79.3–79.3 s (1 mẫu)"
+        "on the day they bought: no light to see × same tag · same costs · same street · different month 21.4–21.5 s (2 mẫu)"
        ]
       },
       "labels": {
@@ -471,7 +446,7 @@
       "files": 18
      },
      "spine": {
-      "seconds": 18.9,
+      "seconds": 20.6,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -482,26 +457,34 @@
       }
      },
      "render": {
-      "seconds": 1.8,
+      "seconds": 1743.6,
       "ok": true,
       "shots": 7,
-      "rendered": [],
-      "cached": 7,
-      "wall_s": 1.1,
+      "rendered": [
+       "s0",
+       "s4",
+       "s3",
+       "s1",
+       "s2",
+       "s6",
+       "s5"
+      ],
+      "cached": 0,
+      "wall_s": 1742.9,
       "film_s": 90.3333,
-      "wall_per_film_s_rendered": 0,
+      "wall_per_film_s_rendered": 72.65,
       "cores": 4
      },
      "audio": {
-      "seconds": 53.7,
+      "seconds": 54.0,
       "ok": true
      },
      "mux": {
-      "seconds": 6.0,
+      "seconds": 6.3,
       "ok": true
      },
      "verify": {
-      "seconds": 9.2,
+      "seconds": 161.0,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -509,7 +492,9 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "skipped": "video 960×540; C14 đo trên bản 1920×1080"
+       "samples": 2776,
+       "violations": 0,
+       "examples": []
       },
       "modes": {
        "world_share": 0.366,
@@ -540,15 +525,15 @@
    }
   },
   "render": {
-   "seconds": 59.24,
+   "seconds": 186.16,
    "segments": 0,
    "rendered": 0,
    "cache_hits": 0,
-   "frames": 18785,
+   "frames": 18183,
    "blank": true
   },
   "splice": {
-   "seconds": 158.07,
+   "seconds": 489.88,
    "segments": [
     "a-s01-s03",
     "b-s04-s07",
@@ -557,12 +542,12 @@
     "e-s23-s28",
     "f-s29-s33"
    ],
-   "frames": 18785,
+   "frames": 18183,
    "frame_log_dropped": 0
   },
   "mix": {
-   "seconds": 364.86,
-   "a07_gap_db": 20.0,
+   "seconds": 351.82,
+   "a07_gap_db": 19.99,
    "mid_duck_db": 13.0,
    "world": {
     "segments": [
@@ -571,8 +556,8 @@
       "gain_db": -4.86,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -41.9,
-       "sonify": -50.1,
+       "music": -42.0,
+       "sonify": -56.1,
        "sfx": -53.1,
        "whoosh": -62.3,
        "room": -64.3
@@ -581,63 +566,63 @@
      },
      {
       "id": "b-s04-s07",
-      "gain_db": -4.69,
+      "gain_db": -4.73,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -42.3,
-       "sonify": -55.2,
-       "sfx": -56.4,
-       "whoosh": -63.2,
-       "room": -64.9
+       "music": -42.5,
+       "sonify": -61.0,
+       "sfx": -56.0,
+       "whoosh": -62.6,
+       "room": -65.0
       },
       "bed_off": true
      },
      {
       "id": "c-s08-s14",
-      "gain_db": -4.59,
+      "gain_db": -4.48,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -38.0,
-       "sonify": -53.2,
-       "sfx": -54.5,
-       "whoosh": -63.9,
-       "room": -64.9
+       "music": -38.5,
+       "sonify": -58.8,
+       "sfx": -54.7,
+       "whoosh": -64.1,
+       "room": -65.0
       },
       "bed_off": true
      },
      {
       "id": "d-s15-s22",
-      "gain_db": -4.58,
+      "gain_db": -4.57,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -38.1,
-       "sonify": -54.0,
+       "music": -37.9,
+       "sonify": -60.0,
        "sfx": -61.8,
        "whoosh": -66.6,
-       "room": -64.8
+       "room": -65.0
       },
       "bed_off": true
      },
      {
       "id": "e-s23-s28",
-      "gain_db": -4.66,
+      "gain_db": -5.0,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -38.7,
-       "sonify": -51.1,
+       "music": -38.9,
+       "sonify": -58.2,
        "sfx": -64.7,
-       "whoosh": -61.3,
+       "whoosh": -61.7,
        "room": -64.9
       },
       "bed_off": true
      },
      {
       "id": "f-s29-s33",
-      "gain_db": -5.36,
+      "gain_db": -5.35,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -40.1,
-       "sonify": -50.8,
+       "music": -40.0,
+       "sonify": -56.8,
        "sfx": -58.2,
        "whoosh": -62.3,
        "room": -65.0
@@ -668,24 +653,24 @@
    "close_lift": {
     "db": 12.0,
     "ramp_s": 0.5,
-    "t_last_word": 624.666,
-    "t_last_word_timeline": 624.666,
-    "t_voice_off": 624.573,
-    "t0": 624.666,
-    "t_full": 625.166,
-    "a07_gap_db_before": 19.58,
-    "a07_gap_db": 19.58,
+    "t_last_word": 604.6,
+    "t_last_word_timeline": 604.6,
+    "t_voice_off": 604.506,
+    "t0": 604.6,
+    "t_full": 605.1,
+    "a07_gap_db_before": 19.57,
+    "a07_gap_db": 19.57,
     "music_changed_while_voice": false
    },
    "post_peak_scale": 1.0,
    "video": "episodes/ep008/work/factory/video.mp4",
-   "sha256": "98d3ef83faf7591af12f34528bec703189621e9d2085ccff47911d278f929233",
-   "mb": 1355.41
+   "sha256": "1a9c4cafcf2eec7cac4527766022529d5eedf518013c1d385d3dee3d6509de60",
+   "mb": 1312.61
   },
   "artefacts": {
-   "seconds": 0.42,
+   "seconds": 0.47,
    "camera": {
-    "frames": 18785,
+    "frames": 18183,
     "world": [
      "a-s01-s03",
      "b-s04-s07",
@@ -731,35 +716,77 @@
      "e-s23-s28",
      "f-s29-s33"
     ],
-    "bytes": 2963107,
+    "bytes": 2958444,
     "page": "work/factory/page/index.html"
    }
   },
   "parts": {
-   "seconds": 257.73,
+   "seconds": 325.5,
    "parts": [
     {
      "file": "episodes/ep008/work/factory/ep008-part1-720p.mp4",
      "from": 0.0,
-     "to": 208.72213333333332,
-     "mb": 132.11
+     "to": 202.0332,
+     "mb": 130.4
     },
     {
      "file": "episodes/ep008/work/factory/ep008-part2-720p.mp4",
-     "from": 208.72213333333332,
-     "to": 417.44426666666664,
-     "mb": 129.84
+     "from": 202.0332,
+     "to": 404.0664,
+     "mb": 126.79
     },
     {
      "file": "episodes/ep008/work/factory/ep008-part3-720p.mp4",
-     "from": 417.44426666666664,
-     "to": 626.1664,
-     "mb": 131.47
+     "from": 404.0664,
+     "to": 606.0996,
+     "mb": 128.49
+    }
+   ]
+  },
+  "shorts": {
+   "seconds": 844.92,
+   "shorts": [
+    {
+     "id": "SH1",
+     "file": "episodes/ep008/work/factory/SH1.mp4",
+     "from": 338.4333,
+     "to": 382.7667,
+     "duration": 45.833,
+     "world": "d-s15-s22",
+     "render_world": {
+      "wall_s": 809.6,
+      "film_s": 44.3334,
+      "rendered": [
+       "span0",
+       "span2",
+       "span1",
+       "span3",
+       "span4",
+       "span5",
+       "span7",
+       "span6",
+       "span8"
+      ],
+      "cached": 0
+     },
+     "endcard": {
+      "segments": 1,
+      "rendered": 1,
+      "cache_hits": 0,
+      "frames": 45,
+      "seconds": 4.93,
+      "fps": 9.14,
+      "workers": 4,
+      "fmt": "jpeg"
+     },
+     "audio": {
+      "measured_I": -14.16
+     }
     }
    ]
   },
   "qc": {
-   "seconds": 70.56,
+   "seconds": 168.06,
    "pass": false,
    "failed": [
     "master đối trọng \"US only · history, not a forecast\"",
@@ -769,13 +796,16 @@
     "kích thước phần"
    ],
    "warned": [],
-   "near": []
+   "near": [
+    "loudness TP",
+    "SH1 sàn chữ"
+   ]
   }
  },
- "started": "2026-10-14T03:48:42Z",
+ "started": "2026-10-14T18:50:52Z",
  "spec": [],
  "music": {
-  "a07_gap_db": 20.0,
+  "a07_gap_db": 19.99,
   "mid_duck_db": 13.0,
   "world": {
    "segments": [
@@ -784,8 +814,8 @@
      "gain_db": -4.86,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -41.9,
-      "sonify": -50.1,
+      "music": -42.0,
+      "sonify": -56.1,
       "sfx": -53.1,
       "whoosh": -62.3,
       "room": -64.3
@@ -794,63 +824,63 @@
     },
     {
      "id": "b-s04-s07",
-     "gain_db": -4.69,
+     "gain_db": -4.73,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -42.3,
-      "sonify": -55.2,
-      "sfx": -56.4,
-      "whoosh": -63.2,
-      "room": -64.9
+      "music": -42.5,
+      "sonify": -61.0,
+      "sfx": -56.0,
+      "whoosh": -62.6,
+      "room": -65.0
      },
      "bed_off": true
     },
     {
      "id": "c-s08-s14",
-     "gain_db": -4.59,
+     "gain_db": -4.48,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -38.0,
-      "sonify": -53.2,
-      "sfx": -54.5,
-      "whoosh": -63.9,
-      "room": -64.9
+      "music": -38.5,
+      "sonify": -58.8,
+      "sfx": -54.7,
+      "whoosh": -64.1,
+      "room": -65.0
      },
      "bed_off": true
     },
     {
      "id": "d-s15-s22",
-     "gain_db": -4.58,
+     "gain_db": -4.57,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -38.1,
-      "sonify": -54.0,
+      "music": -37.9,
+      "sonify": -60.0,
       "sfx": -61.8,
       "whoosh": -66.6,
-      "room": -64.8
+      "room": -65.0
      },
      "bed_off": true
     },
     {
      "id": "e-s23-s28",
-     "gain_db": -4.66,
+     "gain_db": -5.0,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -38.7,
-      "sonify": -51.1,
+      "music": -38.9,
+      "sonify": -58.2,
       "sfx": -64.7,
-      "whoosh": -61.3,
+      "whoosh": -61.7,
       "room": -64.9
      },
      "bed_off": true
     },
     {
      "id": "f-s29-s33",
-     "gain_db": -5.36,
+     "gain_db": -5.35,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -40.1,
-      "sonify": -50.8,
+      "music": -40.0,
+      "sonify": -56.8,
       "sfx": -58.2,
       "whoosh": -62.3,
       "room": -65.0
@@ -881,16 +911,16 @@
   "close_lift": {
    "db": 12.0,
    "ramp_s": 0.5,
-   "t_last_word": 624.666,
-   "t_last_word_timeline": 624.666,
-   "t_voice_off": 624.573,
-   "t0": 624.666,
-   "t_full": 625.166,
-   "a07_gap_db_before": 19.58,
-   "a07_gap_db": 19.58,
+   "t_last_word": 604.6,
+   "t_last_word_timeline": 604.6,
+   "t_voice_off": 604.506,
+   "t0": 604.6,
+   "t_full": 605.1,
+   "a07_gap_db_before": 19.57,
+   "a07_gap_db": 19.57,
    "music_changed_while_voice": false
   },
   "post_peak_scale": 1.0
  },
- "total_seconds": 4959.16
+ "total_seconds": 6930.41
 }

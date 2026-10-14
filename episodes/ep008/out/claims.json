@@ -362,7 +362,8 @@
      "scene": "S21",
      "sentence": "S21.1"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "n_renter_ahead_5y",
@@ -448,10 +449,6 @@
     {
      "scene": "S22",
      "sentence": "S22.3"
-    },
-    {
-     "scene": "S23",
-     "sentence": "S23.3"
     }
    ]
   },
@@ -518,7 +515,7 @@
   {
    "claimId": "share_buyer_ahead_10y",
    "value": 75.6,
-   "display": "about 3 in 4",
+   "display": "about 3 out of 4",
    "unit": "%",
    "formula": "share of windows with buyer advantage > 0",
    "source": {
@@ -583,7 +580,8 @@
      "scene": "S14",
      "sentence": "S14.2"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "best_start_10y",
@@ -611,7 +609,7 @@
     },
     {
      "scene": "S23",
-     "sentence": "S23.4"
+     "sentence": "S23.3"
     }
    ]
   },
@@ -639,7 +637,8 @@
      "scene": "S15",
      "sentence": "S15.1"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "worst_start_10y",
@@ -700,7 +699,8 @@
      "scene": "S17",
      "sentence": "S17.1"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "n_renter_ahead_10y",
@@ -942,7 +942,8 @@
      "scene": "S22",
      "sentence": "S22.2"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "n_renter_ahead_15y",
@@ -1177,7 +1178,8 @@
      "scene": "S18",
      "sentence": "S18.1"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "worst_pot_10y",
@@ -1203,7 +1205,8 @@
      "scene": "S18",
      "sentence": "S18.1"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "era_1990s_n",
@@ -1688,7 +1691,8 @@
      "scene": "S29",
      "sentence": "S29.3"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "today_rent_month1",
@@ -1718,7 +1722,8 @@
      "scene": "S30",
      "sentence": "S30.1"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "today_rent_to_outlay",
@@ -1778,7 +1783,7 @@
   {
    "claimId": "share_tbills_10y",
    "value": 66.4,
-   "display": "about 2 in 3",
+   "display": "about 2 out of 3",
    "unit": "%",
    "formula": "pot earns T-bill",
    "source": {
@@ -2034,7 +2039,8 @@
      "scene": "S07",
      "sentence": "S07.2"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "down_usd",
@@ -2060,7 +2066,8 @@
      "scene": "S01",
      "sentence": "S01.3"
     }
-   ]
+   ],
+   "basis": "nominal"
   },
   {
    "claimId": "closing_usd",
@@ -2081,7 +2088,8 @@
    "character": "nina",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "basis": "nominal"
   },
   {
    "claimId": "savings_usd",
@@ -2102,7 +2110,8 @@
    "character": "nina",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [],
+   "basis": "nominal"
   },
   {
    "claimId": "down_pct",
@@ -2249,7 +2258,7 @@
    "value": 75.6,
    "display": "75.6%",
    "unit": "%",
-   "formula": "same quantity as share_buyer_ahead_10y: about 3 in 4 (75.6%)",
+   "formula": "same quantity as share_buyer_ahead_10y: about 3 out of 4 (75.6%)",
    "source": {
     "id": "model",
     "url": null
@@ -2289,11 +2298,57 @@
    "conditional": "history-not-forecast"
   },
   {
+   "claimId": "today_buyer_month1_usd",
+   "value": 2933,
+   "display": "$2,933",
+   "unit": "USD/month",
+   "formula": "same quantity as today_buyer_month1: $2,933 a month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "today_buyer_month1",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "nina",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "today_rent_month1_usd",
+   "value": 1667,
+   "display": "$1,667",
+   "unit": "USD/month",
+   "formula": "same quantity as today_rent_month1: $1,667 a month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "today_rent_month1",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "nina",
+   "basis": "nominal"
+  },
+  {
    "claimId": "share_tbills_10y_pct",
    "value": 66.4,
    "display": "66.4%",
    "unit": "%",
-   "formula": "same quantity as share_tbills_10y: 66.4% (about 2 in 3)",
+   "formula": "same quantity as share_tbills_10y: 66.4% (about 2 out of 3)",
    "source": {
     "id": "model",
     "url": null
@@ -2352,7 +2407,8 @@
     1991,
     2026
    ],
-   "conditional": "history-not-forecast"
+   "conditional": "history-not-forecast",
+   "basis": "nominal"
   },
   {
    "claimId": "yield4_tag",
