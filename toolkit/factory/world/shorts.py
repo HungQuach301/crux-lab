@@ -24,10 +24,11 @@ def seg_for(segs, a, b, eps=1e-3):
 VS_DEFAULT = 0.75   # cửa sổ dọc rộng 1080/0,75 = 1440 px thiết kế (75 % bề ngang khung 16:9): đồ thị rộng vẫn gần trọn; chữ vẫn ≥ 56 px (nâng)
 
 
-def render_world(seg_dir, la, lb, out, hook, cws, workers=3, cache=None, extra=None, vs=VS_DEFAULT):
-    """Khung dọc 1080×1920 của đoạn, giây đoạn [la, lb) → out (.mp4) + out.log.json (+ .cam.json). Trả báo cáo render."""
+def render_world(seg_dir, la, lb, out, hook, cws, workers=3, cache=None, extra=None, vs=VS_DEFAULT, res=1920):
+    """Khung dọc 1080×1920 của đoạn, giây đoạn [la, lb) → out (.mp4) + out.log.json (+ .cam.json). Trả báo cáo render.
+    F-15: res = chiều cao khung dọc (nháp 540p → 960; assemble(..., scale=True) phóng về 1080×1920)."""
     env = {**os.environ, 'NODE_PATH': subprocess.run(['npm', 'root', '-g'], capture_output=True, text=True).stdout.strip()}
-    cmd = ['node', os.path.join(HERE, 'render_shots.js'), os.path.relpath(seg_dir, ROOT), '1920', out, '--span', f'{la:.4f},{lb:.4f}', '--orient', 'v',
+    cmd = ['node', os.path.join(HERE, 'render_shots.js'), os.path.relpath(seg_dir, ROOT), str(res), out, '--span', f'{la:.4f},{lb:.4f}', '--orient', 'v',
            '--vs', f'{vs:g}', '--hook', hook or '', '--cws', json.dumps(cws, ensure_ascii=False), '--vt0', f'{la:.4f}', '--workers', str(workers), *(['--cache', cache] if cache else []), *(extra or [])]
     r = subprocess.run(cmd, cwd=ROOT, env=env, capture_output=True, text=True)
     if r.returncode:
@@ -66,10 +67,10 @@ def short_audio(master_wav, a, L, end, out_wav, lufs=-14.0, tp=-1.5):
     return {'measured_I': float(m['input_i'])}
 
 
-def assemble(world_mp4, end_mp4, wav, out, fps):
+def assemble(world_mp4, end_mp4, wav, out, fps, scale=False):
     """Khung thế giới + thẻ cuối (mã hoá lại một lần, thông số Short của nhà máy) + tiếng → out (H.264 1080×1920 + AAC)."""
     import splice as SP
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', world_mp4, '-i', end_mp4, '-i', wav, '-filter_complex',
-                    '[0:v]setsar=1,format=yuv420p[a];[1:v]scale=1080:1920,setsar=1,format=yuv420p[b];[a][b]concat=n=2:v=1:a=0[v]', '-map', '[v]', '-map', '2:a',
+                    ('[0:v]scale=1080:1920,setsar=1,format=yuv420p[a];' if scale else '[0:v]setsar=1,format=yuv420p[a];') + '[1:v]scale=1080:1920,setsar=1,format=yuv420p[b];[a][b]concat=n=2:v=1:a=0[v]', '-map', '[v]', '-map', '2:a',
                     *SP.encode_args(ENC_V, fps), '-c:a', 'aac', '-b:a', '320k', '-ar', '48000', '-ac', '2', '-shortest', '-movflags', '+faststart', out], check=True)
     return out

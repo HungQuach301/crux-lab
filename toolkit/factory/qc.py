@@ -141,7 +141,7 @@ def run(B):
         q.item(f"{S['id']} thời lượng", S['duration'] <= 60, S['duration'], '≤ 60 s')
         q.close(f"{S['id']} thời lượng", S['duration'], 60)
         frame_rules(q, json.load(open(os.path.join(B.work, f"{S['id']}-frame-log.json"))), 'v', S['id'], B.counterweights)
-        Is, tps = loud(os.path.join(ROOT, S['file']))
+        Is, tps = loud(os.path.join(B.work, f"{S['id']}.mp4"))   # F-15: tệp thật (thư mục tạm của build nguyên tử), không đường đích trong báo cáo
         q.item(f"{S['id']} loudness", tps <= -1.0 and abs(Is + 14) <= 2.0, f'{Is} LUFS / {tps} dBTP', '−14 ± 2 LUFS, ≤ −1 dBTP')
     P = SPEC.check(B.S, B.root, duration=B.total)
     fp = [p for p in P if p['level'] in ('BLOCK', 'ASK')]

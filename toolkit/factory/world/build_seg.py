@@ -1,6 +1,7 @@
 """Nhà máy · DỰNG MỘT ĐOẠN THẾ GIỚI 3D bằng một lệnh (D-010; quy trình hai đoạn chứng minh Mốc V).
 
   python3 toolkit/factory/world/build_seg.py <thư mục đoạn> [--res 540|1080] [--out <file.mp4>] [--workers 3] [--music code|<wav>]
+        [--spp 0|N] [--resume]      (F-15, opt-in: khử răng cưa/siêu lấy mẫu; dựng tiếp theo khung — render_shots.js)
 
 Thư mục đoạn chứa: spine.py (đặc tả nhịp, dùng toolkit/factory/world/spine.py) + scene.js (dùng lib3d.js/core.js) [+ dữ liệu].
 Các bước (mỗi bước dừng cả lệnh nếu trượt):
@@ -96,7 +97,8 @@ def main():
     def render():
         env = {**os.environ, 'NODE_PATH': subprocess.run(['npm', 'root', '-g'], capture_output=True, text=True).stdout.strip()}
         pic = out.replace('.mp4', '.picture.mp4')
-        r = run(['node', os.path.join(HERE, 'render_shots.js'), seg, str(res), pic, '--workers', arg('--workers', '3')], env=env)
+        extra = (['--spp', arg('--spp')] if arg('--spp') is not None else []) + (['--resume'] if '--resume' in sys.argv else [])   # F-15 opt-in
+        r = run(['node', os.path.join(HERE, 'render_shots.js'), seg, str(res), pic, '--workers', str(guard.max_workers(arg('--workers', '3'))), *extra], env=env)
         st = json.load(open(pic + '.render.json')) if r.returncode == 0 else {}
         return r.returncode == 0, {k: st.get(k) for k in ('shots', 'rendered', 'cached', 'wall_s', 'film_s', 'wall_per_film_s_rendered', 'cores')}
 

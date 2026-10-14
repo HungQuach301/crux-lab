@@ -1,0 +1,382 @@
+{
+ "R01": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The step from there to \"choose the 30-year and overpay\" is my own reading.",
+  "why": "Merged card and fallback idea captured; action inferred by reader",
+  "q5": "own"
+ },
+ "R02": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "Comparing prepaying with investing would need extra information: your mortgage rate, expected investment returns, taxes, and your emergency savings.",
+  "why": "Flat required payment, faster shrink; only general caution",
+  "q5": "none"
+ },
+ "R03": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": true,
+  "quote": "The idea of weighing extra payments against investing is my own reading",
+  "why": "Bar/stack source labels captured; invest weighing is own",
+  "q5": "own"
+ },
+ "R04": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap varying 0.2 to 1.0 captured; no action",
+  "q5": "own"
+ },
+ "R05": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "a viewer might conclude that a low fixed rate makes investing the spare cash a reasonable choice instead of paying the mortgage down early",
+  "why": "Two stacks seen, fallback bracket and meaning muddled",
+  "q5": "own"
+ },
+ "R06": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "it's worth checking the current gap between the two rates when comparing loan terms",
+  "why": "Gap varies over time captured; only check-your-numbers caution",
+  "q5": "own"
+ },
+ "R07": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "when the mortgage rate is low, investing spare cash has tended to come out ahead of paying down the loan",
+  "why": "Low-rate decade stack taller captured; invest conclusion own",
+  "q5": "own"
+ },
+ "R08": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "at a low rate like 2.65%, putting spare cash into investments may have beaten paying down the loan",
+  "why": "Leo, Jan 2021, shorter stack captured; inference own",
+  "q5": "own"
+ },
+ "R09": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "7.40% line, early stretches above, 1 in 5 captured",
+  "q5": "own"
+ },
+ "R10": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Stacks seen, gap-becomes-Tessa's-stack link not made",
+  "q5": "none"
+ },
+ "R11": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Tiles, 195 vs 180 months seen; no extra slab described",
+  "q5": "own",
+  "extra_layer_seen": false
+ },
+ "R12": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "In frame 5 small green overlays appear across the tiles, which looks like the extra money being applied.",
+  "why": "Tiles, past-180 strip and extra overlay all described",
+  "q5": "none",
+  "extra_layer_seen": true
+ },
+ "R13": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Beam at loan rate, dollar, 'any other use' captured",
+  "q5": "none"
+ },
+ "R14": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "30-year required bar shorter than 15-year captured",
+  "q5": "own"
+ },
+ "R15": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Fallback gap between payment bars captured",
+  "q5": "own"
+ },
+ "R16": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "paying the same amount monthly beats saving it up for one yearly payment",
+  "why": "Yearly lump ends 4 months later captured; advice own",
+  "q5": "own"
+ },
+ "R17": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Flat assumed rate vs real history, 1,833-week grid captured",
+  "q5": "none"
+ },
+ "R18": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice to pay extra on a 30-year loan is my inference from the pictures and labels",
+  "why": "Raised bar, bills dropping onto stack captured; advice own",
+  "q5": "own"
+ },
+ "R19": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Line at 7.40%, early years above, 1 in 5 captured",
+  "q5": "own"
+ },
+ "R20": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": true,
+  "quote": "a very low rate like 2.65% makes investing look better",
+  "why": "Leo, shorter stack captured; invest inference own",
+  "q5": "own"
+ },
+ "R21": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "They might read it as an argument for extra payments over investing the spare cash.",
+  "why": "Tall vs short interest stacks captured; argument inferred",
+  "q5": "own"
+ },
+ "R22": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Weekly bars and smallest marker seen; link to gap missed",
+  "q5": "none"
+ },
+ "R23": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "choosing the shorter term has historically saved interest",
+  "why": "Gap brackets per decade, later wider, captured",
+  "q5": "own"
+ },
+ "R24": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The idea that a viewer should pay extra is my own reading",
+  "why": "Fixed required payment, faster shrinking captured",
+  "q5": "own"
+ },
+ "R25": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap brackets, later two wider, captured",
+  "q5": "own"
+ },
+ "R26": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Weekly bars and low marker seen; gap link missed",
+  "q5": "none"
+ },
+ "R27": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "A viewer could infer that if they pay once a year, it costs a bit more time, and that paying monthly (or more often) is slightly better.",
+  "why": "Yearly extra ends 4 months later captured",
+  "q5": "own"
+ },
+ "R28": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer might take away that flexibility has a price and should be compared with its benefit.",
+  "why": "Stack carries $120 monthly fallback price captured",
+  "q5": "own"
+ },
+ "R29": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "they should consider their own loan rate and how much cash they need on hand before prepaying",
+  "why": "Your-bar/your-stack labels captured; general caution only",
+  "q5": "own"
+ },
+ "R30": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "an alternative has to clear that rate",
+  "why": "Beam at 7.40%, 'any other use' dollar captured",
+  "q5": "own"
+ },
+ "R31": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice-like takeaway is my own inference, because the animation gives no instruction.",
+  "why": "Merged fallback card equation captured; advice own",
+  "q5": "own"
+ },
+ "R32": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Shorter 30-year required bar captured",
+  "q5": "own"
+ },
+ "R33": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Median line, Tessa above, under 1 in 5 captured",
+  "q5": "own"
+ },
+ "R34": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Raised bar, dropping coins onto $21,622 stack captured",
+  "q5": "own"
+ },
+ "R35": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "2010s stack tallest with low rate captured",
+  "q5": "own"
+ },
+ "R36": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Gap slice and tossed stack seen, not linked as same",
+  "q5": "own"
+ },
+ "R37": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Median, Tessa above, thin slice of weeks captured",
+  "q5": "own"
+ },
+ "R38": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "The advice that a lower required payment offers a cushion is my own inference from those cues.",
+  "why": "Fallback gap between payment bars captured",
+  "q5": "own"
+ },
+ "R39": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "A viewer can't decide between extra payments and investing from this image alone.",
+  "why": "Tall vs short interest stacks captured",
+  "q5": "own"
+ },
+ "R40": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Stack with $120 monthly fallback price captured",
+  "q5": "none"
+ },
+ "R41": {
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Flat assumed rate vs history, 1,833 cells, Tessa's week",
+  "q5": "none"
+ },
+ "R42": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "quote": "a low locked-in rate makes investing spare cash more attractive than prepaying",
+  "why": "Leo/Tessa seen; fallback bracket and meaning missed",
+  "q5": "own"
+ }
+}

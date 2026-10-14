@@ -132,9 +132,34 @@ def claims_unrounded(spec, root):
     return P
 
 
+def yaml_bool_traps(path):
+    """F-15 (khoá YAML boolean): PyYAML đọc theo YAML 1.1 → `on/off/yes/no/y/n` không ngoặc thành True/False (vd `ident: {after: on}`,
+    khoá `on:` thành True, mã nước `NO` thành False). Trả [(dòng, đường khoá, chữ gốc)] cho mọi vô hướng thành bool mà không viết true/false."""
+    import yaml
+    out = []
+
+    def walk(n, path):
+        if isinstance(n, yaml.MappingNode):
+            for k, v in n.value:
+                walk(k, path + ['<khoá>'])
+                walk(v, path + [k.value if isinstance(k, yaml.ScalarNode) else '?'])
+        elif isinstance(n, yaml.SequenceNode):
+            for i, v in enumerate(n.value):
+                walk(v, path + [str(i)])
+        elif isinstance(n, yaml.ScalarNode) and n.tag == 'tag:yaml.org,2002:bool' and n.value.lower() not in ('true', 'false'):
+            out.append((n.start_mark.line + 1, '/'.join(map(str, path)), n.value))
+    for d in yaml.compose_all(open(path)):
+        walk(d, [])
+    return out
+
+
 def check(spec, root, duration=None):
     P = []
     add = lambda level, rule, msg: P.append({'level': level, 'rule': rule, 'msg': msg})
+    yml = os.path.join(root, 'episode.yaml')
+    if os.path.exists(yml):   # F-15: chặn trước mọi bước (chỉ thêm vấn đề khi có bẫy; tập cũ: 0)
+        for ln, kp, v in yaml_bool_traps(yml):
+            add('BLOCK', 'yaml-bool', f'episode.yaml:{ln} {kp} = {v!r} thành bool (YAML 1.1) — viết true/false, hoặc đặt trong ngoặc "{v}" nếu là chữ')
     fmt, scope = spec.get('format'), spec.get('scope', 'full')
     if fmt not in FORMATS:
         add('BLOCK', 'format', f'format must be lab or 101, got {fmt!r}')

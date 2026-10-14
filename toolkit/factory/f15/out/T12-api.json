@@ -1,0 +1,27 @@
+{
+ "cap.jsonl": {
+  "tools_has_Task_Agent_Workflow": [
+   "Workflow"
+  ],
+  "subtype": "success",
+  "cost_usd": 0.01604846,
+  "turns": 6,
+  "result_head": "I read only 3 of the 10 files before stopping. The session's USD budget is nearly used up ($0.011 of $0.02 spent), and the remaining seven reads plus ten 2,000-"
+ },
+ "cap2.jsonl": {
+  "tools_has_Task_Agent_Workflow": [],
+  "subtype": "error_max_budget_usd",
+  "cost_usd": 0.0065454,
+  "turns": 1,
+  "result_head": ""
+ },
+ "sub.jsonl": {
+  "tools_has_Task_Agent_Workflow": [
+   "Workflow"
+  ],
+  "subtype": "success",
+  "cost_usd": 0.00785798,
+  "turns": 2,
+  "result_head": "NO SUBAGENT TOOL\n\nTools I have, by name:\n\n- **Loaded:** Artifact, Bash, Edit, Glob, Grep, ListAgents, Read, ReadNotifications, ReportFindings, ScheduleWakeup, S"
+ }
+}

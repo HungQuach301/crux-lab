@@ -1,0 +1,23 @@
+verify.sh — 2026-10-13T15:25:38Z — /var/tmp/f15/ep007wt
+git                      | ĐẠT | git version 2.43.0
+node                     | ĐẠT | v22.22.0
+python3                  | ĐẠT | Python 3.13.16
+ffmpeg                   | ĐẠT | ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FF
+ffprobe                  | ĐẠT | ffprobe version 6.1.1-3ubuntu5 Copyright (c) 2007-2023 the F
+playwright (NODE_PATH)   | ĐẠT | /opt/node22/lib/node_modules
+chromium                 | ĐẠT | /opt/pw-browsers
+py:numpy                 | ĐẠT | 
+py:scipy                 | ĐẠT | 
+py:requests              | ĐẠT | 
+py:yaml                  | ĐẠT | 
+py:faster_whisper        | ĐẠT | 
+three.js (vendor)        | ĐẠT | 0.186.1
+ASR thử (small.en)     | ĐẠT | av 14.2.0 · OK 100% "here's what tessa is weighing.  on $320,000, the 15
+dữ liệu tập (fetch) | ĐẠT | episodes/ep007/data
+nhạc nền tập       | ĐẠT | work/factory/music/bed.wav 57c57cae0f78…
+nhánh                   | TRƯỢT | đang ở HEAD, lệnh ghi factory-f15 (git checkout factory-f15, hoặc git checkout -b factory-f15 origin/main nếu là nhánh mới)
+main mới nhất        | TRƯỢT | thiếu 2 commit của origin/main (merge hoặc rebase theo lệnh)
+cây sạch              | TRƯỢT | có thay đổi chưa commit
+checks/LOCK              | ĐẠT | dc4981b3f63e…
+đĩa trống            | ĐẠT | 23900 MB
+rc=1 wall=98 s
