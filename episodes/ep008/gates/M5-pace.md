@@ -36,4 +36,14 @@ Phân bố 212 s (−60 dB) theo tư thế máy: **đồ thị ≈ 146 s** (cGri
 ## Vòng 2 (cuối, 14/10) — "đổi vì thước"
 Đồ thị: k **thở** tam giác 0 ↔ 2,5 % ở 0,5 %/s (thử trên quãng cIdx 47–66 s: 1,2 % ở 0,3 %/s còn một quãng 4,0 s; 2,5 % ở 0,5 %/s: 0). Khung đỉnh (2,5 %) soát tay: "January 1991" còn trên dòng chrome; "rent"/"buyer's first month" sát dòng chrome như bản c1 (verify F-2 báo nếu chạm). Nghĩa: không có — đây là chuyển động để qua thước, nêu đích danh ở G2; cổng gốc (chẩn đoán) soát nghĩa.
 
-Kết quả vòng 2: (điền sau khi dựng).
+Dựng lần 1 vòng 2: verify **F-2 CHẶN** "rent" × dòng chrome ở cStacks (đoạn a 10 mẫu, f 88 mẫu) → trần riêng cStacks 1,2 % (`HOLD_PUSH.caps`, bản r1 không chạm), dựng lại a, f: verify OK (không F-2 mới so với r1).
+
+**Kết quả vòng 2** (`work/animatic/draft-r2.mp4` = nháp G2, `review-m5/pace-r2*.json`):
+
+| Thước | c1 | r1 | **r2** | Ngưỡng |
+|---|---|---|---|---|
+| freezedetect n = 0,003 (ghi trước) ∩ lời | 281,6 s | 67,9 s | **0 s — ĐẠT** | ≤ 30 s |
+| freezedetect −60 dB ∩ lời | 212,0 s | 6,4 s | **0 s** | ≤ 30 s |
+| spine: quãng có lời > 8 s không major | 9 | 0 | **0 — ĐẠT** | 0 |
+
+Hai thước máy của Editor ĐẠT sau 2 vòng (hết vòng). Cái giá cần chủ dự án nhìn ở G2: máy **không bao giờ đứng hẳn** — thế giới tiến chậm ≤ 8 %, đồ thị thở 0 ↔ 2,5 % (cStacks 1,2 %); phần "thở" là chuyển động không mang nghĩa, chỉ để qua thước (bài học F-14 v4: soát nghĩa ở cổng gốc). Kiểm mù "chỗ muốn tua" chạy trên r2 (`prod/recall.py`).
