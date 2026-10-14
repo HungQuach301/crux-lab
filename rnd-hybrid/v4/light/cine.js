@@ -58,6 +58,23 @@ const GradeShader = {
     }`,
 };
 
+// ---------------------------------------------------------------- bokeh CÓ XÉT ĐỘ SÂU (thay fragment của BokehPass, không sửa vendor)
+// BokehShader gốc gom mẫu không xét độ sâu → nền mờ "hút" mép sáng của vật gần (quầng quanh người viền sáng, đo ở close-check v4).
+// Ở đây: mẫu GẦN máy hơn điểm đang xét quá 0,35 m bị bỏ (trọng số 0) → nền mờ không mang màu tiền cảnh; cùng 41 vị trí mẫu như bản gốc.
+const BOKEH_OFFS = (() => { const r1 = [[0, 0.4], [0.15, 0.37], [0.29, 0.29], [-0.37, 0.15], [0.4, 0], [0.37, -0.15], [0.29, -0.29], [-0.15, -0.37], [0, -0.4], [-0.15, 0.37], [-0.29, 0.29], [0.37, 0.15], [-0.4, 0], [-0.37, -0.15], [-0.29, -0.29], [0.15, -0.37]];
+  const r9 = [[0.15, 0.37], [-0.37, 0.15], [0.37, -0.15], [-0.15, -0.37], [-0.15, 0.37], [0.37, 0.15], [-0.37, -0.15], [0.15, -0.37]];
+  const r7 = [[0.29, 0.29], [0.4, 0], [0.29, -0.29], [0, -0.4], [-0.29, 0.29], [-0.4, 0], [-0.29, -0.29], [0, 0.4]];
+  return [...r1.map((o) => [...o, 1]), ...r9.map((o) => [...o, 0.9]), ...r7.map((o) => [...o, 0.7]), ...r7.map((o) => [...o, 0.4])]; })();
+const BOKEH_FRAG = `#include <common>
+  varying vec2 vUv; uniform sampler2D tColor; uniform sampler2D tDepth; uniform float maxblur, aperture, nearClip, farClip, focus, aspect;
+  #include <packing>
+  float vz(vec2 p){ return perspectiveDepthToViewZ(unpackRGBAToDepth(texture2D(tDepth, p)), nearClip, farClip); }
+  void main(){
+    vec2 ac = vec2(1.0, aspect); float z0 = vz(vUv); vec2 b = vec2(clamp((focus + z0) * aperture, -maxblur, maxblur));
+    vec4 col = texture2D(tColor, vUv); float wsum = 1.0; vec2 q; float w;
+    ${BOKEH_OFFS.map(([x, y, k]) => `q = vUv + vec2(${x.toFixed(2)}, ${y.toFixed(2)}) * ac * b * ${k.toFixed(1)}; w = step(vz(q), z0 + 0.35); col += w * texture2D(tColor, q); wsum += w;`).join('\n    ')}
+    gl_FragColor = vec4(col.rgb / wsum, 1.0); }`;
+
 // ---------------------------------------------------------------- người viền sáng (2a): giữ Person của lib3d, không mặt
 const RIMDIR = new THREE.Vector3(0, 1, 0);   // hướng TỚI đèn chính trong toạ độ máy quay, cập nhật mỗi khung
 function rimify(mat, base, rim, strength, power) {
@@ -145,7 +162,7 @@ export function install(opts = {}) {
     if (ly.ao) { const ao = seeded(() => new GTAOPass(scene, cam, W, H)); ao.output = 0; ao.blendIntensity = L.ao;
       ao.updateGtaoMaterial({ radius: 0.6, distanceExponent: 1.5, thickness: 1.2, scale: 1, samples: 16, distanceFallOff: 1 });
       ao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 16 }); comp.addPass(ao); state.passes.ao = ao; }
-    if (ly.dof) { const b = new BokehPass(scene, cam, { focus: 10, aperture: O.aperture * 0.001, maxblur: 0.008 }); comp.addPass(b); state.passes.dof = b; }
+    if (ly.dof) { const b = new BokehPass(scene, cam, { focus: 10, aperture: O.aperture * 0.001, maxblur: 0.008 }); b.materialBokeh.fragmentShader = BOKEH_FRAG; b.materialBokeh.needsUpdate = true; comp.addPass(b); state.passes.dof = b; }
     comp.addPass(new OutputPass());
     if (ly.grade) { const g = new ShaderPass(GradeShader); g.uniforms.res.value.set(W, H); for (const k of ['lift', 'gamma', 'gain']) g.uniforms[k].value.set(...L.grade[k]);
       g.uniforms.sat.value = L.grade.sat; g.uniforms.contrast.value = L.grade.contrast; g.uniforms.vignette.value = L.grade.vignette; g.uniforms.grain.value = L.grade.grain;
