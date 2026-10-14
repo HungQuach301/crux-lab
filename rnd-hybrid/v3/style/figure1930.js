@@ -5,6 +5,8 @@
 import { hash } from '/rnd-hybrid/cutout/rig.js';
 
 export const INK = '#17150F';
+// mật độ gạch (tranh khắc): hệ số dãn khoảng cách nét; 1,67 = giảm ~40 % số nét so với bản khung phong cách đầu (chủ dự án 14/10)
+export const HATCH = { spacing: 1.67 };
 const SK = { light: '#E8C4A2', medium: '#C99470', tan: '#A9744F', dark: '#74482F', deep: '#4E3022' };
 export const COATS = { charcoal: '#3F434A', brown: '#6B5442', navy: '#323C52', grey: '#6F737A', tweed: '#7A6A52', camel: '#9A7B55', plum: '#6A5470', green: '#4E6656' };
 
@@ -18,8 +20,8 @@ function sepia(c, k = 0.55) { const a = rgbOf(c), L = (a[0] * 0.3 + a[1] * 0.59 
 function hatch(g, box, d, ang = 0.75, gap = 7, lw = 1.3, color = INK) {
   if (d <= 0.02) return; const [x0, y0, x1, y1] = box, cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, R = Math.hypot(x1 - x0, y1 - y0) / 2 + 4;
   const pass = (a, sp) => { g.beginPath(); const ca = Math.cos(a), sa = Math.sin(a); for (let s = -R; s <= R; s += sp) { g.moveTo(cx + ca * -R - sa * s, cy + sa * -R + ca * s); g.lineTo(cx + ca * R - sa * s, cy + sa * R + ca * s); } g.stroke(); };
-  g.save(); g.strokeStyle = color; g.lineWidth = lw * (0.5 + d); g.globalAlpha = Math.min(1, 0.35 + d); pass(ang, gap / Math.max(0.25, d));
-  if (d > 0.55) pass(ang + 1.3, gap * 1.4 / (d - 0.4)); g.restore();
+  g.save(); g.strokeStyle = color; g.lineWidth = lw * (0.5 + d); g.globalAlpha = Math.min(1, 0.35 + d); pass(ang, gap * HATCH.spacing / Math.max(0.25, d));
+  if (d > 0.55) pass(ang + 1.3, gap * HATCH.spacing * 1.4 / (d - 0.4)); g.restore();
 }
 // một mảng: tô + (khắc: gạch theo độ tối) + viền
 function part(g, path, fill, st, { dark = 0.3, box = null, lw = null } = {}) {
@@ -51,7 +53,7 @@ function face(g, expr, st) {
   g.lineWidth = 2.6; g.beginPath(); g.moveTo(1, -702); g.lineTo(-3, -686); g.lineTo(3, -684); g.stroke();                        // mũi
   g.lineWidth = 3.6; g.beginPath(); if (mouth < -0.8) { g.moveTo(-11, -664); g.quadraticCurveTo(0, -672, 11, -664); } else if (mouth > 0.5) { g.moveTo(-12, -670); g.quadraticCurveTo(0, -660, 12, -670); }
   else { g.moveTo(-10, -667); g.bezierCurveTo(-4, -671, 4, -663, 10, -668); } g.stroke();
-  if (st.style === 'engrave') { g.save(); g.clip(P(ell(0, -700, 38, 48))); g.globalAlpha = 0.35; hatch(g, [16, -750, 40, -650], 0.3, 0.9, 6, 1); g.restore(); }
+  // mặt: không gạch (đọc được trên điện thoại)
   g.restore();
 }
 
@@ -68,7 +70,7 @@ export function drawFigure(g, o) {
   // ---- tay sau
   const back = front ? -1 : 1;   // tay "sau" là tay trái khi nhìn trước
   const drawArm = (side, pose) => { const A = armPath(side, pose, fem); part(g, P(A.d), coat, st, { dark: 0.5, box: A.box });
-    part(g, P(ell(A.hand[0], A.hand[1] + 6, fem ? 12 : 15, fem ? 13 : 16)), skin, st, { dark: 0.25, box: [A.hand[0] - 16, A.hand[1] - 12, A.hand[0] + 16, A.hand[1] + 24] });
+    part(g, P(ell(A.hand[0], A.hand[1] + 6, fem ? 12 : 15, fem ? 13 : 16)), skin, st, { dark: 0, box: [A.hand[0] - 16, A.hand[1] - 12, A.hand[0] + 16, A.hand[1] + 24] });
     const cuff = new Path2D(); cuff.moveTo(A.hand[0] - 16, A.hand[1] - 8); cuff.lineTo(A.hand[0] + 16, A.hand[1] - 8); g.save(); g.strokeStyle = INK; g.lineWidth = 3; g.stroke(cuff); g.restore(); };
   if (has('backArm')) drawArm(back, front ? poseL : poseR);
   // ---- thân: áo khoác (nam: dài tới gối, hai hàng cúc, ve áo; nữ: váy dài + áo khoác lửng)
@@ -92,8 +94,8 @@ export function drawFigure(g, o) {
   }
   // ---- đầu: cổ, tai, tóc, mặt, mũ
   if (has('head')) {
-    part(g, P(`M-15,-655 L15,-655 L17,-618 L-17,-618 Z`), skin, st, { dark: 0.4, box: [-17, -655, 17, -618] });
-    if (front) { for (const s of [-1, 1]) part(g, P(ell(s * 38, -700, 7, 11)), skin, st, { dark: 0.3, box: [s * 38 - 8, -712, s * 38 + 8, -688] }); }
+    part(g, P(`M-15,-655 L15,-655 L17,-618 L-17,-618 Z`), skin, st, { dark: 0.15, box: [-17, -655, 17, -618] });
+    if (front) { for (const s of [-1, 1]) part(g, P(ell(s * 38, -700, 7, 11)), skin, st, { dark: 0, box: [s * 38 - 8, -712, s * 38 + 8, -688] }); }
     part(g, P(ell(0, -700, 38, 48)), skin, st, { dark: front ? 0.0 : 0.3, box: [-38, -748, 38, -652] });
     if (front) { // tóc dưới vành mũ
       if (fem) { part(g, P(`M-40,-716 Q-46,-670 -32,-660 L-30,-700 Z M40,-716 Q46,-670 32,-660 L30,-700 Z`), hairC, st, { dark: 0.7, box: [-46, -720, 46, -660] }); }

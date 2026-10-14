@@ -4,13 +4,13 @@
 //   sky(g, W, H, {style}), pavement(g, W, H, {style})
 // Không đồ vật hiện đại (không biển điện, không xe hiện đại, không điều hoà). Tất định (hash).
 import { hash } from '/rnd-hybrid/cutout/rig.js';
-import { INK } from '/rnd-hybrid/v3/style/figure1930.js';
+import { INK, HATCH } from '/rnd-hybrid/v3/style/figure1930.js';
 
 const SEP = (c, st, k = 0.55) => { if (st.style !== 'engrave') return c; const n = parseInt(c.slice(1), 16), a = [n >> 16, (n >> 8) & 255, n & 255], L = (a[0] * 0.3 + a[1] * 0.59 + a[2] * 0.11) / 255;
   const s = [236, 222, 192].map((v) => v * (0.35 + 0.75 * L)); return 'rgb(' + a.map((v, i) => Math.round(v + (s[i] - v) * k)).join(',') + ')'; };
 function hatchRect(g, x, y, w, h, d, st, ang = 0.0, gap = 6) {
   if (st.style !== 'engrave' || d <= 0.02) return; g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip(); g.strokeStyle = INK; g.globalAlpha = 0.3 + d * 0.6; g.lineWidth = 1.1 + d;
-  const R = Math.hypot(w, h), cx = x + w / 2, cy = y + h / 2, ca = Math.cos(ang), sa = Math.sin(ang), sp = gap / Math.max(0.25, d); g.beginPath();
+  const R = Math.hypot(w, h), cx = x + w / 2, cy = y + h / 2, ca = Math.cos(ang), sa = Math.sin(ang), sp = gap * HATCH.spacing / Math.max(0.25, d); g.beginPath();
   for (let s = -R; s <= R; s += sp) { g.moveTo(cx - ca * R - sa * s, cy - sa * R + ca * s); g.lineTo(cx + ca * R - sa * s, cy + sa * R + ca * s); } g.stroke(); g.restore(); }
 const box = (g, x, y, w, h, fill, st, d = 0.3, lw = 3, ang = 0) => { g.fillStyle = SEP(fill, st); g.fillRect(x, y, w, h); hatchRect(g, x, y, w, h, d, st, ang); g.strokeStyle = INK; g.lineWidth = lw; g.strokeRect(x, y, w, h); };
 
@@ -39,7 +39,7 @@ export function facade(g, W, H, { kind = 'shop', sign = 'LUNCH', awning = '#8E3B
   // tầng trệt: cửa hàng — kính lớn, cửa, mái hiên sọc, biển chữ
   const gy = H * 0.72;
   box(g, 0, gy - 18, W, 18, '#5A4E44', st, 0.6, 3);
-  if (sign) { box(g, W * 0.1, gy - 92, W * 0.8, 70, '#E9DFC6', st, 0.05, 3); g.fillStyle = INK; g.font = `700 ${Math.min(58, W * 0.09)}px Georgia, 'Times New Roman', serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(sign, W / 2, gy - 56); }
+  if (sign) { box(g, W * 0.1, gy - 92, W * 0.8, 70, '#E9DFC6', st, 0, 3); g.fillStyle = INK; g.font = `700 ${Math.min(58, W * 0.09)}px Georgia, 'Times New Roman', serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(sign, W / 2, gy - 56); }
   box(g, W * 0.06, gy + 40, W * 0.56, H - gy - 60, '#2D3038', st, 0.8, 4, 1.57);
   g.save(); g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(W * 0.06 + W * 0.28, gy + 40); g.lineTo(W * 0.06 + W * 0.28, H - 20); g.stroke(); g.restore();
   box(g, W * 0.7, gy + 30, W * 0.22, H - gy - 30, '#5A4330', st, 0.7, 4);
@@ -56,7 +56,7 @@ export function bankFacade(g, W, H, { style = 'paper', closed = true, columns = 
   // trán tường + dầm
   g.fillStyle = SEP('#DCD3C0', st); g.beginPath(); g.moveTo(0, H * 0.21); g.lineTo(W / 2, H * 0.02); g.lineTo(W, H * 0.21); g.closePath(); g.fill(); g.save(); g.clip(); hatchRect(g, 0, 0, W, H * 0.22, 0.25, st, 0.3); g.restore();
   g.strokeStyle = INK; g.lineWidth = 4; g.stroke();
-  box(g, -W * 0.01, H * 0.2, W * 1.02, H * 0.09, '#D6CDB9', st, 0.2, 4);
+  box(g, -W * 0.01, H * 0.2, W * 1.02, H * 0.09, '#D6CDB9', st, 0, 4);   // dầm chữ BANK: không gạch
   g.fillStyle = INK; g.font = `700 ${H * 0.06}px Georgia, 'Times New Roman', serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('B A N K', W / 2, H * 0.247);
   // cửa (giữa)
   const dx = W * 0.4, dw = W * 0.2, dy = H * 0.5;
@@ -64,7 +64,7 @@ export function bankFacade(g, W, H, { style = 'paper', closed = true, columns = 
   for (const k of [0, 1]) { const x = dx + k * dw / 2 + 4; box(g, x, dy, dw / 2 - 8, H * 0.36, closed ? '#6B5236' : '#1E1C1A', st, closed ? 0.55 : 0.95, 3, 1.57);
     if (closed) for (const y of [0.3, 0.7]) box(g, x + 12, dy + H * 0.36 * y - 30, dw / 2 - 32, 60, '#7E6444', st, 0.4, 2); }
   if (closed) { // tờ CLOSED dán chéo
-    g.save(); g.translate(W / 2, dy + H * 0.13); g.rotate(-0.06); box(g, -W * 0.09, -H * 0.045, W * 0.18, H * 0.09, '#F2EAD6', st, 0.03, 3);
+    g.save(); g.translate(W / 2, dy + H * 0.13); g.rotate(-0.06); box(g, -W * 0.09, -H * 0.045, W * 0.18, H * 0.09, '#F2EAD6', st, 0, 3);
     g.fillStyle = '#8E2B2B'; g.font = `800 ${H * 0.058}px Georgia, serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('CLOSED', 0, 2); g.restore(); }
   // 6 cột có rãnh
   for (let i = 0; i < 6; i++) { if (i === 2 || i === 3 || !columns) continue; const cx = W * (0.1 + i * 0.16), cw = W * 0.07, y0 = H * 0.3, y1 = H * 0.86;

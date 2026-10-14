@@ -38,21 +38,27 @@ export async function boot(res) {
   for (let i = 0; i < 4; i++) { const left = i < 2, [sign, awn, kind] = SIGNS[i], h = 13 + (i % 2) * 3;
     const f = px(9, h, 110, (g, w, hh) => facade(g, w, hh, { kind, sign, awning: awn, seed: i + 2, style: STYLE, fire: i === 1 || i === 3 }));
     f.position.set(left ? -21.5 + (i % 2) * 9.2 : 12.3 + (i % 2) * 9.2, 0, -20 - (i % 2) * 1.5); scene.add(f); }
-  const bank = px(17, 14, 120, (g, w, h) => bankFacade(g, w, h, { style: STYLE })); bank.position.set(-0.4, 0, -18); scene.add(bank);
+  const bank = px(13, 10.7, 150, (g, w, h) => bankFacade(g, w, h, { style: STYLE })); bank.position.set(-0.4, 0, -16.5); scene.add(bank);   // ngân hàng nhỏ lại: người/ngân hàng ≈ 1:6
   // đám đông: 4 hàng nhìn lưng về cửa ngân hàng; vài người quay mặt
-  const rows = [[-15.5, 12, 3, 0.0], [-12.5, 11, 5, 0.6], [-9.6, 10, 7, -0.4], [-7.0, 8, 9, 0.3]];
+  const rows = [[-14.6, 11, 3, 0.0], [-12.6, 10, 5, 0.6], [-10.6, 9, 7, -0.4], [-8.6, 8, 9, 0.3]];
   for (const [z, n, seed, dx] of rows) { const r = row(crowdSpec(n, seed), 16, 150); r.position.set(dx, 0, z); scene.add(r); }
   // tiền cảnh K1: người đàn ông lo âu, chính diện, hai tay vò vành mũ… (tay chắp trước ngực)
   const man = px(1.6, 2.1, 520, (g, w, h) => { g.translate(w / 2, h - 10); const s = h / 830; g.scale(s, s);
     drawFigure(g, { sex: 'm', skin: 'light', coat: 'charcoal', hat: 'fedora', expr: 'worried', pose: { L: 'clasp', R: 'clasp' }, style: STYLE }); });
   man.position.set(1.15, 0, -2.6); scene.add(man);
   const cam = new THREE.PerspectiveCamera(36, W / H, 0.1, 300);
+  // vùng kiểm (cổng nén giả YouTube): hộp màn hình của chữ/mặt, chiếu từ toạ độ trên tấm phẳng (u,v: 0..1, v từ trên xuống)
+  const roiOf = (m, w, h, u0, v0, u1, v1) => { m.updateMatrixWorld(); let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    for (const [u, v] of [[u0, v0], [u1, v0], [u0, v1], [u1, v1]]) { const p = new THREE.Vector3((u - 0.5) * w, (1 - v) * h, 0).applyMatrix4(m.matrixWorld).project(cam);
+      const X = (p.x + 1) / 2 * W, Y = (1 - p.y) / 2 * H; x0 = Math.min(x0, X); y0 = Math.min(y0, Y); x1 = Math.max(x1, X); y1 = Math.max(y1, Y); } return [x0, y0, x1, y1].map(Math.round); };
   const out = document.createElement('canvas'); out.width = W; out.height = H; const ctx = out.getContext('2d');
   function frame(t) {
     const K1 = t < 1;
     if (K1) { cam.position.set(0.55, 1.68, -0.55); cam.fov = 34; cam.lookAt(0.5, 1.72, -10); man.visible = true; }
-    else { cam.position.set(1.2, 2.3, 3.2); cam.fov = 46; cam.lookAt(0.0, 3.2, -16); man.visible = false; }
-    cam.updateProjectionMatrix(); renderer.render(scene, cam); ctx.drawImage(renderer.domElement, 0, 0);
+    else { cam.position.set(0.8, 2.1, -1.0); cam.fov = 44; cam.lookAt(0.0, 3.2, -16); man.visible = false; }
+    cam.updateProjectionMatrix(); cam.updateMatrixWorld(); renderer.render(scene, cam); ctx.drawImage(renderer.domElement, 0, 0);
+    window.ROI = { CLOSED: roiOf(bank, 13, 10.7, 0.41, 0.585, 0.59, 0.675), BANK: roiOf(bank, 13, 10.7, 0.36, 0.215, 0.64, 0.28) };
+    if (K1) { const fx = (416 - 50) / 832, fy = (161 - 63) / 1092; window.ROI.FACE = roiOf(man, 1.6, 2.1, fx, fy, 1 - fx, (161 + 63) / 1092); }
     // chrome kênh
     const s = W / 1920; ctx.save(); ctx.scale(s, s); const pill = (txt, x, y, px2, fg, bg, right) => { ctx.font = `600 ${px2}px Inter`; const pw = ctx.measureText(txt).width + px2 * 0.9, ph = px2 * 1.45, x0 = right ? x - pw : x;
       ctx.fillStyle = bg; ctx.beginPath(); ctx.roundRect(x0, y, pw, ph, ph / 2); ctx.fill(); ctx.fillStyle = fg; ctx.textBaseline = 'middle'; ctx.textAlign = 'left'; ctx.fillText(txt, x0 + px2 * 0.45, y + ph / 2 + px2 * 0.04); };
