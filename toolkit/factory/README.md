@@ -99,7 +99,7 @@ chỉ ở shot khai `shot: 'close'`** (AO nửa độ phân giải; DOF nới đ
 spine.py: `S['cine'] = {look, sky?, shots?: {<id shot>: {shot: 'close', focus: 'char'|'center'|m, aperture?, silhouette?: true, override?: {keyAz, keyEl…}}}}`.
 **Chỉ bật ở 1080p ngang** (`render_shots.js` mở `cine/cine.html`; nháp `--res 540` của F-15, `--spp`, Short dọc và trang kiểm `CK.on` **không** bật lớp →
 không khai = trùng byte bản cũ, khoá cache cũ không đổi). **Khoá màu dữ liệu:** vật `userData.checks.role` ∈ series/bar/grid (và con) không nhận vân,
-phản xạ ≤ 0,15, được vẽ lại dưới ánh sáng gốc của cảnh và ghép trước DOF; grade/viền tối bỏ qua điểm ảnh đó. Luật mới (bước `cine` của build_seg, chỉ
+phản xạ ≤ 0,15; ảnh lớp không vẽ chúng (vẫn đổ bóng), một pass riêng vẽ lại chúng dưới ánh sáng gốc của cảnh, tone-map + sRGB trong shader (pha trộn như ra canvas) và ghép sau OutputPass; grade/viền tối bỏ qua điểm ảnh đó, DOF không làm mờ chúng. Luật mới (bước `cine` của build_seg, chỉ
 1080p + `cine`): `cine/cine_check.js` (trang không lớp vs có lớp, cùng t, 3 mẫu/shot, mặt nạ màu dữ liệu co 2 px) → `cine/cine_color.py`:
 **ΔE2000 > 5 hoặc đảo thứ tự độ sáng (|ΔL\*| ≥ 1 trước, ≥ 0,5 sau) = CHẶN**. Người (`checks.char`): giữ màu nhận diện, viền = Fresnel × max(0, n·đèn) (phía
 xa đèn = 0); thân sẫm chỉ khi shot khai `silhouette: true`. `v4: true` = cấu hình nguyên mẫu (chỉ để đối chứng). Tài sản: `cine/assets/` (18 tệp CC0 ≤ 2 MB

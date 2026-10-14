@@ -2,8 +2,8 @@
 // KHÔNG sửa core.js / lib3d.js / scene.js của tập: trang cine.html gọi install(spine.cine) TRƯỚC boot cảnh, prepare(frame) SAU boot.
 // install vá THREE.WebGLRenderer.prototype.render bằng accessor: lần gán đầu (three, trong hàm dựng) được cất vào __cineOrig; core.Stage bọc
 // renderer.render như cũ → mỗi lần cảnh gọi renderer.render(scene, cam), lớp vẽ qua EffectComposer:
-//   RenderPass (MSAA 4) → [GTAO, nửa độ phân giải, CHỈ cảnh cận] → KHOÁ MÀU DỮ LIỆU → [DOF độ sâu nới, CHỈ cảnh cận] → OutputPass (ACES + sRGB)
-//   → GRADE (curve theo hồi, bão hoà, viền tối, hạt phim tất định; điểm ảnh dữ liệu không qua grade/viền tối).
+//   RenderPass (MSAA 4, không vẽ vật dữ liệu) → [GTAO, nửa độ phân giải, CHỈ cảnh cận] → [DOF độ sâu nới, CHỈ cảnh cận] → OutputPass (ACES + sRGB)
+//   → KHOÁ MÀU DỮ LIỆU → GRADE (curve theo hồi, bão hoà, viền tối, hạt phim tất định; điểm ảnh dữ liệu không qua grade/viền tối).
 // Lần render bên trong composer đi thẳng xuống hàm gốc (cờ busy) → nhật ký/khung dọc/dither của core giữ nguyên. Lớp chữ 2D không qua hậu kỳ.
 // Tất định: không Math.random lúc vẽ; SimplexNoise của GTAO dựng khi Math.random bị thay tạm bằng LCG có hạt; hạt phim = băm(điểm ảnh, khung).
 //
@@ -121,14 +121,17 @@ class DofPass extends Pass {
 
 // ---------------------------------------------------------------- KHOÁ MÀU DỮ LIỆU (F-17 mục 3)
 // Vật dữ liệu được vẽ lại dưới ÁNH SÁNG GỐC của cảnh (đèn/sương như khi không có lớp, không HDRI/nền trời) vào một bộ đệm riêng; vật khác chỉ ghi
-// độ sâu (che đúng), vật trong suốt khác và đường/sprite không dữ liệu bị ẩn. Ghép trước DOF: màu = ảnh lớp × (1 − α) + ảnh khoá (nhân sẵn α).
+// độ sâu (che đúng), vật trong suốt khác và đường/sprite không dữ liệu bị ẩn. Ghép sau OutputPass: màu = ảnh lớp × (1 − α) + ảnh khoá (nhân sẵn α).
 // Grade/viền tối bỏ qua điểm ảnh có α (GradeShader.tLock). Kết quả: màu dữ liệu sau lớp ≈ trước lớp (luật cine_color.py đo ΔE2000/thứ tự sáng).
 const LOCK_FRAG = `varying vec2 vUv; uniform sampler2D tDiffuse, tLock;
   void main(){ vec4 s = texture2D(tDiffuse, vUv), l = texture2D(tLock, vUv); gl_FragColor = vec4(s.rgb * (1.0 - l.a) + l.rgb, s.a); }`;
 class LockPass extends Pass {
   constructor(state) {
     super(); this.state = state;
-    this.rt = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 4 });
+    // vẽ NHƯ RA CANVAS: three chỉ tone-map + mã sRGB trong shader khi đích là màn hình hoặc RT XR → cờ isXRRenderTarget trên RT riêng này
+    // (không dùng WebXR) → vật bán trong suốt pha trộn trong không gian sRGB đã tone-map, đúng như trang không lớp (đo lần 1: đường lãi mờ dần
+    // pha ở không gian tuyến tính sáng hơn gốc ΔE 15)
+    this.rt = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 4 }); this.rt.texture.colorSpace = THREE.SRGBColorSpace; this.rt.isXRRenderTarget = true;
     this.mat = new THREE.ShaderMaterial({ uniforms: { tDiffuse: { value: null }, tLock: { value: this.rt.texture } }, vertexShader: VS, fragmentShader: LOCK_FRAG });
     this.quad = new FullScreenQuad(this.mat); this.cc = new THREE.Color();
   }
@@ -220,7 +223,12 @@ export function install(opts = {}) {
     scene.traverse((o) => { if (o.isLight) state.orig.lights.push([o, { color: o.color.clone(), intensity: o.intensity, ground: o.groundColor ? o.groundColor.clone() : null }]); });
     // vật dữ liệu (role series/bar/grid và con của chúng) — không vân, phản xạ ≤ DATA_ENV_MAX
     state.dataSet = new Set(); scene.traverse((o) => { if (isData(o, O.dataRoles)) state.dataSet.add(o); });
-    for (const o of state.dataSet) if (o.isMesh) for (const m of [].concat(o.material)) if (m && 'envMapIntensity' in m) m.envMapIntensity = Math.min(L.dataEnv ?? DATA_ENV_MAX, DATA_ENV_MAX);
+    // vật liệu dùng chung giữa vật dữ liệu và vật khác → bản sao riêng cho vật dữ liệu (khoá màu đổi colorWrite của vật liệu dữ liệu)
+    const nonData = new Set(); scene.traverse((o) => { if (o.isMesh && !state.dataSet.has(o)) for (const m of [].concat(o.material)) nonData.add(m); });
+    for (const o of state.dataSet) if (o.isMesh) {
+      if (Array.isArray(o.material)) o.material = o.material.map((m) => (nonData.has(m) ? m.clone() : m)); else if (nonData.has(o.material)) o.material = o.material.clone();
+      for (const m of [].concat(o.material)) { if ('envMapIntensity' in m) m.envMapIntensity = Math.min(L.dataEnv ?? DATA_ENV_MAX, DATA_ENV_MAX); }
+    }
     // --- HDRI → PMREM + nền trời + sương cùng màu chân trời
     if (ly.hdri) {
       const eq = await hdri(O.look), pm = new THREE.PMREMGenerator(renderer), env = pm.fromEquirectangular(eq).texture; pm.dispose();
@@ -258,7 +266,11 @@ export function install(opts = {}) {
     if (ly.rim) {
       scene.traverse((o) => {
         if (!(o.userData.checks && o.userData.checks.char)) return;
-        const ms = new Map(), body = o.children.find((c) => c.isMesh), bodyM = body && body.material;
+        // chỉ NGƯỜI (Person của lib3d: thân CapsuleGeometry + đầu SphereGeometry cùng vật liệu) — vật của nhân vật (chồng tiền của Leo cũng mang
+        // checks.char) không bị đổi vật liệu (lần đo đầu cảnh g: chồng tiền vàng nhận viền)
+        const body = o.children.find((c) => c.isMesh && c.geometry && c.geometry.type === 'CapsuleGeometry'), bodyM = body && body.material;
+        if (!bodyM || state.dataSet.has(body) || !o.children.some((c) => c.isMesh && c.material === bodyM && c.geometry.type === 'SphereGeometry')) return;
+        const ms = new Map();
         o.traverse((c) => { if (!c.isMesh || c.material !== bodyM) return; const k = c.material.uuid;   // thân/đầu/tay (cùng material thân), không vật cầm tay
           if (!ms.has(k)) { const id = c.material.color.clone(), rc = new THREE.Color(L.rimPerson).lerp(id, 0.25).getStyle();
             ms.set(k, { id: V4 ? null : rimify(c.material, null, rc, L.rimK, 2.6, 0),
@@ -271,14 +283,21 @@ export function install(opts = {}) {
     const W = renderer.domElement.width, H = renderer.domElement.height;
     const rt = new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, samples: 4 });
     const comp = new EffectComposer(renderer, rt); comp.setPixelRatio(1);
-    comp.addPass(new RenderPass(scene, cam));
+    const rp = new RenderPass(scene, cam);
+    if (ly.lock) {   // khoá màu: ảnh lớp KHÔNG vẽ vật dữ liệu (vẫn đổ bóng: bản đồ bóng không đọc colorWrite) → pass khoá ghép chúng đúng một lần
+      const r0 = rp.render.bind(rp);   // (vật bán trong suốt vẽ hai lần thì sáng hơn gốc — lần đo đầu cảnh c, t = 26,4 s)
+      rp.render = (...a) => { const sv = [], ms = new Set(); for (const o of state.dataSet) if (o.isMesh) for (const m of [].concat(o.material)) ms.add(m);
+        for (const m of ms) { sv.push([m, m.colorWrite, m.depthWrite]); m.colorWrite = false; m.depthWrite = false; }
+        try { r0(...a); } finally { for (const [m, c, d] of sv) { m.colorWrite = c; m.depthWrite = d; } } };
+    }
+    comp.addPass(rp);
     if (ly.ao) { const ao = seeded(() => new GTAOPass(scene, cam, W, H)); ao.output = 0; ao.blendIntensity = L.ao;
       if (O.aoHalf) { const ss = ao.setSize.bind(ao); ao.setSize = (w, h) => ss(Math.ceil(w / 2), Math.ceil(h / 2)); }
       ao.updateGtaoMaterial({ radius: 0.6, distanceExponent: 1.5, thickness: 1.2, scale: 1, samples: 16, distanceFallOff: 1 });
       ao.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 16 }); comp.addPass(ao); state.passes.ao = ao; }
-    if (ly.lock) { const lk = new LockPass(state); comp.addPass(lk); state.passes.lock = lk; }
     if (ly.dof) { const b = new DofPass(scene, cam, { aperture: 0.0009, maxblur: 0.008, dilate: O.dofDilate }); comp.addPass(b); state.passes.dof = b; }
     comp.addPass(new OutputPass());
+    if (ly.lock) { const lk = new LockPass(state); comp.addPass(lk); state.passes.lock = lk; }   // ghép sau OutputPass (không gian hiển thị); DOF không làm mờ vật dữ liệu
     if (ly.grade) { const g = new ShaderPass(GradeShader); g.uniforms.res.value.set(W, H); for (const k of ['lift', 'gamma', 'gain']) g.uniforms[k].value.set(...L.grade[k]);
       g.uniforms.sat.value = L.grade.sat; g.uniforms.contrast.value = L.grade.contrast; g.uniforms.vignette.value = L.grade.vignette; g.uniforms.grain.value = L.grade.grain;
       if (state.passes.lock) g.uniforms.tLock.value = state.passes.lock.rt.texture; comp.addPass(g); state.passes.grade = g; }
@@ -378,26 +397,35 @@ export function install(opts = {}) {
       for (let i = 0; i < E.length; i++) { const id = E[i]; if (id < 0) continue; const a = acc[id], j = i * 4; a.n++; for (let k = 0; k < 3; k++) { a.b[k] += base[j + k]; a.c[k] += cine[j + k]; } }
       return M.keys.map((k, id) => ({ key: lin2hex(k), n: acc[id].n, base: acc[id].b.map((s) => s / Math.max(1, acc[id].n)), cine: acc[id].c.map((s) => s / Math.max(1, acc[id].n)) })).filter((g) => g.n >= minPx);
     },
-    // người: (1) ΔE màu thân (ảnh gốc vs lớp); (2) độ sáng viền thêm ở nửa gần/xa đèn = khung viền bật − cùng khung viền tắt
+    // người: (1) ΔE màu thân (ảnh gốc vs lớp); (2) độ sáng viền thêm (L*, khung viền bật − cùng khung viền tắt) ở điểm ảnh GẦN đèn (n·đèn > 0,2)
+    // và XA đèn (n·đèn ≤ 0) — n·đèn đọc từ một pass pháp tuyến của chính khối người (không suy từ hướng trên màn hình)
     async rim(baseUrl, frame) {
       const on = canvasPx(state.renderer.domElement), base = canvasPx(await img(baseUrl));
       const U = []; for (const p of state.people) p.traverse((c) => { const m = c.material; if (m && m.userData && m.userData.rim) U.push(m.userData.rim.rimK.value); });
       const k0 = U.map((u) => u.x); U.forEach((u) => { u.x = 0; }); frame(state.t); const offPx = canvasPx(state.renderer.domElement); U.forEach((u, i) => { u.x = k0[i]; }); frame(state.t);
-      const M = groupMask((o) => o.isMesh && !!o.userData.cineRim), E = erode(M, 1), W = M.W;
-      const ld = new THREE.Vector2(RIMDIR.x, -RIMDIR.y); if (ld.lengthSq() < 1e-6) ld.set(1, 0); ld.normalize();   // hướng tới đèn trên màn hình (y xuống)
+      const pick = (o) => o.isMesh && !!o.userData.cineRim, M = groupMask(pick), E = erode(M, 1), W = M.W, H = M.H;
+      const fm = new THREE.ShaderMaterial({ uniforms: { rimDir: { value: RIMDIR } }, vertexShader: 'varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal); gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }',
+        fragmentShader: 'uniform vec3 rimDir; varying vec3 vN; void main(){ gl_FragColor = vec4(dot(normalize(vN), rimDir), 0.0, 0.0, 1.0); }' });
+      const r = state.renderer, rt = new THREE.WebGLRenderTarget(W, H, { type: THREE.FloatType, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter }), F = new Float32Array(W * H * 4);
+      const saveSet = state.dataSet; state.dataSet = new Set(); state.scene.traverse((o) => { if (pick(o)) state.dataSet.add(o); });
+      try { state.baseScene(false, (scene, cam) => { r.setRenderTarget(rt); r.setClearColor(0x000000, 0); r.clear(); r.__cineOrig(scene, cam); r.setRenderTarget(null); }, () => fm);
+        r.readRenderTargetPixels(rt, 0, 0, W, H, F); } finally { state.dataSet = saveSet; rt.dispose(); }
       const out = [];
       for (let id = 0; id < M.keys.length; id++) {
-        let n = 0, cx = 0, cy = 0; for (let i = 0; i < E.length; i++) if (E[i] === id) { n++; cx += i % W; cy += (i / W) | 0; }
-        if (n < 200) continue; cx /= n; cy /= n;
-        const s = { near: [0, 0], far: [0, 0], base: [0, 0, 0], cine: [0, 0, 0], n };
-        for (let i = 0; i < E.length; i++) { if (E[i] !== id) continue; const j = i * 4, x = i % W, y = (i / W) | 0;
-          const L = (a) => 0.2126 * a[j] + 0.7152 * a[j + 1] + 0.0722 * a[j + 2];
-          const side = (x - cx) * ld.x + (y - cy) * ld.y >= 0 ? s.near : s.far; side[0] += L(on) - L(offPx); side[1]++;
+        const s = { near: [0, 0], far: [0, 0], farIn: [0, 0], base: [0, 0, 0], cine: [0, 0, 0], n: 0 };
+        const nlAt = (x, y) => F[((H - 1 - y) * W + x) * 4];
+        for (let i = 0; i < E.length; i++) { if (E[i] !== id) continue; const j = i * 4, x = i % W, y = (i / W) | 0, nl = nlAt(x, y);
+          const d = Lstar(on, j) - Lstar(offPx, j); s.n++;
+          if (nl > 0.2) { s.near[0] += d; s.near[1]++; } else if (nl <= 0) { s.far[0] += d; s.far[1]++;
+            // lõi xa đèn: cả ô 3×3 xa đèn (bỏ điểm mép MSAA nơi tay đè thân — điểm pha màu của khối gần đèn) — chẩn đoán, báo cạnh thước gốc
+            let core = true; for (let dy = -1; dy <= 1 && core; dy++) for (let dx = -1; dx <= 1; dx++) if (nlAt(x + dx, y + dy) > 0) { core = false; break; }
+            if (core) { s.farIn[0] += d; s.farIn[1]++; } }
           for (let k = 0; k < 3; k++) { s.base[k] += base[j + k]; s.cine[k] += on[j + k]; } }
-        out.push({ key: lin2hex(M.keys[id]), n, nearDY: s.near[0] / Math.max(1, s.near[1]), farDY: s.far[0] / Math.max(1, s.far[1]), nNear: s.near[1], nFar: s.far[1],
-          base: s.base.map((v) => v / n), cine: s.cine.map((v) => v / n) });
+        if (s.n < 200) continue;
+        out.push({ key: lin2hex(M.keys[id]), n: s.n, nearDL: s.near[0] / Math.max(1, s.near[1]), farDL: s.far[0] / Math.max(1, s.far[1]), farCoreDL: s.farIn[0] / Math.max(1, s.farIn[1]), nNear: s.near[1], nFar: s.far[1], nFarCore: s.farIn[1],
+          base: s.base.map((v) => v / s.n), cine: s.cine.map((v) => v / s.n) });
       }
-      return { light2d: [ld.x, ld.y], chars: out, rimK: k0 };
+      return { chars: out, rimK: k0 };
     },
     // vệt DOF trên đầu: dải 1–6 px trên mép trên khối người (mặt nạ không co); trả ảnh DOF bật (dilate | v4) và tắt để tính ΔL* theo cột ở Python
     async streak(frame) {
@@ -408,17 +436,19 @@ export function install(opts = {}) {
       dof.dilate = false; frame(state.t); const v4 = grab();
       state._forceDofOff = true; frame(state.t); const offI = grab();   // DOF tắt một khung (perFrame đọc cờ)
       state._forceDofOff = false; dof.dilate = dil0; frame(state.t);
-      const M = groupMask((o) => isChar(o) && o.isMesh), W = M.W, H = M.H, top = new Int32Array(W).fill(-1);
+      const M = groupMask((o) => o.isMesh && !!o.userData.cineRim), W = M.W, H = M.H, top = new Int32Array(W).fill(-1);
       for (let x = 0; x < W; x++) for (let y = 0; y < H; y++) if (M.ids[y * W + x] >= 0) { top[x] = y; break; }
       const cols = [];
       for (let x = 0; x < W; x++) { if (top[x] < 7) continue; const row = { x, fixed: 0, v4: 0 };
-        for (let y = top[x] - 6; y <= top[x] - 1; y++) { const j = (y * W + x) * 4, L = (a) => 0.2126 * a[j] + 0.7152 * a[j + 1] + 0.0722 * a[j + 2];
-          row.fixed += (L(fixed) - L(offI)) / 6; row.v4 += (L(v4) - L(offI)) / 6; }
+        for (let y = top[x] - 6; y <= top[x] - 1; y++) { const j = (y * W + x) * 4;
+          row.fixed += (Lstar(fixed, j) - Lstar(offI, j)) / 6; row.v4 += (Lstar(v4, j) - Lstar(offI, j)) / 6; }
         cols.push(row); }
       return { cols: cols.length, maxFixed: Math.max(0, ...cols.map((c) => c.fixed)), maxV4: Math.max(0, ...cols.map((c) => c.v4)),
         p95Fixed: q95(cols.map((c) => c.fixed)), p95V4: q95(cols.map((c) => c.v4)) };
     },
   };
+  const Lstar = (a, j) => { const f = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+    const Y = 0.2126729 * f(a[j]) + 0.7151522 * f(a[j + 1]) + 0.072175 * f(a[j + 2]); return Y > 216 / 24389 ? 116 * Math.cbrt(Y) - 16 : 24389 / 27 * Y; };
   const q95 = (a) => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y); return s[Math.floor(0.95 * (s.length - 1))]; };
   return {
     state, opts: O, meas,

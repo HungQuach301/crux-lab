@@ -9,7 +9,9 @@ set -euo pipefail
 prompt=$(realpath "$1"); out=$2; shift 2   # đường tuyệt đối trước khi cd vào thư mục trống
 tools=""; model=sonnet
 while [ $# -gt 0 ]; do case $1 in --read) tools=Read;; --model) model=$2; shift;; esac; shift; done
-args=(-p --model "$model" --output-format json --no-session-persistence --tools "$tools")
+args=(-p --model "$model" --output-format json --no-session-persistence --tools "$tools" --disallowedTools "Task,Agent,Workflow")
+# F-17: trần chi mỗi lượt (opt-in) — CRUX_HEADLESS_CAP_USD → --max-budget-usd
+[ -n "${CRUX_HEADLESS_CAP_USD:-}" ] && args+=(--max-budget-usd "$CRUX_HEADLESS_CAP_USD")
 [ -n "$tools" ] && args+=(--allowedTools "$tools")
 raw=$(mktemp)
 # chạy từ thư mục trống để không nạp CLAUDE.md hay skill của repo
