@@ -36,7 +36,7 @@ const ell = (x, y, rx, ry) => `M${x - rx},${y} a${rx},${ry} 0 1,0 ${2 * rx},0 a$
 // tay: vai (sx,sy) → khuỷu → cổ tay theo tư thế; trả về path ống tay + vị trí bàn tay
 function armPath(side, pose, fem) {
   const s = side, sx = s * (fem ? 74 : 92), sy = -612;
-  const P0 = { down: [[s * 104, -470], [s * 106, -335]], clasp: [[s * 92, -470], [s * 26, -392]], chin: [[s * 70, -505], [s * 24, -646]], hat: [[s * 96, -470], [s * 30, -420]], point: [[s * 160, -560], [s * 245, -590]], pocket: [[s * 104, -470], [s * 82, -390]] }[pose] || [[s * 104, -470], [s * 106, -335]];
+  const P0 = { down: [[s * 104, -470], [s * 106, -335]], clasp: [[s * 92, -470], [s * 26, -392]], chin: [[s * 70, -505], [s * 24, -646]], hat: [[s * 96, -470], [s * 30, -420]], point: [[s * 160, -560], [s * 245, -590]], pocket: [[s * 104, -470], [s * 82, -390]], write: [[s * 96, -500], [s * 30, -455]] }[pose] || [[s * 104, -470], [s * 106, -335]];
   const [[ex, ey], [wx, wy]] = P0, w = fem ? 15 : 18;
   const seg = (ax, ay, bx, by, ww) => { const dx = bx - ax, dy = by - ay, L = Math.hypot(dx, dy) || 1, nx = -dy / L * ww, ny = dx / L * ww; return [ax + nx, ay + ny, bx + nx, by + ny, bx - nx, by - ny, ax - nx, ay - ny]; };
   const a = seg(sx, sy, ex, ey, w + 3), b = seg(ex, ey, wx, wy, w);
@@ -62,11 +62,12 @@ export function drawFigure(g, o) {
   const st = { style: o.style || 'paper', hatchAng: o.hatchAng }, fem = o.sex === 'f', skin = SK[o.skin || 'light'], coat = COATS[o.coat || 'charcoal'] || o.coat,
     hairC = o.hair || '#2A211B', front = (o.view || 'front') === 'front', only = o.only ? new Set(o.only) : null, has = (k) => !only || only.has(k);
   const poseL = (o.pose && o.pose.L) || 'down', poseR = (o.pose && o.pose.R) || 'down';
-  const trousers = shade(coat, 0.7), shoes = '#211A15';
+  const today = o.era === 'today';
+  const trousers = today ? '#3B5A86' : shade(coat, 0.7), shoes = today ? '#E9E6DF' : '#211A15';
   // ---- lớp chân sau / chân trước (nam: quần + giày; nữ: cổ chân + giày dưới váy)
-  const leg = (s) => { const x = s * 24; return fem ? `M${x - 9},-60 L${x + 9},-60 L${x + 8},-14 L${x - 8},-14 Z` : `M${x - 21},-250 L${x + 21},-250 L${x + 19},-16 L${x - 19},-16 Z`; };
+  const leg = (s) => { const x = s * 24; if (today) return `M${x - 22},-392 L${x + 22},-392 L${x + 19},-16 L${x - 19},-16 Z`; return fem && !today ? `M${x - 9},-60 L${x + 9},-60 L${x + 8},-14 L${x - 8},-14 Z` : `M${x - 21},-250 L${x + 21},-250 L${x + 19},-16 L${x - 19},-16 Z`; };
   const shoe = (s) => ell(s * 24 + (front ? 0 : 0), -10, fem ? 15 : 22, 10);
-  if (has('backLeg')) { part(g, P(leg(-1)), fem ? skin : trousers, st, { dark: 0.55, box: [-50, -250, 0, -14] }); part(g, P(shoe(-1)), shoes, st, { dark: 0.8, box: [-50, -24, 4, 2] }); }
+  if (has('backLeg')) { part(g, P(leg(-1)), fem && !today ? skin : trousers, st, { dark: 0.55, box: [-50, -250, 0, -14] }); part(g, P(shoe(-1)), shoes, st, { dark: 0.8, box: [-50, -24, 4, 2] }); }
   // ---- tay sau
   const back = front ? -1 : 1;   // tay "sau" là tay trái khi nhìn trước
   const drawArm = (side, pose) => { const A = armPath(side, pose, fem); part(g, P(A.d), coat, st, { dark: 0.5, box: A.box });
@@ -76,8 +77,12 @@ export function drawFigure(g, o) {
   // ---- thân: áo khoác (nam: dài tới gối, hai hàng cúc, ve áo; nữ: váy dài + áo khoác lửng)
   if (has('body')) {
     if (has('backLeg')) {} // (đã vẽ)
-    part(g, P(leg(1)), fem ? skin : trousers, st, { dark: 0.45, box: [0, -250, 50, -14] }); part(g, P(shoe(1)), shoes, st, { dark: 0.8, box: [0, -24, 50, 2] });
-    if (fem) { const dress = shade(coat, 0.85);
+    part(g, P(leg(1)), fem && !today ? skin : trousers, st, { dark: 0.45, box: [0, -250, 50, -14] }); part(g, P(shoe(1)), shoes, st, { dark: 0.8, box: [0, -24, 50, 2] });
+    if (today) {   // áo khoác ngắn tới hông, áo thun cổ tròn, khoá kéo
+      part(g, P(`M-48,-396 L48,-396 L46,-300 L-46,-300 Z`), trousers, st, { dark: 0.4, box: [-48, -396, 48, -300] });
+      part(g, P(`M-${fem ? 78 : 92},-620 Q0,-640 ${fem ? 78 : 92},-620 L${fem ? 86 : 100},-470 L${fem ? 82 : 96},-380 L-${fem ? 82 : 96},-380 L-${fem ? 86 : 100},-470 Z`), coat, st, { dark: 0.35, box: [-100, -640, 100, -378] });
+      if (front) { part(g, P(`M-30,-628 L30,-628 L22,-380 L-22,-380 Z`), '#E9E6DF', st, { dark: 0.05, box: [-30, -628, 30, -380] }); g.save(); g.strokeStyle = INK; g.lineWidth = 2.5; g.beginPath(); g.moveTo(-24, -628); g.quadraticCurveTo(0, -606, 24, -628); g.stroke(); g.restore(); }
+    } else if (fem) { const dress = shade(coat, 0.85);
       part(g, P(`M-62,-470 C-70,-330 -96,-160 -104,-58 L104,-58 C96,-160 70,-330 62,-470 Z`), dress, st, { dark: 0.4, box: [-106, -470, 106, -56] });
       for (const x of [-40, 0, 40]) { g.save(); g.strokeStyle = INK; g.globalAlpha = 0.55; g.lineWidth = 2.4; g.beginPath(); g.moveTo(x * 0.6, -420); g.quadraticCurveTo(x * 0.9, -240, x * 1.3, -62); g.stroke(); g.restore(); }   // nếp váy
       part(g, P(`M-74,-618 Q0,-640 74,-618 L84,-470 Q86,-410 70,-370 L-70,-370 Q-86,-410 -84,-470 Z`), coat, st, { dark: 0.45, box: [-86, -640, 86, -368] });
@@ -102,7 +107,8 @@ export function drawFigure(g, o) {
       else part(g, P(`M-38,-722 Q-40,-706 -36,-694 L-34,-722 Z M38,-722 Q40,-706 36,-694 L34,-722 Z`), hairC, st, { dark: 0.7, box: [-40, -724, 40, -690] });
       face(g, o.expr || 'neutral', st);
     } else part(g, P(fem ? `M-38,-712 Q0,-760 38,-712 Q44,-670 30,-656 Q0,-650 -30,-656 Q-44,-670 -38,-712 Z` : `M-38,-716 Q0,-756 38,-716 Q40,-694 34,-680 Q0,-672 -34,-680 Q-40,-694 -38,-716 Z`), hairC, st, { dark: 0.7, box: [-44, -760, 44, -650] });
-    const hat = o.hat || (fem ? 'cloche' : 'fedora'), hc = o.hatColor || shade(coat, 0.75);
+    const hat = o.hat || (today ? 'none' : fem ? 'cloche' : 'fedora'), hc = o.hatColor || shade(coat, 0.75);
+    if (hat === 'none' && front) part(g, P(fem ? `M-40,-700 C-46,-760 -20,-756 0,-756 C24,-756 46,-756 40,-700 Q42,-664 34,-650 L30,-712 Q0,-730 -30,-712 L-34,-650 Q-42,-664 -40,-700 Z` : `M-39,-706 C-42,-752 -18,-756 0,-756 C20,-756 42,-752 39,-706 L34,-716 Q0,-736 -34,-716 Z`), hairC, st, { dark: 0.6, box: [-46, -760, 46, -648] });
     if (hat === 'fedora') { part(g, P(`M-70,-728 Q0,-746 70,-728 Q72,-718 60,-716 Q0,-730 -60,-716 Q-72,-718 -70,-728 Z`), hc, st, { dark: 0.7, box: [-72, -748, 72, -714] });
       part(g, P(`M-40,-734 C-44,-770 -34,-790 -14,-792 Q0,-782 14,-792 C34,-790 44,-770 40,-734 Z`), hc, st, { dark: 0.6, box: [-44, -794, 44, -732] });
       part(g, P(`M-41,-748 L41,-748 L40,-736 L-40,-736 Z`), INK, st, { dark: 0.9, box: [-42, -750, 42, -734], lw: 2 }); }
