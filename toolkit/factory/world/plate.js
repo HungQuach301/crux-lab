@@ -1,6 +1,6 @@
 // F-15 (f) · FOOTAGE NGOÀI TRONG THẾ GIỚI: ảnh/khung video tư liệu làm `plate` + bản đồ theo ngôn ngữ hình kênh.
-// Opt-in: chỉ scene.js nào import mô-đun này mới dùng; core.js/lib3d.js không đổi → đoạn cũ trùng byte (khoá cache render_shots không gồm tệp này
-// trừ khi inputs.json của đoạn khai nó). Vẽ trên lớp phủ 2D (O.ctx, toạ độ thiết kế 1920×1080) SAU renderer.render và TRƯỚC chữ → hoà vào/ra
+// Opt-in: chỉ scene.js nào import mô-đun này mới dùng; plate không chạm core.js/lib3d.js (F-15 chỉ thêm `CK.spp` vào core, mặc định như cũ) → đoạn cũ
+// trùng byte; render_shots.js tự thêm plate.js vào khoá cache khi scene.js nhắc tới nó. Vẽ trên lớp phủ 2D (O.ctx, toạ độ thiết kế 1920×1080) SAU renderer.render và TRƯỚC chữ → hoà vào/ra
 // từ cảnh 3D bằng độ hiện (alpha) của plate; chữ vẽ sau luôn ở trên.
 //   cine-lab #49: Ken Burns có điểm chính `focus` (đặt ở vị trí màn hình `anchor`, trên dải chú thích), không căn giữa ảnh;
 //   cine-lab #50: nguồn ảnh bên PHẢI, nguồn số bên TRÁI, cùng dải; dải chữ chọn phía KHÔNG đè hộp chủ thể (`subject`);

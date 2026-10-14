@@ -38,8 +38,8 @@ case "$cmd" in
   stop)
     alive "$name" || { echo "bg.sh: '$name' không chạy"; exit 0; }
     p=$(cat "$D/$name.pid"); kill -TERM -- "-$p" 2>/dev/null || kill -TERM "$p"
-    for _ in $(seq 10); do kill -0 "$p" 2>/dev/null || break; sleep 1; done
-    kill -0 "$p" 2>/dev/null && kill -KILL -- "-$p" 2>/dev/null
+    for _ in $(seq 10); do kill -0 -- "-$p" 2>/dev/null || break; sleep 1; done   # cả nhóm (con bỏ qua TERM vẫn bị KILL)
+    kill -0 -- "-$p" 2>/dev/null && kill -KILL -- "-$p" 2>/dev/null
     [ -f "$D/$name.rc" ] || echo 143 > "$D/$name.rc"; date +%s > "$D/$name.t1"; echo "bg.sh: dừng $name (pid $p)";;
   list)
     for f in "$D"/*.pid; do [ -e "$f" ] || continue; n=$(basename "$f" .pid); printf '%-28s %s\n' "$n" "$("$0" status "$n")"; done;;

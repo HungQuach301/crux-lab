@@ -1,0 +1,97 @@
+[spec] 1.64 s
+[voice] 11.56 s
+[resolve] 5.51 s
+[lint] OK 0.4 s
+[spine] OK 23.1 s
+[render] OK 397.8 s
+[audio] OK 38.0 s
+[mux] OK 4.1 s
+[verify] OK 5.8 s
+build_seg: 469.2 s → episodes/ep007/work/factory-r540/world/a-s01-s03-540.mp4
+
+[lint] OK 0.3 s
+[spine] OK 25.6 s
+[render] OK 718.8 s
+[audio] OK 91.0 s
+[mux] OK 10.4 s
+  F-2 WARN: sfx [(13.32, 'tick')] trên từ khoá b2.two 'two' 13.32–13.68 SNR 11.5 dB
+  F-2 WARN: đường × $2,828 a month 18.2–18.2 s (2 mẫu)
+  F-2 WARN: đường × 30-year required: 18.2–18.2 s (1 mẫu)
+  F-2 WARN: đường × 30-year paid in 15: $2,948 a month 65.8–66 s (3 mẫu)
+[verify] OK 14.7 s
+build_seg: 860.9 s → episodes/ep007/work/factory-r540/world/b-s04-s09-540.mp4
+
+[lint] OK 0.4 s
+[spine] OK 21.8 s
+[render] OK 1066.7 s
+[audio] OK 66.6 s
+[mux] OK 7.4 s
+  F-2 WARN: đường × Tessa · ILLUSTRATIVE 52.5–99 s (407 mẫu)
+[verify] OK 10.9 s
+build_seg: 1173.8 s → episodes/ep007/work/factory-r540/world/c-s10-s15-540.mp4
+
+[lint] OK 0.3 s
+[spine] OK 21.5 s
+[render] OK 894.7 s
+[audio] OK 41.6 s
+[mux] OK 4.6 s
+[verify] OK 9.0 s
+build_seg: 971.7 s → episodes/ep007/work/factory-r540/world/d-s16-s20-540.mp4
+
+[lint] OK 0.3 s
+[spine] OK 25.8 s
+[render] OK 619.1 s
+[audio] OK 60.6 s
+[mux] OK 6.2 s
+[verify] OK 8.8 s
+build_seg: 720.9 s → episodes/ep007/work/factory-r540/world/e-s21-s24-540.mp4
+
+[lint] OK 0.3 s
+[spine] OK 23.9 s
+[render] OK 194.0 s
+[audio] OK 32.9 s
+[mux] OK 3.5 s
+[verify] OK 4.5 s
+build_seg: 259.2 s → episodes/ep007/work/factory-r540/world/f-s25-s28-540.mp4
+
+[lint] OK 0.3 s
+[spine] OK 23.4 s
+[render] OK 478.7 s
+[audio] OK 66.9 s
+[mux] OK 7.4 s
+  F-2 WARN: đường × the fallback's value in a job loss: not measured 75.8–83.8 s (85 mẫu)
+  F-2 WARN: đường × Tessa · ILLUSTRATIVE: rates of Oct 8, 2026, on $320,000 only 75.8–83.8 s (8 mẫu)
+  F-2 WARN: đường × US only · History, not a forecast · Not advice on which loan 75.8–83.8 s (8 mẫu)
+[verify] OK 10.9 s
+build_seg: 587.7 s → episodes/ep007/work/factory-r540/world/g-s29-s33-540.mp4
+
+[world] 5044.18 s
+[render] 59.27 s
+[splice] 102.57 s
+[mix] 357.29 s
+[artefacts] 0.51 s
+[parts] 181.47 s
+[shorts] 364.73 s
+build: TRƯỢT — sản phẩm cũ giữ nguyên; thư mục tạm episodes/ep007/work/factory-r540/.new-17642
+Traceback (most recent call last):
+  File "/var/tmp/f15/ep007wt/toolkit/factory/build.py", line 656, in <module>
+    main()
+    ~~~~^^
+  File "/var/tmp/f15/ep007wt/toolkit/factory/build.py", line 621, in main
+    run_steps(B)
+    ~~~~~~~~~^^^
+  File "/var/tmp/f15/ep007wt/toolkit/factory/build.py", line 652, in run_steps
+    B.step('qc', lambda: QC.run(B))
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/tmp/f15/ep007wt/toolkit/factory/build.py", line 247, in step
+    r = fn()
+  File "/var/tmp/f15/ep007wt/toolkit/factory/build.py", line 652, in <lambda>
+    B.step('qc', lambda: QC.run(B))
+                         ~~~~~~^^^
+  File "/var/tmp/f15/ep007wt/toolkit/factory/qc.py", line 144, in run
+    Is, tps = loud(os.path.join(ROOT, S['file']))
+              ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/tmp/f15/ep007wt/toolkit/factory/qc.py", line 115, in loud
+    tail = r.stderr[r.stderr.rindex('Summary:'):]
+                    ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+ValueError: substring not found

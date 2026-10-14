@@ -35,7 +35,9 @@ def busy(pid=None):
     P = processes()
     me = pid or os.getpid()
     mine = ancestors(P, me)
-    rx = re.compile('|'.join(PATTERNS))
+    # F-15: khớp khi script build/render LÀ chương trình đang chạy (`bash|sh|python3|node [cờ…] <…/script>` hoặc chạy thẳng script), không khớp
+    # chuỗi nằm trong `bash -c "…"` của shell phiên (lệnh nền của phiên có nhắc tên build.sh đã làm build tự từ chối — họ hàng của cine-lab #41)
+    rx = re.compile(r'^(?:\S*/)?(?:(?:bash|sh|python3?|node|env)(?:\s+-\S+|\s+\w+=\S*)*\s+)?\S*(?:' + '|'.join(PATTERNS) + r')(?:\s|$)')
     res = []
     for p, (pp, args) in P.items():
         if p in mine or rx.search(args) is None:

@@ -13,8 +13,10 @@ Một lệnh: `bash toolkit/build.sh episodes/epNNN/episode.yaml [--workers 4] [
 - **Chạy nền:** `bash toolkit/bg.sh start <tên> -- bash toolkit/build.sh …` (`setsid nohup`, kiểm `guard.py` trước, PID/log/mã thoát ở `/var/tmp/crux-bg/`),
   `bg.sh wait|status|stop <tên>` (dừng theo PID nhóm, không `pkill -f`). Worker ≤ số nhân − 1 (`guard.max_workers`; `CRUX_ALL_CORES=1` bỏ);
   guard thấy cả checks (không chạy checks song song render).
+- **`toolkit/api.sh`:** cấm agent con (Task, Agent, Workflow) và **trần chi theo lệnh mặc định $5** (`--cap-usd N` hoặc `CRUX_API_CAP_USD`; trước F-15
+  không có trần — lượt dựng cỡ $12–14 của Tập 7 cần khai trần cao hơn); trần kiểm giữa các lượt nên có thể vượt tối đa một lượt.
 - **Container mới:** `bash toolkit/verify.sh <nhánh> --install episodes/epNNN` (three.js `npm ci`, PyAV ghim khi nhận dạng thử hỏng, `data/fetch.py --verify`,
-  `bed.wav` qua `music_cmd`) — luôn có MỘT lần nhận dạng thử thật (không chỉ import).
+  `bed.wav` qua `music_cmd`) — luôn có MỘT lần nhận dạng thử thật (không chỉ import; ≈ 20–60 s, cần model small.en trong cache HF).
 - **Footage ngoài** (`toolkit/footage/`, `world/plate.js`): `fetch.py` (tải + SHA-256 + dòng RIGHTS.md nguyên văn; `--loc` đọc quyền của mục LoC),
   `map.py` (Census cartographic boundary qua us-atlas + Natural Earth → đường chiếu Albers + neo nhãn), `plate.js` (`drawPlate` Ken Burns quanh `focus`
   ở `anchor`, `toneImage` tông kênh, `envelope` hoà vào/ra từ 3D, `drawCredits` dải chữ né hộp `subject`, `drawMap` tô theo dữ liệu + nhãn đúng mốc từ).
