@@ -98,5 +98,10 @@ khoá cache — với scene không thuần (đoạn e) tệp cảnh dựng tiế
 ## 7. Chi và token
 Console: cổng gốc $5,52 (4 lượt) + thử `api.sh` $0,03 + REVIEWER $1,97 = **$7,52** (trần $15). Headless khoá Console, 0 agent con. Token phiên: §8.
 
-## 8. Token phiên (4 số)
-(điền khi đóng phiên)
+## 8. Token phiên (4 số; đọc 14/10 ≈ 11:45 UTC, trước bản trả lời cuối)
+| Nguồn | đầu vào mới | ghi cache | đọc cache | sinh ra | trần (mới + ghi + ra) |
+|---|---|---|---|---|---|
+| phiên điều phối (`get_session` usage, session_01JjJWbBd8p6ZevQ83UZbT8Z) | 7.535 | 3.754.551 | 67.582.340 | 177.591 | **3,94 triệu** |
+| headless khoá Console (4 lượt cổng gốc 2×42 đọc + 8 chấm, REVIEWER, 3 thử `api.sh`) | 752 | 1.143.878 | 3.496.659 | 202.840 | **1,35 triệu** |
+| **cộng** | 8.287 | 4.898.429 | 71.078.999 | 380.431 | **5,29 triệu** |
+0 agent con. Chi Console $7,52 / trần $15.
