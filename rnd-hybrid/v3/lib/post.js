@@ -3,7 +3,7 @@
 //   ghép: nét mực Sobel theo depth tuyến tính + pháp tuyến · bán sắc chấm xoay 45° ở vùng tối · vân giấy (hash tất định) · viền tối nhẹ.
 import * as THREE from 'three';
 
-export function Post(renderer, W, H, { ink = '#15171C', paper = '#F2EAD6', dot = 7, lineW = 1.0 } = {}) {
+export function Post(renderer, W, H, { ink = '#15171C', paper = '#F2EAD6', dot = 7, lineW = 2.0 } = {}) {
   const mk = (depth) => { const rt = new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType });
     if (depth) { rt.depthTexture = new THREE.DepthTexture(W, H); rt.depthTexture.type = THREE.UnsignedIntType; } return rt; };
   const rtC = mk(true), rtN = mk(true), nmat = new THREE.MeshNormalMaterial();
@@ -23,8 +23,8 @@ export function Post(renderer, W, H, { ink = '#15171C', paper = '#F2EAD6', dot =
         // nét: sai khác depth tương đối (bóng ngoài) + sai khác pháp tuyến (nếp gấp, mép khối)
         float e = 0.; vec3 n0 = N(vec2(0.));
         for (int i = 0; i < 4; i++) { vec2 o = (i == 0 ? vec2(1., 0.) : i == 1 ? vec2(-1., 0.) : i == 2 ? vec2(0., 1.) : vec2(0., -1.)) * lw;
-          float dd = abs(D(o) - d0) / max(d0, 0.5); e = max(e, smoothstep(0.012, 0.035, dd));
-          e = max(e, smoothstep(0.35, 0.7, 1. - dot(n0, N(o)))); }
+          float dd = abs(D(o) - d0) / max(d0, 0.5); e = max(e, smoothstep(0.006, 0.02, dd));
+          e = max(e, smoothstep(0.2, 0.45, 1. - dot(n0, N(o)))); }
         e *= 1. - smoothstep(60., 140., d0);                       // xa: nét nhạt (sương)
         // bán sắc: lưới xoay 45°, bán kính theo độ tối
         float L = dot(c, vec3(.299, .587, .114)); vec2 p = gl_FragCoord.xy; mat2 R = mat2(.7071, -.7071, .7071, .7071); vec2 q = R * p / cell;
