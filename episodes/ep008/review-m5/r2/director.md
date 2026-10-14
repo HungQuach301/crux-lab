@@ -1,0 +1,35 @@
+# Lượt đạo diễn (chẩn đoán) — r2
+
+chi $0.25808939999999997
+
+PART 1 (0–185 s)
+Scores: emotion 2, sound off 3, pacing 3, composition 2
+
+- 38 s: The grid is almost all dark with one lit cell while the narration says "opposite answers." With the sound off, that reads as "renting almost always wins," which is the opposite of the real 3 in 4. Fix: split the screen into two houses from the same rules, one lit and one dark, side by side.
+- 23 and 38 s: A flat square grid shows up before we have seen any street. The world's main metaphor is replaced by a spreadsheet in the opening minute. Fix: use a low-angle shot of the actual house row lighting up, and save the top-down grid for after 196 s, once the street is established.
+- 54 s: There is about 4 s of silence (52–56 s) on a static wide shot with tiny pill figures, and Nina can't be told apart from the twins. Fix: push in on Nina at the fork between the apartment and the house, give her a colour accent the twins don't have, and cut the gap.
+- 162 / 177 s: At 162 the frame crops the left figure, and the light ball floats with no meaning. At 177 the "5%" door tag, the device the whole episode hangs on, can't be read. Fix: open on a close-up of the tag hanging on the door, then pull back to the cash pile.
+
+PART 2 (185–451 s)
+Scores: emotion 3, sound off 4, pacing 3, composition 3
+
+- 262 s: Houses not yet revealed are navy, but "dark: renter ahead" houses are mid-brown, which is brighter than the navy. "Dark door" is therefore the wrong colour. Fix: keep unrevealed houses as neutral grey wireframes and make renter-ahead houses truly black with an unlit door.
+- 351 s: "The darkest house" has a glowing yellow door, which contradicts the rule just taught. The $82,385 figure is not on screen either. Fix: kill the door light, add a slow push-in with a cold key light, and put up the deficit number.
+- 285 / 307 s: The titles overlap the legend at top right. At 307, 3 in 4, 75.6% and 75 of 307 all compete. Fix: show one number, 3 in 4, and drop the legend while a title is up.
+- 440 s: Several rows of grey cells stay on the right while the narration says the dark doors are "gone." They read as surviving dark doors. Fix: remove those houses or fade them to ghost outlines.
+
+PART 3 (451–580 s)
+Scores: emotion 3, sound off 3, pacing 3, composition 3
+
+- 532 s: The narration is about the T-bill variant (about 2 in 3), but the picture is back on the 5% grid with no change. Fix: dim lights live as the cash pile gains an interest stream, and land on the new count.
+- 521 s: 73.6%, 87.3%, 4.83% and 5.59% are on screen and none of them is narrated. Fix: show only the band on the tag dial, with no numbers.
+- 489 s: The narration says "every house used the same tag," but the tag can't be seen. Fix: hold a close-up on the tag.
+- 564–575 s: The payoff of the whole episode is a tiny dot in the bottom corner, with no axis and no 56.8% label. Fix: animate Nina's dot dropping below the lowest historical point, with a horizontal line at 57.9% and a 56.8% label.
+
+PART 4 (580–626 s)
+Scores: emotion 2, sound off 3, pacing 2, composition 2
+
+- 582 s: The limits card sits over ghosted chart text ("first months only…" bleeds through). Fix: clear the frame to plain black before the card comes up.
+- 593–597 s: The summary panels cover the dark stretch while the narration says "a dark stretch sits in the middle." The 597 panel also says "fifteen years" over the 10-year grid. Fix: put the text below the grid and tilt the camera so the stretch stays visible.
+- 601–605 s: The same frozen wide shot runs for 8 s, with Nina a speck at the far end. Fix: dolly along the lit street to Nina, ending on her face-level view.
+- 609–617 s: "Is her rent money wasted?" stays on screen while the answer is spoken, so sound-off viewers never get the answer. At 620–624 Nina leaves frame. Fix: turn the question into the spoken answer ("depends on month + tag"), and keep Nina in frame for the open question.
