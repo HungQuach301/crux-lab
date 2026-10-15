@@ -19,10 +19,11 @@ import comment_guard  # noqa: E402
 VENDOR = os.path.join(ROOT, 'toolkit', 'factory', 'world', 'vendor', 'node_modules', 'three')
 WORK = os.path.join(ROOT, 'toolkit', 'factory', 'f17', 'work')
 SCENE = r"""import * as THREE from 'three';
-import { Stage, Camera, CK } from '/toolkit/factory/world/core.js';
+import { Stage, Camera, CK, fonts } from '/toolkit/factory/world/core.js';
 import { Studio, House } from '/toolkit/factory/world/lib3d.js';
 export async function boot(res) {
   if (new URLSearchParams(location.search).get('ckon') === '1') CK.on = true;
+  await fonts();   // như mọi cảnh thật (không chờ phông → khung đầu đổi theo lần chạy)
   const st = Stage(res), O = st.O, scene = new THREE.Scene(), { key } = Studio(scene, { shadowBox: 8 });
   const CAM = Camera({ k: { pos: [0, 2.2, 7], tgt: [0, 0.6, 0], fov: 35, chart: 1 } }, []);
   const bar = new THREE.Mesh(new THREE.BoxGeometry(1, 1.4, 1), new THREE.MeshStandardMaterial({ color: '#F2B441' })); bar.position.set(-1.2, 0.7, 0);
@@ -88,6 +89,7 @@ class F17Render(unittest.TestCase):
         cls.d = {}
         for k, cine in (('plain', None), ('cine', {'look': 'dusk'})):
             d = os.path.join(WORK, 'test-' + k); shutil.rmtree(d, ignore_errors=True); os.makedirs(d)
+            for r in (540, 1080): shutil.rmtree(os.path.join(WORK, f'cache-{k}-{r}'), ignore_errors=True)
             open(os.path.join(d, 'scene.js'), 'w').write(SCENE)
             sp = {'total': 0.2, 'shots': [{'id': 's0', 't0': 0, 't1': 0.2}], 'moves': [], 'beats': []}
             if cine: sp['cine'] = cine
