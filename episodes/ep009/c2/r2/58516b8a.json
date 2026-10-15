@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, and asks whether renting and investing the difference beats buying. It replays \"twins\" (one buys, one rents and invests) from every start month since 1991, drawn as a street of houses that are lit if the buyer ends ahead and dark if not. It first shows that with the renter's money in cash the buyer mostly wins, then that with the money in stocks it's about half, and over 15 years mostly the renter. It then tests the assumptions (monthly savings, fees, the rent level) and closes with caveats.\n\n2. Over 10 years, with the renter's pile fully invested in US stocks every month, the buyer ended ahead in 152 of 307 start months, about half. Over 5 years the buyer led 53.4% of the time, and over 15 years only about 1 in 5 starts. With cash instead of stocks, the buyer won about 3 in 4 over 10 years and every time over 15. The result is sensitive to rent. At 5% of price per year the street splits almost exactly in half, and the tipping point is near 5.1%. So the answer is that it's roughly a coin flip, and the rent level decides it.\n\n3. Several passages confused me:\n- \"Every cost of owning stays the same, and the card lists each one.\" I couldn't tell what the card contains from the narration alone.\n- \"The split sits near 5.1 percent, and public rent data from the Census Bureau falls on both sides of it.\" It isn't clear what that means for someone's own rent.\n- \"all $400,000 of it\" doesn't match the numbers elsewhere. $92,000 as a 20% down payment implies a price of about $460,000.\n- \"June 2006 was the darkest house last time\" and \"April 2012 was the brightest house last time\" refer to a previous video I haven't seen.\n\n4. \"A lot of rent-versus-buy math assumes one growth rate; this replays the real record, month by month.\" My attention dropped here because it's an abstract methodological aside sandwiched between the action and the next item, and it leans on a visual card I can't see.\n\n5. No. The video says outright \"None of this ranks stocks above a house, or a house above stocks,\" and calls its results \"history, not a forecast.\" It makes no predictions about future prices, rents or returns. It only describes what happened in past windows and which assumptions matter.\n\n6. The video doesn't give direct advice. A viewer could reasonably take away four things:\n- Don't assume \"rent and invest the difference\" automatically wins.\n- Time horizon matters, since longer stays favored the renter's invested pile.\n- The monthly investing habit mattered more than the lump sum.\n- Check your own rent-to-price ratio against the roughly 5% tipping point.\n\n7. Mostly my own conclusion. The video deliberately avoids prescribing and even says a home brings stability and control that numbers can't count. The closest it comes is pointing at the rent tag and the stay length as the things that decide the outcome, which nudges a viewer toward checking those.\n\n8. Partly. It answered whether a renter who invests the difference ends up ahead: not reliably, about half the time over 10 years, mostly yes over 15 years, and heavily dependent on rent. It did not answer it for my situation in 2026, because Nina's own start month isn't on the street and I don't know my local rent-to-price ratio or how long I'd stay. The $92,000 versus $400,000 mismatch also leaves me unsure what price the model assumes.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3785,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 3785,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3915,
+   "cache_read": 1496,
+   "output": 2487,
+   "in": 5413,
+   "out": 2487
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0410731
+}

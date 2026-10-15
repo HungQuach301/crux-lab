@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wonders whether renting and investing the difference beats buying a roughly $400,000 house. It replays twin buyers and renters from every start month since 1991, shown as a street of houses that are lit if the buyer ends ahead and dark if not. It first shows that moving the renter's pile from cash to stocks flips many outcomes. Then it counts the results at 10 and 15 years and tests three assumptions: no monthly saving, 1% fees, and the rent level. It closes by saying the answer hinges on the rent assumption.\n\n2. Over 10 years with the pile in stocks, the buyer ended ahead in 152 of 307 start months (about half), so it's a coin flip. With cash, the buyer led about 3 in 4 times. Over 15 years, stocks left the buyer ahead only about 1 in 5 times, versus every time with cash. The result is sensitive to rent: the split sits near 5.1% of price per year, and the video assumes 5%. Without monthly reinvestment of the gap, the buyer leads about 2 in 3. With 1% fees, the buyer leads 55%. The video's answer is \"about half over 10 years, tilting to the renter with longer stays, and tipped by the rent level.\"\n\n3. \"Over a stay half as long, with the pile in stocks, the buyer was ahead 53.4 percent of the time.\" It's confusing because \"half as long\" isn't tied to a number until you work out that the main window is 10 years, so this means 5 years. It also appears in the middle of the street walk-through, which follows the 10-year result. A second confusing bit is \"Over fifteen years, cash kept the buyer ahead every time,\" which comes in the opening before the cash/stock distinction has been explained. A third is \"80 start months switched from the buyer to the renter,\" since it isn't clear what the starting condition is (cash) until you infer it.\n\n4. \"Starts from 2009 through mid-2016 are 78 percent lit. So the half isn't spread evenly: whole stretches are lit, and one long stretch is dark.\" Attention dropped here because the sequence of percentages, date ranges and counts comes in quick succession (67.6%, 16 of them, 72 of them, 183 of 307, 152 of 307, 78%, 53.4%), and these lines add one more stat without a new idea. The opening also loads many figures and \"3 in 4 / half / every time / 1 in 5\" in a few sentences.\n\n5. No. The video says outright that it's history, not a forecast, and that it doesn't rank stocks above a house or a house above stocks. It also leaves out taxes, non-US markets, and non-financial value such as stability and control. The rent tag is called an assumption, and the stock return is a replay of what happened.\n\n6. A viewer would probably take away that \"rent and invest the difference\" is not a sure win, because it depends on how long you stay, on rent relative to the price, on whether you keep investing every month, and on fees. A viewer might also conclude that longer stays favor investing and shorter stays are close to a coin toss. The \"stocks outgrew homes 9 in 10 times\" statistic alone doesn't settle it, since leverage and the monthly gap matter.\n\n7. Mostly my own conclusion. The narration states findings, such as \"longer stays favored the pile\" and \"the answer sits on the rent tag,\" but it avoids telling anyone what to do. The takeaways about checking your own rent-to-price ratio and holding period are inferences from those findings.\n\n8. Partly, yes. It answered the question for 10-year and 15-year windows: no, she doesn't reliably come out ahead, and it's about 50/50 at 10 years, more likely the renter's favor at 15. It didn't tell me whether I, with my own rent and plans, would end up ahead. It said that depends on the rent tag and how long I stay, so the closing \"coin flip, tipped by rent\" is the usable part, but I'd need to check my own numbers.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3785,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 19,
+   "in": 3785,
+   "out": 19
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3913,
+   "cache_read": 1496,
+   "output": 1300,
+   "in": 5411,
+   "out": 1300
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0291936
+}

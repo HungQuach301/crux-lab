@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who is deciding whether to buy a roughly $400,000 house or keep renting and invest the difference. It replays twin buyers and renters in every start month since 1991, shown as a street of houses lit if the buyer ends ahead and dark if not. It tests ten-year stays with the renter's pile in cash versus stocks, then checks fifteen-year stays, a no-monthly-savings case, fees, and the rent assumption. It closes by saying the result is a coin flip that the rent assumption tips.\n\n2. With the pile in stocks, the buyer ended ahead in 152 of 307 ten-year start months (about half). Stocks outgrew the house about 9 in 10 times, yet buying still won half, because the mortgage lets the house grow on the full $400,000 while the renter starts with $92,000. A 5-year stay (the \"half as long\" case) favored the buyer 53.4% of the time, and over fifteen years the buyer led only about 1 in 5 times. The result is sensitive to rent: the split sits near 5.1% of price per year, and the video uses 5%. Results by period vary: 2002–2007 starts were all dark, and 2009–mid-2016 starts were 78% lit.\n\n3. One passage confused me: \"Over a stay half as long, with the pile in stocks, the buyer was ahead 53.4 percent of the time.\" Half of ten years is five, but the video never says \"five years,\" and it appears without setup. A second one: \"Over ten years, stocks outgrew home prices about 9 in 10 times. So you'd expect renting and investing to come out ahead...\" is fine, but \"With Nina's renting twin holding cash, the buyer ended ahead about 3 in 4 times\" arrives before the cash and stock cases are explained.\n\n4. \"The first house on that street is January 1991. With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead. With the pile in stocks, the same buyer finished $485,063 behind.\" Attention drops most around the stretch of dense statistics that follows (\"Most of the 1990s houses stay lit: 67.6 percent... 16 start months around March 1999... 72... 6 of them... $261,689...\"), where many figures arrive in a row. The most exact place is: \"Then the street goes dark, and stays dark. For starts from 2002 through 2007, the buyer ended ahead in none of 72.\" The numbers pile up and the cash-versus-stocks comparisons start to blur.\n\n5. No. The video says outright that it is history, not a forecast, and that it does not rank stocks above a house or the reverse. It names the limits: US only, no taxes on gains or on the home, renters who never skip a month, and an assumed rent. It also says homes bring stability and control that numbers don't count.\n\n6. A viewer would take away that \"rent and invest the difference\" is not a sure win. Historically it was roughly a coin flip at ten years, favored the renter with longer stays, and favored the buyer at shorter stays. It depends heavily on local rent relative to price (around 5% a year), on actually investing every month, on low fees, and on how long you will stay. The practical advice is to check your own rent-to-price ratio and expected stay length.\n\n7. That is mostly my own conclusion. The narration gives findings and sensitivities and refuses to say what to do. The closing line (\"investing the difference made her street a coin flip, and her rent tag tips it\") is a summary of the result, not a recommendation. Pointing the viewer to their own rent ratio and stay length is my inference from the sensitivity tests.\n\n8. Partly. The question was whether a renter who invests the difference ends up ahead of a buyer. The video answers that for the past: about half the time over ten years, and mostly not over fifteen, with the exact balance depending on the rent assumption. It does not say what will happen for a 2026 start, and it does not use Nina's real local rent. Its answer on \"rent and invest the difference\" is therefore \"not reliably, and it depends,\" not a yes or no.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3785,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 3785,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3911,
+   "cache_read": 1496,
+   "output": 1327,
+   "in": 5409,
+   "out": 1327
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.029457100000000003
+}

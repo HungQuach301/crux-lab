@@ -1,0 +1,104 @@
+{
+ "grader_tokens": 23336,
+ "scores": [
+  {
+   "file": "4d1f34c9",
+   "sample": "v2",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [],
+   "attention_block": "khác",
+   "attention_where": "\"the card lists each one\" (on-screen card not described); also the \"6 of them\" figures",
+   "answered_own": "partly",
+   "why": "Correct question; correct answer of about half (152 of 307) plus 15 years at 1 in 5, the 5.1% break-even and cash at 3 in 4; takeaways are the reader's own inference."
+  },
+  {
+   "file": "58516b8a",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [],
+   "attention_block": "phương pháp",
+   "attention_where": "\"A lot of rent-versus-buy math assumes one growth rate...\" methodological aside",
+   "answered_own": "partly",
+   "why": "Correct question; about half (152 of 307) plus 15 years at 1 in 5 and the 5%/5.1% rent tipping point; advice is mostly the reader's own conclusion."
+  },
+  {
+   "file": "5d5a52da",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "A short stay is close to a coin toss; longer stays tilt toward the pile",
+    "the monthly habit... did most of the renter's catching up"
+   ],
+   "attention_block": "số dày",
+   "attention_where": "run of dollar figures: $48,410, $485,063, $261,689 and the 183-of-307 stats",
+   "answered_own": "partly",
+   "why": "Correct question; about half (152 of 307) plus 15 years at 1 in 5, break-even near 5.1% and cash comparison; the reader calls takeaways their own inference."
+  },
+  {
+   "file": "b6110a16",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [],
+   "attention_block": "số dày",
+   "attention_where": "\"67.6 percent... 16 start months... 72... 6 of them... $261,689\" stretch",
+   "answered_own": "partly",
+   "why": "Correct question; about half (152 of 307) plus 2002–2007 all dark, leverage reason, 15 years at 1 in 5 and 5.1% sensitivity; advice is the reader's inference."
+  },
+  {
+   "file": "cb750b4c",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "longer stays favored the pile",
+    "the answer sits on the rent tag"
+   ],
+   "attention_block": "số dày",
+   "attention_where": "\"Starts from 2009 through mid-2016 are 78 percent lit\" and the opening's stacked stats",
+   "answered_own": "partly",
+   "why": "Correct question; about half (152 of 307) plus 15 years at 1 in 5, no-monthly-saving buyer leading about 2 in 3 and 5.1% rent sensitivity; takeaways are the reader's inferences."
+  },
+  {
+   "file": "d9ca697c",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "the tag decides",
+    "how long Nina herself will stay"
+   ],
+   "attention_block": "số dày",
+   "attention_where": "\"In 183 of the 307 windows, the stock pile dipped below the $92,000\" and the 67.6 percent line",
+   "answered_own": "partly",
+   "why": "Correct question; about half (152 of 307) plus 2002–2007 0 of 72, 15 years at 1 in 5, 5%/5.1% rent sensitivity and the leverage reason; advice is the reader's own reading."
+  }
+ ]
+}

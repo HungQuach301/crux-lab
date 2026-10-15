@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, and asks whether renting and investing the difference beats buying a roughly $400,000 house. It replays twin buyers and renters from every start month since 1991, shown as a \"street\" of houses lit if the buyer ends ahead and dark if not. It first shows that cash-holding renters lose to buyers, then that stock-holding renters make it about a coin flip over ten years, and mostly favor the renter over fifteen. It closes by testing assumptions (no monthly investing, 1% fees, the rent tag) and noting the answer hinges on the assumed rent.\n\n2. Over ten years with the pile in stocks, the buyer ended ahead in 152 of 307 start months (about half). The share was 53.4% over five years, about 1 in 5 over fifteen years (cash: every time), 78% for 2009 to mid-2016 starts, and 0 of 72 for 2002 to 2007 starts. So \"rent and invest the difference\" is roughly a coin flip at ten years, wins more often with longer stays, and depends on the assumed rent (5% of price a year; the split sits near 5.1%). It's history, not a forecast.\n\n3. \"Over a stay half as long, with the pile in stocks, the buyer was ahead 53.4 percent of the time.\" It's confusing because the video never says \"five years\" and \"half as long\" follows a ten-year frame, so the viewer must work out the horizon. It also sounds like a lit share rising slightly from half, which needs a moment to reconcile with \"a short stay is close to a coin toss.\" Also, \"Over ten years, stocks outgrew home prices about 9 in 10 times... buyer led only about half the time\" is early and compressed. And \"80 start months switched from the buyer to the renter\" (switched from what comparison?) is unclear until you infer it means cash versus stocks.\n\n4. \"Dark doors don't mean the renting twins had an easy ride. In 183 of the 307 windows, the stock pile dipped below the $92,000 it started with.\" Attention drops because it's a stack of counts and a tangent right after the street walk, and it arrives before the payoff. The lines about 307 houses and \"Most of the 1990s houses stay lit: 67.6 percent\" are also number-dense.\n\n5. No on both counts. The video says \"None of this ranks stocks above a house, or a house above stocks,\" says it's \"history, not a forecast,\" and lists limits (US only, no taxes, renters who never skip a month). It reports what happened and which assumptions matter without recommending or predicting prices, rents, or returns.\n\n6. A viewer would take away that \"rent and invest the difference\" is not a sure win: over ten years it was about even, it favors the renter more with longer stays, and the result is sensitive to the rent-to-price ratio, fees, and whether the renter actually invests the monthly gap. A sensible takeaway is to compare your own local rent and price and expected stay length rather than trust the slogan.\n\n7. That advice is largely my own conclusion. The narration frames the evidence and sensitivities (\"the tag decides,\" \"how long Nina herself will stay\") and explicitly declines to recommend, though it does lean toward implying that horizon and rent level matter, which makes my takeaway a fairly natural reading.\n\n8. Partly yes. It directly answered whether the renter ends up ahead: about half the time over ten years, mostly yes over fifteen, mostly no with cash, and dependent on rent. It did not give Nina a verdict, since it says her own month isn't on the street and its outcome is unknown. The most useful parts were the stocks-versus-cash comparison and the explanation that the mortgage lets the house grow on the whole $400,000 base while the pile starts at $92,000.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3785,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 3785,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3915,
+   "cache_read": 1496,
+   "output": 1225,
+   "in": 5413,
+   "out": 1225
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.028453100000000002
+}
