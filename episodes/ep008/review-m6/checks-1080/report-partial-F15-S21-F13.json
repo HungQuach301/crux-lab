@@ -1,0 +1,209 @@
+{
+ "root": "/home/user/chk-ep008/episodes/ep008",
+ "contract": "/home/user/chk-ep008/episodes/ep008/contract.json",
+ "lock": "b45516422eb936f244f7e5f5c77504974a94a6b0fec19e05254a0126f0c7f9d6",
+ "video_sha256": "98833a2a1f3fd8c882841aa0f86bdae3beb187dd042733feef6a51aefe89fb0e",
+ "episode": "ĐẠT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 1,
+   "pass": 1,
+   "notPass": [],
+   "byNature": {
+    "real": [],
+    "legal": [],
+    "procedure": []
+   }
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 2,
+   "pass": 2,
+   "notPass": [],
+   "byNature": {
+    "real": [],
+    "legal": [],
+    "procedure": []
+   },
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "byNature": {
+    "real": [],
+    "legal": [],
+    "procedure": []
+   }
+  }
+ },
+ "counts": {
+  "PASS": 3,
+  "FAIL": 0,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "F13",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "external footage items",
+     "value": 1,
+     "op": ">=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "footage without a complete rights record",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "footage under a forbidden or unrecognised licence",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "attribution licences without the credit in the description",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "external footage share (%)",
+     "value": 0.984987,
+     "op": "<=",
+     "threshold": 15.0,
+     "unit": "%",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "noRecord": [],
+     "licence": [],
+     "credit": [],
+     "externalSeconds": 5.97,
+     "ceiling": 0.15
+    }
+   ],
+   "note": null,
+   "section": "checks-appeal A39 (+ A44), RIGHTS.md §F (D-013, chủ dự án 13/10/2026), cine-lab rights_check",
+   "threshold": "0 footage without a complete record; 0 forbidden or unrecognised licences; 0 attribution licences without the credit in the description; share ≤ ceiling",
+   "fingerprint": "ff2b46c3fa440095",
+   "tier": "BLOCK",
+   "nature": null,
+   "seconds": 0.1
+  },
+  {
+   "id": "F15",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "external footage intervals",
+     "value": 1,
+     "op": ">=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "archival footage without year + source on screen",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "illustrative footage without label or with a claim number",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "footage runs over 6 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "footage in the first 5 s",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "archival": [],
+     "illustrative": [],
+     "long": [],
+     "opening": []
+    }
+   ],
+   "note": null,
+   "section": "checks-appeal A39 (CHÍNH: trung thực footage), RIGHTS.md §F3–F4 (D-013)",
+   "threshold": "0 archival intervals without year + source on screen; 0 illustrative intervals without the label or with a claim number; 0 runs > 6 s; 0 runs in the first 5 s",
+   "fingerprint": "efe5771b6bf4860e",
+   "tier": "MAJOR",
+   "nature": null,
+   "seconds": 0.3
+  },
+  {
+   "id": "S21",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "numbers in the description without a claim",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [],
+   "note": null,
+   "section": "DX-H1 (lỗi số = 0 cả ngoài video), cine-lab BAI-HOC-LL #53, checks-appeal A25",
+   "threshold": "0 numbers in the description without a claim",
+   "fingerprint": "aa920c67fb36c3fc",
+   "tier": "MAJOR",
+   "nature": null,
+   "seconds": 0.0
+  }
+ ]
+}

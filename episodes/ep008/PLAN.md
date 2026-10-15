@@ -3,7 +3,7 @@
 **Nhánh:** `ep008` · **Đề tài:** #20 · **Format:** `lab` · **Mô hình:** xưởng 6 mốc (D-013) · **Chặng vừa đóng:** sau G1 → **dừng ở G2** (`session_01D3z2xMwUwt9NXv8xLDkV6d`)
 
 ## 1. Trạng thái
-**G2 chờ chủ dự án** (`gates/G2.md`, REVIEWER lượt 2 ĐẠT có sửa — đã áp; nháp r2 `review-g2/draft-540p.mp4` 10:26). M2: cold open v3 + kiểm mù lời 6/6, 0 khuyên; animatic xám, cổng gốc 19/24 (5 nhịp so sánh giữa cảnh → G2). M3–M4: nháp màu theo hồi (`grade8.js`), giọng một lần (S13 seed 1009). M5: nhịp ĐẠT sau 2 vòng (freezedetect 0 s, spine 0); nhớ lại 3/3; **chỗ muốn tua TRƯỢT** (vòng hình r3 S07 không vượt r2 → hoàn; cắt lời → G2 câu 5); cổng gốc chẩn đoán 17/24, 0 khuyên; liền mạch ĐẠT trừ J/L-cut; đạo diễn chẩn đoán; checks đủ bộ khoá `a35970a8` TRƯỢT (ngoài S01 S04 S05 ghi trước: S03 S06 S07 S09 A14 + mục M6; `gates/M5-checks.md`, báo cáo `review-m5/checks-r2/`).
+**G3 chờ chủ dự án** (`gates/G3.md`). M6 xong: bản phát hành 1080p 10:06 (`out/video.mp4`, SHA `98833a2a…`), Short SH1 45,8 s, mô tả/chương/tag, `HUONG-DAN-DANG.md`; giao trên nhánh tạm `ep008-delivery` @ `8c1ece7` (15 phần master + SHA256SUMS + xem trước 720p 3 phần; 22/22 SHA khớp). Checks đủ bộ 1080p khoá K4.4b (`gates/M6-checks.md`): ĐẠT 59; CHẶN còn S01 S03 S04 S05 (hợp đồng chưa có, ghi trước) + A14 "mid-2016" (chủ dự án giữ); CHÍNH L1 18,5 dB < 20 (G3 câu 6), V03/V11/V12, V09 lỗi công cụ. Chỉ báo 1080p: cổng gốc 16/24, chỗ muốn tua S05 3/3 + S04 S06 S07 2/3, nhớ lại 3/3.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
 1. Chép G2 → `gates/G2-answer.md`; áp lựa chọn (câu 1 "out of", câu 5 cắt lời, câu 6 "dollars of the day", câu 7 S23 allowTerms, màu câu 3/8); sinh lại giọng các câu đổi.

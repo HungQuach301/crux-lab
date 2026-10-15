@@ -10,7 +10,7 @@ f14: true              # nhà máy F-14 opt-in: mọi spine.json của đoạn t
 asr_hotwords: [Nina]   # tên nhân vật (luật tạm 13/10) — chốt theo kịch bản C2
 footage: {max_share: 0.15, rights: RIGHTS.md, map: preprod/BAN-DO-LIEN-MACH.md}
 external:   # F13/F15 (K4.4): footage ngoài duy nhất Tập 8 (G1 câu 3) — bản đồ Natural Earth vẽ trên mặt đất, minh hoạ "US only", chữ nguồn trên hình
-  - {id: M-NE-ADM1, rights: M-NE-ADM1, kind: illustrative, file: work/external/ne_50m_admin_1.geojson, t0: 151.70, t1: 157.68}   # luật tạm 13/10: footage ngoài ≤ 15 % thời lượng
+  - {id: M-NE-ADM1, rights: M-NE-ADM1, kind: illustrative, file: work/external/ne_50m_admin_1.geojson, t0: 142.43, t1: 148.40}   # M6: giờ sau cắt (bản đồ hiện b15.tag − 0,8 → m_c3 + 0,3; trước 151,70–157,68); footage ngoài ≤ 15 %
 # shorts: 1 Short, không thumbnail (chủ dự án 13/10) — khai ở cuối tệp
 dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json}
 
