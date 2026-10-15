@@ -1,0 +1,62 @@
+{
+  "n_windows_10y": 307,
+  "first_start": "1991-01",
+  "last_start": "2016-07",
+  "share_buyer_ahead_cash": 75.6,
+  "renter_ahead_count_cash": 75,
+  "median_advantage_cash": 157104,
+  "share_buyer_ahead_stocks": 49.5,
+  "renter_ahead_count_stocks": 155,
+  "median_advantage_stocks": -5827,
+  "share_buyer_ahead_lump": 63.8,
+  "renter_ahead_count_lump": 111,
+  "median_advantage_lump": 90280,
+  "stocks_min": {
+    "start": "1991-01",
+    "value": -485063
+  },
+  "stocks_max": {
+    "start": "2012-10",
+    "value": 297855
+  },
+  "cash_ahead_stocks_not": 80,
+  "h15": {
+    "n": 247,
+    "share_cash": 100.0,
+    "share_stocks": 21.9
+  },
+  "eras": {
+    "1991-01..1999-12": {
+      "n": 108,
+      "share_cash": 100.0,
+      "share_stocks": 67.6
+    },
+    "2002-01..2007-12": {
+      "n": 72,
+      "share_cash": 8.3,
+      "share_stocks": 0.0
+    },
+    "2009-01..2016-07": {
+      "n": 91,
+      "share_cash": 100.0,
+      "share_stocks": 78.0
+    }
+  },
+  "point_advantages": {
+    "2006-06": {
+      "cash": -82385,
+      "stocks": -261689
+    },
+    "2012-04": {
+      "cash": 483975,
+      "stocks": 237632
+    },
+    "1991-01": {
+      "cash": 48410,
+      "stocks": -485063
+    }
+  },
+  "windows_stocks_dollar_below_1": 16,
+  "share_stocks_y0_0.04": 30.9,
+  "share_stocks_y0_0.06": 62.2
+}
