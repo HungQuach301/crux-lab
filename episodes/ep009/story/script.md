@@ -1,5 +1,7 @@
 # Script — Episode 9 (format `lab`, C2 v3, WRITER, 2026-10-15)
 
+**Table-read fix (Eric 0.9, `review-g1/table-read.json`):** cold open cut ≈ 12 s before the promise end — S01.1+S01.2 → one hook (S01.2 removed; expectation moved to S02.1 "So renting looks smart"), twins named inside S02.2, S03.3 promise reduced to the paradox only ("since 1991" + `n_10y` moved to S03.5), "9 in 10" → "nine times out of ten" (ASR heard "nine and ten"). Estimated (2.45 w/s, real gaps): S01.1 end ≈ 4.7 s · M7 third fact ≈ 30.0 s · M3 question ≈ 36.3 s · M2 promise ≈ 44.2 s. `check_script.py` not run (no shell).
+
 **C2 v3 changes (blind read r2, "số dày" 4/6):** spoken figures thinned to words, exact figures kept on screen (B14 67.6 %, B15 16 start months, B16 none of 72 · 6 with cash, B17 $261,689, B18 183 of 307, B24 78.0 %, B24b 53.4 %): S10.1 "about two in three", S11.2 "a short run of start months around March 1999", S12.2 "none of them" (the one spoken count), S12.3 "a handful", S13.2 "more than a quarter of a million dollars", S14.2 "more than half the windows", S17.1 "nearly four times in five", S17.4 "a little more than half". No sentence cut, claim IDs unchanged; S04.2–S04.3 already separated by the 0.8 s anchor silence before S04.3; S15.2, peak and Nina's last line untouched. `check_script.py` not run (no shell).
 
 **C2 v2 changes (blind read 6/6, method block BLOCKING).** S06–S08 cut from 12 spoken lines to 4: S06.1 competitor gap (one assumed growth rate vs the real monthly record, no channel named), S07.1 costs unchanged (the list moved to card B10), S08.1 rent tag (5 percent of the price a year, July 2026, an assumption that decides later), S08.2 act-2 question (was S08.4). "Before fees and taxes, dividends reinvested" and "buys every month, through every drop" are now on card B11 only (discipline is still spoken at S14.3–S14.5). The "last time" line in the method block is gone. Lit/dark are now defined at S03.5. S02.1 is split into two short sentences. S03.3 and S19.1 now say "about 9 in 10 times" (`share_stocks_beat_house_10y`). S18.1 and S18.5 are reworded in plain words (fifteen years: most lights go out; next: the rent tag). S22.3 and S22.4 are merged into one line (split near 5.1 percent, Census Bureau data on both sides; range on B30 only), and old S22.5 is now S22.4. Mid-roll 1 now comes after S07.1. **Not re-run in this pass:** shell access was denied, so `check_script.py` did not run. Hand count: about 1,270 spoken words, so the estimated length is about **8:50**, under the 9:00 `lab` floor. Per the brief, nothing was padded; this goes to G1. Hand-checked timing estimates: M2 ≈ 47.7 s, M3 ≈ 37.1 s, M7 ≈ 31.5 s, mid-roll 1 ≈ 2:17, mid-roll 2 ≈ 6:10 (≈ 133 s before the end). The checker block below is still the v1 output.
@@ -66,22 +68,21 @@ beats.md: 36 nhịp · hooks HA/HB/HC: M1–M8 ĐẠT (M2 41.7 / 47.0 / 41.7 s)
 
 ## S01 — The paradox (hook)
 
-S01.1 {hook} Over ten years, stocks outgrew home prices about 9 in 10 times. <!-- claims: share_stocks_beat_house_10y, n_10y -->
-S01.2 {hook} So you'd expect renting and investing to come out ahead of buying a house. <!-- claims: —; hold: 0.3 -->
+S01.1 {hook} Over ten years, stocks outgrew homes nine times out of ten. <!-- claims: share_stocks_beat_house_10y, n_10y -->
 
 ## S02 — Nina, and two facts
 
-S02.1 {hook} Nina rents, with $92,000 saved. One twin buys; one rents. <!-- claims: savings_usd -->
-S02.2 {fact} With Nina's renting twin holding cash, the buyer ended ahead about 3 in 4 times. <!-- claims: share_buyer_ahead_cash_10y -->
+S02.1 {hook} So renting looks smart. Nina rents, with $92,000 saved. <!-- claims: savings_usd -->
+S02.2 {fact} If her renting twin held cash, her buying twin ended ahead about 3 in 4 times. <!-- claims: share_buyer_ahead_cash_10y -->
 S02.3 {fact} With that cash in stocks instead, the buyer led only about half the time. <!-- claims: share_buyer_ahead_stocks_10y -->
 
 ## S03 — Fact three, the question, the promise, the street (shared continuation for all three hooks)
 
 S03.1 {fact} Over fifteen years, cash kept the buyer ahead every time; stocks, only about 1 in 5. <!-- claims: share_buyer_ahead_cash_15y, share_buyer_ahead_stocks_15y -->
 S03.2 {question} [worried] So if Nina rents and invests the difference, does she end up ahead of owning? <!-- claims: — -->
-S03.3 {promise} We replayed the twins in every start month since 1991: stocks outgrew the house about 9 in 10 times, yet buying still came out ahead in half. <!-- claims: n_10y, share_stocks_beat_house_10y, share_buyer_ahead_stocks_10y -->
+S03.3 {promise} Stocks outgrew the house nine times out of ten, yet buying still came out ahead in half. <!-- claims: share_stocks_beat_house_10y, share_buyer_ahead_stocks_10y -->
 S03.4 {constraint} It's history, not a forecast. <!-- claims: — -->
-S03.5 {hook} Each start month is a house on one long street: lit if the buyer ends ahead, dark if not. <!-- claims: — -->
+S03.5 {hook} We replayed every start month since 1991 as a house on one long street: lit if the buyer ends ahead, dark if not. <!-- claims: n_10y -->
 S03.6 {define} The renting twin's pile is the $92,000, plus whatever owning would have cost each month beyond her rent. <!-- claims: savings_usd -->
 S03.7 {hook} All of it goes into the whole US stock market, every month, through every drop. <!-- claims: —; hold: 0.8 -->
 

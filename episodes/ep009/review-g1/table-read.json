@@ -1,0 +1,166 @@
+{
+ "el_chars_spent": 926,
+ "clip": "episodes/ep009/review-g1/cold-open.m4a",
+ "clip_s": 68.2,
+ "M": {
+  "M1 hook ends ≤ 5.0": {
+   "value": 4.88,
+   "pass": true
+  },
+  "M2 promise ends ≤ 50": {
+   "value": 42.16,
+   "pass": true
+  },
+  "M3 question ≤ 40": {
+   "value": 36.2,
+   "pass": true
+  },
+  "M7 third fact ends ≤ 35": {
+   "value": 29.84,
+   "pass": true
+  },
+  "M8 constraint lines 0–60 s ≤ 1": {
+   "value": 1.0,
+   "pass": true
+  },
+  "M9 S03 end → first result start ≤ 60 (T8-2)": {
+   "value": 8.54,
+   "pass": true
+  },
+  "M4 longest constraint/define block 0–60 s ≤ 10": {
+   "value": 5.46,
+   "pass": true
+  },
+  "M5 character/stake first appears ≤ 45": {
+   "value": 10.76,
+   "pass": true
+  },
+  "M6 character promise paid ≤ 90": {
+   "value": 0.0,
+   "pass": true
+  }
+ },
+ "timeline": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "role": "hook",
+   "text": "Over ten years, stocks outgrew homes nine times out of ten.",
+   "start": 0.0,
+   "end": 4.88
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "role": "hook",
+   "text": "So renting looks smart. Nina rents, with $92,000 saved.",
+   "start": 5.88,
+   "end": 10.76
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "role": "fact",
+   "text": "If her renting twin held cash, her buying twin ended ahead about 3 in 4 times.",
+   "start": 10.95,
+   "end": 16.68
+  },
+  {
+   "id": "S02.3",
+   "scene": "S02",
+   "role": "fact",
+   "text": "With that cash in stocks instead, the buyer led only about half the time.",
+   "start": 16.84,
+   "end": 21.72
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "role": "fact",
+   "text": "Over fifteen years, cash kept the buyer ahead every time; stocks, only about 1 in 5.",
+   "start": 22.72,
+   "end": 29.84
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "role": "question",
+   "text": "[worried] So if Nina rents and invests the difference, does she end up ahead of owning?",
+   "start": 30.48,
+   "end": 36.2
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "role": "promise",
+   "text": "Stocks outgrew the house nine times out of ten, yet buying still came out ahead in half.",
+   "start": 36.29,
+   "end": 42.16
+  },
+  {
+   "id": "S03.4",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "It's history, not a forecast.",
+   "start": 42.4,
+   "end": 44.48
+  },
+  {
+   "id": "S03.5",
+   "scene": "S03",
+   "role": "hook",
+   "text": "We replayed every start month since 1991 as a house on one long street: lit if the buyer ends ahead, dark if not.",
+   "start": 44.8,
+   "end": 54.32
+  },
+  {
+   "id": "S03.6",
+   "scene": "S03",
+   "role": "define",
+   "text": "The renting twin's pile is the $92,000, plus whatever owning would have cost each month beyond her rent.",
+   "start": 54.54,
+   "end": 62.24
+  },
+  {
+   "id": "S03.7",
+   "scene": "S03",
+   "role": "hook",
+   "text": "All of it goes into the whole US stock market, every month, through every drop.",
+   "start": 62.42,
+   "end": 68.16
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "role": null,
+   "text": "The first house on that street is January 1991.",
+   "start": 72.16,
+   "end": 76.48
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "role": null,
+   "text": "With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead.",
+   "start": 76.7,
+   "end": 85.92
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "role": null,
+   "text": "With the pile in stocks, the same buyer finished $485,063 behind.",
+   "start": 86.1,
+   "end": 94.56
+  },
+  {
+   "id": "S04.4",
+   "scene": "S04",
+   "role": null,
+   "text": "Same house, same mortgage, same rent; the only thing that moved was the renter's pile.",
+   "start": 94.8,
+   "end": 102.8
+  }
+ ],
+ "asr": "Over 10 years, stocks outgrew homes nine times out of 10. So, renting looks smart. Nina rents, with $92,000 saved. If her renting twin held cash, her buying twin ended ahead about three and four times. With that cash and stocks instead, the buyer led only about half the time. Over 15 years, cash kept the buyer ahead every time. Stocks? Only about one in five. So, if Nina rents and invests the difference, does she end up ahead of owning? Stocks outgrew the house nine times out of 10, yet buying still came out ahead in half. It's history, not a forecast. We replayed every start month since 1991 as a house on one long street, lit if the buyer ends ahead, dark if not. The renting twins pile is the $92,000, plus whatever owning would have cost each month beyond her rent. All of it goes into the whole U.S. stock market, every month through every drop."
+}

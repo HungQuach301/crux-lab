@@ -11,11 +11,10 @@ HA.3 {fact} With Nina's renting twin holding cash, the buyer ended ahead about 3
 HA.4 {fact} With that cash in stocks instead, the buyer led only about half the time. <!-- claims: share_buyer_ahead_stocks_10y -->
 
 ## HB — Nghịch lý (paradox) — USED
-HB.1 {hook} Over ten years, stocks outgrew home prices about 9 in 10 times. <!-- claims: share_stocks_beat_house_10y, n_10y -->
-HB.2 {hook} So you'd expect renting and investing to come out ahead of buying a house. <!-- claims: — -->
-HB.3 {hook} Nina rents, with $92,000 saved and one twin for each choice. <!-- claims: savings_usd -->
-HB.4 {fact} With Nina's renting twin holding cash, the buyer ended ahead about 3 in 4 times. <!-- claims: share_buyer_ahead_cash_10y -->
-HB.5 {fact} With that cash in stocks instead, the buyer led only about half the time. <!-- claims: share_buyer_ahead_stocks_10y -->
+HB.1 {hook} Over ten years, stocks outgrew homes nine times out of ten. <!-- claims: share_stocks_beat_house_10y, n_10y -->
+HB.2 {hook} So renting looks smart. Nina rents, with $92,000 saved. <!-- claims: savings_usd -->
+HB.3 {fact} If her renting twin held cash, her buying twin ended ahead about 3 in 4 times. <!-- claims: share_buyer_ahead_cash_10y -->
+HB.4 {fact} With that cash in stocks instead, the buyer led only about half the time. <!-- claims: share_buyer_ahead_stocks_10y -->
 
 ## HC — Được–mất (gain–loss)
 HC.1 {hook} One buyer fell $485,063 behind her twin. <!-- claims: adv_1991-01_stocks_10y -->
