@@ -762,10 +762,6 @@
     {
      "scene": "S11",
      "sentence": "S11.2"
-    },
-    {
-     "scene": "S13",
-     "sentence": "S13.2"
     }
    ]
   },
@@ -2136,12 +2132,7 @@
    "conditional": "history-not-forecast",
    "callbacks": [],
    "shownIn": [],
-   "spoken": [
-    {
-     "scene": "S15",
-     "sentence": "S15.3"
-    }
-   ]
+   "spoken": []
   },
   {
    "claimId": "n_flip_to_buyer_10y",
@@ -2712,12 +2703,7 @@
    "conditional": "history-not-forecast",
    "callbacks": [],
    "shownIn": [],
-   "spoken": [
-    {
-     "scene": "S11",
-     "sentence": "S11.2"
-    }
-   ]
+   "spoken": []
   },
   {
    "claimId": "stocks_growth_worst_10y",
@@ -3734,10 +3720,6 @@
     {
      "scene": "S05",
      "sentence": "S05.2"
-    },
-    {
-     "scene": "S14",
-     "sentence": "S14.2"
     },
     {
      "scene": "S16",

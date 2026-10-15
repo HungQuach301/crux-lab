@@ -12,6 +12,10 @@ footage: {max_share: 0.20, rights: RIGHTS.md, map: preprod/BAN-DO-LIEN-MACH.md} 
 dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json, market: market/topics/s1-rent-vs-buy-history.md}
 # Áp từ Tập 9 (chủ dự án 15/10): công thức mở D-013; dựng trước kết quả đầu ≤ 60 s; data_db 34 (L1 ≥ 20 dB); audio.aac_true_peak;
 # J/L-cut (spine `cuts`) ở mọi chuyển hồi qua biên đoạn; sfx_real (kho CC0 RIGHTS §G1); `cine` (F-17, đã vào main fced0bd6) chỉ cảnh đinh ≤ 30 % thời lượng.
+# A14 (ASR small.en + medium.en): S02 "3 in 4" nghe thành "three and four" ở seed 1009 VÀ 1010 (thử 15/10, 235 ký tự, take f7f97d5a… giữ ở voice-takes, không dùng) → giữ take G1; G2 đề xuất "3 out of 4"
+voice_overrides:   # prod/anchor_gap.py: take dẫn xuất có lặng trước số neo giữa cảnh (chữ không đổi, 0 ký tự EL)
+  S04: {take: gap-191d9feb1f7118fd}
+  S15: {take: gap-d748bbd41a6fece9}
 audio:
   lufs: -14
   true_peak: -2.0
@@ -61,8 +65,8 @@ scenes:
   - {id: S24, tail: 1.0, shots: []}
   - {id: S25, tail: 2.0, shots: []}
 midrolls:   # giờ = timeline nhà máy (prod/build_inputs.py --timeline); lặng [t − 0,65; hết cảnh] ≥ 1 s sau chữ cuối — cập nhật khi giờ đổi
-  - {after_act: act1, scene: S06, t: 147.27}   # M2 giờ khô (animatic); M3 tính lại trên lời thật
-  - {after_act: act2, scene: S18, t: 428.17}   # M2 giờ khô
+  - {after_act: act1, scene: S06, t: 145.93}   # M3 giờ lời thật (timeline 15/10)
+  - {after_act: act2, scene: S18, t: 386.84}   # M3 giờ lời thật (timeline 15/10)
 counterweights:
   - {id: us-only, text: "US only · history, not a forecast", when: historical}
   - {id: illustrative, text: "Nina and her twins are illustrative · real prices, rents, rates and stock returns", claims: [price, down_usd, closing_usd, savings_usd]}

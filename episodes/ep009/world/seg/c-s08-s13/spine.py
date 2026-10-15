@@ -16,7 +16,7 @@ B = [
  ('c3', 'S09.2', 'world', 'Đống lớn hơn → cửa tối.', 'nhà mẫu 2: đống cao hơn; cửa tối.', {'dark': '@S09.2:dark'}, ['bịch'], 0.45, 'rõ', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
  ('c4', 'S09.3', 'chart', '307 nhà, January 1991 → July 2016.', 'phố nhìn cao: nhà mọc trái → phải.', {'three': '@S09.3:houses', 'july': '@S09.3:July'}, ['gõ gỗ'], 0.45, 'rõ', '—'),
  ('c5', 'S09.4', 'chart', 'Tháng của Nina chưa có trên phố.', 'lô trống qua cuối phố, Nina + đèn.', {'nina': '@S09.4:Nina'}, [], 0.4, 'ấm', '—'),
- ('c6', 'S10.1', 'chart', 'Thập niên 1990: phần lớn sáng, khoảng 2/3.', 'khối 1990s hiện, đa số sáng.', {'most': '@S10.1:Most', 'two': '@S10.1:two'}, ['tinh ×n'], 0.5, 'ấm', '—'),
+ ('c6', 'S10.1', 'chart', 'Thập niên 1990: phần lớn sáng, khoảng 2/3.', 'khối 1990s hiện, đa số sáng.', {'most': '@S10.1:About', 'two': '@S10.1:two'}, ['tinh ×n'], 0.5, 'ấm', '—'),
  ('c7', 'S10.2', 'chart', 'Nhà tối nhất là nhà đầu tiên, January 1991.', 'nhà đầu tiên chớp, tối.', {'darkest': '@S10.2:darkest', 'first': '@S10.2:first'}, ['bịch'], 0.55, 'ngạc nhiên', '—'),
  ('c8', 'S10.3', 'chart', 'Người thuê đầu tiên đón trọn đợt cổ phiếu tăng.', 'giữ.', {'boom': '@S10.3:boom'}, [], 0.5, 'rõ', '—'),
  ('c9', 'S11.1', 'chart', 'Vài năm sau thị trường đứng yên.', 'khối 1999 sáng dần.', {'stalled': '@S11.1:stalled'}, [], 0.5, 'chậm', '—'),
@@ -26,7 +26,7 @@ B = [
  ('c13', 'S12.2', 'chart', '2002–2007: người mua không hơn ở tháng nào.', 'khối 72 nhà tối hết.', {'none': '@S12.2:none'}, [], 0.68, 'lạnh', '—'),
  ('c14', 'S12.3', 'chart', 'Với tiền mặt có 6 nhà sáng; với cổ phiếu cũng tắt.', '6 bóng sáng (tiền mặt) tắt.', {'cash': '@S12.3:cash', 'out': '@S12.3:out'}, ['tắt ×6'], 0.66, 'lạnh', '—'),
  ('c15', 'S12.4', 'chart', 'Người mua đỉnh giá nhà; người thuê mua cổ phiếu qua đợt rơi.', 'giữ.', {'peak': '@S12.4:peak'}, [], 0.6, 'lạnh', 'đẩy máy'),
- ('c16', 'S13.1', 'chart', 'June 2006: nhà tối nhất lần trước (tiền mặt).', 'nhà June 2006 nhấc lên; bóng chồng tiền mặt.', {'june': '@S13.1:June', 'cash': '@S13.1:cash'}, ['giấy'], 0.6, 'lạnh', '—'),
+ ('c16', 'S13.1', 'chart', 'June 2006: nhà tối nhất lần trước (tiền mặt).', 'nhà June 2006 nhấc lên; bóng chồng tiền mặt.', {'june': '@S13.1:Last', 'cash': '@S13.1:cash'}, ['giấy'], 0.6, 'lạnh', '—'),
  ('c17', 'S13.2', 'chart', 'Với cổ phiếu kém hơn $250k.', 'đống cổ phiếu cao hơn bóng tiền mặt.', {'stocks': '@S13.2:stocks', 'quarter': '@S13.2:quarter'}, ['giấy dồn'], 0.66, 'nặng', '—'),
  ('c18', 'S13.3', 'chart', 'Nhà tối càng tối.', 'cửa tối thêm.', {'darker': '@S13.3:darker'}, ['bịch'], 0.6, 'nặng', '—'),
 ]

@@ -12,18 +12,18 @@ SV = K.SV
 S = K.Seg(['S14', 'S15', 'S16', 'S17', 'S18'])
 B = [
  ('d0', 'S14.1', 'chart', 'Cửa tối không có nghĩa người thuê đi đường êm.', 'hàng 307 đống nhỏ trên kệ dài.', {'easy': '@S14.1:easy'}, [], 0.55, 'nghiêm', '—'),
- ('d1', 'S14.2', 'chart', 'Hơn nửa số đống tụt dưới $92,000 ban đầu.', 'đống tụt xuống mức thấp nhất; 183 dưới vạch.', {'half': '@S14.2:half', 'dipped': '@S14.2:dipped'}, ['bịch ×n'], 0.65, 'lo', 'lia máy'),
+ ('d1', 'S14.2', 'chart', 'Hơn nửa số đống tụt dưới $92,000 ban đầu.', 'đống tụt xuống mức thấp nhất; 183 dưới vạch.', {'half': '@S14.2:many', 'dipped': '@S14.2:dipped'}, ['bịch ×n'], 0.65, 'lo', 'lia máy'),
  ('d2', 'S14.3', 'chart', 'Một đống tụt còn $54,310, và cô vẫn đầu tư.', 'kệ N6 ngang tầm mắt; đống tụt; người thuê vẫn đặt bó.', {'sank': '@S14.3:sank', 'kept': '@S14.3:kept'}, ['giấy'], 0.85, 'nể', '—'),
  ('d3', 'S14.4', 'chart', 'Phát lại giả định mọi người thuê làm vậy mỗi tháng.', 'bó rơi đều.', {'every': '@S14.4:every'}, [], 0.6, 'rõ', '—'),
  ('d4', 'S14.5', 'chart', 'Người bán lúc sập không có trên phố này.', 'nhãn giả định.', {'sells': '@S14.5:sells'}, [], 0.55, 'rõ', 'lia máy'),
  ('d5', 'S15.1', 'chart', 'Sau cả con phố, bao nhiêu nhà sáng?', 'phố nhìn thẳng từ trên, chưa sáng.', {'how': '@S15.1:how'}, [], 0.6, 'hồi hộp', '—'),
  ('d6', 'S15.2', 'chart', 'Sáng: 152 trên 307, khoảng một nửa.', 'cả phố hiện: nửa sáng, nửa tối.', {'lit': '@S15.2:Lit', 'half': '@S15.2:half'}, ['tinh ×n'], 0.85, 'vỡ lẽ', '—'),
- ('d7', 'S15.3', 'chart', '80 tháng đổi sang người thuê, không tháng nào đổi ngược.', '80 nhà loé sáng → tối.', {'eighty': '@S15.3:eighty', 'not': '@S15.3:not'}, ['tắt ×n'], 0.7, 'rõ', '—'),
+ ('d7', 'S15.3', 'chart', '80 tháng đổi sang người thuê, không tháng nào đổi ngược.', '80 nhà loé sáng → tối.', {'eighty': '@S15.3:Every', 'not': '@S15.3:never'}, ['tắt ×n'], 0.7, 'rõ', '—'),
  ('d8', 'S15.4', 'chart', 'Nửa đó là đếm lịch sử, không phải lời hứa.', 'nhãn đối trọng.', {'count': '@S15.4:count'}, [], 0.55, 'tỉnh', 'lia máy'),
- ('d9', 'S16.1', 'chart', 'April 2012 vẫn sáng.', 'nhà April 2012 nhấc lên, sáng.', {'april': '@S16.1:April', 'glows': '@S16.1:glows'}, ['tinh'], 0.5, 'ấm', '—'),
+ ('d9', 'S16.1', 'chart', 'April 2012 vẫn sáng.', 'nhà April 2012 nhấc lên, sáng.', {'april': '@S16.1:brightest', 'glows': '@S16.1:glows'}, ['tinh'], 0.5, 'ấm', '—'),
  ('d10', 'S16.2', 'chart', 'Cổ phiếu: người mua vẫn hơn $237,632.', 'cọc vốn cao hơn đống.', {'ahead': '@S16.2:ahead'}, ['giấy'], 0.5, 'ấm', '—'),
  ('d11', 'S16.3', 'chart', 'Nhà tăng trên cả giá, không chỉ trên $92,000.', 'khung nhà lớn lên cả khối.', {'whole': '@S16.3:whole'}, [], 0.5, 'rõ', 'lia máy'),
- ('d12', 'S17.1', 'chart', '2009 → giữa 2016: gần 4/5 sáng.', 'khối cuối phố sáng phần lớn.', {'nine': '@S17.1:nine', 'four': '@S17.1:four'}, ['tinh'], 0.55, 'ấm', '—'),
+ ('d12', 'S17.1', 'chart', '2009 → giữa 2016: gần 4/5 sáng.', 'khối cuối phố sáng phần lớn.', {'nine': '@S17.1:crash', 'four': '@S17.1:back'}, ['tinh'], 0.55, 'ấm', '—'),
  ('d13', 'S17.2', 'chart', 'Nửa không chia đều: cả đoạn sáng, một đoạn dài tối.', 'đoạn sáng / đoạn tối viền.', {'stretches': '@S17.2:stretches', 'dark': '@S17.2:dark'}, [], 0.5, 'rõ', '—'),
  ('d14', 'S17.3', 'chart', 'Giá thấp, lãi thấp giữ đèn sáng.', 'giữ.', {'lower': '@S17.3:lower'}, [], 0.5, 'rõ', '—'),
  ('d15', 'S17.4', 'chart', 'Ở nửa thời gian: người mua hơn hơi quá nửa.', 'cột "5 năm".', {'half': '@S17.4:half'}, ['tick'], 0.55, 'rõ', '—'),
@@ -45,7 +45,7 @@ moves = K.moves_of([
     ('m_12', 'pan', 'cGrid', 'c2012', cue['d8']['count'], cue['d9']['april'], 1.4, 'nhà sáng nhất lần trước: April 2012 nhấc lên', 'whoosh_soft', {}),
     ('m_g2', 'pull', 'c2012', 'cGrid', cue['d11']['whole'], cue['d12']['nine'], 1.4, 'về cả phố: khối 2009–2016', 'whoosh_soft', {}),
 ])
-ANCH = []   # M2 (take khô): S14.3, S15.2 nằm GIỮA cảnh — lặng 0,75 s trước số neo cần khe trong take; xử lý ở M3 (BAN-DO-LIEN-MACH, PLAN §4)
+ANCH = ['S14.3', 'S15.2']
 ev = [{'t': cue['d1']['dipped'], 'kind': 'data', 'v': 0.25}, {'t': cue['d2']['sank'], 'kind': 'data', 'v': 0.1, 'over': True}, {'t': cue['d2']['kept'], 'kind': 'tick', 'v': 0.45},
       {'t': cue['d6']['lit'], 'kind': 'rise', 'dur': 1.6}, {'t': cue['d6']['half'], 'kind': 'data', 'v': 0.5, 'over': True}, {'t': cue['d7']['eighty'], 'kind': 'data', 'v': 0.3},
       {'t': cue['d9']['glows'], 'kind': 'data', 'v': 0.8}, {'t': cue['d10']['ahead'], 'kind': 'data', 'v': 0.7}, {'t': cue['d12']['four'], 'kind': 'data', 'v': 0.75},

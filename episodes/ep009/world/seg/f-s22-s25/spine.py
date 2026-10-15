@@ -26,7 +26,7 @@ B = [
 beats = SV.beats_from(B, S.A, S.lines)
 cue = {b['id']: b['cues'] for b in beats}
 moves = K.moves_of([
-    ('m_w', 'mode', 'cTag', 'wDoor', cue['f3']['assumption'], cue['f4']['none'], 1.3, 'giới hạn của số: về cửa Nina (thế giới)', 'whoosh_mode', {}),
+    ('m_w', 'mode', 'cTag', 'wDoor', cue['f3']['assumption'], cue['f4']['none'], 0.8, 'giới hạn của số: về cửa Nina (thế giới)', 'whoosh_mode', {}),
     ('m_c', 'mode', 'wDoor', 'cGrid', cue['f5']['stability'], cue['f6']['card'], 1.3, 'thẻ giới hạn + bảng điểm (đồ thị)', 'whoosh_mode', {}),
     ('m_w2', 'mode', 'cGrid', 'w0', cue['f8']['fifteen'], cue['f9']['same'], 1.4, 'quay lại khung 0:00 (thế giới)', 'whoosh_mode', {}),
     ('m_lot', 'pan', 'w0', 'wLot', cue['f9']['same'], cue['f10']['how'], 1.6, 'chuyền: lô trống của Nina qua cuối phố', 'whoosh_soft', {}),
