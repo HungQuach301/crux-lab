@@ -197,6 +197,8 @@ export function install(opts = {}) {
       if (sc.fog && state.orig.fog) sc.fog.color.copy(state.orig.fog);
       for (const [l, o] of state.orig.lights) { lights.push([l, l.color.clone(), l.intensity, l.groundColor && l.groundColor.clone(), l.position.clone()]); l.color.copy(o.color); l.intensity = o.intensity; if (o.ground) l.groundColor.copy(o.ground); }
       if (state.key && state.keyScenePos) state.key.position.copy(state.keyScenePos);
+      // tham số bóng gốc (bóng mềm đổi bias/normalBias/radius → vật dữ liệu tự đổ bóng khác bản gốc: lần build đầu, đoạn a t = 24,1 s, dải tuần tối 8 %)
+      if (state.key && state.orig.shadow) { const sh = state.key.shadow; sv.sh = { bias: sh.bias, normalBias: sh.normalBias, radius: sh.radius, blurSamples: sh.blurSamples }; Object.assign(sh, state.orig.shadow); }
     } else sc.fog = null;
     sc.traverse((o) => {
       if (!o.visible) return;
@@ -212,6 +214,7 @@ export function install(opts = {}) {
       for (const [o, m] of mats) o.material = m; for (const o of hid) o.visible = true;
       for (const [l, c, i, g, p] of lights) { l.color.copy(c); l.intensity = i; if (g) l.groundColor.copy(g); l.position.copy(p); }
       sc.background = sv.bg; sc.environment = sv.env; sc.fog = sv.fogO; if (sv.fog && sc.fog) sc.fog.color.copy(sv.fog);
+      if (sv.sh && state.key) Object.assign(state.key.shadow, sv.sh);
     }
   };
 
@@ -219,7 +222,7 @@ export function install(opts = {}) {
     state.scene = scene; state.cam = cam; state.renderer = renderer;
     const ly = O.layers, L = L0;
     // ánh sáng gốc (trước mọi thay đổi) cho khoá màu
-    state.orig = { fog: scene.fog ? scene.fog.color.clone() : null, lights: [] };
+    state.orig = { fog: scene.fog ? scene.fog.color.clone() : null, lights: [], background: scene.background, backgroundIntensity: scene.backgroundIntensity };
     scene.traverse((o) => { if (o.isLight) state.orig.lights.push([o, { color: o.color.clone(), intensity: o.intensity, ground: o.groundColor ? o.groundColor.clone() : null }]); });
     // vật dữ liệu (role series/bar/grid và con của chúng) — không vân, phản xạ ≤ DATA_ENV_MAX
     state.dataSet = new Set(); scene.traverse((o) => { if (isData(o, O.dataRoles)) state.dataSet.add(o); });
@@ -233,12 +236,14 @@ export function install(opts = {}) {
     if (ly.hdri) {
       const eq = await hdri(O.look), pm = new THREE.PMREMGenerator(renderer), env = pm.fromEquirectangular(eq).texture; pm.dispose();
       scene.environment = env; scene.environmentIntensity = L.env; scene.environmentRotation = new THREE.Euler(0, L.envRot || 0, 0);
+      state.eq = eq;
       if (O.sky > 0) { scene.background = eq; scene.backgroundBlurriness = 0; scene.backgroundIntensity = L.skyI * O.sky; scene.backgroundRotation = new THREE.Euler(0, L.envRot || 0, 0); }
       if (scene.fog && O.sky > 0) scene.fog.color.set(L.fog);
       scene.traverse((o) => { if (o.isHemisphereLight) { o.intensity *= L.hemiK; o.color.set(L.hemiSky); o.groundColor.set(L.hemiGround); }
         if (o.isDirectionalLight && !o.castShadow) { o.color.set(L.rim); o.intensity = L.rimI; } });
     }
     scene.traverse((o) => { if (o.isDirectionalLight && o.castShadow) state.key = o; });
+    if (state.key) { const sh = state.key.shadow; state.orig.shadow = { bias: sh.bias, normalBias: sh.normalBias, radius: sh.radius, blurSamples: sh.blurSamples }; }
     if (state.key && ly.hdri) { state.key.color.set(L.key); state.key.intensity = L.keyI; }
     // --- bóng mềm: PCF + đĩa Vogel, bản đồ 2048
     if (ly.soft && state.key) { const s = state.key.shadow; s.mapSize.set(2048, 2048); s.radius = L.shadowRadius; s.blurSamples = 16; s.bias = -0.0004; s.normalBias = 0.02; s.map?.dispose(); s.map = null; }
@@ -320,6 +325,10 @@ export function install(opts = {}) {
     const cfg = state.cfg = shotAt(state.t), close = V4 || cfg.shot === 'close', L = { ...L0, ...(cfg.override || {}) };
     if (state.passes.ao) state.passes.ao.enabled = close;
     if (state.passes.dof) { state.passes.dof.enabled = close && !state._forceDofOff; if (close) { state.passes.dof.uniforms.aperture.value = (cfg.aperture ?? O.aperture ?? 0.9) * 0.001; state.passes.dof.uniforms.focus.value = focusDist(cam, cfg); } }
+    // trời theo shot (cfg.sky): shot có vật dữ liệu BÁN TRONG SUỐT trên nền trời khai sky: 0 — trời sáng sau dữ liệu trong suốt làm màu dữ liệu đọc
+    // sáng hơn (lần build đầu, đoạn a t = 26,2 s: dải tuần ΔE 6,9 → luật CHẶN)
+    if (state.eq) { const sk = cfg.sky ?? O.sky; if (sk > 0) { scene.background = state.eq; scene.backgroundIntensity = L.skyI * sk; } else { scene.background = state.orig.background; scene.backgroundIntensity = state.orig.backgroundIntensity ?? 1; }
+      if (scene.fog && state.orig.fog) scene.fog.color.copy(sk > 0 ? new THREE.Color(L.fog) : state.orig.fog); }
     const sil = V4 || cfg.silhouette === true;
     for (const p of state.people) p.traverse((c) => { const r = c.userData.cineRim; if (r) c.material = sil ? r.sil : r.id; });
     if (state.passes.lock) {
