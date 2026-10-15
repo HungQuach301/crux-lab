@@ -1,0 +1,134 @@
+{
+ "series": [],
+ "provisions": [
+  {
+   "what": "FRED commercial use",
+   "url": "https://fred.stlouisfed.org/legal/",
+   "quote": "IV. Commercial Use Series with the following copyright labels—Public Domain: Citation requested and Copyrighted: Citation required—may be used for internal commercial uses and may be displayed in textbooks, newsletters, or reports to clients provided that appropriate attribution is given to FRED as well as the original source of the data.",
+   "retrieved": "2026-10-11"
+  }
+ ],
+ "notUsed": [
+  {
+   "id": "SP500 (FRED)",
+   "why": "Copyrighted: Pre-Approval Required on FRED, and price only (no dividends), last 10 years only."
+  },
+  {
+   "id": "Damodaran histretSP.xls",
+   "why": "Annual only; the file at the public URL was last updated 2021 (44561)."
+  },
+  {
+   "id": "shillerdata.com",
+   "why": "Not reachable from this container (2026-10-15); the Yale copy stops at 2023-09."
+  }
+ ],
+ "files": [
+  {
+   "path": "data/raw/HPIPONM226N.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HPIPONM226N&coed=2026-07-01",
+   "sha256": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+   "downloaded": "2026-10-15",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/HPIPONM226N",
+    "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "U.S. Federal Housing Finance Agency, HPIPONM226N, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/HPIPONM226N"
+   },
+   "series": "HPIPONM226N",
+   "ep008Sha": "9641f64ba7bdf713f9a75f8d037a63fe95b9f4ce2115cda0a68668cf232d0b42",
+   "matchEp008": true
+  },
+  {
+   "path": "data/raw/CUUR0000SEHA.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUUR0000SEHA&coed=2026-08-01",
+   "sha256": "ffc374b21c6d71037484a3061d06bfaa453c79b75d2c38fbe771b7de826c93ff",
+   "downloaded": "2026-10-15",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/CUUR0000SEHA",
+    "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "U.S. Bureau of Labor Statistics, CUUR0000SEHA, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/CUUR0000SEHA"
+   },
+   "series": "CUUR0000SEHA",
+   "ep008Sha": "ffc374b21c6d71037484a3061d06bfaa453c79b75d2c38fbe771b7de826c93ff",
+   "matchEp008": true
+  },
+  {
+   "path": "data/raw/MORTGAGE30US.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=MORTGAGE30US&coed=2026-10-08",
+   "sha256": "93663891f9167cf71dfd50b7cbe54ef60fab42f788371d84bf665fb1c5e6c354",
+   "downloaded": "2026-10-15",
+   "terms": {
+    "quote": "Copyrighted: Citation Required",
+    "url": "https://fred.stlouisfed.org/series/MORTGAGE30US",
+    "legalQuote": "Copyrighted: Citation required These series are under copyright; but, provided you have not engaged in any prohibited uses, you may use these data series with proper attribution of the source and acknowledgment that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "Freddie Mac, MORTGAGE30US, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/MORTGAGE30US"
+   },
+   "series": "MORTGAGE30US",
+   "ep008Sha": "93663891f9167cf71dfd50b7cbe54ef60fab42f788371d84bf665fb1c5e6c354",
+   "matchEp008": true
+  },
+  {
+   "path": "data/raw/TB3MS.csv",
+   "role": "primary",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS&coed=2026-09-01",
+   "sha256": "631bc444a8c5370c3a2df12f484a67ae7b9a68c00fe8a33215895fb49c8cc08c",
+   "downloaded": "2026-10-15",
+   "terms": {
+    "quote": "Public Domain: Citation Requested",
+    "url": "https://fred.stlouisfed.org/series/TB3MS",
+    "legalQuote": "Public Domain: Citation requested These series may be under copyright or in the public domain and may be used without permission, provided you do not engage in any prohibited use. When using, please cite the data source and acknowledge that you obtained the data from FRED (example, “ Source: BLS via FRED ”) when displaying or publishing it.",
+    "legalUrl": "https://fred.stlouisfed.org/legal/",
+    "citation": "Board of Governors of the Federal Reserve System (US), TB3MS, retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/TB3MS"
+   },
+   "series": "TB3MS",
+   "ep008Sha": "631bc444a8c5370c3a2df12f484a67ae7b9a68c00fe8a33215895fb49c8cc08c",
+   "matchEp008": true
+  },
+  {
+   "path": "data/raw/F-F_Research_Data_Factors_CSV.zip",
+   "series": "FF3_MONTHLY",
+   "role": "primary",
+   "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+   "downloaded": "2026-10-15",
+   "sha256": "593f4fbef03181bc0b22ff6292f217689dd1fb79355049ca905d95b262040a66",
+   "lastObservation": "2026-08",
+   "fileHeader": "This file was created using the 202608 CRSP database.",
+   "what": "Fama/French 3 Factors, monthly, percent. US stock market total return (dividends reinvested) = Mkt-RF + RF: value-weight return of all CRSP firms incorporated in the US and listed on the NYSE, AMEX, or NASDAQ. Before fees and taxes.",
+   "terms": {
+    "quote": "Copyright Eugene F. Fama and Kenneth R. French (page footer). No license text on the page; data offered for free download without registration.",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "assessment": "Facts (monthly returns) used to compute derived results; raw file not committed or redistributed; on screen and in the description: \"Source: Kenneth R. French Data Library (CRSP data)\". Owner decides at G1 (RIGHTS D-FRENCH)."
+   }
+  },
+  {
+   "path": "data/raw/ie_data.xls",
+   "series": "SHILLER_IE",
+   "role": "crosscheck",
+   "url": "http://www.econ.yale.edu/~shiller/data/ie_data.xls",
+   "downloaded": "2026-10-15",
+   "sha256": "0df9392b7dacf91f756e92c8db508ad903c4588b43f3253680eec3dd8b40db68",
+   "lastObservation": "2023-09",
+   "what": "Robert J. Shiller, \"Stock Market Data Used in Irrational Exuberance\": S&P Composite monthly price P and dividend D. Used only to cross-check the French total return 1991-01..2023-09; not spoken, not on screen.",
+   "terms": {
+    "quote": "The data and CAPE Ratio on this spreadsheet were developed by Robert J. Shiller using various public sources. Neither Robert J. Shiller nor any affiliates or consultants, are registered investment advisers and do not guarantee the accuracy or completeness of the CAPE Ratio here, or any data or methodology either included therein or upon which it is based.",
+    "url": "http://www.econ.yale.edu/~shiller/data/ie_data.xls",
+    "sheet": "Disclaimer"
+   }
+  }
+ ],
+ "dataNow": {
+  "HPIPONM226N": "2026-07-01",
+  "CUUR0000SEHA": "2026-08-01",
+  "MORTGAGE30US": "2026-10-08",
+  "TB3MS": "2026-09-01",
+  "FF3_MONTHLY": "2026-08",
+  "SHILLER_IE": "2023-09"
+ }
+}

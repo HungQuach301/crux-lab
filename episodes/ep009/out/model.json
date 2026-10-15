@@ -1,0 +1,3435 @@
+{
+ "params": {
+  "price": 400000.0,
+  "down": 0.2,
+  "closing": 0.03,
+  "ownerCost": 0.025,
+  "sell": 0.06,
+  "term": 360,
+  "anchor": "2026-07",
+  "anchorYield": 0.05,
+  "modes": [
+   "cash",
+   "stocks",
+   "lump",
+   "stocks_fee"
+  ]
+ },
+ "quantities": {
+  "hpi_last": {
+   "value": "2026-07",
+   "unit": "month",
+   "definition": "Last month of the FHFA index file."
+  },
+  "stocks_last": {
+   "value": "2026-08",
+   "unit": "month",
+   "definition": "Last month of the Fama/French monthly file."
+  },
+  "stocks_first_used": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "First month of stock returns used."
+  },
+  "n_5y": {
+   "value": 367,
+   "unit": "windows",
+   "definition": "5-year windows from 1991-01"
+  },
+  "last_5y": {
+   "value": "2021-07",
+   "unit": "month",
+   "definition": "last start"
+  },
+  "share_buyer_ahead_cash_5y": {
+   "value": 74.4,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = cash"
+  },
+  "n_renter_ahead_cash_5y": {
+   "value": 94,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = cash"
+  },
+  "median_adv_cash_5y": {
+   "value": 79931,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = cash"
+  },
+  "best_start_cash_5y": {
+   "value": "2017-05",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = cash"
+  },
+  "best_adv_cash_5y": {
+   "value": 213918,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = cash"
+  },
+  "worst_start_cash_5y": {
+   "value": "2006-05",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = cash"
+  },
+  "worst_adv_cash_5y": {
+   "value": -149392,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = cash"
+  },
+  "share_buyer_ahead_stocks_5y": {
+   "value": 53.4,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = stocks"
+  },
+  "n_renter_ahead_stocks_5y": {
+   "value": 171,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = stocks"
+  },
+  "median_adv_stocks_5y": {
+   "value": 15350,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = stocks"
+  },
+  "best_start_stocks_5y": {
+   "value": "2017-10",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = stocks"
+  },
+  "best_adv_stocks_5y": {
+   "value": 146477,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = stocks"
+  },
+  "worst_start_stocks_5y": {
+   "value": "1995-01",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = stocks"
+  },
+  "worst_adv_stocks_5y": {
+   "value": -267548,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = stocks"
+  },
+  "share_buyer_ahead_lump_5y": {
+   "value": 60.5,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = lump"
+  },
+  "n_renter_ahead_lump_5y": {
+   "value": 145,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = lump"
+  },
+  "median_adv_lump_5y": {
+   "value": 27299,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = lump"
+  },
+  "best_start_lump_5y": {
+   "value": "2000-09",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = lump"
+  },
+  "best_adv_lump_5y": {
+   "value": 178523,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = lump"
+  },
+  "worst_start_lump_5y": {
+   "value": "2009-03",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = lump"
+  },
+  "worst_adv_lump_5y": {
+   "value": -166466,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = lump"
+  },
+  "share_buyer_ahead_stocks_fee_5y": {
+   "value": 54.0,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = stocks_fee"
+  },
+  "n_renter_ahead_stocks_fee_5y": {
+   "value": 169,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = stocks_fee"
+  },
+  "median_adv_stocks_fee_5y": {
+   "value": 24056,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = stocks_fee"
+  },
+  "best_start_stocks_fee_5y": {
+   "value": "2017-10",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = stocks_fee"
+  },
+  "best_adv_stocks_fee_5y": {
+   "value": 153681,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = stocks_fee"
+  },
+  "worst_start_stocks_fee_5y": {
+   "value": "1995-01",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = stocks_fee"
+  },
+  "worst_adv_stocks_fee_5y": {
+   "value": -249215,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = stocks_fee"
+  },
+  "n_10y": {
+   "value": 307,
+   "unit": "windows",
+   "definition": "10-year windows from 1991-01"
+  },
+  "last_10y": {
+   "value": "2016-07",
+   "unit": "month",
+   "definition": "last start"
+  },
+  "share_buyer_ahead_cash_10y": {
+   "value": 75.6,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = cash"
+  },
+  "n_renter_ahead_cash_10y": {
+   "value": 75,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = cash"
+  },
+  "median_adv_cash_10y": {
+   "value": 157104,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = cash"
+  },
+  "best_start_cash_10y": {
+   "value": "2012-04",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = cash"
+  },
+  "best_adv_cash_10y": {
+   "value": 483975,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = cash"
+  },
+  "worst_start_cash_10y": {
+   "value": "2006-06",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = cash"
+  },
+  "worst_adv_cash_10y": {
+   "value": -82385,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = cash"
+  },
+  "share_buyer_ahead_stocks_10y": {
+   "value": 49.5,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = stocks"
+  },
+  "n_renter_ahead_stocks_10y": {
+   "value": 155,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = stocks"
+  },
+  "median_adv_stocks_10y": {
+   "value": -5827,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = stocks"
+  },
+  "best_start_stocks_10y": {
+   "value": "2012-10",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = stocks"
+  },
+  "best_adv_stocks_10y": {
+   "value": 297855,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = stocks"
+  },
+  "worst_start_stocks_10y": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = stocks"
+  },
+  "worst_adv_stocks_10y": {
+   "value": -485063,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = stocks"
+  },
+  "share_buyer_ahead_lump_10y": {
+   "value": 63.8,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = lump"
+  },
+  "n_renter_ahead_lump_10y": {
+   "value": 111,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = lump"
+  },
+  "median_adv_lump_10y": {
+   "value": 90280,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = lump"
+  },
+  "best_start_lump_10y": {
+   "value": "2013-11",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = lump"
+  },
+  "best_adv_lump_10y": {
+   "value": 263345,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = lump"
+  },
+  "worst_start_lump_10y": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = lump"
+  },
+  "worst_adv_lump_10y": {
+   "value": -194366,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = lump"
+  },
+  "share_buyer_ahead_stocks_fee_10y": {
+   "value": 55.0,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = stocks_fee"
+  },
+  "n_renter_ahead_stocks_fee_10y": {
+   "value": 138,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = stocks_fee"
+  },
+  "median_adv_stocks_fee_10y": {
+   "value": 20685,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = stocks_fee"
+  },
+  "best_start_stocks_fee_10y": {
+   "value": "2012-10",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = stocks_fee"
+  },
+  "best_adv_stocks_fee_10y": {
+   "value": 321916,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = stocks_fee"
+  },
+  "worst_start_stocks_fee_10y": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = stocks_fee"
+  },
+  "worst_adv_stocks_fee_10y": {
+   "value": -424088,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = stocks_fee"
+  },
+  "n_15y": {
+   "value": 247,
+   "unit": "windows",
+   "definition": "15-year windows from 1991-01"
+  },
+  "last_15y": {
+   "value": "2011-07",
+   "unit": "month",
+   "definition": "last start"
+  },
+  "share_buyer_ahead_cash_15y": {
+   "value": 100.0,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = cash"
+  },
+  "n_renter_ahead_cash_15y": {
+   "value": 0,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = cash"
+  },
+  "median_adv_cash_15y": {
+   "value": 187511,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = cash"
+  },
+  "best_start_cash_15y": {
+   "value": "2011-05",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = cash"
+  },
+  "best_adv_cash_15y": {
+   "value": 663211,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = cash"
+  },
+  "worst_start_cash_15y": {
+   "value": "2005-11",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = cash"
+  },
+  "worst_adv_cash_15y": {
+   "value": 79829,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = cash"
+  },
+  "share_buyer_ahead_stocks_15y": {
+   "value": 21.9,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = stocks"
+  },
+  "n_renter_ahead_stocks_15y": {
+   "value": 193,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = stocks"
+  },
+  "median_adv_stocks_15y": {
+   "value": -132131,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = stocks"
+  },
+  "best_start_stocks_15y": {
+   "value": "2011-04",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = stocks"
+  },
+  "best_adv_stocks_15y": {
+   "value": 162481,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = stocks"
+  },
+  "worst_start_stocks_15y": {
+   "value": "2006-07",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = stocks"
+  },
+  "worst_adv_stocks_15y": {
+   "value": -611861,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = stocks"
+  },
+  "share_buyer_ahead_lump_15y": {
+   "value": 71.3,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = lump"
+  },
+  "n_renter_ahead_lump_15y": {
+   "value": 71,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = lump"
+  },
+  "median_adv_lump_15y": {
+   "value": 95860,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = lump"
+  },
+  "best_start_lump_15y": {
+   "value": "1994-03",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = lump"
+  },
+  "best_adv_lump_15y": {
+   "value": 230305,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = lump"
+  },
+  "worst_start_lump_15y": {
+   "value": "2009-03",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = lump"
+  },
+  "worst_adv_lump_15y": {
+   "value": -247835,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = lump"
+  },
+  "share_buyer_ahead_stocks_fee_15y": {
+   "value": 32.0,
+   "unit": "%",
+   "definition": "share of windows with buyer advantage > 0, renter pot = stocks_fee"
+  },
+  "n_renter_ahead_stocks_fee_15y": {
+   "value": 168,
+   "unit": "windows",
+   "definition": "windows with advantage <= 0, pot = stocks_fee"
+  },
+  "median_adv_stocks_fee_15y": {
+   "value": -65808,
+   "unit": "USD",
+   "definition": "median buyer advantage, pot = stocks_fee"
+  },
+  "best_start_stocks_fee_15y": {
+   "value": "2011-04",
+   "unit": "month",
+   "definition": "start with largest buyer advantage, pot = stocks_fee"
+  },
+  "best_adv_stocks_fee_15y": {
+   "value": 243650,
+   "unit": "USD",
+   "definition": "largest buyer advantage, pot = stocks_fee"
+  },
+  "worst_start_stocks_fee_15y": {
+   "value": "2006-07",
+   "unit": "month",
+   "definition": "start with smallest buyer advantage (best for renter), pot = stocks_fee"
+  },
+  "worst_adv_stocks_fee_15y": {
+   "value": -501662,
+   "unit": "USD",
+   "definition": "smallest buyer advantage, pot = stocks_fee"
+  },
+  "n_flip_to_renter_10y": {
+   "value": 80,
+   "unit": "windows",
+   "definition": "buyer ahead with cash pot, renter ahead with stock pot"
+  },
+  "n_flip_to_buyer_10y": {
+   "value": 0,
+   "unit": "windows",
+   "definition": "renter ahead with cash pot, buyer ahead with stock pot"
+  },
+  "era_1990s_n": {
+   "value": 108,
+   "unit": "windows",
+   "definition": "era windows"
+  },
+  "era_1990s_share_cash": {
+   "value": 100.0,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = cash"
+  },
+  "era_1990s_median_cash": {
+   "value": 187313,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = cash"
+  },
+  "era_1990s_share_stocks": {
+   "value": 67.6,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = stocks"
+  },
+  "era_1990s_median_stocks": {
+   "value": 62134,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = stocks"
+  },
+  "era_1990s_share_lump": {
+   "value": 86.1,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = lump"
+  },
+  "era_1990s_median_lump": {
+   "value": 159187,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = lump"
+  },
+  "era_2002-2007_n": {
+   "value": 72,
+   "unit": "windows",
+   "definition": "era windows"
+  },
+  "era_2002-2007_share_cash": {
+   "value": 8.3,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = cash"
+  },
+  "era_2002-2007_median_cash": {
+   "value": -32538,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = cash"
+  },
+  "era_2002-2007_share_stocks": {
+   "value": 0.0,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = stocks"
+  },
+  "era_2002-2007_median_stocks": {
+   "value": -214136,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = stocks"
+  },
+  "era_2002-2007_share_lump": {
+   "value": 8.3,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = lump"
+  },
+  "era_2002-2007_median_lump": {
+   "value": -60508,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = lump"
+  },
+  "era_2009-2016_n": {
+   "value": 91,
+   "unit": "windows",
+   "definition": "era windows"
+  },
+  "era_2009-2016_share_cash": {
+   "value": 100.0,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = cash"
+  },
+  "era_2009-2016_median_cash": {
+   "value": 408914,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = cash"
+  },
+  "era_2009-2016_share_stocks": {
+   "value": 78.0,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = stocks"
+  },
+  "era_2009-2016_median_stocks": {
+   "value": 144711,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = stocks"
+  },
+  "era_2009-2016_share_lump": {
+   "value": 80.2,
+   "unit": "%",
+   "definition": "era share buyer ahead, pot = lump"
+  },
+  "era_2009-2016_median_lump": {
+   "value": 141365,
+   "unit": "USD",
+   "definition": "era median buyer advantage, pot = lump"
+  },
+  "stocks_growth_median_10y": {
+   "value": 2.46,
+   "unit": "x",
+   "definition": "median 10-year growth of $1 in US stocks (total return), over start months"
+  },
+  "stocks_growth_best_start_10y": {
+   "value": "1991-01",
+   "unit": "month",
+   "definition": "start with the largest 10-year stock growth"
+  },
+  "stocks_growth_best_10y": {
+   "value": 4.92,
+   "unit": "x",
+   "definition": "largest 10-year growth of $1"
+  },
+  "stocks_growth_worst_start_10y": {
+   "value": "1999-03",
+   "unit": "month",
+   "definition": "start with the smallest 10-year stock growth"
+  },
+  "stocks_growth_worst_10y": {
+   "value": 0.77,
+   "unit": "x",
+   "definition": "smallest 10-year growth of $1"
+  },
+  "n_stocks_lost_10y": {
+   "value": 16,
+   "unit": "windows",
+   "definition": "10-year windows where $1 in stocks ended below $1"
+  },
+  "n_stocks_beat_house_10y": {
+   "value": 273,
+   "unit": "windows",
+   "definition": "windows where 10-year stock growth > house index growth"
+  },
+  "share_stocks_beat_house_10y": {
+   "value": 88.9,
+   "unit": "%",
+   "definition": "share of windows, stocks grew more than house index"
+  },
+  "adv_2006-06_cash_10y": {
+   "value": -82385,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2006-06, pot = cash"
+  },
+  "adv_2006-06_stocks_10y": {
+   "value": -261689,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2006-06, pot = stocks"
+  },
+  "adv_2006-06_lump_10y": {
+   "value": -75445,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2006-06, pot = lump"
+  },
+  "pot_2006-06_stocks_10y": {
+   "value": 377063,
+   "unit": "USD",
+   "definition": "renter stock pot at the end, start 2006-06"
+  },
+  "pot_2006-06_cash_10y": {
+   "value": 197760,
+   "unit": "USD",
+   "definition": "renter cash pot at the end, start 2006-06"
+  },
+  "equity_2006-06_10y": {
+   "value": 115374,
+   "unit": "USD",
+   "definition": "buyer net equity at the end, start 2006-06"
+  },
+  "stocks_growth_2006-06_10y": {
+   "value": 2.07,
+   "unit": "x",
+   "definition": "10-year growth of $1 in stocks from 2006-06"
+  },
+  "adv_2012-04_cash_10y": {
+   "value": 483975,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2012-04, pot = cash"
+  },
+  "adv_2012-04_stocks_10y": {
+   "value": 237632,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2012-04, pot = stocks"
+  },
+  "adv_2012-04_lump_10y": {
+   "value": 195877,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2012-04, pot = lump"
+  },
+  "pot_2012-04_stocks_10y": {
+   "value": 316617,
+   "unit": "USD",
+   "definition": "renter stock pot at the end, start 2012-04"
+  },
+  "pot_2012-04_cash_10y": {
+   "value": 70273,
+   "unit": "USD",
+   "definition": "renter cash pot at the end, start 2012-04"
+  },
+  "equity_2012-04_10y": {
+   "value": 554248,
+   "unit": "USD",
+   "definition": "buyer net equity at the end, start 2012-04"
+  },
+  "stocks_growth_2012-04_10y": {
+   "value": 3.9,
+   "unit": "x",
+   "definition": "10-year growth of $1 in stocks from 2012-04"
+  },
+  "adv_2000-01_cash_10y": {
+   "value": 35725,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2000-01, pot = cash"
+  },
+  "adv_2000-01_stocks_10y": {
+   "value": 27126,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2000-01, pot = stocks"
+  },
+  "adv_2000-01_lump_10y": {
+   "value": 144621,
+   "unit": "USD",
+   "definition": "buyer advantage for start 2000-01, pot = lump"
+  },
+  "pot_2000-01_stocks_10y": {
+   "value": 206058,
+   "unit": "USD",
+   "definition": "renter stock pot at the end, start 2000-01"
+  },
+  "pot_2000-01_cash_10y": {
+   "value": 197459,
+   "unit": "USD",
+   "definition": "renter cash pot at the end, start 2000-01"
+  },
+  "equity_2000-01_10y": {
+   "value": 233184,
+   "unit": "USD",
+   "definition": "buyer net equity at the end, start 2000-01"
+  },
+  "stocks_growth_2000-01_10y": {
+   "value": 0.96,
+   "unit": "x",
+   "definition": "10-year growth of $1 in stocks from 2000-01"
+  },
+  "adv_1991-01_cash_10y": {
+   "value": 48410,
+   "unit": "USD",
+   "definition": "buyer advantage for start 1991-01, pot = cash"
+  },
+  "adv_1991-01_stocks_10y": {
+   "value": -485063,
+   "unit": "USD",
+   "definition": "buyer advantage for start 1991-01, pot = stocks"
+  },
+  "adv_1991-01_lump_10y": {
+   "value": -194366,
+   "unit": "USD",
+   "definition": "buyer advantage for start 1991-01, pot = lump"
+  },
+  "pot_1991-01_stocks_10y": {
+   "value": 743385,
+   "unit": "USD",
+   "definition": "renter stock pot at the end, start 1991-01"
+  },
+  "pot_1991-01_cash_10y": {
+   "value": 209912,
+   "unit": "USD",
+   "definition": "renter cash pot at the end, start 1991-01"
+  },
+  "equity_1991-01_10y": {
+   "value": 258322,
+   "unit": "USD",
+   "definition": "buyer net equity at the end, start 1991-01"
+  },
+  "stocks_growth_1991-01_10y": {
+   "value": 4.92,
+   "unit": "x",
+   "definition": "10-year growth of $1 in stocks from 1991-01"
+  },
+  "min_pot_stocks_10y": {
+   "value": 54310,
+   "unit": "USD",
+   "definition": "lowest month-end stock pot in any window"
+  },
+  "n_pot_below_start_stocks_10y": {
+   "value": 183,
+   "unit": "windows",
+   "definition": "windows where the stock pot dipped below $92,000 at some month-end"
+  },
+  "lump_monthly_spent_median_10y": {
+   "value": 69498,
+   "unit": "USD",
+   "definition": "median total monthly gap spent (not saved) over 10 years, lump variant"
+  },
+  "hvs_yield_2025Q4": {
+   "value": 4.83,
+   "unit": "%",
+   "definition": "Census HVS 12 x median asking rent / median asking sales price, 2025Q4"
+  },
+  "share_hvs_2025Q4_stocks_10y": {
+   "value": 47.2,
+   "unit": "%",
+   "definition": "share buyer ahead, stock pot, that anchor"
+  },
+  "hvs_yield_2026Q1": {
+   "value": 5.59,
+   "unit": "%",
+   "definition": "Census HVS 12 x median asking rent / median asking sales price, 2026Q1"
+  },
+  "share_hvs_2026Q1_stocks_10y": {
+   "value": 58.3,
+   "unit": "%",
+   "definition": "share buyer ahead, stock pot, that anchor"
+  },
+  "flip_yield_stocks_10y": {
+   "value": 5.06,
+   "unit": "%",
+   "definition": "anchor yield at which buyer-ahead share (stock pot) falls to 50% (10y)"
+  },
+  "price": {
+   "value": 400000.0,
+   "unit": "USD",
+   "definition": "model parameter (as Episode 8)"
+  },
+  "savings_usd": {
+   "value": 92000,
+   "unit": "USD",
+   "definition": "model parameter (as Episode 8)"
+  },
+  "down_usd": {
+   "value": 80000,
+   "unit": "USD",
+   "definition": "model parameter (as Episode 8)"
+  },
+  "closing_usd": {
+   "value": 12000,
+   "unit": "USD",
+   "definition": "model parameter (as Episode 8)"
+  },
+  "down_pct": {
+   "value": 20,
+   "unit": "%",
+   "definition": "down payment share"
+  },
+  "closing_pct": {
+   "value": 3,
+   "unit": "%",
+   "definition": "closing cost share"
+  },
+  "sell_pct": {
+   "value": 6,
+   "unit": "%",
+   "definition": "selling cost share"
+  },
+  "owner_cost_pct": {
+   "value": 2.5,
+   "unit": "% a year",
+   "definition": "property tax 1.0 + insurance 0.5 + repairs 1.0 (Episode 8 assumption)"
+  },
+  "yield_anchor_pct": {
+   "value": 5.0,
+   "unit": "%",
+   "definition": "anchor yield (assumption, Episode 8)"
+  },
+  "fee_pct": {
+   "value": 1.0,
+   "unit": "% a year",
+   "definition": "fee/tax-drag variant stocks_fee"
+  }
+ },
+ "sweep": [
+  {
+   "anchorYieldPct": 3.0,
+   "cash": 56.0,
+   "stocks": 7.2
+  },
+  {
+   "anchorYieldPct": 3.2,
+   "cash": 57.3,
+   "stocks": 10.1
+  },
+  {
+   "anchorYieldPct": 3.4,
+   "cash": 59.0,
+   "stocks": 15.3
+  },
+  {
+   "anchorYieldPct": 3.6,
+   "cash": 60.9,
+   "stocks": 20.2
+  },
+  {
+   "anchorYieldPct": 3.8,
+   "cash": 62.2,
+   "stocks": 25.7
+  },
+  {
+   "anchorYieldPct": 4.0,
+   "cash": 64.2,
+   "stocks": 30.9
+  },
+  {
+   "anchorYieldPct": 4.2,
+   "cash": 66.1,
+   "stocks": 34.9
+  },
+  {
+   "anchorYieldPct": 4.4,
+   "cash": 67.8,
+   "stocks": 39.4
+  },
+  {
+   "anchorYieldPct": 4.6,
+   "cash": 69.7,
+   "stocks": 41.7
+  },
+  {
+   "anchorYieldPct": 4.8,
+   "cash": 72.6,
+   "stocks": 47.2
+  },
+  {
+   "anchorYieldPct": 5.0,
+   "cash": 75.6,
+   "stocks": 49.5
+  },
+  {
+   "anchorYieldPct": 5.2,
+   "cash": 83.4,
+   "stocks": 51.8
+  },
+  {
+   "anchorYieldPct": 5.4,
+   "cash": 85.7,
+   "stocks": 56.4
+  },
+  {
+   "anchorYieldPct": 5.6,
+   "cash": 87.3,
+   "stocks": 58.6
+  },
+  {
+   "anchorYieldPct": 5.8,
+   "cash": 90.2,
+   "stocks": 59.9
+  },
+  {
+   "anchorYieldPct": 6.0,
+   "cash": 92.2,
+   "stocks": 62.2
+  },
+  {
+   "anchorYieldPct": 6.2,
+   "cash": 94.5,
+   "stocks": 64.5
+  },
+  {
+   "anchorYieldPct": 6.4,
+   "cash": 95.8,
+   "stocks": 66.8
+  },
+  {
+   "anchorYieldPct": 6.6,
+   "cash": 97.1,
+   "stocks": 71.3
+  },
+  {
+   "anchorYieldPct": 6.8,
+   "cash": 100.0,
+   "stocks": 76.5
+  },
+  {
+   "anchorYieldPct": 7.0,
+   "cash": 100.0,
+   "stocks": 82.4
+  }
+ ],
+ "windows10y": [
+  {
+   "s": "1991-01",
+   "cash": 48410,
+   "stocks": -485063,
+   "lump": -194366,
+   "stockGrowth": 4.921,
+   "houseGrowth": 1.457
+  },
+  {
+   "s": "1991-02",
+   "cash": 58350,
+   "stocks": -465577,
+   "lump": -185589,
+   "stockGrowth": 4.854,
+   "houseGrowth": 1.46
+  },
+  {
+   "s": "1991-03",
+   "cash": 56999,
+   "stocks": -369143,
+   "lump": -111114,
+   "stockGrowth": 4.073,
+   "houseGrowth": 1.469
+  },
+  {
+   "s": "1991-04",
+   "cash": 62429,
+   "stocks": -306536,
+   "lump": -70185,
+   "stockGrowth": 3.681,
+   "houseGrowth": 1.482
+  },
+  {
+   "s": "1991-05",
+   "cash": 66869,
+   "stocks": -345356,
+   "lump": -93663,
+   "stockGrowth": 3.977,
+   "houseGrowth": 1.491
+  },
+  {
+   "s": "1991-06",
+   "cash": 63325,
+   "stocks": -342534,
+   "lump": -81498,
+   "stockGrowth": 3.858,
+   "houseGrowth": 1.496
+  },
+  {
+   "s": "1991-07",
+   "cash": 68645,
+   "stocks": -338890,
+   "lump": -88468,
+   "stockGrowth": 3.973,
+   "houseGrowth": 1.506
+  },
+  {
+   "s": "1991-08",
+   "cash": 82320,
+   "stocks": -285229,
+   "lump": -61616,
+   "stockGrowth": 3.724,
+   "houseGrowth": 1.512
+  },
+  {
+   "s": "1991-09",
+   "cash": 91779,
+   "stocks": -224495,
+   "lump": -29351,
+   "stockGrowth": 3.403,
+   "houseGrowth": 1.516
+  },
+  {
+   "s": "1991-10",
+   "cash": 97435,
+   "stocks": -171902,
+   "lump": -3040,
+   "stockGrowth": 3.133,
+   "houseGrowth": 1.518
+  },
+  {
+   "s": "1991-11",
+   "cash": 99370,
+   "stocks": -173053,
+   "lump": -7350,
+   "stockGrowth": 3.164,
+   "houseGrowth": 1.512
+  },
+  {
+   "s": "1991-12",
+   "cash": 107374,
+   "stocks": -205996,
+   "lump": -40113,
+   "stockGrowth": 3.543,
+   "houseGrowth": 1.514
+  },
+  {
+   "s": "1992-01",
+   "cash": 111425,
+   "stocks": -173402,
+   "lump": -10426,
+   "stockGrowth": 3.241,
+   "houseGrowth": 1.518
+  },
+  {
+   "s": "1992-02",
+   "cash": 98908,
+   "stocks": -186560,
+   "lump": -9774,
+   "stockGrowth": 3.207,
+   "houseGrowth": 1.516
+  },
+  {
+   "s": "1992-03",
+   "cash": 98547,
+   "stocks": -174180,
+   "lump": 4667,
+   "stockGrowth": 3.095,
+   "houseGrowth": 1.53
+  },
+  {
+   "s": "1992-04",
+   "cash": 107198,
+   "stocks": -188747,
+   "lump": -9012,
+   "stockGrowth": 3.307,
+   "houseGrowth": 1.544
+  },
+  {
+   "s": "1992-05",
+   "cash": 118703,
+   "stocks": -143551,
+   "lump": 16856,
+   "stockGrowth": 3.096,
+   "houseGrowth": 1.559
+  },
+  {
+   "s": "1992-06",
+   "cash": 127523,
+   "stocks": -123382,
+   "lump": 26630,
+   "stockGrowth": 3.04,
+   "houseGrowth": 1.569
+  },
+  {
+   "s": "1992-07",
+   "cash": 142052,
+   "stocks": -77224,
+   "lump": 45555,
+   "stockGrowth": 2.883,
+   "houseGrowth": 1.575
+  },
+  {
+   "s": "1992-08",
+   "cash": 146245,
+   "stocks": -29765,
+   "lump": 77295,
+   "stockGrowth": 2.547,
+   "houseGrowth": 1.575
+  },
+  {
+   "s": "1992-09",
+   "cash": 149203,
+   "stocks": -32492,
+   "lump": 72303,
+   "stockGrowth": 2.618,
+   "houseGrowth": 1.578
+  },
+  {
+   "s": "1992-10",
+   "cash": 145275,
+   "stocks": 2108,
+   "lump": 100528,
+   "stockGrowth": 2.318,
+   "houseGrowth": 1.582
+  },
+  {
+   "s": "1992-11",
+   "cash": 138218,
+   "stocks": -27513,
+   "lump": 85191,
+   "stockGrowth": 2.472,
+   "houseGrowth": 1.583
+  },
+  {
+   "s": "1992-12",
+   "cash": 147379,
+   "stocks": -26376,
+   "lump": 86768,
+   "stockGrowth": 2.512,
+   "houseGrowth": 1.595
+  },
+  {
+   "s": "1993-01",
+   "cash": 158606,
+   "stocks": 10949,
+   "lump": 108283,
+   "stockGrowth": 2.328,
+   "houseGrowth": 1.604
+  },
+  {
+   "s": "1993-02",
+   "cash": 175077,
+   "stocks": 40387,
+   "lump": 123269,
+   "stockGrowth": 2.245,
+   "houseGrowth": 1.619
+  },
+  {
+   "s": "1993-03",
+   "cash": 181296,
+   "stocks": 54050,
+   "lump": 129729,
+   "stockGrowth": 2.197,
+   "houseGrowth": 1.621
+  },
+  {
+   "s": "1993-04",
+   "cash": 181206,
+   "stocks": 56439,
+   "lump": 133123,
+   "stockGrowth": 2.167,
+   "houseGrowth": 1.623
+  },
+  {
+   "s": "1993-05",
+   "cash": 184960,
+   "stocks": 31845,
+   "lump": 114335,
+   "stockGrowth": 2.415,
+   "houseGrowth": 1.633
+  },
+  {
+   "s": "1993-06",
+   "cash": 185659,
+   "stocks": 21950,
+   "lump": 108439,
+   "stockGrowth": 2.486,
+   "houseGrowth": 1.634
+  },
+  {
+   "s": "1993-07",
+   "cash": 197631,
+   "stocks": 33355,
+   "lump": 112366,
+   "stockGrowth": 2.51,
+   "houseGrowth": 1.647
+  },
+  {
+   "s": "1993-08",
+   "cash": 201049,
+   "stocks": 30649,
+   "lump": 108236,
+   "stockGrowth": 2.572,
+   "houseGrowth": 1.65
+  },
+  {
+   "s": "1993-09",
+   "cash": 210081,
+   "stocks": 44258,
+   "lump": 115747,
+   "stockGrowth": 2.534,
+   "houseGrowth": 1.657
+  },
+  {
+   "s": "1993-10",
+   "cash": 214349,
+   "stocks": 53943,
+   "lump": 120813,
+   "stockGrowth": 2.501,
+   "houseGrowth": 1.661
+  },
+  {
+   "s": "1993-11",
+   "cash": 205033,
+   "stocks": 27461,
+   "lump": 109747,
+   "stockGrowth": 2.612,
+   "houseGrowth": 1.664
+  },
+  {
+   "s": "1993-12",
+   "cash": 206213,
+   "stocks": 20753,
+   "lump": 103949,
+   "stockGrowth": 2.692,
+   "houseGrowth": 1.668
+  },
+  {
+   "s": "1994-01",
+   "cash": 212608,
+   "stocks": 20052,
+   "lump": 100938,
+   "stockGrowth": 2.758,
+   "houseGrowth": 1.675
+  },
+  {
+   "s": "1994-02",
+   "cash": 214340,
+   "stocks": 21978,
+   "lump": 107197,
+   "stockGrowth": 2.734,
+   "houseGrowth": 1.687
+  },
+  {
+   "s": "1994-03",
+   "cash": 199150,
+   "stocks": -10771,
+   "lump": 96951,
+   "stockGrowth": 2.841,
+   "houseGrowth": 1.694
+  },
+  {
+   "s": "1994-04",
+   "cash": 181984,
+   "stocks": -42892,
+   "lump": 88669,
+   "stockGrowth": 2.938,
+   "houseGrowth": 1.706
+  },
+  {
+   "s": "1994-05",
+   "cash": 177661,
+   "stocks": -39849,
+   "lump": 100016,
+   "stockGrowth": 2.86,
+   "houseGrowth": 1.721
+  },
+  {
+   "s": "1994-06",
+   "cash": 188585,
+   "stocks": -27811,
+   "lump": 105473,
+   "stockGrowth": 2.87,
+   "houseGrowth": 1.735
+  },
+  {
+   "s": "1994-07",
+   "cash": 186346,
+   "stocks": -46206,
+   "lump": 96401,
+   "stockGrowth": 3.008,
+   "houseGrowth": 1.748
+  },
+  {
+   "s": "1994-08",
+   "cash": 191269,
+   "stocks": -14105,
+   "lump": 117901,
+   "stockGrowth": 2.802,
+   "houseGrowth": 1.753
+  },
+  {
+   "s": "1994-09",
+   "cash": 192792,
+   "stocks": -1813,
+   "lump": 132614,
+   "stockGrowth": 2.689,
+   "houseGrowth": 1.767
+  },
+  {
+   "s": "1994-10",
+   "cash": 185647,
+   "stocks": -21701,
+   "lump": 124150,
+   "stockGrowth": 2.788,
+   "houseGrowth": 1.773
+  },
+  {
+   "s": "1994-11",
+   "cash": 180809,
+   "stocks": -29001,
+   "lump": 126530,
+   "stockGrowth": 2.783,
+   "houseGrowth": 1.781
+  },
+  {
+   "s": "1994-12",
+   "cash": 185907,
+   "stocks": -51387,
+   "lump": 109388,
+   "stockGrowth": 3.024,
+   "houseGrowth": 1.795
+  },
+  {
+   "s": "1995-01",
+   "cash": 190127,
+   "stocks": -56244,
+   "lump": 105684,
+   "stockGrowth": 3.092,
+   "houseGrowth": 1.801
+  },
+  {
+   "s": "1995-02",
+   "cash": 202572,
+   "stocks": -20863,
+   "lump": 123454,
+   "stockGrowth": 2.946,
+   "houseGrowth": 1.808
+  },
+  {
+   "s": "1995-03",
+   "cash": 222645,
+   "stocks": 7450,
+   "lump": 138892,
+   "stockGrowth": 2.89,
+   "houseGrowth": 1.83
+  },
+  {
+   "s": "1995-04",
+   "cash": 231838,
+   "stocks": 33048,
+   "lump": 156389,
+   "stockGrowth": 2.767,
+   "houseGrowth": 1.844
+  },
+  {
+   "s": "1995-05",
+   "cash": 249997,
+   "stocks": 70984,
+   "lump": 177577,
+   "stockGrowth": 2.633,
+   "houseGrowth": 1.862
+  },
+  {
+   "s": "1995-06",
+   "cash": 264877,
+   "stocks": 85342,
+   "lump": 182330,
+   "stockGrowth": 2.645,
+   "houseGrowth": 1.872
+  },
+  {
+   "s": "1995-07",
+   "cash": 266461,
+   "stocks": 92270,
+   "lump": 191353,
+   "stockGrowth": 2.584,
+   "houseGrowth": 1.882
+  },
+  {
+   "s": "1995-08",
+   "cash": 260634,
+   "stocks": 80613,
+   "lump": 192656,
+   "stockGrowth": 2.584,
+   "houseGrowth": 1.889
+  },
+  {
+   "s": "1995-09",
+   "cash": 273178,
+   "stocks": 102283,
+   "lump": 203473,
+   "stockGrowth": 2.535,
+   "houseGrowth": 1.902
+  },
+  {
+   "s": "1995-10",
+   "cash": 281347,
+   "stocks": 119307,
+   "lump": 213852,
+   "stockGrowth": 2.461,
+   "houseGrowth": 1.909
+  },
+  {
+   "s": "1995-11",
+   "cash": 285848,
+   "stocks": 129002,
+   "lump": 217472,
+   "stockGrowth": 2.443,
+   "houseGrowth": 1.913
+  },
+  {
+   "s": "1995-12",
+   "cash": 292142,
+   "stocks": 135561,
+   "lump": 220165,
+   "stockGrowth": 2.432,
+   "houseGrowth": 1.914
+  },
+  {
+   "s": "1996-01",
+   "cash": 298429,
+   "stocks": 147483,
+   "lump": 225264,
+   "stockGrowth": 2.397,
+   "houseGrowth": 1.916
+  },
+  {
+   "s": "1996-02",
+   "cash": 299165,
+   "stocks": 144422,
+   "lump": 225774,
+   "stockGrowth": 2.413,
+   "houseGrowth": 1.923
+  },
+  {
+   "s": "1996-03",
+   "cash": 280502,
+   "stocks": 124014,
+   "lump": 226469,
+   "stockGrowth": 2.373,
+   "houseGrowth": 1.924
+  },
+  {
+   "s": "1996-04",
+   "cash": 271259,
+   "stocks": 108763,
+   "lump": 224454,
+   "stockGrowth": 2.39,
+   "houseGrowth": 1.927
+  },
+  {
+   "s": "1996-05",
+   "cash": 267666,
+   "stocks": 106105,
+   "lump": 228707,
+   "stockGrowth": 2.357,
+   "houseGrowth": 1.933
+  },
+  {
+   "s": "1996-06",
+   "cash": 258079,
+   "stocks": 111231,
+   "lump": 239064,
+   "stockGrowth": 2.221,
+   "houseGrowth": 1.931
+  },
+  {
+   "s": "1996-07",
+   "cash": 256798,
+   "stocks": 109882,
+   "lump": 234679,
+   "stockGrowth": 2.239,
+   "houseGrowth": 1.922
+  },
+  {
+   "s": "1996-08",
+   "cash": 266032,
+   "stocks": 111656,
+   "lump": 226055,
+   "stockGrowth": 2.36,
+   "houseGrowth": 1.925
+  },
+  {
+   "s": "1996-09",
+   "cash": 256838,
+   "stocks": 100240,
+   "lump": 224278,
+   "stockGrowth": 2.344,
+   "houseGrowth": 1.92
+  },
+  {
+   "s": "1996-10",
+   "cash": 266735,
+   "stocks": 118336,
+   "lump": 231923,
+   "stockGrowth": 2.273,
+   "houseGrowth": 1.918
+  },
+  {
+   "s": "1996-11",
+   "cash": 274848,
+   "stocks": 121741,
+   "lump": 227338,
+   "stockGrowth": 2.325,
+   "houseGrowth": 1.914
+  },
+  {
+   "s": "1996-12",
+   "cash": 271975,
+   "stocks": 126950,
+   "lump": 232903,
+   "stockGrowth": 2.226,
+   "houseGrowth": 1.904
+  },
+  {
+   "s": "1997-01",
+   "cash": 265670,
+   "stocks": 112547,
+   "lump": 226985,
+   "stockGrowth": 2.282,
+   "houseGrowth": 1.906
+  },
+  {
+   "s": "1997-02",
+   "cash": 271801,
+   "stocks": 126669,
+   "lump": 235857,
+   "stockGrowth": 2.205,
+   "houseGrowth": 1.908
+  },
+  {
+   "s": "1997-03",
+   "cash": 262353,
+   "stocks": 119431,
+   "lump": 237330,
+   "stockGrowth": 2.172,
+   "houseGrowth": 1.908
+  },
+  {
+   "s": "1997-04",
+   "cash": 254521,
+   "stocks": 96045,
+   "lump": 224703,
+   "stockGrowth": 2.302,
+   "houseGrowth": 1.91
+  },
+  {
+   "s": "1997-05",
+   "cash": 255204,
+   "stocks": 95777,
+   "lump": 222389,
+   "stockGrowth": 2.29,
+   "houseGrowth": 1.898
+  },
+  {
+   "s": "1997-06",
+   "cash": 260387,
+   "stocks": 107608,
+   "lump": 228361,
+   "stockGrowth": 2.214,
+   "houseGrowth": 1.891
+  },
+  {
+   "s": "1997-07",
+   "cash": 260615,
+   "stocks": 124619,
+   "lump": 235509,
+   "stockGrowth": 2.086,
+   "houseGrowth": 1.875
+  },
+  {
+   "s": "1997-08",
+   "cash": 254492,
+   "stocks": 142554,
+   "lump": 249065,
+   "stockGrowth": 1.872,
+   "houseGrowth": 1.859
+  },
+  {
+   "s": "1997-09",
+   "cash": 252184,
+   "stocks": 131117,
+   "lump": 235873,
+   "stockGrowth": 1.97,
+   "houseGrowth": 1.847
+  },
+  {
+   "s": "1997-10",
+   "cash": 246621,
+   "stocks": 127824,
+   "lump": 230921,
+   "stockGrowth": 1.928,
+   "houseGrowth": 1.821
+  },
+  {
+   "s": "1997-11",
+   "cash": 241238,
+   "stocks": 111882,
+   "lump": 213087,
+   "stockGrowth": 2.038,
+   "houseGrowth": 1.799
+  },
+  {
+   "s": "1997-12",
+   "cash": 237579,
+   "stocks": 128783,
+   "lump": 220538,
+   "stockGrowth": 1.883,
+   "houseGrowth": 1.779
+  },
+  {
+   "s": "1998-01",
+   "cash": 231452,
+   "stocks": 128793,
+   "lump": 215898,
+   "stockGrowth": 1.839,
+   "houseGrowth": 1.754
+  },
+  {
+   "s": "1998-02",
+   "cash": 221914,
+   "stocks": 135499,
+   "lump": 219838,
+   "stockGrowth": 1.716,
+   "houseGrowth": 1.736
+  },
+  {
+   "s": "1998-03",
+   "cash": 210099,
+   "stocks": 140884,
+   "lump": 226524,
+   "stockGrowth": 1.55,
+   "houseGrowth": 1.714
+  },
+  {
+   "s": "1998-04",
+   "cash": 201320,
+   "stocks": 140731,
+   "lump": 227034,
+   "stockGrowth": 1.463,
+   "houseGrowth": 1.695
+  },
+  {
+   "s": "1998-05",
+   "cash": 192248,
+   "stocks": 122563,
+   "lump": 214326,
+   "stockGrowth": 1.515,
+   "houseGrowth": 1.674
+  },
+  {
+   "s": "1998-06",
+   "cash": 188280,
+   "stocks": 110991,
+   "lump": 201216,
+   "stockGrowth": 1.589,
+   "houseGrowth": 1.654
+  },
+  {
+   "s": "1998-07",
+   "cash": 182327,
+   "stocks": 129711,
+   "lump": 210871,
+   "stockGrowth": 1.407,
+   "houseGrowth": 1.635
+  },
+  {
+   "s": "1998-08",
+   "cash": 173748,
+   "stocks": 120027,
+   "lump": 199893,
+   "stockGrowth": 1.427,
+   "houseGrowth": 1.61
+  },
+  {
+   "s": "1998-09",
+   "cash": 169637,
+   "stocks": 88991,
+   "lump": 164025,
+   "stockGrowth": 1.72,
+   "houseGrowth": 1.583
+  },
+  {
+   "s": "1998-10",
+   "cash": 162230,
+   "stocks": 112344,
+   "lump": 179750,
+   "stockGrowth": 1.464,
+   "houseGrowth": 1.562
+  },
+  {
+   "s": "1998-11",
+   "cash": 141433,
+   "stocks": 134298,
+   "lump": 193929,
+   "stockGrowth": 1.131,
+   "houseGrowth": 1.52
+  },
+  {
+   "s": "1998-12",
+   "cash": 139812,
+   "stocks": 150626,
+   "lump": 202574,
+   "stockGrowth": 0.981,
+   "houseGrowth": 1.505
+  },
+  {
+   "s": "1999-01",
+   "cash": 137945,
+   "stocks": 152136,
+   "lump": 206084,
+   "stockGrowth": 0.937,
+   "houseGrowth": 1.504
+  },
+  {
+   "s": "1999-02",
+   "cash": 136725,
+   "stocks": 165373,
+   "lump": 215523,
+   "stockGrowth": 0.83,
+   "houseGrowth": 1.503
+  },
+  {
+   "s": "1999-03",
+   "cash": 118680,
+   "stocks": 159512,
+   "lump": 209565,
+   "stockGrowth": 0.775,
+   "houseGrowth": 1.478
+  },
+  {
+   "s": "1999-04",
+   "cash": 118427,
+   "stocks": 150702,
+   "lump": 203436,
+   "stockGrowth": 0.813,
+   "houseGrowth": 1.469
+  },
+  {
+   "s": "1999-05",
+   "cash": 108605,
+   "stocks": 132608,
+   "lump": 196856,
+   "stockGrowth": 0.855,
+   "houseGrowth": 1.466
+  },
+  {
+   "s": "1999-06",
+   "cash": 92931,
+   "stocks": 108755,
+   "lump": 186777,
+   "stockGrowth": 0.919,
+   "houseGrowth": 1.461
+  },
+  {
+   "s": "1999-07",
+   "cash": 85126,
+   "stocks": 104641,
+   "lump": 185370,
+   "stockGrowth": 0.878,
+   "houseGrowth": 1.449
+  },
+  {
+   "s": "1999-08",
+   "cash": 69583,
+   "stocks": 73894,
+   "lump": 169458,
+   "stockGrowth": 0.976,
+   "houseGrowth": 1.435
+  },
+  {
+   "s": "1999-09",
+   "cash": 70592,
+   "stocks": 67829,
+   "lump": 162945,
+   "stockGrowth": 1.019,
+   "houseGrowth": 1.426
+  },
+  {
+   "s": "1999-10",
+   "cash": 67097,
+   "stocks": 54191,
+   "lump": 154149,
+   "stockGrowth": 1.086,
+   "houseGrowth": 1.42
+  },
+  {
+   "s": "1999-11",
+   "cash": 69731,
+   "stocks": 67949,
+   "lump": 161985,
+   "stockGrowth": 0.994,
+   "houseGrowth": 1.417
+  },
+  {
+   "s": "1999-12",
+   "cash": 54500,
+   "stocks": 45381,
+   "lump": 149584,
+   "stockGrowth": 1.012,
+   "houseGrowth": 1.391
+  },
+  {
+   "s": "2000-01",
+   "cash": 35725,
+   "stocks": 27126,
+   "lump": 144621,
+   "stockGrowth": 0.963,
+   "houseGrowth": 1.37
+  },
+  {
+   "s": "2000-02",
+   "cash": 32193,
+   "stocks": 26348,
+   "lump": 142466,
+   "stockGrowth": 0.973,
+   "houseGrowth": 1.368
+  },
+  {
+   "s": "2000-03",
+   "cash": 28995,
+   "stocks": 18792,
+   "lump": 138083,
+   "stockGrowth": 0.977,
+   "houseGrowth": 1.357
+  },
+  {
+   "s": "2000-04",
+   "cash": 30706,
+   "stocks": 12563,
+   "lump": 138128,
+   "stockGrowth": 0.983,
+   "houseGrowth": 1.357
+  },
+  {
+   "s": "2000-05",
+   "cash": 18276,
+   "stocks": -12362,
+   "lump": 128768,
+   "stockGrowth": 1.066,
+   "houseGrowth": 1.358
+  },
+  {
+   "s": "2000-06",
+   "cash": 16694,
+   "stocks": 1796,
+   "lump": 126450,
+   "stockGrowth": 1.022,
+   "houseGrowth": 1.337
+  },
+  {
+   "s": "2000-07",
+   "cash": 15246,
+   "stocks": 16920,
+   "lump": 131110,
+   "stockGrowth": 0.918,
+   "houseGrowth": 1.322
+  },
+  {
+   "s": "2000-08",
+   "cash": 15629,
+   "stocks": 1973,
+   "lump": 120608,
+   "stockGrowth": 1.002,
+   "houseGrowth": 1.313
+  },
+  {
+   "s": "2000-09",
+   "cash": 10616,
+   "stocks": 13315,
+   "lump": 123247,
+   "stockGrowth": 0.887,
+   "houseGrowth": 1.29
+  },
+  {
+   "s": "2000-10",
+   "cash": 11697,
+   "stocks": -8184,
+   "lump": 108842,
+   "stockGrowth": 1.023,
+   "houseGrowth": 1.283
+  },
+  {
+   "s": "2000-11",
+   "cash": 8131,
+   "stocks": -21955,
+   "lump": 98176,
+   "stockGrowth": 1.086,
+   "houseGrowth": 1.27
+  },
+  {
+   "s": "2000-12",
+   "cash": 11312,
+   "stocks": -29354,
+   "lump": 79784,
+   "stockGrowth": 1.217,
+   "houseGrowth": 1.247
+  },
+  {
+   "s": "2001-01",
+   "cash": 14359,
+   "stocks": -36619,
+   "lump": 68325,
+   "stockGrowth": 1.278,
+   "houseGrowth": 1.225
+  },
+  {
+   "s": "2001-02",
+   "cash": 6904,
+   "stocks": -44392,
+   "lump": 63907,
+   "stockGrowth": 1.256,
+   "houseGrowth": 1.209
+  },
+  {
+   "s": "2001-03",
+   "cash": 2639,
+   "stocks": -68645,
+   "lump": 41336,
+   "stockGrowth": 1.439,
+   "houseGrowth": 1.192
+  },
+  {
+   "s": "2001-04",
+   "cash": -1328,
+   "stocks": -84925,
+   "lump": 31229,
+   "stockGrowth": 1.552,
+   "houseGrowth": 1.194
+  },
+  {
+   "s": "2001-05",
+   "cash": -4964,
+   "stocks": -85596,
+   "lump": 37353,
+   "stockGrowth": 1.474,
+   "houseGrowth": 1.193
+  },
+  {
+   "s": "2001-06",
+   "cash": -6300,
+   "stocks": -82650,
+   "lump": 40407,
+   "stockGrowth": 1.441,
+   "houseGrowth": 1.193
+  },
+  {
+   "s": "2001-07",
+   "cash": -7279,
+   "stocks": -81038,
+   "lump": 39119,
+   "stockGrowth": 1.44,
+   "houseGrowth": 1.189
+  },
+  {
+   "s": "2001-08",
+   "cash": -6074,
+   "stocks": -74638,
+   "lump": 36571,
+   "stockGrowth": 1.432,
+   "houseGrowth": 1.177
+  },
+  {
+   "s": "2001-09",
+   "cash": -3153,
+   "stocks": -64292,
+   "lump": 35979,
+   "stockGrowth": 1.434,
+   "houseGrowth": 1.174
+  },
+  {
+   "s": "2001-10",
+   "cash": -2217,
+   "stocks": -56794,
+   "lump": 29889,
+   "stockGrowth": 1.456,
+   "houseGrowth": 1.159
+  },
+  {
+   "s": "2001-11",
+   "cash": -3217,
+   "stocks": -78721,
+   "lump": 18176,
+   "stockGrowth": 1.578,
+   "houseGrowth": 1.159
+  },
+  {
+   "s": "2001-12",
+   "cash": -20320,
+   "stocks": -87311,
+   "lump": 22272,
+   "stockGrowth": 1.461,
+   "houseGrowth": 1.148
+  },
+  {
+   "s": "2002-01",
+   "cash": -23876,
+   "stocks": -89626,
+   "lump": 18315,
+   "stockGrowth": 1.447,
+   "houseGrowth": 1.133
+  },
+  {
+   "s": "2002-02",
+   "cash": -21620,
+   "stocks": -100378,
+   "lump": 9721,
+   "stockGrowth": 1.54,
+   "houseGrowth": 1.131
+  },
+  {
+   "s": "2002-03",
+   "cash": -24606,
+   "stocks": -119136,
+   "lump": 1459,
+   "stockGrowth": 1.644,
+   "houseGrowth": 1.137
+  },
+  {
+   "s": "2002-04",
+   "cash": -22258,
+   "stocks": -118428,
+   "lump": 5773,
+   "stockGrowth": 1.624,
+   "houseGrowth": 1.143
+  },
+  {
+   "s": "2002-05",
+   "cash": -15589,
+   "stocks": -115649,
+   "lump": 2543,
+   "stockGrowth": 1.696,
+   "houseGrowth": 1.149
+  },
+  {
+   "s": "2002-06",
+   "cash": -11369,
+   "stocks": -95060,
+   "lump": 11704,
+   "stockGrowth": 1.611,
+   "houseGrowth": 1.15
+  },
+  {
+   "s": "2002-07",
+   "cash": -8785,
+   "stocks": -112496,
+   "lump": -6817,
+   "stockGrowth": 1.802,
+   "houseGrowth": 1.144
+  },
+  {
+   "s": "2002-08",
+   "cash": -4223,
+   "stocks": -122556,
+   "lump": -22687,
+   "stockGrowth": 1.975,
+   "houseGrowth": 1.141
+  },
+  {
+   "s": "2002-09",
+   "cash": -664,
+   "stocks": -122557,
+   "lump": -27280,
+   "stockGrowth": 2.012,
+   "houseGrowth": 1.134
+  },
+  {
+   "s": "2002-10",
+   "cash": -3619,
+   "stocks": -154555,
+   "lump": -56150,
+   "stockGrowth": 2.302,
+   "houseGrowth": 1.128
+  },
+  {
+   "s": "2002-11",
+   "cash": -2272,
+   "stocks": -131174,
+   "lump": -36985,
+   "stockGrowth": 2.095,
+   "houseGrowth": 1.128
+  },
+  {
+   "s": "2002-12",
+   "cash": -4719,
+   "stocks": -124006,
+   "lump": -30174,
+   "stockGrowth": 1.99,
+   "houseGrowth": 1.12
+  },
+  {
+   "s": "2003-01",
+   "cash": -1499,
+   "stocks": -133354,
+   "lump": -43497,
+   "stockGrowth": 2.135,
+   "houseGrowth": 1.117
+  },
+  {
+   "s": "2003-02",
+   "cash": 475,
+   "stocks": -151357,
+   "lump": -58969,
+   "stockGrowth": 2.311,
+   "houseGrowth": 1.118
+  },
+  {
+   "s": "2003-03",
+   "cash": 7682,
+   "stocks": -150472,
+   "lump": -60134,
+   "stockGrowth": 2.383,
+   "houseGrowth": 1.13
+  },
+  {
+   "s": "2003-04",
+   "cash": 6091,
+   "stocks": -162504,
+   "lump": -65248,
+   "stockGrowth": 2.45,
+   "houseGrowth": 1.135
+  },
+  {
+   "s": "2003-05",
+   "cash": 18723,
+   "stocks": -132962,
+   "lump": -45458,
+   "stockGrowth": 2.298,
+   "houseGrowth": 1.144
+  },
+  {
+   "s": "2003-06",
+   "cash": 28159,
+   "stocks": -115720,
+   "lump": -34643,
+   "stockGrowth": 2.226,
+   "houseGrowth": 1.149
+  },
+  {
+   "s": "2003-07",
+   "cash": 13334,
+   "stocks": -129155,
+   "lump": -33516,
+   "stockGrowth": 2.166,
+   "houseGrowth": 1.146
+  },
+  {
+   "s": "2003-08",
+   "cash": -11194,
+   "stocks": -174610,
+   "lump": -48247,
+   "stockGrowth": 2.235,
+   "houseGrowth": 1.136
+  },
+  {
+   "s": "2003-09",
+   "cash": -10582,
+   "stocks": -158201,
+   "lump": -39819,
+   "stockGrowth": 2.123,
+   "houseGrowth": 1.129
+  },
+  {
+   "s": "2003-10",
+   "cash": -6868,
+   "stocks": -165088,
+   "lump": -50649,
+   "stockGrowth": 2.229,
+   "houseGrowth": 1.122
+  },
+  {
+   "s": "2003-11",
+   "cash": -9657,
+   "stocks": -167919,
+   "lump": -49887,
+   "stockGrowth": 2.188,
+   "houseGrowth": 1.114
+  },
+  {
+   "s": "2003-12",
+   "cash": -10270,
+   "stocks": -174070,
+   "lump": -55046,
+   "stockGrowth": 2.224,
+   "houseGrowth": 1.108
+  },
+  {
+   "s": "2004-01",
+   "cash": -7291,
+   "stocks": -167767,
+   "lump": -53025,
+   "stockGrowth": 2.191,
+   "houseGrowth": 1.102
+  },
+  {
+   "s": "2004-02",
+   "cash": -7086,
+   "stocks": -151587,
+   "lump": -42947,
+   "stockGrowth": 2.072,
+   "houseGrowth": 1.098
+  },
+  {
+   "s": "2004-03",
+   "cash": -1821,
+   "stocks": -154361,
+   "lump": -47077,
+   "stockGrowth": 2.137,
+   "houseGrowth": 1.099
+  },
+  {
+   "s": "2004-04",
+   "cash": -15793,
+   "stocks": -179505,
+   "lump": -53653,
+   "stockGrowth": 2.173,
+   "houseGrowth": 1.098
+  },
+  {
+   "s": "2004-05",
+   "cash": -32706,
+   "stocks": -207855,
+   "lump": -61102,
+   "stockGrowth": 2.208,
+   "houseGrowth": 1.095
+  },
+  {
+   "s": "2004-06",
+   "cash": -35741,
+   "stocks": -216207,
+   "lump": -63725,
+   "stockGrowth": 2.225,
+   "houseGrowth": 1.093
+  },
+  {
+   "s": "2004-07",
+   "cash": -31068,
+   "stocks": -212038,
+   "lump": -65402,
+   "stockGrowth": 2.24,
+   "houseGrowth": 1.087
+  },
+  {
+   "s": "2004-08",
+   "cash": -29002,
+   "stocks": -207252,
+   "lump": -71576,
+   "stockGrowth": 2.284,
+   "houseGrowth": 1.078
+  },
+  {
+   "s": "2004-09",
+   "cash": -29669,
+   "stocks": -219378,
+   "lump": -83220,
+   "stockGrowth": 2.377,
+   "houseGrowth": 1.068
+  },
+  {
+   "s": "2004-10",
+   "cash": -30790,
+   "stocks": -208668,
+   "lump": -77069,
+   "stockGrowth": 2.291,
+   "houseGrowth": 1.063
+  },
+  {
+   "s": "2004-11",
+   "cash": -33016,
+   "stocks": -215840,
+   "lump": -80832,
+   "stockGrowth": 2.313,
+   "houseGrowth": 1.058
+  },
+  {
+   "s": "2004-12",
+   "cash": -35847,
+   "stocks": -217612,
+   "lump": -78644,
+   "stockGrowth": 2.267,
+   "houseGrowth": 1.053
+  },
+  {
+   "s": "2005-01",
+   "cash": -37323,
+   "stocks": -210138,
+   "lump": -73874,
+   "stockGrowth": 2.187,
+   "houseGrowth": 1.045
+  },
+  {
+   "s": "2005-02",
+   "cash": -35578,
+   "stocks": -201585,
+   "lump": -72269,
+   "stockGrowth": 2.176,
+   "houseGrowth": 1.045
+  },
+  {
+   "s": "2005-03",
+   "cash": -47117,
+   "stocks": -235838,
+   "lump": -82927,
+   "stockGrowth": 2.263,
+   "houseGrowth": 1.044
+  },
+  {
+   "s": "2005-04",
+   "cash": -46834,
+   "stocks": -233991,
+   "lump": -84396,
+   "stockGrowth": 2.277,
+   "houseGrowth": 1.042
+  },
+  {
+   "s": "2005-05",
+   "cash": -43601,
+   "stocks": -235677,
+   "lump": -89428,
+   "stockGrowth": 2.347,
+   "houseGrowth": 1.043
+  },
+  {
+   "s": "2005-06",
+   "cash": -41365,
+   "stocks": -227513,
+   "lump": -84076,
+   "stockGrowth": 2.29,
+   "houseGrowth": 1.041
+  },
+  {
+   "s": "2005-07",
+   "cash": -48239,
+   "stocks": -229352,
+   "lump": -82465,
+   "stockGrowth": 2.237,
+   "houseGrowth": 1.034
+  },
+  {
+   "s": "2005-08",
+   "cash": -56529,
+   "stocks": -236814,
+   "lump": -82116,
+   "stockGrowth": 2.181,
+   "houseGrowth": 1.024
+  },
+  {
+   "s": "2005-09",
+   "cash": -58149,
+   "stocks": -217468,
+   "lump": -74130,
+   "stockGrowth": 2.069,
+   "houseGrowth": 1.017
+  },
+  {
+   "s": "2005-10",
+   "cash": -68282,
+   "stocks": -219672,
+   "lump": -70018,
+   "stockGrowth": 1.99,
+   "houseGrowth": 1.014
+  },
+  {
+   "s": "2005-11",
+   "cash": -77113,
+   "stocks": -261845,
+   "lump": -90154,
+   "stockGrowth": 2.183,
+   "houseGrowth": 1.013
+  },
+  {
+   "s": "2005-12",
+   "cash": -76204,
+   "stocks": -253199,
+   "lump": -84513,
+   "stockGrowth": 2.113,
+   "houseGrowth": 1.009
+  },
+  {
+   "s": "2006-01",
+   "cash": -72738,
+   "stocks": -238596,
+   "lump": -80163,
+   "stockGrowth": 2.066,
+   "houseGrowth": 1.007
+  },
+  {
+   "s": "2006-02",
+   "cash": -76807,
+   "stocks": -217719,
+   "lump": -64731,
+   "stockGrowth": 1.884,
+   "houseGrowth": 1.006
+  },
+  {
+   "s": "2006-03",
+   "cash": -76317,
+   "stocks": -217731,
+   "lump": -61716,
+   "stockGrowth": 1.882,
+   "houseGrowth": 1.015
+  },
+  {
+   "s": "2006-04",
+   "cash": -80585,
+   "stocks": -244258,
+   "lump": -69718,
+   "stockGrowth": 1.977,
+   "houseGrowth": 1.02
+  },
+  {
+   "s": "2006-05",
+   "cash": -82145,
+   "stocks": -248326,
+   "lump": -68100,
+   "stockGrowth": 1.974,
+   "houseGrowth": 1.025
+  },
+  {
+   "s": "2006-06",
+   "cash": -82385,
+   "stocks": -261689,
+   "lump": -75445,
+   "stockGrowth": 2.074,
+   "houseGrowth": 1.032
+  },
+  {
+   "s": "2006-07",
+   "cash": -82272,
+   "stocks": -261486,
+   "lump": -73826,
+   "stockGrowth": 2.073,
+   "houseGrowth": 1.037
+  },
+  {
+   "s": "2006-08",
+   "cash": -75132,
+   "stocks": -264220,
+   "lump": -81292,
+   "stockGrowth": 2.163,
+   "houseGrowth": 1.035
+  },
+  {
+   "s": "2006-09",
+   "cash": -68991,
+   "stocks": -251185,
+   "lump": -75425,
+   "stockGrowth": 2.122,
+   "houseGrowth": 1.038
+  },
+  {
+   "s": "2006-10",
+   "cash": -66066,
+   "stocks": -242692,
+   "lump": -70673,
+   "stockGrowth": 2.081,
+   "houseGrowth": 1.04
+  },
+  {
+   "s": "2006-11",
+   "cash": -60905,
+   "stocks": -220332,
+   "lump": -58747,
+   "stockGrowth": 1.968,
+   "houseGrowth": 1.042
+  },
+  {
+   "s": "2006-12",
+   "cash": -54329,
+   "stocks": -222775,
+   "lump": -60881,
+   "stockGrowth": 2.021,
+   "houseGrowth": 1.047
+  },
+  {
+   "s": "2007-01",
+   "cash": -57512,
+   "stocks": -230553,
+   "lump": -63671,
+   "stockGrowth": 2.033,
+   "houseGrowth": 1.044
+  },
+  {
+   "s": "2007-02",
+   "cash": -57371,
+   "stocks": -234671,
+   "lump": -62208,
+   "stockGrowth": 2.036,
+   "houseGrowth": 1.05
+  },
+  {
+   "s": "2007-03",
+   "cash": -50898,
+   "stocks": -241138,
+   "lump": -68177,
+   "stockGrowth": 2.143,
+   "houseGrowth": 1.058
+  },
+  {
+   "s": "2007-04",
+   "cash": -48818,
+   "stocks": -237585,
+   "lump": -63367,
+   "stockGrowth": 2.124,
+   "houseGrowth": 1.067
+  },
+  {
+   "s": "2007-05",
+   "cash": -46411,
+   "stocks": -232657,
+   "lump": -53993,
+   "stockGrowth": 2.066,
+   "houseGrowth": 1.079
+  },
+  {
+   "s": "2007-06",
+   "cash": -55745,
+   "stocks": -247424,
+   "lump": -49216,
+   "stockGrowth": 2.016,
+   "houseGrowth": 1.087
+  },
+  {
+   "s": "2007-07",
+   "cash": -51581,
+   "stocks": -248431,
+   "lump": -49969,
+   "stockGrowth": 2.066,
+   "houseGrowth": 1.098
+  },
+  {
+   "s": "2007-08",
+   "cash": -43132,
+   "stocks": -249231,
+   "lump": -56288,
+   "stockGrowth": 2.178,
+   "houseGrowth": 1.106
+  },
+  {
+   "s": "2007-09",
+   "cash": -32370,
+   "stocks": -229896,
+   "lump": -49824,
+   "stockGrowth": 2.155,
+   "houseGrowth": 1.114
+  },
+  {
+   "s": "2007-10",
+   "cash": -25796,
+   "stocks": -223119,
+   "lump": -43739,
+   "stockGrowth": 2.135,
+   "houseGrowth": 1.125
+  },
+  {
+   "s": "2007-11",
+   "cash": -12213,
+   "stocks": -207055,
+   "lump": -36969,
+   "stockGrowth": 2.14,
+   "houseGrowth": 1.141
+  },
+  {
+   "s": "2007-12",
+   "cash": -2293,
+   "stocks": -212432,
+   "lump": -47800,
+   "stockGrowth": 2.311,
+   "houseGrowth": 1.152
+  },
+  {
+   "s": "2008-01",
+   "cash": 17834,
+   "stocks": -185582,
+   "lump": -42149,
+   "stockGrowth": 2.352,
+   "houseGrowth": 1.171
+  },
+  {
+   "s": "2008-02",
+   "cash": 20357,
+   "stocks": -221254,
+   "lump": -64023,
+   "stockGrowth": 2.648,
+   "houseGrowth": 1.188
+  },
+  {
+   "s": "2008-03",
+   "cash": 27653,
+   "stocks": -206255,
+   "lump": -55266,
+   "stockGrowth": 2.632,
+   "houseGrowth": 1.209
+  },
+  {
+   "s": "2008-04",
+   "cash": 36698,
+   "stocks": -186845,
+   "lump": -45155,
+   "stockGrowth": 2.594,
+   "houseGrowth": 1.225
+  },
+  {
+   "s": "2008-05",
+   "cash": 41614,
+   "stocks": -173551,
+   "lump": -28540,
+   "stockGrowth": 2.485,
+   "houseGrowth": 1.245
+  },
+  {
+   "s": "2008-06",
+   "cash": 37487,
+   "stocks": -189536,
+   "lump": -28035,
+   "stockGrowth": 2.504,
+   "houseGrowth": 1.256
+  },
+  {
+   "s": "2008-07",
+   "cash": 42018,
+   "stocks": -208310,
+   "lump": -45150,
+   "stockGrowth": 2.746,
+   "houseGrowth": 1.272
+  },
+  {
+   "s": "2008-08",
+   "cash": 48931,
+   "stocks": -214723,
+   "lump": -49380,
+   "stockGrowth": 2.856,
+   "houseGrowth": 1.288
+  },
+  {
+   "s": "2008-09",
+   "cash": 70752,
+   "stocks": -186357,
+   "lump": -46283,
+   "stockGrowth": 2.91,
+   "houseGrowth": 1.302
+  },
+  {
+   "s": "2008-10",
+   "cash": 72672,
+   "stocks": -213747,
+   "lump": -70412,
+   "stockGrowth": 3.212,
+   "houseGrowth": 1.315
+  },
+  {
+   "s": "2008-11",
+   "cash": 92526,
+   "stocks": -209596,
+   "lump": -92115,
+   "stockGrowth": 3.586,
+   "houseGrowth": 1.346
+  },
+  {
+   "s": "2008-12",
+   "cash": 123192,
+   "stocks": -192041,
+   "lump": -117293,
+   "stockGrowth": 3.959,
+   "houseGrowth": 1.355
+  },
+  {
+   "s": "2009-01",
+   "cash": 130053,
+   "stocks": -133006,
+   "lump": -76041,
+   "stockGrowth": 3.526,
+   "houseGrowth": 1.354
+  },
+  {
+   "s": "2009-02",
+   "cash": 129292,
+   "stocks": -198757,
+   "lump": -133489,
+   "stockGrowth": 4.166,
+   "houseGrowth": 1.359
+  },
+  {
+   "s": "2009-03",
+   "cash": 145803,
+   "stocks": -237289,
+   "lump": -180482,
+   "stockGrowth": 4.802,
+   "houseGrowth": 1.387
+  },
+  {
+   "s": "2009-04",
+   "cash": 157104,
+   "stocks": -189670,
+   "lump": -142460,
+   "stockGrowth": 4.461,
+   "houseGrowth": 1.401
+  },
+  {
+   "s": "2009-05",
+   "cash": 156219,
+   "stocks": -171449,
+   "lump": -118898,
+   "stockGrowth": 4.218,
+   "houseGrowth": 1.405
+  },
+  {
+   "s": "2009-06",
+   "cash": 138614,
+   "stocks": -152951,
+   "lump": -78731,
+   "stockGrowth": 3.741,
+   "houseGrowth": 1.407
+  },
+  {
+   "s": "2009-07",
+   "cash": 149055,
+   "stocks": -164209,
+   "lump": -97107,
+   "stockGrowth": 3.992,
+   "houseGrowth": 1.415
+  },
+  {
+   "s": "2009-08",
+   "cash": 153323,
+   "stocks": -136603,
+   "lump": -73075,
+   "stockGrowth": 3.757,
+   "houseGrowth": 1.421
+  },
+  {
+   "s": "2009-09",
+   "cash": 162537,
+   "stocks": -101753,
+   "lump": -49269,
+   "stockGrowth": 3.549,
+   "houseGrowth": 1.431
+  },
+  {
+   "s": "2009-10",
+   "cash": 167317,
+   "stocks": -86506,
+   "lump": -39683,
+   "stockGrowth": 3.464,
+   "houseGrowth": 1.433
+  },
+  {
+   "s": "2009-11",
+   "cash": 171254,
+   "stocks": -96381,
+   "lump": -53600,
+   "stockGrowth": 3.632,
+   "houseGrowth": 1.436
+  },
+  {
+   "s": "2009-12",
+   "cash": 183282,
+   "stocks": -78217,
+   "lump": -38617,
+   "stockGrowth": 3.576,
+   "houseGrowth": 1.463
+  },
+  {
+   "s": "2010-01",
+   "cash": 186226,
+   "stocks": -77352,
+   "lump": -35048,
+   "stockGrowth": 3.579,
+   "houseGrowth": 1.475
+  },
+  {
+   "s": "2010-02",
+   "cash": 197041,
+   "stocks": -75712,
+   "lump": -37586,
+   "stockGrowth": 3.704,
+   "houseGrowth": 1.498
+  },
+  {
+   "s": "2010-03",
+   "cash": 201560,
+   "stocks": -29726,
+   "lump": 4179,
+   "stockGrowth": 3.295,
+   "houseGrowth": 1.509
+  },
+  {
+   "s": "2010-04",
+   "cash": 195122,
+   "stocks": 21861,
+   "lump": 58076,
+   "stockGrowth": 2.689,
+   "houseGrowth": 1.507
+  },
+  {
+   "s": "2010-05",
+   "cash": 197051,
+   "stocks": -5827,
+   "lump": 28115,
+   "stockGrowth": 2.995,
+   "houseGrowth": 1.497
+  },
+  {
+   "s": "2010-06",
+   "cash": 212945,
+   "stocks": -27625,
+   "lump": -1077,
+   "stockGrowth": 3.433,
+   "houseGrowth": 1.524
+  },
+  {
+   "s": "2010-07",
+   "cash": 230856,
+   "stocks": -31837,
+   "lump": -15523,
+   "stockGrowth": 3.724,
+   "houseGrowth": 1.553
+  },
+  {
+   "s": "2010-08",
+   "cash": 246180,
+   "stocks": -9481,
+   "lump": -965,
+   "stockGrowth": 3.686,
+   "houseGrowth": 1.579
+  },
+  {
+   "s": "2010-09",
+   "cash": 267047,
+   "stocks": -27942,
+   "lump": -29100,
+   "stockGrowth": 4.166,
+   "houseGrowth": 1.62
+  },
+  {
+   "s": "2010-10",
+   "cash": 279467,
+   "stocks": 34205,
+   "lump": 25965,
+   "stockGrowth": 3.664,
+   "houseGrowth": 1.641
+  },
+  {
+   "s": "2010-11",
+   "cash": 287572,
+   "stocks": 61489,
+   "lump": 53317,
+   "stockGrowth": 3.454,
+   "houseGrowth": 1.664
+  },
+  {
+   "s": "2010-12",
+   "cash": 292003,
+   "stocks": 22338,
+   "lump": 26372,
+   "stockGrowth": 3.861,
+   "houseGrowth": 1.701
+  },
+  {
+   "s": "2011-01",
+   "cash": 307968,
+   "stocks": 47815,
+   "lump": 47678,
+   "stockGrowth": 3.782,
+   "houseGrowth": 1.739
+  },
+  {
+   "s": "2011-02",
+   "cash": 318642,
+   "stocks": 62192,
+   "lump": 68131,
+   "stockGrowth": 3.706,
+   "houseGrowth": 1.779
+  },
+  {
+   "s": "2011-03",
+   "cash": 342586,
+   "stocks": 93317,
+   "lump": 90280,
+   "stockGrowth": 3.682,
+   "houseGrowth": 1.83
+  },
+  {
+   "s": "2011-04",
+   "cash": 348265,
+   "stocks": 87292,
+   "lump": 89016,
+   "stockGrowth": 3.781,
+   "houseGrowth": 1.851
+  },
+  {
+   "s": "2011-05",
+   "cash": 364097,
+   "stocks": 101146,
+   "lump": 94446,
+   "stockGrowth": 3.856,
+   "houseGrowth": 1.879
+  },
+  {
+   "s": "2011-06",
+   "cash": 373966,
+   "stocks": 107358,
+   "lump": 97386,
+   "stockGrowth": 3.917,
+   "houseGrowth": 1.899
+  },
+  {
+   "s": "2011-07",
+   "cash": 380420,
+   "stocks": 96350,
+   "lump": 88454,
+   "stockGrowth": 4.096,
+   "houseGrowth": 1.92
+  },
+  {
+   "s": "2011-08",
+   "cash": 399564,
+   "stocks": 112239,
+   "lump": 85751,
+   "stockGrowth": 4.251,
+   "houseGrowth": 1.945
+  },
+  {
+   "s": "2011-09",
+   "cash": 408914,
+   "stocks": 90693,
+   "lump": 54492,
+   "stockGrowth": 4.653,
+   "houseGrowth": 1.956
+  },
+  {
+   "s": "2011-10",
+   "cash": 424569,
+   "stocks": 93511,
+   "lump": 52630,
+   "stockGrowth": 4.813,
+   "houseGrowth": 1.99
+  },
+  {
+   "s": "2011-11",
+   "cash": 433160,
+   "stocks": 125825,
+   "lump": 78126,
+   "stockGrowth": 4.61,
+   "houseGrowth": 2.006
+  },
+  {
+   "s": "2011-12",
+   "cash": 445677,
+   "stocks": 145672,
+   "lump": 94124,
+   "stockGrowth": 4.549,
+   "houseGrowth": 2.033
+  },
+  {
+   "s": "2012-01",
+   "cash": 466600,
+   "stocks": 161899,
+   "lump": 101557,
+   "stockGrowth": 4.661,
+   "houseGrowth": 2.079
+  },
+  {
+   "s": "2012-02",
+   "cash": 480056,
+   "stocks": 216687,
+   "lump": 160990,
+   "stockGrowth": 4.164,
+   "houseGrowth": 2.115
+  },
+  {
+   "s": "2012-03",
+   "cash": 479750,
+   "stocks": 234255,
+   "lump": 189682,
+   "stockGrowth": 3.897,
+   "houseGrowth": 2.127
+  },
+  {
+   "s": "2012-04",
+   "cash": 483975,
+   "stocks": 237632,
+   "lump": 195877,
+   "stockGrowth": 3.895,
+   "houseGrowth": 2.143
+  },
+  {
+   "s": "2012-05",
+   "cash": 483114,
+   "stocks": 262971,
+   "lump": 226724,
+   "stockGrowth": 3.559,
+   "houseGrowth": 2.14
+  },
+  {
+   "s": "2012-06",
+   "cash": 479121,
+   "stocks": 238986,
+   "lump": 201696,
+   "stockGrowth": 3.781,
+   "houseGrowth": 2.125
+  },
+  {
+   "s": "2012-07",
+   "cash": 475319,
+   "stocks": 274725,
+   "lump": 236452,
+   "stockGrowth": 3.336,
+   "houseGrowth": 2.105
+  },
+  {
+   "s": "2012-08",
+   "cash": 463930,
+   "stocks": 238479,
+   "lump": 199587,
+   "stockGrowth": 3.629,
+   "houseGrowth": 2.08
+  },
+  {
+   "s": "2012-09",
+   "cash": 467654,
+   "stocks": 262734,
+   "lump": 220594,
+   "stockGrowth": 3.412,
+   "houseGrowth": 2.08
+  },
+  {
+   "s": "2012-10",
+   "cash": 468908,
+   "stocks": 297855,
+   "lump": 255556,
+   "stockGrowth": 3.017,
+   "houseGrowth": 2.074
+  },
+  {
+   "s": "2012-11",
+   "cash": 463828,
+   "stocks": 268448,
+   "lump": 222207,
+   "stockGrowth": 3.319,
+   "houseGrowth": 2.059
+  },
+  {
+   "s": "2012-12",
+   "cash": 462376,
+   "stocks": 257012,
+   "lump": 207263,
+   "stockGrowth": 3.456,
+   "houseGrowth": 2.052
+  },
+  {
+   "s": "2013-01",
+   "cash": 460472,
+   "stocks": 273427,
+   "lump": 229483,
+   "stockGrowth": 3.209,
+   "houseGrowth": 2.052
+  },
+  {
+   "s": "2013-02",
+   "cash": 461223,
+   "stocks": 270029,
+   "lump": 230010,
+   "stockGrowth": 3.251,
+   "houseGrowth": 2.067
+  },
+  {
+   "s": "2013-03",
+   "cash": 453059,
+   "stocks": 268056,
+   "lump": 236273,
+   "stockGrowth": 3.138,
+   "houseGrowth": 2.057
+  },
+  {
+   "s": "2013-04",
+   "cash": 456316,
+   "stocks": 275556,
+   "lump": 242525,
+   "stockGrowth": 3.102,
+   "houseGrowth": 2.062
+  },
+  {
+   "s": "2013-05",
+   "cash": 446669,
+   "stocks": 263798,
+   "lump": 239654,
+   "stockGrowth": 3.084,
+   "houseGrowth": 2.052
+  },
+  {
+   "s": "2013-06",
+   "cash": 423372,
+   "stocks": 235904,
+   "lump": 236049,
+   "stockGrowth": 3.021,
+   "houseGrowth": 2.039
+  },
+  {
+   "s": "2013-07",
+   "cash": 413715,
+   "stocks": 197365,
+   "lump": 211111,
+   "stockGrowth": 3.267,
+   "houseGrowth": 2.04
+  },
+  {
+   "s": "2013-08",
+   "cash": 414000,
+   "stocks": 201936,
+   "lump": 218295,
+   "stockGrowth": 3.206,
+   "houseGrowth": 2.046
+  },
+  {
+   "s": "2013-09",
+   "cash": 415105,
+   "stocks": 200747,
+   "lump": 217435,
+   "stockGrowth": 3.232,
+   "houseGrowth": 2.051
+  },
+  {
+   "s": "2013-10",
+   "cash": 426423,
+   "stocks": 243177,
+   "lump": 245830,
+   "stockGrowth": 2.965,
+   "houseGrowth": 2.054
+  },
+  {
+   "s": "2013-11",
+   "cash": 425468,
+   "stocks": 259919,
+   "lump": 263345,
+   "stockGrowth": 2.77,
+   "houseGrowth": 2.054
+  },
+  {
+   "s": "2013-12",
+   "cash": 417617,
+   "stocks": 233064,
+   "lump": 244261,
+   "stockGrowth": 2.937,
+   "houseGrowth": 2.049
+  },
+  {
+   "s": "2014-01",
+   "cash": 420131,
+   "stocks": 229734,
+   "lump": 238968,
+   "stockGrowth": 3.008,
+   "houseGrowth": 2.052
+  },
+  {
+   "s": "2014-02",
+   "cash": 434145,
+   "stocks": 232790,
+   "lump": 237758,
+   "stockGrowth": 3.148,
+   "houseGrowth": 2.08
+  },
+  {
+   "s": "2014-03",
+   "cash": 429551,
+   "stocks": 222835,
+   "lump": 233730,
+   "stockGrowth": 3.173,
+   "houseGrowth": 2.076
+  },
+  {
+   "s": "2014-04",
+   "cash": 430210,
+   "stocks": 213281,
+   "lump": 227764,
+   "stockGrowth": 3.263,
+   "houseGrowth": 2.082
+  },
+  {
+   "s": "2014-05",
+   "cash": 429429,
+   "stocks": 226592,
+   "lump": 237597,
+   "stockGrowth": 3.132,
+   "houseGrowth": 2.073
+  },
+  {
+   "s": "2014-06",
+   "cash": 421593,
+   "stocks": 209511,
+   "lump": 223249,
+   "stockGrowth": 3.216,
+   "houseGrowth": 2.055
+  },
+  {
+   "s": "2014-07",
+   "cash": 419117,
+   "stocks": 205378,
+   "lump": 218628,
+   "stockGrowth": 3.235,
+   "houseGrowth": 2.046
+  },
+  {
+   "s": "2014-08",
+   "cash": 420017,
+   "stocks": 195926,
+   "lump": 207333,
+   "stockGrowth": 3.357,
+   "houseGrowth": 2.046
+  },
+  {
+   "s": "2014-09",
+   "cash": 425375,
+   "stocks": 207542,
+   "lump": 219054,
+   "stockGrowth": 3.287,
+   "houseGrowth": 2.061
+  },
+  {
+   "s": "2014-10",
+   "cash": 429907,
+   "stocks": 202857,
+   "lump": 207785,
+   "stockGrowth": 3.424,
+   "houseGrowth": 2.062
+  },
+  {
+   "s": "2014-11",
+   "cash": 428755,
+   "stocks": 212275,
+   "lump": 215310,
+   "stockGrowth": 3.32,
+   "houseGrowth": 2.055
+  },
+  {
+   "s": "2014-12",
+   "cash": 432219,
+   "stocks": 206530,
+   "lump": 202573,
+   "stockGrowth": 3.46,
+   "houseGrowth": 2.053
+  },
+  {
+   "s": "2015-01",
+   "cash": 443403,
+   "stocks": 232091,
+   "lump": 217240,
+   "stockGrowth": 3.365,
+   "houseGrowth": 2.064
+  },
+  {
+   "s": "2015-02",
+   "cash": 440993,
+   "stocks": 207312,
+   "lump": 196972,
+   "stockGrowth": 3.583,
+   "houseGrowth": 2.064
+  },
+  {
+   "s": "2015-03",
+   "cash": 434322,
+   "stocks": 222127,
+   "lump": 219251,
+   "stockGrowth": 3.305,
+   "houseGrowth": 2.057
+  },
+  {
+   "s": "2015-04",
+   "cash": 431622,
+   "stocks": 234771,
+   "lump": 231291,
+   "stockGrowth": 3.139,
+   "houseGrowth": 2.046
+  },
+  {
+   "s": "2015-05",
+   "cash": 417986,
+   "stocks": 218625,
+   "lump": 226708,
+   "stockGrowth": 3.106,
+   "houseGrowth": 2.03
+  },
+  {
+   "s": "2015-06",
+   "cash": 404865,
+   "stocks": 186031,
+   "lump": 203851,
+   "stockGrowth": 3.261,
+   "houseGrowth": 2.01
+  },
+  {
+   "s": "2015-07",
+   "cash": 397374,
+   "stocks": 155345,
+   "lump": 177592,
+   "stockGrowth": 3.484,
+   "houseGrowth": 1.996
+  },
+  {
+   "s": "2015-08",
+   "cash": 404029,
+   "stocks": 163806,
+   "lump": 177913,
+   "stockGrowth": 3.509,
+   "houseGrowth": 2.0
+  },
+  {
+   "s": "2015-09",
+   "cash": 402890,
+   "stocks": 135012,
+   "lump": 147663,
+   "stockGrowth": 3.817,
+   "houseGrowth": 1.995
+  },
+  {
+   "s": "2015-10",
+   "cash": 405754,
+   "stocks": 115794,
+   "lump": 123588,
+   "stockGrowth": 4.084,
+   "houseGrowth": 1.994
+  },
+  {
+   "s": "2015-11",
+   "cash": 401366,
+   "stocks": 126171,
+   "lump": 141212,
+   "stockGrowth": 3.879,
+   "houseGrowth": 1.994
+  },
+  {
+   "s": "2015-12",
+   "cash": 400210,
+   "stocks": 126538,
+   "lump": 141365,
+   "stockGrowth": 3.863,
+   "houseGrowth": 1.991
+  },
+  {
+   "s": "2016-01",
+   "cash": 403606,
+   "stocks": 125115,
+   "lump": 134672,
+   "stockGrowth": 3.947,
+   "houseGrowth": 1.991
+  },
+  {
+   "s": "2016-02",
+   "cash": 414265,
+   "stocks": 113814,
+   "lump": 113686,
+   "stockGrowth": 4.242,
+   "houseGrowth": 2.003
+  },
+  {
+   "s": "2016-03",
+   "cash": 405362,
+   "stocks": 104159,
+   "lump": 111516,
+   "stockGrowth": 4.206,
+   "houseGrowth": 1.989
+  },
+  {
+   "s": "2016-04",
+   "cash": 402383,
+   "stocks": 144711,
+   "lump": 151230,
+   "stockGrowth": 3.74,
+   "houseGrowth": 1.979
+  },
+  {
+   "s": "2016-05",
+   "cash": 397903,
+   "stocks": 105620,
+   "lump": 116853,
+   "stockGrowth": 4.085,
+   "houseGrowth": 1.972
+  },
+  {
+   "s": "2016-06",
+   "cash": 389946,
+   "stocks": 83607,
+   "lump": 96915,
+   "stockGrowth": 4.223,
+   "houseGrowth": 1.951
+  },
+  {
+   "s": "2016-07",
+   "cash": 389385,
+   "stocks": 89177,
+   "lump": 97011,
+   "stockGrowth": 4.19,
+   "houseGrowth": 1.941
+  }
+ ]
+}
