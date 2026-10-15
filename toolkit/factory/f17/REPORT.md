@@ -7,7 +7,7 @@ trùng SHA bản giao `57c57cae…`).
 
 **Kết luận: TRƯỢT** (theo INTENT §2, không hạ đích): **T11 giờ máy 5,8× > 3,0×** (đích chính) và **T6 viền: tỉ lệ xa/gần đèn 12 % > 10 %** (đích chính;
 phía xa đèn 0,15 L\* ≤ 0,5 thì đạt). Mọi đích chính khác ĐẠT, gồm cả luật màu mới (đối chứng K2 v4 CHẶN, bản sửa và 3 cảnh Tập 7 ĐẠT) và verify của
-đoạn 1080p có lớp. Luật màu và verify đã **bắt thật** ba lỗi của chính F-17 trong lúc thử (§3) — đã sửa, đo lại. Điều phối/chủ dự án quyết merge.
+đoạn 1080p có lớp. Luật màu và verify đã **bắt thật** năm lỗi của chính F-17 trong lúc thử (§3) — đã sửa, đo lại. Điều phối/chủ dự án quyết merge.
 
 | # | Thước | Đích | Đo | Kết quả |
 |---|---|---|---|---|
