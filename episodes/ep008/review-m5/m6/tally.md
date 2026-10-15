@@ -1,0 +1,11 @@
+# M5 nhớ lại + chỗ muốn tua (m6)
+
+- **Nhớ lại (chỉ báo):** 3/3 người kể ≥ 2/3 khoảnh khắc · câu hỏi đúng 3/3
+- **Chỗ muốn tua (ngưỡng: không cảnh nào ≥ 2/3):** {'S07': 2, 'S06': 2, 'S32': 1, 'S31': 1, 'S04': 2, 'S05': 3, 'S20': 1, 'S21': 1, 'S22': 1, 'S24': 1} → **TRƯỢT**
+
+- recall R1: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': "Recalls the grid with the 72-month dark stretch and the lit street, the June 2006 stacks ($82,385 behind), and the rent tag at 4% and 6%; frames the question as whether Nina's rent is wasted, i.e. buy versus rent."}
+- recall R2: {'moments': ['K2', 'K3'], 'question_ok': True, 'why': "Clearly recalls June 2006's two stacks and $82,385 deficit and the rent tag shifting the share; the opening grid is described only generally, with no 72-cell block, so K1 isn't clearly recalled. Question is stated as buy versus rent."}
+- recall R3: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': 'Recalls the grid with the 72 start months and the lit street, the June 2006 stacks ($82,385 behind), and the rent tag at 4% and 6%; states the question as buying versus renting for Nina.'}
+- skip R1: {'skip': ['S04', 'S05', 'S06', 'S07', 'S31', 'S32'], 'engaged': ['S09', 'S10', 'S11', 'S15', 'S16', 'S17', 'S29'], 'why': "Skips the static setup stretch (about 1:01-2:55), the disclaimers and the recap; engaged by the lit/dark street reveal, the June 2006 vs April 2012 comparison, and the tie-back to Nina's first month."}
+- skip R2: {'skip': ['S04', 'S05', 'S06', 'S07', 'S20', 'S21', 'S22'], 'engaged': ['S09', 'S10', 'S11', 'S15', 'S16', 'S17'], 'why': 'Skips the dense list of terms and the data and rent-tag explanation (about 1:01-2:55), plus the 5-year and 15-year comparison after the reveal; engaged by the street going dark and the $82,385 gap between best and worst outcomes.'}
+- skip R3: {'skip': ['S05', 'S24'], 'engaged': ['S10', 'S11', 'S16', 'S17'], 'why': 'Skips the repeated cash-pile/T-bill setup (1:28-2:00) and the restated rent tag (about 7:43-8:00); engaged by the 6-of-72 payoff and the darkest-house reveal.'}

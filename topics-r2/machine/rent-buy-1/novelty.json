@@ -1,19 +1,24 @@
 {
   "decision": "Buy a home and hold it about 10 years, or rent an equivalent home: how did it turn out from every real start month?",
-  "queries": [],
-  "results": [],
-  "verdict": "gap-per-market-dossier (web search not run)",
-  "nearest": [
-    {
-      "title": "Logical Money — \"Meet Ryan and Steve\" (rent vs buy, 20 years)",
-      "url": "https://www.youtube.com/watch?v=nkT_K8l1rEw",
-      "why": "Same two-character frame; fixed assumed returns (stocks ~10%/yr, home ~3-4%/yr), one scenario, no replay of real start years (market/teardowns/logical-money.md)."
-    },
-    {
-      "title": "Top videos for the topic (market/topics/s1-rent-vs-buy-history.md)",
-      "url": "https://youtu.be/VSnf3GaGgMU",
-      "why": "Method count of the 6 top videos: 3 fixed assumptions, 2 opinion with no calculation, 1 with real historical data; gap label 'vừa'."
-    }
+  "rerun": "P1 Tập 8, 2026-10-13 (WebSearch, standard). Previous run 2026-10-11 had no web search.",
+  "queries": [
+    "rent vs buy historical backtest every start month real home prices rents mortgage rates",
+    "renting vs buying 2006 vs 2012 which won historical analysis",
+    "rent vs buy using actual historical home price index and CPI rent data rolling 10-year holding periods"
   ],
-  "note": "WebSearch was denied in this session, so no fresh search of articles or calculators was run; the verdict rests on the market dossier (refreshed 2026-10-11) and the Logical Money teardown, which read titles and descriptions of the top videos. A session with web access should rerun three queries (e.g. 'rent vs buy historical backtest every start month', 'renting vs buying 2006 vs 2012 which won', 'rent vs buy real home price and rent data') before C1."
+  "results": [
+    {"title": "Beracha & Johnson (2012), 'Lessons from over 30 years of buy versus rent decisions' (Real Estate Economics), cited via discovery.fiu.edu", "url": "https://discovery.fiu.edu/display/pub135090", "overlap": "high in method (historical buy-vs-rent by start period), academic, not a video; metro-level, ends ~2009"},
+    {"title": "FPA Journal, 'To Rent or Buy? A 30-Year Perspective' (May 2018)", "url": "https://www.financialplanningassociation.org/article/journal/MAY18-rent-or-buy-30-year-perspective", "overlap": "historical scenarios, article for planners; not every start month to 2026"},
+    {"title": "Efficient Dollar real-estate-vs-stocks calculator", "url": "https://efficientdollar.com/tools/real-estate-vs-stocks/", "overlap": "rolling 15-year windows of real history, but one city (Phoenix) and rental-property vs stocks, not rent vs buy"},
+    {"title": "Manausa blog, 'When To Buy A House - A Worst-Case Scenario Analysis'", "url": "https://www.manausa.com/blog/when-to-buy-a-house/", "overlap": "2006 worst-case buyer breakeven ~10 years; single scenario"},
+    {"title": "ProBuilder summary of Zillow Breakeven Horizon", "url": "https://drupal.probuilder.com/when-was-buying-home-most-beneficial", "overlap": "2012 trough buyers ahead; no full replay"},
+    {"title": "Shertzer & Allison, RPI vs CPI rent", "url": "https://www.allisonshertzer.com/static/ShertzerAllison_RPICPI.pdf", "overlap": "none; LIMIT: CPI rent may understate long-run market rent growth -> renter side may look too cheap in a CPI-rent replay (add to claim-risk)"}
+  ],
+  "verdict": "gap on YouTube holds (market dossier: 1 of 6 top videos uses real history; anchors 13/10: 3 anchors all fixed assumptions). Not novel as research: an academic paper (Beracha & Johnson 2012) and an FPA article did historical buy-vs-rent. The episode must not claim to be first; difference = every start month 1991-2016 to July 2026, national FHFA + CPI rent + PMMS, shown as a spread, plus sensitivity to the rent/price ratio.",
+  "nearest": [
+    {"title": "Logical Money — rent vs buy 20 years", "url": "https://youtu.be/nkT_K8l1rEw", "why": "anchor, fixed assumptions"},
+    {"title": "HinExp", "url": "https://youtu.be/VSnf3GaGgMU", "why": "anchor, fixed assumptions (Indian)"},
+    {"title": "MoneywithSwAbi", "url": "https://youtu.be/YOBf21X3umI", "why": "anchor, fixed assumptions"}
+  ],
+  "note": "census.gov, loc.gov, archives.gov, commons.wikimedia.org are blocked by the network policy of this session (connect_rejected); WebSearch snippets only for those."
 }

@@ -1,0 +1,38 @@
+[
+ {
+  "file": "2d68530d",
+  "obj": "fog",
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "why": "Reader saw houses vanishing and read 'housing is getting scarcer'; no fog, no road into mist, no unknown future (at most 1/3). Own inference: 'pressure to buy sooner'."
+ },
+ {
+  "file": "a77d9834",
+  "obj": "fog",
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "why": "Read as 'the supply of houses is shrinking'; no fog, no unknown future (at most 1/3). Own inference: 'buy now before there are none left'."
+ },
+ {
+  "file": "ddb96e10",
+  "obj": "box",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "why": "Cash goes into a box next to the RENT building and the box fills ('cash keeps piling up'); the reader notes 'no investment growth', so (a), (b) and (c) are all present. Own inference: 'renting is fine or even better'."
+ },
+ {
+  "file": "fc08554b",
+  "obj": "box",
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "why": "Gets (a) and (b): 'green cash bricks drop in one at a time' beside the rented building. Misses (c): reads the cash as something that 'can be saved or invested', not as idle money. Own inference: a 'pro-renting message'."
+ }
+]

@@ -1,0 +1,9801 @@
+{
+ "fps": 30,
+ "total": 606.0996,
+ "scenes": [
+  {
+   "id": "S01",
+   "start": 0.0,
+   "dur": 15.6333,
+   "world": "a-s01-s03"
+  },
+  {
+   "id": "S02",
+   "start": 15.6333,
+   "dur": 13.6333,
+   "world": "a-s01-s03"
+  },
+  {
+   "id": "S03",
+   "start": 29.2666,
+   "dur": 26.6333,
+   "world": "a-s01-s03"
+  },
+  {
+   "id": "S04",
+   "start": 55.8999,
+   "dur": 32.4333,
+   "world": "b-s04-s07"
+  },
+  {
+   "id": "S05",
+   "start": 88.3332,
+   "dur": 33.0,
+   "world": "b-s04-s07"
+  },
+  {
+   "id": "S06",
+   "start": 121.3332,
+   "dur": 20.2,
+   "world": "b-s04-s07"
+  },
+  {
+   "id": "S07",
+   "start": 141.5332,
+   "dur": 33.9667,
+   "world": "b-s04-s07"
+  },
+  {
+   "id": "S08",
+   "start": 175.4999,
+   "dur": 39.9667,
+   "world": "c-s08-s14"
+  },
+  {
+   "id": "S09",
+   "start": 215.4666,
+   "dur": 21.9667,
+   "world": "c-s08-s14"
+  },
+  {
+   "id": "S10",
+   "start": 237.4333,
+   "dur": 15.3333,
+   "world": "c-s08-s14"
+  },
+  {
+   "id": "S11",
+   "start": 252.7666,
+   "dur": 12.5333,
+   "world": "c-s08-s14"
+  },
+  {
+   "id": "S12",
+   "start": 265.2999,
+   "dur": 16.0333,
+   "world": "c-s08-s14"
+  },
+  {
+   "id": "S13",
+   "start": 281.3332,
+   "dur": 16.8333,
+   "world": "c-s08-s14"
+  },
+  {
+   "id": "S14",
+   "start": 298.1665,
+   "dur": 13.4667,
+   "world": "c-s08-s14"
+  },
+  {
+   "id": "S15",
+   "start": 311.6332,
+   "dur": 10.3667,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S16",
+   "start": 321.9999,
+   "dur": 16.4333,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S17",
+   "start": 338.4332,
+   "dur": 7.9,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S18",
+   "start": 346.3332,
+   "dur": 13.6333,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S19",
+   "start": 359.9665,
+   "dur": 23.4,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S20",
+   "start": 383.3665,
+   "dur": 10.4333,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S21",
+   "start": 393.7998,
+   "dur": 14.9333,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S22",
+   "start": 408.7331,
+   "dur": 31.1,
+   "world": "d-s15-s22"
+  },
+  {
+   "id": "S23",
+   "start": 439.8331,
+   "dur": 23.7333,
+   "world": "e-s23-s28"
+  },
+  {
+   "id": "S24",
+   "start": 463.5664,
+   "dur": 15.7333,
+   "world": "e-s23-s28"
+  },
+  {
+   "id": "S25",
+   "start": 479.2997,
+   "dur": 6.8333,
+   "world": "e-s23-s28"
+  },
+  {
+   "id": "S26",
+   "start": 486.133,
+   "dur": 8.8333,
+   "world": "e-s23-s28"
+  },
+  {
+   "id": "S27",
+   "start": 494.9663,
+   "dur": 7.7333,
+   "world": "e-s23-s28"
+  },
+  {
+   "id": "S28",
+   "start": 502.6996,
+   "dur": 13.0667,
+   "world": "e-s23-s28"
+  },
+  {
+   "id": "S29",
+   "start": 515.7663,
+   "dur": 19.1667,
+   "world": "f-s29-s33"
+  },
+  {
+   "id": "S30",
+   "start": 534.933,
+   "dur": 24.9333,
+   "world": "f-s29-s33"
+  },
+  {
+   "id": "S31",
+   "start": 559.8663,
+   "dur": 8.2,
+   "world": "f-s29-s33"
+  },
+  {
+   "id": "S32",
+   "start": 568.0663,
+   "dur": 31.3333,
+   "world": "f-s29-s33"
+  },
+  {
+   "id": "S33",
+   "start": 599.3996,
+   "dur": 6.7,
+   "world": "f-s29-s33"
+  }
+ ],
+ "shots": [],
+ "sentences": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "text": "It's September 2026, and Nina's rent looks cheap beside buying.",
+   "spoken": "It's September twenty twenty-six, and Nina's rent looks cheap beside buying.",
+   "start": 0.0,
+   "end": 4.64
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "text": "Against a buyer's first month, her rent is a smaller share than in any month we replayed.",
+   "spoken": "Against a buyer's first month, her rent is a smaller share than in any month we replayed.",
+   "start": 4.7,
+   "end": 10.0
+  },
+  {
+   "id": "S01.3",
+   "scene": "S01",
+   "text": "Nina has a down payment saved for a $400,000 home.",
+   "spoken": "Nina has a down payment saved for a four hundred thousand dollars home.",
+   "start": 10.16,
+   "end": 14.64
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "text": "In 72 start months in a row, the buyer ended ahead just 6 times.",
+   "spoken": "In seventy-two start months in a row, the buyer ended ahead just six times.",
+   "start": 15.633,
+   "end": 21.073
+  },
+  {
+   "id": "S02.2",
+   "scene": "S02",
+   "text": "Yet over fifteen years, the buyer ended ahead every time.",
+   "spoken": "Yet over fifteen years, the buyer ended ahead every time.",
+   "start": 21.173,
+   "end": 25.473
+  },
+  {
+   "id": "S02.3",
+   "scene": "S02",
+   "text": "[worried] Is her rent money wasted?",
+   "spoken": "[worried] Is her rent money wasted?",
+   "start": 25.993,
+   "end": 28.273
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "text": "We replayed her choice in every month since 1991, one twin buying, one renting: after ten years, the same rules gave opposite answers.",
+   "spoken": "We replayed her choice in every month since nineteen ninety-one, one twin buying, one renting: after ten years, the same rules gave opposite answers.",
+   "start": 29.267,
+   "end": 39.587
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "text": "It's history, not a forecast.",
+   "spoken": "It's history, not a forecast.",
+   "start": 39.774,
+   "end": 42.147
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "text": "It shows Nina a whole street of answers, one house for each month.",
+   "spoken": "It shows Nina a whole street of answers, one house for each month.",
+   "start": 42.36,
+   "end": 47.107
+  },
+  {
+   "id": "S03.4",
+   "scene": "S03",
+   "text": "Each house holds the same pair of twins, and the same choice.",
+   "spoken": "Each house holds the same pair of twins, and the same choice.",
+   "start": 47.315,
+   "end": 51.907
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "text": "So what does each twin actually pay?",
+   "spoken": "So what does each twin actually pay?",
+   "start": 55.9,
+   "end": 58.3
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "text": "The twin who buys pays the down payment and the closing costs, in dollars of the day, then takes a 30-year fixed mortgage at that month's average rate.",
+   "spoken": "The twin who buys pays the down payment and the closing costs, in dollars of the day, then takes a thirty-year fixed mortgage at that month's average rate.",
+   "start": 58.4,
+   "end": 67.26
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "text": "Every month after that, Nina's buying twin pays interest and the costs of owning, and at the end, the cost of selling.",
+   "spoken": "Every month after that, Nina's buying twin pays interest and the costs of owning, and at the end, the cost of selling.",
+   "start": 67.393,
+   "end": 75.74
+  },
+  {
+   "id": "S04.4",
+   "scene": "S04",
+   "text": "Property tax, insurance and repairs come to 2.5 percent of the home's value a year.",
+   "spoken": "Property tax, insurance and repairs come to two point five percent of the home's value a year.",
+   "start": 75.82,
+   "end": 81.9
+  },
+  {
+   "id": "S04.5",
+   "scene": "S04",
+   "text": "The twin who rents moves into an equivalent home and keeps the same savings.",
+   "spoken": "The twin who rents moves into an equivalent home and keeps the same savings.",
+   "start": 82.16,
+   "end": 87.34
+  },
+  {
+   "id": "S05.1",
+   "scene": "S05",
+   "text": "Here is the part most people picture differently: the renting twin's savings sit in cash, not in stocks.",
+   "spoken": "Here is the part most people picture differently: the renting twin's savings sit in cash, not in stocks.",
+   "start": 88.333,
+   "end": 95.773
+  },
+  {
+   "id": "S05.2",
+   "scene": "S05",
+   "text": "That pile starts as the down payment and closing costs that never went into a house.",
+   "spoken": "That pile starts as the down payment and closing costs that never went into a house.",
+   "start": 95.885,
+   "end": 100.813
+  },
+  {
+   "id": "S05.3",
+   "scene": "S05",
+   "text": "Whatever renting saves each month is added to the same pile.",
+   "spoken": "Whatever renting saves each month is added to the same pile.",
+   "start": 100.911,
+   "end": 104.973
+  },
+  {
+   "id": "S05.4",
+   "scene": "S05",
+   "text": "In one variant, the cash earns Treasury bill interest; whether investing it would have done better is a different question, and this episode doesn't answer it.",
+   "spoken": "In one variant, the cash earns Treasury bill interest; whether investing it would have done better is a different question, and this episode doesn't answer it.",
+   "start": 105.24,
+   "end": 115.373
+  },
+  {
+   "id": "S05.6",
+   "scene": "S05",
+   "text": "A few costs are left out on both sides, and the card lists them.",
+   "spoken": "A few costs are left out on both sides, and the card lists them.",
+   "start": 115.693,
+   "end": 120.333
+  },
+  {
+   "id": "S06.1",
+   "scene": "S06",
+   "text": "Most rent or buy math picks one growth rate for prices and one for rents, then shows a single answer.",
+   "spoken": "Most rent or buy math picks one growth rate for prices and one for rents, then shows a single answer.",
+   "start": 121.333,
+   "end": 128.773
+  },
+  {
+   "id": "S06.3",
+   "scene": "S06",
+   "text": "Here, prices, rents and mortgage rates come from the real monthly US record.",
+   "spoken": "Here, prices, rents and mortgage rates come from the real monthly U.S. record.",
+   "start": 128.933,
+   "end": 134.853
+  },
+  {
+   "id": "S06.4",
+   "scene": "S06",
+   "text": "One thing can't come from that record: the rent level the renting twin starts at.",
+   "spoken": "One thing can't come from that record: the rent level the renting twin starts at.",
+   "start": 134.993,
+   "end": 140.533
+  },
+  {
+   "id": "S07.1",
+   "scene": "S07",
+   "text": "So it hangs on the apartment door as a tag: a starting rent of 5 percent of the home's price a year.",
+   "spoken": "So it hangs on the apartment door as a tag: a starting rent of five percent of the home's price a year.",
+   "start": 141.533,
+   "end": 147.773
+  },
+  {
+   "id": "S07.2",
+   "scene": "S07",
+   "text": "On a home priced at $400,000, that's $1,667 a month today, carried back through history with the government's rent index.",
+   "spoken": "On a home priced at four hundred thousand dollars, that's one thousand six hundred sixty-seven dollars a month today, carried back through history with the government's rent index.",
+   "start": 148.066,
+   "end": 159.933
+  },
+  {
+   "id": "S07.3",
+   "scene": "S07",
+   "text": "The tag matters because the rent decides how much the renting twin sets aside each month, and so how big that cash pile grows.",
+   "spoken": "The tag matters because the rent decides how much the renting twin sets aside each month, and so how big that cash pile grows.",
+   "start": 160.073,
+   "end": 169.213
+  },
+  {
+   "id": "S07.4",
+   "scene": "S07",
+   "text": "Later, the tag turns, and the answer turns with it.",
+   "spoken": "Later, the tag turns, and the answer turns with it.",
+   "start": 169.386,
+   "end": 174.013
+  },
+  {
+   "id": "S08.1",
+   "scene": "S08",
+   "text": "So what does the real record say about the twins?",
+   "spoken": "So what does the real record say about the twins?",
+   "start": 175.5,
+   "end": 177.9
+  },
+  {
+   "id": "S08.2",
+   "scene": "S08",
+   "text": "Each start month gets one identical house on a long street, January 1991 on the left, July 2016 on the right.",
+   "spoken": "Each start month gets one identical house on a long street, January nineteen ninety-one on the left, July twenty sixteen on the right.",
+   "start": 178.076,
+   "end": 187.02
+  },
+  {
+   "id": "S08.3",
+   "scene": "S08",
+   "text": "That's 307 houses, and each one is followed for ten years.",
+   "spoken": "That's three hundred seven houses, and each one is followed for ten years.",
+   "start": 187.212,
+   "end": 193.1
+  },
+  {
+   "id": "S08.4",
+   "scene": "S08",
+   "text": "Nina's own month sits past the end of the street, where no house stands yet, because its ten years haven't happened.",
+   "spoken": "Nina's own month sits past the end of the street, where no house stands yet, because its ten years haven't happened.",
+   "start": 193.324,
+   "end": 201.02
+  },
+  {
+   "id": "S08.5",
+   "scene": "S08",
+   "text": "After ten years, a house lights up when the buying twin's equity, after the cost of selling, is bigger than the renting twin's cash.",
+   "spoken": "After ten years, a house lights up when the buying twin's equity, after the cost of selling, is bigger than the renting twin's cash.",
+   "start": 201.247,
+   "end": 210.62
+  },
+  {
+   "id": "S08.6",
+   "scene": "S08",
+   "text": "When the cash is bigger, its door goes dark.",
+   "spoken": "When the cash is bigger, its door goes dark.",
+   "start": 210.796,
+   "end": 214.46
+  },
+  {
+   "id": "S09.1",
+   "scene": "S09",
+   "text": "So, walking the street from 1991, how often did the buying twin end up ahead?",
+   "spoken": "So, walking the street from nineteen ninety-one, how often did the buying twin end up ahead?",
+   "start": 215.467,
+   "end": 221.787
+  },
+  {
+   "id": "S09.2",
+   "scene": "S09",
+   "text": "Through the 1990s, every house lights up.",
+   "spoken": "Through the 1990s, every house lights up.",
+   "start": 221.927,
+   "end": 225.867
+  },
+  {
+   "id": "S09.3",
+   "scene": "S09",
+   "text": "Prices climbed, the loan balance shrank, and by year ten the buyer's equity was ahead of the renter's cash, start after start.",
+   "spoken": "Prices climbed, the loan balance shrank, and by year ten the buyer's equity was ahead of the renter's cash, start after start.",
+   "start": 225.993,
+   "end": 236.427
+  },
+  {
+   "id": "S10.1",
+   "scene": "S10",
+   "text": "Then, from April 2001, doors start going dark.",
+   "spoken": "Then, from April two thousand one, doors start going dark.",
+   "start": 237.433,
+   "end": 243.233
+  },
+  {
+   "id": "S10.2",
+   "scene": "S10",
+   "text": "Every house where the renting twin came out ahead sits between April 2001 and December 2007.",
+   "spoken": "Every house where the renting twin came out ahead sits between April two thousand one and December two thousand seven.",
+   "start": 243.36,
+   "end": 251.753
+  },
+  {
+   "id": "S11.1",
+   "scene": "S11",
+   "text": "Of the 72 start months from 2002 through 2007, the buyer ended ahead in just 6.",
+   "spoken": "Of the seventy-two start months from two thousand two through two thousand seven, the buyer ended ahead in just six.",
+   "start": 252.767,
+   "end": 260.287
+  },
+  {
+   "id": "S11.2",
+   "scene": "S11",
+   "text": "Those starts ran straight into the fall in national home prices.",
+   "spoken": "Those starts ran straight into the fall in national home prices.",
+   "start": 260.394,
+   "end": 264.287
+  },
+  {
+   "id": "S12.1",
+   "scene": "S12",
+   "text": "Then the street lights up again: every start from 2009 to mid-2016 ended with the buyer ahead.",
+   "spoken": "Then the street lights up again: every start from two thousand nine to mid-twenty sixteen ended with the buyer ahead.",
+   "start": 265.3,
+   "end": 272.661
+  },
+  {
+   "id": "S12.2",
+   "scene": "S12",
+   "text": "Those buyers started from lower prices and lower mortgage rates.",
+   "spoken": "Those buyers started from lower prices and lower mortgage rates.",
+   "start": 272.833,
+   "end": 276.82
+  },
+  {
+   "id": "S12.3",
+   "scene": "S12",
+   "text": "Counted along the whole street, the picture is this.",
+   "spoken": "Counted along the whole street, the picture is this.",
+   "start": 276.953,
+   "end": 280.34
+  },
+  {
+   "id": "S13.1",
+   "scene": "S13",
+   "text": "In about 3 out of 4 of the 307 start months, the buyer ended ahead.",
+   "spoken": "In about three out of four of the three hundred seven start months, the buyer ended ahead.",
+   "start": 281.333,
+   "end": 286.533
+  },
+  {
+   "id": "S13.2",
+   "scene": "S13",
+   "text": "In the other 75, the renter did.",
+   "spoken": "In the other seventy-five, the renter did.",
+   "start": 286.72,
+   "end": 289.573
+  },
+  {
+   "id": "S13.3",
+   "scene": "S13",
+   "text": "That count already includes interest, property tax, insurance, repairs, and the cost of buying and of selling.",
+   "spoken": "That count already includes interest, property tax, insurance, repairs, and the cost of buying and of selling.",
+   "start": 289.749,
+   "end": 297.173
+  },
+  {
+   "id": "S14.1",
+   "scene": "S14",
+   "text": "That lit share is a count of history, not a promise for any one month.",
+   "spoken": "That lit share is a count of history, not a promise for any one month.",
+   "start": 298.167,
+   "end": 302.007
+  },
+  {
+   "id": "S14.2",
+   "scene": "S14",
+   "text": "In the middle start month, the buyer ended about $157,000 ahead.",
+   "spoken": "In the middle start month, the buyer ended about one hundred fifty-seven thousand dollars ahead.",
+   "start": 302.354,
+   "end": 307.687
+  },
+  {
+   "id": "S14.3",
+   "scene": "S14",
+   "text": "But the spread around that middle is wide.",
+   "spoken": "But the spread around that middle is wide.",
+   "start": 307.847,
+   "end": 310.647
+  },
+  {
+   "id": "S15.1",
+   "scene": "S15",
+   "text": "The brightest house is April 2012: ten years later, the buyer was about $484,000 ahead.",
+   "spoken": "The brightest house is April twenty twelve: ten years later, the buyer was about four hundred eighty-four thousand dollars ahead.",
+   "start": 311.633,
+   "end": 320.993
+  },
+  {
+   "id": "S16.1",
+   "scene": "S16",
+   "text": "That loan started at 3.91 percent, and national prices more than doubled over the window.",
+   "spoken": "That loan started at three point nine one percent, and national prices more than doubled over the window.",
+   "start": 322.0,
+   "end": 328.0
+  },
+  {
+   "id": "S16.2",
+   "scene": "S16",
+   "text": "It's one month at the very top of the range, not a typical one.",
+   "spoken": "It's one month at the very top of the range, not a typical one.",
+   "start": 328.32,
+   "end": 333.04
+  },
+  {
+   "id": "S16.3",
+   "scene": "S16",
+   "text": "And the darkest house is June 2006.",
+   "spoken": "And the darkest house is June two thousand six.",
+   "start": 333.24,
+   "end": 337.44
+  },
+  {
+   "id": "S17.1",
+   "scene": "S17",
+   "text": "[serious] Ten years on, the June 2006 buyer was $82,385 behind.",
+   "spoken": "[serious] Ten years on, the June two thousand six buyer was eighty-two thousand three hundred eighty-five dollars behind.",
+   "start": 338.433,
+   "end": 344.833
+  },
+  {
+   "id": "S18.1",
+   "scene": "S18",
+   "text": "Beside that house stand a pair of stacks: the buyer's equity, $115,374, and the renter's cash, $197,760.",
+   "spoken": "Beside that house stand a pair of stacks: the buyer's equity, one hundred fifteen thousand three hundred seventy-four dollars, and the renter's cash, one hundred ninety-seven thousand seven hundred sixty dollars.",
+   "start": 346.333,
+   "end": 358.973
+  },
+  {
+   "id": "S19.1",
+   "scene": "S19",
+   "text": "National prices rose only 3.2 percent in those ten years, while the buyer paid interest, tax, insurance and repairs the whole way.",
+   "spoken": "National prices rose only three point two percent in those ten years, while the buyer paid interest, tax, insurance and repairs the whole way.",
+   "start": 359.966,
+   "end": 368.687
+  },
+  {
+   "id": "S19.2",
+   "scene": "S19",
+   "text": "And that loan started at 6.68 percent.",
+   "spoken": "And that loan started at six point six eight percent.",
+   "start": 368.926,
+   "end": 373.726
+  },
+  {
+   "id": "S19.3",
+   "scene": "S19",
+   "text": "That's the national index, not one house; a single home in a single city could have done much better or much worse.",
+   "spoken": "That's the national index, not one house; a single home in a single city could have done much better or much worse.",
+   "start": 373.839,
+   "end": 382.366
+  },
+  {
+   "id": "S20.1",
+   "scene": "S20",
+   "text": "Does the length of the stay change the picture?",
+   "spoken": "Does the length of the stay change the picture?",
+   "start": 383.366,
+   "end": 385.686
+  },
+  {
+   "id": "S20.2",
+   "scene": "S20",
+   "text": "Over five years instead of ten, the buyer ended ahead in 74.4 percent of start months.",
+   "spoken": "Over five years instead of ten, the buyer ended ahead in seventy-four point four percent of start months.",
+   "start": 385.846,
+   "end": 392.806
+  },
+  {
+   "id": "S21.1",
+   "scene": "S21",
+   "text": "The worst five-year start, May 2006, left the buyer $149,392 behind.",
+   "spoken": "The worst five-year start, May two thousand six, left the buyer one hundred forty-nine thousand three hundred ninety-two dollars behind.",
+   "start": 393.8,
+   "end": 402.84
+  },
+  {
+   "id": "S21.2",
+   "scene": "S21",
+   "text": "Five years leaves little time to cover the cost of buying and then selling.",
+   "spoken": "Five years leaves little time to cover the cost of buying and then selling.",
+   "start": 403.08,
+   "end": 407.72
+  },
+  {
+   "id": "S22.1",
+   "scene": "S22",
+   "text": "Over 15 years, every start month that history allows ended with the buyer ahead.",
+   "spoken": "Over fifteen years, every start month that history allows ended with the buyer ahead.",
+   "start": 408.733,
+   "end": 414.253
+  },
+  {
+   "id": "S22.2",
+   "scene": "S22",
+   "text": "Even the weakest of them left the buyer $79,829 ahead.",
+   "spoken": "Even the weakest of them left the buyer seventy-nine thousand eight hundred twenty-nine dollars ahead.",
+   "start": 414.429,
+   "end": 420.013
+  },
+  {
+   "id": "S22.3",
+   "scene": "S22",
+   "text": "From five years to ten to fifteen, the dark doors thin out, and then they're gone.",
+   "spoken": "From five years to ten to fifteen, the dark doors thin out, and then they're gone.",
+   "start": 420.173,
+   "end": 426.573
+  },
+  {
+   "id": "S22.4",
+   "scene": "S22",
+   "text": "Fifteen years is a long stay, and this street says nothing about how long Nina stays.",
+   "spoken": "Fifteen years is a long stay, and this street says nothing about how long Nina stays.",
+   "start": 426.833,
+   "end": 433.053
+  },
+  {
+   "id": "S22.5",
+   "scene": "S22",
+   "text": "The month and the stay moved the lights; the tag hasn't turned yet.",
+   "spoken": "The month and the stay moved the lights; the tag hasn't turned yet.",
+   "start": 433.193,
+   "end": 438.333
+  },
+  {
+   "id": "S23.1",
+   "scene": "S23",
+   "text": "What made one house bright and another dark?",
+   "spoken": "What made one house bright and another dark?",
+   "start": 439.833,
+   "end": 442.553
+  },
+  {
+   "id": "S23.3",
+   "scene": "S23",
+   "text": "Marcus bought at the darkest house, June 2006; Priya at the brightest, April 2012.",
+   "spoken": "Marcus bought at the darkest house, June two thousand six; Priya at the brightest, April twenty twelve.",
+   "start": 442.724,
+   "end": 451.273
+  },
+  {
+   "id": "S23.5",
+   "scene": "S23",
+   "text": "Same rent tag, same costs, same street; only the month was different.",
+   "spoken": "Same rent tag, same costs, same street; only the month was different.",
+   "start": 451.449,
+   "end": 457.273
+  },
+  {
+   "id": "S23.6",
+   "scene": "S23",
+   "text": "And on the day each of them bought, neither could see which house they were standing in.",
+   "spoken": "And on the day each of them bought, neither could see which house they were standing in.",
+   "start": 457.373,
+   "end": 462.553
+  },
+  {
+   "id": "S24.1",
+   "scene": "S24",
+   "text": "So far, every house used the same tag: a starting rent of 5 percent of the price a year.",
+   "spoken": "So far, every house used the same tag: a starting rent of five percent of the price a year.",
+   "start": 463.566,
+   "end": 469.086
+  },
+  {
+   "id": "S24.2",
+   "scene": "S24",
+   "text": "A higher starting rent means a pricier rental, so the renting twin sets aside less each month.",
+   "spoken": "A higher starting rent means a pricier rental, so the renting twin sets aside less each month.",
+   "start": 469.326,
+   "end": 475.006
+  },
+  {
+   "id": "S24.3",
+   "scene": "S24",
+   "text": "What happens to the street when the tag turns?",
+   "spoken": "What happens to the street when the tag turns?",
+   "start": 475.23,
+   "end": 478.286
+  },
+  {
+   "id": "S25.1",
+   "scene": "S25",
+   "text": "At 4 percent, the buyer ended ahead in 64.2 percent of start months.",
+   "spoken": "At four percent, the buyer ended ahead in sixty-four point two percent of start months.",
+   "start": 479.3,
+   "end": 485.14
+  },
+  {
+   "id": "S26.1",
+   "scene": "S26",
+   "text": "At 6 percent, 92.2 percent.",
+   "spoken": "At six percent, ninety-two point two percent.",
+   "start": 486.133,
+   "end": 490.533
+  },
+  {
+   "id": "S26.2",
+   "scene": "S26",
+   "text": "[thoughtful] The share moves with the rent you assume.",
+   "spoken": "[thoughtful] The share moves with the rent you assume.",
+   "start": 491.173,
+   "end": 493.973
+  },
+  {
+   "id": "S27.1",
+   "scene": "S27",
+   "text": "The Census Bureau's public figures sit inside the range we turned, and they're a reference, not Nina's own rent.",
+   "spoken": "The Census Bureau's public figures sit inside the range we turned, and they're a reference, not Nina's own rent.",
+   "start": 494.966,
+   "end": 501.686
+  },
+  {
+   "id": "S28.1",
+   "scene": "S28",
+   "text": "And if the renter's cash earns Treasury bill interest, the buyer's share falls to about 2 out of 3.",
+   "spoken": "And if the renter's cash earns Treasury bill interest, the buyer's share falls to about two out of three.",
+   "start": 502.7,
+   "end": 509.38
+  },
+  {
+   "id": "S28.2",
+   "scene": "S28",
+   "text": "The lights follow the tag, but one month is not on the street yet.",
+   "spoken": "The lights follow the tag, but one month is not on the street yet.",
+   "start": 509.53,
+   "end": 514.78
+  },
+  {
+   "id": "S29.1",
+   "scene": "S29",
+   "text": "And Nina's own month, past the end of the street?",
+   "spoken": "And Nina's own month, past the end of the street?",
+   "start": 515.766,
+   "end": 518.486
+  },
+  {
+   "id": "S29.2",
+   "scene": "S29",
+   "text": "History can't finish it, but it can set her first month beside the others.",
+   "spoken": "History can't finish it, but it can set her first month beside the others.",
+   "start": 518.626,
+   "end": 523.766
+  },
+  {
+   "id": "S29.3",
+   "scene": "S29",
+   "text": "At 6.86 percent, the September 2026 average, her buying twin's first month costs $2,933.",
+   "spoken": "At six point eight six percent, the September twenty twenty-six average, her buying twin's first month costs two thousand nine hundred thirty-three dollars.",
+   "start": 523.979,
+   "end": 533.926
+  },
+  {
+   "id": "S30.1",
+   "scene": "S30",
+   "text": "Her assumed rent, $1,667, is 56.8 percent of that.",
+   "spoken": "Her assumed rent, one thousand six hundred sixty-seven dollars, is fifty-six point eight percent of that.",
+   "start": 534.933,
+   "end": 541.333
+  },
+  {
+   "id": "S30.2",
+   "scene": "S30",
+   "text": "That's lower than in any start month on the street; the lowest was 57.9 percent, in July 2006.",
+   "spoken": "That's lower than in any start month on the street; the lowest was fifty-seven point nine percent, in July two thousand six.",
+   "start": 541.413,
+   "end": 548.933
+  },
+  {
+   "id": "S30.3",
+   "scene": "S30",
+   "text": "It compares first months only: it doesn't say how a 2026 start ends, and it doesn't make 2026 another 2006.",
+   "spoken": "It compares first months only: it doesn't say how a twenty twenty-six start ends, and it doesn't make twenty twenty-six another two thousand six.",
+   "start": 549.226,
+   "end": 558.853
+  },
+  {
+   "id": "S31.1",
+   "scene": "S31",
+   "text": "The limits are on the card and the full method is in the description: US only, and history, not a forecast.",
+   "spoken": "The limits are on the card and the full method is in the description: U.S. only, and history, not a forecast.",
+   "start": 559.866,
+   "end": 567.066
+  },
+  {
+   "id": "S32.1",
+   "scene": "S32",
+   "text": "So, back to the question Nina started with.",
+   "spoken": "So, back to the question Nina started with.",
+   "start": 568.066,
+   "end": 570.466
+  },
+  {
+   "id": "S32.2",
+   "scene": "S32",
+   "text": "On her street, most houses are lit, a dark stretch sits in the middle, longer stays leave fewer dark doors, and the lights move with the tag on her door.",
+   "spoken": "On her street, most houses are lit, a dark stretch sits in the middle, longer stays leave fewer dark doors, and the lights move with the tag on her door.",
+   "start": 570.679,
+   "end": 580.546
+  },
+  {
+   "id": "S32.3",
+   "scene": "S32",
+   "text": "It's the same street she stood beside at the start, now lit house by house with what already happened.",
+   "spoken": "It's the same street she stood beside at the start, now lit house by house with what already happened.",
+   "start": 580.786,
+   "end": 588.066
+  },
+  {
+   "id": "S32.4",
+   "scene": "S32",
+   "text": "[thoughtful] Nina's answer: not by any rule; it depends on the month she starts and the rent she assumes, and the lights are history.",
+   "spoken": "[thoughtful] Nina's answer: not by any rule; it depends on the month she starts and the rent she assumes, and the lights are history.",
+   "start": 588.786,
+   "end": 597.906
+  },
+  {
+   "id": "S33.1",
+   "scene": "S33",
+   "text": "One question stays open: what if the renting twin's cash had been invested?",
+   "spoken": "One question stays open: what if the renting twin's cash had been invested?",
+   "start": 599.4,
+   "end": 604.6
+  }
+ ],
+ "words": [
+  {
+   "w": "It's",
+   "s": 0.0,
+   "e": 0.16,
+   "sid": "S01.1"
+  },
+  {
+   "w": "September",
+   "s": 0.208,
+   "e": 0.64,
+   "sid": "S01.1"
+  },
+  {
+   "w": "twenty",
+   "s": 0.686,
+   "e": 0.96,
+   "sid": "S01.1"
+  },
+  {
+   "w": "twenty-six,",
+   "s": 0.994,
+   "e": 1.84,
+   "sid": "S01.1"
+  },
+  {
+   "w": "and",
+   "s": 1.86,
+   "e": 1.92,
+   "sid": "S01.1"
+  },
+  {
+   "w": "Nina's",
+   "s": 1.984,
+   "e": 2.44,
+   "sid": "S01.1"
+  },
+  {
+   "w": "rent",
+   "s": 2.48,
+   "e": 2.64,
+   "sid": "S01.1"
+  },
+  {
+   "w": "looks",
+   "s": 2.693,
+   "e": 2.96,
+   "sid": "S01.1"
+  },
+  {
+   "w": "cheap",
+   "s": 3.027,
+   "e": 3.36,
+   "sid": "S01.1"
+  },
+  {
+   "w": "beside",
+   "s": 3.417,
+   "e": 3.76,
+   "sid": "S01.1"
+  },
+  {
+   "w": "buying.",
+   "s": 3.829,
+   "e": 4.64,
+   "sid": "S01.1"
+  },
+  {
+   "w": "Against",
+   "s": 4.7,
+   "e": 5.12,
+   "sid": "S01.2"
+  },
+  {
+   "w": "a",
+   "s": 5.16,
+   "e": 5.2,
+   "sid": "S01.2"
+  },
+  {
+   "w": "buyer's",
+   "s": 5.24,
+   "e": 5.52,
+   "sid": "S01.2"
+  },
+  {
+   "w": "first",
+   "s": 5.573,
+   "e": 5.84,
+   "sid": "S01.2"
+  },
+  {
+   "w": "month,",
+   "s": 5.893,
+   "e": 6.48,
+   "sid": "S01.2"
+  },
+  {
+   "w": "her",
+   "s": 6.52,
+   "e": 6.64,
+   "sid": "S01.2"
+  },
+  {
+   "w": "rent",
+   "s": 6.72,
+   "e": 7.04,
+   "sid": "S01.2"
+  },
+  {
+   "w": "is",
+   "s": 7.067,
+   "e": 7.12,
+   "sid": "S01.2"
+  },
+  {
+   "w": "a",
+   "s": 7.16,
+   "e": 7.2,
+   "sid": "S01.2"
+  },
+  {
+   "w": "smaller",
+   "s": 7.26,
+   "e": 7.68,
+   "sid": "S01.2"
+  },
+  {
+   "w": "share",
+   "s": 7.733,
+   "e": 8.0,
+   "sid": "S01.2"
+  },
+  {
+   "w": "than",
+   "s": 8.048,
+   "e": 8.24,
+   "sid": "S01.2"
+  },
+  {
+   "w": "in",
+   "s": 8.32,
+   "e": 8.48,
+   "sid": "S01.2"
+  },
+  {
+   "w": "any",
+   "s": 8.54,
+   "e": 8.72,
+   "sid": "S01.2"
+  },
+  {
+   "w": "month",
+   "s": 8.773,
+   "e": 9.04,
+   "sid": "S01.2"
+  },
+  {
+   "w": "we",
+   "s": 9.093,
+   "e": 9.2,
+   "sid": "S01.2"
+  },
+  {
+   "w": "replayed.",
+   "s": 9.257,
+   "e": 10.0,
+   "sid": "S01.2"
+  },
+  {
+   "w": "Nina",
+   "s": 10.16,
+   "e": 10.8,
+   "sid": "S01.3"
+  },
+  {
+   "w": "has",
+   "s": 10.84,
+   "e": 10.96,
+   "sid": "S01.3"
+  },
+  {
+   "w": "a",
+   "s": 11.0,
+   "e": 11.04,
+   "sid": "S01.3"
+  },
+  {
+   "w": "down",
+   "s": 11.072,
+   "e": 11.2,
+   "sid": "S01.3"
+  },
+  {
+   "w": "payment",
+   "s": 11.25,
+   "e": 11.6,
+   "sid": "S01.3"
+  },
+  {
+   "w": "saved",
+   "s": 11.68,
+   "e": 12.08,
+   "sid": "S01.3"
+  },
+  {
+   "w": "for",
+   "s": 12.18,
+   "e": 12.48,
+   "sid": "S01.3"
+  },
+  {
+   "w": "a",
+   "s": 12.56,
+   "e": 12.64,
+   "sid": "S01.3"
+  },
+  {
+   "w": "four",
+   "s": 12.672,
+   "e": 12.8,
+   "sid": "S01.3"
+  },
+  {
+   "w": "hundred",
+   "s": 12.84,
+   "e": 13.12,
+   "sid": "S01.3"
+  },
+  {
+   "w": "thousand",
+   "s": 13.164,
+   "e": 13.52,
+   "sid": "S01.3"
+  },
+  {
+   "w": "dollars",
+   "s": 13.57,
+   "e": 13.92,
+   "sid": "S01.3"
+  },
+  {
+   "w": "home.",
+   "s": 14.0,
+   "e": 14.64,
+   "sid": "S01.3"
+  },
+  {
+   "w": "In",
+   "s": 15.633,
+   "e": 15.713,
+   "sid": "S02.1"
+  },
+  {
+   "w": "seventy-two",
+   "s": 15.773,
+   "e": 16.433,
+   "sid": "S02.1"
+  },
+  {
+   "w": "start",
+   "s": 16.526,
+   "e": 16.993,
+   "sid": "S02.1"
+  },
+  {
+   "w": "months",
+   "s": 17.05,
+   "e": 17.393,
+   "sid": "S02.1"
+  },
+  {
+   "w": "in",
+   "s": 17.446,
+   "e": 17.553,
+   "sid": "S02.1"
+  },
+  {
+   "w": "a",
+   "s": 17.593,
+   "e": 17.633,
+   "sid": "S02.1"
+  },
+  {
+   "w": "row,",
+   "s": 17.733,
+   "e": 18.513,
+   "sid": "S02.1"
+  },
+  {
+   "w": "the",
+   "s": 18.533,
+   "e": 18.593,
+   "sid": "S02.1"
+  },
+  {
+   "w": "buyer",
+   "s": 18.646,
+   "e": 18.913,
+   "sid": "S02.1"
+  },
+  {
+   "w": "ended",
+   "s": 18.966,
+   "e": 19.233,
+   "sid": "S02.1"
+  },
+  {
+   "w": "ahead",
+   "s": 19.3,
+   "e": 19.633,
+   "sid": "S02.1"
+  },
+  {
+   "w": "just",
+   "s": 19.681,
+   "e": 19.873,
+   "sid": "S02.1"
+  },
+  {
+   "w": "six",
+   "s": 19.973,
+   "e": 20.273,
+   "sid": "S02.1"
+  },
+  {
+   "w": "times.",
+   "s": 20.353,
+   "e": 21.073,
+   "sid": "S02.1"
+  },
+  {
+   "w": "Yet",
+   "s": 21.173,
+   "e": 21.473,
+   "sid": "S02.2"
+  },
+  {
+   "w": "over",
+   "s": 21.521,
+   "e": 21.713,
+   "sid": "S02.2"
+  },
+  {
+   "w": "fifteen",
+   "s": 21.773,
+   "e": 22.193,
+   "sid": "S02.2"
+  },
+  {
+   "w": "years,",
+   "s": 22.246,
+   "e": 23.073,
+   "sid": "S02.2"
+  },
+  {
+   "w": "the",
+   "s": 23.093,
+   "e": 23.153,
+   "sid": "S02.2"
+  },
+  {
+   "w": "buyer",
+   "s": 23.206,
+   "e": 23.473,
+   "sid": "S02.2"
+  },
+  {
+   "w": "ended",
+   "s": 23.526,
+   "e": 23.793,
+   "sid": "S02.2"
+  },
+  {
+   "w": "ahead",
+   "s": 23.86,
+   "e": 24.193,
+   "sid": "S02.2"
+  },
+  {
+   "w": "every",
+   "s": 24.313,
+   "e": 24.913,
+   "sid": "S02.2"
+  },
+  {
+   "w": "time.",
+   "s": 25.009,
+   "e": 25.473,
+   "sid": "S02.2"
+  },
+  {
+   "w": "[worried]",
+   "s": 25.993,
+   "e": 26.633,
+   "sid": "S02.3"
+  },
+  {
+   "w": "Is",
+   "s": 26.646,
+   "e": 26.673,
+   "sid": "S02.3"
+  },
+  {
+   "w": "her",
+   "s": 26.713,
+   "e": 26.833,
+   "sid": "S02.3"
+  },
+  {
+   "w": "rent",
+   "s": 26.881,
+   "e": 27.073,
+   "sid": "S02.3"
+  },
+  {
+   "w": "money",
+   "s": 27.126,
+   "e": 27.393,
+   "sid": "S02.3"
+  },
+  {
+   "w": "wasted?",
+   "s": 27.473,
+   "e": 28.273,
+   "sid": "S02.3"
+  },
+  {
+   "w": "We",
+   "s": 29.267,
+   "e": 29.347,
+   "sid": "S03.1"
+  },
+  {
+   "w": "replayed",
+   "s": 29.404,
+   "e": 29.827,
+   "sid": "S03.1"
+  },
+  {
+   "w": "her",
+   "s": 29.867,
+   "e": 29.987,
+   "sid": "S03.1"
+  },
+  {
+   "w": "choice",
+   "s": 30.033,
+   "e": 30.307,
+   "sid": "S03.1"
+  },
+  {
+   "w": "in",
+   "s": 30.334,
+   "e": 30.387,
+   "sid": "S03.1"
+  },
+  {
+   "w": "every",
+   "s": 30.467,
+   "e": 30.867,
+   "sid": "S03.1"
+  },
+  {
+   "w": "month",
+   "s": 30.934,
+   "e": 31.267,
+   "sid": "S03.1"
+  },
+  {
+   "w": "since",
+   "s": 31.32,
+   "e": 31.587,
+   "sid": "S03.1"
+  },
+  {
+   "w": "nineteen",
+   "s": 31.631,
+   "e": 31.987,
+   "sid": "S03.1"
+  },
+  {
+   "w": "ninety-one,",
+   "s": 32.044,
+   "e": 33.267,
+   "sid": "S03.1"
+  },
+  {
+   "w": "one",
+   "s": 33.307,
+   "e": 33.427,
+   "sid": "S03.1"
+  },
+  {
+   "w": "twin",
+   "s": 33.491,
+   "e": 33.747,
+   "sid": "S03.1"
+  },
+  {
+   "w": "buying,",
+   "s": 33.816,
+   "e": 34.467,
+   "sid": "S03.1"
+  },
+  {
+   "w": "one",
+   "s": 34.527,
+   "e": 34.707,
+   "sid": "S03.1"
+  },
+  {
+   "w": "renting:",
+   "s": 34.757,
+   "e": 35.747,
+   "sid": "S03.1"
+  },
+  {
+   "w": "after",
+   "s": 35.787,
+   "e": 35.987,
+   "sid": "S03.1"
+  },
+  {
+   "w": "ten",
+   "s": 36.047,
+   "e": 36.227,
+   "sid": "S03.1"
+  },
+  {
+   "w": "years,",
+   "s": 36.28,
+   "e": 37.027,
+   "sid": "S03.1"
+  },
+  {
+   "w": "the",
+   "s": 37.047,
+   "e": 37.107,
+   "sid": "S03.1"
+  },
+  {
+   "w": "same",
+   "s": 37.171,
+   "e": 37.427,
+   "sid": "S03.1"
+  },
+  {
+   "w": "rules",
+   "s": 37.48,
+   "e": 37.747,
+   "sid": "S03.1"
+  },
+  {
+   "w": "gave",
+   "s": 37.811,
+   "e": 38.067,
+   "sid": "S03.1"
+  },
+  {
+   "w": "opposite",
+   "s": 38.138,
+   "e": 38.707,
+   "sid": "S03.1"
+  },
+  {
+   "w": "answers.",
+   "s": 38.777,
+   "e": 39.587,
+   "sid": "S03.1"
+  },
+  {
+   "w": "It's",
+   "s": 39.774,
+   "e": 40.227,
+   "sid": "S03.2"
+  },
+  {
+   "w": "history,",
+   "s": 40.287,
+   "e": 40.947,
+   "sid": "S03.2"
+  },
+  {
+   "w": "not",
+   "s": 40.987,
+   "e": 41.107,
+   "sid": "S03.2"
+  },
+  {
+   "w": "a",
+   "s": 41.147,
+   "e": 41.187,
+   "sid": "S03.2"
+  },
+  {
+   "w": "forecast.",
+   "s": 41.267,
+   "e": 42.147,
+   "sid": "S03.2"
+  },
+  {
+   "w": "It",
+   "s": 42.36,
+   "e": 42.787,
+   "sid": "S03.3"
+  },
+  {
+   "w": "shows",
+   "s": 42.84,
+   "e": 43.107,
+   "sid": "S03.3"
+  },
+  {
+   "w": "Nina",
+   "s": 43.171,
+   "e": 43.427,
+   "sid": "S03.3"
+  },
+  {
+   "w": "a",
+   "s": 43.507,
+   "e": 43.587,
+   "sid": "S03.3"
+  },
+  {
+   "w": "whole",
+   "s": 43.627,
+   "e": 43.827,
+   "sid": "S03.3"
+  },
+  {
+   "w": "street",
+   "s": 43.884,
+   "e": 44.227,
+   "sid": "S03.3"
+  },
+  {
+   "w": "of",
+   "s": 44.254,
+   "e": 44.307,
+   "sid": "S03.3"
+  },
+  {
+   "w": "answers,",
+   "s": 44.367,
+   "e": 45.347,
+   "sid": "S03.3"
+  },
+  {
+   "w": "one",
+   "s": 45.387,
+   "e": 45.507,
+   "sid": "S03.3"
+  },
+  {
+   "w": "house",
+   "s": 45.587,
+   "e": 45.987,
+   "sid": "S03.3"
+  },
+  {
+   "w": "for",
+   "s": 46.067,
+   "e": 46.307,
+   "sid": "S03.3"
+  },
+  {
+   "w": "each",
+   "s": 46.355,
+   "e": 46.547,
+   "sid": "S03.3"
+  },
+  {
+   "w": "month.",
+   "s": 46.614,
+   "e": 47.107,
+   "sid": "S03.3"
+  },
+  {
+   "w": "Each",
+   "s": 47.315,
+   "e": 48.147,
+   "sid": "S03.4"
+  },
+  {
+   "w": "house",
+   "s": 48.2,
+   "e": 48.467,
+   "sid": "S03.4"
+  },
+  {
+   "w": "holds",
+   "s": 48.507,
+   "e": 48.707,
+   "sid": "S03.4"
+  },
+  {
+   "w": "the",
+   "s": 48.747,
+   "e": 48.867,
+   "sid": "S03.4"
+  },
+  {
+   "w": "same",
+   "s": 48.915,
+   "e": 49.107,
+   "sid": "S03.4"
+  },
+  {
+   "w": "pair",
+   "s": 49.139,
+   "e": 49.267,
+   "sid": "S03.4"
+  },
+  {
+   "w": "of",
+   "s": 49.294,
+   "e": 49.347,
+   "sid": "S03.4"
+  },
+  {
+   "w": "twins,",
+   "s": 49.427,
+   "e": 50.147,
+   "sid": "S03.4"
+  },
+  {
+   "w": "and",
+   "s": 50.227,
+   "e": 50.467,
+   "sid": "S03.4"
+  },
+  {
+   "w": "the",
+   "s": 50.487,
+   "e": 50.547,
+   "sid": "S03.4"
+  },
+  {
+   "w": "same",
+   "s": 50.627,
+   "e": 50.947,
+   "sid": "S03.4"
+  },
+  {
+   "w": "choice.",
+   "s": 51.05,
+   "e": 51.907,
+   "sid": "S03.4"
+  },
+  {
+   "w": "So",
+   "s": 55.9,
+   "e": 56.14,
+   "sid": "S04.1"
+  },
+  {
+   "w": "what",
+   "s": 56.188,
+   "e": 56.38,
+   "sid": "S04.1"
+  },
+  {
+   "w": "does",
+   "s": 56.412,
+   "e": 56.54,
+   "sid": "S04.1"
+  },
+  {
+   "w": "each",
+   "s": 56.588,
+   "e": 56.78,
+   "sid": "S04.1"
+  },
+  {
+   "w": "twin",
+   "s": 56.844,
+   "e": 57.1,
+   "sid": "S04.1"
+  },
+  {
+   "w": "actually",
+   "s": 57.153,
+   "e": 57.58,
+   "sid": "S04.1"
+  },
+  {
+   "w": "pay?",
+   "s": 57.68,
+   "e": 58.3,
+   "sid": "S04.1"
+  },
+  {
+   "w": "The",
+   "s": 58.4,
+   "e": 58.7,
+   "sid": "S04.2"
+  },
+  {
+   "w": "twin",
+   "s": 58.732,
+   "e": 58.86,
+   "sid": "S04.2"
+  },
+  {
+   "w": "who",
+   "s": 58.9,
+   "e": 59.02,
+   "sid": "S04.2"
+  },
+  {
+   "w": "buys",
+   "s": 59.1,
+   "e": 59.42,
+   "sid": "S04.2"
+  },
+  {
+   "w": "pays",
+   "s": 59.484,
+   "e": 59.74,
+   "sid": "S04.2"
+  },
+  {
+   "w": "the",
+   "s": 59.76,
+   "e": 59.82,
+   "sid": "S04.2"
+  },
+  {
+   "w": "down",
+   "s": 59.868,
+   "e": 60.06,
+   "sid": "S04.2"
+  },
+  {
+   "w": "payment",
+   "s": 60.11,
+   "e": 60.46,
+   "sid": "S04.2"
+  },
+  {
+   "w": "and",
+   "s": 60.52,
+   "e": 60.7,
+   "sid": "S04.2"
+  },
+  {
+   "w": "the",
+   "s": 60.72,
+   "e": 60.78,
+   "sid": "S04.2"
+  },
+  {
+   "w": "closing",
+   "s": 60.83,
+   "e": 61.18,
+   "sid": "S04.2"
+  },
+  {
+   "w": "costs,",
+   "s": 61.26,
+   "e": 61.74,
+   "sid": "S04.2"
+  },
+  {
+   "w": "in",
+   "s": 61.82,
+   "e": 61.98,
+   "sid": "S04.2"
+  },
+  {
+   "w": "dollars",
+   "s": 62.04,
+   "e": 62.46,
+   "sid": "S04.2"
+  },
+  {
+   "w": "of",
+   "s": 62.487,
+   "e": 62.54,
+   "sid": "S04.2"
+  },
+  {
+   "w": "the",
+   "s": 62.56,
+   "e": 62.62,
+   "sid": "S04.2"
+  },
+  {
+   "w": "day,",
+   "s": 62.7,
+   "e": 63.5,
+   "sid": "S04.2"
+  },
+  {
+   "w": "then",
+   "s": 63.548,
+   "e": 63.74,
+   "sid": "S04.2"
+  },
+  {
+   "w": "takes",
+   "s": 63.78,
+   "e": 63.98,
+   "sid": "S04.2"
+  },
+  {
+   "w": "a",
+   "s": 64.06,
+   "e": 64.14,
+   "sid": "S04.2"
+  },
+  {
+   "w": "thirty-year",
+   "s": 64.174,
+   "e": 64.62,
+   "sid": "S04.2"
+  },
+  {
+   "w": "fixed",
+   "s": 64.673,
+   "e": 64.94,
+   "sid": "S04.2"
+  },
+  {
+   "w": "mortgage",
+   "s": 65.002,
+   "e": 65.5,
+   "sid": "S04.2"
+  },
+  {
+   "w": "at",
+   "s": 65.553,
+   "e": 65.66,
+   "sid": "S04.2"
+  },
+  {
+   "w": "that",
+   "s": 65.708,
+   "e": 65.9,
+   "sid": "S04.2"
+  },
+  {
+   "w": "month's",
+   "s": 65.94,
+   "e": 66.38,
+   "sid": "S04.2"
+  },
+  {
+   "w": "average",
+   "s": 66.43,
+   "e": 66.78,
+   "sid": "S04.2"
+  },
+  {
+   "w": "rate.",
+   "s": 66.844,
+   "e": 67.26,
+   "sid": "S04.2"
+  },
+  {
+   "w": "Every",
+   "s": 67.393,
+   "e": 68.06,
+   "sid": "S04.3"
+  },
+  {
+   "w": "month",
+   "s": 68.1,
+   "e": 68.3,
+   "sid": "S04.3"
+  },
+  {
+   "w": "after",
+   "s": 68.34,
+   "e": 68.54,
+   "sid": "S04.3"
+  },
+  {
+   "w": "that,",
+   "s": 68.604,
+   "e": 69.26,
+   "sid": "S04.3"
+  },
+  {
+   "w": "Nina's",
+   "s": 69.324,
+   "e": 69.66,
+   "sid": "S04.3"
+  },
+  {
+   "w": "buying",
+   "s": 69.706,
+   "e": 69.98,
+   "sid": "S04.3"
+  },
+  {
+   "w": "twin",
+   "s": 70.06,
+   "e": 70.38,
+   "sid": "S04.3"
+  },
+  {
+   "w": "pays",
+   "s": 70.492,
+   "e": 70.94,
+   "sid": "S04.3"
+  },
+  {
+   "w": "interest",
+   "s": 70.984,
+   "e": 71.34,
+   "sid": "S04.3"
+  },
+  {
+   "w": "and",
+   "s": 71.42,
+   "e": 71.66,
+   "sid": "S04.3"
+  },
+  {
+   "w": "the",
+   "s": 71.68,
+   "e": 71.74,
+   "sid": "S04.3"
+  },
+  {
+   "w": "costs",
+   "s": 71.82,
+   "e": 72.22,
+   "sid": "S04.3"
+  },
+  {
+   "w": "of",
+   "s": 72.247,
+   "e": 72.3,
+   "sid": "S04.3"
+  },
+  {
+   "w": "owning,",
+   "s": 72.346,
+   "e": 72.86,
+   "sid": "S04.3"
+  },
+  {
+   "w": "and",
+   "s": 72.92,
+   "e": 73.1,
+   "sid": "S04.3"
+  },
+  {
+   "w": "at",
+   "s": 73.127,
+   "e": 73.18,
+   "sid": "S04.3"
+  },
+  {
+   "w": "the",
+   "s": 73.22,
+   "e": 73.34,
+   "sid": "S04.3"
+  },
+  {
+   "w": "end,",
+   "s": 73.4,
+   "e": 73.9,
+   "sid": "S04.3"
+  },
+  {
+   "w": "the",
+   "s": 73.96,
+   "e": 74.14,
+   "sid": "S04.3"
+  },
+  {
+   "w": "cost",
+   "s": 74.22,
+   "e": 74.54,
+   "sid": "S04.3"
+  },
+  {
+   "w": "of",
+   "s": 74.567,
+   "e": 74.62,
+   "sid": "S04.3"
+  },
+  {
+   "w": "selling.",
+   "s": 74.67,
+   "e": 75.74,
+   "sid": "S04.3"
+  },
+  {
+   "w": "Property",
+   "s": 75.82,
+   "e": 76.46,
+   "sid": "S04.4"
+  },
+  {
+   "w": "tax,",
+   "s": 76.58,
+   "e": 77.02,
+   "sid": "S04.4"
+  },
+  {
+   "w": "insurance",
+   "s": 77.076,
+   "e": 77.58,
+   "sid": "S04.4"
+  },
+  {
+   "w": "and",
+   "s": 77.62,
+   "e": 77.74,
+   "sid": "S04.4"
+  },
+  {
+   "w": "repairs",
+   "s": 77.81,
+   "e": 78.3,
+   "sid": "S04.4"
+  },
+  {
+   "w": "come",
+   "s": 78.348,
+   "e": 78.54,
+   "sid": "S04.4"
+  },
+  {
+   "w": "to",
+   "s": 78.567,
+   "e": 78.62,
+   "sid": "S04.4"
+  },
+  {
+   "w": "two",
+   "s": 78.68,
+   "e": 78.86,
+   "sid": "S04.4"
+  },
+  {
+   "w": "point",
+   "s": 78.913,
+   "e": 79.18,
+   "sid": "S04.4"
+  },
+  {
+   "w": "five",
+   "s": 79.212,
+   "e": 79.34,
+   "sid": "S04.4"
+  },
+  {
+   "w": "percent",
+   "s": 79.42,
+   "e": 79.98,
+   "sid": "S04.4"
+  },
+  {
+   "w": "of",
+   "s": 80.167,
+   "e": 80.54,
+   "sid": "S04.4"
+  },
+  {
+   "w": "the",
+   "s": 80.56,
+   "e": 80.62,
+   "sid": "S04.4"
+  },
+  {
+   "w": "home's",
+   "s": 80.668,
+   "e": 80.94,
+   "sid": "S04.4"
+  },
+  {
+   "w": "value",
+   "s": 81.007,
+   "e": 81.34,
+   "sid": "S04.4"
+  },
+  {
+   "w": "a",
+   "s": 81.42,
+   "e": 81.5,
+   "sid": "S04.4"
+  },
+  {
+   "w": "year.",
+   "s": 81.58,
+   "e": 81.9,
+   "sid": "S04.4"
+  },
+  {
+   "w": "The",
+   "s": 82.16,
+   "e": 82.94,
+   "sid": "S04.5"
+  },
+  {
+   "w": "twin",
+   "s": 83.004,
+   "e": 83.26,
+   "sid": "S04.5"
+  },
+  {
+   "w": "who",
+   "s": 83.3,
+   "e": 83.42,
+   "sid": "S04.5"
+  },
+  {
+   "w": "rents",
+   "s": 83.5,
+   "e": 83.9,
+   "sid": "S04.5"
+  },
+  {
+   "w": "moves",
+   "s": 83.967,
+   "e": 84.3,
+   "sid": "S04.5"
+  },
+  {
+   "w": "into",
+   "s": 84.364,
+   "e": 84.62,
+   "sid": "S04.5"
+  },
+  {
+   "w": "an",
+   "s": 84.647,
+   "e": 84.7,
+   "sid": "S04.5"
+  },
+  {
+   "w": "equivalent",
+   "s": 84.751,
+   "e": 85.26,
+   "sid": "S04.5"
+  },
+  {
+   "w": "home",
+   "s": 85.34,
+   "e": 85.66,
+   "sid": "S04.5"
+  },
+  {
+   "w": "and",
+   "s": 85.72,
+   "e": 85.9,
+   "sid": "S04.5"
+  },
+  {
+   "w": "keeps",
+   "s": 85.953,
+   "e": 86.22,
+   "sid": "S04.5"
+  },
+  {
+   "w": "the",
+   "s": 86.24,
+   "e": 86.3,
+   "sid": "S04.5"
+  },
+  {
+   "w": "same",
+   "s": 86.364,
+   "e": 86.62,
+   "sid": "S04.5"
+  },
+  {
+   "w": "savings.",
+   "s": 86.68,
+   "e": 87.34,
+   "sid": "S04.5"
+  },
+  {
+   "w": "Here",
+   "s": 88.333,
+   "e": 88.413,
+   "sid": "S05.1"
+  },
+  {
+   "w": "is",
+   "s": 88.466,
+   "e": 88.573,
+   "sid": "S05.1"
+  },
+  {
+   "w": "the",
+   "s": 88.593,
+   "e": 88.653,
+   "sid": "S05.1"
+  },
+  {
+   "w": "part",
+   "s": 88.717,
+   "e": 88.973,
+   "sid": "S05.1"
+  },
+  {
+   "w": "most",
+   "s": 89.021,
+   "e": 89.213,
+   "sid": "S05.1"
+  },
+  {
+   "w": "people",
+   "s": 89.247,
+   "e": 89.453,
+   "sid": "S05.1"
+  },
+  {
+   "w": "picture",
+   "s": 89.493,
+   "e": 89.773,
+   "sid": "S05.1"
+  },
+  {
+   "w": "differently:",
+   "s": 89.82,
+   "e": 90.973,
+   "sid": "S05.1"
+  },
+  {
+   "w": "the",
+   "s": 91.013,
+   "e": 91.133,
+   "sid": "S05.1"
+  },
+  {
+   "w": "renting",
+   "s": 91.183,
+   "e": 91.533,
+   "sid": "S05.1"
+  },
+  {
+   "w": "twin's",
+   "s": 91.581,
+   "e": 91.853,
+   "sid": "S05.1"
+  },
+  {
+   "w": "savings",
+   "s": 91.913,
+   "e": 92.333,
+   "sid": "S05.1"
+  },
+  {
+   "w": "sit",
+   "s": 92.393,
+   "e": 92.573,
+   "sid": "S05.1"
+  },
+  {
+   "w": "in",
+   "s": 92.626,
+   "e": 92.733,
+   "sid": "S05.1"
+  },
+  {
+   "w": "cash,",
+   "s": 92.845,
+   "e": 93.613,
+   "sid": "S05.1"
+  },
+  {
+   "w": "not",
+   "s": 93.793,
+   "e": 94.333,
+   "sid": "S05.1"
+  },
+  {
+   "w": "in",
+   "s": 94.413,
+   "e": 94.573,
+   "sid": "S05.1"
+  },
+  {
+   "w": "stocks.",
+   "s": 94.664,
+   "e": 95.773,
+   "sid": "S05.1"
+  },
+  {
+   "w": "That",
+   "s": 95.885,
+   "e": 96.333,
+   "sid": "S05.2"
+  },
+  {
+   "w": "pile",
+   "s": 96.413,
+   "e": 96.733,
+   "sid": "S05.2"
+  },
+  {
+   "w": "starts",
+   "s": 96.79,
+   "e": 97.133,
+   "sid": "S05.2"
+  },
+  {
+   "w": "as",
+   "s": 97.186,
+   "e": 97.293,
+   "sid": "S05.2"
+  },
+  {
+   "w": "the",
+   "s": 97.313,
+   "e": 97.373,
+   "sid": "S05.2"
+  },
+  {
+   "w": "down",
+   "s": 97.437,
+   "e": 97.693,
+   "sid": "S05.2"
+  },
+  {
+   "w": "payment",
+   "s": 97.733,
+   "e": 98.013,
+   "sid": "S05.2"
+  },
+  {
+   "w": "and",
+   "s": 98.053,
+   "e": 98.173,
+   "sid": "S05.2"
+  },
+  {
+   "w": "closing",
+   "s": 98.223,
+   "e": 98.573,
+   "sid": "S05.2"
+  },
+  {
+   "w": "costs",
+   "s": 98.64,
+   "e": 98.973,
+   "sid": "S05.2"
+  },
+  {
+   "w": "that",
+   "s": 99.021,
+   "e": 99.213,
+   "sid": "S05.2"
+  },
+  {
+   "w": "never",
+   "s": 99.28,
+   "e": 99.613,
+   "sid": "S05.2"
+  },
+  {
+   "w": "went",
+   "s": 99.645,
+   "e": 99.773,
+   "sid": "S05.2"
+  },
+  {
+   "w": "into",
+   "s": 99.805,
+   "e": 99.933,
+   "sid": "S05.2"
+  },
+  {
+   "w": "a",
+   "s": 99.973,
+   "e": 100.013,
+   "sid": "S05.2"
+  },
+  {
+   "w": "house.",
+   "s": 100.106,
+   "e": 100.813,
+   "sid": "S05.2"
+  },
+  {
+   "w": "Whatever",
+   "s": 100.911,
+   "e": 101.693,
+   "sid": "S05.3"
+  },
+  {
+   "w": "renting",
+   "s": 101.733,
+   "e": 102.013,
+   "sid": "S05.3"
+  },
+  {
+   "w": "saves",
+   "s": 102.093,
+   "e": 102.493,
+   "sid": "S05.3"
+  },
+  {
+   "w": "each",
+   "s": 102.525,
+   "e": 102.653,
+   "sid": "S05.3"
+  },
+  {
+   "w": "month",
+   "s": 102.706,
+   "e": 102.973,
+   "sid": "S05.3"
+  },
+  {
+   "w": "is",
+   "s": 103.133,
+   "e": 103.453,
+   "sid": "S05.3"
+  },
+  {
+   "w": "added",
+   "s": 103.506,
+   "e": 103.773,
+   "sid": "S05.3"
+  },
+  {
+   "w": "to",
+   "s": 103.8,
+   "e": 103.853,
+   "sid": "S05.3"
+  },
+  {
+   "w": "the",
+   "s": 103.893,
+   "e": 104.013,
+   "sid": "S05.3"
+  },
+  {
+   "w": "same",
+   "s": 104.077,
+   "e": 104.333,
+   "sid": "S05.3"
+  },
+  {
+   "w": "pile.",
+   "s": 104.413,
+   "e": 104.973,
+   "sid": "S05.3"
+  },
+  {
+   "w": "In",
+   "s": 105.24,
+   "e": 105.773,
+   "sid": "S05.4"
+  },
+  {
+   "w": "one",
+   "s": 105.813,
+   "e": 105.933,
+   "sid": "S05.4"
+  },
+  {
+   "w": "variant,",
+   "s": 105.993,
+   "e": 106.733,
+   "sid": "S05.4"
+  },
+  {
+   "w": "the",
+   "s": 106.773,
+   "e": 106.893,
+   "sid": "S05.4"
+  },
+  {
+   "w": "cash",
+   "s": 106.973,
+   "e": 107.293,
+   "sid": "S05.4"
+  },
+  {
+   "w": "earns",
+   "s": 107.36,
+   "e": 107.693,
+   "sid": "S05.4"
+  },
+  {
+   "w": "Treasury",
+   "s": 107.737,
+   "e": 108.093,
+   "sid": "S05.4"
+  },
+  {
+   "w": "bill",
+   "s": 108.141,
+   "e": 108.333,
+   "sid": "S05.4"
+  },
+  {
+   "w": "interest;",
+   "s": 108.386,
+   "e": 109.373,
+   "sid": "S05.4"
+  },
+  {
+   "w": "whether",
+   "s": 109.403,
+   "e": 109.613,
+   "sid": "S05.4"
+  },
+  {
+   "w": "investing",
+   "s": 109.661,
+   "e": 110.093,
+   "sid": "S05.4"
+  },
+  {
+   "w": "it",
+   "s": 110.146,
+   "e": 110.253,
+   "sid": "S05.4"
+  },
+  {
+   "w": "would",
+   "s": 110.28,
+   "e": 110.413,
+   "sid": "S05.4"
+  },
+  {
+   "w": "have",
+   "s": 110.429,
+   "e": 110.493,
+   "sid": "S05.4"
+  },
+  {
+   "w": "done",
+   "s": 110.541,
+   "e": 110.733,
+   "sid": "S05.4"
+  },
+  {
+   "w": "better",
+   "s": 110.779,
+   "e": 111.053,
+   "sid": "S05.4"
+  },
+  {
+   "w": "is",
+   "s": 111.16,
+   "e": 111.373,
+   "sid": "S05.4"
+  },
+  {
+   "w": "a",
+   "s": 111.453,
+   "e": 111.533,
+   "sid": "S05.4"
+  },
+  {
+   "w": "different",
+   "s": 111.557,
+   "e": 111.773,
+   "sid": "S05.4"
+  },
+  {
+   "w": "question,",
+   "s": 111.835,
+   "e": 112.893,
+   "sid": "S05.4"
+  },
+  {
+   "w": "and",
+   "s": 112.973,
+   "e": 113.213,
+   "sid": "S05.4"
+  },
+  {
+   "w": "this",
+   "s": 113.293,
+   "e": 113.613,
+   "sid": "S05.4"
+  },
+  {
+   "w": "episode",
+   "s": 113.693,
+   "e": 114.253,
+   "sid": "S05.4"
+  },
+  {
+   "w": "doesn't",
+   "s": 114.306,
+   "e": 114.773,
+   "sid": "S05.4"
+  },
+  {
+   "w": "answer",
+   "s": 114.802,
+   "e": 114.973,
+   "sid": "S05.4"
+  },
+  {
+   "w": "it.",
+   "s": 115.026,
+   "e": 115.373,
+   "sid": "S05.4"
+  },
+  {
+   "w": "A",
+   "s": 115.693,
+   "e": 116.013,
+   "sid": "S05.6"
+  },
+  {
+   "w": "few",
+   "s": 116.053,
+   "e": 116.173,
+   "sid": "S05.6"
+  },
+  {
+   "w": "costs",
+   "s": 116.28,
+   "e": 116.813,
+   "sid": "S05.6"
+  },
+  {
+   "w": "are",
+   "s": 116.873,
+   "e": 117.053,
+   "sid": "S05.6"
+  },
+  {
+   "w": "left",
+   "s": 117.101,
+   "e": 117.293,
+   "sid": "S05.6"
+  },
+  {
+   "w": "out",
+   "s": 117.353,
+   "e": 117.533,
+   "sid": "S05.6"
+  },
+  {
+   "w": "on",
+   "s": 117.56,
+   "e": 117.613,
+   "sid": "S05.6"
+  },
+  {
+   "w": "both",
+   "s": 117.677,
+   "e": 117.933,
+   "sid": "S05.6"
+  },
+  {
+   "w": "sides,",
+   "s": 118.013,
+   "e": 119.053,
+   "sid": "S05.6"
+  },
+  {
+   "w": "and",
+   "s": 119.073,
+   "e": 119.133,
+   "sid": "S05.6"
+  },
+  {
+   "w": "the",
+   "s": 119.153,
+   "e": 119.213,
+   "sid": "S05.6"
+  },
+  {
+   "w": "card",
+   "s": 119.293,
+   "e": 119.613,
+   "sid": "S05.6"
+  },
+  {
+   "w": "lists",
+   "s": 119.666,
+   "e": 119.933,
+   "sid": "S05.6"
+  },
+  {
+   "w": "them.",
+   "s": 119.981,
+   "e": 120.333,
+   "sid": "S05.6"
+  },
+  {
+   "w": "Most",
+   "s": 121.333,
+   "e": 121.653,
+   "sid": "S06.1"
+  },
+  {
+   "w": "rent",
+   "s": 121.749,
+   "e": 122.133,
+   "sid": "S06.1"
+  },
+  {
+   "w": "or",
+   "s": 122.186,
+   "e": 122.293,
+   "sid": "S06.1"
+  },
+  {
+   "w": "buy",
+   "s": 122.373,
+   "e": 122.613,
+   "sid": "S06.1"
+  },
+  {
+   "w": "math",
+   "s": 122.693,
+   "e": 123.013,
+   "sid": "S06.1"
+  },
+  {
+   "w": "picks",
+   "s": 123.066,
+   "e": 123.333,
+   "sid": "S06.1"
+  },
+  {
+   "w": "one",
+   "s": 123.433,
+   "e": 123.733,
+   "sid": "S06.1"
+  },
+  {
+   "w": "growth",
+   "s": 123.779,
+   "e": 124.053,
+   "sid": "S06.1"
+  },
+  {
+   "w": "rate",
+   "s": 124.117,
+   "e": 124.373,
+   "sid": "S06.1"
+  },
+  {
+   "w": "for",
+   "s": 124.393,
+   "e": 124.453,
+   "sid": "S06.1"
+  },
+  {
+   "w": "prices",
+   "s": 124.533,
+   "e": 125.013,
+   "sid": "S06.1"
+  },
+  {
+   "w": "and",
+   "s": 125.193,
+   "e": 125.733,
+   "sid": "S06.1"
+  },
+  {
+   "w": "one",
+   "s": 125.793,
+   "e": 125.973,
+   "sid": "S06.1"
+  },
+  {
+   "w": "for",
+   "s": 126.013,
+   "e": 126.133,
+   "sid": "S06.1"
+  },
+  {
+   "w": "rents,",
+   "s": 126.226,
+   "e": 126.933,
+   "sid": "S06.1"
+  },
+  {
+   "w": "then",
+   "s": 126.997,
+   "e": 127.253,
+   "sid": "S06.1"
+  },
+  {
+   "w": "shows",
+   "s": 127.333,
+   "e": 127.733,
+   "sid": "S06.1"
+  },
+  {
+   "w": "a",
+   "s": 127.773,
+   "e": 127.813,
+   "sid": "S06.1"
+  },
+  {
+   "w": "single",
+   "s": 127.859,
+   "e": 128.133,
+   "sid": "S06.1"
+  },
+  {
+   "w": "answer.",
+   "s": 128.19,
+   "e": 128.773,
+   "sid": "S06.1"
+  },
+  {
+   "w": "Here,",
+   "s": 128.933,
+   "e": 129.733,
+   "sid": "S06.3"
+  },
+  {
+   "w": "prices,",
+   "s": 129.813,
+   "e": 130.373,
+   "sid": "S06.3"
+  },
+  {
+   "w": "rents",
+   "s": 130.426,
+   "e": 130.693,
+   "sid": "S06.3"
+  },
+  {
+   "w": "and",
+   "s": 130.753,
+   "e": 130.933,
+   "sid": "S06.3"
+  },
+  {
+   "w": "mortgage",
+   "s": 130.977,
+   "e": 131.333,
+   "sid": "S06.3"
+  },
+  {
+   "w": "rates",
+   "s": 131.4,
+   "e": 131.733,
+   "sid": "S06.3"
+  },
+  {
+   "w": "come",
+   "s": 131.861,
+   "e": 132.373,
+   "sid": "S06.3"
+  },
+  {
+   "w": "from",
+   "s": 132.421,
+   "e": 132.613,
+   "sid": "S06.3"
+  },
+  {
+   "w": "the",
+   "s": 132.633,
+   "e": 132.693,
+   "sid": "S06.3"
+  },
+  {
+   "w": "real",
+   "s": 132.773,
+   "e": 133.093,
+   "sid": "S06.3"
+  },
+  {
+   "w": "monthly",
+   "s": 133.163,
+   "e": 133.653,
+   "sid": "S06.3"
+  },
+  {
+   "w": "U.S.",
+   "s": 133.813,
+   "e": 134.213,
+   "sid": "S06.3"
+  },
+  {
+   "w": "record.",
+   "s": 134.27,
+   "e": 134.853,
+   "sid": "S06.3"
+  },
+  {
+   "w": "One",
+   "s": 134.993,
+   "e": 135.413,
+   "sid": "S06.4"
+  },
+  {
+   "w": "thing",
+   "s": 135.48,
+   "e": 135.813,
+   "sid": "S06.4"
+  },
+  {
+   "w": "can't",
+   "s": 135.873,
+   "e": 136.133,
+   "sid": "S06.4"
+  },
+  {
+   "w": "come",
+   "s": 136.181,
+   "e": 136.373,
+   "sid": "S06.4"
+  },
+  {
+   "w": "from",
+   "s": 136.421,
+   "e": 136.613,
+   "sid": "S06.4"
+  },
+  {
+   "w": "that",
+   "s": 136.645,
+   "e": 136.773,
+   "sid": "S06.4"
+  },
+  {
+   "w": "record:",
+   "s": 136.83,
+   "e": 137.413,
+   "sid": "S06.4"
+  },
+  {
+   "w": "the",
+   "s": 137.433,
+   "e": 137.493,
+   "sid": "S06.4"
+  },
+  {
+   "w": "rent",
+   "s": 137.573,
+   "e": 137.893,
+   "sid": "S06.4"
+  },
+  {
+   "w": "level",
+   "s": 137.96,
+   "e": 138.293,
+   "sid": "S06.4"
+  },
+  {
+   "w": "the",
+   "s": 138.373,
+   "e": 138.613,
+   "sid": "S06.4"
+  },
+  {
+   "w": "renting",
+   "s": 138.663,
+   "e": 139.013,
+   "sid": "S06.4"
+  },
+  {
+   "w": "twin",
+   "s": 139.125,
+   "e": 139.573,
+   "sid": "S06.4"
+  },
+  {
+   "w": "starts",
+   "s": 139.653,
+   "e": 140.133,
+   "sid": "S06.4"
+  },
+  {
+   "w": "at.",
+   "s": 140.213,
+   "e": 140.533,
+   "sid": "S06.4"
+  },
+  {
+   "w": "So",
+   "s": 141.533,
+   "e": 141.613,
+   "sid": "S07.1"
+  },
+  {
+   "w": "it",
+   "s": 141.64,
+   "e": 141.693,
+   "sid": "S07.1"
+  },
+  {
+   "w": "hangs",
+   "s": 141.746,
+   "e": 142.013,
+   "sid": "S07.1"
+  },
+  {
+   "w": "on",
+   "s": 142.04,
+   "e": 142.093,
+   "sid": "S07.1"
+  },
+  {
+   "w": "the",
+   "s": 142.113,
+   "e": 142.173,
+   "sid": "S07.1"
+  },
+  {
+   "w": "apartment",
+   "s": 142.213,
+   "e": 142.573,
+   "sid": "S07.1"
+  },
+  {
+   "w": "door",
+   "s": 142.637,
+   "e": 142.893,
+   "sid": "S07.1"
+  },
+  {
+   "w": "as",
+   "s": 142.92,
+   "e": 142.973,
+   "sid": "S07.1"
+  },
+  {
+   "w": "a",
+   "s": 143.053,
+   "e": 143.133,
+   "sid": "S07.1"
+  },
+  {
+   "w": "tag:",
+   "s": 143.233,
+   "e": 144.173,
+   "sid": "S07.1"
+  },
+  {
+   "w": "a",
+   "s": 144.213,
+   "e": 144.253,
+   "sid": "S07.1"
+  },
+  {
+   "w": "starting",
+   "s": 144.297,
+   "e": 144.653,
+   "sid": "S07.1"
+  },
+  {
+   "w": "rent",
+   "s": 144.717,
+   "e": 144.973,
+   "sid": "S07.1"
+  },
+  {
+   "w": "of",
+   "s": 145.026,
+   "e": 145.133,
+   "sid": "S07.1"
+  },
+  {
+   "w": "five",
+   "s": 145.181,
+   "e": 145.373,
+   "sid": "S07.1"
+  },
+  {
+   "w": "percent",
+   "s": 145.433,
+   "e": 145.853,
+   "sid": "S07.1"
+  },
+  {
+   "w": "of",
+   "s": 145.88,
+   "e": 145.933,
+   "sid": "S07.1"
+  },
+  {
+   "w": "the",
+   "s": 145.953,
+   "e": 146.013,
+   "sid": "S07.1"
+  },
+  {
+   "w": "home's",
+   "s": 146.061,
+   "e": 146.413,
+   "sid": "S07.1"
+  },
+  {
+   "w": "price",
+   "s": 146.48,
+   "e": 146.813,
+   "sid": "S07.1"
+  },
+  {
+   "w": "a",
+   "s": 146.933,
+   "e": 147.053,
+   "sid": "S07.1"
+  },
+  {
+   "w": "year.",
+   "s": 147.149,
+   "e": 147.773,
+   "sid": "S07.1"
+  },
+  {
+   "w": "On",
+   "s": 148.066,
+   "e": 148.653,
+   "sid": "S07.2"
+  },
+  {
+   "w": "a",
+   "s": 148.693,
+   "e": 148.733,
+   "sid": "S07.2"
+  },
+  {
+   "w": "home",
+   "s": 148.781,
+   "e": 148.973,
+   "sid": "S07.2"
+  },
+  {
+   "w": "priced",
+   "s": 149.03,
+   "e": 149.373,
+   "sid": "S07.2"
+  },
+  {
+   "w": "at",
+   "s": 149.4,
+   "e": 149.453,
+   "sid": "S07.2"
+  },
+  {
+   "w": "four",
+   "s": 149.501,
+   "e": 149.693,
+   "sid": "S07.2"
+  },
+  {
+   "w": "hundred",
+   "s": 149.723,
+   "e": 149.933,
+   "sid": "S07.2"
+  },
+  {
+   "w": "thousand",
+   "s": 149.969,
+   "e": 150.253,
+   "sid": "S07.2"
+  },
+  {
+   "w": "dollars,",
+   "s": 150.313,
+   "e": 151.293,
+   "sid": "S07.2"
+  },
+  {
+   "w": "that's",
+   "s": 151.325,
+   "e": 151.613,
+   "sid": "S07.2"
+  },
+  {
+   "w": "one",
+   "s": 151.673,
+   "e": 151.853,
+   "sid": "S07.2"
+  },
+  {
+   "w": "thousand",
+   "s": 151.897,
+   "e": 152.253,
+   "sid": "S07.2"
+  },
+  {
+   "w": "six",
+   "s": 152.353,
+   "e": 152.653,
+   "sid": "S07.2"
+  },
+  {
+   "w": "hundred",
+   "s": 152.693,
+   "e": 152.973,
+   "sid": "S07.2"
+  },
+  {
+   "w": "sixty-seven",
+   "s": 153.053,
+   "e": 153.693,
+   "sid": "S07.2"
+  },
+  {
+   "w": "dollars",
+   "s": 153.743,
+   "e": 154.093,
+   "sid": "S07.2"
+  },
+  {
+   "w": "a",
+   "s": 154.133,
+   "e": 154.173,
+   "sid": "S07.2"
+  },
+  {
+   "w": "month",
+   "s": 154.24,
+   "e": 154.573,
+   "sid": "S07.2"
+  },
+  {
+   "w": "today,",
+   "s": 154.68,
+   "e": 155.933,
+   "sid": "S07.2"
+  },
+  {
+   "w": "carried",
+   "s": 155.983,
+   "e": 156.333,
+   "sid": "S07.2"
+  },
+  {
+   "w": "back",
+   "s": 156.381,
+   "e": 156.573,
+   "sid": "S07.2"
+  },
+  {
+   "w": "through",
+   "s": 156.593,
+   "e": 156.733,
+   "sid": "S07.2"
+  },
+  {
+   "w": "history",
+   "s": 156.793,
+   "e": 157.213,
+   "sid": "S07.2"
+  },
+  {
+   "w": "with",
+   "s": 157.293,
+   "e": 157.613,
+   "sid": "S07.2"
+  },
+  {
+   "w": "the",
+   "s": 157.633,
+   "e": 157.693,
+   "sid": "S07.2"
+  },
+  {
+   "w": "government's",
+   "s": 157.737,
+   "e": 158.333,
+   "sid": "S07.2"
+  },
+  {
+   "w": "rent",
+   "s": 158.429,
+   "e": 158.813,
+   "sid": "S07.2"
+  },
+  {
+   "w": "index.",
+   "s": 158.946,
+   "e": 159.933,
+   "sid": "S07.2"
+  },
+  {
+   "w": "The",
+   "s": 160.073,
+   "e": 160.493,
+   "sid": "S07.3"
+  },
+  {
+   "w": "tag",
+   "s": 160.573,
+   "e": 160.813,
+   "sid": "S07.3"
+  },
+  {
+   "w": "matters",
+   "s": 160.883,
+   "e": 161.373,
+   "sid": "S07.3"
+  },
+  {
+   "w": "because",
+   "s": 161.433,
+   "e": 161.853,
+   "sid": "S07.3"
+  },
+  {
+   "w": "the",
+   "s": 161.933,
+   "e": 162.173,
+   "sid": "S07.3"
+  },
+  {
+   "w": "rent",
+   "s": 162.237,
+   "e": 162.493,
+   "sid": "S07.3"
+  },
+  {
+   "w": "decides",
+   "s": 162.573,
+   "e": 163.133,
+   "sid": "S07.3"
+  },
+  {
+   "w": "how",
+   "s": 163.193,
+   "e": 163.373,
+   "sid": "S07.3"
+  },
+  {
+   "w": "much",
+   "s": 163.421,
+   "e": 163.613,
+   "sid": "S07.3"
+  },
+  {
+   "w": "the",
+   "s": 163.653,
+   "e": 163.773,
+   "sid": "S07.3"
+  },
+  {
+   "w": "renting",
+   "s": 163.823,
+   "e": 164.173,
+   "sid": "S07.3"
+  },
+  {
+   "w": "twin",
+   "s": 164.269,
+   "e": 164.653,
+   "sid": "S07.3"
+  },
+  {
+   "w": "sets",
+   "s": 164.717,
+   "e": 164.973,
+   "sid": "S07.3"
+  },
+  {
+   "w": "aside",
+   "s": 165.04,
+   "e": 165.373,
+   "sid": "S07.3"
+  },
+  {
+   "w": "each",
+   "s": 165.421,
+   "e": 165.613,
+   "sid": "S07.3"
+  },
+  {
+   "w": "month,",
+   "s": 165.68,
+   "e": 166.653,
+   "sid": "S07.3"
+  },
+  {
+   "w": "and",
+   "s": 166.693,
+   "e": 166.813,
+   "sid": "S07.3"
+  },
+  {
+   "w": "so",
+   "s": 166.893,
+   "e": 167.053,
+   "sid": "S07.3"
+  },
+  {
+   "w": "how",
+   "s": 167.113,
+   "e": 167.293,
+   "sid": "S07.3"
+  },
+  {
+   "w": "big",
+   "s": 167.353,
+   "e": 167.533,
+   "sid": "S07.3"
+  },
+  {
+   "w": "that",
+   "s": 167.565,
+   "e": 167.693,
+   "sid": "S07.3"
+  },
+  {
+   "w": "cash",
+   "s": 167.773,
+   "e": 168.093,
+   "sid": "S07.3"
+  },
+  {
+   "w": "pile",
+   "s": 168.157,
+   "e": 168.413,
+   "sid": "S07.3"
+  },
+  {
+   "w": "grows.",
+   "s": 168.506,
+   "e": 169.213,
+   "sid": "S07.3"
+  },
+  {
+   "w": "Later,",
+   "s": 169.386,
+   "e": 170.413,
+   "sid": "S07.4"
+  },
+  {
+   "w": "the",
+   "s": 170.453,
+   "e": 170.573,
+   "sid": "S07.4"
+  },
+  {
+   "w": "tag",
+   "s": 170.653,
+   "e": 170.893,
+   "sid": "S07.4"
+  },
+  {
+   "w": "turns,",
+   "s": 170.986,
+   "e": 171.933,
+   "sid": "S07.4"
+  },
+  {
+   "w": "and",
+   "s": 171.973,
+   "e": 172.093,
+   "sid": "S07.4"
+  },
+  {
+   "w": "the",
+   "s": 172.133,
+   "e": 172.253,
+   "sid": "S07.4"
+  },
+  {
+   "w": "answer",
+   "s": 172.322,
+   "e": 172.733,
+   "sid": "S07.4"
+  },
+  {
+   "w": "turns",
+   "s": 172.853,
+   "e": 173.453,
+   "sid": "S07.4"
+  },
+  {
+   "w": "with",
+   "s": 173.485,
+   "e": 173.613,
+   "sid": "S07.4"
+  },
+  {
+   "w": "it.",
+   "s": 173.693,
+   "e": 174.013,
+   "sid": "S07.4"
+  },
+  {
+   "w": "So",
+   "s": 175.5,
+   "e": 175.74,
+   "sid": "S08.1"
+  },
+  {
+   "w": "what",
+   "s": 175.772,
+   "e": 175.9,
+   "sid": "S08.1"
+  },
+  {
+   "w": "does",
+   "s": 175.932,
+   "e": 176.06,
+   "sid": "S08.1"
+  },
+  {
+   "w": "the",
+   "s": 176.08,
+   "e": 176.14,
+   "sid": "S08.1"
+  },
+  {
+   "w": "real",
+   "s": 176.188,
+   "e": 176.38,
+   "sid": "S08.1"
+  },
+  {
+   "w": "record",
+   "s": 176.426,
+   "e": 176.7,
+   "sid": "S08.1"
+  },
+  {
+   "w": "say",
+   "s": 176.74,
+   "e": 176.86,
+   "sid": "S08.1"
+  },
+  {
+   "w": "about",
+   "s": 176.9,
+   "e": 177.1,
+   "sid": "S08.1"
+  },
+  {
+   "w": "the",
+   "s": 177.12,
+   "e": 177.18,
+   "sid": "S08.1"
+  },
+  {
+   "w": "twins?",
+   "s": 177.26,
+   "e": 177.9,
+   "sid": "S08.1"
+  },
+  {
+   "w": "Each",
+   "s": 178.076,
+   "e": 178.78,
+   "sid": "S08.2"
+  },
+  {
+   "w": "start",
+   "s": 178.833,
+   "e": 179.1,
+   "sid": "S08.2"
+  },
+  {
+   "w": "month",
+   "s": 179.167,
+   "e": 179.5,
+   "sid": "S08.2"
+  },
+  {
+   "w": "gets",
+   "s": 179.548,
+   "e": 179.74,
+   "sid": "S08.2"
+  },
+  {
+   "w": "one",
+   "s": 179.84,
+   "e": 180.14,
+   "sid": "S08.2"
+  },
+  {
+   "w": "identical",
+   "s": 180.188,
+   "e": 180.62,
+   "sid": "S08.2"
+  },
+  {
+   "w": "house",
+   "s": 180.673,
+   "e": 180.94,
+   "sid": "S08.2"
+  },
+  {
+   "w": "on",
+   "s": 180.967,
+   "e": 181.02,
+   "sid": "S08.2"
+  },
+  {
+   "w": "a",
+   "s": 181.06,
+   "e": 181.1,
+   "sid": "S08.2"
+  },
+  {
+   "w": "long",
+   "s": 181.148,
+   "e": 181.34,
+   "sid": "S08.2"
+  },
+  {
+   "w": "street,",
+   "s": 181.409,
+   "e": 182.38,
+   "sid": "S08.2"
+  },
+  {
+   "w": "January",
+   "s": 182.45,
+   "e": 182.94,
+   "sid": "S08.2"
+  },
+  {
+   "w": "nineteen",
+   "s": 182.993,
+   "e": 183.42,
+   "sid": "S08.2"
+  },
+  {
+   "w": "ninety-one",
+   "s": 183.454,
+   "e": 183.82,
+   "sid": "S08.2"
+  },
+  {
+   "w": "on",
+   "s": 183.847,
+   "e": 183.9,
+   "sid": "S08.2"
+  },
+  {
+   "w": "the",
+   "s": 183.94,
+   "e": 184.06,
+   "sid": "S08.2"
+  },
+  {
+   "w": "left,",
+   "s": 184.124,
+   "e": 184.86,
+   "sid": "S08.2"
+  },
+  {
+   "w": "July",
+   "s": 184.956,
+   "e": 185.34,
+   "sid": "S08.2"
+  },
+  {
+   "w": "twenty",
+   "s": 185.386,
+   "e": 185.66,
+   "sid": "S08.2"
+  },
+  {
+   "w": "sixteen",
+   "s": 185.72,
+   "e": 186.14,
+   "sid": "S08.2"
+  },
+  {
+   "w": "on",
+   "s": 186.22,
+   "e": 186.38,
+   "sid": "S08.2"
+  },
+  {
+   "w": "the",
+   "s": 186.4,
+   "e": 186.46,
+   "sid": "S08.2"
+  },
+  {
+   "w": "right.",
+   "s": 186.527,
+   "e": 187.02,
+   "sid": "S08.2"
+  },
+  {
+   "w": "That's",
+   "s": 187.212,
+   "e": 188.06,
+   "sid": "S08.3"
+  },
+  {
+   "w": "three",
+   "s": 188.127,
+   "e": 188.46,
+   "sid": "S08.3"
+  },
+  {
+   "w": "hundred",
+   "s": 188.5,
+   "e": 188.78,
+   "sid": "S08.3"
+  },
+  {
+   "w": "seven",
+   "s": 188.873,
+   "e": 189.34,
+   "sid": "S08.3"
+  },
+  {
+   "w": "houses,",
+   "s": 189.431,
+   "e": 190.46,
+   "sid": "S08.3"
+  },
+  {
+   "w": "and",
+   "s": 190.48,
+   "e": 190.54,
+   "sid": "S08.3"
+  },
+  {
+   "w": "each",
+   "s": 190.588,
+   "e": 190.78,
+   "sid": "S08.3"
+  },
+  {
+   "w": "one",
+   "s": 190.88,
+   "e": 191.18,
+   "sid": "S08.3"
+  },
+  {
+   "w": "is",
+   "s": 191.26,
+   "e": 191.42,
+   "sid": "S08.3"
+  },
+  {
+   "w": "followed",
+   "s": 191.491,
+   "e": 192.06,
+   "sid": "S08.3"
+  },
+  {
+   "w": "for",
+   "s": 192.1,
+   "e": 192.22,
+   "sid": "S08.3"
+  },
+  {
+   "w": "ten",
+   "s": 192.28,
+   "e": 192.46,
+   "sid": "S08.3"
+  },
+  {
+   "w": "years.",
+   "s": 192.527,
+   "e": 193.1,
+   "sid": "S08.3"
+  },
+  {
+   "w": "Nina's",
+   "s": 193.324,
+   "e": 194.3,
+   "sid": "S08.4"
+  },
+  {
+   "w": "own",
+   "s": 194.34,
+   "e": 194.46,
+   "sid": "S08.4"
+  },
+  {
+   "w": "month",
+   "s": 194.513,
+   "e": 194.78,
+   "sid": "S08.4"
+  },
+  {
+   "w": "sits",
+   "s": 194.86,
+   "e": 195.18,
+   "sid": "S08.4"
+  },
+  {
+   "w": "past",
+   "s": 195.244,
+   "e": 195.5,
+   "sid": "S08.4"
+  },
+  {
+   "w": "the",
+   "s": 195.52,
+   "e": 195.58,
+   "sid": "S08.4"
+  },
+  {
+   "w": "end",
+   "s": 195.62,
+   "e": 195.74,
+   "sid": "S08.4"
+  },
+  {
+   "w": "of",
+   "s": 195.767,
+   "e": 195.82,
+   "sid": "S08.4"
+  },
+  {
+   "w": "the",
+   "s": 195.84,
+   "e": 195.9,
+   "sid": "S08.4"
+  },
+  {
+   "w": "street,",
+   "s": 195.957,
+   "e": 196.46,
+   "sid": "S08.4"
+  },
+  {
+   "w": "where",
+   "s": 196.54,
+   "e": 196.94,
+   "sid": "S08.4"
+  },
+  {
+   "w": "no",
+   "s": 197.02,
+   "e": 197.18,
+   "sid": "S08.4"
+  },
+  {
+   "w": "house",
+   "s": 197.233,
+   "e": 197.5,
+   "sid": "S08.4"
+  },
+  {
+   "w": "stands",
+   "s": 197.557,
+   "e": 197.9,
+   "sid": "S08.4"
+  },
+  {
+   "w": "yet,",
+   "s": 197.96,
+   "e": 198.54,
+   "sid": "S08.4"
+  },
+  {
+   "w": "because",
+   "s": 198.6,
+   "e": 199.02,
+   "sid": "S08.4"
+  },
+  {
+   "w": "its",
+   "s": 199.1,
+   "e": 199.34,
+   "sid": "S08.4"
+  },
+  {
+   "w": "ten",
+   "s": 199.4,
+   "e": 199.58,
+   "sid": "S08.4"
+  },
+  {
+   "w": "years",
+   "s": 199.633,
+   "e": 199.9,
+   "sid": "S08.4"
+  },
+  {
+   "w": "haven't",
+   "s": 199.98,
+   "e": 200.62,
+   "sid": "S08.4"
+  },
+  {
+   "w": "happened.",
+   "s": 200.647,
+   "e": 201.02,
+   "sid": "S08.4"
+  },
+  {
+   "w": "After",
+   "s": 201.247,
+   "e": 202.38,
+   "sid": "S08.5"
+  },
+  {
+   "w": "ten",
+   "s": 202.46,
+   "e": 202.7,
+   "sid": "S08.5"
+  },
+  {
+   "w": "years,",
+   "s": 202.753,
+   "e": 203.18,
+   "sid": "S08.5"
+  },
+  {
+   "w": "a",
+   "s": 203.22,
+   "e": 203.26,
+   "sid": "S08.5"
+  },
+  {
+   "w": "house",
+   "s": 203.313,
+   "e": 203.58,
+   "sid": "S08.5"
+  },
+  {
+   "w": "lights",
+   "s": 203.626,
+   "e": 203.9,
+   "sid": "S08.5"
+  },
+  {
+   "w": "up",
+   "s": 204.007,
+   "e": 204.22,
+   "sid": "S08.5"
+  },
+  {
+   "w": "when",
+   "s": 204.252,
+   "e": 204.38,
+   "sid": "S08.5"
+  },
+  {
+   "w": "the",
+   "s": 204.42,
+   "e": 204.54,
+   "sid": "S08.5"
+  },
+  {
+   "w": "buying",
+   "s": 204.586,
+   "e": 204.86,
+   "sid": "S08.5"
+  },
+  {
+   "w": "twin's",
+   "s": 204.924,
+   "e": 205.34,
+   "sid": "S08.5"
+  },
+  {
+   "w": "equity,",
+   "s": 205.409,
+   "e": 206.06,
+   "sid": "S08.5"
+  },
+  {
+   "w": "after",
+   "s": 206.14,
+   "e": 206.54,
+   "sid": "S08.5"
+  },
+  {
+   "w": "the",
+   "s": 206.56,
+   "e": 206.62,
+   "sid": "S08.5"
+  },
+  {
+   "w": "cost",
+   "s": 206.684,
+   "e": 206.94,
+   "sid": "S08.5"
+  },
+  {
+   "w": "of",
+   "s": 206.967,
+   "e": 207.02,
+   "sid": "S08.5"
+  },
+  {
+   "w": "selling,",
+   "s": 207.08,
+   "e": 207.98,
+   "sid": "S08.5"
+  },
+  {
+   "w": "is",
+   "s": 208.033,
+   "e": 208.14,
+   "sid": "S08.5"
+  },
+  {
+   "w": "bigger",
+   "s": 208.197,
+   "e": 208.54,
+   "sid": "S08.5"
+  },
+  {
+   "w": "than",
+   "s": 208.62,
+   "e": 208.94,
+   "sid": "S08.5"
+  },
+  {
+   "w": "the",
+   "s": 208.96,
+   "e": 209.02,
+   "sid": "S08.5"
+  },
+  {
+   "w": "renting",
+   "s": 209.07,
+   "e": 209.42,
+   "sid": "S08.5"
+  },
+  {
+   "w": "twin's",
+   "s": 209.5,
+   "e": 209.9,
+   "sid": "S08.5"
+  },
+  {
+   "w": "cash.",
+   "s": 209.996,
+   "e": 210.62,
+   "sid": "S08.5"
+  },
+  {
+   "w": "When",
+   "s": 210.796,
+   "e": 211.5,
+   "sid": "S08.6"
+  },
+  {
+   "w": "the",
+   "s": 211.52,
+   "e": 211.58,
+   "sid": "S08.6"
+  },
+  {
+   "w": "cash",
+   "s": 211.644,
+   "e": 211.9,
+   "sid": "S08.6"
+  },
+  {
+   "w": "is",
+   "s": 211.953,
+   "e": 212.06,
+   "sid": "S08.6"
+  },
+  {
+   "w": "bigger,",
+   "s": 212.117,
+   "e": 212.94,
+   "sid": "S08.6"
+  },
+  {
+   "w": "its",
+   "s": 213.0,
+   "e": 213.18,
+   "sid": "S08.6"
+  },
+  {
+   "w": "door",
+   "s": 213.26,
+   "e": 213.58,
+   "sid": "S08.6"
+  },
+  {
+   "w": "goes",
+   "s": 213.66,
+   "e": 213.98,
+   "sid": "S08.6"
+  },
+  {
+   "w": "dark.",
+   "s": 214.06,
+   "e": 214.46,
+   "sid": "S08.6"
+  },
+  {
+   "w": "So,",
+   "s": 215.467,
+   "e": 215.867,
+   "sid": "S09.1"
+  },
+  {
+   "w": "walking",
+   "s": 215.937,
+   "e": 216.427,
+   "sid": "S09.1"
+  },
+  {
+   "w": "the",
+   "s": 216.467,
+   "e": 216.587,
+   "sid": "S09.1"
+  },
+  {
+   "w": "street",
+   "s": 216.644,
+   "e": 216.987,
+   "sid": "S09.1"
+  },
+  {
+   "w": "from",
+   "s": 217.035,
+   "e": 217.227,
+   "sid": "S09.1"
+  },
+  {
+   "w": "nineteen",
+   "s": 217.271,
+   "e": 217.627,
+   "sid": "S09.1"
+  },
+  {
+   "w": "ninety-one,",
+   "s": 217.673,
+   "e": 218.827,
+   "sid": "S09.1"
+  },
+  {
+   "w": "how",
+   "s": 218.887,
+   "e": 219.067,
+   "sid": "S09.1"
+  },
+  {
+   "w": "often",
+   "s": 219.134,
+   "e": 219.467,
+   "sid": "S09.1"
+  },
+  {
+   "w": "did",
+   "s": 219.527,
+   "e": 219.707,
+   "sid": "S09.1"
+  },
+  {
+   "w": "the",
+   "s": 219.727,
+   "e": 219.787,
+   "sid": "S09.1"
+  },
+  {
+   "w": "buying",
+   "s": 219.844,
+   "e": 220.187,
+   "sid": "S09.1"
+  },
+  {
+   "w": "twin",
+   "s": 220.267,
+   "e": 220.587,
+   "sid": "S09.1"
+  },
+  {
+   "w": "end",
+   "s": 220.667,
+   "e": 220.907,
+   "sid": "S09.1"
+  },
+  {
+   "w": "up",
+   "s": 220.96,
+   "e": 221.067,
+   "sid": "S09.1"
+  },
+  {
+   "w": "ahead?",
+   "s": 221.134,
+   "e": 221.787,
+   "sid": "S09.1"
+  },
+  {
+   "w": "Through",
+   "s": 221.927,
+   "e": 222.907,
+   "sid": "S09.2"
+  },
+  {
+   "w": "the",
+   "s": 222.927,
+   "e": 222.987,
+   "sid": "S09.2"
+  },
+  {
+   "w": "1990s,",
+   "s": 223.267,
+   "e": 224.187,
+   "sid": "S09.2"
+  },
+  {
+   "w": "every",
+   "s": 224.24,
+   "e": 224.507,
+   "sid": "S09.2"
+  },
+  {
+   "w": "house",
+   "s": 224.574,
+   "e": 224.907,
+   "sid": "S09.2"
+  },
+  {
+   "w": "lights",
+   "s": 224.976,
+   "e": 225.387,
+   "sid": "S09.2"
+  },
+  {
+   "w": "up.",
+   "s": 225.494,
+   "e": 225.867,
+   "sid": "S09.2"
+  },
+  {
+   "w": "Prices",
+   "s": 225.993,
+   "e": 226.747,
+   "sid": "S09.3"
+  },
+  {
+   "w": "climbed,",
+   "s": 226.807,
+   "e": 227.387,
+   "sid": "S09.3"
+  },
+  {
+   "w": "the",
+   "s": 227.407,
+   "e": 227.467,
+   "sid": "S09.3"
+  },
+  {
+   "w": "loan",
+   "s": 227.515,
+   "e": 227.707,
+   "sid": "S09.3"
+  },
+  {
+   "w": "balance",
+   "s": 227.767,
+   "e": 228.187,
+   "sid": "S09.3"
+  },
+  {
+   "w": "shrank,",
+   "s": 228.24,
+   "e": 229.067,
+   "sid": "S09.3"
+  },
+  {
+   "w": "and",
+   "s": 229.107,
+   "e": 229.227,
+   "sid": "S09.3"
+  },
+  {
+   "w": "by",
+   "s": 229.28,
+   "e": 229.387,
+   "sid": "S09.3"
+  },
+  {
+   "w": "year",
+   "s": 229.435,
+   "e": 229.627,
+   "sid": "S09.3"
+  },
+  {
+   "w": "ten",
+   "s": 229.807,
+   "e": 230.347,
+   "sid": "S09.3"
+  },
+  {
+   "w": "the",
+   "s": 230.387,
+   "e": 230.507,
+   "sid": "S09.3"
+  },
+  {
+   "w": "buyer's",
+   "s": 230.574,
+   "e": 230.987,
+   "sid": "S09.3"
+  },
+  {
+   "w": "equity",
+   "s": 231.056,
+   "e": 231.467,
+   "sid": "S09.3"
+  },
+  {
+   "w": "was",
+   "s": 231.567,
+   "e": 231.867,
+   "sid": "S09.3"
+  },
+  {
+   "w": "ahead",
+   "s": 231.934,
+   "e": 232.267,
+   "sid": "S09.3"
+  },
+  {
+   "w": "of",
+   "s": 232.32,
+   "e": 232.427,
+   "sid": "S09.3"
+  },
+  {
+   "w": "the",
+   "s": 232.467,
+   "e": 232.587,
+   "sid": "S09.3"
+  },
+  {
+   "w": "renter's",
+   "s": 232.635,
+   "e": 232.987,
+   "sid": "S09.3"
+  },
+  {
+   "w": "cash,",
+   "s": 233.083,
+   "e": 233.707,
+   "sid": "S09.3"
+  },
+  {
+   "w": "start",
+   "s": 233.8,
+   "e": 234.267,
+   "sid": "S09.3"
+  },
+  {
+   "w": "after",
+   "s": 234.387,
+   "e": 234.987,
+   "sid": "S09.3"
+  },
+  {
+   "w": "start.",
+   "s": 235.067,
+   "e": 236.427,
+   "sid": "S09.3"
+  },
+  {
+   "w": "Then,",
+   "s": 237.433,
+   "e": 238.073,
+   "sid": "S10.1"
+  },
+  {
+   "w": "from",
+   "s": 238.105,
+   "e": 238.233,
+   "sid": "S10.1"
+  },
+  {
+   "w": "April",
+   "s": 238.313,
+   "e": 238.713,
+   "sid": "S10.1"
+  },
+  {
+   "w": "two",
+   "s": 238.753,
+   "e": 238.873,
+   "sid": "S10.1"
+  },
+  {
+   "w": "thousand",
+   "s": 238.917,
+   "e": 239.273,
+   "sid": "S10.1"
+  },
+  {
+   "w": "one,",
+   "s": 239.413,
+   "e": 240.073,
+   "sid": "S10.1"
+  },
+  {
+   "w": "doors",
+   "s": 240.26,
+   "e": 241.193,
+   "sid": "S10.1"
+  },
+  {
+   "w": "start",
+   "s": 241.273,
+   "e": 241.673,
+   "sid": "S10.1"
+  },
+  {
+   "w": "going",
+   "s": 241.726,
+   "e": 241.993,
+   "sid": "S10.1"
+  },
+  {
+   "w": "dark.",
+   "s": 242.089,
+   "e": 243.233,
+   "sid": "S10.1"
+  },
+  {
+   "w": "Every",
+   "s": 243.36,
+   "e": 243.993,
+   "sid": "S10.2"
+  },
+  {
+   "w": "house",
+   "s": 244.06,
+   "e": 244.393,
+   "sid": "S10.2"
+  },
+  {
+   "w": "where",
+   "s": 244.42,
+   "e": 244.553,
+   "sid": "S10.2"
+  },
+  {
+   "w": "the",
+   "s": 244.573,
+   "e": 244.633,
+   "sid": "S10.2"
+  },
+  {
+   "w": "renting",
+   "s": 244.683,
+   "e": 245.033,
+   "sid": "S10.2"
+  },
+  {
+   "w": "twin",
+   "s": 245.097,
+   "e": 245.353,
+   "sid": "S10.2"
+  },
+  {
+   "w": "came",
+   "s": 245.417,
+   "e": 245.673,
+   "sid": "S10.2"
+  },
+  {
+   "w": "out",
+   "s": 245.713,
+   "e": 245.833,
+   "sid": "S10.2"
+  },
+  {
+   "w": "ahead",
+   "s": 245.9,
+   "e": 246.233,
+   "sid": "S10.2"
+  },
+  {
+   "w": "sits",
+   "s": 246.377,
+   "e": 246.953,
+   "sid": "S10.2"
+  },
+  {
+   "w": "between",
+   "s": 247.003,
+   "e": 247.353,
+   "sid": "S10.2"
+  },
+  {
+   "w": "April",
+   "s": 247.42,
+   "e": 247.753,
+   "sid": "S10.2"
+  },
+  {
+   "w": "two",
+   "s": 247.793,
+   "e": 247.913,
+   "sid": "S10.2"
+  },
+  {
+   "w": "thousand",
+   "s": 247.957,
+   "e": 248.313,
+   "sid": "S10.2"
+  },
+  {
+   "w": "one",
+   "s": 248.493,
+   "e": 249.033,
+   "sid": "S10.2"
+  },
+  {
+   "w": "and",
+   "s": 249.153,
+   "e": 249.513,
+   "sid": "S10.2"
+  },
+  {
+   "w": "December",
+   "s": 249.593,
+   "e": 250.233,
+   "sid": "S10.2"
+  },
+  {
+   "w": "two",
+   "s": 250.333,
+   "e": 250.633,
+   "sid": "S10.2"
+  },
+  {
+   "w": "thousand",
+   "s": 250.686,
+   "e": 251.113,
+   "sid": "S10.2"
+  },
+  {
+   "w": "seven.",
+   "s": 251.193,
+   "e": 251.753,
+   "sid": "S10.2"
+  },
+  {
+   "w": "Of",
+   "s": 252.767,
+   "e": 252.847,
+   "sid": "S11.1"
+  },
+  {
+   "w": "the",
+   "s": 252.867,
+   "e": 252.927,
+   "sid": "S11.1"
+  },
+  {
+   "w": "seventy-two",
+   "s": 252.967,
+   "e": 253.487,
+   "sid": "S11.1"
+  },
+  {
+   "w": "start",
+   "s": 253.554,
+   "e": 253.887,
+   "sid": "S11.1"
+  },
+  {
+   "w": "months",
+   "s": 253.933,
+   "e": 254.207,
+   "sid": "S11.1"
+  },
+  {
+   "w": "from",
+   "s": 254.239,
+   "e": 254.367,
+   "sid": "S11.1"
+  },
+  {
+   "w": "two",
+   "s": 254.407,
+   "e": 254.527,
+   "sid": "S11.1"
+  },
+  {
+   "w": "thousand",
+   "s": 254.571,
+   "e": 254.927,
+   "sid": "S11.1"
+  },
+  {
+   "w": "two",
+   "s": 254.947,
+   "e": 255.007,
+   "sid": "S11.1"
+  },
+  {
+   "w": "through",
+   "s": 255.047,
+   "e": 255.327,
+   "sid": "S11.1"
+  },
+  {
+   "w": "two",
+   "s": 255.347,
+   "e": 255.407,
+   "sid": "S11.1"
+  },
+  {
+   "w": "thousand",
+   "s": 255.443,
+   "e": 255.727,
+   "sid": "S11.1"
+  },
+  {
+   "w": "seven,",
+   "s": 255.78,
+   "e": 256.767,
+   "sid": "S11.1"
+  },
+  {
+   "w": "the",
+   "s": 256.787,
+   "e": 256.847,
+   "sid": "S11.1"
+  },
+  {
+   "w": "buyer",
+   "s": 256.914,
+   "e": 257.247,
+   "sid": "S11.1"
+  },
+  {
+   "w": "ended",
+   "s": 257.3,
+   "e": 257.567,
+   "sid": "S11.1"
+  },
+  {
+   "w": "ahead",
+   "s": 257.634,
+   "e": 257.967,
+   "sid": "S11.1"
+  },
+  {
+   "w": "in",
+   "s": 258.047,
+   "e": 258.207,
+   "sid": "S11.1"
+  },
+  {
+   "w": "just",
+   "s": 258.367,
+   "e": 259.007,
+   "sid": "S11.1"
+  },
+  {
+   "w": "six.",
+   "s": 259.167,
+   "e": 260.287,
+   "sid": "S11.1"
+  },
+  {
+   "w": "Those",
+   "s": 260.394,
+   "e": 260.927,
+   "sid": "S11.2"
+  },
+  {
+   "w": "starts",
+   "s": 260.984,
+   "e": 261.327,
+   "sid": "S11.2"
+  },
+  {
+   "w": "ran",
+   "s": 261.387,
+   "e": 261.567,
+   "sid": "S11.2"
+  },
+  {
+   "w": "straight",
+   "s": 261.603,
+   "e": 261.887,
+   "sid": "S11.2"
+  },
+  {
+   "w": "into",
+   "s": 261.919,
+   "e": 262.047,
+   "sid": "S11.2"
+  },
+  {
+   "w": "the",
+   "s": 262.087,
+   "e": 262.207,
+   "sid": "S11.2"
+  },
+  {
+   "w": "fall",
+   "s": 262.287,
+   "e": 262.607,
+   "sid": "S11.2"
+  },
+  {
+   "w": "in",
+   "s": 262.714,
+   "e": 262.927,
+   "sid": "S11.2"
+  },
+  {
+   "w": "national",
+   "s": 262.98,
+   "e": 263.407,
+   "sid": "S11.2"
+  },
+  {
+   "w": "home",
+   "s": 263.455,
+   "e": 263.647,
+   "sid": "S11.2"
+  },
+  {
+   "w": "prices.",
+   "s": 263.716,
+   "e": 264.287,
+   "sid": "S11.2"
+  },
+  {
+   "w": "Then",
+   "s": 265.3,
+   "e": 265.38,
+   "sid": "S12.1"
+  },
+  {
+   "w": "the",
+   "s": 265.4,
+   "e": 265.46,
+   "sid": "S12.1"
+  },
+  {
+   "w": "street",
+   "s": 265.506,
+   "e": 265.78,
+   "sid": "S12.1"
+  },
+  {
+   "w": "lights",
+   "s": 265.814,
+   "e": 266.02,
+   "sid": "S12.1"
+  },
+  {
+   "w": "up",
+   "s": 266.073,
+   "e": 266.18,
+   "sid": "S12.1"
+  },
+  {
+   "w": "again:",
+   "s": 266.247,
+   "e": 267.22,
+   "sid": "S12.1"
+  },
+  {
+   "w": "every",
+   "s": 267.3,
+   "e": 267.7,
+   "sid": "S12.1"
+  },
+  {
+   "w": "start",
+   "s": 267.78,
+   "e": 268.18,
+   "sid": "S12.1"
+  },
+  {
+   "w": "from",
+   "s": 268.212,
+   "e": 268.34,
+   "sid": "S12.1"
+  },
+  {
+   "w": "two",
+   "s": 268.4,
+   "e": 268.58,
+   "sid": "S12.1"
+  },
+  {
+   "w": "thousand",
+   "s": 268.616,
+   "e": 268.9,
+   "sid": "S12.1"
+  },
+  {
+   "w": "nine",
+   "s": 268.964,
+   "e": 269.22,
+   "sid": "S12.1"
+  },
+  {
+   "w": "to",
+   "s": 269.3,
+   "e": 269.46,
+   "sid": "S12.1"
+  },
+  {
+   "w": "mid-twenty",
+   "s": 269.54,
+   "e": 270.02,
+   "sid": "S12.1"
+  },
+  {
+   "w": "sixteen",
+   "s": 270.15,
+   "e": 271.06,
+   "sid": "S12.1"
+  },
+  {
+   "w": "ended",
+   "s": 271.153,
+   "e": 271.62,
+   "sid": "S12.1"
+  },
+  {
+   "w": "with",
+   "s": 271.652,
+   "e": 271.78,
+   "sid": "S12.1"
+  },
+  {
+   "w": "the",
+   "s": 271.8,
+   "e": 271.86,
+   "sid": "S12.1"
+  },
+  {
+   "w": "buyer",
+   "s": 271.927,
+   "e": 272.26,
+   "sid": "S12.1"
+  },
+  {
+   "w": "ahead.",
+   "s": 272.327,
+   "e": 272.661,
+   "sid": "S12.1"
+  },
+  {
+   "w": "Those",
+   "s": 272.833,
+   "e": 273.7,
+   "sid": "S12.2"
+  },
+  {
+   "w": "buyers",
+   "s": 273.769,
+   "e": 274.18,
+   "sid": "S12.2"
+  },
+  {
+   "w": "started",
+   "s": 274.23,
+   "e": 274.58,
+   "sid": "S12.2"
+  },
+  {
+   "w": "from",
+   "s": 274.612,
+   "e": 274.74,
+   "sid": "S12.2"
+  },
+  {
+   "w": "lower",
+   "s": 274.78,
+   "e": 274.98,
+   "sid": "S12.2"
+  },
+  {
+   "w": "prices",
+   "s": 275.037,
+   "e": 275.38,
+   "sid": "S12.2"
+  },
+  {
+   "w": "and",
+   "s": 275.42,
+   "e": 275.54,
+   "sid": "S12.2"
+  },
+  {
+   "w": "lower",
+   "s": 275.58,
+   "e": 275.78,
+   "sid": "S12.2"
+  },
+  {
+   "w": "mortgage",
+   "s": 275.824,
+   "e": 276.18,
+   "sid": "S12.2"
+  },
+  {
+   "w": "rates.",
+   "s": 276.247,
+   "e": 276.82,
+   "sid": "S12.2"
+  },
+  {
+   "w": "Counted",
+   "s": 276.953,
+   "e": 277.7,
+   "sid": "S12.3"
+  },
+  {
+   "w": "along",
+   "s": 277.74,
+   "e": 277.94,
+   "sid": "S12.3"
+  },
+  {
+   "w": "the",
+   "s": 277.98,
+   "e": 278.1,
+   "sid": "S12.3"
+  },
+  {
+   "w": "whole",
+   "s": 278.127,
+   "e": 278.26,
+   "sid": "S12.3"
+  },
+  {
+   "w": "street,",
+   "s": 278.329,
+   "e": 279.06,
+   "sid": "S12.3"
+  },
+  {
+   "w": "the",
+   "s": 279.08,
+   "e": 279.14,
+   "sid": "S12.3"
+  },
+  {
+   "w": "picture",
+   "s": 279.18,
+   "e": 279.46,
+   "sid": "S12.3"
+  },
+  {
+   "w": "is",
+   "s": 279.513,
+   "e": 279.62,
+   "sid": "S12.3"
+  },
+  {
+   "w": "this.",
+   "s": 279.7,
+   "e": 280.34,
+   "sid": "S12.3"
+  },
+  {
+   "w": "In",
+   "s": 281.333,
+   "e": 281.413,
+   "sid": "S13.1"
+  },
+  {
+   "w": "about",
+   "s": 281.453,
+   "e": 281.653,
+   "sid": "S13.1"
+  },
+  {
+   "w": "three",
+   "s": 281.68,
+   "e": 281.813,
+   "sid": "S13.1"
+  },
+  {
+   "w": "out",
+   "s": 281.853,
+   "e": 281.973,
+   "sid": "S13.1"
+  },
+  {
+   "w": "of",
+   "s": 282.0,
+   "e": 282.053,
+   "sid": "S13.1"
+  },
+  {
+   "w": "four",
+   "s": 282.133,
+   "e": 282.453,
+   "sid": "S13.1"
+  },
+  {
+   "w": "of",
+   "s": 282.506,
+   "e": 282.613,
+   "sid": "S13.1"
+  },
+  {
+   "w": "the",
+   "s": 282.673,
+   "e": 282.853,
+   "sid": "S13.1"
+  },
+  {
+   "w": "three",
+   "s": 282.893,
+   "e": 283.093,
+   "sid": "S13.1"
+  },
+  {
+   "w": "hundred",
+   "s": 283.123,
+   "e": 283.333,
+   "sid": "S13.1"
+  },
+  {
+   "w": "seven",
+   "s": 283.4,
+   "e": 283.733,
+   "sid": "S13.1"
+  },
+  {
+   "w": "start",
+   "s": 283.8,
+   "e": 284.133,
+   "sid": "S13.1"
+  },
+  {
+   "w": "months,",
+   "s": 284.179,
+   "e": 285.013,
+   "sid": "S13.1"
+  },
+  {
+   "w": "the",
+   "s": 285.053,
+   "e": 285.173,
+   "sid": "S13.1"
+  },
+  {
+   "w": "buyer",
+   "s": 285.24,
+   "e": 285.573,
+   "sid": "S13.1"
+  },
+  {
+   "w": "ended",
+   "s": 285.626,
+   "e": 285.893,
+   "sid": "S13.1"
+  },
+  {
+   "w": "ahead.",
+   "s": 285.96,
+   "e": 286.533,
+   "sid": "S13.1"
+  },
+  {
+   "w": "In",
+   "s": 286.72,
+   "e": 287.093,
+   "sid": "S13.2"
+  },
+  {
+   "w": "the",
+   "s": 287.113,
+   "e": 287.173,
+   "sid": "S13.2"
+  },
+  {
+   "w": "other",
+   "s": 287.2,
+   "e": 287.333,
+   "sid": "S13.2"
+  },
+  {
+   "w": "seventy-five,",
+   "s": 287.383,
+   "e": 288.533,
+   "sid": "S13.2"
+  },
+  {
+   "w": "the",
+   "s": 288.573,
+   "e": 288.693,
+   "sid": "S13.2"
+  },
+  {
+   "w": "renter",
+   "s": 288.757,
+   "e": 289.093,
+   "sid": "S13.2"
+  },
+  {
+   "w": "did.",
+   "s": 289.173,
+   "e": 289.573,
+   "sid": "S13.2"
+  },
+  {
+   "w": "That",
+   "s": 289.749,
+   "e": 290.453,
+   "sid": "S13.3"
+  },
+  {
+   "w": "count",
+   "s": 290.506,
+   "e": 290.773,
+   "sid": "S13.3"
+  },
+  {
+   "w": "already",
+   "s": 290.823,
+   "e": 291.173,
+   "sid": "S13.3"
+  },
+  {
+   "w": "includes",
+   "s": 291.217,
+   "e": 291.573,
+   "sid": "S13.3"
+  },
+  {
+   "w": "interest,",
+   "s": 291.635,
+   "e": 292.293,
+   "sid": "S13.3"
+  },
+  {
+   "w": "property",
+   "s": 292.329,
+   "e": 292.613,
+   "sid": "S13.3"
+  },
+  {
+   "w": "tax,",
+   "s": 292.713,
+   "e": 293.093,
+   "sid": "S13.3"
+  },
+  {
+   "w": "insurance,",
+   "s": 293.157,
+   "e": 293.813,
+   "sid": "S13.3"
+  },
+  {
+   "w": "repairs,",
+   "s": 293.893,
+   "e": 294.773,
+   "sid": "S13.3"
+  },
+  {
+   "w": "and",
+   "s": 294.813,
+   "e": 294.933,
+   "sid": "S13.3"
+  },
+  {
+   "w": "the",
+   "s": 294.953,
+   "e": 295.013,
+   "sid": "S13.3"
+  },
+  {
+   "w": "cost",
+   "s": 295.077,
+   "e": 295.333,
+   "sid": "S13.3"
+  },
+  {
+   "w": "of",
+   "s": 295.36,
+   "e": 295.413,
+   "sid": "S13.3"
+  },
+  {
+   "w": "buying",
+   "s": 295.482,
+   "e": 295.893,
+   "sid": "S13.3"
+  },
+  {
+   "w": "and",
+   "s": 296.033,
+   "e": 296.453,
+   "sid": "S13.3"
+  },
+  {
+   "w": "of",
+   "s": 296.48,
+   "e": 296.533,
+   "sid": "S13.3"
+  },
+  {
+   "w": "selling.",
+   "s": 296.583,
+   "e": 297.173,
+   "sid": "S13.3"
+  },
+  {
+   "w": "That",
+   "s": 298.167,
+   "e": 298.247,
+   "sid": "S14.1"
+  },
+  {
+   "w": "lit",
+   "s": 298.307,
+   "e": 298.487,
+   "sid": "S14.1"
+  },
+  {
+   "w": "share",
+   "s": 298.54,
+   "e": 298.807,
+   "sid": "S14.1"
+  },
+  {
+   "w": "is",
+   "s": 298.834,
+   "e": 298.887,
+   "sid": "S14.1"
+  },
+  {
+   "w": "a",
+   "s": 298.927,
+   "e": 298.967,
+   "sid": "S14.1"
+  },
+  {
+   "w": "count",
+   "s": 299.02,
+   "e": 299.287,
+   "sid": "S14.1"
+  },
+  {
+   "w": "of",
+   "s": 299.314,
+   "e": 299.367,
+   "sid": "S14.1"
+  },
+  {
+   "w": "history,",
+   "s": 299.417,
+   "e": 300.087,
+   "sid": "S14.1"
+  },
+  {
+   "w": "not",
+   "s": 300.127,
+   "e": 300.247,
+   "sid": "S14.1"
+  },
+  {
+   "w": "a",
+   "s": 300.327,
+   "e": 300.407,
+   "sid": "S14.1"
+  },
+  {
+   "w": "promise",
+   "s": 300.457,
+   "e": 300.807,
+   "sid": "S14.1"
+  },
+  {
+   "w": "for",
+   "s": 300.847,
+   "e": 300.967,
+   "sid": "S14.1"
+  },
+  {
+   "w": "any",
+   "s": 301.007,
+   "e": 301.127,
+   "sid": "S14.1"
+  },
+  {
+   "w": "one",
+   "s": 301.167,
+   "e": 301.287,
+   "sid": "S14.1"
+  },
+  {
+   "w": "month.",
+   "s": 301.367,
+   "e": 302.007,
+   "sid": "S14.1"
+  },
+  {
+   "w": "In",
+   "s": 302.354,
+   "e": 303.047,
+   "sid": "S14.2"
+  },
+  {
+   "w": "the",
+   "s": 303.067,
+   "e": 303.127,
+   "sid": "S14.2"
+  },
+  {
+   "w": "middle",
+   "s": 303.161,
+   "e": 303.367,
+   "sid": "S14.2"
+  },
+  {
+   "w": "start",
+   "s": 303.434,
+   "e": 303.767,
+   "sid": "S14.2"
+  },
+  {
+   "w": "month,",
+   "s": 303.807,
+   "e": 304.247,
+   "sid": "S14.2"
+  },
+  {
+   "w": "the",
+   "s": 304.267,
+   "e": 304.327,
+   "sid": "S14.2"
+  },
+  {
+   "w": "buyer",
+   "s": 304.38,
+   "e": 304.647,
+   "sid": "S14.2"
+  },
+  {
+   "w": "ended",
+   "s": 304.7,
+   "e": 304.967,
+   "sid": "S14.2"
+  },
+  {
+   "w": "about",
+   "s": 305.007,
+   "e": 305.207,
+   "sid": "S14.2"
+  },
+  {
+   "w": "one",
+   "s": 305.247,
+   "e": 305.367,
+   "sid": "S14.2"
+  },
+  {
+   "w": "hundred",
+   "s": 305.397,
+   "e": 305.607,
+   "sid": "S14.2"
+  },
+  {
+   "w": "fifty-seven",
+   "s": 305.66,
+   "e": 306.167,
+   "sid": "S14.2"
+  },
+  {
+   "w": "thousand",
+   "s": 306.22,
+   "e": 306.647,
+   "sid": "S14.2"
+  },
+  {
+   "w": "dollars",
+   "s": 306.697,
+   "e": 307.047,
+   "sid": "S14.2"
+  },
+  {
+   "w": "ahead.",
+   "s": 307.114,
+   "e": 307.687,
+   "sid": "S14.2"
+  },
+  {
+   "w": "But",
+   "s": 307.847,
+   "e": 308.327,
+   "sid": "S14.3"
+  },
+  {
+   "w": "the",
+   "s": 308.347,
+   "e": 308.407,
+   "sid": "S14.3"
+  },
+  {
+   "w": "spread",
+   "s": 308.453,
+   "e": 308.727,
+   "sid": "S14.3"
+  },
+  {
+   "w": "around",
+   "s": 308.761,
+   "e": 308.967,
+   "sid": "S14.3"
+  },
+  {
+   "w": "that",
+   "s": 308.999,
+   "e": 309.127,
+   "sid": "S14.3"
+  },
+  {
+   "w": "middle",
+   "s": 309.184,
+   "e": 309.527,
+   "sid": "S14.3"
+  },
+  {
+   "w": "is",
+   "s": 309.634,
+   "e": 309.847,
+   "sid": "S14.3"
+  },
+  {
+   "w": "wide.",
+   "s": 309.959,
+   "e": 310.647,
+   "sid": "S14.3"
+  },
+  {
+   "w": "The",
+   "s": 311.633,
+   "e": 311.713,
+   "sid": "S15.1"
+  },
+  {
+   "w": "brightest",
+   "s": 311.761,
+   "e": 312.193,
+   "sid": "S15.1"
+  },
+  {
+   "w": "house",
+   "s": 312.273,
+   "e": 312.673,
+   "sid": "S15.1"
+  },
+  {
+   "w": "is",
+   "s": 312.86,
+   "e": 313.233,
+   "sid": "S15.1"
+  },
+  {
+   "w": "April",
+   "s": 313.3,
+   "e": 313.633,
+   "sid": "S15.1"
+  },
+  {
+   "w": "twenty",
+   "s": 313.679,
+   "e": 313.953,
+   "sid": "S15.1"
+  },
+  {
+   "w": "twelve:",
+   "s": 314.033,
+   "e": 315.233,
+   "sid": "S15.1"
+  },
+  {
+   "w": "ten",
+   "s": 315.313,
+   "e": 315.553,
+   "sid": "S15.1"
+  },
+  {
+   "w": "years",
+   "s": 315.593,
+   "e": 315.793,
+   "sid": "S15.1"
+  },
+  {
+   "w": "later,",
+   "s": 315.86,
+   "e": 316.433,
+   "sid": "S15.1"
+  },
+  {
+   "w": "the",
+   "s": 316.453,
+   "e": 316.513,
+   "sid": "S15.1"
+  },
+  {
+   "w": "buyer",
+   "s": 316.566,
+   "e": 316.833,
+   "sid": "S15.1"
+  },
+  {
+   "w": "was",
+   "s": 316.873,
+   "e": 316.993,
+   "sid": "S15.1"
+  },
+  {
+   "w": "about",
+   "s": 317.046,
+   "e": 317.313,
+   "sid": "S15.1"
+  },
+  {
+   "w": "four",
+   "s": 317.377,
+   "e": 317.633,
+   "sid": "S15.1"
+  },
+  {
+   "w": "hundred",
+   "s": 317.673,
+   "e": 317.953,
+   "sid": "S15.1"
+  },
+  {
+   "w": "eighty-four",
+   "s": 318.022,
+   "e": 318.753,
+   "sid": "S15.1"
+  },
+  {
+   "w": "thousand",
+   "s": 318.824,
+   "e": 319.393,
+   "sid": "S15.1"
+  },
+  {
+   "w": "dollars",
+   "s": 319.483,
+   "e": 320.113,
+   "sid": "S15.1"
+  },
+  {
+   "w": "ahead.",
+   "s": 320.233,
+   "e": 320.993,
+   "sid": "S15.1"
+  },
+  {
+   "w": "That",
+   "s": 322.0,
+   "e": 322.08,
+   "sid": "S16.1"
+  },
+  {
+   "w": "loan",
+   "s": 322.144,
+   "e": 322.4,
+   "sid": "S16.1"
+  },
+  {
+   "w": "started",
+   "s": 322.45,
+   "e": 322.8,
+   "sid": "S16.1"
+  },
+  {
+   "w": "at",
+   "s": 322.853,
+   "e": 322.96,
+   "sid": "S16.1"
+  },
+  {
+   "w": "three",
+   "s": 322.987,
+   "e": 323.12,
+   "sid": "S16.1"
+  },
+  {
+   "w": "point",
+   "s": 323.187,
+   "e": 323.52,
+   "sid": "S16.1"
+  },
+  {
+   "w": "nine",
+   "s": 323.536,
+   "e": 323.6,
+   "sid": "S16.1"
+  },
+  {
+   "w": "one",
+   "s": 323.66,
+   "e": 323.84,
+   "sid": "S16.1"
+  },
+  {
+   "w": "percent,",
+   "s": 323.92,
+   "e": 325.28,
+   "sid": "S16.1"
+  },
+  {
+   "w": "and",
+   "s": 325.3,
+   "e": 325.36,
+   "sid": "S16.1"
+  },
+  {
+   "w": "national",
+   "s": 325.404,
+   "e": 325.76,
+   "sid": "S16.1"
+  },
+  {
+   "w": "prices",
+   "s": 325.817,
+   "e": 326.16,
+   "sid": "S16.1"
+  },
+  {
+   "w": "more",
+   "s": 326.208,
+   "e": 326.4,
+   "sid": "S16.1"
+  },
+  {
+   "w": "than",
+   "s": 326.432,
+   "e": 326.56,
+   "sid": "S16.1"
+  },
+  {
+   "w": "doubled",
+   "s": 326.62,
+   "e": 327.04,
+   "sid": "S16.1"
+  },
+  {
+   "w": "over",
+   "s": 327.088,
+   "e": 327.28,
+   "sid": "S16.1"
+  },
+  {
+   "w": "the",
+   "s": 327.3,
+   "e": 327.36,
+   "sid": "S16.1"
+  },
+  {
+   "w": "window.",
+   "s": 327.429,
+   "e": 328.0,
+   "sid": "S16.1"
+  },
+  {
+   "w": "It's",
+   "s": 328.32,
+   "e": 329.04,
+   "sid": "S16.2"
+  },
+  {
+   "w": "one",
+   "s": 329.08,
+   "e": 329.2,
+   "sid": "S16.2"
+  },
+  {
+   "w": "month",
+   "s": 329.267,
+   "e": 329.6,
+   "sid": "S16.2"
+  },
+  {
+   "w": "at",
+   "s": 329.68,
+   "e": 329.84,
+   "sid": "S16.2"
+  },
+  {
+   "w": "the",
+   "s": 329.88,
+   "e": 330.0,
+   "sid": "S16.2"
+  },
+  {
+   "w": "very",
+   "s": 330.08,
+   "e": 330.4,
+   "sid": "S16.2"
+  },
+  {
+   "w": "top",
+   "s": 330.5,
+   "e": 330.8,
+   "sid": "S16.2"
+  },
+  {
+   "w": "of",
+   "s": 330.827,
+   "e": 330.88,
+   "sid": "S16.2"
+  },
+  {
+   "w": "the",
+   "s": 330.9,
+   "e": 330.96,
+   "sid": "S16.2"
+  },
+  {
+   "w": "range,",
+   "s": 331.04,
+   "e": 331.92,
+   "sid": "S16.2"
+  },
+  {
+   "w": "not",
+   "s": 331.98,
+   "e": 332.16,
+   "sid": "S16.2"
+  },
+  {
+   "w": "a",
+   "s": 332.2,
+   "e": 332.24,
+   "sid": "S16.2"
+  },
+  {
+   "w": "typical",
+   "s": 332.29,
+   "e": 332.64,
+   "sid": "S16.2"
+  },
+  {
+   "w": "one.",
+   "s": 332.7,
+   "e": 333.04,
+   "sid": "S16.2"
+  },
+  {
+   "w": "And",
+   "s": 333.24,
+   "e": 333.84,
+   "sid": "S16.3"
+  },
+  {
+   "w": "the",
+   "s": 333.86,
+   "e": 333.92,
+   "sid": "S16.3"
+  },
+  {
+   "w": "darkest",
+   "s": 333.97,
+   "e": 334.32,
+   "sid": "S16.3"
+  },
+  {
+   "w": "house",
+   "s": 334.387,
+   "e": 334.72,
+   "sid": "S16.3"
+  },
+  {
+   "w": "is",
+   "s": 334.933,
+   "e": 335.36,
+   "sid": "S16.3"
+  },
+  {
+   "w": "June",
+   "s": 335.456,
+   "e": 335.84,
+   "sid": "S16.3"
+  },
+  {
+   "w": "two",
+   "s": 335.94,
+   "e": 336.24,
+   "sid": "S16.3"
+  },
+  {
+   "w": "thousand",
+   "s": 336.284,
+   "e": 336.64,
+   "sid": "S16.3"
+  },
+  {
+   "w": "six.",
+   "s": 336.78,
+   "e": 337.44,
+   "sid": "S16.3"
+  },
+  {
+   "w": "[serious]",
+   "s": 338.433,
+   "e": 338.62,
+   "sid": "S17.1"
+  },
+  {
+   "w": "Ten",
+   "s": 338.633,
+   "e": 338.673,
+   "sid": "S17.1"
+  },
+  {
+   "w": "years",
+   "s": 338.713,
+   "e": 338.913,
+   "sid": "S17.1"
+  },
+  {
+   "w": "on,",
+   "s": 339.02,
+   "e": 339.393,
+   "sid": "S17.1"
+  },
+  {
+   "w": "the",
+   "s": 339.433,
+   "e": 339.553,
+   "sid": "S17.1"
+  },
+  {
+   "w": "June",
+   "s": 339.601,
+   "e": 339.793,
+   "sid": "S17.1"
+  },
+  {
+   "w": "two",
+   "s": 339.833,
+   "e": 339.953,
+   "sid": "S17.1"
+  },
+  {
+   "w": "thousand",
+   "s": 339.997,
+   "e": 340.353,
+   "sid": "S17.1"
+  },
+  {
+   "w": "six",
+   "s": 340.413,
+   "e": 340.593,
+   "sid": "S17.1"
+  },
+  {
+   "w": "buyer",
+   "s": 340.66,
+   "e": 340.993,
+   "sid": "S17.1"
+  },
+  {
+   "w": "was",
+   "s": 341.073,
+   "e": 341.313,
+   "sid": "S17.1"
+  },
+  {
+   "w": "eighty-two",
+   "s": 341.37,
+   "e": 341.793,
+   "sid": "S17.1"
+  },
+  {
+   "w": "thousand",
+   "s": 341.846,
+   "e": 342.273,
+   "sid": "S17.1"
+  },
+  {
+   "w": "three",
+   "s": 342.34,
+   "e": 342.673,
+   "sid": "S17.1"
+  },
+  {
+   "w": "hundred",
+   "s": 342.713,
+   "e": 342.993,
+   "sid": "S17.1"
+  },
+  {
+   "w": "eighty-five",
+   "s": 343.039,
+   "e": 343.553,
+   "sid": "S17.1"
+  },
+  {
+   "w": "dollars",
+   "s": 343.613,
+   "e": 344.033,
+   "sid": "S17.1"
+  },
+  {
+   "w": "behind.",
+   "s": 344.136,
+   "e": 344.833,
+   "sid": "S17.1"
+  },
+  {
+   "w": "Beside",
+   "s": 346.333,
+   "e": 346.653,
+   "sid": "S18.1"
+  },
+  {
+   "w": "that",
+   "s": 346.685,
+   "e": 346.813,
+   "sid": "S18.1"
+  },
+  {
+   "w": "house",
+   "s": 346.88,
+   "e": 347.213,
+   "sid": "S18.1"
+  },
+  {
+   "w": "stand",
+   "s": 347.28,
+   "e": 347.613,
+   "sid": "S18.1"
+  },
+  {
+   "w": "a",
+   "s": 347.653,
+   "e": 347.693,
+   "sid": "S18.1"
+  },
+  {
+   "w": "pair",
+   "s": 347.725,
+   "e": 347.853,
+   "sid": "S18.1"
+  },
+  {
+   "w": "of",
+   "s": 347.88,
+   "e": 347.933,
+   "sid": "S18.1"
+  },
+  {
+   "w": "stacks:",
+   "s": 348.013,
+   "e": 349.133,
+   "sid": "S18.1"
+  },
+  {
+   "w": "the",
+   "s": 349.153,
+   "e": 349.213,
+   "sid": "S18.1"
+  },
+  {
+   "w": "buyer's",
+   "s": 349.28,
+   "e": 349.693,
+   "sid": "S18.1"
+  },
+  {
+   "w": "equity,",
+   "s": 349.75,
+   "e": 350.493,
+   "sid": "S18.1"
+  },
+  {
+   "w": "one",
+   "s": 350.513,
+   "e": 350.573,
+   "sid": "S18.1"
+  },
+  {
+   "w": "hundred",
+   "s": 350.603,
+   "e": 350.813,
+   "sid": "S18.1"
+  },
+  {
+   "w": "fifteen",
+   "s": 350.863,
+   "e": 351.213,
+   "sid": "S18.1"
+  },
+  {
+   "w": "thousand",
+   "s": 351.275,
+   "e": 351.773,
+   "sid": "S18.1"
+  },
+  {
+   "w": "three",
+   "s": 351.786,
+   "e": 351.853,
+   "sid": "S18.1"
+  },
+  {
+   "w": "hundred",
+   "s": 351.883,
+   "e": 352.093,
+   "sid": "S18.1"
+  },
+  {
+   "w": "seventy-four",
+   "s": 352.143,
+   "e": 352.733,
+   "sid": "S18.1"
+  },
+  {
+   "w": "dollars,",
+   "s": 352.783,
+   "e": 353.853,
+   "sid": "S18.1"
+  },
+  {
+   "w": "and",
+   "s": 353.873,
+   "e": 353.933,
+   "sid": "S18.1"
+  },
+  {
+   "w": "the",
+   "s": 353.953,
+   "e": 354.013,
+   "sid": "S18.1"
+  },
+  {
+   "w": "renter's",
+   "s": 354.061,
+   "e": 354.413,
+   "sid": "S18.1"
+  },
+  {
+   "w": "cash,",
+   "s": 354.509,
+   "e": 355.613,
+   "sid": "S18.1"
+  },
+  {
+   "w": "one",
+   "s": 355.633,
+   "e": 355.693,
+   "sid": "S18.1"
+  },
+  {
+   "w": "hundred",
+   "s": 355.733,
+   "e": 356.013,
+   "sid": "S18.1"
+  },
+  {
+   "w": "ninety-seven",
+   "s": 356.07,
+   "e": 356.573,
+   "sid": "S18.1"
+  },
+  {
+   "w": "thousand",
+   "s": 356.644,
+   "e": 357.213,
+   "sid": "S18.1"
+  },
+  {
+   "w": "seven",
+   "s": 357.24,
+   "e": 357.373,
+   "sid": "S18.1"
+  },
+  {
+   "w": "hundred",
+   "s": 357.413,
+   "e": 357.693,
+   "sid": "S18.1"
+  },
+  {
+   "w": "sixty",
+   "s": 357.773,
+   "e": 358.173,
+   "sid": "S18.1"
+  },
+  {
+   "w": "dollars.",
+   "s": 358.233,
+   "e": 358.973,
+   "sid": "S18.1"
+  },
+  {
+   "w": "National",
+   "s": 359.966,
+   "e": 360.366,
+   "sid": "S19.1"
+  },
+  {
+   "w": "prices",
+   "s": 360.423,
+   "e": 360.767,
+   "sid": "S19.1"
+  },
+  {
+   "w": "rose",
+   "s": 360.83,
+   "e": 361.087,
+   "sid": "S19.1"
+  },
+  {
+   "w": "only",
+   "s": 361.118,
+   "e": 361.246,
+   "sid": "S19.1"
+  },
+  {
+   "w": "three",
+   "s": 361.286,
+   "e": 361.486,
+   "sid": "S19.1"
+  },
+  {
+   "w": "point",
+   "s": 361.539,
+   "e": 361.806,
+   "sid": "S19.1"
+  },
+  {
+   "w": "two",
+   "s": 361.827,
+   "e": 361.887,
+   "sid": "S19.1"
+  },
+  {
+   "w": "percent",
+   "s": 361.947,
+   "e": 362.366,
+   "sid": "S19.1"
+  },
+  {
+   "w": "in",
+   "s": 362.419,
+   "e": 362.526,
+   "sid": "S19.1"
+  },
+  {
+   "w": "those",
+   "s": 362.553,
+   "e": 362.687,
+   "sid": "S19.1"
+  },
+  {
+   "w": "ten",
+   "s": 362.767,
+   "e": 363.007,
+   "sid": "S19.1"
+  },
+  {
+   "w": "years,",
+   "s": 363.046,
+   "e": 363.806,
+   "sid": "S19.1"
+  },
+  {
+   "w": "while",
+   "s": 363.834,
+   "e": 363.966,
+   "sid": "S19.1"
+  },
+  {
+   "w": "the",
+   "s": 363.986,
+   "e": 364.046,
+   "sid": "S19.1"
+  },
+  {
+   "w": "buyer",
+   "s": 364.113,
+   "e": 364.447,
+   "sid": "S19.1"
+  },
+  {
+   "w": "paid",
+   "s": 364.51,
+   "e": 364.767,
+   "sid": "S19.1"
+  },
+  {
+   "w": "interest,",
+   "s": 364.82,
+   "e": 365.406,
+   "sid": "S19.1"
+  },
+  {
+   "w": "tax,",
+   "s": 365.507,
+   "e": 366.127,
+   "sid": "S19.1"
+  },
+  {
+   "w": "insurance",
+   "s": 366.183,
+   "e": 366.687,
+   "sid": "S19.1"
+  },
+  {
+   "w": "and",
+   "s": 366.746,
+   "e": 366.926,
+   "sid": "S19.1"
+  },
+  {
+   "w": "repairs",
+   "s": 367.036,
+   "e": 367.806,
+   "sid": "S19.1"
+  },
+  {
+   "w": "the",
+   "s": 367.866,
+   "e": 368.046,
+   "sid": "S19.1"
+  },
+  {
+   "w": "whole",
+   "s": 368.087,
+   "e": 368.286,
+   "sid": "S19.1"
+  },
+  {
+   "w": "way.",
+   "s": 368.366,
+   "e": 368.687,
+   "sid": "S19.1"
+  },
+  {
+   "w": "And",
+   "s": 368.926,
+   "e": 369.647,
+   "sid": "S19.2"
+  },
+  {
+   "w": "that",
+   "s": 369.678,
+   "e": 369.806,
+   "sid": "S19.2"
+  },
+  {
+   "w": "loan",
+   "s": 369.87,
+   "e": 370.127,
+   "sid": "S19.2"
+  },
+  {
+   "w": "started",
+   "s": 370.236,
+   "e": 371.007,
+   "sid": "S19.2"
+  },
+  {
+   "w": "at",
+   "s": 371.087,
+   "e": 371.246,
+   "sid": "S19.2"
+  },
+  {
+   "w": "six",
+   "s": 371.346,
+   "e": 371.647,
+   "sid": "S19.2"
+  },
+  {
+   "w": "point",
+   "s": 371.714,
+   "e": 372.046,
+   "sid": "S19.2"
+  },
+  {
+   "w": "six",
+   "s": 372.207,
+   "e": 372.687,
+   "sid": "S19.2"
+  },
+  {
+   "w": "eight",
+   "s": 372.7,
+   "e": 372.767,
+   "sid": "S19.2"
+  },
+  {
+   "w": "percent.",
+   "s": 372.846,
+   "e": 373.726,
+   "sid": "S19.2"
+  },
+  {
+   "w": "That's",
+   "s": 373.839,
+   "e": 374.366,
+   "sid": "S19.3"
+  },
+  {
+   "w": "the",
+   "s": 374.387,
+   "e": 374.447,
+   "sid": "S19.3"
+  },
+  {
+   "w": "national",
+   "s": 374.5,
+   "e": 374.926,
+   "sid": "S19.3"
+  },
+  {
+   "w": "index,",
+   "s": 375.007,
+   "e": 375.806,
+   "sid": "S19.3"
+  },
+  {
+   "w": "not",
+   "s": 375.866,
+   "e": 376.046,
+   "sid": "S19.3"
+  },
+  {
+   "w": "one",
+   "s": 376.127,
+   "e": 376.366,
+   "sid": "S19.3"
+  },
+  {
+   "w": "house;",
+   "s": 376.447,
+   "e": 377.486,
+   "sid": "S19.3"
+  },
+  {
+   "w": "a",
+   "s": 377.526,
+   "e": 377.567,
+   "sid": "S19.3"
+  },
+  {
+   "w": "single",
+   "s": 377.623,
+   "e": 377.966,
+   "sid": "S19.3"
+  },
+  {
+   "w": "home",
+   "s": 378.031,
+   "e": 378.286,
+   "sid": "S19.3"
+  },
+  {
+   "w": "in",
+   "s": 378.313,
+   "e": 378.366,
+   "sid": "S19.3"
+  },
+  {
+   "w": "a",
+   "s": 378.406,
+   "e": 378.447,
+   "sid": "S19.3"
+  },
+  {
+   "w": "single",
+   "s": 378.481,
+   "e": 378.687,
+   "sid": "S19.3"
+  },
+  {
+   "w": "city",
+   "s": 378.75,
+   "e": 379.007,
+   "sid": "S19.3"
+  },
+  {
+   "w": "could",
+   "s": 379.046,
+   "e": 379.246,
+   "sid": "S19.3"
+  },
+  {
+   "w": "have",
+   "s": 379.262,
+   "e": 379.327,
+   "sid": "S19.3"
+  },
+  {
+   "w": "done",
+   "s": 379.375,
+   "e": 379.567,
+   "sid": "S19.3"
+  },
+  {
+   "w": "much",
+   "s": 379.678,
+   "e": 380.127,
+   "sid": "S19.3"
+  },
+  {
+   "w": "better",
+   "s": 380.183,
+   "e": 380.526,
+   "sid": "S19.3"
+  },
+  {
+   "w": "or",
+   "s": 380.714,
+   "e": 381.087,
+   "sid": "S19.3"
+  },
+  {
+   "w": "much",
+   "s": 381.214,
+   "e": 381.726,
+   "sid": "S19.3"
+  },
+  {
+   "w": "worse.",
+   "s": 381.793,
+   "e": 382.366,
+   "sid": "S19.3"
+  },
+  {
+   "w": "Does",
+   "s": 383.366,
+   "e": 383.446,
+   "sid": "S20.1"
+  },
+  {
+   "w": "the",
+   "s": 383.486,
+   "e": 383.606,
+   "sid": "S20.1"
+  },
+  {
+   "w": "length",
+   "s": 383.652,
+   "e": 383.926,
+   "sid": "S20.1"
+  },
+  {
+   "w": "of",
+   "s": 383.953,
+   "e": 384.006,
+   "sid": "S20.1"
+  },
+  {
+   "w": "the",
+   "s": 384.026,
+   "e": 384.087,
+   "sid": "S20.1"
+  },
+  {
+   "w": "stay",
+   "s": 384.166,
+   "e": 384.486,
+   "sid": "S20.1"
+  },
+  {
+   "w": "change",
+   "s": 384.543,
+   "e": 384.886,
+   "sid": "S20.1"
+  },
+  {
+   "w": "the",
+   "s": 384.906,
+   "e": 384.966,
+   "sid": "S20.1"
+  },
+  {
+   "w": "picture?",
+   "s": 385.016,
+   "e": 385.686,
+   "sid": "S20.1"
+  },
+  {
+   "w": "Over",
+   "s": 385.846,
+   "e": 386.486,
+   "sid": "S20.2"
+  },
+  {
+   "w": "five",
+   "s": 386.534,
+   "e": 386.726,
+   "sid": "S20.2"
+  },
+  {
+   "w": "years",
+   "s": 386.766,
+   "e": 386.966,
+   "sid": "S20.2"
+  },
+  {
+   "w": "instead",
+   "s": 386.996,
+   "e": 387.206,
+   "sid": "S20.2"
+  },
+  {
+   "w": "of",
+   "s": 387.259,
+   "e": 387.366,
+   "sid": "S20.2"
+  },
+  {
+   "w": "ten,",
+   "s": 387.446,
+   "e": 388.166,
+   "sid": "S20.2"
+  },
+  {
+   "w": "the",
+   "s": 388.186,
+   "e": 388.246,
+   "sid": "S20.2"
+  },
+  {
+   "w": "buyer",
+   "s": 388.299,
+   "e": 388.566,
+   "sid": "S20.2"
+  },
+  {
+   "w": "ended",
+   "s": 388.619,
+   "e": 388.886,
+   "sid": "S20.2"
+  },
+  {
+   "w": "ahead",
+   "s": 388.966,
+   "e": 389.366,
+   "sid": "S20.2"
+  },
+  {
+   "w": "in",
+   "s": 389.446,
+   "e": 389.606,
+   "sid": "S20.2"
+  },
+  {
+   "w": "seventy-four",
+   "s": 389.656,
+   "e": 390.326,
+   "sid": "S20.2"
+  },
+  {
+   "w": "point",
+   "s": 390.406,
+   "e": 390.806,
+   "sid": "S20.2"
+  },
+  {
+   "w": "four",
+   "s": 390.838,
+   "e": 390.966,
+   "sid": "S20.2"
+  },
+  {
+   "w": "percent",
+   "s": 391.036,
+   "e": 391.526,
+   "sid": "S20.2"
+  },
+  {
+   "w": "of",
+   "s": 391.579,
+   "e": 391.686,
+   "sid": "S20.2"
+  },
+  {
+   "w": "start",
+   "s": 391.753,
+   "e": 392.087,
+   "sid": "S20.2"
+  },
+  {
+   "w": "months.",
+   "s": 392.143,
+   "e": 392.806,
+   "sid": "S20.2"
+  },
+  {
+   "w": "The",
+   "s": 393.8,
+   "e": 393.88,
+   "sid": "S21.1"
+  },
+  {
+   "w": "worst",
+   "s": 393.933,
+   "e": 394.2,
+   "sid": "S21.1"
+  },
+  {
+   "w": "five-year",
+   "s": 394.264,
+   "e": 394.68,
+   "sid": "S21.1"
+  },
+  {
+   "w": "start,",
+   "s": 394.76,
+   "e": 395.96,
+   "sid": "S21.1"
+  },
+  {
+   "w": "May",
+   "s": 396.06,
+   "e": 396.36,
+   "sid": "S21.1"
+  },
+  {
+   "w": "two",
+   "s": 396.46,
+   "e": 396.76,
+   "sid": "S21.1"
+  },
+  {
+   "w": "thousand",
+   "s": 396.796,
+   "e": 397.08,
+   "sid": "S21.1"
+  },
+  {
+   "w": "six,",
+   "s": 397.18,
+   "e": 398.12,
+   "sid": "S21.1"
+  },
+  {
+   "w": "left",
+   "s": 398.168,
+   "e": 398.36,
+   "sid": "S21.1"
+  },
+  {
+   "w": "the",
+   "s": 398.38,
+   "e": 398.44,
+   "sid": "S21.1"
+  },
+  {
+   "w": "buyer",
+   "s": 398.493,
+   "e": 398.76,
+   "sid": "S21.1"
+  },
+  {
+   "w": "one",
+   "s": 398.82,
+   "e": 399.0,
+   "sid": "S21.1"
+  },
+  {
+   "w": "hundred",
+   "s": 399.04,
+   "e": 399.32,
+   "sid": "S21.1"
+  },
+  {
+   "w": "forty-nine",
+   "s": 399.4,
+   "e": 399.96,
+   "sid": "S21.1"
+  },
+  {
+   "w": "thousand",
+   "s": 400.022,
+   "e": 400.52,
+   "sid": "S21.1"
+  },
+  {
+   "w": "three",
+   "s": 400.547,
+   "e": 400.68,
+   "sid": "S21.1"
+  },
+  {
+   "w": "hundred",
+   "s": 400.72,
+   "e": 401.0,
+   "sid": "S21.1"
+  },
+  {
+   "w": "ninety-two",
+   "s": 401.069,
+   "e": 401.56,
+   "sid": "S21.1"
+  },
+  {
+   "w": "dollars",
+   "s": 401.61,
+   "e": 401.96,
+   "sid": "S21.1"
+  },
+  {
+   "w": "behind.",
+   "s": 402.051,
+   "e": 402.84,
+   "sid": "S21.1"
+  },
+  {
+   "w": "Five",
+   "s": 403.08,
+   "e": 404.04,
+   "sid": "S21.2"
+  },
+  {
+   "w": "years",
+   "s": 404.107,
+   "e": 404.44,
+   "sid": "S21.2"
+  },
+  {
+   "w": "leaves",
+   "s": 404.486,
+   "e": 404.76,
+   "sid": "S21.2"
+  },
+  {
+   "w": "little",
+   "s": 404.794,
+   "e": 405.0,
+   "sid": "S21.2"
+  },
+  {
+   "w": "time",
+   "s": 405.048,
+   "e": 405.24,
+   "sid": "S21.2"
+  },
+  {
+   "w": "to",
+   "s": 405.293,
+   "e": 405.4,
+   "sid": "S21.2"
+  },
+  {
+   "w": "cover",
+   "s": 405.427,
+   "e": 405.56,
+   "sid": "S21.2"
+  },
+  {
+   "w": "the",
+   "s": 405.58,
+   "e": 405.64,
+   "sid": "S21.2"
+  },
+  {
+   "w": "cost",
+   "s": 405.72,
+   "e": 406.04,
+   "sid": "S21.2"
+  },
+  {
+   "w": "of",
+   "s": 406.067,
+   "e": 406.12,
+   "sid": "S21.2"
+  },
+  {
+   "w": "buying",
+   "s": 406.189,
+   "e": 406.6,
+   "sid": "S21.2"
+  },
+  {
+   "w": "and",
+   "s": 406.66,
+   "e": 406.84,
+   "sid": "S21.2"
+  },
+  {
+   "w": "then",
+   "s": 406.872,
+   "e": 407.0,
+   "sid": "S21.2"
+  },
+  {
+   "w": "selling.",
+   "s": 407.06,
+   "e": 407.72,
+   "sid": "S21.2"
+  },
+  {
+   "w": "Over",
+   "s": 408.733,
+   "e": 409.053,
+   "sid": "S22.1"
+  },
+  {
+   "w": "fifteen",
+   "s": 409.103,
+   "e": 409.453,
+   "sid": "S22.1"
+  },
+  {
+   "w": "years,",
+   "s": 409.52,
+   "e": 410.013,
+   "sid": "S22.1"
+  },
+  {
+   "w": "every",
+   "s": 410.053,
+   "e": 410.253,
+   "sid": "S22.1"
+  },
+  {
+   "w": "start",
+   "s": 410.32,
+   "e": 410.653,
+   "sid": "S22.1"
+  },
+  {
+   "w": "month",
+   "s": 410.693,
+   "e": 410.893,
+   "sid": "S22.1"
+  },
+  {
+   "w": "that",
+   "s": 410.909,
+   "e": 410.973,
+   "sid": "S22.1"
+  },
+  {
+   "w": "history",
+   "s": 411.023,
+   "e": 411.373,
+   "sid": "S22.1"
+  },
+  {
+   "w": "allows",
+   "s": 411.499,
+   "e": 412.253,
+   "sid": "S22.1"
+  },
+  {
+   "w": "ended",
+   "s": 412.36,
+   "e": 412.893,
+   "sid": "S22.1"
+  },
+  {
+   "w": "with",
+   "s": 412.925,
+   "e": 413.053,
+   "sid": "S22.1"
+  },
+  {
+   "w": "the",
+   "s": 413.073,
+   "e": 413.133,
+   "sid": "S22.1"
+  },
+  {
+   "w": "buyer",
+   "s": 413.2,
+   "e": 413.533,
+   "sid": "S22.1"
+  },
+  {
+   "w": "ahead.",
+   "s": 413.64,
+   "e": 414.253,
+   "sid": "S22.1"
+  },
+  {
+   "w": "Even",
+   "s": 414.429,
+   "e": 415.133,
+   "sid": "S22.2"
+  },
+  {
+   "w": "the",
+   "s": 415.153,
+   "e": 415.213,
+   "sid": "S22.2"
+  },
+  {
+   "w": "weakest",
+   "s": 415.273,
+   "e": 415.693,
+   "sid": "S22.2"
+  },
+  {
+   "w": "of",
+   "s": 415.72,
+   "e": 415.773,
+   "sid": "S22.2"
+  },
+  {
+   "w": "them",
+   "s": 415.821,
+   "e": 416.013,
+   "sid": "S22.2"
+  },
+  {
+   "w": "left",
+   "s": 416.077,
+   "e": 416.333,
+   "sid": "S22.2"
+  },
+  {
+   "w": "the",
+   "s": 416.353,
+   "e": 416.413,
+   "sid": "S22.2"
+  },
+  {
+   "w": "buyer",
+   "s": 416.48,
+   "e": 416.813,
+   "sid": "S22.2"
+  },
+  {
+   "w": "seventy-nine",
+   "s": 416.863,
+   "e": 417.453,
+   "sid": "S22.2"
+  },
+  {
+   "w": "thousand",
+   "s": 417.497,
+   "e": 417.853,
+   "sid": "S22.2"
+  },
+  {
+   "w": "eight",
+   "s": 417.906,
+   "e": 418.173,
+   "sid": "S22.2"
+  },
+  {
+   "w": "hundred",
+   "s": 418.203,
+   "e": 418.413,
+   "sid": "S22.2"
+  },
+  {
+   "w": "twenty-nine",
+   "s": 418.459,
+   "e": 418.893,
+   "sid": "S22.2"
+  },
+  {
+   "w": "dollars",
+   "s": 418.943,
+   "e": 419.293,
+   "sid": "S22.2"
+  },
+  {
+   "w": "ahead.",
+   "s": 419.373,
+   "e": 420.013,
+   "sid": "S22.2"
+  },
+  {
+   "w": "From",
+   "s": 420.173,
+   "e": 420.813,
+   "sid": "S22.3"
+  },
+  {
+   "w": "five",
+   "s": 420.877,
+   "e": 421.133,
+   "sid": "S22.3"
+  },
+  {
+   "w": "years",
+   "s": 421.186,
+   "e": 421.453,
+   "sid": "S22.3"
+  },
+  {
+   "w": "to",
+   "s": 421.506,
+   "e": 421.613,
+   "sid": "S22.3"
+  },
+  {
+   "w": "ten",
+   "s": 421.693,
+   "e": 421.933,
+   "sid": "S22.3"
+  },
+  {
+   "w": "to",
+   "s": 422.013,
+   "e": 422.173,
+   "sid": "S22.3"
+  },
+  {
+   "w": "fifteen,",
+   "s": 422.243,
+   "e": 423.293,
+   "sid": "S22.3"
+  },
+  {
+   "w": "the",
+   "s": 423.313,
+   "e": 423.373,
+   "sid": "S22.3"
+  },
+  {
+   "w": "dark",
+   "s": 423.437,
+   "e": 423.693,
+   "sid": "S22.3"
+  },
+  {
+   "w": "doors",
+   "s": 423.76,
+   "e": 424.093,
+   "sid": "S22.3"
+  },
+  {
+   "w": "thin",
+   "s": 424.141,
+   "e": 424.333,
+   "sid": "S22.3"
+  },
+  {
+   "w": "out,",
+   "s": 424.433,
+   "e": 425.053,
+   "sid": "S22.3"
+  },
+  {
+   "w": "and",
+   "s": 425.093,
+   "e": 425.213,
+   "sid": "S22.3"
+  },
+  {
+   "w": "then",
+   "s": 425.277,
+   "e": 425.533,
+   "sid": "S22.3"
+  },
+  {
+   "w": "they're",
+   "s": 425.629,
+   "e": 426.093,
+   "sid": "S22.3"
+  },
+  {
+   "w": "gone.",
+   "s": 426.173,
+   "e": 426.573,
+   "sid": "S22.3"
+  },
+  {
+   "w": "Fifteen",
+   "s": 426.833,
+   "e": 427.853,
+   "sid": "S22.4"
+  },
+  {
+   "w": "years",
+   "s": 427.906,
+   "e": 428.173,
+   "sid": "S22.4"
+  },
+  {
+   "w": "is",
+   "s": 428.2,
+   "e": 428.253,
+   "sid": "S22.4"
+  },
+  {
+   "w": "a",
+   "s": 428.293,
+   "e": 428.333,
+   "sid": "S22.4"
+  },
+  {
+   "w": "long",
+   "s": 428.397,
+   "e": 428.653,
+   "sid": "S22.4"
+  },
+  {
+   "w": "stay,",
+   "s": 428.749,
+   "e": 429.693,
+   "sid": "S22.4"
+  },
+  {
+   "w": "and",
+   "s": 429.733,
+   "e": 429.853,
+   "sid": "S22.4"
+  },
+  {
+   "w": "this",
+   "s": 429.885,
+   "e": 430.013,
+   "sid": "S22.4"
+  },
+  {
+   "w": "street",
+   "s": 430.059,
+   "e": 430.333,
+   "sid": "S22.4"
+  },
+  {
+   "w": "says",
+   "s": 430.397,
+   "e": 430.653,
+   "sid": "S22.4"
+  },
+  {
+   "w": "nothing",
+   "s": 430.723,
+   "e": 431.213,
+   "sid": "S22.4"
+  },
+  {
+   "w": "about",
+   "s": 431.266,
+   "e": 431.533,
+   "sid": "S22.4"
+  },
+  {
+   "w": "how",
+   "s": 431.593,
+   "e": 431.773,
+   "sid": "S22.4"
+  },
+  {
+   "w": "long",
+   "s": 431.821,
+   "e": 432.013,
+   "sid": "S22.4"
+  },
+  {
+   "w": "Nina",
+   "s": 432.077,
+   "e": 432.333,
+   "sid": "S22.4"
+  },
+  {
+   "w": "stays.",
+   "s": 432.4,
+   "e": 433.053,
+   "sid": "S22.4"
+  },
+  {
+   "w": "The",
+   "s": 433.193,
+   "e": 433.613,
+   "sid": "S22.5"
+  },
+  {
+   "w": "month",
+   "s": 433.666,
+   "e": 433.933,
+   "sid": "S22.5"
+  },
+  {
+   "w": "and",
+   "s": 433.993,
+   "e": 434.173,
+   "sid": "S22.5"
+  },
+  {
+   "w": "the",
+   "s": 434.193,
+   "e": 434.253,
+   "sid": "S22.5"
+  },
+  {
+   "w": "stay",
+   "s": 434.349,
+   "e": 434.733,
+   "sid": "S22.5"
+  },
+  {
+   "w": "moved",
+   "s": 434.813,
+   "e": 435.213,
+   "sid": "S22.5"
+  },
+  {
+   "w": "the",
+   "s": 435.233,
+   "e": 435.293,
+   "sid": "S22.5"
+  },
+  {
+   "w": "lights;",
+   "s": 435.362,
+   "e": 436.413,
+   "sid": "S22.5"
+  },
+  {
+   "w": "the",
+   "s": 436.433,
+   "e": 436.493,
+   "sid": "S22.5"
+  },
+  {
+   "w": "tag",
+   "s": 436.633,
+   "e": 437.053,
+   "sid": "S22.5"
+  },
+  {
+   "w": "hasn't",
+   "s": 437.149,
+   "e": 437.613,
+   "sid": "S22.5"
+  },
+  {
+   "w": "turned",
+   "s": 437.659,
+   "e": 437.933,
+   "sid": "S22.5"
+  },
+  {
+   "w": "yet.",
+   "s": 437.993,
+   "e": 438.333,
+   "sid": "S22.5"
+  },
+  {
+   "w": "What",
+   "s": 439.833,
+   "e": 439.913,
+   "sid": "S23.1"
+  },
+  {
+   "w": "made",
+   "s": 439.961,
+   "e": 440.153,
+   "sid": "S23.1"
+  },
+  {
+   "w": "one",
+   "s": 440.193,
+   "e": 440.313,
+   "sid": "S23.1"
+  },
+  {
+   "w": "house",
+   "s": 440.353,
+   "e": 440.553,
+   "sid": "S23.1"
+  },
+  {
+   "w": "bright",
+   "s": 440.633,
+   "e": 441.113,
+   "sid": "S23.1"
+  },
+  {
+   "w": "and",
+   "s": 441.213,
+   "e": 441.513,
+   "sid": "S23.1"
+  },
+  {
+   "w": "another",
+   "s": 441.563,
+   "e": 441.913,
+   "sid": "S23.1"
+  },
+  {
+   "w": "dark?",
+   "s": 441.993,
+   "e": 442.553,
+   "sid": "S23.1"
+  },
+  {
+   "w": "Marcus",
+   "s": 442.724,
+   "e": 443.753,
+   "sid": "S23.3"
+  },
+  {
+   "w": "bought",
+   "s": 443.81,
+   "e": 444.153,
+   "sid": "S23.3"
+  },
+  {
+   "w": "at",
+   "s": 444.206,
+   "e": 444.313,
+   "sid": "S23.3"
+  },
+  {
+   "w": "the",
+   "s": 444.333,
+   "e": 444.393,
+   "sid": "S23.3"
+  },
+  {
+   "w": "darkest",
+   "s": 444.443,
+   "e": 444.793,
+   "sid": "S23.3"
+  },
+  {
+   "w": "house,",
+   "s": 444.873,
+   "e": 445.593,
+   "sid": "S23.3"
+  },
+  {
+   "w": "June",
+   "s": 445.689,
+   "e": 446.073,
+   "sid": "S23.3"
+  },
+  {
+   "w": "two",
+   "s": 446.133,
+   "e": 446.313,
+   "sid": "S23.3"
+  },
+  {
+   "w": "thousand",
+   "s": 446.357,
+   "e": 446.713,
+   "sid": "S23.3"
+  },
+  {
+   "w": "six;",
+   "s": 446.833,
+   "e": 447.833,
+   "sid": "S23.3"
+  },
+  {
+   "w": "Priya",
+   "s": 447.913,
+   "e": 448.313,
+   "sid": "S23.3"
+  },
+  {
+   "w": "at",
+   "s": 448.42,
+   "e": 448.633,
+   "sid": "S23.3"
+  },
+  {
+   "w": "the",
+   "s": 448.653,
+   "e": 448.713,
+   "sid": "S23.3"
+  },
+  {
+   "w": "brightest,",
+   "s": 448.777,
+   "e": 449.673,
+   "sid": "S23.3"
+  },
+  {
+   "w": "April",
+   "s": 449.74,
+   "e": 450.073,
+   "sid": "S23.3"
+  },
+  {
+   "w": "twenty",
+   "s": 450.13,
+   "e": 450.473,
+   "sid": "S23.3"
+  },
+  {
+   "w": "twelve.",
+   "s": 450.553,
+   "e": 451.273,
+   "sid": "S23.3"
+  },
+  {
+   "w": "Same",
+   "s": 451.449,
+   "e": 452.153,
+   "sid": "S23.5"
+  },
+  {
+   "w": "rent",
+   "s": 452.185,
+   "e": 452.313,
+   "sid": "S23.5"
+  },
+  {
+   "w": "tag,",
+   "s": 452.433,
+   "e": 453.033,
+   "sid": "S23.5"
+  },
+  {
+   "w": "same",
+   "s": 453.081,
+   "e": 453.273,
+   "sid": "S23.5"
+  },
+  {
+   "w": "costs,",
+   "s": 453.38,
+   "e": 454.233,
+   "sid": "S23.5"
+  },
+  {
+   "w": "same",
+   "s": 454.297,
+   "e": 454.553,
+   "sid": "S23.5"
+  },
+  {
+   "w": "street;",
+   "s": 454.622,
+   "e": 455.833,
+   "sid": "S23.5"
+  },
+  {
+   "w": "only",
+   "s": 455.881,
+   "e": 456.073,
+   "sid": "S23.5"
+  },
+  {
+   "w": "the",
+   "s": 456.113,
+   "e": 456.233,
+   "sid": "S23.5"
+  },
+  {
+   "w": "month",
+   "s": 456.273,
+   "e": 456.473,
+   "sid": "S23.5"
+  },
+  {
+   "w": "was",
+   "s": 456.513,
+   "e": 456.633,
+   "sid": "S23.5"
+  },
+  {
+   "w": "different.",
+   "s": 456.681,
+   "e": 457.273,
+   "sid": "S23.5"
+  },
+  {
+   "w": "And",
+   "s": 457.373,
+   "e": 457.673,
+   "sid": "S23.6"
+  },
+  {
+   "w": "on",
+   "s": 457.726,
+   "e": 457.833,
+   "sid": "S23.6"
+  },
+  {
+   "w": "the",
+   "s": 457.853,
+   "e": 457.913,
+   "sid": "S23.6"
+  },
+  {
+   "w": "day",
+   "s": 457.973,
+   "e": 458.153,
+   "sid": "S23.6"
+  },
+  {
+   "w": "each",
+   "s": 458.217,
+   "e": 458.473,
+   "sid": "S23.6"
+  },
+  {
+   "w": "of",
+   "s": 458.5,
+   "e": 458.553,
+   "sid": "S23.6"
+  },
+  {
+   "w": "them",
+   "s": 458.585,
+   "e": 458.713,
+   "sid": "S23.6"
+  },
+  {
+   "w": "bought,",
+   "s": 458.759,
+   "e": 459.513,
+   "sid": "S23.6"
+  },
+  {
+   "w": "neither",
+   "s": 459.573,
+   "e": 459.993,
+   "sid": "S23.6"
+  },
+  {
+   "w": "could",
+   "s": 460.02,
+   "e": 460.153,
+   "sid": "S23.6"
+  },
+  {
+   "w": "see",
+   "s": 460.213,
+   "e": 460.393,
+   "sid": "S23.6"
+  },
+  {
+   "w": "which",
+   "s": 460.446,
+   "e": 460.713,
+   "sid": "S23.6"
+  },
+  {
+   "w": "house",
+   "s": 460.78,
+   "e": 461.113,
+   "sid": "S23.6"
+  },
+  {
+   "w": "they",
+   "s": 461.193,
+   "e": 461.513,
+   "sid": "S23.6"
+  },
+  {
+   "w": "were",
+   "s": 461.545,
+   "e": 461.673,
+   "sid": "S23.6"
+  },
+  {
+   "w": "standing",
+   "s": 461.726,
+   "e": 462.153,
+   "sid": "S23.6"
+  },
+  {
+   "w": "in.",
+   "s": 462.233,
+   "e": 462.553,
+   "sid": "S23.6"
+  },
+  {
+   "w": "So",
+   "s": 463.566,
+   "e": 463.646,
+   "sid": "S24.1"
+  },
+  {
+   "w": "far,",
+   "s": 463.726,
+   "e": 464.046,
+   "sid": "S24.1"
+  },
+  {
+   "w": "every",
+   "s": 464.086,
+   "e": 464.286,
+   "sid": "S24.1"
+  },
+  {
+   "w": "house",
+   "s": 464.353,
+   "e": 464.686,
+   "sid": "S24.1"
+  },
+  {
+   "w": "used",
+   "s": 464.734,
+   "e": 464.926,
+   "sid": "S24.1"
+  },
+  {
+   "w": "the",
+   "s": 464.966,
+   "e": 465.086,
+   "sid": "S24.1"
+  },
+  {
+   "w": "same",
+   "s": 465.134,
+   "e": 465.326,
+   "sid": "S24.1"
+  },
+  {
+   "w": "tag:",
+   "s": 465.426,
+   "e": 466.206,
+   "sid": "S24.1"
+  },
+  {
+   "w": "a",
+   "s": 466.246,
+   "e": 466.286,
+   "sid": "S24.1"
+  },
+  {
+   "w": "starting",
+   "s": 466.322,
+   "e": 466.606,
+   "sid": "S24.1"
+  },
+  {
+   "w": "rent",
+   "s": 466.67,
+   "e": 466.926,
+   "sid": "S24.1"
+  },
+  {
+   "w": "of",
+   "s": 466.979,
+   "e": 467.086,
+   "sid": "S24.1"
+  },
+  {
+   "w": "five",
+   "s": 467.134,
+   "e": 467.326,
+   "sid": "S24.1"
+  },
+  {
+   "w": "percent",
+   "s": 467.376,
+   "e": 467.726,
+   "sid": "S24.1"
+  },
+  {
+   "w": "of",
+   "s": 467.753,
+   "e": 467.806,
+   "sid": "S24.1"
+  },
+  {
+   "w": "the",
+   "s": 467.826,
+   "e": 467.886,
+   "sid": "S24.1"
+  },
+  {
+   "w": "price",
+   "s": 467.953,
+   "e": 468.286,
+   "sid": "S24.1"
+  },
+  {
+   "w": "a",
+   "s": 468.366,
+   "e": 468.446,
+   "sid": "S24.1"
+  },
+  {
+   "w": "year.",
+   "s": 468.51,
+   "e": 469.086,
+   "sid": "S24.1"
+  },
+  {
+   "w": "A",
+   "s": 469.326,
+   "e": 469.566,
+   "sid": "S24.2"
+  },
+  {
+   "w": "higher",
+   "s": 469.6,
+   "e": 469.806,
+   "sid": "S24.2"
+  },
+  {
+   "w": "starting",
+   "s": 469.842,
+   "e": 470.126,
+   "sid": "S24.2"
+  },
+  {
+   "w": "rent",
+   "s": 470.174,
+   "e": 470.366,
+   "sid": "S24.2"
+  },
+  {
+   "w": "means",
+   "s": 470.419,
+   "e": 470.686,
+   "sid": "S24.2"
+  },
+  {
+   "w": "a",
+   "s": 470.766,
+   "e": 470.846,
+   "sid": "S24.2"
+  },
+  {
+   "w": "pricier",
+   "s": 470.899,
+   "e": 471.326,
+   "sid": "S24.2"
+  },
+  {
+   "w": "rental,",
+   "s": 471.383,
+   "e": 472.206,
+   "sid": "S24.2"
+  },
+  {
+   "w": "so",
+   "s": 472.259,
+   "e": 472.366,
+   "sid": "S24.2"
+  },
+  {
+   "w": "the",
+   "s": 472.386,
+   "e": 472.446,
+   "sid": "S24.2"
+  },
+  {
+   "w": "renting",
+   "s": 472.486,
+   "e": 472.766,
+   "sid": "S24.2"
+  },
+  {
+   "w": "twin",
+   "s": 472.846,
+   "e": 473.166,
+   "sid": "S24.2"
+  },
+  {
+   "w": "sets",
+   "s": 473.214,
+   "e": 473.406,
+   "sid": "S24.2"
+  },
+  {
+   "w": "aside",
+   "s": 473.473,
+   "e": 473.806,
+   "sid": "S24.2"
+  },
+  {
+   "w": "less",
+   "s": 473.87,
+   "e": 474.126,
+   "sid": "S24.2"
+  },
+  {
+   "w": "each",
+   "s": 474.174,
+   "e": 474.366,
+   "sid": "S24.2"
+  },
+  {
+   "w": "month.",
+   "s": 474.433,
+   "e": 475.006,
+   "sid": "S24.2"
+  },
+  {
+   "w": "What",
+   "s": 475.23,
+   "e": 476.126,
+   "sid": "S24.3"
+  },
+  {
+   "w": "happens",
+   "s": 476.176,
+   "e": 476.526,
+   "sid": "S24.3"
+  },
+  {
+   "w": "to",
+   "s": 476.553,
+   "e": 476.606,
+   "sid": "S24.3"
+  },
+  {
+   "w": "the",
+   "s": 476.626,
+   "e": 476.686,
+   "sid": "S24.3"
+  },
+  {
+   "w": "street",
+   "s": 476.732,
+   "e": 477.006,
+   "sid": "S24.3"
+  },
+  {
+   "w": "when",
+   "s": 477.038,
+   "e": 477.166,
+   "sid": "S24.3"
+  },
+  {
+   "w": "the",
+   "s": 477.186,
+   "e": 477.246,
+   "sid": "S24.3"
+  },
+  {
+   "w": "tag",
+   "s": 477.326,
+   "e": 477.566,
+   "sid": "S24.3"
+  },
+  {
+   "w": "turns?",
+   "s": 477.646,
+   "e": 478.286,
+   "sid": "S24.3"
+  },
+  {
+   "w": "At",
+   "s": 479.3,
+   "e": 479.38,
+   "sid": "S25.1"
+  },
+  {
+   "w": "four",
+   "s": 479.428,
+   "e": 479.62,
+   "sid": "S25.1"
+  },
+  {
+   "w": "percent,",
+   "s": 479.69,
+   "e": 480.5,
+   "sid": "S25.1"
+  },
+  {
+   "w": "the",
+   "s": 480.52,
+   "e": 480.58,
+   "sid": "S25.1"
+  },
+  {
+   "w": "buyer",
+   "s": 480.647,
+   "e": 480.98,
+   "sid": "S25.1"
+  },
+  {
+   "w": "ended",
+   "s": 481.033,
+   "e": 481.3,
+   "sid": "S25.1"
+  },
+  {
+   "w": "ahead",
+   "s": 481.407,
+   "e": 481.94,
+   "sid": "S25.1"
+  },
+  {
+   "w": "in",
+   "s": 482.073,
+   "e": 482.34,
+   "sid": "S25.1"
+  },
+  {
+   "w": "sixty-four",
+   "s": 482.407,
+   "e": 482.9,
+   "sid": "S25.1"
+  },
+  {
+   "w": "point",
+   "s": 482.993,
+   "e": 483.46,
+   "sid": "S25.1"
+  },
+  {
+   "w": "two",
+   "s": 483.48,
+   "e": 483.54,
+   "sid": "S25.1"
+  },
+  {
+   "w": "percent",
+   "s": 483.6,
+   "e": 484.02,
+   "sid": "S25.1"
+  },
+  {
+   "w": "of",
+   "s": 484.047,
+   "e": 484.1,
+   "sid": "S25.1"
+  },
+  {
+   "w": "start",
+   "s": 484.153,
+   "e": 484.42,
+   "sid": "S25.1"
+  },
+  {
+   "w": "months.",
+   "s": 484.477,
+   "e": 485.14,
+   "sid": "S25.1"
+  },
+  {
+   "w": "At",
+   "s": 486.133,
+   "e": 486.213,
+   "sid": "S26.1"
+  },
+  {
+   "w": "six",
+   "s": 486.293,
+   "e": 486.533,
+   "sid": "S26.1"
+  },
+  {
+   "w": "percent,",
+   "s": 486.603,
+   "e": 488.213,
+   "sid": "S26.1"
+  },
+  {
+   "w": "ninety-two",
+   "s": 488.282,
+   "e": 489.013,
+   "sid": "S26.1"
+  },
+  {
+   "w": "point",
+   "s": 489.093,
+   "e": 489.493,
+   "sid": "S26.1"
+  },
+  {
+   "w": "two",
+   "s": 489.533,
+   "e": 489.653,
+   "sid": "S26.1"
+  },
+  {
+   "w": "percent.",
+   "s": 489.743,
+   "e": 490.533,
+   "sid": "S26.1"
+  },
+  {
+   "w": "[thoughtful]",
+   "s": 491.173,
+   "e": 491.873,
+   "sid": "S26.2"
+  },
+  {
+   "w": "The",
+   "s": 491.878,
+   "e": 491.893,
+   "sid": "S26.2"
+  },
+  {
+   "w": "share",
+   "s": 491.946,
+   "e": 492.213,
+   "sid": "S26.2"
+  },
+  {
+   "w": "moves",
+   "s": 492.28,
+   "e": 492.613,
+   "sid": "S26.2"
+  },
+  {
+   "w": "with",
+   "s": 492.645,
+   "e": 492.773,
+   "sid": "S26.2"
+  },
+  {
+   "w": "the",
+   "s": 492.793,
+   "e": 492.853,
+   "sid": "S26.2"
+  },
+  {
+   "w": "rent",
+   "s": 492.917,
+   "e": 493.173,
+   "sid": "S26.2"
+  },
+  {
+   "w": "you",
+   "s": 493.213,
+   "e": 493.333,
+   "sid": "S26.2"
+  },
+  {
+   "w": "assume.",
+   "s": 493.413,
+   "e": 493.973,
+   "sid": "S26.2"
+  },
+  {
+   "w": "The",
+   "s": 494.966,
+   "e": 495.046,
+   "sid": "S27.1"
+  },
+  {
+   "w": "Census",
+   "s": 495.092,
+   "e": 495.366,
+   "sid": "S27.1"
+  },
+  {
+   "w": "Bureau's",
+   "s": 495.412,
+   "e": 495.766,
+   "sid": "S27.1"
+  },
+  {
+   "w": "public",
+   "s": 495.812,
+   "e": 496.086,
+   "sid": "S27.1"
+  },
+  {
+   "w": "figures",
+   "s": 496.146,
+   "e": 496.566,
+   "sid": "S27.1"
+  },
+  {
+   "w": "sit",
+   "s": 496.646,
+   "e": 496.886,
+   "sid": "S27.1"
+  },
+  {
+   "w": "inside",
+   "s": 496.943,
+   "e": 497.286,
+   "sid": "S27.1"
+  },
+  {
+   "w": "the",
+   "s": 497.306,
+   "e": 497.366,
+   "sid": "S27.1"
+  },
+  {
+   "w": "range",
+   "s": 497.419,
+   "e": 497.686,
+   "sid": "S27.1"
+  },
+  {
+   "w": "we",
+   "s": 497.713,
+   "e": 497.766,
+   "sid": "S27.1"
+  },
+  {
+   "w": "turned,",
+   "s": 497.846,
+   "e": 498.806,
+   "sid": "S27.1"
+  },
+  {
+   "w": "and",
+   "s": 498.826,
+   "e": 498.886,
+   "sid": "S27.1"
+  },
+  {
+   "w": "they're",
+   "s": 498.902,
+   "e": 499.046,
+   "sid": "S27.1"
+  },
+  {
+   "w": "a",
+   "s": 499.086,
+   "e": 499.126,
+   "sid": "S27.1"
+  },
+  {
+   "w": "reference,",
+   "s": 499.19,
+   "e": 500.086,
+   "sid": "S27.1"
+  },
+  {
+   "w": "not",
+   "s": 500.166,
+   "e": 500.406,
+   "sid": "S27.1"
+  },
+  {
+   "w": "Nina's",
+   "s": 500.47,
+   "e": 500.806,
+   "sid": "S27.1"
+  },
+  {
+   "w": "own",
+   "s": 500.846,
+   "e": 500.966,
+   "sid": "S27.1"
+  },
+  {
+   "w": "rent.",
+   "s": 501.046,
+   "e": 501.686,
+   "sid": "S27.1"
+  },
+  {
+   "w": "And",
+   "s": 502.7,
+   "e": 502.78,
+   "sid": "S28.1"
+  },
+  {
+   "w": "if",
+   "s": 502.807,
+   "e": 502.86,
+   "sid": "S28.1"
+  },
+  {
+   "w": "the",
+   "s": 502.88,
+   "e": 502.94,
+   "sid": "S28.1"
+  },
+  {
+   "w": "renter's",
+   "s": 502.988,
+   "e": 503.42,
+   "sid": "S28.1"
+  },
+  {
+   "w": "cash",
+   "s": 503.484,
+   "e": 503.74,
+   "sid": "S28.1"
+  },
+  {
+   "w": "earns",
+   "s": 503.807,
+   "e": 504.14,
+   "sid": "S28.1"
+  },
+  {
+   "w": "Treasury",
+   "s": 504.184,
+   "e": 504.54,
+   "sid": "S28.1"
+  },
+  {
+   "w": "bill",
+   "s": 504.588,
+   "e": 504.78,
+   "sid": "S28.1"
+  },
+  {
+   "w": "interest,",
+   "s": 504.824,
+   "e": 505.82,
+   "sid": "S28.1"
+  },
+  {
+   "w": "the",
+   "s": 505.84,
+   "e": 505.9,
+   "sid": "S28.1"
+  },
+  {
+   "w": "buyer's",
+   "s": 505.953,
+   "e": 506.3,
+   "sid": "S28.1"
+  },
+  {
+   "w": "share",
+   "s": 506.353,
+   "e": 506.62,
+   "sid": "S28.1"
+  },
+  {
+   "w": "falls",
+   "s": 506.687,
+   "e": 507.02,
+   "sid": "S28.1"
+  },
+  {
+   "w": "to",
+   "s": 507.047,
+   "e": 507.1,
+   "sid": "S28.1"
+  },
+  {
+   "w": "about",
+   "s": 507.14,
+   "e": 507.34,
+   "sid": "S28.1"
+  },
+  {
+   "w": "two",
+   "s": 507.5,
+   "e": 507.98,
+   "sid": "S28.1"
+  },
+  {
+   "w": "out",
+   "s": 508.06,
+   "e": 508.3,
+   "sid": "S28.1"
+  },
+  {
+   "w": "of",
+   "s": 508.327,
+   "e": 508.38,
+   "sid": "S28.1"
+  },
+  {
+   "w": "three.",
+   "s": 508.447,
+   "e": 509.38,
+   "sid": "S28.1"
+  },
+  {
+   "w": "The",
+   "s": 509.53,
+   "e": 509.98,
+   "sid": "S28.2"
+  },
+  {
+   "w": "lights",
+   "s": 510.06,
+   "e": 510.54,
+   "sid": "S28.2"
+  },
+  {
+   "w": "follow",
+   "s": 510.62,
+   "e": 511.1,
+   "sid": "S28.2"
+  },
+  {
+   "w": "the",
+   "s": 511.14,
+   "e": 511.26,
+   "sid": "S28.2"
+  },
+  {
+   "w": "tag,",
+   "s": 511.36,
+   "e": 512.38,
+   "sid": "S28.2"
+  },
+  {
+   "w": "but",
+   "s": 512.42,
+   "e": 512.54,
+   "sid": "S28.2"
+  },
+  {
+   "w": "one",
+   "s": 512.58,
+   "e": 512.7,
+   "sid": "S28.2"
+  },
+  {
+   "w": "month",
+   "s": 512.767,
+   "e": 513.1,
+   "sid": "S28.2"
+  },
+  {
+   "w": "is",
+   "s": 513.207,
+   "e": 513.42,
+   "sid": "S28.2"
+  },
+  {
+   "w": "not",
+   "s": 513.52,
+   "e": 513.82,
+   "sid": "S28.2"
+  },
+  {
+   "w": "on",
+   "s": 513.873,
+   "e": 513.98,
+   "sid": "S28.2"
+  },
+  {
+   "w": "the",
+   "s": 514.0,
+   "e": 514.06,
+   "sid": "S28.2"
+  },
+  {
+   "w": "street",
+   "s": 514.106,
+   "e": 514.38,
+   "sid": "S28.2"
+  },
+  {
+   "w": "yet.",
+   "s": 514.44,
+   "e": 514.78,
+   "sid": "S28.2"
+  },
+  {
+   "w": "And",
+   "s": 515.766,
+   "e": 515.846,
+   "sid": "S29.1"
+  },
+  {
+   "w": "Nina's",
+   "s": 515.91,
+   "e": 516.246,
+   "sid": "S29.1"
+  },
+  {
+   "w": "own",
+   "s": 516.286,
+   "e": 516.406,
+   "sid": "S29.1"
+  },
+  {
+   "w": "month,",
+   "s": 516.459,
+   "e": 516.806,
+   "sid": "S29.1"
+  },
+  {
+   "w": "past",
+   "s": 516.918,
+   "e": 517.366,
+   "sid": "S29.1"
+  },
+  {
+   "w": "the",
+   "s": 517.386,
+   "e": 517.446,
+   "sid": "S29.1"
+  },
+  {
+   "w": "end",
+   "s": 517.486,
+   "e": 517.606,
+   "sid": "S29.1"
+  },
+  {
+   "w": "of",
+   "s": 517.633,
+   "e": 517.686,
+   "sid": "S29.1"
+  },
+  {
+   "w": "the",
+   "s": 517.706,
+   "e": 517.766,
+   "sid": "S29.1"
+  },
+  {
+   "w": "street?",
+   "s": 517.823,
+   "e": 518.486,
+   "sid": "S29.1"
+  },
+  {
+   "w": "History",
+   "s": 518.626,
+   "e": 519.606,
+   "sid": "S29.2"
+  },
+  {
+   "w": "can't",
+   "s": 519.646,
+   "e": 519.846,
+   "sid": "S29.2"
+  },
+  {
+   "w": "finish",
+   "s": 519.892,
+   "e": 520.166,
+   "sid": "S29.2"
+  },
+  {
+   "w": "it,",
+   "s": 520.219,
+   "e": 521.126,
+   "sid": "S29.2"
+  },
+  {
+   "w": "but",
+   "s": 521.146,
+   "e": 521.206,
+   "sid": "S29.2"
+  },
+  {
+   "w": "it",
+   "s": 521.259,
+   "e": 521.366,
+   "sid": "S29.2"
+  },
+  {
+   "w": "can",
+   "s": 521.426,
+   "e": 521.606,
+   "sid": "S29.2"
+  },
+  {
+   "w": "set",
+   "s": 521.666,
+   "e": 521.846,
+   "sid": "S29.2"
+  },
+  {
+   "w": "her",
+   "s": 521.886,
+   "e": 522.006,
+   "sid": "S29.2"
+  },
+  {
+   "w": "first",
+   "s": 522.059,
+   "e": 522.326,
+   "sid": "S29.2"
+  },
+  {
+   "w": "month",
+   "s": 522.366,
+   "e": 522.566,
+   "sid": "S29.2"
+  },
+  {
+   "w": "beside",
+   "s": 522.612,
+   "e": 522.886,
+   "sid": "S29.2"
+  },
+  {
+   "w": "the",
+   "s": 522.926,
+   "e": 523.046,
+   "sid": "S29.2"
+  },
+  {
+   "w": "others.",
+   "s": 523.103,
+   "e": 523.766,
+   "sid": "S29.2"
+  },
+  {
+   "w": "At",
+   "s": 523.979,
+   "e": 524.406,
+   "sid": "S29.3"
+  },
+  {
+   "w": "six",
+   "s": 524.466,
+   "e": 524.646,
+   "sid": "S29.3"
+  },
+  {
+   "w": "point",
+   "s": 524.699,
+   "e": 524.966,
+   "sid": "S29.3"
+  },
+  {
+   "w": "eight",
+   "s": 524.993,
+   "e": 525.126,
+   "sid": "S29.3"
+  },
+  {
+   "w": "six",
+   "s": 525.166,
+   "e": 525.286,
+   "sid": "S29.3"
+  },
+  {
+   "w": "percent,",
+   "s": 525.356,
+   "e": 526.246,
+   "sid": "S29.3"
+  },
+  {
+   "w": "the",
+   "s": 526.266,
+   "e": 526.326,
+   "sid": "S29.3"
+  },
+  {
+   "w": "September",
+   "s": 526.366,
+   "e": 526.726,
+   "sid": "S29.3"
+  },
+  {
+   "w": "twenty",
+   "s": 526.772,
+   "e": 527.046,
+   "sid": "S29.3"
+  },
+  {
+   "w": "twenty-six",
+   "s": 527.092,
+   "e": 527.606,
+   "sid": "S29.3"
+  },
+  {
+   "w": "average,",
+   "s": 527.656,
+   "e": 528.566,
+   "sid": "S29.3"
+  },
+  {
+   "w": "her",
+   "s": 528.606,
+   "e": 528.726,
+   "sid": "S29.3"
+  },
+  {
+   "w": "buying",
+   "s": 528.772,
+   "e": 529.046,
+   "sid": "S29.3"
+  },
+  {
+   "w": "twin's",
+   "s": 529.11,
+   "e": 529.446,
+   "sid": "S29.3"
+  },
+  {
+   "w": "first",
+   "s": 529.499,
+   "e": 529.766,
+   "sid": "S29.3"
+  },
+  {
+   "w": "month",
+   "s": 529.819,
+   "e": 530.086,
+   "sid": "S29.3"
+  },
+  {
+   "w": "costs",
+   "s": 530.193,
+   "e": 530.726,
+   "sid": "S29.3"
+  },
+  {
+   "w": "two",
+   "s": 530.806,
+   "e": 531.046,
+   "sid": "S29.3"
+  },
+  {
+   "w": "thousand",
+   "s": 531.099,
+   "e": 531.526,
+   "sid": "S29.3"
+  },
+  {
+   "w": "nine",
+   "s": 531.59,
+   "e": 531.846,
+   "sid": "S29.3"
+  },
+  {
+   "w": "hundred",
+   "s": 531.896,
+   "e": 532.246,
+   "sid": "S29.3"
+  },
+  {
+   "w": "thirty-three",
+   "s": 532.326,
+   "e": 533.046,
+   "sid": "S29.3"
+  },
+  {
+   "w": "dollars.",
+   "s": 533.116,
+   "e": 533.926,
+   "sid": "S29.3"
+  },
+  {
+   "w": "Her",
+   "s": 534.933,
+   "e": 535.013,
+   "sid": "S30.1"
+  },
+  {
+   "w": "assumed",
+   "s": 535.073,
+   "e": 535.493,
+   "sid": "S30.1"
+  },
+  {
+   "w": "rent,",
+   "s": 535.557,
+   "e": 536.053,
+   "sid": "S30.1"
+  },
+  {
+   "w": "one",
+   "s": 536.093,
+   "e": 536.213,
+   "sid": "S30.1"
+  },
+  {
+   "w": "thousand",
+   "s": 536.257,
+   "e": 536.613,
+   "sid": "S30.1"
+  },
+  {
+   "w": "six",
+   "s": 536.693,
+   "e": 536.933,
+   "sid": "S30.1"
+  },
+  {
+   "w": "hundred",
+   "s": 536.963,
+   "e": 537.173,
+   "sid": "S30.1"
+  },
+  {
+   "w": "sixty-seven",
+   "s": 537.24,
+   "e": 537.813,
+   "sid": "S30.1"
+  },
+  {
+   "w": "dollars,",
+   "s": 537.883,
+   "e": 538.933,
+   "sid": "S30.1"
+  },
+  {
+   "w": "is",
+   "s": 539.013,
+   "e": 539.173,
+   "sid": "S30.1"
+  },
+  {
+   "w": "fifty-six",
+   "s": 539.213,
+   "e": 539.733,
+   "sid": "S30.1"
+  },
+  {
+   "w": "point",
+   "s": 539.8,
+   "e": 540.133,
+   "sid": "S30.1"
+  },
+  {
+   "w": "eight",
+   "s": 540.146,
+   "e": 540.213,
+   "sid": "S30.1"
+  },
+  {
+   "w": "percent",
+   "s": 540.273,
+   "e": 540.693,
+   "sid": "S30.1"
+  },
+  {
+   "w": "of",
+   "s": 540.72,
+   "e": 540.773,
+   "sid": "S30.1"
+  },
+  {
+   "w": "that.",
+   "s": 540.853,
+   "e": 541.333,
+   "sid": "S30.1"
+  },
+  {
+   "w": "That's",
+   "s": 541.413,
+   "e": 541.813,
+   "sid": "S30.2"
+  },
+  {
+   "w": "lower",
+   "s": 541.866,
+   "e": 542.133,
+   "sid": "S30.2"
+  },
+  {
+   "w": "than",
+   "s": 542.165,
+   "e": 542.293,
+   "sid": "S30.2"
+  },
+  {
+   "w": "in",
+   "s": 542.346,
+   "e": 542.453,
+   "sid": "S30.2"
+  },
+  {
+   "w": "any",
+   "s": 542.533,
+   "e": 542.773,
+   "sid": "S30.2"
+  },
+  {
+   "w": "start",
+   "s": 542.84,
+   "e": 543.173,
+   "sid": "S30.2"
+  },
+  {
+   "w": "month",
+   "s": 543.213,
+   "e": 543.413,
+   "sid": "S30.2"
+  },
+  {
+   "w": "on",
+   "s": 543.44,
+   "e": 543.493,
+   "sid": "S30.2"
+  },
+  {
+   "w": "the",
+   "s": 543.533,
+   "e": 543.653,
+   "sid": "S30.2"
+  },
+  {
+   "w": "street;",
+   "s": 543.699,
+   "e": 544.533,
+   "sid": "S30.2"
+  },
+  {
+   "w": "the",
+   "s": 544.553,
+   "e": 544.613,
+   "sid": "S30.2"
+  },
+  {
+   "w": "lowest",
+   "s": 544.67,
+   "e": 545.013,
+   "sid": "S30.2"
+  },
+  {
+   "w": "was",
+   "s": 545.073,
+   "e": 545.253,
+   "sid": "S30.2"
+  },
+  {
+   "w": "fifty-seven",
+   "s": 545.293,
+   "e": 545.733,
+   "sid": "S30.2"
+  },
+  {
+   "w": "point",
+   "s": 545.786,
+   "e": 546.053,
+   "sid": "S30.2"
+  },
+  {
+   "w": "nine",
+   "s": 546.101,
+   "e": 546.293,
+   "sid": "S30.2"
+  },
+  {
+   "w": "percent,",
+   "s": 546.353,
+   "e": 546.853,
+   "sid": "S30.2"
+  },
+  {
+   "w": "in",
+   "s": 546.986,
+   "e": 547.253,
+   "sid": "S30.2"
+  },
+  {
+   "w": "July",
+   "s": 547.349,
+   "e": 547.733,
+   "sid": "S30.2"
+  },
+  {
+   "w": "two",
+   "s": 547.793,
+   "e": 547.973,
+   "sid": "S30.2"
+  },
+  {
+   "w": "thousand",
+   "s": 548.009,
+   "e": 548.293,
+   "sid": "S30.2"
+  },
+  {
+   "w": "six.",
+   "s": 548.433,
+   "e": 548.933,
+   "sid": "S30.2"
+  },
+  {
+   "w": "It",
+   "s": 549.226,
+   "e": 549.813,
+   "sid": "S30.3"
+  },
+  {
+   "w": "compares",
+   "s": 549.866,
+   "e": 550.293,
+   "sid": "S30.3"
+  },
+  {
+   "w": "first",
+   "s": 550.346,
+   "e": 550.613,
+   "sid": "S30.3"
+  },
+  {
+   "w": "months",
+   "s": 550.659,
+   "e": 550.933,
+   "sid": "S30.3"
+  },
+  {
+   "w": "only:",
+   "s": 550.997,
+   "e": 551.733,
+   "sid": "S30.3"
+  },
+  {
+   "w": "it",
+   "s": 551.786,
+   "e": 551.893,
+   "sid": "S30.3"
+  },
+  {
+   "w": "doesn't",
+   "s": 551.92,
+   "e": 552.133,
+   "sid": "S30.3"
+  },
+  {
+   "w": "say",
+   "s": 552.193,
+   "e": 552.373,
+   "sid": "S30.3"
+  },
+  {
+   "w": "how",
+   "s": 552.433,
+   "e": 552.613,
+   "sid": "S30.3"
+  },
+  {
+   "w": "a",
+   "s": 552.653,
+   "e": 552.693,
+   "sid": "S30.3"
+  },
+  {
+   "w": "twenty",
+   "s": 552.739,
+   "e": 553.013,
+   "sid": "S30.3"
+  },
+  {
+   "w": "twenty-six",
+   "s": 553.059,
+   "e": 553.653,
+   "sid": "S30.3"
+  },
+  {
+   "w": "start",
+   "s": 553.706,
+   "e": 553.973,
+   "sid": "S30.3"
+  },
+  {
+   "w": "ends,",
+   "s": 554.069,
+   "e": 554.933,
+   "sid": "S30.3"
+  },
+  {
+   "w": "and",
+   "s": 554.993,
+   "e": 555.173,
+   "sid": "S30.3"
+  },
+  {
+   "w": "it",
+   "s": 555.2,
+   "e": 555.253,
+   "sid": "S30.3"
+  },
+  {
+   "w": "doesn't",
+   "s": 555.293,
+   "e": 555.573,
+   "sid": "S30.3"
+  },
+  {
+   "w": "make",
+   "s": 555.605,
+   "e": 555.733,
+   "sid": "S30.3"
+  },
+  {
+   "w": "twenty",
+   "s": 555.767,
+   "e": 555.973,
+   "sid": "S30.3"
+  },
+  {
+   "w": "twenty-six",
+   "s": 556.019,
+   "e": 556.773,
+   "sid": "S30.3"
+  },
+  {
+   "w": "another",
+   "s": 556.863,
+   "e": 557.493,
+   "sid": "S30.3"
+  },
+  {
+   "w": "two",
+   "s": 557.513,
+   "e": 557.573,
+   "sid": "S30.3"
+  },
+  {
+   "w": "thousand",
+   "s": 557.626,
+   "e": 558.053,
+   "sid": "S30.3"
+  },
+  {
+   "w": "six.",
+   "s": 558.193,
+   "e": 558.853,
+   "sid": "S30.3"
+  },
+  {
+   "w": "The",
+   "s": 559.866,
+   "e": 559.946,
+   "sid": "S31.1"
+  },
+  {
+   "w": "limits",
+   "s": 559.992,
+   "e": 560.266,
+   "sid": "S31.1"
+  },
+  {
+   "w": "are",
+   "s": 560.306,
+   "e": 560.426,
+   "sid": "S31.1"
+  },
+  {
+   "w": "on",
+   "s": 560.453,
+   "e": 560.506,
+   "sid": "S31.1"
+  },
+  {
+   "w": "the",
+   "s": 560.526,
+   "e": 560.586,
+   "sid": "S31.1"
+  },
+  {
+   "w": "card",
+   "s": 560.682,
+   "e": 561.066,
+   "sid": "S31.1"
+  },
+  {
+   "w": "and",
+   "s": 561.126,
+   "e": 561.306,
+   "sid": "S31.1"
+  },
+  {
+   "w": "the",
+   "s": 561.326,
+   "e": 561.386,
+   "sid": "S31.1"
+  },
+  {
+   "w": "full",
+   "s": 561.434,
+   "e": 561.626,
+   "sid": "S31.1"
+  },
+  {
+   "w": "method",
+   "s": 561.695,
+   "e": 562.106,
+   "sid": "S31.1"
+  },
+  {
+   "w": "is",
+   "s": 562.159,
+   "e": 562.266,
+   "sid": "S31.1"
+  },
+  {
+   "w": "in",
+   "s": 562.319,
+   "e": 562.426,
+   "sid": "S31.1"
+  },
+  {
+   "w": "the",
+   "s": 562.446,
+   "e": 562.506,
+   "sid": "S31.1"
+  },
+  {
+   "w": "description:",
+   "s": 562.553,
+   "e": 563.546,
+   "sid": "S31.1"
+  },
+  {
+   "w": "U.S.",
+   "s": 563.626,
+   "e": 563.946,
+   "sid": "S31.1"
+  },
+  {
+   "w": "only,",
+   "s": 564.01,
+   "e": 564.506,
+   "sid": "S31.1"
+  },
+  {
+   "w": "and",
+   "s": 564.626,
+   "e": 564.986,
+   "sid": "S31.1"
+  },
+  {
+   "w": "history,",
+   "s": 565.066,
+   "e": 565.706,
+   "sid": "S31.1"
+  },
+  {
+   "w": "not",
+   "s": 565.826,
+   "e": 566.186,
+   "sid": "S31.1"
+  },
+  {
+   "w": "a",
+   "s": 566.366,
+   "e": 566.546,
+   "sid": "S31.1"
+  },
+  {
+   "w": "forecast.",
+   "s": 566.586,
+   "e": 567.066,
+   "sid": "S31.1"
+  },
+  {
+   "w": "So,",
+   "s": 568.066,
+   "e": 568.466,
+   "sid": "S32.1"
+  },
+  {
+   "w": "back",
+   "s": 568.546,
+   "e": 568.866,
+   "sid": "S32.1"
+  },
+  {
+   "w": "to",
+   "s": 568.893,
+   "e": 568.946,
+   "sid": "S32.1"
+  },
+  {
+   "w": "the",
+   "s": 568.986,
+   "e": 569.106,
+   "sid": "S32.1"
+  },
+  {
+   "w": "question",
+   "s": 569.142,
+   "e": 569.426,
+   "sid": "S32.1"
+  },
+  {
+   "w": "Nina",
+   "s": 569.474,
+   "e": 569.666,
+   "sid": "S32.1"
+  },
+  {
+   "w": "started",
+   "s": 569.716,
+   "e": 570.066,
+   "sid": "S32.1"
+  },
+  {
+   "w": "with.",
+   "s": 570.114,
+   "e": 570.466,
+   "sid": "S32.1"
+  },
+  {
+   "w": "On",
+   "s": 570.679,
+   "e": 571.106,
+   "sid": "S32.2"
+  },
+  {
+   "w": "her",
+   "s": 571.146,
+   "e": 571.266,
+   "sid": "S32.2"
+  },
+  {
+   "w": "street,",
+   "s": 571.323,
+   "e": 571.826,
+   "sid": "S32.2"
+  },
+  {
+   "w": "most",
+   "s": 571.89,
+   "e": 572.146,
+   "sid": "S32.2"
+  },
+  {
+   "w": "houses",
+   "s": 572.203,
+   "e": 572.546,
+   "sid": "S32.2"
+  },
+  {
+   "w": "are",
+   "s": 572.566,
+   "e": 572.626,
+   "sid": "S32.2"
+  },
+  {
+   "w": "lit,",
+   "s": 572.706,
+   "e": 573.186,
+   "sid": "S32.2"
+  },
+  {
+   "w": "a",
+   "s": 573.226,
+   "e": 573.266,
+   "sid": "S32.2"
+  },
+  {
+   "w": "dark",
+   "s": 573.33,
+   "e": 573.586,
+   "sid": "S32.2"
+  },
+  {
+   "w": "stretch",
+   "s": 573.636,
+   "e": 573.986,
+   "sid": "S32.2"
+  },
+  {
+   "w": "sits",
+   "s": 574.034,
+   "e": 574.226,
+   "sid": "S32.2"
+  },
+  {
+   "w": "in",
+   "s": 574.253,
+   "e": 574.306,
+   "sid": "S32.2"
+  },
+  {
+   "w": "the",
+   "s": 574.326,
+   "e": 574.386,
+   "sid": "S32.2"
+  },
+  {
+   "w": "middle,",
+   "s": 574.432,
+   "e": 575.106,
+   "sid": "S32.2"
+  },
+  {
+   "w": "longer",
+   "s": 575.163,
+   "e": 575.506,
+   "sid": "S32.2"
+  },
+  {
+   "w": "stays",
+   "s": 575.573,
+   "e": 575.906,
+   "sid": "S32.2"
+  },
+  {
+   "w": "leave",
+   "s": 575.959,
+   "e": 576.226,
+   "sid": "S32.2"
+  },
+  {
+   "w": "fewer",
+   "s": 576.279,
+   "e": 576.546,
+   "sid": "S32.2"
+  },
+  {
+   "w": "dark",
+   "s": 576.61,
+   "e": 576.866,
+   "sid": "S32.2"
+  },
+  {
+   "w": "doors,",
+   "s": 576.959,
+   "e": 577.666,
+   "sid": "S32.2"
+  },
+  {
+   "w": "and",
+   "s": 577.766,
+   "e": 578.066,
+   "sid": "S32.2"
+  },
+  {
+   "w": "the",
+   "s": 578.086,
+   "e": 578.146,
+   "sid": "S32.2"
+  },
+  {
+   "w": "lights",
+   "s": 578.215,
+   "e": 578.626,
+   "sid": "S32.2"
+  },
+  {
+   "w": "move",
+   "s": 578.738,
+   "e": 579.186,
+   "sid": "S32.2"
+  },
+  {
+   "w": "with",
+   "s": 579.202,
+   "e": 579.266,
+   "sid": "S32.2"
+  },
+  {
+   "w": "the",
+   "s": 579.306,
+   "e": 579.426,
+   "sid": "S32.2"
+  },
+  {
+   "w": "tag",
+   "s": 579.506,
+   "e": 579.746,
+   "sid": "S32.2"
+  },
+  {
+   "w": "on",
+   "s": 579.799,
+   "e": 579.906,
+   "sid": "S32.2"
+  },
+  {
+   "w": "her",
+   "s": 579.926,
+   "e": 579.986,
+   "sid": "S32.2"
+  },
+  {
+   "w": "door.",
+   "s": 580.05,
+   "e": 580.546,
+   "sid": "S32.2"
+  },
+  {
+   "w": "It's",
+   "s": 580.786,
+   "e": 581.346,
+   "sid": "S32.3"
+  },
+  {
+   "w": "the",
+   "s": 581.386,
+   "e": 581.506,
+   "sid": "S32.3"
+  },
+  {
+   "w": "same",
+   "s": 581.538,
+   "e": 581.666,
+   "sid": "S32.3"
+  },
+  {
+   "w": "street",
+   "s": 581.712,
+   "e": 581.986,
+   "sid": "S32.3"
+  },
+  {
+   "w": "she",
+   "s": 582.026,
+   "e": 582.146,
+   "sid": "S32.3"
+  },
+  {
+   "w": "stood",
+   "s": 582.173,
+   "e": 582.306,
+   "sid": "S32.3"
+  },
+  {
+   "w": "beside",
+   "s": 582.363,
+   "e": 582.706,
+   "sid": "S32.3"
+  },
+  {
+   "w": "at",
+   "s": 582.733,
+   "e": 582.786,
+   "sid": "S32.3"
+  },
+  {
+   "w": "the",
+   "s": 582.806,
+   "e": 582.866,
+   "sid": "S32.3"
+  },
+  {
+   "w": "start,",
+   "s": 582.946,
+   "e": 583.826,
+   "sid": "S32.3"
+  },
+  {
+   "w": "now",
+   "s": 583.886,
+   "e": 584.066,
+   "sid": "S32.3"
+  },
+  {
+   "w": "lit",
+   "s": 584.166,
+   "e": 584.466,
+   "sid": "S32.3"
+  },
+  {
+   "w": "house",
+   "s": 584.559,
+   "e": 585.026,
+   "sid": "S32.3"
+  },
+  {
+   "w": "by",
+   "s": 585.106,
+   "e": 585.266,
+   "sid": "S32.3"
+  },
+  {
+   "w": "house",
+   "s": 585.386,
+   "e": 585.986,
+   "sid": "S32.3"
+  },
+  {
+   "w": "with",
+   "s": 586.066,
+   "e": 586.386,
+   "sid": "S32.3"
+  },
+  {
+   "w": "what",
+   "s": 586.45,
+   "e": 586.706,
+   "sid": "S32.3"
+  },
+  {
+   "w": "already",
+   "s": 586.806,
+   "e": 587.506,
+   "sid": "S32.3"
+  },
+  {
+   "w": "happened.",
+   "s": 587.559,
+   "e": 588.066,
+   "sid": "S32.3"
+  },
+  {
+   "w": "[thoughtful]",
+   "s": 588.786,
+   "e": 589.746,
+   "sid": "S32.4"
+  },
+  {
+   "w": "Nina's",
+   "s": 589.762,
+   "e": 589.906,
+   "sid": "S32.4"
+  },
+  {
+   "w": "answer:",
+   "s": 589.963,
+   "e": 590.546,
+   "sid": "S32.4"
+  },
+  {
+   "w": "not",
+   "s": 590.746,
+   "e": 591.346,
+   "sid": "S32.4"
+  },
+  {
+   "w": "by",
+   "s": 591.399,
+   "e": 591.506,
+   "sid": "S32.4"
+  },
+  {
+   "w": "any",
+   "s": 591.546,
+   "e": 591.666,
+   "sid": "S32.4"
+  },
+  {
+   "w": "rule;",
+   "s": 591.746,
+   "e": 592.546,
+   "sid": "S32.4"
+  },
+  {
+   "w": "it",
+   "s": 592.573,
+   "e": 592.626,
+   "sid": "S32.4"
+  },
+  {
+   "w": "depends",
+   "s": 592.666,
+   "e": 592.946,
+   "sid": "S32.4"
+  },
+  {
+   "w": "on",
+   "s": 592.999,
+   "e": 593.106,
+   "sid": "S32.4"
+  },
+  {
+   "w": "the",
+   "s": 593.126,
+   "e": 593.186,
+   "sid": "S32.4"
+  },
+  {
+   "w": "month",
+   "s": 593.239,
+   "e": 593.506,
+   "sid": "S32.4"
+  },
+  {
+   "w": "she",
+   "s": 593.546,
+   "e": 593.666,
+   "sid": "S32.4"
+  },
+  {
+   "w": "starts",
+   "s": 593.735,
+   "e": 594.146,
+   "sid": "S32.4"
+  },
+  {
+   "w": "and",
+   "s": 594.246,
+   "e": 594.546,
+   "sid": "S32.4"
+  },
+  {
+   "w": "the",
+   "s": 594.566,
+   "e": 594.626,
+   "sid": "S32.4"
+  },
+  {
+   "w": "rent",
+   "s": 594.674,
+   "e": 594.866,
+   "sid": "S32.4"
+  },
+  {
+   "w": "she",
+   "s": 594.906,
+   "e": 595.026,
+   "sid": "S32.4"
+  },
+  {
+   "w": "assumes,",
+   "s": 595.106,
+   "e": 596.026,
+   "sid": "S32.4"
+  },
+  {
+   "w": "and",
+   "s": 596.116,
+   "e": 596.386,
+   "sid": "S32.4"
+  },
+  {
+   "w": "the",
+   "s": 596.406,
+   "e": 596.466,
+   "sid": "S32.4"
+  },
+  {
+   "w": "lights",
+   "s": 596.523,
+   "e": 596.866,
+   "sid": "S32.4"
+  },
+  {
+   "w": "are",
+   "s": 596.966,
+   "e": 597.266,
+   "sid": "S32.4"
+  },
+  {
+   "w": "history.",
+   "s": 597.326,
+   "e": 597.906,
+   "sid": "S32.4"
+  },
+  {
+   "w": "One",
+   "s": 599.4,
+   "e": 599.48,
+   "sid": "S33.1"
+  },
+  {
+   "w": "question",
+   "s": 599.524,
+   "e": 599.88,
+   "sid": "S33.1"
+  },
+  {
+   "w": "stays",
+   "s": 599.933,
+   "e": 600.2,
+   "sid": "S33.1"
+  },
+  {
+   "w": "open:",
+   "s": 600.264,
+   "e": 600.6,
+   "sid": "S33.1"
+  },
+  {
+   "w": "what",
+   "s": 600.808,
+   "e": 601.64,
+   "sid": "S33.1"
+  },
+  {
+   "w": "if",
+   "s": 601.693,
+   "e": 601.8,
+   "sid": "S33.1"
+  },
+  {
+   "w": "the",
+   "s": 601.82,
+   "e": 601.88,
+   "sid": "S33.1"
+  },
+  {
+   "w": "renting",
+   "s": 601.93,
+   "e": 602.28,
+   "sid": "S33.1"
+  },
+  {
+   "w": "twin's",
+   "s": 602.344,
+   "e": 602.68,
+   "sid": "S33.1"
+  },
+  {
+   "w": "cash",
+   "s": 602.792,
+   "e": 603.24,
+   "sid": "S33.1"
+  },
+  {
+   "w": "had",
+   "s": 603.36,
+   "e": 603.72,
+   "sid": "S33.1"
+  },
+  {
+   "w": "been",
+   "s": 603.752,
+   "e": 603.88,
+   "sid": "S33.1"
+  },
+  {
+   "w": "invested?",
+   "s": 603.942,
+   "e": 604.6,
+   "sid": "S33.1"
+  }
+ ],
+ "anchors": [],
+ "world": [
+  {
+   "id": "a-s01-s03",
+   "scenes": [
+    "S01",
+    "S02",
+    "S03"
+   ],
+   "t0": 0.0,
+   "t1": 55.8999,
+   "f0": 0,
+   "f1": 1677
+  },
+  {
+   "id": "b-s04-s07",
+   "scenes": [
+    "S04",
+    "S05",
+    "S06",
+    "S07"
+   ],
+   "t0": 55.8999,
+   "t1": 175.4999,
+   "f0": 1677,
+   "f1": 5265
+  },
+  {
+   "id": "c-s08-s14",
+   "scenes": [
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14"
+   ],
+   "t0": 175.4999,
+   "t1": 311.6332,
+   "f0": 5265,
+   "f1": 9349
+  },
+  {
+   "id": "d-s15-s22",
+   "scenes": [
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S20",
+    "S21",
+    "S22"
+   ],
+   "t0": 311.6332,
+   "t1": 439.8331,
+   "f0": 9349,
+   "f1": 13195
+  },
+  {
+   "id": "e-s23-s28",
+   "scenes": [
+    "S23",
+    "S24",
+    "S25",
+    "S26",
+    "S27",
+    "S28"
+   ],
+   "t0": 439.8331,
+   "t1": 515.7663,
+   "f0": 13195,
+   "f1": 15473
+  },
+  {
+   "id": "f-s29-s33",
+   "scenes": [
+    "S29",
+    "S30",
+    "S31",
+    "S32",
+    "S33"
+   ],
+   "t0": 515.7663,
+   "t1": 606.0996,
+   "f0": 15473,
+   "f1": 18183
+  }
+ ]
+}

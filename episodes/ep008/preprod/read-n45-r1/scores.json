@@ -1,0 +1,38 @@
+[
+ {
+  "file": "6269a005",
+  "obj": "box",
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "why": "Reads (b) the gradual fill correctly and floats (a) 'savings kept while renting', but also 'cash piling up for a landlord or owner'; never gets (c) idle money. 'The animation doesn't say which.'"
+ },
+ {
+  "file": "6b10e5a2",
+  "obj": "fog",
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "why": "Reads houses being erased as housing scarcity, not fog or unknown future: 'homes are scarce and getting scarcer'. Also infers 'buying sooner would beat waiting'."
+ },
+ {
+  "file": "9bf36f8b",
+  "obj": "fog",
+  "score": 0,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": true,
+  "why": "Mentions 'void, flood or fog' in passing but reads it as housing supply being wiped out: 'a shrinking stock of homes'. Infers waiting to buy won't make it cheaper, then cautions that it says nothing about rent vs buy."
+ },
+ {
+  "file": "b72f4e7c",
+  "obj": "box",
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "why": "Gets (b) bundles stacking up over time; (a) is ambiguous ('saved money piling up, or money being collected from or paid out around a property'); (c) idle, uninvested cash is not read."
+ }
+]

@@ -1,0 +1,21 @@
+# Grading packet (blind). You are an independent grader. Grade each reader label literally.
+
+Scenes with start/end seconds: [["S01", 0.0, 15.6], ["S02", 15.6, 29.3], ["S03", 29.3, 55.9], ["S04", 55.9, 88.3], ["S05", 88.3, 121.3], ["S06", 121.3, 141.5], ["S07", 141.5, 175.5], ["S08", 175.5, 215.5], ["S09", 215.5, 237.4], ["S10", 237.4, 252.8], ["S11", 252.8, 265.3], ["S12", 265.3, 281.3], ["S13", 281.3, 298.2], ["S14", 298.2, 311.6], ["S15", 311.6, 322.0], ["S16", 322.0, 338.4], ["S17", 338.4, 346.3], ["S18", 346.3, 360.0], ["S19", 360.0, 383.4], ["S20", 383.4, 393.8], ["S21", 393.8, 408.7], ["S22", 408.7, 439.8], ["S23", 439.8, 463.6], ["S24", 463.6, 479.3], ["S25", 479.3, 486.1], ["S26", 486.1, 495.0], ["S27", 495.0, 502.7], ["S28", 502.7, 515.8], ["S29", 515.8, 534.9], ["S30", 534.9, 559.9], ["S31", 559.9, 568.1], ["S32", 568.1, 599.4], ["S33", 599.4, 606.1]]
+For each label return {"skip": [scene ids the reader would skip ahead in, from the times they give; [] if none], "engaged": [scene ids], "why": "<one line>"}.
+
+### R1
+1. **Skip ahead:** I'd skip to about 1:01 (0:58 at the earliest). Between roughly 1:01 and 2:55 the narration explains the setup: mortgage terms, the 2.5 percent upkeep, the renter's cash pile, and the rent tag. The frames for that stretch are mostly static, with small figures, a building and a house. It's a lot of rules to take in before I've seen any result, and I only partly retain them. I'd also skip the recap at 9:30. It repeats what I already heard, and the on-screen "what this leaves out" card covers the limits. The disclaimers around 9:19 slow things down a little too.
+
+2. **Most engaged:** I was most engaged at 3:35–4:25, as the street lights up and then the dark doors appear from April 2001 to December 2007. The grid of lit and dark houses shows the result at a glance, and the "6 of 72" line pays off the hook from the opening. The June 2006 versus April 2012 comparison at about 5:10–5:50 held my interest too. A close second is 8:35, where Nina's own first month is set against the others (56.8 percent versus a low of 57.9 percent), because it connects the history back to her.
+
+### R2
+1. **Where I'd skip ahead:** I'd skip from about 1:01 to 1:55, which is the section on what each twin pays. It's a long list: the down payment, the closing costs, the 30-year mortgage, the 2.5 percent upkeep, the cash pile, and the Treasury-bill variant. The visuals are mostly static, with Nina and two buildings, and I'm not yet invested in the answer at that point. I'd also skip 2:01 to 2:55, where the narration explains the real data record and the rent tag. It's useful, but it's dense and abstract, and the on-screen graphs don't help much. A smaller skip is 6:23 to 7:13, the five-year and fifteen-year comparison, because it comes right after the big June 2006 reveal and slows things down.
+
+2. **Most engaged:** I was most engaged at about 3:35 to 4:25, when the street lights up and then the doors go dark from April 2001. The grid of houses makes the pattern easy to see. The line "the buyer ended ahead in just 6" of 72 starts matches the dark block in the frames. I was also drawn in at 5:11 to 5:46, when April 2012 is set against June 2006 and the buyer is $82,385 behind. Both of those moments make the gap between the best and worst outcomes concrete.
+
+### R3
+1. **Skip ahead:** I'd skip at about 1:28 (1:28–2:00). That's the stretch where the renter's cash is explained, the Treasury-bill variant is mentioned, and the narration says the episode won't answer whether investing would have done better. It's a lot of setup, and the screen is mostly static. The same point comes back later, at 8:22 and 9:59. I'd also skim 7:43–8:00. It restates the rent tag, which the video has already said at 2:01 and 2:54, though it does lead into the useful 4% and 6% results.
+
+2. **Most engaged:** I was most engaged at 3:52–4:25. The street lights up through the 1990s, the doors go dark from April 2001, and the buyer wins only 6 of 72 starts. That is the payoff of the setup, and the frames make it easy to see. A close second is 5:22–5:50, when the darkest house, June 2006, is revealed. It shows the buyer $82,385 behind, with the two stacks next to it.
+
+Output JSON only: {"R1": {...}, ...}

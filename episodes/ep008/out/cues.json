@@ -1,0 +1,90 @@
+{
+ "cues": [
+  {
+   "t": 0.0,
+   "end": 52.9,
+   "function": "cold open",
+   "cue": "Q",
+   "key": "E dorian +3",
+   "tempo": 99.81,
+   "bars": 22
+  },
+  {
+   "t": 55.7,
+   "end": 183.4,
+   "function": "act 1",
+   "cue": "A1",
+   "key": "E dorian +1",
+   "tempo": 99.61,
+   "bars": 53
+  },
+  {
+   "t": 184.6,
+   "end": 449.5,
+   "function": "act 2 every week since 1991",
+   "cue": "A2",
+   "key": "E dorian +5",
+   "tempo": 99.66,
+   "bars": 110
+  },
+  {
+   "t": 450.7,
+   "end": 587.673,
+   "function": "act 3 two neighbors, the rent tag",
+   "cue": "A3",
+   "key": "E dorian -2",
+   "tempo": 99.87,
+   "bars": 57
+  },
+  {
+   "t": 587.673,
+   "end": 626.166,
+   "function": "limits + outro",
+   "cue": "O",
+   "key": "G major",
+   "tempo": 100.76,
+   "bars": 17
+  },
+  {
+   "t": 616.845,
+   "end": 626.166,
+   "function": "closing cue A (F-12)",
+   "cue": "close-A",
+   "key": "F major",
+   "tempo": 114.0,
+   "touch": 625.266
+  }
+ ],
+ "silences": [
+  {
+   "what": "MR1",
+   "t": 183.4,
+   "end": 184.6
+  },
+  {
+   "what": "MR2",
+   "t": 449.5,
+   "end": 450.7
+  },
+  {
+   "what": "ident",
+   "t": 52.9,
+   "end": 55.9
+  },
+  {
+   "what": "anchor S13.1",
+   "t": 289.86,
+   "end": 290.61
+  },
+  {
+   "what": "anchor S17.1",
+   "t": 348.867,
+   "end": 349.617
+  },
+  {
+   "what": "anchor S25.1",
+   "t": 499.426,
+   "end": 500.176
+  }
+ ]
+}

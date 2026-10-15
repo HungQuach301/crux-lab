@@ -1,0 +1,926 @@
+{
+ "episode": "ep008",
+ "yaml": "episodes/ep008/episode.yaml",
+ "steps": {
+  "spec": {
+   "seconds": 1.07,
+   "problems": 0
+  },
+  "voice": {
+   "seconds": 4.64,
+   "scenes": 33,
+   "cache_hits": 33,
+   "el_chars_spent": 0
+  },
+  "resolve": {
+   "seconds": 5.49,
+   "total": 606.0996,
+   "shots": 0,
+   "anchors": 0
+  },
+  "world": {
+   "seconds": 4552.39,
+   "segments": {
+    "a-s01-s03": {
+     "lint": {
+      "seconds": 0.3,
+      "ok": true,
+      "problems": [],
+      "files": 18
+     },
+     "spine": {
+      "seconds": 20.1,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ],
+      "f14": {
+       "errors": [],
+       "warn": []
+      }
+     },
+     "render": {
+      "seconds": 1.8,
+      "ok": true,
+      "shots": 6,
+      "rendered": [],
+      "cached": 6,
+      "wall_s": 1.1,
+      "film_s": 55.8999,
+      "wall_per_film_s_rendered": 0,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 33.6,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 3.6,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 106.2,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 1670,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.403,
+       "chart_share": 0.597,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "OK",
+       "sfx_per_min": 14.0,
+       "sfx_max_10s": 5,
+       "sfx_on_speech": 11,
+       "sfx_on_plain_words": 5,
+       "sfx_events": 13,
+       "keyword_hits": 6,
+       "min_keyword_snr_db": 18.4,
+       "label_overlaps": 0,
+       "line_crossings": 0,
+       "block": [],
+       "warn": []
+      },
+      "labels": {
+       "n": 9,
+       "within_0_2": 8,
+       "late": [
+        {
+         "cue": "a6.ten",
+         "t": 36.047,
+         "lag": -0.95
+        }
+       ]
+      }
+     }
+    },
+    "b-s04-s07": {
+     "lint": {
+      "seconds": 0.3,
+      "ok": true,
+      "problems": [],
+      "files": 18
+     },
+     "spine": {
+      "seconds": 20.7,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ],
+      "f14": {
+       "errors": [],
+       "warn": []
+      }
+     },
+     "render": {
+      "seconds": 2.2,
+      "ok": true,
+      "shots": 9,
+      "rendered": [],
+      "cached": 9,
+      "wall_s": 1.5,
+      "film_s": 119.6,
+      "wall_per_film_s_rendered": 0,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 76.4,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 8.3,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 223.7,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 3089,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.629,
+       "chart_share": 0.371,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "OK",
+       "sfx_per_min": 12.5,
+       "sfx_max_10s": 6,
+       "sfx_on_speech": 18,
+       "sfx_on_plain_words": 7,
+       "sfx_events": 25,
+       "keyword_hits": 13,
+       "min_keyword_snr_db": 21.0,
+       "label_overlaps": 0,
+       "line_crossings": 0,
+       "block": [],
+       "warn": []
+      },
+      "labels": {
+       "n": 7,
+       "within_0_2": 5,
+       "late": [
+        {
+         "cue": "b3.two",
+         "t": 22.78,
+         "lag": null
+        },
+        {
+         "cue": "b16.one",
+         "t": 95.773,
+         "lag": null
+        }
+       ]
+      }
+     }
+    },
+    "c-s08-s14": {
+     "lint": {
+      "seconds": 0.3,
+      "ok": true,
+      "problems": [],
+      "files": 18
+     },
+     "spine": {
+      "seconds": 21.8,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ],
+      "f14": {
+       "errors": [],
+       "warn": []
+      }
+     },
+     "render": {
+      "seconds": 2.5,
+      "ok": true,
+      "shots": 10,
+      "rendered": [],
+      "cached": 10,
+      "wall_s": 1.6,
+      "film_s": 136.1333,
+      "wall_per_film_s_rendered": 0,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 78.0,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 10.0,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 267.3,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 4119,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.438,
+       "chart_share": 0.562,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "WARN",
+       "sfx_per_min": 7.5,
+       "sfx_max_10s": 3,
+       "sfx_on_speech": 12,
+       "sfx_on_plain_words": 7,
+       "sfx_events": 17,
+       "keyword_hits": 6,
+       "min_keyword_snr_db": 13.3,
+       "label_overlaps": 0,
+       "line_crossings": 0,
+       "block": [],
+       "warn": [
+        "sfx [(90.747, 'rise')] trên từ khoá c13.again 'again:' 90.747–91.72 SNR 13.3 dB"
+       ]
+      },
+      "labels": {
+       "n": 10,
+       "within_0_2": 10,
+       "late": []
+      }
+     }
+    },
+    "d-s15-s22": {
+     "lint": {
+      "seconds": 0.5,
+      "ok": true,
+      "problems": [],
+      "files": 18
+     },
+     "spine": {
+      "seconds": 21.1,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ],
+      "f14": {
+       "errors": [],
+       "warn": []
+      }
+     },
+     "render": {
+      "seconds": 2.1,
+      "ok": true,
+      "shots": 5,
+      "rendered": [],
+      "cached": 5,
+      "wall_s": 1.3,
+      "film_s": 128.1999,
+      "wall_per_film_s_rendered": 0,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 75.7,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 9.3,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 242.5,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 4396,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.083,
+       "chart_share": 0.917,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "WARN",
+       "sfx_per_min": 4.2,
+       "sfx_max_10s": 2,
+       "sfx_on_speech": 9,
+       "sfx_on_plain_words": 5,
+       "sfx_events": 9,
+       "keyword_hits": 4,
+       "min_keyword_snr_db": 22.2,
+       "label_overlaps": 1,
+       "line_crossings": 0,
+       "block": [],
+       "warn": [
+        "sfx đè từ thường 5/9 sự kiện > 50%: 19.497 whoosh_soft/'range,', 45.726 whoosh_soft/'seven', 70.16 whoosh_soft/'worse.', 116.687 whoosh_mode/'a', 118.287 land/'this'",
+        "June 2006 × buyer's equity $115,374 45.9–45.9 s (1 mẫu)"
+       ]
+      },
+      "labels": {
+       "n": 15,
+       "within_0_2": 13,
+       "late": [
+        {
+         "cue": "d5.equity",
+         "t": 38.117,
+         "lag": 0.88
+        },
+        {
+         "cue": "d5.cash",
+         "t": 42.876,
+         "lag": 1.22
+        }
+       ]
+      }
+     }
+    },
+    "e-s23-s28": {
+     "lint": {
+      "seconds": 0.3,
+      "ok": true,
+      "problems": [],
+      "files": 18
+     },
+     "spine": {
+      "seconds": 22.1,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ],
+      "f14": {
+       "errors": [],
+       "warn": []
+      }
+     },
+     "render": {
+      "seconds": 1140.3,
+      "ok": true,
+      "shots": 6,
+      "rendered": [
+       "s5"
+      ],
+      "cached": 5,
+      "wall_s": 1139.4,
+      "film_s": 75.9332,
+      "wall_per_film_s_rendered": 27.75,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 47.2,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 5.4,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 120.2,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 2097,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.474,
+       "chart_share": 0.526,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "WARN",
+       "sfx_per_min": 8.7,
+       "sfx_max_10s": 3,
+       "sfx_on_speech": 8,
+       "sfx_on_plain_words": 3,
+       "sfx_events": 11,
+       "keyword_hits": 5,
+       "min_keyword_snr_db": 27.8,
+       "label_overlaps": 2,
+       "line_crossings": 0,
+       "block": [],
+       "warn": [
+        "on the day they bought: no light to see × same tag · same costs · same street · different month 21.4–21.5 s (2 mẫu)"
+       ]
+      },
+      "labels": {
+       "n": 8,
+       "within_0_2": 8,
+       "late": []
+      }
+     }
+    },
+    "f-s29-s33": {
+     "lint": {
+      "seconds": 0.3,
+      "ok": true,
+      "problems": [],
+      "files": 18
+     },
+     "spine": {
+      "seconds": 20.6,
+      "ok": true,
+      "stdout": [
+       "checks OK"
+      ],
+      "f14": {
+       "errors": [],
+       "warn": []
+      }
+     },
+     "render": {
+      "seconds": 1743.6,
+      "ok": true,
+      "shots": 7,
+      "rendered": [
+       "s0",
+       "s4",
+       "s3",
+       "s1",
+       "s2",
+       "s6",
+       "s5"
+      ],
+      "cached": 0,
+      "wall_s": 1742.9,
+      "film_s": 90.3333,
+      "wall_per_film_s_rendered": 72.65,
+      "cores": 4
+     },
+     "audio": {
+      "seconds": 54.0,
+      "ok": true
+     },
+     "mux": {
+      "seconds": 6.3,
+      "ok": true
+     },
+     "verify": {
+      "seconds": 161.0,
+      "ok": true,
+      "rule1": 0,
+      "rule2": 0,
+      "rule3": 0,
+      "hard_cuts": 0,
+      "first_5s_world": true,
+      "C14": {
+       "samples": 2776,
+       "violations": 0,
+       "examples": []
+      },
+      "modes": {
+       "world_share": 0.366,
+       "chart_share": 0.634,
+       "first_5s_world": true
+      },
+      "F2": {
+       "level": "OK",
+       "sfx_per_min": 10.6,
+       "sfx_max_10s": 6,
+       "sfx_on_speech": 14,
+       "sfx_on_plain_words": 5,
+       "sfx_events": 16,
+       "keyword_hits": 9,
+       "min_keyword_snr_db": 26.9,
+       "label_overlaps": 0,
+       "line_crossings": 0,
+       "block": [],
+       "warn": []
+      },
+      "labels": {
+       "n": 11,
+       "within_0_2": 11,
+       "late": []
+      }
+     }
+    }
+   }
+  },
+  "render": {
+   "seconds": 186.16,
+   "segments": 0,
+   "rendered": 0,
+   "cache_hits": 0,
+   "frames": 18183,
+   "blank": true
+  },
+  "splice": {
+   "seconds": 489.88,
+   "segments": [
+    "a-s01-s03",
+    "b-s04-s07",
+    "c-s08-s14",
+    "d-s15-s22",
+    "e-s23-s28",
+    "f-s29-s33"
+   ],
+   "frames": 18183,
+   "frame_log_dropped": 0
+  },
+  "mix": {
+   "seconds": 351.82,
+   "a07_gap_db": 19.99,
+   "mid_duck_db": 13.0,
+   "world": {
+    "segments": [
+     {
+      "id": "a-s01-s03",
+      "gain_db": -4.86,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -42.0,
+       "sonify": -56.1,
+       "sfx": -53.1,
+       "whoosh": -62.3,
+       "room": -64.3
+      },
+      "bed_off": true
+     },
+     {
+      "id": "b-s04-s07",
+      "gain_db": -4.73,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -42.5,
+       "sonify": -61.0,
+       "sfx": -56.0,
+       "whoosh": -62.6,
+       "room": -65.0
+      },
+      "bed_off": true
+     },
+     {
+      "id": "c-s08-s14",
+      "gain_db": -4.48,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -38.5,
+       "sonify": -58.8,
+       "sfx": -54.7,
+       "whoosh": -64.1,
+       "room": -65.0
+      },
+      "bed_off": true
+     },
+     {
+      "id": "d-s15-s22",
+      "gain_db": -4.57,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -37.9,
+       "sonify": -60.0,
+       "sfx": -61.8,
+       "whoosh": -66.6,
+       "room": -65.0
+      },
+      "bed_off": true
+     },
+     {
+      "id": "e-s23-s28",
+      "gain_db": -5.0,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -38.9,
+       "sonify": -58.2,
+       "sfx": -64.7,
+       "whoosh": -61.7,
+       "room": -64.9
+      },
+      "bed_off": true
+     },
+     {
+      "id": "f-s29-s33",
+      "gain_db": -5.35,
+      "gain_basis": "voice_rms",
+      "layers_rms_dbfs": {
+       "music": -40.0,
+       "sonify": -56.8,
+       "sfx": -58.2,
+       "whoosh": -62.3,
+       "room": -65.0
+      },
+      "bed_off": true
+     }
+    ],
+    "stems": [
+     "music",
+     "room",
+     "sfx",
+     "sonify",
+     "voice",
+     "whoosh"
+    ],
+    "peak_scale": 1.0
+   },
+   "ident": {
+    "wav": "toolkit/factory/theme/ident-A.wav",
+    "after": "S03",
+    "t0": 52.8999,
+    "t1": 55.8999,
+    "gain_db": -4.6,
+    "voice_lufs": -18.7,
+    "ident_file_lufs": -16.1,
+    "rel_db": -2.0
+   },
+   "close_lift": {
+    "db": 12.0,
+    "ramp_s": 0.5,
+    "t_last_word": 604.6,
+    "t_last_word_timeline": 604.6,
+    "t_voice_off": 604.506,
+    "t0": 604.6,
+    "t_full": 605.1,
+    "a07_gap_db_before": 19.57,
+    "a07_gap_db": 19.57,
+    "music_changed_while_voice": false
+   },
+   "post_peak_scale": 1.0,
+   "video": "episodes/ep008/work/factory/video.mp4",
+   "sha256": "1a9c4cafcf2eec7cac4527766022529d5eedf518013c1d385d3dee3d6509de60",
+   "mb": 1312.61
+  },
+  "artefacts": {
+   "seconds": 0.47,
+   "camera": {
+    "frames": 18183,
+    "world": [
+     "a-s01-s03",
+     "b-s04-s07",
+     "c-s08-s14",
+     "d-s15-s22",
+     "e-s23-s28",
+     "f-s29-s33"
+    ]
+   },
+   "sonify": {
+    "a-s01-s03": {
+     "events": 5,
+     "from": "audio-report"
+    },
+    "b-s04-s07": {
+     "events": 5,
+     "from": "audio-report"
+    },
+    "c-s08-s14": {
+     "events": 7,
+     "from": "audio-report"
+    },
+    "d-s15-s22": {
+     "events": 9,
+     "from": "audio-report"
+    },
+    "e-s23-s28": {
+     "events": 6,
+     "from": "audio-report"
+    },
+    "f-s29-s33": {
+     "events": 3,
+     "from": "audio-report"
+    }
+   },
+   "page": {
+    "modules": 12,
+    "segments": [
+     "a-s01-s03",
+     "b-s04-s07",
+     "c-s08-s14",
+     "d-s15-s22",
+     "e-s23-s28",
+     "f-s29-s33"
+    ],
+    "bytes": 2958444,
+    "page": "work/factory/page/index.html"
+   }
+  },
+  "parts": {
+   "seconds": 325.5,
+   "parts": [
+    {
+     "file": "episodes/ep008/work/factory/ep008-part1-720p.mp4",
+     "from": 0.0,
+     "to": 202.0332,
+     "mb": 130.4
+    },
+    {
+     "file": "episodes/ep008/work/factory/ep008-part2-720p.mp4",
+     "from": 202.0332,
+     "to": 404.0664,
+     "mb": 126.79
+    },
+    {
+     "file": "episodes/ep008/work/factory/ep008-part3-720p.mp4",
+     "from": 404.0664,
+     "to": 606.0996,
+     "mb": 128.49
+    }
+   ]
+  },
+  "shorts": {
+   "seconds": 844.92,
+   "shorts": [
+    {
+     "id": "SH1",
+     "file": "episodes/ep008/work/factory/SH1.mp4",
+     "from": 338.4333,
+     "to": 382.7667,
+     "duration": 45.833,
+     "world": "d-s15-s22",
+     "render_world": {
+      "wall_s": 809.6,
+      "film_s": 44.3334,
+      "rendered": [
+       "span0",
+       "span2",
+       "span1",
+       "span3",
+       "span4",
+       "span5",
+       "span7",
+       "span6",
+       "span8"
+      ],
+      "cached": 0
+     },
+     "endcard": {
+      "segments": 1,
+      "rendered": 1,
+      "cache_hits": 0,
+      "frames": 45,
+      "seconds": 4.93,
+      "fps": 9.14,
+      "workers": 4,
+      "fmt": "jpeg"
+     },
+     "audio": {
+      "measured_I": -14.16
+     }
+    }
+   ]
+  },
+  "qc": {
+   "seconds": 168.06,
+   "pass": false,
+   "failed": [
+    "master đối trọng \"US only · history, not a forecast\"",
+    "master đối trọng \"Nina and her twin are illustrative · real prices, rents and rates\"",
+    "master đối trọng \"Not advice on whether to buy or rent\"",
+    "loudness",
+    "kích thước phần"
+   ],
+   "warned": [],
+   "near": [
+    "loudness TP",
+    "SH1 sàn chữ"
+   ]
+  }
+ },
+ "started": "2026-10-14T18:50:52Z",
+ "spec": [],
+ "music": {
+  "a07_gap_db": 19.99,
+  "mid_duck_db": 13.0,
+  "world": {
+   "segments": [
+    {
+     "id": "a-s01-s03",
+     "gain_db": -4.86,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -42.0,
+      "sonify": -56.1,
+      "sfx": -53.1,
+      "whoosh": -62.3,
+      "room": -64.3
+     },
+     "bed_off": true
+    },
+    {
+     "id": "b-s04-s07",
+     "gain_db": -4.73,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -42.5,
+      "sonify": -61.0,
+      "sfx": -56.0,
+      "whoosh": -62.6,
+      "room": -65.0
+     },
+     "bed_off": true
+    },
+    {
+     "id": "c-s08-s14",
+     "gain_db": -4.48,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -38.5,
+      "sonify": -58.8,
+      "sfx": -54.7,
+      "whoosh": -64.1,
+      "room": -65.0
+     },
+     "bed_off": true
+    },
+    {
+     "id": "d-s15-s22",
+     "gain_db": -4.57,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -37.9,
+      "sonify": -60.0,
+      "sfx": -61.8,
+      "whoosh": -66.6,
+      "room": -65.0
+     },
+     "bed_off": true
+    },
+    {
+     "id": "e-s23-s28",
+     "gain_db": -5.0,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -38.9,
+      "sonify": -58.2,
+      "sfx": -64.7,
+      "whoosh": -61.7,
+      "room": -64.9
+     },
+     "bed_off": true
+    },
+    {
+     "id": "f-s29-s33",
+     "gain_db": -5.35,
+     "gain_basis": "voice_rms",
+     "layers_rms_dbfs": {
+      "music": -40.0,
+      "sonify": -56.8,
+      "sfx": -58.2,
+      "whoosh": -62.3,
+      "room": -65.0
+     },
+     "bed_off": true
+    }
+   ],
+   "stems": [
+    "music",
+    "room",
+    "sfx",
+    "sonify",
+    "voice",
+    "whoosh"
+   ],
+   "peak_scale": 1.0
+  },
+  "ident": {
+   "wav": "toolkit/factory/theme/ident-A.wav",
+   "after": "S03",
+   "t0": 52.8999,
+   "t1": 55.8999,
+   "gain_db": -4.6,
+   "voice_lufs": -18.7,
+   "ident_file_lufs": -16.1,
+   "rel_db": -2.0
+  },
+  "close_lift": {
+   "db": 12.0,
+   "ramp_s": 0.5,
+   "t_last_word": 604.6,
+   "t_last_word_timeline": 604.6,
+   "t_voice_off": 604.506,
+   "t0": 604.6,
+   "t_full": 605.1,
+   "a07_gap_db_before": 19.57,
+   "a07_gap_db": 19.57,
+   "music_changed_while_voice": false
+  },
+  "post_peak_scale": 1.0
+ },
+ "total_seconds": 6930.41
+}

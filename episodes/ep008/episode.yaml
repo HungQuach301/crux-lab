@@ -1,0 +1,92 @@
+episode: ep008
+format: "lab"          # F-14 v4 TRƯỢT cổng gốc (19/23) → không deep; chủ dự án 12/10 (PLAN kênh)
+topic: "queue #20 — topics-r2/machine/rent-buy-1 (dự phòng #6 retire-2 nếu G1 lô trượt điều kiện tỉ lệ thuê/giá)"
+title: null           # nháp ở G1 (gates/G1.md câu 3)
+pillar: vay nợ
+tokenCeiling: {episode: 15000000, consoleUsd: 45, p1HardUsd: 12, note: "lab (episode.md §8); P1 trần CỨNG $12 Console (chủ dự án 13/10)"}
+voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1008, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
+music: {style: C}      # mỗi hồi một cue (episode.md §5b); bản đồ liền mạch preprod/continuity.md
+f14: true              # nhà máy F-14 opt-in: mọi spine.json của đoạn thế giới có khoá `f14` (life / changes / label_at; README nhà máy §F-14 (a)–(e)) — chủ dự án 13/10
+asr_hotwords: [Nina]   # tên nhân vật (luật tạm 13/10) — chốt theo kịch bản C2
+footage: {max_share: 0.15, rights: RIGHTS.md, map: preprod/BAN-DO-LIEN-MACH.md}
+external:   # F13/F15 (K4.4): footage ngoài duy nhất Tập 8 (G1 câu 3) — bản đồ Natural Earth vẽ trên mặt đất, minh hoạ "US only", chữ nguồn trên hình
+  - {id: M-NE-ADM1, rights: M-NE-ADM1, kind: illustrative, file: work/external/ne_50m_admin_1.geojson, t0: 142.43, t1: 148.40}   # M6: giờ sau cắt (bản đồ hiện b15.tag − 0,8 → m_c3 + 0,3; trước 151,70–157,68); footage ngoài ≤ 15 %
+# shorts: 1 Short, không thumbnail (chủ dự án 13/10) — khai ở cuối tệp
+dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json}
+
+# ---- M2 animatic xám → M3 nháp 540p (mô hình xưởng 6 mốc, sau G1 13/10): MỌI cảnh là đoạn thế giới 3D (world:), không shot 2D.
+#   python3 episodes/ep008/world/data.py && python3 episodes/ep008/world/derive.py && python3 episodes/ep008/prod/build_inputs.py --timeline
+#   CRUX_GREY=1 (animatic xám, M2) / không đặt (nháp màu, M3) → spine.py từng đoạn → bash toolkit/build.sh episodes/ep008/episode.yaml
+audio:
+  lufs: -14
+  true_peak: -2.3   # M6: bản G2 ra −1,9 dBTP (> −2,0) → đích −2,3 để có biên
+  music: work/factory/music/bed.wav
+  music_cmd: "python3 episodes/ep008/world/music/bed.py {total} {out} --timeline episodes/ep008/out/factory/timeline.json"
+  ident: {after: S03}
+  close_lift_db: 12
+scope: full
+script: prod/gen/script.json
+claims: prod/gen/claims.json
+tokens: prod/gen/tokens.json
+data: {file: prod/gen/data.json}
+fps: 30
+res: 1080    # M6 sau G2 (chủ dự án 14/10); M2–M5 dùng 540
+acts:   # theo các dòng `=== … ===` của story/script.md
+  - {id: cold-open, scenes: [S01, S02, S03]}
+  - {id: ident, scenes: [S03]}
+  - {id: act1, scenes: [S04, S05, S06, S07]}
+  - {id: act2, scenes: [S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22]}
+  - {id: act3, scenes: [S23, S24, S25, S26, S27, S28, S29, S30]}
+  - {id: method, scenes: [S31, S32, S33]}   # thẻ phương pháp + kết (checks S02 đọc hồi "method"; trước 14/10: limits)
+scenes:
+  - {id: S01, tail: 1.0, shots: []}
+  - {id: S02, tail: 1.0, shots: []}
+  - {id: S03, tail: 4.0, shots: []}     # + ident A 3 s
+  - {id: S04, tail: 1.0, shots: []}
+  - {id: S05, tail: 1.0, shots: []}
+  - {id: S06, tail: 1.0, shots: []}
+  - {id: S07, tail: 1.5, shots: []}     # MR1
+  - {id: S08, tail: 1.0, shots: []}
+  - {id: S09, tail: 1.0, shots: []}
+  - {id: S10, tail: 1.0, shots: []}
+  - {id: S11, tail: 1.0, shots: []}
+  - {id: S12, tail: 1.0, shots: []}     # S12.3 lead-in → lặng trước số neo S13.1
+  - {id: S13, tail: 1.0, shots: []}
+  - {id: S14, tail: 1.0, shots: []}
+  - {id: S15, tail: 1.0, shots: []}
+  - {id: S16, tail: 1.0, shots: []}
+  - {id: S17, tail: 1.5, shots: []}
+  - {id: S18, tail: 1.0, shots: []}
+  - {id: S19, tail: 1.0, shots: []}
+  - {id: S20, tail: 1.0, shots: []}
+  - {id: S21, tail: 1.0, shots: []}
+  - {id: S22, tail: 1.5, shots: []}     # MR2
+  - {id: S23, tail: 1.0, shots: []}
+  - {id: S24, tail: 1.0, shots: []}
+  - {id: S25, tail: 1.0, shots: []}
+  - {id: S26, tail: 1.0, shots: []}
+  - {id: S27, tail: 1.0, shots: []}
+  - {id: S28, tail: 1.0, shots: []}
+  - {id: S29, tail: 1.0, shots: []}
+  - {id: S30, tail: 1.0, shots: []}
+  - {id: S31, tail: 1.0, shots: []}
+  - {id: S32, tail: 1.5, shots: []}
+  - {id: S33, tail: 1.5, shots: []}     # khúc đóng A chạm sau chữ cuối
+voice_overrides:   # A14 (ASR): S13 seed 1008 đọc "3 in 4" thành "three and four" (small.en + medium.en) → seed khác, chữ không đổi
+  S13: {seed: 1009}
+midrolls:   # giờ = lời thật (out/factory/timeline.json 13/10): lặng [t − 0,65; hết cảnh] ≥ 1 s sau chữ cuối
+  - {after_act: act1, scene: S07, t: 174.73}   # M6 (sau cắt G2 câu 5): lời S07 hết 174,013 s, cảnh hết 175,500 s
+  - {after_act: act2, scene: S22, t: 439.07}   # M6: lời S22 hết 438,333 s, cảnh hết 439,833 s; 167 s tới cuối
+counterweights:
+  - {id: us-only, text: "US only · history, not a forecast", when: historical}
+  - {id: illustrative, text: "Nina and her twin are illustrative · real prices, rents and rates", claims: [price, down_usd, closing_usd, today_buyer_month1, today_rent_month1, today_rent_to_outlay]}
+  - {id: no-advice, text: "Not advice on whether to buy or rent", claims: [share_buyer_ahead_10y, share_yield4pct_10y, share_yield6pct_10y, share_buyer_ahead_15y]}
+world:    # sáu đoạn = sáu chương (script.md >>> CHAPTER)
+  - {id: a-s01-s03, dir: world/seg/a-s01-s03, scenes: [S01, S02, S03]}
+  - {id: b-s04-s07, dir: world/seg/b-s04-s07, scenes: [S04, S05, S06, S07]}
+  - {id: c-s08-s14, dir: world/seg/c-s08-s14, scenes: [S08, S09, S10, S11, S12, S13, S14]}
+  - {id: d-s15-s22, dir: world/seg/d-s15-s22, scenes: [S15, S16, S17, S18, S19, S20, S21, S22]}
+  - {id: e-s23-s28, dir: world/seg/e-s23-s28, scenes: [S23, S24, S25, S26, S27, S28]}
+  - {id: f-s29-s33, dir: world/seg/f-s29-s33, scenes: [S29, S30, S31, S32, S33]}
+shorts:
+  - {id: SH1, from: "@S17.1", to: "@S19.3$", hook: "The darkest house", end: "About 3 out of 4 start months: the buyer ended ahead · dark stretch 2001–2007 · history, not a forecast"}   # thẻ cuối đối trọng (G1 câu 3)
