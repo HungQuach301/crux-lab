@@ -37,10 +37,10 @@ export async function boot(res) {
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     chapterCard(O, S.chapter[1], t, S.chapter[0]);
     const a = ok * (t < MV.m_g.t0 + 0.2 ? 1 : 0), [hx, hy] = O.toScreen(HX, 0, Z), [px] = O.toScreen(PX, 0, Z);
-    label(O, 'stocks grew more: 88.9% of start months', 960, 240, { align: 'center', kind: 'number', px: 50, alpha: a * show(t, b.e0.stocks, b.e1.four - 0.2), claims: ['share_stocks_beat_house_10y_pct'] });
+    label(O, 'stocks grew more: 88.9% of start months', 960, 240, { align: 'center', kind: 'number', px: 50, alpha: a * show(t, Math.max(b.e0.stocks, S.chapter[0] + 2.7), b.e1.four - 0.2), claims: ['share_stocks_beat_house_10y_pct'] });
     label(O, '…yet the buyer ahead in about half', 960, 320, { align: 'center', kind: 'number', px: 48, alpha: a * show(t, b.e0.half, b.e1.four - 0.2), claims: ['share_buyer_ahead_stocks_10y'] });
-    label(O, 'house: $400,000 base', hx, hy + 60, { align: 'center', kind: 'number', px: 44, alpha: a * show(t, b.e1.four), color: LIT, claims: ['price'] });
-    label(O, 'pile: $92,000 start', px + 40, hy + 60, { align: 'center', kind: 'number', px: 44, alpha: a * show(t, b.e1.ninety), color: STK, claims: ['savings_usd'] });
+    label(O, 'house: $400,000 base', hx + 40, Math.min(hy + 60, 800), { align: 'right', kind: 'number', px: 44, alpha: a * show(t, b.e1.four), color: LIT, claims: ['price'] });
+    label(O, 'pile: $92,000 start', px - 20, Math.min(hy + 60, 800) + 70, { align: 'left', kind: 'number', px: 44, alpha: a * show(t, b.e1.ninety), color: STK, claims: ['savings_usd'] });
     label(O, 'slower growth on a bigger base', 960, 240, { align: 'center', kind: 'name', px: 52, alpha: a * show(t, b.e2.slower, b.e3.monthly - 0.2) });
     label(O, 'the renter catches up: the monthly gap + time', 960, 240, { align: 'center', kind: 'name', px: 52, alpha: a * show(t, b.e3.monthly, MV.m_g.t0) });
     log.roi['e1.four'] = [hx - 250, hy - 500, hx + 250, hy + 100]; log.roi['e1.ninety'] = [px - 200, hy - 300, px + 300, hy + 100];

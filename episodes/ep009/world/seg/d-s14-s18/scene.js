@@ -78,8 +78,8 @@ export async function boot(res) {
     const aS = ok * (t > MV.m_sh.t1 - 0.2 && t < MV.m_g.t0 + 0.2 ? 1 : 0), [px, py] = O.toScreen(SHELF.x + 0.9, pile.lineY(), SHELF.z + 0.55);
     label(O, '$92,000', px + 10, py, { align: 'left', kind: 'number', px: 44, alpha: aS, claims: ['savings_usd'] });
     label(O, 'lowest pile: $54,310', 960, 240, { align: 'center', kind: 'number', px: 60, alpha: aS * show(t, b.d2.sank), color: C.warn, claims: ['min_pot_stocks_10y'] });
-    label(O, 'November 2007 start', 960, 320, { align: 'center', kind: 'number', px: 44, alpha: aS * show(t, b.d2.sank), color: C.muted, claims: ['low_start'] });
-    label(O, 'assumption: invests every month, through every drop', 960, 880, { align: 'center', kind: 'name', px: 44, w: 900, alpha: aS * show(t, b.d3.every) });
+    label(O, 'November 2007 start', 960, 320, { align: 'center', kind: 'number', px: 44, alpha: aS * show(t, b.d2.sank, b.d3.every - 0.3), color: C.muted, claims: ['low_start'] });
+    label(O, 'assumption: invests every month, through every drop', 960, 320, { align: 'center', kind: 'name', px: 44, alpha: aS * show(t, b.d3.every) });
     label(O, 'selling in a crash: not on this street', 960, 400, { align: 'center', kind: 'name', px: 48, alpha: aS * show(t, b.d4.sells) });
     if (sA > 0.05 && cw > 0.9) nameTag(O, twin, aS, { dy: -20 });
     log.roi['d2.sank'] = [500, 190, 1420, 360];

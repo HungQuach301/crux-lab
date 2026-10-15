@@ -1284,7 +1284,12 @@
    "t": 19.9,
    "kind": "whoosh_soft",
    "dur": 0.777,
-   "gain": 0.7
+   "gain": 0.7,
+   "real": "S-OGA-AIRWHOOSH",
+   "label": "chuyen-canh",
+   "rate": 0.9988,
+   "gain_db": -0.34,
+   "offset": 0.598
   },
   {
    "t": 23.568,
@@ -1294,7 +1299,12 @@
   {
    "t": 27.42,
    "kind": "tick",
-   "v": 0.4
+   "v": 0.4,
+   "real": "S-OGA-PAGEFLIP5",
+   "label": "giay",
+   "rate": 1.0007,
+   "gain_db": -1.4,
+   "offset": 0.0
   },
   {
    "t": 34.377,
@@ -1473,5 +1483,67 @@
  ],
  "checks": {
   "rule2_rule3_rule7": "OK"
+ },
+ "cuts": {
+  "S19": {
+   "cut": "J",
+   "offset": 0.4
+  }
+ },
+ "sfx_thin": {
+  "max10s": 4,
+  "kinds": [
+   "tick"
+  ],
+  "plain": true,
+  "plain_kinds": [
+   "tick",
+   "land"
+  ],
+  "dropped": [],
+  "stuck": []
+ },
+ "sfx_real": {
+  "planned": true,
+  "labels": {
+   "S19": [
+    "giay"
+   ],
+   "S20": [
+    "giay"
+   ],
+   "S21": [
+    "giay"
+   ]
+  },
+  "seed": 1807,
+  "reuse_s": 60.0,
+  "plan": [
+   {
+    "t": 407.533,
+    "kind": "whoosh_soft",
+    "scene": "S19",
+    "label": "chuyen-canh",
+    "file": "S-OGA-AIRWHOOSH",
+    "rate": 0.9988,
+    "gain_db": -0.34
+   },
+   {
+    "t": 415.053,
+    "kind": "tick",
+    "scene": "S19",
+    "label": "giay",
+    "file": "S-OGA-PAGEFLIP5",
+    "rate": 1.0007,
+    "gain_db": -1.4
+   },
+   {
+    "t": 422.01,
+    "kind": "whoosh_soft",
+    "scene": "S20",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   }
+  ]
  }
 }

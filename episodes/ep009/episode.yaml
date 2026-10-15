@@ -78,3 +78,5 @@ world:    # sáu đoạn = sáu chương (script.md >>> CHAPTER)
   - {id: d-s14-s18, dir: world/seg/d-s14-s18, scenes: [S14, S15, S16, S17, S18]}
   - {id: e-s19-s21, dir: world/seg/e-s19-s21, scenes: [S19, S20, S21]}
   - {id: f-s22-s25, dir: world/seg/f-s22-s25, scenes: [S22, S23, S24, S25]}
+shorts:   # 1 Short, không thumbnail (D-013); mô tả + mốc duyệt ở G2, dựng ở M6
+  - {id: SH1, from: "@S14.2", to: "@S15.2$", hook: "The pile that sank", end: "Stocks pile, ten years: buyer still ahead in about half of 307 start months · history, not a forecast"}

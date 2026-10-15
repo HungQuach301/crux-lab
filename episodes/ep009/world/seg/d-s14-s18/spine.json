@@ -2743,13 +2743,23 @@
   {
    "t": 13.424,
    "kind": "tick",
-   "v": 0.45
+   "v": 0.45,
+   "real": "S-OGA-PAGEFLIP6",
+   "label": "giay",
+   "rate": 1.0432,
+   "gain_db": -0.14,
+   "offset": 0.0
   },
   {
    "t": 26.861,
    "kind": "whoosh_soft",
    "dur": 1.4,
-   "gain": 0.9
+   "gain": 0.9,
+   "real": "S-OGA-AIRWHOOSH",
+   "label": "chuyen-canh",
+   "rate": 1.0519,
+   "gain_db": -1.45,
+   "offset": 1.79
   },
   {
    "t": 33.18,
@@ -2797,7 +2807,12 @@
   {
    "t": 84.993,
    "kind": "tick",
-   "v": 0.5
+   "v": 0.5,
+   "real": "S-KEN-DOOROPEN1",
+   "label": "cua",
+   "rate": 0.9762,
+   "gain_db": -0.44,
+   "offset": 0.0
   },
   {
    "t": 88.319,
@@ -3100,5 +3115,96 @@
  ],
  "checks": {
   "rule2_rule3_rule7": "OK"
+ },
+ "cuts": {
+  "S14": {
+   "cut": "J",
+   "offset": 0.4
+  }
+ },
+ "sfx_thin": {
+  "max10s": 4,
+  "kinds": [
+   "tick"
+  ],
+  "plain": true,
+  "plain_kinds": [
+   "tick",
+   "land"
+  ],
+  "dropped": [],
+  "stuck": []
+ },
+ "sfx_real": {
+  "planned": true,
+  "labels": {
+   "S14": [
+    "giay"
+   ],
+   "S15": [
+    "cua"
+   ],
+   "S16": [
+    "cua"
+   ],
+   "S17": [
+    "cua"
+   ],
+   "S18": [
+    "cua"
+   ]
+  },
+  "seed": 1807,
+  "reuse_s": 60.0,
+  "plan": [
+   {
+    "t": 266.902,
+    "kind": "whoosh_soft",
+    "scene": "S14",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 274.524,
+    "kind": "tick",
+    "scene": "S14",
+    "label": "giay",
+    "file": "S-OGA-PAGEFLIP6",
+    "rate": 1.0432,
+    "gain_db": -0.14
+   },
+   {
+    "t": 287.961,
+    "kind": "whoosh_soft",
+    "scene": "S14",
+    "label": "chuyen-canh",
+    "file": "S-OGA-AIRWHOOSH",
+    "rate": 1.0519,
+    "gain_db": -1.45
+   },
+   {
+    "t": 306.884,
+    "kind": "whoosh_soft",
+    "scene": "S15",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 322.312,
+    "kind": "whoosh_soft",
+    "scene": "S16",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 346.093,
+    "kind": "tick",
+    "scene": "S17",
+    "label": "cua",
+    "file": "S-KEN-DOOROPEN1",
+    "rate": 0.9762,
+    "gain_db": -0.44
+   }
+  ]
  }
 }

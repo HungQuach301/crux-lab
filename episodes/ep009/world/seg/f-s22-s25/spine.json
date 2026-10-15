@@ -1623,7 +1623,12 @@
   {
    "t": 0.58,
    "kind": "tick",
-   "v": 0.4
+   "v": 0.4,
+   "real": "S-KEN-COINS2",
+   "label": "tien-xu",
+   "rate": 1.0324,
+   "gain_db": -1.13,
+   "offset": 0.0
   },
   {
    "t": 5.201,
@@ -1633,7 +1638,12 @@
   {
    "t": 7.553,
    "kind": "tick",
-   "v": 0.5
+   "v": 0.5,
+   "real": "S-KEN-COINS1",
+   "label": "tien-xu",
+   "rate": 0.9968,
+   "gain_db": 1.19,
+   "offset": 0.0
   },
   {
    "t": 10.538,
@@ -1649,7 +1659,12 @@
    "t": 17.906,
    "kind": "whoosh_mode",
    "dur": 0.8,
-   "gain": 0.6
+   "gain": 0.6,
+   "real": "S-OGA-AIRWHOOSH",
+   "label": "chuyen-canh",
+   "rate": 0.9894,
+   "gain_db": -1.46,
+   "offset": 2.206
   },
   {
    "t": 18.706,
@@ -1663,11 +1678,6 @@
    "gain": 0.6
   },
   {
-   "t": 28.992,
-   "kind": "land",
-   "mode": true
-  },
-  {
    "t": 44.449,
    "kind": "tick",
    "v": 0.4
@@ -1675,12 +1685,12 @@
   {
    "t": 47.164,
    "kind": "tick",
-   "v": 0.45
-  },
-  {
-   "t": 49.683,
-   "kind": "tick",
-   "v": 0.3
+   "v": 0.45,
+   "real": "S-KEN-SOFTM2",
+   "label": "va-mem",
+   "rate": 0.9777,
+   "gain_db": 1.08,
+   "offset": 0.0
   },
   {
    "t": 50.897,
@@ -1903,5 +1913,142 @@
  ],
  "checks": {
   "rule2_rule3_rule7": "OK"
+ },
+ "cuts": {
+  "S22": {
+   "cut": "J",
+   "offset": 0.4
+  }
+ },
+ "sfx_thin": {
+  "max10s": 4,
+  "kinds": [
+   "tick"
+  ],
+  "plain": true,
+  "plain_kinds": [
+   "tick",
+   "land"
+  ],
+  "dropped": [
+   {
+    "t": 28.992,
+    "kind": "land",
+    "why": "plain word"
+   },
+   {
+    "t": 49.683,
+    "kind": "tick",
+    "why": ">4 in 10 s from 47.164"
+   }
+  ],
+  "stuck": []
+ },
+ "sfx_real": {
+  "planned": true,
+  "labels": {
+   "S22": [
+    "tien-xu"
+   ],
+   "S23": [
+    "va-mem"
+   ],
+   "S24": [
+    "may-chu"
+   ],
+   "S25": [
+    "tien-xu",
+    "va-mem"
+   ]
+  },
+  "seed": 1807,
+  "reuse_s": 60.0,
+  "plan": [
+   {
+    "t": 450.48,
+    "kind": "tick",
+    "scene": "S22",
+    "label": "tien-xu",
+    "file": "S-KEN-COINS2",
+    "rate": 1.0324,
+    "gain_db": -1.13
+   },
+   {
+    "t": 457.453,
+    "kind": "tick",
+    "scene": "S22",
+    "label": "tien-xu",
+    "file": "S-KEN-COINS1",
+    "rate": 0.9968,
+    "gain_db": 1.19
+   },
+   {
+    "t": 467.806,
+    "kind": "whoosh_mode",
+    "scene": "S22",
+    "label": "chuyen-canh",
+    "file": "S-OGA-AIRWHOOSH",
+    "rate": 0.9894,
+    "gain_db": -1.46
+   },
+   {
+    "t": 468.606,
+    "kind": "land",
+    "scene": "S22",
+    "label": "tien-xu",
+    "kept_synth": true
+   },
+   {
+    "t": 477.592,
+    "kind": "whoosh_mode",
+    "scene": "S23",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 494.349,
+    "kind": "tick",
+    "scene": "S25",
+    "label": "tien-xu",
+    "kept_synth": true
+   },
+   {
+    "t": 497.064,
+    "kind": "tick",
+    "scene": "S25",
+    "label": "va-mem",
+    "file": "S-KEN-SOFTM2",
+    "rate": 0.9777,
+    "gain_db": 1.08
+   },
+   {
+    "t": 500.797,
+    "kind": "whoosh_mode",
+    "scene": "S25",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 502.197,
+    "kind": "land",
+    "scene": "S25",
+    "label": "tien-xu",
+    "kept_synth": true
+   },
+   {
+    "t": 506.372,
+    "kind": "whoosh_soft",
+    "scene": "S25",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 512.236,
+    "kind": "whoosh_soft",
+    "scene": "S25",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   }
+  ]
  }
 }

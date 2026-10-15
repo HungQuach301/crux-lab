@@ -1330,7 +1330,12 @@
   {
    "t": 2.03,
    "kind": "tick",
-   "v": 0.4
+   "v": 0.4,
+   "real": "S-OGA-PAGEFLIP1",
+   "label": "giay",
+   "rate": 0.9754,
+   "gain_db": 1.08,
+   "offset": 0.0
   },
   {
    "t": 3.936,
@@ -1389,7 +1394,12 @@
   {
    "t": 45.36,
    "kind": "tick",
-   "v": 0.35
+   "v": 0.35,
+   "real": "S-OGA-PAGEFLIP2",
+   "label": "giay",
+   "rate": 1.036,
+   "gain_db": -0.91,
+   "offset": 0.0
   },
   {
    "t": 53.066,
@@ -1403,11 +1413,6 @@
    "gain": 0.6
   },
   {
-   "t": 57.068,
-   "kind": "land",
-   "mode": true
-  },
-  {
    "t": 60.496,
    "kind": "data",
    "v": 0.2
@@ -1417,11 +1422,6 @@
    "kind": "whoosh_mode",
    "dur": 1.3,
    "gain": 0.6
-  },
-  {
-   "t": 63.16,
-   "kind": "land",
-   "mode": true
   },
   {
    "t": 67.186,
@@ -1622,5 +1622,108 @@
  ],
  "checks": {
   "rule2_rule3_rule7": "OK"
+ },
+ "sfx_thin": {
+  "max10s": 4,
+  "kinds": [
+   "tick"
+  ],
+  "plain": true,
+  "plain_kinds": [
+   "tick",
+   "land"
+  ],
+  "dropped": [
+   {
+    "t": 57.068,
+    "kind": "land",
+    "why": "plain word"
+   },
+   {
+    "t": 63.16,
+    "kind": "land",
+    "why": "plain word"
+   }
+  ],
+  "stuck": []
+ },
+ "sfx_real": {
+  "planned": true,
+  "labels": {
+   "S04": [
+    "giay",
+    "cua"
+   ],
+   "S05": [
+    "giay"
+   ],
+   "S06": [
+    "may-chu"
+   ]
+  },
+  "seed": 1807,
+  "reuse_s": 60.0,
+  "plan": [
+   {
+    "t": 77.363,
+    "kind": "tick",
+    "scene": "S04",
+    "label": "giay",
+    "file": "S-OGA-PAGEFLIP1",
+    "rate": 0.9754,
+    "gain_db": 1.08
+   },
+   {
+    "t": 79.269,
+    "kind": "whoosh_mode",
+    "scene": "S04",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 80.569,
+    "kind": "land",
+    "scene": "S04",
+    "label": "cua",
+    "kept_synth": true
+   },
+   {
+    "t": 105.314,
+    "kind": "whoosh_soft",
+    "scene": "S04",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 114.623,
+    "kind": "whoosh_soft",
+    "scene": "S05",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 120.693,
+    "kind": "tick",
+    "scene": "S05",
+    "label": "giay",
+    "file": "S-OGA-PAGEFLIP2",
+    "rate": 1.036,
+    "gain_db": -0.91
+   },
+   {
+    "t": 131.101,
+    "kind": "whoosh_mode",
+    "scene": "S05",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   },
+   {
+    "t": 137.193,
+    "kind": "whoosh_mode",
+    "scene": "S05",
+    "label": "chuyen-canh",
+    "kept_synth": true
+   }
+  ]
  }
 }

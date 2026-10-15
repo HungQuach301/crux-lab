@@ -5,7 +5,7 @@ import { setup, Street, Home8, figure, RentTag, GrowthPairs, StockPile, nameTag,
   show, pulse, ease, lin, sweep, END_X, APT, NINA, LIT, STK, C } from '/episodes/ep009/world/w9.js';
 
 const SEG = `/${new URLSearchParams(location.search).get('seg')}/`;   // đoạn con (re-export) đọc spine.json của chính thư mục nó
-export const STOCK_SRC = 'Stock returns: Kenneth R. French Data Library (Fama/French factors, total return); cross-checked with Robert Shiller data.';   // chủ dự án 15/10 (G1 câu 1 sửa)
+export const STOCK_SRC = ['Stock returns: Kenneth R. French Data Library', '(Fama/French factors, total return);', 'cross-checked with Robert Shiller data.'];   // chủ dự án 15/10 (G1 câu 1 sửa)
 
 export async function boot(res) {
   const poses = {
@@ -45,7 +45,7 @@ export async function boot(res) {
     label(O, 'rent tag on her door', 960, 900, { align: 'center', kind: 'name', px: 44, alpha: tA * show(t, b.f0.tag, b.f1.five) });
     label(O, '5%: about half lit', 960, 240, { align: 'center', kind: 'number', alpha: tA * show(t, b.f1.half, b.f2.five - 0.2), claims: ['yield5_tag', 'share_buyer_ahead_stocks_10y'] });
     label(O, 'flip point: about 5.1%', 960, 240, { align: 'center', kind: 'number', alpha: tA * show(t, b.f2.five, MV.m_w.t0), claims: ['flip_yield_stocks_10y'] });
-    label(O, 'Census range: 4.83% to 5.59% a year · 47.2% to 58.3% lit', 960, 320, { align: 'center', kind: 'number', px: 46, w: 900, alpha: tA * show(t, b.f2.both, MV.m_w.t0),
+    label(O, 'Census range: 4.83% to 5.59% a year · 47.2% to 58.3% lit', 960, 320, { align: 'center', kind: 'number', px: 46, alpha: tA * show(t, b.f2.both, MV.m_w.t0),
       claims: ['hvs_yield_2025Q4', 'hvs_yield_2026Q1', 'share_hvs_2025Q4_stocks_10y', 'share_hvs_2026Q1_stocks_10y'] });
     label(O, 'the tag is an assumption', 960, 900, { align: 'center', kind: 'name', px: 48, alpha: tA * show(t, b.f3.assumption) });
     log.roi['f1.half'] = [200, 180, 1720, 950]; log.roi['f2.both'] = [200, 180, 1720, 950];
@@ -54,7 +54,7 @@ export async function boot(res) {
     label(O, 'not ranked: stocks vs a house', 960, 240, { align: 'center', kind: 'name', px: 52, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f4.none, b.f5.stability - 0.2) });
     label(O, 'not measured: stability, control, family', 960, 240, { align: 'center', kind: 'name', px: 52, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f5.stability, MV.m_c.t0) });
     v7Card(O, 'Limits', ['US only · history, not a forecast', 'before fees and taxes; no taxes on gains or the home', 'renters invest every month (assumption)',
-      'national price index, not one house · rent tag = assumption', STOCK_SRC], ok * show(t, b.f6.card, b.f7.back - 0.2), { y: 180, w: 1500, x: 210 });
+      'national price index, not one house · rent tag = assumption', ...STOCK_SRC], ok * show(t, b.f6.card, b.f7.back - 0.2), { y: 150, w: 1500, x: 210 });
     // bảng điểm (B33): mỗi dòng một màu lựa chọn, không phán quyết
     const sb = ok * show(t, b.f7.back, MV.m_w2.t0);
     if (sb > 0.01) { O.card(170, 200, 1580, 560, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.95 * sb });
@@ -63,7 +63,7 @@ export async function boot(res) {
         ['stocks: about half (152 of 307) · 15 years: about 1 in 5', STK, b.f8.stocks, ['share_buyer_ahead_stocks_10y', 'share_buyer_ahead_stocks_10y_n', 'hold_15y', 'share_buyer_ahead_stocks_15y']],
         ['only the $92,000 invested: about 2 in 3', STK, b.f8.stocks + 0.8, ['savings_usd', 'share_buyer_ahead_lump_10y']],
         ['what tips it: the rent tag (flip about 5.1% vs 5 percent assumed)', '#D5DAE2', b.f8.fifteen, ['flip_yield_stocks_10y', 'yield_anchor_pct']]];
-      rows.forEach(([s, c, tt, cl], i) => label(O, s, 230, 370 + 100 * i, { kind: 'number', px: 44, w: 1400, alpha: sb * show(t, tt), plate: null, color: c, claims: cl })); }
+      rows.forEach(([s, c, tt, cl], i) => label(O, s, 230, 370 + 100 * i, { kind: 'number', px: 44, alpha: sb * show(t, tt), plate: null, color: c, claims: cl })); }
     log.roi['f8.cash'] = [170, 200, 1750, 760];
     label(O, 'same street as the start · pile in the market', 960, 240, { align: 'center', kind: 'name', px: 48, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f9.same, MV.m_lot.t0) });
     label(O, 'how long will Nina stay?', 960, 240, { align: 'center', kind: 'name', px: 56, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f10.how, MV.m_door.t0) });

@@ -62,10 +62,10 @@ export async function boot(res) {
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     chapterCard(O, S.chapter[1], t, S.chapter[0]);
     const tA = ok * (t < MV.m_w1.t0 + 0.2 ? 1 : 0);
-    label(O, 'rent tag: 5% of the price a year · July 2026 · assumption', 960, 240, { align: 'center', kind: 'number', px: 52, w: 900, alpha: tA * show(t, b.c0.five), claims: ['yield_anchor_pct', 'hpi_last'] });
+    label(O, 'rent tag: 5% of the price a year · July 2026 · assumption', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: tA * show(t, b.c0.five), claims: ['yield_anchor_pct', 'hpi_last'] });
     log.roi['c0.five'] = [200, 190, 1720, 290];
     if (cw < 0.05) nameTag(O, nina, show(t, 0, MV.m_demo.t0) * 0);
-    label(O, 'with the pile in stocks: how much of the street stays lit?', 960, 300, { align: 'center', kind: 'name', px: 52, w: 900, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.c1.street - 0.3, MV.m_demo.t1) });
+    label(O, 'with the pile in stocks: how much of the street stays lit?', 960, 300, { align: 'center', kind: 'name', px: 52, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.c1.street - 0.3, MV.m_demo.t1) });
     // nhà mẫu (thế giới, không số)
     const [ax, ay] = O.toScreen(-6.6, 0, 1.6), [bx] = O.toScreen(-2.6, 0, 1.6), wd = (cw < 0.05 ? 1 : 0) * dA;
     label(O, "buyer's equity bigger → lit", ax, ay + 60, { align: 'center', kind: 'name', px: 40, alpha: wd * show(t, b.c2.lit), color: LIT });
@@ -82,7 +82,7 @@ export async function boot(res) {
     label(O, '1990s: about 2 in 3 lit', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.c6.two, b.c7.darkest - 0.2), claims: ['era_1990s_span', 'era_1990s_share_stocks'] });
     const [hx, hy] = O.toScreen(0, 0.8, 0);
     label(O, 'darkest: January 1991', hx + 40, hy - 50, { align: 'left', kind: 'number', px: 48, alpha: sA * show(t, b.c7.first, b.c9.stalled - 0.2), color: STK, claims: ['worst_start_stocks_10y'] });
-    label(O, '16 start months: $1 ended below $1 · all 16 stay lit', 960, 230, { align: 'center', kind: 'number', px: 50, w: 900, alpha: sA * show(t, b.c10.less, b.c12.dark - 0.2), claims: ['n_stocks_lost_10y', 'n_stocks_lost_buyer_ahead_10y'] });
+    label(O, '16 start months: $1 ended below $1 · all 16 stay lit', 960, 230, { align: 'center', kind: 'number', px: 50, alpha: sA * show(t, b.c10.less, b.c12.dark - 0.2), claims: ['n_stocks_lost_10y', 'n_stocks_lost_buyer_ahead_10y'] });
     label(O, '2002 to 2007: none of 72', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.c13.none, b.c14.cash - 0.2), color: STK, claims: ['era_2002-2007_span', 'era_2002-2007_share_stocks'] });
     label(O, 'with cash: 6 of 72', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.c14.cash, MV.m_06.t0), color: C.warn, claims: ['era_2002-2007_share_cash'] });
     log.roi['c6.two'] = [500, 180, 1420, 900]; log.roi['c10.less'] = [300, 180, 1620, 900]; log.roi['c13.none'] = [500, 180, 1420, 900];
