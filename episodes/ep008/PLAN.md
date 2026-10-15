@@ -3,13 +3,13 @@
 **Nhánh:** `ep008` · **Đề tài:** #20 · **Format:** `lab` · **Mô hình:** xưởng 6 mốc (D-013) · **Chặng vừa đóng:** sau G1 → **dừng ở G2** (`session_01D3z2xMwUwt9NXv8xLDkV6d`)
 
 ## 1. Trạng thái
-**G3 chờ chủ dự án** (`gates/G3.md`). M6 xong: bản phát hành 1080p 10:06 (`out/video.mp4`, SHA `98833a2a…`), Short SH1 45,8 s, mô tả/chương/tag, `HUONG-DAN-DANG.md`; giao trên nhánh tạm `ep008-delivery` @ `8c1ece7` (15 phần master + SHA256SUMS + xem trước 720p 3 phần; 22/22 SHA khớp). Checks đủ bộ 1080p khoá K4.4b (`gates/M6-checks.md`): ĐẠT 59; CHẶN còn S01 S03 S04 S05 (hợp đồng chưa có, ghi trước) + A14 "mid-2016" (chủ dự án giữ); CHÍNH L1 18,5 dB < 20 (G3 câu 6), V03/V11/V12, V09 lỗi công cụ. Chỉ báo 1080p: cổng gốc 16/24, chỗ muốn tua S05 3/3 + S04 S06 S07 2/3, nhớ lại 3/3.
+**G3 ĐÃ DUYỆT ĐĂNG (15/10, `gates/G3-answer.md`)** — master 1080p `98833a2a…` (10:06) + Short SH1 trên `ep008-delivery` @ `8c1ece7`; L1 18,5 dB (CHÍNH) chấp nhận là ngoại lệ của chủ dự án, không trộn lại; giữ 6 chương truyện. Checks 1080p khoá K4.4b: ĐẠT 59 (`gates/M6-checks.md`).
 
 ## 2. Việc tiếp (≤ 3) và việc treo
-1. Chép G2 → `gates/G2-answer.md`; áp lựa chọn (câu 1 "out of", câu 5 cắt lời, câu 6 "dollars of the day", câu 7 S23 allowTerms, màu câu 3/8); sinh lại giọng các câu đổi.
-2. M6: S06 coverage, nhãn claim trên hình (S07), chrome basis (S09), hạ tiếng dữ liệu (L1), −2,0 dBTP → dựng 1080p + Short SH1 + mô tả → checks đủ bộ 1080p (`--baseline review-m5/checks-r2/report.json`; luật độ phân giải F05 F08 R03 R04 V05 V10 V08 V12 C14) → G3.
-3. Khi K4.4b vào `main`: merge vào `ep008` trước checks đủ bộ (lệnh 14/10).
-- Treo: J/L-cut qua biên đoạn (nhà máy `splice.py`, BACKLOG); tiếng ghi thật (cần tài khoản Freesound); kind `rent-buy-twin-replay` chưa có ở `checks/CONTRACT.md` (phiên K).
+1. **Chờ chủ dự án báo đã tải + đăng** → xoá nhánh `ep008-delivery` (local + remote).
+2. Sau đó: gộp `ep008` → `main` (squash) + PLAN đóng tập (chủ dự án G3 câu 4).
+3. Đã ghi cho Tập 9: `data_db` 34, phần dựng trước kết quả đầu ≤ 60 s (`playbook/lessons.md` T8-1, T8-2; `playbook/episode.md`); lô K: A46 (V09 lỗi công cụ), A47 (kind `rent-buy-twin-replay` S01/S04/S05), A48 (A14 "mid -2016").
+- Treo: J/L-cut qua biên đoạn (nhà máy), tiếng ghi thật (Freesound).
 
 ## 3. Quyết định đã có (chủ dự án)
 - 13/10 G1 (`gates/G1-answer.md`): HVS xác minh; kịch bản v2 + cold open mới; T1; N1/N2 vào thư viện, N4 v2 + "cash, not stocks", bỏ N5; footage chỉ bản đồ NE; không C3; 1 Short; không thumbnail.

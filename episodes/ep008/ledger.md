@@ -43,3 +43,4 @@
 | 13/10 | Cổng gốc r2 (22 + 1 đọc, 2 × 2 chấm) | Kiểm mù | headless Sonnet | 19/24 (±5 %), 0 khuyên; B09 B10 B20 B24 B25 → G2 | (spend_leg $5,75 cả chặng) |
 | 14/10 | Cập nhật chủ dự án (A32 = 1a): cổng gốc so hai bản = chẩn đoán; merge K4.4b trước checks | — | điều phối | gates/update-14-10.md | — |
 | 14/10 | G2 chủ dự án: M6; out of; cắt a–d; dollars of the day; allowTerms; màu; SH1; merge main 7f8a0da1 + LOCK K4.4b; trần $25 cả tập | — | lệnh | gates/G2-answer.md | — |
+| 15/10 | G3 chủ dự án: ĐĂNG master 98833a2a; **L1 18,5 dB (CHÍNH) = ngoại lệ chủ dự án, không trộn lại**; giữ 6 chương; xoá ep008-delivery + gộp main squash sau khi chủ dự án báo đã đăng; Tập 9: data_db 34, dựng ≤ 60 s; lô K: V09, kind mới, A14 "mid -2016" | — | lệnh | gates/G3-answer.md | — |

@@ -1,6 +1,6 @@
 # Hướng dẫn đăng — Tập 8
 
-**CHỜ G3** (chủ dự án xem bản phát hành rồi quyết đăng). Gói G3: `gates/G3.md`.
+**ĐƯỢC ĐĂNG** — G3 15/10: đăng bản hiện tại (master `98833a2a…`), L1 18,5 dB chấp nhận là ngoại lệ của chủ dự án (`gates/G3-answer.md`). Sau khi đăng: chủ dự án báo → xoá `ep008-delivery`, gộp `ep008` vào `main` (squash).
 
 ## File (nhánh `ep008`; master không commit — giao theo câu trả lời G3)
 | File | Chi tiết | SHA-256 |
