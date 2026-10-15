@@ -1,11 +1,11 @@
 episode: ep009
 format: "lab"          # chủ dự án 15/10
 topic: "tiếp Tập 8 — nếu người thuê đầu tư phần chênh lệch (gần queue #21); trả lời câu chuyền S33.1 Tập 8"
-title: null           # nháp ở G1
+title: "Rent and Invest the Difference? We Replayed Every Start Month Since 1991"   # T1, chủ dự án G1 15/10
 pillar: vay nợ
 tokenCeiling: {episode: 15000000, consoleUsd: 45, p1HardUsd: 12, note: "lab (episode.md §8); chặng tới G1 trần CỨNG $12 Console (chủ dự án 15/10)"}
 voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1009, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
-music: {style: C}      # nhạc bằng mã (mặc định); phương án CC BY trình ở G1 (toolkit/factory/f18/MUSIC-CCBY.md)
+music: {source: "M-BUCKLEY-ORIGAMI", file: work/external/sb-Origami.mp3, sha256: 8b8edd81ee2110a62169b48e3233e1556c0f9de10003b21f41a28e5b4bcbfe14}   # D-014 (G1 câu 3 b-Z): "Origami" — Scott Buckley, CC BY 4.0; Content ID = điều kiện G2
 f14: true
 asr_hotwords: [Nina]
 footage: {max_share: 0.20, rights: RIGHTS.md, map: preprod/BAN-DO-LIEN-MACH.md}   # ≤ 20 % (CHARTER §4); chương lịch sử (nếu có): ảnh LoC/phim PD + vật thể số liệu 3D + chữ serif, không vẽ người

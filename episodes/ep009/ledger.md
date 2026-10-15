@@ -13,3 +13,4 @@
 | 15/10 | giọng | đọc thử S01–S04 ×2 | ElevenLabs | — | 2.357 ký tự |
 | 15/10 | REVIEWER | soát gói G1: ĐẠT có sửa (5 CHÍNH, 5 PHỤ) | headless Opus | 0,68 | `gates/REVIEW-G1.md` |
 | 15/10 | WRITER + kiểm mù | C2 v4 theo REVIEWER + C2 r4 + đọc thử r3 | headless + EL | 0,56 | phương pháp 0/6, số dày 5/6; EL 701 ký tự |
+| 15/10 | chủ dự án | trả lời G1 (1 b có sửa · 2 a · 3 b-Z · T1; trần $15 chặng sau) | chủ dự án | — | ≈ 15 phút ước; `gates/G1-answer.md` |
