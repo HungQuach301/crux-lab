@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation shows whether buying or renting-and-investing comes out ahead after ten years, and it ties the answer to the renter's rent as a percentage of the home's price. A row of houses stands for buying scenarios. A lit house means the buyer is ahead after ten years, and a dark house means the renter's investment pile is bigger. A \"RENT\" tag on an apartment door shows the rent-to-price percentage.\n\n2. The rent tag changes. It starts at 5%, drops to 4% in frame 2, and returns to 5% in frames 3 to 6. When it is at 4%, several houses in the row turn dark, so the renter wins more often. At 5% most houses are lit again. The caption \"The tag on her door\" fades in and out, and a label explains the tag.\n\n3. The result depends on how cheap rent is relative to the home's price. At a lower rent percentage, renting and investing the difference tends to win. At 5%, the outcome is mixed, and the final caption says \"about half lit\", so buyers and renters come out ahead about equally often. The banners say the picture is illustrative, covers the US only, and is \"history, not a forecast\". The sources named are FHFA, BLS, Freddie Mac and K. R. French (CRSP).\n\n4. The animation gives no direct advice. A viewer might take away that \"rent and invest the difference\" is not automatically better. The answer depends on the rent-to-price ratio, so they would compare their own local rent with the price of a comparable home before deciding.\n\n5. The animation did not state any advice. The idea that a viewer should compare their own rent-to-price ratio is my own conclusion from the images. The on-screen text only says that at 5%, about half the houses are lit.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1467,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 346,
+   "in": 1467,
+   "out": 346
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3858,
+   "cache_read": 6694,
+   "output": 636,
+   "in": 10556,
+   "out": 636
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0227891
+}

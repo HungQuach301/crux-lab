@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea.** The animation compares a renter's invested savings with the equity of a \"twin\" who bought a house. The renter is the figure on the left, standing next to a stack of cash bundles and an apartment building with a \"RENT 5%\" tag. The owner is the figure on the right, next to a house. A horizontal line marks $92,000 as a benchmark. A caption says the lowest pile was $54,310 for someone who started in November 2007. The sources listed are FHFA, BLS, Freddie Mac and K. R. French (CRSP). The animation presents this as history for the US only, \"not a forecast\", in \"dollars of the day\". It also labels itself \"illustrative\".\n\n2. **What changes over time.** The renter's pile of cash starts tall, with the top above the $92,000 line in frame 1. It then drops to its lowest point, which the animation labels $54,310 for a November 2007 start, and stays below the line in frames 2 to 5. The \"RENT 5%\" sign appears on the building from frame 2. In frame 6 a caption says \"she keeps adding a bundle every month\", and the pile begins to rebuild. The house and the owner figure stay the same.\n\n3. **What it means.** A renter who invests the money she doesn't spend on a house can see that pile fall a long way, and falling below the $92,000 benchmark is shown as a real outcome. The worst case in this history was a November 2007 start, which was just before the financial crisis. Her ongoing monthly contributions are what start to rebuild the pile. The frames don't show the final outcome. They don't show whether the renter ends up ahead of the buyer, and the owner's equity isn't shown changing.\n\n4. **Advice a viewer would take.** The frames give no direct advice. A viewer would likely take away that \"rent and invest the difference\" carries real risk, because the invested pile can drop sharply when the market falls. They might also take away that the outcome depends on when you start and on continuing to add money.\n\n5. **Source of the conclusion.** The takeaway in 4 is my own inference. The on-screen text only gives the lowest-pile figure, the start date, the \"history, not a forecast\" disclaimer, and the caption that she keeps adding a bundle every month. None of it tells the viewer what to do or says who comes out ahead.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1470,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1470,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3864,
+   "cache_read": 6697,
+   "output": 831,
+   "in": 10565,
+   "out": 831
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.024601699999999997
+}

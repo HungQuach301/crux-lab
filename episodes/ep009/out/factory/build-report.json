@@ -7,29 +7,29 @@
    "problems": 0
   },
   "voice": {
-   "seconds": 2.8,
+   "seconds": 2.91,
    "scenes": 24,
    "cache_hits": 24,
    "el_chars_spent": 0
   },
   "resolve": {
-   "seconds": 4.19,
+   "seconds": 4.37,
    "total": 523.9332,
    "shots": 0,
    "anchors": 0
   },
   "world": {
-   "seconds": 389.96,
+   "seconds": 405.03,
    "segments": {
     "a-s01-s03": {
      "lint": {
-      "seconds": 0.4,
+      "seconds": 0.5,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 12.5,
+      "seconds": 13.3,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -51,15 +51,15 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 34.1,
+      "seconds": 36.4,
       "ok": true
      },
      "mux": {
-      "seconds": 3.9,
+      "seconds": 3.7,
       "ok": true
      },
      "verify": {
-      "seconds": 4.2,
+      "seconds": 6.1,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -92,8 +92,14 @@
       },
       "labels": {
        "n": 10,
-       "within_0_2": 10,
-       "late": []
+       "within_0_2": 9,
+       "late": [
+        {
+         "cue": "a10.drop",
+         "t": 71.02,
+         "lag": -0.92
+        }
+       ]
       }
      }
     },
@@ -105,7 +111,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 12.7,
+      "seconds": 12.5,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -127,15 +133,15 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 32.2,
+      "seconds": 33.6,
       "ok": true
      },
      "mux": {
-      "seconds": 3.6,
+      "seconds": 4.1,
       "ok": true
      },
      "verify": {
-      "seconds": 3.4,
+      "seconds": 5.1,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -188,7 +194,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.0,
+      "seconds": 13.3,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -199,26 +205,26 @@
       }
      },
      "render": {
-      "seconds": 1.4,
+      "seconds": 1.6,
       "ok": true,
       "shots": 8,
       "rendered": [],
       "cached": 8,
-      "wall_s": 0.8,
+      "wall_s": 1,
       "film_s": 114.4,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 52.1,
+      "seconds": 53.3,
       "ok": true
      },
      "mux": {
-      "seconds": 5.8,
+      "seconds": 5.6,
       "ok": true
      },
      "verify": {
-      "seconds": 7.7,
+      "seconds": 8.9,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -268,7 +274,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.0,
+      "seconds": 12.7,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -281,26 +287,26 @@
       }
      },
      "render": {
-      "seconds": 1.5,
+      "seconds": 1.4,
       "ok": true,
       "shots": 5,
       "rendered": [],
       "cached": 5,
-      "wall_s": 0.8,
+      "wall_s": 0.9,
       "film_s": 126.5333,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 60.3,
+      "seconds": 59.4,
       "ok": true
      },
      "mux": {
-      "seconds": 7.1,
+      "seconds": 6.8,
       "ok": true
      },
      "verify": {
-      "seconds": 9.2,
+      "seconds": 9.9,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -358,7 +364,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 12.4,
+      "seconds": 12.8,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -369,26 +375,26 @@
       }
      },
      "render": {
-      "seconds": 1.2,
+      "seconds": 1.6,
       "ok": true,
       "shots": 3,
       "rendered": [],
       "cached": 3,
-      "wall_s": 0.7,
+      "wall_s": 0.9,
       "film_s": 62.2666,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 25.6,
+      "seconds": 29.1,
       "ok": true
      },
      "mux": {
-      "seconds": 3.4,
+      "seconds": 3.1,
       "ok": true
      },
      "verify": {
-      "seconds": 4.1,
+      "seconds": 4.2,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -440,7 +446,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 12.1,
+      "seconds": 12.7,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -464,15 +470,15 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 36.0,
+      "seconds": 36.4,
       "ok": true
      },
      "mux": {
-      "seconds": 4.3,
+      "seconds": 3.9,
       "ok": true
      },
      "verify": {
-      "seconds": 5.0,
+      "seconds": 5.3,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -519,7 +525,7 @@
    }
   },
   "render": {
-   "seconds": 38.98,
+   "seconds": 35.34,
    "segments": 0,
    "rendered": 0,
    "cache_hits": 0,
@@ -527,7 +533,7 @@
    "blank": true
   },
   "splice": {
-   "seconds": 71.01,
+   "seconds": 74.22,
    "segments": [
     "a-s01-s03",
     "b-s04-s06",
@@ -540,7 +546,7 @@
    "frame_log_dropped": 0
   },
   "mix": {
-   "seconds": 261.92,
+   "seconds": 225.52,
    "a07_gap_db": 20.01,
    "mid_duck_db": 13.0,
    "world": {
@@ -786,11 +792,11 @@
     ]
    },
    "video": "episodes/ep009/work/factory/video.mp4",
-   "sha256": "515437c2cdd1d2bea7a025b39322af4c771fa9c9feb767a3fc347e264b3de0c1",
+   "sha256": "5a04d5b783fbc4961547e532f4657bb24e34eb50d5f4362767fe4e629d83e913",
    "mb": 1134.65
   },
   "artefacts": {
-   "seconds": 0.34,
+   "seconds": 0.33,
    "camera": {
     "frames": 15718,
     "world": [
@@ -838,35 +844,35 @@
      "e-s19-s21",
      "f-s22-s25"
     ],
-    "bytes": 3024081,
+    "bytes": 3025361,
     "page": "work/factory/page/index.html"
    }
   },
   "parts": {
-   "seconds": 127.61,
+   "seconds": 124.42,
    "parts": [
     {
      "file": "episodes/ep009/work/factory/ep009-part1-720p.mp4",
      "from": 0.0,
      "to": 174.64440000000002,
-     "mb": 57.6
+     "mb": 57.76
     },
     {
      "file": "episodes/ep009/work/factory/ep009-part2-720p.mp4",
      "from": 174.64440000000002,
      "to": 349.28880000000004,
-     "mb": 44.81
+     "mb": 45.07
     },
     {
      "file": "episodes/ep009/work/factory/ep009-part3-720p.mp4",
      "from": 349.28880000000004,
      "to": 523.9332,
-     "mb": 43.52
+     "mb": 43.8
     }
    ]
   },
   "qc": {
-   "seconds": 32.58,
+   "seconds": 34.06,
    "pass": false,
    "failed": [
     "master đối trọng \"US only · history, not a forecast\"",
@@ -878,7 +884,7 @@
    "near": []
   }
  },
- "started": "2026-10-15T17:36:09Z",
+ "started": "2026-10-15T19:06:18Z",
  "spec": [],
  "music": {
   "a07_gap_db": 20.01,
@@ -1126,5 +1132,5 @@
    ]
   }
  },
- "total_seconds": 930.49
+ "total_seconds": 907.3
 }

@@ -1,0 +1,113 @@
+{
+ "rules": "Score the MEANING against the expected reading (1 = the idea is there; 0.5 = part of it; 0 = only shapes/colours/labels or a different idea). Advice flags: advice_stated = the reader says the ANIMATION itself (picture or on-screen text) states or implies a financial action: buy, keep renting, buy now / before something, wait, hold N years, invest, pick a month. advice_inferred = the reader drew that action themself (answer 5 says own conclusion or none). caution_only = general care only (check your own numbers, ask an adviser). Quote the reader verbatim for any flag. Also return \"q5\": \"video\" | \"own\" | \"none\".",
+ "items": {
+  "B01": {
+   "meaning": "Stocks grew more than home prices in nearly every ten-year stretch",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B03": {
+   "meaning": "Same street, one swap of the renter's money, half the lights change",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B04": {
+   "meaning": "Over longer stays the answer reverses",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B06": {
+   "meaning": "The pile is the savings plus the monthly gap, invested every month, even in a drop",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B07": {
+   "meaning": "The same house flips from ahead to far behind",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B09": {
+   "meaning": "A fixed growth rate hides the order of good and bad years; this replay uses the real months",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B11": {
+   "meaning": "The renter's rent is an assumption hanging on the door",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B12": {
+   "meaning": "Lit = buyer's equity bigger; dark = the pile bigger",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B14": {
+   "meaning": "Most 1990s starts lit, the very first the darkest",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B15": {
+   "meaning": "Where stocks lost money, the buyer stayed ahead",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B16": {
+   "meaning": "The bubble-era starts all go dark with stocks",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B17": {
+   "meaning": "The darkest house gets darker",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B18": {
+   "meaning": "More than half the piles fell below where they started",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B19": {
+   "meaning": "Even at the bottom, she kept investing (peak)",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B21": {
+   "meaning": "About half the street is lit",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B22": {
+   "meaning": "All the switches went one way",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B23": {
+   "meaning": "The brightest house stays lit",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B24": {
+   "meaning": "Post-crash starts mostly lit",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B24b": {
+   "meaning": "In this replay, longer stays left the pile ahead more often",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B25": {
+   "meaning": "Longer stays turn the street over",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B26": {
+   "meaning": "A slower thing on a bigger base can keep up",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B27": {
+   "meaning": "Without the monthly gap, the buyer leads again",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B29": {
+   "meaning": "The answer flips at almost exactly the assumed tag",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B30": {
+   "meaning": "Public data sits on both sides of the line",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B33": {
+   "meaning": "The answer, row by row, no verdict",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B34": {
+   "meaning": "Same street as the opening, read with the pile invested",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B35": {
+   "meaning": "How long she stays is still open",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  }
+ }
+}
