@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who asks whether renting and investing the difference beats buying a $400,000 home. It replays every start month since 1991 as a \"street\" of houses, lit if the buyer ends ahead and dark if not. It starts with a 10-year hold and the renter's pile in cash, then in stocks, then looks at 15 years, and then stress-tests assumptions (no monthly saving, 1% fees, the rent tag). It ends by saying the result is roughly a coin flip that depends on the assumed rent.\n\n2. With the pile in stocks over 10 years, the buyer ended ahead in 152 of 307 start months (about half). With cash, the buyer won about 3 in 4. Over 15 years with stocks, the buyer won only about 1 in 5 (cash: all 247). The rent assumption decides it: at 5% of price per year the split is almost even, with a break-even near 5.1%.\n\n3. Confusing passages:\n- \"Over ten years, stocks outgrew homes almost nine times in ten. So renting looks smart.\" The \"So\" assumes you already know the renter invests, and it's unclear why that leads to \"smart.\"\n- \"Over a stay half as long, with the pile in stocks, the buyer was ahead a little more than half the time. In this replay, the longer the stay, the more often the pile finished ahead.\" It's hard to tell which stay length is the baseline and which is half as long, because the video's own order is confusing.\n- \"Longer stays favored the pile; the rent tag is the one assumption left to test.\" But the fee and no-saving tests came after, so \"the one assumption left\" doesn't match.\n- \"The renting twin's rent is an assumption, the tag on her door: 5 percent of the price a year, as of July 2026.\" The date sits oddly in a historical replay.\n- The \"brightest house last time\" and \"darkest house last time\" lines refer to an earlier video I haven't seen.\n- The 2009–2016 stretch is \"lit nearly four times in five,\" but the overall figure is half and the 1990s are \"two in three.\" It isn't obvious how the pieces add up.\n\n4. Attention dropped most at: \"The first house on that street is January 1991. With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead. With the pile in stocks, the same buyer finished $485,063 behind.\" and the dense run of dollar figures and start-month ranges after it. The stretch of 1990s, 1999, 2002–2007, 2006 and 2012 houses piles up many dates and numbers in a row with little to anchor them. The \"Nina's own month isn't on the street\" aside also interrupted the flow.\n\n5. No to both. It says explicitly that it's history, not a forecast, and that \"none of this ranks stocks above a house, or a house above stocks.\" It says home ownership also brings stability and control. It doesn't predict prices, rents or returns.\n\n6. A viewer would take away that the answer is conditional rather than a rule. Investing the difference makes renting competitive, but the outcome depends on local rent relative to price, how long you stay, your mortgage rate and entry price, fees and taxes, and above all whether you actually invest every month through downturns. Run your own numbers with your real rent-to-price ratio and time horizon.\n\n7. Mostly my own conclusion. The narration frames findings and caveats (\"the rent tag is an assumption,\" \"the monthly habit did most of the catching up\") but stops short of telling the viewer what to do. The closing line, \"investing the difference made her street a coin flip, and her rent tag tips it,\" is the nearest it comes, and it's a finding, not advice.\n\n8. Partly. I came in with \"does renting and investing the difference beat owning?\" and the video answered it directly: about half the time over 10 years, less often for the buyer over 15, and it hinges on the rent assumption. It doesn't tell me what happens in my own market or for my own stay length, which it admits.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3654,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 20,
+   "in": 3654,
+   "out": 20
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3782,
+   "cache_read": 1496,
+   "output": 1290,
+   "in": 5280,
+   "out": 1290
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.028557000000000003
+}

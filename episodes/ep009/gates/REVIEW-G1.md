@@ -1,0 +1,19 @@
+# REVIEW G1 — Tập 9 (headless Opus, chỉ đọc, $0.68)
+
+Đang viết kết luận soát (đã đọc G1, PLAN, script, numbers, C1/C2, preprod, RIGHTS, CHARTER).
+
+**Kết luận: ĐẠT có sửa.** Sửa 5 lỗi CHÍNH dưới đây rồi mới gửi gói G1. Không chạy được `check_script.py` vì lệnh Bash bị chặn. Không đọc được key "M" trong `table-read.json` vì tìm theo mẫu không ra. Vì vậy mục ±5 % chỉ đối chiếu theo số ghi ở G1.
+
+**CHÍNH**
+1. **88,9 % bị nói là "nine times out of ten", thiếu chữ "about/almost".** Lỗi ở `story/script.md:71` (S01.1), `:83` (S03.3), `gates/G1.md:14`, `:33` (T3). Ghi chú `script.md:35` nói S03.3 đã đổi thành "about 9 in 10", nhưng câu thật ở dòng 83 không đổi. Như vậy lệch với điều đã ghi trước ở `C2-intent.md:5`. Cách sửa: dùng "almost nine times out of ten" ở S01.1, S03.3 và G1:14. Đổi T3 thành "Stocks Outgrew Homes Almost 9 Times in 10…".
+2. **Có câu mang ý so sánh nhưng không có claim, và chính câu này bị người đọc trích làm căn cứ suy ra lời khuyên.** S17.5 `script.md:189` ghi "A short stay is close to a coin toss; longer stays tilt toward the pile" với `claims: —`. Cách sửa: gắn `share_buyer_ahead_stocks_5y, _10y, _15y`. Viết lại thành "In this replay, the longer the stay, the more often the pile finished ahead." S25.5 `:251` có cụm "her rent tag tips it" nhưng chưa gắn claim: thêm `flip_yield_stocks_10y`. Còn "coin flip" cho 49,5 % thì chấp nhận được.
+3. **Đếm vòng sửa ở C2 sai, và gói không nói rõ C2 đã TRƯỢT.** Ý đồ ghi trước tính vòng theo từng khối (`C2-intent.md:4`). Lượt v2→v3 là vòng 1 của lỗi `số dày`, không phải của lỗi `phương pháp` (`C2-blind.md:28`). Vậy `phương pháp` mới dùng 1 vòng. Câu "đã dùng hết 2 vòng" ở `G1.md:19` và `C2-blind.md:41` là sai. Cách sửa: chạy vòng 2 cho `phương pháp` theo mẫu dự phòng có sẵn: rút S06.1 + S07.1 còn 1 câu lời, phần còn lại lên thẻ V7 kèm mô tả, rồi kiểm mù lại. Nếu không chạy, G1:19 phải ghi "C2 v3 TRƯỢT (phương pháp 4/6 ≥ 4/6, đúng ngưỡng chặn)". Phương án (a) "sửa bằng hình, lời không đổi" phải kèm một lượt kiểm mù lại.
+4. **Animatic có được nói ra, nhưng lý do không đứng vững.** Theo CHARTER §5, G1 duyệt "vật thể + animatic". G1:30 viện lý do trần $12, trong khi tổng chi mới $6,70 (`PLAN.md:31`), tức còn $5,30. Theo CHARTER §5 (Token) và checklist mục 6, không được cắt bước chất lượng vì token. Cách sửa: ghi lý do thật kèm số đo thật (số lượt đã dùng trên 150). Ghi rõ "thiếu một mục G1 theo CHARTER §5, cần chủ dự án cho ngoại lệ". Đưa phương án (c) lên ngang hàng với (a).
+5. **Câu hỏi quyền dữ liệu French chưa đủ.** Cả `G1.md:10` lẫn `RIGHTS.md:13` (D-FRENCH) đều không nhắc tới **dùng thương mại**, trong khi tập có mid-roll (G1:21). Gói cũng không nói dữ liệu gốc là CRSP, một cơ sở dữ liệu có giấy phép, và điều khoản của CRSP chưa được kiểm. Cách sửa: thêm vào G1:10 câu "kênh kiếm tiền; French không có câu giấy phép; điều khoản CRSP với dữ liệu suy ra chưa xác minh". Câu "dùng phổ biến" phải có ví dụ kèm nguồn, hoặc bỏ đi. Cập nhật D-FRENCH cho khớp. Hàng D-SHILLER thì ổn, chỉ dùng đối chiếu nội bộ.
+
+**PHỤ**
+6. Chi phí lệch 1 cent. `G1.md:38` ghi "WRITER ×5 $4,78", còn tổng các khoản ở `PLAN.md:28` là $4,77. G1 ghi kiểm mù $1,00, còn 0,13 + 0,84 + 0,04 = $1,01. G1 cũng thiếu khoản neo $0,003. Cách sửa: chép đúng số của PLAN. Tổng $6,70 vẫn khớp.
+7. Câu đỉnh S14.3 đúng claim: $54,310 là mức thấp nhất trên mọi cửa sổ, ở cửa sổ 11/2007, đáy 02/2009 (`PRE-objects.md:4`). Nên thêm mốc "Nov 2007 start" lên hình kèm claim, để "one renting twin" chỉ được một cửa sổ cụ thể.
+8. `G1.md:9` ghi C1 "3/3" mà không nêu ngưỡng ghi trước (khung §4 viết "≥ 4/5 vai đích"). Cách sửa: dẫn ngưỡng và cỡ mẫu theo ý đồ C1.
+9. T1 "Replayed Every Month Since 1991": tháng bắt đầu chỉ chạy tới 07/2016 (`numbers.md:15`). Cách sửa: "…Every Start Month Since 1991", hoặc giữ nguyên nhưng ghi rủi ro. Cả ba tiêu đề đều không có từ mang ý khuyên.
+10. `C2-blind.md` không có dòng `fix:` cho từng vòng (checklist mục 9). Cách sửa: thêm `fix: text` kèm lý do cho vòng 2 và vòng 3.

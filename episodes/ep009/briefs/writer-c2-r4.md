@@ -1,0 +1,7 @@
+# WRITER — Tập 9 C2 v4 (REVIEWER G1 CHÍNH 1–3; một lượt headless, 0 agent con)
+
+You are a new WRITER. Edit only `episodes/ep009/story/script.md` (+ matching `beats.md` rows, `hooks.md` HB, one header line "C2 v4 (REVIEWER G1)"). Read `episodes/ep009/gates/REVIEW-G1.md` (findings 1–3) and `episodes/ep009/numbers.md`. Do not spawn agents. Do not touch `check_script.py`.
+1. 88.9 % must not be said as a flat "nine times out of ten": S01.1 and S03.3 need "almost" (or equivalent) — **S01.1 must stay ≤ 11 words** (it must end by 5.0 s on the real voice; now 4.88 s with 11 words), so rephrase rather than add; no advice-like words (beat, wins, worth it, should…).
+2. S17.5 "A short stay is close to a coin toss; longer stays tilt toward the pile" has no claim: rewrite as a plain replay statement (e.g. "In this replay, the longer the stay, the more often the pile finished ahead.") and attach `share_buyer_ahead_stocks_5y, share_buyer_ahead_stocks_10y, share_buyer_ahead_stocks_15y`. S25.5 "…her rent tag tips it": attach `flip_yield_stocks_10y`.
+3. Method block, round 2 (blind readers 4/6 at S07.1 "Every cost of owning stays the same, and the card lists each one" and S06.1 competitor gap): merge S06.1 + S07.1 into **one** short spoken line (≤ 18 words) that keeps the competitor gap (one assumed growth rate vs what actually happened, no channel named); "same costs as before" goes to the on-screen card V7 only (update `beats.md`). Do not add new sentences elsewhere.
+Reply with changed line IDs + new text only.

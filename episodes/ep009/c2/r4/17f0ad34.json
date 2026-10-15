@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wonders whether renting and investing the difference beats buying a roughly $400,000 house. It replays every start month since 1991 as a \"street\" of houses, lit if the buyer ends ahead and dark if the renting twin's pile does. It first shows the result with the renter's money in cash, then in stocks, then at different horizons. Finally, it tests assumptions (no monthly saving, fees, and the rent level) and ends with a caveat-heavy summary.\n\n2. With the pile in stocks over ten years, it's about a coin flip: the buyer ended ahead in 152 of 307 start months (about half). Over fifteen years, the buyer led in only about 1 in 5 of 247 starts. In cash, the buyer won about 3 in 4 at ten years and every time at fifteen. The result is sensitive to the assumed rent of 5% of price per year: the split sits near 5.1%, so the rent assumption tips it. Longer stays favored the renter's pile.\n\n3. The passage that confused me: \"Over a stay half as long, with the pile in stocks, the buyer was ahead a little more than half the time.\" It's unclear what \"half as long\" refers to (five years?), and it comes right after the ten-year result, so it reads as a contradiction. Also, \"In this replay, the longer the stay, the more often the pile finished ahead\" conflicts with the earlier line about the 2009 to 2016 starts, since the \"stay\" comparison is not shown cleanly. A second, smaller one: \"Stocks outgrew the house almost nine times out of ten, yet buying still came out ahead in half\" is explained later, but it's stated as a puzzle before the leverage explanation.\n\n4. \"Starts from 2009 through mid-2016 are lit nearly four times in five.\" That's where my attention dropped most. It's a dense run of date ranges and fractions with no new insight, and it follows several similar stretch-by-stretch descriptions of the street (1990s, 1999, 2002 to 2007, 2012), so it blurs together.\n\n5. No. It says explicitly that it is \"history, not a forecast,\" that it doesn't rank stocks above a house or the reverse, and it lists limits: US only, no taxes, renters who never skip a month. It doesn't predict home prices, rents, or stock returns, and it says nothing about what Nina should do.\n\n6. A viewer would probably take away that \"rent and invest the difference\" is not a sure win: it was roughly a coin flip at ten years, and the renter wins more often the longer the stay. Staying a long time, investing the monthly gap consistently, and the local rent-to-price ratio all matter a lot. A viewer might also take away that the renter's advantage depends on discipline through market drops.\n\n7. Mostly my own conclusion. The narration gives results and sensitivities, and it explicitly declines to recommend. The line \"Longer stays favored the pile\" is a finding, not advice. Takeaways like \"stay longer\" or \"check local rent\" are my inference.\n\n8. Partly. My question was whether a renter who invests the difference ends up ahead. The answer was \"about half the time at ten years, mostly yes at fifteen, and it depends on rent.\" That's a real answer for the median-price case. But it doesn't tell me which side of that rent line my own market is on, or how long I'll stay, so I can't apply it to my own decision. The sections on the ten-year street, the fifteen-year result, and the rent-tag sensitivity were the most useful.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3726,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 19,
+   "in": 3726,
+   "out": 19
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3856,
+   "cache_read": 1496,
+   "output": 1147,
+   "in": 5354,
+   "out": 1147
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0274297
+}

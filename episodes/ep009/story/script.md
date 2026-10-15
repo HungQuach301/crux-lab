@@ -1,5 +1,7 @@
 # Script — Episode 9 (format `lab`, C2 v3, WRITER, 2026-10-15)
 
+**C2 v4 (REVIEWER G1):** S01.1/S03.3 "almost nine times" (88.9 %; S01.1 still 11 words, "out of ten" → "in ten" to fit 5.0 s — re-check ASR); S17.5 rewritten as a replay statement + `share_buyer_ahead_stocks_5y/_10y/_15y`; S25.5 + `flip_yield_stocks_10y`; method round 2: S06.1 + S07.1 merged into one line S06.1 (S07 removed, "same costs as before" on card V7/B10 only, hold + mid-roll 1 now after S06.1; older notes citing S07.1 now mean S06.1/B10). `check_script.py` not run; needs a blind re-read of the method block.
+
 **Table-read fix (Eric 0.9, `review-g1/table-read.json`):** cold open cut ≈ 12 s before the promise end — S01.1+S01.2 → one hook (S01.2 removed; expectation moved to S02.1 "So renting looks smart"), twins named inside S02.2, S03.3 promise reduced to the paradox only ("since 1991" + `n_10y` moved to S03.5), "9 in 10" → "nine times out of ten" (ASR heard "nine and ten"). Estimated (2.45 w/s, real gaps): S01.1 end ≈ 4.7 s · M7 third fact ≈ 30.0 s · M3 question ≈ 36.3 s · M2 promise ≈ 44.2 s. `check_script.py` not run (no shell).
 
 **C2 v3 changes (blind read r2, "số dày" 4/6):** spoken figures thinned to words, exact figures kept on screen (B14 67.6 %, B15 16 start months, B16 none of 72 · 6 with cash, B17 $261,689, B18 183 of 307, B24 78.0 %, B24b 53.4 %): S10.1 "about two in three", S11.2 "a short run of start months around March 1999", S12.2 "none of them" (the one spoken count), S12.3 "a handful", S13.2 "more than a quarter of a million dollars", S14.2 "more than half the windows", S17.1 "nearly four times in five", S17.4 "a little more than half". No sentence cut, claim IDs unchanged; S04.2–S04.3 already separated by the 0.8 s anchor silence before S04.3; S15.2, peak and Nina's last line untouched. `check_script.py` not run (no shell).
@@ -68,7 +70,7 @@ beats.md: 36 nhịp · hooks HA/HB/HC: M1–M8 ĐẠT (M2 41.7 / 47.0 / 41.7 s)
 
 ## S01 — The paradox (hook)
 
-S01.1 {hook} Over ten years, stocks outgrew homes nine times out of ten. <!-- claims: share_stocks_beat_house_10y, n_10y -->
+S01.1 {hook} Over ten years, stocks outgrew homes almost nine times in ten. <!-- claims: share_stocks_beat_house_10y, n_10y -->
 
 ## S02 — Nina, and two facts
 
@@ -80,7 +82,7 @@ S02.3 {fact} With that cash in stocks instead, the buyer led only about half the
 
 S03.1 {fact} Over fifteen years, cash kept the buyer ahead every time; stocks, only about 1 in 5. <!-- claims: share_buyer_ahead_cash_15y, share_buyer_ahead_stocks_15y -->
 S03.2 {question} [worried] So if Nina rents and invests the difference, does she end up ahead of owning? <!-- claims: — -->
-S03.3 {promise} Stocks outgrew the house nine times out of ten, yet buying still came out ahead in half. <!-- claims: share_stocks_beat_house_10y, share_buyer_ahead_stocks_10y -->
+S03.3 {promise} Stocks outgrew the house almost nine times out of ten, yet buying still came out ahead in half. <!-- claims: share_stocks_beat_house_10y, share_buyer_ahead_stocks_10y -->
 S03.4 {constraint} It's history, not a forecast. <!-- claims: — -->
 S03.5 {hook} We replayed every start month since 1991 as a house on one long street: lit if the buyer ends ahead, dark if not. <!-- claims: n_10y -->
 S03.6 {define} The renting twin's pile is the $92,000, plus whatever owning would have cost each month beyond her rent. <!-- claims: savings_usd -->
@@ -108,13 +110,9 @@ S05.4 So one change, stocks instead of cash, turned the first house from lit to 
 
 ## S06 — One growth rate, or the real record (competitor gap; Q2)
 
-S06.1 A lot of rent-versus-buy math assumes one growth rate; this replays the real record, month by month. <!-- claims: — -->
+S06.1 A lot of rent-versus-buy math assumes one growth rate; this replays what actually happened, month by month. <!-- claims: —; hold: 1.5 -->
 
-## S07 — Same costs (list on the card, B10)
-
-S07.1 Every cost of owning stays the same, and the card lists each one. <!-- claims: —; hold: 1.5 -->
-
->>> MID-ROLL 1 (in the 1.5 s hold after S07.1; end of act 1, act-2 question opens at S08.2)
+>>> MID-ROLL 1 (in the 1.5 s hold after S06.1; costs on card B10/V7 only; end of act 1, act-2 question opens at S08.2)
 
 === ACT 2 — JOURNEY: walking the street with the pile in stocks ===
 
@@ -186,7 +184,7 @@ S17.1 Starts from 2009 through mid-2016 are lit nearly four times in five. <!-- 
 S17.2 So the half isn't spread evenly: whole stretches are lit, and one long stretch is dark. <!-- claims: share_buyer_ahead_stocks_10y -->
 S17.3 Those buyers started with lower prices and low mortgage rates, and that held the lights on. <!-- claims: — -->
 S17.4 Over a stay half as long, with the pile in stocks, the buyer was ahead a little more than half the time. <!-- claims: share_buyer_ahead_stocks_5y -->
-S17.5 A short stay is close to a coin toss; longer stays tilt toward the pile. <!-- claims: — -->
+S17.5 In this replay, the longer the stay, the more often the pile finished ahead. <!-- claims: share_buyer_ahead_stocks_5y, share_buyer_ahead_stocks_10y, share_buyer_ahead_stocks_15y -->
 S17.6 Half a street, lit in stretches; now, a longer stay. <!-- claims: —; hold: 0.5 -->
 
 ## S18 — Fifteen years
@@ -248,4 +246,4 @@ S25.1 So, back to Nina's question. <!-- claims: — -->
 S25.2 With the pile in cash, most of her street was lit; in stocks, about half; over fifteen years, most of it dark. <!-- claims: share_buyer_ahead_cash_10y, share_buyer_ahead_stocks_10y, share_buyer_ahead_stocks_15y -->
 S25.3 It's the same street as at the start, read again with the pile in the market. <!-- claims: — -->
 S25.4 What no house on this street can show is how long Nina herself will stay. <!-- claims: —; hold: 1.0 -->
-S25.5 [thoughtful] Nina's answer: investing the difference made her street a coin flip, and her rent tag tips it. <!-- claims: share_buyer_ahead_stocks_10y; hold: 1.5 -->
+S25.5 [thoughtful] Nina's answer: investing the difference made her street a coin flip, and her rent tag tips it. <!-- claims: share_buyer_ahead_stocks_10y, flip_yield_stocks_10y; hold: 1.5 -->

@@ -11,3 +11,5 @@
 | 15/10 | tiền kỳ | N6 clip + nhận dạng 2/2 | máy + headless Sonnet | 0,04 | `preprod/PRE-objects.md` |
 | 15/10 | âm | 8 bài CC BY đo, 2 bản thử 60 s | máy | 0 | `review-g1/music/` |
 | 15/10 | giọng | đọc thử S01–S04 ×2 | ElevenLabs | — | 2.357 ký tự |
+| 15/10 | REVIEWER | soát gói G1: ĐẠT có sửa (5 CHÍNH, 5 PHỤ) | headless Opus | 0,68 | `gates/REVIEW-G1.md` |
+| 15/10 | WRITER + kiểm mù | C2 v4 theo REVIEWER + C2 r4 + đọc thử r3 | headless + EL | 0,56 | phương pháp 0/6, số dày 5/6; EL 701 ký tự |

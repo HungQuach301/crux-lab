@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved (a 20% down payment on a $400,000 home), who asks whether renting and investing the difference beats buying. It replays every 10-year start month from January 1991 to July 2016 (307 of them) as a street of houses, lit if the buyer ends ahead and dark if the renter does. It compares the renter's pile held in cash versus in the whole US stock market, then tests longer stays (15 years), no monthly investing, fees, and the assumed rent level. It closes by saying the result is a coin flip that the rent assumption tips.\n\n2. With the renter's pile in stocks over 10 years, the buyer ended ahead in 152 of 307 start months, about half. Held in cash, the buyer won about 3 in 4. Over 15 years with stocks, the buyer won only about 1 in 5 of the 247 starts, while with cash the buyer won every time. The result is uneven: starts from 2002 to 2007 were all dark, and 2009 to mid-2016 were lit nearly 4 in 5. It also hinges on rent: at 5% of price per year the split is almost exact, with the break-even near 5.1%. Without the monthly gap invested, the buyer wins about 2 in 3, and a 1% annual fee on the pile raises the buyer's share to 55%.\n\n3. Two passages confused me:\n   - \"A lot of rent-versus-buy math assumes one growth rate; this replays what actually happened, month by month.\" It is clear enough alone, but it sits oddly between the January 1991 example and the rent-tag explanation.\n   - \"Over a stay half as long, with the pile in stocks, the buyer was ahead a little more than half the time. In this replay, the longer the stay, the more often the pile finished ahead.\" The \"half as long\" stay is never defined, since it appears to mean 5 years, and it was not shown earlier. Also, the 10-year result is about half and the shorter stay is \"a little more than half,\" so the comparison is thin.\n   \n   Also, \"stocks outgrew homes almost nine times in ten\" together with \"the buyer led about half\" seems contradictory at first. The video resolves it later, but the opening leaves the viewer puzzled for a while.\n\n4. \"Starts from 2009 through mid-2016 are lit nearly four times in five. So the half isn't spread evenly: whole stretches are lit, and one long stretch is dark.\" Attention dropped here because it follows a dense run of statistics and then immediately shifts to the shorter-stay point, so several numbers and time ranges pile up with little to anchor them. The opening hook and the later numeric stretches (the 307 count, the 152/80 switches) also drag, but this is the densest.\n\n5. No. The video says outright that it is history, not a forecast, and that it \"ranks\" neither stocks nor houses. It makes no predictions about home prices, rents, or stock returns, and it lists limits: US only, no taxes, renters who never skip a month. It also notes that a home brings stability and control that numbers do not capture.\n\n6. A viewer could take away that \"rent and invest the difference\" is not a sure win: over 10 years it was roughly a coin flip historically, and over longer stays the renter did better. Key sensitivities are the local rent-to-price ratio, how long you stay, fees, and whether you actually invest the monthly gap. Another takeaway is that buying works as leverage, since the house grows on the full price while the renter's pile starts at $92,000.\n\n7. This is mostly my own conclusion. The narration reports counts and sensitivities and declines to recommend. Statements like \"the longer the stay, the more often the pile finished ahead\" and \"the rent tag tips it\" are findings from the replay, but turning them into \"check your rent-to-price ratio and your horizon\" is my inference.\n\n8. Partly. It answered the historical question: with stocks, renting and investing the difference beat buying about half the time over 10 years and most of the time over 15, though the answer depends on the rent assumption. It did not say what will happen to me, which it said it could not do. It also did not settle how my own rent compares to the 5% assumption, so I would still have to check my local rent against the break-even near 5.1%.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3726,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 3726,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3858,
+   "cache_read": 1496,
+   "output": 1371,
+   "in": 5356,
+   "out": 1371
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0296787
+}

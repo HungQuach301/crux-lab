@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"advice_words\": [], \"attention_block\": \"số dày\", \"attention_where\": \"\\\"Starts from 2009 through mid-2016 are lit nearly four times in five\\\"\", \"answered_own\": \"partly\", \"why\": \"Right question; about half with stocks, plus 15 years (~1/5) and the 5.1% rent threshold. Takeaways like staying longer or checking local rent are the reader's own inference.\"}, \"R2\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"advice_words\": [], \"attention_block\": \"số dày\", \"attention_where\": \"\\\"Starts from 2009 through mid-2016 are lit nearly four times in five\\\"\", \"answered_own\": \"partly\", \"why\": \"Right question; about half with stocks, plus 15 years, 2002–2007 all dark, rent 5.1% and no-monthly-saving ~2/3. Advice is the reader's own inference.\"}, \"R3\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"advice_words\": [], \"attention_block\": \"số dày\", \"attention_where\": \"year-by-year house stretch (1990s, 1999, 2002–2007, 2006, 2012)\", \"answered_own\": \"partly\", \"why\": \"Right question; about half at 10 years, buyer wins ~1/5 at 15 years, 5.1% rent sensitivity, leverage explanation. Practical points are the reader's inference.\"}, \"R4\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"advice_words\": [], \"attention_block\": \"số dày\", \"attention_where\": \"named houses and dollar figures (June 2006, $54,310, April 2012, $237,632)\", \"answered_own\": \"partly\", \"why\": \"Right question; about half with stocks, 15 years ~1/5, rent 5.1%, no-saving ~2/3. The \\\"check your local rent\\\" advice is flagged as the reader's own inference.\"}, \"R5\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"advice_words\": [], \"attention_block\": \"số dày\", \"attention_where\": \"January 1991 dollar figures and the run of start-month ranges\", \"answered_own\": \"partly\", \"why\": \"Right question; about half at 10 years, buyer ~1/5 at 15 years, rent break-even ~5.1%. \\\"Run your own numbers\\\" is the reader's own conclusion, not the video's.\"}, \"R6\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"advice_words\": [], \"attention_block\": \"khác\", \"attention_where\": \"fast list of limits (\\\"US only, history, not a forecast, no taxes...\\\")\", \"answered_own\": \"partly\", \"why\": \"Right question; about half with stocks, 15 years ~1/5, leverage reason ($400,000 vs $92,000), rent ~5.1%. The reader says there is no explicit advice and gives only general caution.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 9818,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 731,
+   "in": 9818,
+   "out": 731
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 9946,
+   "cache_read": 1496,
+   "output": 1817,
+   "in": 11444,
+   "out": 1817
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0594549
+}

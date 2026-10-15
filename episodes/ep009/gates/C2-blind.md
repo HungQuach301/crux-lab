@@ -38,4 +38,18 @@ WRITER v3 ($0,30): số nói → tỉ lệ con người / lên hình ở S10.1, 
 | T | 1 | 0 | 1 | phương pháp · "A lot of rent-versus-buy math assumes one growth rate; this replays t | partly | Longer stays favored the pile |
 | T | 1 | 0 | 0 | số dày · start-month anecdotes (1991, 1999, 2002-2007, 2006, 2012) with many nu | true | longer stays tilt toward the pile; the answer sits on the rent tag |
 **Đúng 6/6 · advice_stated 0/6 · `số dày` 4/6 → 2/6 (hết chặn) · `phương pháp` 1/6 → 4/6** — cùng 2 câu còn lại của khối cũ: S07.1 "Every cost of owning stays the same, and the card lists each one" (3/6) và S06.1 câu khoảng trống đối thủ (1/6).
-**Hết vòng cho lỗi `phương pháp`** (vòng 1 → v2: 6/6 → 1/6; vòng 2 → v3: 1/6 → 4/6 trên 2 câu ngắn). Luật ≤ 2 vòng mỗi lỗi (D-013) → **dừng, đưa trước/sau lên G1** (câu 2): v2 (phương pháp 1/6, số dày 4/6) · v3 (phương pháp 4/6, số dày 2/6). Ghi chú điều phối: câu 4 buộc mỗi người chọn "chỗ tụt nhiều nhất" — khi bớt số, chỗ nhiều nhất dời về 2 câu phương pháp; biên nhiễu A32 chưa khoá. Bản đang dùng: **v3** (không loại khối nào ≥ 4/6 ngoài 2 câu này; số dày đã hết chặn).
+~~Hết vòng cho lỗi `phương pháp`~~ — **sai, REVIEWER G1 CHÍNH 3**: v2→v3 là vòng 1 của `số dày`; `phương pháp` mới dùng 1 vòng → vòng 2 ở v4 (dưới). Ghi chú điều phối: câu 4 buộc mỗi người chọn "chỗ tụt nhiều nhất" — khi bớt số, chỗ nhiều nhất dời về 2 câu phương pháp; biên nhiễu A32 chưa khoá. Bản đang dùng: **v3** (không loại khối nào ≥ 4/6 ngoài 2 câu này; số dày đã hết chặn).
+
+fix (theo vòng): r1→v2 `fix: text` (khối phương pháp S06–S08 13 → 4 câu, danh sách lên thẻ V7) · r2→v3 `fix: text` (số dày: số → tỉ lệ con người / lên hình) · r3→v4 `fix: text` (phương pháp vòng 2: S06.1 + S07.1 → 1 câu, "same costs" lên thẻ V7; kèm REVIEWER CHÍNH 1–2: "almost nine times in ten", claim S17.5, S25.5).
+
+## Vòng 4 (15/10, C2 v4; 6 Sonnet mới + chấm mới, `c2/r4/`, $0,24)
+| Vai | Điểm | advice_stated | advice_inferred | Mất chú ý (loại · chỗ) | answered_own |
+|---|---|---|---|---|---|
+| T | 1 | 0 | 1 | số dày · "Starts from 2009 through mid-2016 are lit nearly four times in five" | partly |
+| T | 1 | 0 | 1 | số dày · "Starts from 2009 through mid-2016 are lit nearly four times in five" | partly |
+| T | 1 | 0 | 1 | số dày · year-by-year house stretch (1990s, 1999, 2002–2007, 2006, 2012) | partly |
+| T | 1 | 0 | 1 | số dày · named houses and dollar figures (June 2006, $54,310, April 2012, $237, | partly |
+| G | 1 | 0 | 1 | số dày · January 1991 dollar figures and the run of start-month ranges | partly |
+| T | 1 | 0 | 0 | khác · fast list of limits ("US only, history, not a forecast, no taxes...") | partly |
+**Đúng 6/6 · advice_stated 0/6 · `phương pháp` 4/6 → 0/6 (hết, vòng 2 của nó) · `số dày` 2/6 → 5/6 (chặn; vòng 1 của nó ở v3: 4/6 → 2/6)** — S10–S17 (đi dọc phố theo thời kỳ: 1990s, 1999, 2002–2007, 6/2006, 4/2012, "nearly four times in five"). advice_words rỗng cả 6.
+Nhận xét điều phối: câu 4 buộc mỗi người chọn MỘT chỗ "tụt nhiều nhất" → khi một khối được sửa, khối kế tiếp lên ≥ 4/6 (v1 phương pháp → v2 số dày → v3 phương pháp → v4 số dày); biên nhiễu A32 chưa khoá. `số dày` còn 1 vòng → G1 câu 2.

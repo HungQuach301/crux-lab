@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wonders whether renting and investing the difference beats buying a roughly $400,000 home with 20% down. It replays every start month since 1991 as a \"street\" of houses, lit if the buyer ends ahead and dark if the renting twin's pile ends ahead. It shows how the result changes with the pile held in cash versus stocks, the holding period (10 vs. 15 years), fees, whether the monthly gap is invested, and the assumed rent level. It ends by saying the answer depends on how long she stays and on the rent assumption.\n\n2. Over ten years, with the renter's money fully invested in the US stock market (including the $92,000 and the monthly gap), the buyer ended ahead in 152 of 307 start months, about half. With cash, the buyer won about 3 in 4. Over fifteen years, the buyer won every time with cash but only about 1 in 5 with stocks. The result is sensitive to rent: the split is at about 5.1% of price per year, and at 5% it is nearly even. So the answer is \"about a coin flip at ten years, and the renter usually ahead at fifteen, depending on rent,\" in historical US data only.\n\n3. Mostly nothing, but a few lines were hard to follow:\n   - \"Stocks outgrew the house almost nine times out of ten, yet buying still came out ahead in half.\" It's resolved later by leverage, but it sounds contradictory when first heard.\n   - \"In this replay, the longer the stay, the more often the pile finished ahead.\" Combined with \"Over a stay half as long... the buyer was ahead a little more than half the time,\" it is easy to lose track of which direction is which.\n   - \"Nina's own month isn't on the street.\" It's unclear at first why the street excludes her month, though the explanation (her ten years haven't happened yet) follows.\n   - The ending, \"Nina's answer: investing the difference made her street a coin flip, and her rent tag tips it,\" mixes a historical result with \"her answer,\" which blurs what is established versus assumed.\n\n4. \"Most of the 1990s houses stay lit: about two in three of them. But the darkest house on the whole street is the very first one, January 1991.\" Attention dipped in the long stretch of year-by-year house stories (1990s, 1999, 2002–2007, 2006, 2012), where many dates and numbers come one after another and it was hard to keep track of which houses were lit or dark and why.\n\n5. No. It explicitly says \"It's history, not a forecast,\" and \"None of this ranks stocks above a house, or a house above stocks.\" It lists its limits: US only, no taxes on gains or the home, renters who never skip a month. It makes no predictions about future prices, rents or returns, and it doesn't tell the viewer which to choose.\n\n6. A viewer would take away a conditional lesson rather than a directive:\n   - \"Rent and invest the difference\" is not a sure win. Historically it was roughly a coin flip over ten years.\n   - Time horizon matters. The longer the stay, the more often the investing renter came out ahead.\n   - The renter has to keep investing the monthly gap through downturns.\n   - The local rent-to-price ratio matters a lot, so check it for your own market.\n   - Fees and taxes, and non-financial factors like stability and control, also matter.\n\n7. Mostly my own conclusion. The video states findings (the counts, the 5.1% rent threshold, the effect of the horizon) and explicitly refuses to rank renting versus buying. The practical points above, such as checking your own rent ratio and planning around your expected stay, are inferences I drew from those findings. The one place the narration comes close to advice is \"the rent tag is the one assumption left to test,\" and the closing line about \"her rent tag tips it.\"\n\n8. Partly. It answered the historical question: with the money fully invested, the renter doesn't clearly come out ahead, and at ten years it was about a coin flip, with the renter pulling ahead at fifteen. It also explained why: the mortgage lets the house grow on the full $400,000, and the renter only catches up through monthly deposits and time. It did not answer what I should do in 2026, since it doesn't forecast, and the outcome depends on rent for my specific market and how long I'd stay, which I would still have to work out myself.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3726,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 3726,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3856,
+   "cache_read": 1496,
+   "output": 1398,
+   "in": 5354,
+   "out": 1398
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0299412
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wonders whether renting and investing the difference beats buying a roughly $400,000 house. It replays every start month since 1991 as a \"street\" of houses, lit if the buyer ends ahead of a renting twin and dark if not. It tests ten-year stays with the renter's pile in cash and in stocks, then a fifteen-year stay, then checks the assumptions (monthly savings, fees, and the rent level). It ends by saying the answer is roughly a coin flip, tipped by the rent assumption.\n\n2. With the pile in stocks over ten years, the buyer ended ahead in 152 of 307 start months (about half). With cash, the buyer won about 3 in 4. Over fifteen years with stocks, the buyer won only about 1 in 5 (cash: every one of the 247 starts). The split is sensitive to rent: at 5% of price per year it is almost exactly half, and the tipping point is near 5.1%. If only the $92,000 is invested with no monthly savings, the buyer wins about 2 in 3. With a 1% annual fee on the pile, the buyer wins 55%.\n\n3. \"Over ten years, stocks outgrew homes almost nine times in ten.\" and the later \"So how can stocks outgrow home prices about 9 in 10 times, and the buyer still finish ahead in half?\" are only mildly confusing: \"outgrew homes\" compares price growth, not total outcomes, and that distinction takes a moment to land. Also, \"Nina's answer: investing the difference made her street a coin flip\" is slightly muddled, since Nina's own month isn't on the street. Otherwise nothing seriously confused me.\n\n4. \"Then the street goes dark, and stays dark. For starts from 2002 through 2007, the buyer ended ahead in none of them.\" is not where I lost attention; the dip came in the stretch of dense specifics: \"April 2012 was the brightest house last time, and it still glows. With stocks, that buyer still ends $237,632 ahead.\" The cause is a run of individual named houses and dollar figures in a row (June 2006, the $54,310 pile, April 2012) that are hard to hold without a visual, and they don't change the overall conclusion.\n\n5. No. The video says explicitly that it is history, not a forecast, and that it doesn't rank stocks above houses or the reverse. It also says a home brings stability and control that numbers don't count, and lists limits: US only, no taxes on gains or the home, and renters who never skip a month.\n\n6. A viewer would take away that \"rent and invest the difference\" is not a sure win: it depends on the stay length, the rent-to-price ratio, discipline in investing every month, and fees. Longer stays and higher compounding favored the renter's pile, while lower rents, shorter stays, and purchases after price drops favored the buyer. Before deciding, check your local rent against the roughly 5.1% of price per year breakeven and be honest about how long you'll stay.\n\n7. Mostly my own conclusion. The narration frames findings as conditional and avoids recommending a choice. The sensitivities (stay length, rent tag, fees) are presented, but turning them into a checklist is my inference.\n\n8. Partly. My question was whether the renter who invests the difference ends up ahead. The video's answer is that it's a coin flip over ten years, mostly in the renter's favor over fifteen, and hinges on the rent assumption. The most useful parts were the ten- versus fifteen-year comparison and the rent breakeven near 5.1%. It didn't tell me which applies to my own market or timeline, which I would have to work out myself.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3726,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 3726,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3856,
+   "cache_read": 1496,
+   "output": 1193,
+   "in": 5354,
+   "out": 1193
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0278907
+}
