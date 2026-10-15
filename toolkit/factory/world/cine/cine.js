@@ -325,8 +325,9 @@ export function install(opts = {}) {
     const cfg = state.cfg = shotAt(state.t), close = V4 || cfg.shot === 'close', L = { ...L0, ...(cfg.override || {}) };
     if (state.passes.ao) state.passes.ao.enabled = close;
     if (state.passes.dof) { state.passes.dof.enabled = close && !state._forceDofOff; if (close) { state.passes.dof.uniforms.aperture.value = (cfg.aperture ?? O.aperture ?? 0.9) * 0.001; state.passes.dof.uniforms.focus.value = focusDist(cam, cfg); } }
-    // trời theo shot (cfg.sky): shot có vật dữ liệu BÁN TRONG SUỐT trên nền trời khai sky: 0 — trời sáng sau dữ liệu trong suốt làm màu dữ liệu đọc
-    // sáng hơn (lần build đầu, đoạn a t = 26,2 s: dải tuần ΔE 6,9 → luật CHẶN)
+    // trời theo shot (cfg.sky) — trời sáng sau dữ liệu BÁN TRONG SUỐT làm màu dữ liệu đọc sáng hơn (lần build đầu, đoạn a t = 26,2 s: ΔE 6,9 → CHẶN).
+    // CHÚ Ý: đổi trời GIỮA hai shot liền nhau = nền đổi đột ngột → verify_seg báo cắt cứng (lần build thứ hai, đoạn a 19,9 / 28,5 s). Nên khai sky
+    // ở mức ĐOẠN; khoá theo shot chỉ dùng khi shot đó mở/đóng bằng chuyển cảnh.
     if (state.eq) { const sk = cfg.sky ?? O.sky; if (sk > 0) { scene.background = state.eq; scene.backgroundIntensity = L.skyI * sk; } else { scene.background = state.orig.background; scene.backgroundIntensity = state.orig.backgroundIntensity ?? 1; }
       if (scene.fog && state.orig.fog) scene.fog.color.copy(sk > 0 ? new THREE.Color(L.fog) : state.orig.fog); }
     const sil = V4 || cfg.silhouette === true;
