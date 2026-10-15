@@ -8,10 +8,11 @@ PLAN từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.
 | 3 · 5 · 6 | savings bond vs T-bills · #17 PMI 10 % · #12 annuity 2 % | `lab` · `101` · `101` | đã đăng (Tập 6: tổng kết áp, `tongket-t6/ANSWER.md`) |
 | 4 | #3 giới hạn $500,000 | — | **không đăng** (chủ dự án 09/10, sổ gu) |
 | 7 | #13 "30-Year Mortgage Paid Off in 15 Years: What It Really Costs" | `lab` 10:06,7 | **đã đăng 13/10**; `main` squash `c735828`, bản đủ ở nhánh `ep007`; link chờ điền `episodes/ep007/audience.md` |
-| **8** | **#20 thuê vs mua — phát lại lịch sử thật** (dự phòng #6) | `lab` | **P1 đang chạy** (nhánh `ep008`); điều kiện G1 lô: tỉ lệ thuê/giá có nguồn công khai hoặc kể như độ nhạy |
+| **8** | **#20 thuê vs mua — phát lại lịch sử thật** | `lab` | **sau G1 (13/10): M2 xong** — cold open v3, kiểm mù lời 6/6 · 0 khuyên, giọng cả tập, animatic xám 10:26, cổng gốc 19/24 (±5 %, 0 khuyên); **M3–M5 đang chạy** (nhánh `ep008`, `episodes/ep008/PLAN.md`) |
 
 ## Tiếp
 1. **Tổng kết Tập 7 đã áp (D-013, chủ dự án 13/10: 1a · 2b · 3a):** mô hình xưởng 6 mốc, `playbook/prompts/CHAY-TAP-N.md`, 1 Short, 0 thumbnail, footage ngoài (`RIGHTS.md` §F), SFX CC0/CC BY, công thức mở–chương–kết (`story.md`). **Tập 8 vào mô hình mới sau G1** (P1 đang chạy mẫu cũ); bộ lấy mẫu trang chạy **trước G2** dù mẫu nào.
+0. **Tập 8 (rent-buy-1, `lab`, T1):** duyệt phát hành G3 15/10, chờ chủ dự án đăng; `ep008-delivery` giữ tới khi tải (`episodes/ep008/gates/G3-answer.md`, `HUONG-DAN-DANG.md`). Gộp `main` squash 15/10. Cho Tập 9: `data_db` 34, dựng trước kết quả đầu ≤ 60 s (lessons T8-1, T8-2); lô K A47–A49.
 2. **Lô K Tập 8:** A34–A37 + A38 (1 Short, 0 thumbnail) + A39 (quyền footage, trước M3 Tập 8 nếu dùng footage) + A40 (nguyên tắc, duyệt) + A41a; A32, A33, A29 mang sang. `ep008` đổi số khiếu nại của mình thành A42–A45.
 3. **Đường thử trên tập cũ** (`factory-t7lab`, `tongket-t7/REPORT.md` §6b): animatic S21/S25, hiệu chuẩn "nhớ lại", J/L-cut + màu hồi + SFX thật, checks nháp vs 1080p — song song P1 Tập 8, không chạm `ep008`. Nhạc người sáng tác CC BY: xét ở G1 Tập 9.
 

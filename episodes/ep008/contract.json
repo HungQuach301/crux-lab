@@ -1,0 +1,306 @@
+{
+ "episode": "ep008",
+ "lock": "b45516422eb936f244f7e5f5c77504974a94a6b0fec19e05254a0126f0c7f9d6",
+ "format": "lab",
+ "question": "For an illustrative US renter with savings for 20% down on a $400,000 home, how often did buying come out ahead of renting after ten years (equity after selling costs vs the renter's cash), replaying every start month since January 1991 with real US home prices, rents and mortgage rates (US only, history, not a forecast; not advice on whether to buy or rent)",
+ "characters": {
+  "nina": {
+   "color": "#C9D3E2",
+   "shape": "person",
+   "side": "right",
+   "illustrative": true,
+   "words": [
+    "Nina",
+    "Nina's",
+    "her",
+    "she"
+   ]
+  },
+  "marcus": {
+   "color": "#E2D3C2",
+   "shape": "person",
+   "side": "left",
+   "illustrative": true,
+   "words": [
+    "Marcus",
+    "Marcus's",
+    "his"
+   ]
+  },
+  "priya": {
+   "color": "#D3E2C9",
+   "shape": "person",
+   "side": "right",
+   "illustrative": true,
+   "words": [
+    "Priya",
+    "Priya's",
+    "her"
+   ]
+  },
+  "note": "M2/M3 (builder, world code episodes/ep008/world/kit.js): faceless Person (lib3d W4); Nina = lead with her own warm lamp (N3), apartment past the end of the street; Marcus (June 2006) and Priya (April 2012) = act-3 counterweights beside their houses. ILLUSTRATIVE on every frame where any is drawn."
+ },
+ "claims": {
+  "assumptions": [
+   {
+    "id": "us-only",
+    "pattern": "\\bUS only\\b"
+   },
+   {
+    "id": "history-not-forecast",
+    "pattern": "history,? not a forecast"
+   }
+  ],
+  "_about": "claim id = key of out/model.json quantities; prod/gen/claims.json carries the unrounded value and the on-screen display (world/claims.json).",
+  "illustrative": [
+   "price",
+   "down_usd",
+   "closing_usd",
+   "savings_usd",
+   "down_pct",
+   "closing_pct",
+   "today_buyer_month1",
+   "today_rent_month1",
+   "today_rent_to_outlay"
+  ],
+  "core": [
+   "share_buyer_ahead_10y"
+  ],
+  "decisive": [
+   "share_buyer_ahead_10y",
+   "worst_adv_10y",
+   "share_yield4pct_10y",
+   "share_yield6pct_10y"
+  ],
+  "conditions": [
+   {
+    "id": "history-not-forecast",
+    "pattern": "history,? not a forecast",
+    "claims": [
+     "hpi_last",
+     "cpi_last",
+     "tb_last",
+     "rate_last_week",
+     "rate_month_latest",
+     "rate_latest",
+     "n_5y",
+     "first_5y",
+     "last_5y",
+     "share_buyer_ahead_5y",
+     "median_adv_5y",
+     "best_start_5y",
+     "best_adv_5y",
+     "worst_start_5y",
+     "worst_adv_5y",
+     "n_renter_ahead_5y",
+     "n_10y",
+     "first_10y",
+     "last_10y",
+     "share_buyer_ahead_10y",
+     "median_adv_10y",
+     "best_start_10y",
+     "best_adv_10y",
+     "worst_start_10y",
+     "worst_adv_10y",
+     "n_renter_ahead_10y",
+     "n_15y",
+     "first_15y",
+     "last_15y",
+     "share_buyer_ahead_15y",
+     "median_adv_15y",
+     "best_start_15y",
+     "best_adv_15y",
+     "worst_start_15y",
+     "worst_adv_15y",
+     "n_renter_ahead_15y",
+     "best_rate_10y",
+     "best_price_change_10y",
+     "best_rent_change_10y",
+     "best_equity_10y",
+     "best_pot_10y",
+     "worst_rate_10y",
+     "worst_price_change_10y",
+     "worst_rent_change_10y",
+     "worst_equity_10y",
+     "worst_pot_10y",
+     "era_1990s_n",
+     "era_1990s_share",
+     "era_1990s_median",
+     "era_2002-2007_n",
+     "era_2002-2007_share",
+     "era_2002-2007_median",
+     "era_2009-2016_n",
+     "era_2009-2016_share",
+     "era_2009-2016_median",
+     "renter_first_10y",
+     "renter_last_10y",
+     "yield_median_10y",
+     "yield_max_renter_ahead_10y",
+     "yield_min_10y",
+     "yield_max_10y",
+     "yield_first_10y",
+     "yield_worst_10y",
+     "rent_to_outlay_min_10y",
+     "rent_to_outlay_min_start_10y",
+     "n_tbills_10y",
+     "share_tbills_10y",
+     "share_fixedyield_10y",
+     "share_yield4pct_10y",
+     "share_yield6pct_10y",
+     "flip_yield_10y",
+     "hvs_yield_2025Q4",
+     "share_hvs_2025Q4_10y",
+     "hvs_yield_2026Q1",
+     "share_hvs_2026Q1_10y",
+     "sell_pct",
+     "owner_cost_pct",
+     "yield_anchor_pct",
+     "anchor_month"
+    ],
+    "_about": "every number replays past US data (FHFA, BLS CPI rent, Freddie Mac PMMS, 3-month Treasury bill); chrome line \"US only · history, not a forecast\" on every world frame."
+   },
+   {
+    "id": "us-only",
+    "pattern": "\\bUS only\\b",
+    "alsoClaims": [
+     "hpi_last",
+     "cpi_last",
+     "tb_last",
+     "rate_last_week",
+     "rate_month_latest",
+     "rate_latest",
+     "n_5y",
+     "first_5y",
+     "last_5y",
+     "share_buyer_ahead_5y",
+     "median_adv_5y",
+     "best_start_5y",
+     "best_adv_5y",
+     "worst_start_5y",
+     "worst_adv_5y",
+     "n_renter_ahead_5y",
+     "n_10y",
+     "first_10y",
+     "last_10y",
+     "share_buyer_ahead_10y",
+     "median_adv_10y",
+     "best_start_10y",
+     "best_adv_10y",
+     "worst_start_10y",
+     "worst_adv_10y",
+     "n_renter_ahead_10y",
+     "n_15y",
+     "first_15y",
+     "last_15y",
+     "share_buyer_ahead_15y",
+     "median_adv_15y",
+     "best_start_15y",
+     "best_adv_15y",
+     "worst_start_15y",
+     "worst_adv_15y",
+     "n_renter_ahead_15y",
+     "best_rate_10y",
+     "best_price_change_10y",
+     "best_rent_change_10y",
+     "best_equity_10y",
+     "best_pot_10y",
+     "worst_rate_10y",
+     "worst_price_change_10y",
+     "worst_rent_change_10y",
+     "worst_equity_10y",
+     "worst_pot_10y",
+     "era_1990s_n",
+     "era_1990s_share",
+     "era_1990s_median",
+     "era_2002-2007_n",
+     "era_2002-2007_share",
+     "era_2002-2007_median",
+     "era_2009-2016_n",
+     "era_2009-2016_share",
+     "era_2009-2016_median",
+     "renter_first_10y",
+     "renter_last_10y",
+     "yield_median_10y",
+     "yield_max_renter_ahead_10y",
+     "yield_min_10y",
+     "yield_max_10y",
+     "yield_first_10y",
+     "yield_worst_10y",
+     "rent_to_outlay_min_10y",
+     "rent_to_outlay_min_start_10y",
+     "n_tbills_10y",
+     "share_tbills_10y",
+     "share_fixedyield_10y",
+     "share_yield4pct_10y",
+     "share_yield6pct_10y",
+     "flip_yield_10y",
+     "hvs_yield_2025Q4",
+     "share_hvs_2025Q4_10y",
+     "hvs_yield_2026Q1",
+     "share_hvs_2026Q1_10y",
+     "sell_pct",
+     "owner_cost_pct",
+     "yield_anchor_pct",
+     "anchor_month"
+    ]
+   }
+  ],
+  "allowTerms": [
+   {
+    "sentence": "S02.3",
+    "term": "wasted",
+    "why": "Nina's own question, which the episode answers with history, not advice (owner G2 14/10, answer 7)"
+   },
+   {
+    "scene": "S02",
+    "term": "wasted",
+    "why": "Nina's own question, which the episode answers with history, not advice (owner G2 14/10, answer 7)"
+   },
+   {
+    "scene": "S32",
+    "term": "wasted",
+    "why": "Nina's own question, which the episode answers with history, not advice (owner G2 14/10, answer 7)"
+   }
+  ]
+ },
+ "model": {
+  "kind": "rent-buy-twin-replay",
+  "output": "out/model.json",
+  "_about": "NEW kind — needs phiên K (K-brief.md); until then model-recompute rules cannot run (known, reported at G2)."
+ },
+ "data": {
+  "sources": "data/sources.json",
+  "hosts": {
+   "primary": [
+    "fred.stlouisfed.org"
+   ],
+   "crosscheck": [
+    "fred.stlouisfed.org"
+   ]
+  }
+ },
+ "shorts": [
+  {
+   "id": "SH1",
+   "file": "out/shorts/SH1.mp4",
+   "hook": "The darkest house",
+   "from": "@S17.1",
+   "to": "@S19.3$",
+   "segment": "d-s15-s22"
+  }
+ ],
+ "package": {
+  "thumbnails": 0
+ },
+ "coverage": [
+  {
+   "attribute": "year",
+   "act": "act2",
+   "range": [
+    1991,
+    2016
+   ],
+   "note": "every start year of the 10-year street (houses 1991-01 … 2016-07) is walked or seen in act 2 (M6, S06)"
+  }
+ ]
+}

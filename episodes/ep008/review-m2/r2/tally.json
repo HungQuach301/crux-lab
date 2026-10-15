@@ -1,0 +1,233 @@
+{
+ "candidate_set": "ep008",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep008",
+   "id": "B02",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Narrow lit band, 15 years all lit, data end. / Narrow lit, 15 years every one, grid ends where data ends",
+    "Dark run, 15 years all lit, street ends with data. / Dark run, 15 years all lit, grid ends where data ends"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Describes houses lighting generally; no 1990s-specific reading. / Describes houses lighting generally; no 1990s-specific meaning",
+    "Houses light spreading from front-left; no 1990s mention. / General lighting; no 1990s-specific idea"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B10",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Dark middle and right, but no explicit from-2001 timing. / Left lit, middle mixed, right dark; no explicit 2001 onward",
+    "Notes dark middle/right blocks, not clearly from 2001 on. / Notes dark in middle/right but no from-2001 onward idea"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B11",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Identifies 2002–2007 block as nearly all dark (6 of 72). / Identifies 2002–2007 block as almost all dark (6 of 72)",
+    "2002–2007: only 6 of 72 favored buyer. / 2002–2007 only 6 of 72 favored buyer, nearly all dark"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Explicitly notes lit again for every start 2009–mid-2016. / Captures lit again every start 2009 to mid-2016",
+    "Captures lit again from 2009 to mid-2016. / Lit again for every start 2009 to mid-2016 captured"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B13",
+   "kind": "image",
+   "scores": [
+    1,
+    0.5,
+    1
+   ],
+   "readers": 3,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 3,
+   "status": "PASS",
+   "why": [
+    "Most lit, 75 of 307 dark. / About 3 of 4 lit, 75 of 307 dark",
+    "About 3 of 4 lit, 75 of 307 dark. / About 3 in 4 lit, quarter dark (75 of 307)",
+    "Buyer ahead in ~3 of 4 months, renter ~1 of 4; reader infers action themselves. / Buyer ahead ~3 in 4 months, renter 75 of 307; action is own inference."
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B20",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Five-year hold 74.4% buyer ahead; misses more doors dark. / Five-year hold 74.4% captured; more dark doors not stated",
+    "Five-year 74.4% caption; dark tiles grow only partly. / Five-year caption seen; dark increase not clearly stated"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "15 years all lit; Nina's stay unknown. / Fifteen years all lit; Nina's stay unknown",
+    "15 years all lit; Nina's stay unknown. / All lit at fifteen years; Nina's stay unknown"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B24",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Reads tag 4% giving 64.2%; misses tag drops, houses dark. / 4% tag gives 64.2%; dark band narrows, opposite of houses going dark",
+    "Reads rent tag 4% as 64.2%; misses tag drops, houses dark. / Reads 4% rent tag as 64% buyer ahead; misses tag drop, houses dark"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Tag rises to 6%, share rises; lacks street-fills-with-light imagery. / Tag rises, share grows; lacks street filling with light",
+    "Rent tag 6% gives 92.2%; street-fills-with-light partially captured. / Reads 6% tag giving 92.2%; tag rises, street lights up — roughly matches but lacks street imagery"
+   ]
+  },
+  {
+   "set": "ep008",
+   "id": "B32",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Scoreboard, street as history, Nina's question all present. / Scoreboard not advice, street as history, Nina's question",
+    "Scoreboard not advice, history street, Nina's open question all captured. / Scoreboard not advice, street as history, Nina's question held"
+   ]
+  }
+ ],
+ "gate_beats": 11,
+ "gate_pass": 6,
+ "pending": [],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "share": 0.545,
+ "verdict": "FAIL",
+ "near_threshold": false,
+ "verdict_old": "FAIL",
+ "verdict_new": "FAIL",
+ "advice_beats_old": [
+  "B02",
+  "B09",
+  "B10",
+  "B11",
+  "B12",
+  "B13",
+  "B20",
+  "B22",
+  "B24",
+  "B25",
+  "B32"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 4
+}

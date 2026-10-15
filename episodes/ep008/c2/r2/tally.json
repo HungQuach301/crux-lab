@@ -1,0 +1,99 @@
+{
+ "grader_tokens": 13510,
+ "scores": [
+  {
+   "file": "b9404527",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [],
+   "attention_block": "nhân vật",
+   "attention_scene": "Marcus and Priya passage",
+   "answered_own": false,
+   "why": "Gives about 3/4, the 2001-2007 renter wins, June 2006 at -$82k, and the dependence on rent; the stay-length advice is the reader's own inference."
+  },
+  {
+   "file": "c6f331f9",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [],
+   "attention_block": "khác",
+   "attention_scene": "opening block of disclaimers",
+   "answered_own": false,
+   "why": "Gives 75%, the April 2001 to December 2007 renter wins, June 2006, and the rent dependence; the 'stay longer' point is the reader's inference and the video is read as giving no advice."
+  },
+  {
+   "file": "c714649e",
+   "sample": "v2",
+   "role": "G",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [
+    "the dark doors thin out, and then they're gone"
+   ],
+   "attention_block": "phương pháp",
+   "attention_scene": "renter's savings sitting in cash",
+   "answered_own": false,
+   "why": "Gives about 3/4, the 2001-2007 dark stretch, the June 2006 worst case, and the rent dependence; the guidance is the reader's inference, and the reader says the video declines to advise."
+  },
+  {
+   "file": "d066768f",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": true,
+   "advice_words": [],
+   "attention_block": "khác",
+   "attention_scene": "Census Bureau reference line and repeated disclaimers",
+   "answered_own": false,
+   "why": "Gives about 3/4, the 2001-2007 renter wins, and the rent and horizon dependence; the reader's advice is their own conclusion plus general caution (test your own rent and horizon)."
+  },
+  {
+   "file": "d3230d5b",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": false,
+   "advice_words": [],
+   "attention_block": "số dày",
+   "attention_scene": "run of 72 starts, percentages and dollar figures",
+   "answered_own": false,
+   "why": "Gives about 3/4, the 2001-2007 renter wins, June 2006, and the rent dependence; 'longer stays are safer' is called the reader's own conclusion."
+  },
+  {
+   "file": "f46a2ca5",
+   "sample": "v2",
+   "role": "T",
+   "model": "sonnet",
+   "score": 1,
+   "advice_stated": false,
+   "advice_inferred": true,
+   "caution_only": true,
+   "advice_words": [
+    "the dark doors thin out"
+   ],
+   "attention_block": "định nghĩa",
+   "attention_scene": "2.5 percent tax/insurance/repairs cost definition",
+   "answered_own": false,
+   "why": "Gives about 3/4, the April 2001 to December 2007 renter wins, and the rent and horizon dependence; the 'test your own assumptions' point is the reader's inference and general caution."
+  }
+ ]
+}

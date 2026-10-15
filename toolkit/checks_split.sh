@@ -16,7 +16,7 @@ if [ -z "${RESUME:-}" ]; then
 git -C "$REPO" archive HEAD | tar -x -C "$OUT"
 ( cd "$REPO" && { git diff --name-only HEAD; git ls-files --others --exclude-standard; } | sort -u | while read -r f; do
     if [ -e "$f" ]; then mkdir -p "$OUT/$(dirname "$f")"; cp -p "$f" "$OUT/$f"; else rm -f "$OUT/$f"; fi; done )
-for f in data/raw data/normalized out/video.mp4 out/audio work/factory/page/index.html work/world-data work/factory/SH1.mp4 work/factory/SH2.mp4 work/factory/SH3.mp4 work/factory/page work/factory/world out/package out/shorts; do
+for f in data/raw data/normalized work/external out/video.mp4 out/audio work/factory/page/index.html work/world-data work/factory/SH1.mp4 work/factory/SH2.mp4 work/factory/SH3.mp4 work/factory/page work/factory/world out/package out/shorts; do
   [ -e "$REPO/$E/$f" ] || continue; mkdir -p "$OUT/$E/$(dirname "$f")"; rm -rf "$OUT/$E/$f"; cp -rpl "$REPO/$E/$f" "$OUT/$E/$f" 2>/dev/null || cp -rp "$REPO/$E/$f" "$OUT/$E/$f"; done
 if [ -n "${DRAFT:-}" ]; then python3 "$REPO/toolkit/factory/draft_overlay.py" "$OUT/$E" "$DRAFT" --src "$REPO/$E"; fi
 L=$(cd "$OUT/checks" && find . -type f ! -name LOCK ! -path '*/__pycache__/*' | LC_ALL=C sort | xargs sha256sum | sha256sum | cut -d' ' -f1)

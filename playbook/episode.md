@@ -115,6 +115,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 6. **Bảng nhịp** có cột loại nhịp (1 "hình tự mang ý" + câu "ý người xem phải đọc ra" / 2 "minh hoạ lời"). Hình lấy từ thư viện; ký hiệu mới phải ghi lý do.
 7. Gen được bảo vệ và gu đã chốt (CHARTER §4, `taste-ledger.md`). Không chép kịch bản tập cũ.
 8. **Mỗi lần sửa kịch bản giao một agent WRITER MỚI với đầu bài ngắn** (file cần sửa + danh sách dòng cần đổi + lý do), **không gọi lại agent cũ**: gọi lại tốn bằng toàn bộ ngữ cảnh của agent đó (Tập 4: 3 lượt WRITER ≈ 0,56 triệu token; lessons G2).
+8b. **Phần dựng trước kết quả đầu ≤ 60 s** (Tập 9 trở đi, chủ dự án G3 Tập 8 15/10, lessons T8-2): từ hết cold open tới câu nói con số kết quả đầu tiên ≤ 60 s; định nghĩa/chi phí/giả định dồn sau kết quả đầu hoặc lên thẻ.
 9. **Điều kiện mở — TỰ ĐỘNG ở C2, đo trước G1** (lessons H4; D-013: công thức `story.md` §1). WRITER gắn vai mỗi câu trong 60 s đầu (`hook`/`fact`/`question`/`promise`/`constraint`/`define`). Mốc thời gian lấy từ timeline nhà máy hoặc ASR table read của **bản đọc thử trước G1**:
    - **M1** câu móc (tin thời sự / nghịch lý ở 0:00) kết thúc ≤ 5,0 s;
    - **M7** ≥ 3 câu `fact` (sự thật lật kỳ vọng), câu thứ 3 kết thúc ≤ 35 s;
@@ -166,6 +167,7 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 - **Lặng 0,7–0,9 s trước mỗi số neo** (≤ 3 số neo/tập, §3.2.4 của tổng kết; beat khai `anchor: true` trong spine). Tiếng hiệu ứng "land" đè đúng từ khoá số neo phải bỏ (F-2: sfx chỉ thấp hơn lời 11 dB).
 - **Không tăng mật độ sfx** khi thêm cue (F-2 cảnh báo đoạn a Tập 5: 21,7 sự kiện/phút, 8 trong 10 s). Lặng trước số làm tập dài ≈ 2–3 s — tính vào ước độ dài.
 - **SFX ghi âm thật (D-013):** tiếng vật thể đổi trạng thái (giấy, kim loại, gỗ, tiền xu) dùng bản ghi âm thật **CC0 hoặc CC BY 4.0** (Freesound lọc giấy phép; **không** CC BY-NC, Sampling+, BBC RemArc, kho trả phí), thay tiếng tổng hợp khi đã có trong thư viện `toolkit/audio/sfx/` (mỗi tệp một dòng `RIGHTS.md`: URL, tác giả, giấy phép trích nguyên văn, ngày tải; CC BY → ghi công trong mô tả). Mật độ không tăng (dòng trên). Thử trên đoạn Tập 7 trước (đường thử tập cũ), vào tập đang chạy ở ranh giới cổng.
+- **Tiếng dữ liệu dưới lời (Tập 9 trở đi, chủ dự án G3 Tập 8 15/10, lessons T8-1):** `data_db` mặc định **34** để L1 (lời/tiếng dữ liệu 1–4 kHz, phân vị 10) ≥ 20 dB; đo L1 trên nháp M5.
 - **Nhạc giữ bằng mã** (D-010 §5; xét lại nhạc người sáng tác CC BY ở G1 Tập 9 — D-013). Không nhạc AI, không NC/ND, không YouTube Audio Library.
 
 ## 6. Giao hàng

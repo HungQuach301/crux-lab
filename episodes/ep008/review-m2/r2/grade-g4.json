@@ -1,0 +1,15 @@
+{
+ "answer": "{\"R23\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"quote\": \"It never told the viewer to buy or to rent. The idea that you might act on this is my own inference.\", \"why\": \"Buyer ahead ~3 in 4 months, renter 75 of 307; action is own inference.\"}, \"q5\": \"own\"}",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2849,
+   "cache_read": 1382,
+   "output": 123,
+   "in": 4233,
+   "out": 123
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0127682
+}

@@ -1,0 +1,2541 @@
+{
+ "claims": [
+  {
+   "claimId": "hpi_last",
+   "value": "2026-07",
+   "display": "2026-07",
+   "unit": "month",
+   "formula": "Last month of the FHFA index file.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "cpi_last",
+   "value": "2026-08",
+   "display": "2026-08",
+   "unit": "month",
+   "formula": "Last month of the CPI rent file.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "tb_last",
+   "value": "2026-09",
+   "display": "2026-09",
+   "unit": "month",
+   "formula": "Last month of the T-bill file.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "rate_last_week",
+   "value": "2026-10-08",
+   "display": "2026-10-08",
+   "unit": "date",
+   "formula": "Last weekly PMMS date.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "rate_month_latest",
+   "value": "2026-09",
+   "display": "September 2026",
+   "unit": "month",
+   "formula": "Latest complete month of weekly rates.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.3"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.3"
+    }
+   ]
+  },
+  {
+   "claimId": "rate_latest",
+   "value": 6.86,
+   "display": "6.86%",
+   "unit": "%",
+   "formula": "Mean weekly 30-year rate in rate_month_latest.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    },
+    {
+     "scene": "S29",
+     "sentence": "S29.3"
+    }
+   ]
+  },
+  {
+   "claimId": "n_5y",
+   "value": 367,
+   "display": "367",
+   "unit": "windows",
+   "formula": "5-year windows from 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "first_5y",
+   "value": "1991-01",
+   "display": "1991-01",
+   "unit": "month",
+   "formula": "first start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "last_5y",
+   "value": "2021-07",
+   "display": "2021-07",
+   "unit": "month",
+   "formula": "last start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_5y",
+   "value": 74.4,
+   "display": "74.4%",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S20",
+     "sentence": "S20.2"
+    }
+   ]
+  },
+  {
+   "claimId": "median_adv_5y",
+   "value": 79931,
+   "display": "79931",
+   "unit": "USD",
+   "formula": "median buyer advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_5y",
+   "value": "2017-05",
+   "display": "2017-05",
+   "unit": "month",
+   "formula": "start with largest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_5y",
+   "value": 213918,
+   "display": "213918",
+   "unit": "USD",
+   "formula": "largest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_5y",
+   "value": "2006-05",
+   "display": "May 2006",
+   "unit": "month",
+   "formula": "start with smallest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S20",
+     "sentence": "S20.2"
+    },
+    {
+     "scene": "S21",
+     "sentence": "S21.1"
+    },
+    {
+     "scene": "S21",
+     "sentence": "S21.2"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.3"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_adv_5y",
+   "value": -149392,
+   "display": "$149,392 behind",
+   "unit": "USD",
+   "formula": "smallest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "n_renter_ahead_5y",
+   "value": 94,
+   "display": "94",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_10y",
+   "value": 307,
+   "display": "307 start months",
+   "unit": "windows",
+   "formula": "10-year windows from 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.3"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.4"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.5"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.1"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    },
+    {
+     "scene": "S20",
+     "sentence": "S20.2"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.3"
+    }
+   ]
+  },
+  {
+   "claimId": "first_10y",
+   "value": "1991-01",
+   "display": "January 1991",
+   "unit": "month",
+   "formula": "first start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S08",
+     "sentence": "S08.2"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    }
+   ]
+  },
+  {
+   "claimId": "last_10y",
+   "value": "2016-07",
+   "display": "July 2016",
+   "unit": "month",
+   "formula": "last start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.2"
+    }
+   ]
+  },
+  {
+   "claimId": "share_buyer_ahead_10y",
+   "value": 75.6,
+   "display": "about 3 out of 4",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.1"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.1"
+    },
+    {
+     "scene": "S26",
+     "sentence": "S26.2"
+    },
+    {
+     "scene": "S32",
+     "sentence": "S32.2"
+    },
+    {
+     "scene": "S32",
+     "sentence": "S32.4"
+    }
+   ]
+  },
+  {
+   "claimId": "median_adv_10y",
+   "value": 157104,
+   "display": "about $157,000",
+   "unit": "USD",
+   "formula": "median buyer advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "best_start_10y",
+   "value": "2012-04",
+   "display": "April 2012",
+   "unit": "month",
+   "formula": "start with largest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    },
+    {
+     "scene": "S23",
+     "sentence": "S23.3"
+    }
+   ]
+  },
+  {
+   "claimId": "best_adv_10y",
+   "value": 483975,
+   "display": "about $484,000",
+   "unit": "USD",
+   "formula": "largest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "worst_start_10y",
+   "value": "2006-06",
+   "display": "June 2006",
+   "unit": "month",
+   "formula": "start with smallest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    },
+    {
+     "scene": "S23",
+     "sentence": "S23.3"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_adv_10y",
+   "value": -82385,
+   "display": "$82,385 behind",
+   "unit": "USD",
+   "formula": "smallest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "n_renter_ahead_10y",
+   "value": 75,
+   "display": "75 of 307",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    }
+   ]
+  },
+  {
+   "claimId": "n_15y",
+   "value": 247,
+   "display": "247",
+   "unit": "windows",
+   "formula": "15-year windows from 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.4"
+    }
+   ]
+  },
+  {
+   "claimId": "first_15y",
+   "value": "1991-01",
+   "display": "1991-01",
+   "unit": "month",
+   "formula": "first start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "last_15y",
+   "value": "2011-07",
+   "display": "2011-07",
+   "unit": "month",
+   "formula": "last start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_15y",
+   "value": 100.0,
+   "display": "every one",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
+  },
+  {
+   "claimId": "median_adv_15y",
+   "value": 187511,
+   "display": "187511",
+   "unit": "USD",
+   "formula": "median buyer advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_15y",
+   "value": "2011-05",
+   "display": "2011-05",
+   "unit": "month",
+   "formula": "start with largest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_15y",
+   "value": 663211,
+   "display": "663211",
+   "unit": "USD",
+   "formula": "largest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_15y",
+   "value": "2005-11",
+   "display": "2005-11",
+   "unit": "month",
+   "formula": "start with smallest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_15y",
+   "value": 79829,
+   "display": "$79,829 ahead",
+   "unit": "USD",
+   "formula": "smallest advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.2"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "n_renter_ahead_15y",
+   "value": 0,
+   "display": "0",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_rate_10y",
+   "value": 3.91,
+   "display": "3.91%",
+   "unit": "%",
+   "formula": "start-month rate",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    }
+   ]
+  },
+  {
+   "claimId": "best_price_change_10y",
+   "value": 114.3,
+   "display": "more than doubled",
+   "unit": "%",
+   "formula": "index change over the window",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    }
+   ]
+  },
+  {
+   "claimId": "best_rent_change_10y",
+   "value": 40.2,
+   "display": "40.2",
+   "unit": "%",
+   "formula": "CPI rent change over the window",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_equity_10y",
+   "value": 554248,
+   "display": "554248",
+   "unit": "USD",
+   "formula": "buyer net equity at the end",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_pot_10y",
+   "value": 70273,
+   "display": "70273",
+   "unit": "USD",
+   "formula": "renter pot at the end",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_rate_10y",
+   "value": 6.68,
+   "display": "6.68%",
+   "unit": "%",
+   "formula": "start-month rate",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.2"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_price_change_10y",
+   "value": 3.2,
+   "display": "up 3.2% in ten years",
+   "unit": "%",
+   "formula": "index change over the window",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_rent_change_10y",
+   "value": 31.9,
+   "display": "31.9",
+   "unit": "%",
+   "formula": "CPI rent change over the window",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_equity_10y",
+   "value": 115374,
+   "display": "$115,374",
+   "unit": "USD",
+   "formula": "buyer net equity at the end",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "worst_pot_10y",
+   "value": 197760,
+   "display": "$197,760",
+   "unit": "USD",
+   "formula": "renter pot at the end",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S18",
+     "sentence": "S18.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "era_1990s_n",
+   "value": 108,
+   "display": "108",
+   "unit": "windows",
+   "formula": "era windows",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_1990s_share",
+   "value": 100.0,
+   "display": "every 1990s start",
+   "unit": "%",
+   "formula": "era share buyer ahead",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.2"
+    }
+   ]
+  },
+  {
+   "claimId": "era_1990s_median",
+   "value": 187313,
+   "display": "187313",
+   "unit": "USD",
+   "formula": "era median advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2002-2007_n",
+   "value": 72,
+   "display": "72",
+   "unit": "windows",
+   "formula": "era windows",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2002-2007_share",
+   "value": 8.3,
+   "display": "6 of 72",
+   "unit": "%",
+   "formula": "era share buyer ahead",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2002-2007_median",
+   "value": -32538,
+   "display": "-32538",
+   "unit": "USD",
+   "formula": "era median advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_n",
+   "value": 91,
+   "display": "91",
+   "unit": "windows",
+   "formula": "era windows",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_share",
+   "value": 100.0,
+   "display": "every start 2009 to mid-2016",
+   "unit": "%",
+   "formula": "era share buyer ahead",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2009-2016_median",
+   "value": 408914,
+   "display": "408914",
+   "unit": "USD",
+   "formula": "era median advantage",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "renter_first_10y",
+   "value": "2001-04",
+   "display": "April 2001",
+   "unit": "month",
+   "formula": "first renter-ahead start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    },
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    }
+   ]
+  },
+  {
+   "claimId": "renter_last_10y",
+   "value": "2007-12",
+   "display": "December 2007",
+   "unit": "month",
+   "formula": "last renter-ahead start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    }
+   ]
+  },
+  {
+   "claimId": "yield_median_10y",
+   "value": 6.71,
+   "display": "6.71",
+   "unit": "%",
+   "formula": "median starting rent/price",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield_max_renter_ahead_10y",
+   "value": 6.43,
+   "display": "6.43",
+   "unit": "%",
+   "formula": "highest starting rent/price where renter ahead",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield_min_10y",
+   "value": 5.03,
+   "display": "5.03",
+   "unit": "%",
+   "formula": "lowest starting rent/price",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield_max_10y",
+   "value": 7.39,
+   "display": "7.39",
+   "unit": "%",
+   "formula": "highest starting rent/price",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield_first_10y",
+   "value": 7.12,
+   "display": "7.12",
+   "unit": "%",
+   "formula": "starting rent/price of the first window",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield_worst_10y",
+   "value": 5.04,
+   "display": "5.04",
+   "unit": "%",
+   "formula": "starting rent/price of the worst window",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "rent_to_outlay_min_10y",
+   "value": 57.9,
+   "display": "57.9%",
+   "unit": "%",
+   "formula": "lowest month-1 rent / buyer outlay",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.2"
+    }
+   ]
+  },
+  {
+   "claimId": "rent_to_outlay_min_start_10y",
+   "value": "2006-07",
+   "display": "July 2006",
+   "unit": "month",
+   "formula": "start of that minimum",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S30",
+     "sentence": "S30.2"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.3"
+    }
+   ]
+  },
+  {
+   "claimId": "today_buyer_month1",
+   "value": 2933,
+   "display": "$2,933 a month",
+   "unit": "USD/month",
+   "formula": "month-1 buyer outlay at rate_latest",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S29",
+     "sentence": "S29.3"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "today_rent_month1",
+   "value": 1667,
+   "display": "$1,667 a month",
+   "unit": "USD/month",
+   "formula": "month-1 rent at the anchor yield",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "today_rent_to_outlay",
+   "value": 56.8,
+   "display": "56.8%",
+   "unit": "%",
+   "formula": "ratio",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S01",
+     "sentence": "S01.2"
+    },
+    {
+     "scene": "S30",
+     "sentence": "S30.1"
+    }
+   ]
+  },
+  {
+   "claimId": "n_tbills_10y",
+   "value": 307,
+   "display": "307",
+   "unit": "windows",
+   "formula": "windows with T-bill data",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_tbills_10y",
+   "value": 66.4,
+   "display": "about 2 out of 3",
+   "unit": "%",
+   "formula": "pot earns T-bill",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S28",
+     "sentence": "S28.1"
+    }
+   ]
+  },
+  {
+   "claimId": "share_fixedyield_10y",
+   "value": 61.6,
+   "display": "61.6",
+   "unit": "%",
+   "formula": "fixed 5% every start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_yield4pct_10y",
+   "value": 64.2,
+   "display": "64.2%",
+   "unit": "%",
+   "formula": "anchor yield 4%",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S25",
+     "sentence": "S25.1"
+    }
+   ]
+  },
+  {
+   "claimId": "share_yield6pct_10y",
+   "value": 92.2,
+   "display": "92.2%",
+   "unit": "%",
+   "formula": "anchor yield 6%",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S26",
+     "sentence": "S26.1"
+    }
+   ]
+  },
+  {
+   "claimId": "flip_yield_10y",
+   "value": 2.42,
+   "display": "below about 2.4%",
+   "unit": "%",
+   "formula": "anchor yield at which buyer-ahead share falls to 50% (10y)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S28",
+     "sentence": "S28.1"
+    }
+   ]
+  },
+  {
+   "claimId": "hvs_yield_2025Q4",
+   "value": 4.83,
+   "display": "4.83% a year",
+   "unit": "%",
+   "formula": "Census HVS 12 x median asking rent / median asking sales price, 2025Q4",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S27",
+     "sentence": "S27.1"
+    }
+   ]
+  },
+  {
+   "claimId": "share_hvs_2025Q4_10y",
+   "value": 73.6,
+   "display": "73.6%",
+   "unit": "%",
+   "formula": "share buyer ahead with that anchor",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S27",
+     "sentence": "S27.1"
+    }
+   ]
+  },
+  {
+   "claimId": "hvs_yield_2026Q1",
+   "value": 5.59,
+   "display": "5.59% a year",
+   "unit": "%",
+   "formula": "Census HVS 12 x median asking rent / median asking sales price, 2026Q1",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S27",
+     "sentence": "S27.1"
+    }
+   ]
+  },
+  {
+   "claimId": "share_hvs_2026Q1_10y",
+   "value": 87.3,
+   "display": "87.3%",
+   "unit": "%",
+   "formula": "share buyer ahead with that anchor",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S27",
+     "sentence": "S27.1"
+    }
+   ]
+  },
+  {
+   "claimId": "price",
+   "value": 400000.0,
+   "display": "$400,000",
+   "unit": "USD",
+   "formula": "ILLUSTRATIVE price",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.3"
+    },
+    {
+     "scene": "S07",
+     "sentence": "S07.2"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "down_usd",
+   "value": 80000,
+   "display": "$80,000",
+   "unit": "USD",
+   "formula": "down payment = downShare x price (model parameter)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.3"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "closing_usd",
+   "value": 12000,
+   "display": "$12,000",
+   "unit": "USD",
+   "formula": "closing costs = closingShare x price (model parameter)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "savings_usd",
+   "value": 92000,
+   "display": "$92,000",
+   "unit": "USD",
+   "formula": "upfront cash of both twins = down payment + closing costs (renter pot start)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "down_pct",
+   "value": 20,
+   "display": "20 percent",
+   "unit": "%",
+   "formula": "down payment share of price",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "closing_pct",
+   "value": 3,
+   "display": "3 percent",
+   "unit": "%",
+   "formula": "closing costs share of price",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sell_pct",
+   "value": 6,
+   "display": "6 percent",
+   "unit": "%",
+   "formula": "selling cost share of the end value",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "owner_cost_pct",
+   "value": 2.5,
+   "display": "2.5 percent",
+   "unit": "% a year",
+   "formula": "ownership costs per year, share of current value: property tax 1.0 + insurance 0.5 + repairs 1.0 (dossier assumption)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.4"
+    }
+   ]
+  },
+  {
+   "claimId": "yield_anchor_pct",
+   "value": 5.0,
+   "display": "5% a year",
+   "unit": "%",
+   "formula": "anchor yield (assumption)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S07",
+     "sentence": "S07.1"
+    },
+    {
+     "scene": "S24",
+     "sentence": "S24.1"
+    }
+   ]
+  },
+  {
+   "claimId": "anchor_month",
+   "value": "2026-07",
+   "display": "2026-07",
+   "unit": "month",
+   "formula": "anchor month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_10y_pct",
+   "value": 75.6,
+   "display": "75.6%",
+   "unit": "%",
+   "formula": "same quantity as share_buyer_ahead_10y: about 3 out of 4 (75.6%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_buyer_ahead_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "era_2002-2007_pct",
+   "value": 8.3,
+   "display": "8.3%",
+   "unit": "%",
+   "formula": "same quantity as era_2002-2007_share: 6 of 72 (8.3%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "era_2002-2007_share",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "today_buyer_month1_usd",
+   "value": 2933,
+   "display": "$2,933",
+   "unit": "USD/month",
+   "formula": "same quantity as today_buyer_month1: $2,933 a month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "today_buyer_month1",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "nina",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "today_rent_month1_usd",
+   "value": 1667,
+   "display": "$1,667",
+   "unit": "USD/month",
+   "formula": "same quantity as today_rent_month1: $1,667 a month",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": true,
+   "of": "today_rent_month1",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "character": "nina",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "share_tbills_10y_pct",
+   "value": 66.4,
+   "display": "66.4%",
+   "unit": "%",
+   "formula": "same quantity as share_tbills_10y: 66.4% (about 2 out of 3)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_tbills_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "share_15y_pct",
+   "value": 100.0,
+   "display": "100%",
+   "unit": "%",
+   "formula": "same quantity as share_buyer_ahead_15y: every one (100%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_buyer_ahead_15y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "worst_adv_10y_short",
+   "value": -82385,
+   "display": "about $82,000",
+   "unit": "USD",
+   "formula": "same quantity as worst_adv_10y: $82,385 behind (about $82,000)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "worst_adv_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast",
+   "basis": "nominal"
+  },
+  {
+   "claimId": "yield4_tag",
+   "value": 4,
+   "display": "4%",
+   "unit": "const",
+   "formula": "same quantity as params.yield4_tag: anchor yield 4% (assumption)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.yield4_tag",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S25",
+     "sentence": "S25.1"
+    }
+   ]
+  },
+  {
+   "claimId": "yield5_tag",
+   "value": 5,
+   "display": "5%",
+   "unit": "const",
+   "formula": "same quantity as params.yield5_tag: anchor yield 5% (assumption)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.yield5_tag",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield6_tag",
+   "value": 6,
+   "display": "6%",
+   "unit": "const",
+   "formula": "same quantity as params.yield6_tag: anchor yield 6% (assumption)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.yield6_tag",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S26",
+     "sentence": "S26.1"
+    }
+   ]
+  },
+  {
+   "claimId": "term_30y",
+   "value": 30,
+   "display": "30-year",
+   "unit": "const",
+   "formula": "same quantity as params.term_30y: 30-year fixed mortgage (assumption, numbers.md)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.term_30y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2002-2007_span",
+   "value": "2002-2007",
+   "display": "2002 to 2007",
+   "unit": "const",
+   "formula": "same quantity as params.era_2002-2007_span: start months 2002 through 2007",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.era_2002-2007_span",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.1"
+    }
+   ]
+  },
+  {
+   "claimId": "hold_15y",
+   "value": 15,
+   "display": "15 years",
+   "unit": "const",
+   "formula": "same quantity as params.hold_15y: held fifteen years",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.hold_15y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.1"
+    }
+   ]
+  }
+ ]
+}

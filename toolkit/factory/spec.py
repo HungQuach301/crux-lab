@@ -246,8 +246,8 @@ def check(spec, root, duration=None):
         if not os.path.isfile(os.path.join(root, c.get('file', ''))):
             add('BLOCK', 'custom_symbols', f"{c.get('id')}: symbol file {c.get('file')!r} not found")
     n_short = len(spec.get('shorts') or [])
-    if scope == 'full' and not 2 <= n_short <= 3:
-        add('BLOCK', 'shorts', f'{n_short} shorts; a full episode has 2–3 (playbook §5)')
+    if scope == 'full' and not 1 <= n_short <= 3:   # chủ dự án 13/10: 1 Short từ Tập 8 (tongket-t7 A38); trước đó 2–3
+        add('BLOCK', 'shorts', f'{n_short} shorts; a full episode has 1–3 (playbook §5; 1 from Tập 8, owner 13/10)')
     elif scope == 'excerpt' and n_short < 1:
         add('WARN', 'shorts', 'excerpt without a short')
     if scope == 'excerpt':

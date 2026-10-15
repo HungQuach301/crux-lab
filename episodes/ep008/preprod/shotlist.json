@@ -1,0 +1,263 @@
+{
+ "shots": [
+  {
+   "id": "a-s01-s03:m_push",
+   "scene": "S01",
+   "size": "world",
+   "move": "push",
+   "moveReason": "mở: dọc phố chưa sáng tới cửa của Nina (gần = áp lực)"
+  },
+  {
+   "id": "a-s01-s03:m_c1",
+   "scene": "S01",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "tỉ lệ chỉ hiện ở đồ thị (quy tắc 1) sau 5 s thế giới (quy tắc 7)"
+  },
+  {
+   "id": "a-s01-s03:m_grid",
+   "scene": "S01",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "S02 nói về các tháng đã phát lại: lùi máy lên lưới phố nhìn từ trên"
+  },
+  {
+   "id": "a-s01-s03:m_w",
+   "scene": "S03",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "S03.2 lịch sử: lưới mọc lại thành phố (thế giới)"
+  },
+  {
+   "id": "a-s01-s03:m_pan",
+   "scene": "S03",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "S03.4: dọc phố tới cửa của Nina, nơi cặp song sinh đứng"
+  },
+  {
+   "id": "b-s04-s07:m_in",
+   "scene": "S04",
+   "size": "world",
+   "move": "push",
+   "moveReason": "mở chương: hai người song sinh hai bên Nina"
+  },
+  {
+   "id": "b-s04-s07:m_c1",
+   "scene": "S04",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "mức 2,5 % và 6 % chỉ ở đồ thị (quy tắc 1)"
+  },
+  {
+   "id": "b-s04-s07:m_w1",
+   "scene": "S05",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "S05: hộp tiền mặt của người thuê cần khung riêng (bài học C1)"
+  },
+  {
+   "id": "b-s04-s07:m_r1",
+   "scene": "S05",
+   "size": "world",
+   "move": "push",
+   "moveReason": "các khoản không tính: lại gần hộp tiền mặt + thẻ"
+  },
+  {
+   "id": "b-s04-s07:m_c2",
+   "scene": "S05",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "S06 so một giả định với bản ghi thật: đồ thị"
+  },
+  {
+   "id": "b-s04-s07:m_w2",
+   "scene": "S06",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "giả định duy nhất nằm trên cửa của Nina (thế giới)"
+  },
+  {
+   "id": "b-s04-s07:m_c3",
+   "scene": "S07",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "tiền thuê $1,667 chỉ ở đồ thị"
+  },
+  {
+   "id": "b-s04-s07:m_w3",
+   "scene": "S07",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "thẻ → hộp: tiền thuê quyết phần để dành (thế giới)"
+  },
+  {
+   "id": "c-s08-s14:m_c1",
+   "scene": "S08",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "phố = trục thời gian: nhìn từ trên để đọc năm/tháng (nhãn ngày chỉ ở đồ thị)"
+  },
+  {
+   "id": "c-s08-s14:m_w1",
+   "scene": "S08",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "tháng của Nina ở qua cuối phố: về thế giới"
+  },
+  {
+   "id": "c-s08-s14:m_pair",
+   "scene": "S08",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "luật đèn: hai nhà ví dụ giữa phố"
+  },
+  {
+   "id": "c-s08-s14:m_walk",
+   "scene": "S08",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "đi dọc phố từ đầu (1991)"
+  },
+  {
+   "id": "c-s08-s14:m_r1",
+   "scene": "S09",
+   "size": "world",
+   "move": "push",
+   "moveReason": "câu hỏi \"bao nhiêu lần\": lại gần dãy nhà đầu phố"
+  },
+  {
+   "id": "c-s08-s14:m_r2",
+   "scene": "S09",
+   "size": "world",
+   "move": "pull",
+   "moveReason": "giá tăng, dư nợ giảm: lùi thấy dãy sáng tiếp"
+  },
+  {
+   "id": "c-s08-s14:m_walk2",
+   "scene": "S09",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "đi tiếp tới 2001: máy chậm lại (do dự)"
+  },
+  {
+   "id": "c-s08-s14:m_c2",
+   "scene": "S10",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "đếm cần nhìn toàn cảnh + số chỉ ở đồ thị"
+  },
+  {
+   "id": "c-s08-s14:m_adv",
+   "scene": "S14",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "từ đếm sang độ lớn: dải chênh lệch theo tháng"
+  },
+  {
+   "id": "d-s15-s22:m_dark",
+   "scene": "S16",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "lia ngược xuống June 2006 và dừng hẳn (bước ngoặt của hồi)"
+  },
+  {
+   "id": "d-s15-s22:m_idx",
+   "scene": "S18",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "vì sao tối: chỉ số giá cả nước trong mười năm đó"
+  },
+  {
+   "id": "d-s15-s22:m_grid",
+   "scene": "S19",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "thời gian ở: cả lưới, đổi 5 / 10 / 15 năm (M5 nhịp: bắt đầu ở \"worse\", không chờ sát câu hỏi)"
+  },
+  {
+   "id": "d-s15-s22:m_w",
+   "scene": "S22",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "phố không nói Nina ở bao lâu: về Nina qua cuối phố"
+  },
+  {
+   "id": "e-s23-s28:m_p1",
+   "scene": "S23",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "tới Marcus ở nhà June 2006"
+  },
+  {
+   "id": "e-s23-s28:m_p2",
+   "scene": "S23",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "lia ngang sang Priya: cùng phố, khác tháng"
+  },
+  {
+   "id": "e-s23-s28:m_p3",
+   "scene": "S23",
+   "size": "world",
+   "move": "pull",
+   "moveReason": "lùi lại nhìn cả hai: chỉ khác tháng"
+  },
+  {
+   "id": "e-s23-s28:m_tag",
+   "scene": "S23",
+   "size": "world",
+   "move": "push",
+   "moveReason": "về thẻ trên cửa của Nina"
+  },
+  {
+   "id": "e-s23-s28:m_c",
+   "scene": "S24",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "đẩy vào thẻ rồi cẩu lên phố trong một cú máy (nhân → quả); số chỉ ở đồ thị"
+  },
+  {
+   "id": "f-s29-s33:m_c",
+   "scene": "S29",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "số tháng đầu chỉ ở đồ thị"
+  },
+  {
+   "id": "f-s29-s33:m_dots",
+   "scene": "S30",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "đặt tháng đầu của Nina cạnh mọi tháng trên phố"
+  },
+  {
+   "id": "f-s29-s33:m_grid",
+   "scene": "S31",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "trở lại câu hỏi: cả phố từ trên"
+  },
+  {
+   "id": "f-s29-s33:m_w",
+   "scene": "S32",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "về khung 0:00: cùng phố, đọc theo nghĩa mới"
+  },
+  {
+   "id": "f-s29-s33:m_door",
+   "scene": "S32",
+   "size": "world",
+   "move": "push",
+   "moveReason": "đẩy về cửa của Nina cho câu của cô"
+  },
+  {
+   "id": "f-s29-s33:m_box",
+   "scene": "S32",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "câu hỏi còn mở: hộp tiền mặt chưa từng rời hộp"
+  }
+ ]
+}

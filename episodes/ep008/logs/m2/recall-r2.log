@@ -1,0 +1,13 @@
+{'runs': 6, 'ok': 6}
+# M5 nhớ lại + chỗ muốn tua (r2)
+
+- **Nhớ lại (chỉ báo):** 3/3 người kể ≥ 2/3 khoảnh khắc · câu hỏi đúng 3/3
+- **Chỗ muốn tua (ngưỡng: không cảnh nào ≥ 2/3):** {'S07': 2, 'S22': 2, 'S06': 3, 'S31': 2, 'S20': 2, 'S21': 2, 'S14': 1, 'S32': 1, 'S04': 2, 'S05': 1} → **TRƯỢT**
+
+- recall R1: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': "Recalls the dark block in the middle of the lit street (75 of 307 dark), the June 2006 house at $82,385 behind, and the rent tag shifting the lit share (64.2%, 75.6%, 92.2%); frames the question as 'is her rent money wasted', rent vs buy."}
+- recall R2: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': 'Recalls the bright street with the dark April 2001 to December 2007 block, the June 2006 house with two stacks and $82,385 behind, and the rent tag changing the lit share to 64.2% and 92.2%; the question is whether rent is wasted, i.e. buying vs renting.'}
+- recall R3: {'moments': ['K1', 'K2', 'K3'], 'question_ok': True, 'why': 'Recalls the street lighting up with a dark band and 75 of 307 renter-favoring starts, the June 2006 house with stacks and $82,385 behind, and the rent tag redrawing the grid (64.2% to 92.2%); the question is whether Nina should buy or keep renting.'}
+- skip R1: {'skip': ['S06', 'S07', 'S14', 'S20', 'S21', 'S22', 'S31'], 'engaged': ['S02', 'S15', 'S16', 'S17', 'S18'], 'why': 'Skips the generic critique, the rent-tag setup and recaps, and the number-heavy 5- and 15-year comparison; most engaged when the brightest and darkest houses and their two stacks appear, plus the opening hook.'}
+- skip R2: {'skip': ['S04', 'S06', 'S07', 'S31', 'S32'], 'engaged': ['S09', 'S10', 'S11', 'S14', 'S15', 'S16', 'S17'], 'why': 'Skips the static cost list, the method critique and rent-tag explanation, and the closing recap; most engaged when the street lights up and the dark doors appear, and at the 72-starts, 6-wins payoff and the brightest and darkest houses.'}
+- skip R3: {'skip': ['S04', 'S05', 'S06', 'S20', 'S21', 'S22'], 'engaged': ['S09', 'S10', 'S14', 'S15', 'S16'], 'why': 'Skips the long cost list, the method and rent-tag explanation, and the figure-heavy 5- and 15-year stays section; most engaged when the street of lit and dark houses pays off visually and in the brightest versus darkest house contrast.'}
+

@@ -1,0 +1,62 @@
+{
+ "labels": {
+  "R1": "5d8b2c1b",
+  "R2": "b6c3ce3d",
+  "R3": "c669c4b4"
+ },
+ "scores": {
+  "R1": {
+   "skip": [
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S31",
+    "S32"
+   ],
+   "engaged": [
+    "S09",
+    "S10",
+    "S11",
+    "S15",
+    "S16",
+    "S17",
+    "S29"
+   ],
+   "why": "Skips the static setup stretch (about 1:01-2:55), the disclaimers and the recap; engaged by the lit/dark street reveal, the June 2006 vs April 2012 comparison, and the tie-back to Nina's first month."
+  },
+  "R2": {
+   "skip": [
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S20",
+    "S21",
+    "S22"
+   ],
+   "engaged": [
+    "S09",
+    "S10",
+    "S11",
+    "S15",
+    "S16",
+    "S17"
+   ],
+   "why": "Skips the dense list of terms and the data and rent-tag explanation (about 1:01-2:55), plus the 5-year and 15-year comparison after the reveal; engaged by the street going dark and the $82,385 gap between best and worst outcomes."
+  },
+  "R3": {
+   "skip": [
+    "S05",
+    "S24"
+   ],
+   "engaged": [
+    "S10",
+    "S11",
+    "S16",
+    "S17"
+   ],
+   "why": "Skips the repeated cash-pile/T-bill setup (1:28-2:00) and the restated rent tag (about 7:43-8:00); engaged by the 6-of-72 payoff and the darkest-house reveal."
+  }
+ }
+}

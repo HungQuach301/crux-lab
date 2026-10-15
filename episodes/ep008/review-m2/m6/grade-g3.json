@@ -1,0 +1,15 @@
+{
+ "answer": "{\"R49\": {\"score\": 0.5, \"advice_stated\": false, \"advice_inferred\": false, \"caution_only\": true, \"quote\": \"The animation does not tell the viewer to buy or to rent.\", \"why\": \"Gets rent-assumption sensitivity and buyer-ahead share, but misses the tag-rising/street-filling-light dynamic; no action advice.\"}, \"q5\": \"video\"}",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2739,
+   "cache_read": 1382,
+   "output": 132,
+   "in": 4123,
+   "out": 132
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0124182
+}

@@ -1,0 +1,29 @@
+{
+ "R49": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Identifies 5% rent as assumption, but not tied to door/tag idea; no result.",
+  "q5": "none"
+ },
+ "R50": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": false,
+  "quote": "",
+  "why": "Notes start-month grid and 'not advice'; misses twin-houses, real-data/fictional-twin idea.",
+  "q5": "none"
+ },
+ "R51": {
+  "score": 0.5,
+  "advice_stated": false,
+  "advice_inferred": false,
+  "caution_only": true,
+  "quote": "They would want to test their own local rent assumption.",
+  "why": "Grasps rent-assumption sensitivity; reads tag as fixed 6%, not rising with light filling.",
+  "q5": "own"
+ }
+}

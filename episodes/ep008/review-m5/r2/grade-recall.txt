@@ -1,0 +1,54 @@
+# Grading packet (blind). You are an independent grader. Grade each reader label literally.
+
+Expected moments (the film plan, in Vietnamese):
+## 1. Ba khoảnh khắc phải nhớ (phép thử "nhớ lại" M5)
+| # | Mốc | Thấy gì | Nghe gì | Cảm xúc |
+|---|---|---|---|---|
+| K1 | 0:00–0:28 | phố chạng vạng chưa sáng; Nina ở cửa qua cuối phố; lưới từ trên: khối 72 ô tối, rồi lưới 15 năm sáng hết | "Is her rent money wasted?" | nặng → nghi |
+| K2 | 5:49 (S17) | nhà June 2006 nhấc lên, cửa tối; hai chồng: tiền mặt người thuê cao hơn vốn người mua | lặng 0,75 s → "Ten years on, the June 2006 buyer was $82,385 behind." | rơi lạnh |
+| K3 | 8:20 (S25–S26) | thẻ RENT lật 4 % → đèn cả phố tắt dần; 6 % → sáng gần hết | "The share moves with the rent you assume." | rõ |
+
+
+Expected question of the film (Vietnamese): tính đủ lãi, thuế, bảo hiểm, sửa chữa, phí mua–bán, thuê nhà có đắt hơn mua không (hồ sơ cầu câu 1)?
+For each label return {"moments": [which of K1,K2,K3 the reader clearly recalls], "question_ok": true|false, "why": "<one line>"}.
+
+### R1
+**1. The three moments I remember most**
+
+- **The street of houses going dark.** A long grid of identical little houses, January 1991 on the left and July 2016 on the right, lit up one by one in cream and orange. The whole 1990s was bright. Then a block of dark brown doors opened in the middle, and the narration said "from April 2001, doors start going dark." After that the street lit up again from 2009. Seeing the dark stretch sitting in the middle of an otherwise bright street made the point more clearly than the numbers did. The "about 3 in 4" count, with 75 of 307 dark, was shown the same way.
+
+- **The brightest and darkest houses.** A tall stack of gold blocks stood beside the April 2012 house, "about $484,000 ahead." Then the camera moved to a single black house labeled "June 2006," with one lit window. The narrator said that buyer was $82,385 behind, and that home prices rose only 3.2% in ten years while the loan started at 6.68%. Marcus and Priya were then used as the two neighbors. They had the same rent tag and the same costs, and only the month differed. The line "neither could see which house they were standing in" stuck with me.
+
+- **The rent tag turning, then Nina's own month.** The grid reshuffled when the rent tag changed. At 4% the buyer was ahead in 64.2% of start months, at 5% in 75.6%, and at 6% in 92.2%. Later Nina stood at the end of the street where "no house yet" stands. Her rent of $1,667 was set beside the buyer's first month of $2,933, at 6.86%. That put rent at 56.8% of the buyer's first month, lower than any month on the street. The video stressed this was a comparison of first months only, not a prediction.
+
+**2. The question the video was asking**
+
+The video asked "Is her rent money wasted?" In other words, should Nina rent or buy a $400,000 home, using what actually happened in the US since 1991. Its answer was that it depends on the month she starts and the rent she assumes, not on any rule. Longer stays leave fewer losing starts for the buyer, and the results are history, not a forecast. It ended by leaving one question open: what if the renter's cash had been invested instead of held as cash?
+
+### R2
+**1. Three moments I remember most**
+
+- **The street of lit and dark houses.** A long grid of little houses, one for each start month from January 1991 to July 2016, lit up in cream and orange. The narrator said the buyer ended ahead after ten years in about 3 of every 4 months. Then a brown, dark stretch appeared in the middle. That was "every house between April 2001 and December 2007," where the renter came out ahead. The tension was seeing most of the street bright and one dark block in the middle. The line "In 72 start months in a row, the buyer ended ahead just 6 times" stuck with me.
+
+- **The darkest house, June 2006, next to the brightest, April 2012.** The camera went down the street to a dark house labeled "June 2006." Beside it stood two stacks, the buyer's equity at $115,374 and the renter's cash at $197,760. The narrator said the buyer was $82,385 behind, that prices rose only 3.2 percent in ten years, and that the loan started at 6.68 percent. The April 2012 house stood in contrast with a tall tower of about $484,000 ahead. Marcus and Priya, the two figures standing in those houses, made the point that nobody could see which house they were standing in on the day they bought.
+
+- **The rent tag turning, then Nina's own month.** The "RENT 5%" sign on the apartment door changed to 4% and 6%, and the lit share changed with it, to 64.2% and then 92.2%. Near the end, Nina stood past the end of the street, where "no house yet" stood. Her rent of $1,667 was 56.8 percent of the buyer's first month of $2,933, lower than any month on the street. The narrator said clearly that this compares only the first months and isn't a forecast.
+
+**2. The question the video was asking**
+
+The video asked whether Nina's rent money is wasted, or in other words whether buying beats renting. It answered by replaying every start month since 1991 with a buying twin and a renting twin. Its answer was "not by any rule." The result depends on the month she starts, how long she stays, and the starting rent she assumes. The lit houses are history, not a forecast. It left one question open: what if the renter's cash had been invested?
+
+### R3
+**1. The three moments I remember most**
+
+- **The street of houses lighting up and going dark.** A long grid of small houses, one for each start month from January 1991 to July 2016, started dark. Then the houses lit up in tan and orange, wherever the buyer ended ahead after ten years. A dark brown band stood out in the middle, April 2001 to December 2007, where the renter came out ahead. The narration said "about 3 in 4" starts favored the buyer, and 75 of 307 favored the renter. The line that stayed with me was that the same rules gave opposite answers depending on the month.
+
+- **The brightest and darkest houses, with the two stacks.** The camera zoomed in on April 2012, with a tall tower of coins marking about $484,000 ahead for the buyer. Then it showed the darkest house, June 2006, where the buyer ended $82,385 behind. A pair of stacks sat beside it, the buyer's equity of $115,374 against the renter's cash of $197,760. A line chart showed prices up only 3.2% over those ten years. The narrator stressed that the buyer in 2006 couldn't see which house they were standing in. Marcus and Priya, two figures standing on different houses, made the same point.
+
+- **Turning the rent tag.** Nina stood between an apartment with a "RENT 5%" sign and a house. The grid kept redrawing as the tag changed. At 4% the buyer was ahead in 64.2% of months, and at 6% in 92.2%. Later Nina's own month appeared past the end of the street, with no house there yet. The narrator said her rent was 56.8% of the buyer's first month, lower than in any month on the street. The video also kept saying that this is history, not a forecast.
+
+**2. The question the video was asking**
+
+The video asked whether Nina's rent money is wasted, meaning whether she should buy a $400,000 home or keep renting. It answered by replaying every start month since 1991 with one twin buying and one renting. Its answer was that it depends on the month she starts and the rent she assumes, and that the record is history rather than a forecast. It also left one question open: what if the renter's cash had been invested instead of held in cash?
+
+Output JSON only: {"R1": {...}, ...}

@@ -1,0 +1,15 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice_stated\": false, \"advice_inferred\": true, \"caution_only\": false, \"advice_words\": [\"wasted\"], \"attention_block\": \"nhân vật\", \"attention_scene\": \"Marcus and Priya: \\\"Same rent tag, same costs, same street; only the month was different\\\"\", \"answered_own\": false, \"why\": \"Gets the question (rent vs buy) and the answer (about 3/4 buyer ahead, renter wins April 2001–Dec 2007, worst June 2006 at -$82,385, depends on assumed rent, 5/15-year horizons); advice on stay length is the reader's own inference (Q7 'my own conclusion'); own question answered only partly (history yes, 2026 no).\"}}",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 10058,
+   "cache_read": 1382,
+   "output": 838,
+   "in": 11442,
+   "out": 838
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0487542
+}

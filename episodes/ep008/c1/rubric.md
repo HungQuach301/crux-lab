@@ -1,0 +1,4 @@
+## Chấm (rubric, người chấm độc lập)
+Ba ý: (b) quyết định là **mua nhà hay tiếp tục thuê** (một người có tiền cọc); (c) trả lời bằng **phát lại lịch sử thật của Mỹ** (giá nhà, tiền thuê, lãi vay thật) **từ nhiều tháng/năm bắt đầu từ 1991**; (d) đáp án là **mua hơn thuê bao thường xuyên / khi nào thua** (tỉ lệ, dải kết quả, năm thua như 2006) **sau khi tính đủ chi phí sở hữu**. Đủ ba → 1; đủ hai → 0,5; ≤ một → 0.
+**Cờ `overclaim`** (báo riêng, không tính ngưỡng): người đọc kể thành "video bảo mua hay thuê" / "video dự báo giá nhà hay tiền thuê".
+**Câu khuyên:** `advice: true` khi câu 4 "yes" vì tin video sẽ bảo mua hay thuê hoặc dự báo, **hoặc** câu 5 nêu lời khuyên hành động (mua, thuê, chờ, mua trước khi…). Câu 5 kiểu "biết mua hơn thuê bao thường xuyên trong lịch sử / tính đủ chi phí trước khi quyết" là hiểu lời hứa hoặc thận trọng chung, **không** tính. Người đọc **đúng** = điểm 1 và không câu khuyên.

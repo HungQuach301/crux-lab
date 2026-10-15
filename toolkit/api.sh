@@ -2,6 +2,7 @@
 # Mọi tập (dời từ episodes/ep006/c5/api.sh; lessons T6-9): một lượt Claude Code headless chi bằng khoá Console (BƯỚC 0 đạt: apiKeySource=ANTHROPIC_API_KEY). Không in khoá.
 #   bash toolkit/api.sh <build|review> <đầu-bài.md> <log.jsonl> [--model claude-opus-5-5] [--cap-usd 5]
 # build: sửa tệp trong repo (Read/Edit/Write/Grep/Glob, Bash python3/node/git diff/status); review: chỉ đọc.
+# 0 agent con kể cả trong headless (chủ dự án 13/10, Tập 8 sau G1): --disallowedTools Task,Agent.
 # In tóm tắt: lượt, token 4 trường, chi USD (total_cost_usd) → ghi vào PLAN §5.
 # F-15 (TONGKET Tập 7 g: hai lượt dựng C5 $12 + $14 dùng agent con bên trong headless):
 #   - CHẶN agent con: --disallowedTools Task,Agent,Workflow (không có trong danh sách cho phép VÀ bị cấm tường minh; log có tool_use Task/Agent → thoát 5);

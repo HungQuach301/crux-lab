@@ -1,0 +1,138 @@
+{
+ "el_chars_spent": 1116,
+ "clip": "episodes/ep008/review-g1/cold-open.m4a",
+ "clip_s": 43.8,
+ "M": {
+  "M1 hook ends ≤ 5.0": {
+   "value": 4.16,
+   "pass": true
+  },
+  "M2 promise ends ≤ 30": {
+   "value": 25.88,
+   "pass": true
+  },
+  "M3 question ≤ 30": {
+   "value": 6.68,
+   "pass": true
+  },
+  "M4 longest constraint/define block 0–60 s ≤ 10": {
+   "value": 8.2,
+   "pass": true
+  },
+  "M5 character/stake returns ≤ 45": {
+   "value": 26.88,
+   "pass": true
+  },
+  "M6 character promise paid ≤ 90": {
+   "value": 0.0,
+   "pass": true
+  }
+ },
+ "timeline": [
+  {
+   "id": "S01.1",
+   "scene": "S01",
+   "role": "hook",
+   "text": "It's September 2026, and Nina pays rent again.",
+   "start": 0.0,
+   "end": 4.16
+  },
+  {
+   "id": "S01.2",
+   "scene": "S01",
+   "role": "question",
+   "text": "[worried] Is her rent money wasted?",
+   "start": 4.56,
+   "end": 6.68
+  },
+  {
+   "id": "S01.3",
+   "scene": "S01",
+   "role": "hook",
+   "text": "She has saved enough for the down payment and the closing costs on a home priced at $400,000.",
+   "start": 6.82,
+   "end": 13.04
+  },
+  {
+   "id": "S02.1",
+   "scene": "S02",
+   "role": "promise",
+   "text": "We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over ten years, and when it didn't.",
+   "start": 14.04,
+   "end": 25.88
+  },
+  {
+   "id": "S03.1",
+   "scene": "S03",
+   "role": "hook",
+   "text": "Nina and her twin are illustrative; the home prices, rents and mortgage rates are real.",
+   "start": 26.88,
+   "end": 32.08
+  },
+  {
+   "id": "S03.2",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "US only, and history, not a forecast.",
+   "start": 32.52,
+   "end": 35.76
+  },
+  {
+   "id": "S03.3",
+   "scene": "S03",
+   "role": "constraint",
+   "text": "Nothing here says whether to buy or to keep renting.",
+   "start": 35.84,
+   "end": 39.04
+  },
+  {
+   "id": "S03.4",
+   "scene": "S03",
+   "role": "hook",
+   "text": "What it shows Nina is a whole street of answers, one house for each month.",
+   "start": 39.17,
+   "end": 43.76
+  },
+  {
+   "id": "S04.1",
+   "scene": "S04",
+   "role": "question",
+   "text": "So what does each twin actually pay?",
+   "start": 47.76,
+   "end": 50.08
+  },
+  {
+   "id": "S04.2",
+   "scene": "S04",
+   "role": "define",
+   "text": "The twin who buys pays the down payment and the closing costs, then takes a 30-year fixed mortgage at that month's average rate.",
+   "start": 50.36,
+   "end": 58.56
+  },
+  {
+   "id": "S04.3",
+   "scene": "S04",
+   "role": "hook",
+   "text": "Every month after that, Nina's buying twin pays interest, property tax, insurance and repairs, and at the end, the cost of selling.",
+   "start": 58.72,
+   "end": 68.32
+  },
+  {
+   "id": "S04.4",
+   "scene": "S04",
+   "role": "define",
+   "text": "Property tax, insurance and repairs come to 2.5 percent of the home's value a year.",
+   "start": 68.47,
+   "end": 74.8
+  },
+  {
+   "id": "S04.5",
+   "scene": "S04",
+   "role": null,
+   "text": "The twin who rents moves into an equivalent home and keeps the same savings.",
+   "start": 75.02,
+   "end": 80.56
+  }
+ ],
+ "asr": "It's September 2026 and Nina pays rent again. Is her rent money wasted? She's saved enough for the down payment and the closing costs on a home priced at $400,000. We replayed her choice in every month since 1991, one twin buying and one renting, to see whether renting cost more than buying over 10 years and when it didn't. Nina and her twin are illustrative. The home prices rents and mortgage rates are real. U.S. only and history, not a forecast. Nothing here says whether to buy or to keep renting. What it shows Nina is a whole street of answers, one house for each month."
+}
