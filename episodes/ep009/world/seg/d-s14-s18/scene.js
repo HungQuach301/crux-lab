@@ -58,7 +58,7 @@ export async function boot(res) {
       vis: (i) => (m15.has(st10[i]) ? 1 : 1 - f15) * (r > 0.001 || t < b.d6.lit ? 1 : 1),
       lit: (i) => { if (f15 > 0.01) return mix(r * (A[i] ? 1 : 0), 0, f15) + c15k * (c15[i] ? 1 : 0) + s15k * (s15[i] ? 1 : 0); return r * (A[i] ? 1 : 0) + 0.9 * fl(i) * (1 - ease(t, b.d7.eighty + 0.6, b.d7.not)); },
       dark: (i) => { if (f15 > 0.01) return mix(r * (A[i] ? 0 : 1), 0, f15) + s15k * (s15[i] ? 0 : 1); return r * (A[i] ? 0 : 1) * (flip[i] ? ease(t, b.d7.eighty + 0.6, b.d7.not) + (t < b.d7.eighty ? 1 : 0) : 1); },
-      hi: (i) => fl(i) * 0.7 + (late(i) ? 0.5 * show(t, b.d12.four, b.d14.lower) : 0) + (i === i12 ? 0.5 * pulse(t, b.d9.glows, 1.4) : 0),
+      hi: (i) => fl(i) * 0.7 + (late(i) ? 0.5 * show(t, b.d12.four, b.d14.lower) + 0.8 * pulse(t, b.d14.held, 1.4) : 0) + (i === i12 ? 0.5 * pulse(t, b.d9.glows, 1.4) : 0),
       lift: (i) => (i === i12 ? 1.3 * up : 0), big: (i) => (i === i12 ? 1 + (0.8 + 0.5 * ease(t, b.d11.whole, b.d11.whole + 1)) * up : 1),
       cellA: cw * (t > MV.m_g.t1 - 0.3 && (t < MV.m_12.t0 || t > MV.m_g2.t1) ? 1 : 0),
     });
@@ -100,7 +100,7 @@ export async function boot(res) {
     label(O, 'after the crash: lit again', 960, 400, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d12.nine, b.d15.half - 0.3) });
     label(O, 'lit in stretches · one long dark stretch', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d13.stretches, b.d15.half - 0.3) });
     // B24b: ba cột tỉ lệ sáng theo thời gian ở (5 / 10 / 15 năm) trên tấm nền
-    const cA = ok * show(t, b.d15.half - 0.2, b.d18.longer - 0.2);
+    const cA = ok * show(t, b.d15.shorter - 0.2, b.d18.longer - 0.2);
     if (cA > 0.01) { O.card(560, 260, 800, 600, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.95 * cA });
       const vals = [[53.4, '5 years', b.d15.half, 'share_buyer_ahead_stocks_5y'], [49.5, '10 years', b.d16.longer, 'share_buyer_ahead_stocks_10y_pct'], [21.9, '15 years', b.d16.longer + 0.5, 'share_buyer_ahead_stocks_15y_pct']], c = O.ctx;
       vals.forEach(([v, nm, tt, cid], j) => { const k2 = ease(t, tt - 0.1, tt + 0.6), x = 660 + j * 230, h = 380 * v / 60 * k2; c.save(); c.globalAlpha = cA; c.fillStyle = STK; c.fillRect(x, 780 - h, 150, h); c.restore();

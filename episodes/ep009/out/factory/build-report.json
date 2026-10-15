@@ -3,23 +3,23 @@
  "yaml": "episodes/ep009/episode.yaml",
  "steps": {
   "spec": {
-   "seconds": 0.89,
+   "seconds": 1.12,
    "problems": 0
   },
   "voice": {
-   "seconds": 2.65,
+   "seconds": 2.71,
    "scenes": 24,
    "cache_hits": 24,
    "el_chars_spent": 0
   },
   "resolve": {
-   "seconds": 4.0,
+   "seconds": 3.69,
    "total": 523.9332,
    "shots": 0,
    "anchors": 0
   },
   "world": {
-   "seconds": 464.98,
+   "seconds": 454.67,
    "segments": {
     "a1-s01-s02": {
      "lint": {
@@ -29,7 +29,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.2,
+      "seconds": 12.4,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -40,7 +40,7 @@
       }
      },
      "render": {
-      "seconds": 1.3,
+      "seconds": 1.2,
       "ok": true,
       "shots": 5,
       "rendered": [],
@@ -51,15 +51,15 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 13.2,
+      "seconds": 13.8,
       "ok": true
      },
      "mux": {
-      "seconds": 1.3,
+      "seconds": 1.2,
       "ok": true
      },
      "verify": {
-      "seconds": 1.9,
+      "seconds": 2.1,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -103,7 +103,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 12.7,
+      "seconds": 13.4,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -114,7 +114,7 @@
       }
      },
      "render": {
-      "seconds": 1.3,
+      "seconds": 1.2,
       "ok": true,
       "shots": 4,
       "rendered": [],
@@ -125,15 +125,15 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 25.7,
+      "seconds": 24.3,
       "ok": true
      },
      "mux": {
-      "seconds": 2.7,
+      "seconds": 2.5,
       "ok": true
      },
      "verify": {
-      "seconds": 3.1,
+      "seconds": 4.1,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -179,13 +179,13 @@
     },
     "b1-s04": {
      "lint": {
-      "seconds": 0.4,
+      "seconds": 0.5,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 12.6,
+      "seconds": 13.9,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -207,15 +207,15 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 16.2,
+      "seconds": 16.9,
       "ok": true
      },
      "mux": {
-      "seconds": 1.9,
+      "seconds": 1.7,
       "ok": true
      },
      "verify": {
-      "seconds": 2.4,
+      "seconds": 2.2,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -265,7 +265,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.7,
+      "seconds": 14.2,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -276,26 +276,26 @@
       }
      },
      "render": {
-      "seconds": 1.3,
+      "seconds": 1.2,
       "ok": true,
       "shots": 4,
       "rendered": [],
       "cached": 4,
-      "wall_s": 0.8,
+      "wall_s": 0.7,
       "film_s": 38.9666,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 19.4,
+      "seconds": 19.7,
       "ok": true
      },
      "mux": {
-      "seconds": 2.1,
+      "seconds": 2.0,
       "ok": true
      },
      "verify": {
-      "seconds": 2.6,
+      "seconds": 3.0,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -336,13 +336,13 @@
     },
     "c-s08-s13": {
      "lint": {
-      "seconds": 0.4,
+      "seconds": 0.3,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 13.5,
+      "seconds": 12.5,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -353,26 +353,26 @@
       }
      },
      "render": {
-      "seconds": 1.5,
+      "seconds": 1.3,
       "ok": true,
       "shots": 8,
       "rendered": [],
       "cached": 8,
-      "wall_s": 0.9,
+      "wall_s": 0.8,
       "film_s": 114.4,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 53.7,
+      "seconds": 49.6,
       "ok": true
      },
      "mux": {
-      "seconds": 5.4,
+      "seconds": 5.2,
       "ok": true
      },
      "verify": {
-      "seconds": 7.8,
+      "seconds": 8.1,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -422,7 +422,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 12.7,
+      "seconds": 13.0,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -444,11 +444,11 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 23.4,
+      "seconds": 22.2,
       "ok": true
      },
      "mux": {
-      "seconds": 2.8,
+      "seconds": 2.7,
       "ok": true
      },
      "verify": {
@@ -499,7 +499,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.6,
+      "seconds": 13.1,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -512,18 +512,18 @@
       }
      },
      "render": {
-      "seconds": 1.4,
+      "seconds": 1.2,
       "ok": true,
       "shots": 2,
       "rendered": [],
       "cached": 2,
-      "wall_s": 0.8,
+      "wall_s": 0.7,
       "film_s": 77.7333,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 35.7,
+      "seconds": 34.1,
       "ok": true
      },
      "mux": {
@@ -531,7 +531,7 @@
       "ok": true
      },
      "verify": {
-      "seconds": 5.7,
+      "seconds": 5.4,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -582,13 +582,13 @@
     },
     "e-s19-s21": {
      "lint": {
-      "seconds": 0.5,
+      "seconds": 0.4,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 11.8,
+      "seconds": 13.8,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -599,18 +599,18 @@
       }
      },
      "render": {
-      "seconds": 1.4,
+      "seconds": 1.2,
       "ok": true,
       "shots": 3,
       "rendered": [],
       "cached": 3,
-      "wall_s": 0.8,
+      "wall_s": 0.7,
       "film_s": 62.2666,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 27.9,
+      "seconds": 26.2,
       "ok": true
      },
      "mux": {
@@ -670,7 +670,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 14.4,
+      "seconds": 12.9,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -688,21 +688,21 @@
       "shots": 3,
       "rendered": [],
       "cached": 3,
-      "wall_s": 0.7,
+      "wall_s": 0.8,
       "film_s": 41.6334,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 21.5,
+      "seconds": 20.5,
       "ok": true
      },
      "mux": {
-      "seconds": 2.2,
+      "seconds": 2.1,
       "ok": true
      },
      "verify": {
-      "seconds": 3.1,
+      "seconds": 2.6,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -754,7 +754,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 12.3,
+      "seconds": 12.9,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -765,7 +765,7 @@
       }
      },
      "render": {
-      "seconds": 1.3,
+      "seconds": 1.2,
       "ok": true,
       "shots": 4,
       "rendered": [],
@@ -776,15 +776,15 @@
       "cores": 4
      },
      "audio": {
-      "seconds": 15.8,
+      "seconds": 14.0,
       "ok": true
      },
      "mux": {
-      "seconds": 1.7,
+      "seconds": 1.5,
       "ok": true
      },
      "verify": {
-      "seconds": 2.2,
+      "seconds": 2.0,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -826,7 +826,7 @@
    }
   },
   "render": {
-   "seconds": 37.22,
+   "seconds": 33.87,
    "segments": 0,
    "rendered": 0,
    "cache_hits": 0,
@@ -834,7 +834,7 @@
    "blank": true
   },
   "splice": {
-   "seconds": 79.11,
+   "seconds": 101.01,
    "segments": [
     "a1-s01-s02",
     "a2-s03",
@@ -851,7 +851,7 @@
    "frame_log_dropped": 0
   },
   "mix": {
-   "seconds": 260.02,
+   "seconds": 234.49,
    "a07_gap_db": 20.01,
    "mid_duck_db": 13.0,
    "world": {
@@ -1236,8 +1236,8 @@
     ]
    },
    "video": "episodes/ep009/work/factory/video.mp4",
-   "sha256": "2704585928ea7d2e065873159b274f9eb04a62f0a798a59e24770a19ac1fc170",
-   "mb": 1134.66
+   "sha256": "ab75716e88e800913c8cd8857233773cc99a558a3d4ad285a00920512e0880d7",
+   "mb": 1134.73
   },
   "artefacts": {
    "seconds": 0.32,
@@ -1312,47 +1312,47 @@
      "f1-s22-s24",
      "f2-s25"
     ],
-    "bytes": 3104868,
+    "bytes": 3106982,
     "page": "work/factory/page/index.html"
    }
   },
   "parts": {
-   "seconds": 134.21,
+   "seconds": 164.66,
    "parts": [
     {
      "file": "episodes/ep009/work/factory/ep009-part1-720p.mp4",
      "from": 0.0,
      "to": 174.64440000000002,
-     "mb": 62.65
+     "mb": 107.75
     },
     {
      "file": "episodes/ep009/work/factory/ep009-part2-720p.mp4",
      "from": 174.64440000000002,
      "to": 349.28880000000004,
-     "mb": 53.31
+     "mb": 112.32
     },
     {
      "file": "episodes/ep009/work/factory/ep009-part3-720p.mp4",
      "from": 349.28880000000004,
      "to": 523.9332,
-     "mb": 53.18
+     "mb": 108.02
     }
    ]
   },
   "qc": {
-   "seconds": 34.6,
+   "seconds": 49.08,
    "pass": false,
    "failed": [
     "master đối trọng \"US only · history, not a forecast\"",
     "master đối trọng \"Nina and her twins are illustrative · real prices, rents, rates and stock returns\"",
     "master đối trọng \"Not advice to buy, rent or invest\"",
-    "freezedetect d=3 ∩ lời"
+    "kích thước phần"
    ],
    "warned": [],
    "near": []
   }
  },
- "started": "2026-10-15T20:32:13Z",
+ "started": "2026-10-15T21:55:25Z",
  "spec": [],
  "music": {
   "a07_gap_db": 20.01,
@@ -1739,5 +1739,5 @@
    ]
   }
  },
- "total_seconds": 1018.0
+ "total_seconds": 1045.62
 }

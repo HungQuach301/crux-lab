@@ -53,8 +53,9 @@ export async function boot(res) {
     if (cw < 0.05) nameTag(O, nina, show(t, MV.m_w.t1 - 0.3, MV.m_c.t0) + show(t, MV.m_lot.t1 - 0.3));
     label(O, 'not ranked: stocks vs a house', 960, 240, { align: 'center', kind: 'name', px: 52, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f4.none, b.f5.stability - 0.2) });
     label(O, 'not measured: stability, control, family', 960, 240, { align: 'center', kind: 'name', px: 52, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f5.stability, MV.m_c.t0) });
-    v7Card(O, 'Limits', ['US only · history, not a forecast', 'before fees and taxes; no taxes on gains or the home', 'renters invest every month (assumption)',
-      'national price index, not one house · rent tag = assumption', ...STOCK_SRC], ok * show(t, b.f6.card, b.f7.back - 0.2), { y: 150, w: 1500, x: 210 });
+    const LIM = ['US only · history, not a forecast', 'before fees and taxes; no taxes on gains or the home', 'renters invest every month (assumption)',
+      'national price index, not one house · rent tag = assumption', ...STOCK_SRC];   // dòng hiện dần theo lời (M5 nhịp: quãng > 8 s)
+    v7Card(O, 'Limits', LIM.slice(0, t < b.f6.taxes ? 1 : t < b.f6.renters ? 2 : LIM.length), ok * show(t, b.f6.card, b.f7.back - 0.2), { y: 150, w: 1500, x: 210 });
     // bảng điểm (B33): mỗi dòng một màu lựa chọn, không phán quyết
     const sb = ok * show(t, b.f7.back, MV.m_w2.t0);
     if (sb > 0.01) { O.card(170, 200, 1580, 560, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.95 * sb });

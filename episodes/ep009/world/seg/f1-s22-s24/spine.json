@@ -935,7 +935,9 @@
    "t0": 30.527,
    "t1": 40.627,
    "cues": {
-    "card": 31.795
+    "card": 31.795,
+    "taxes": 35.347,
+    "renters": 38.067
    }
   }
  ],
@@ -965,12 +967,7 @@
   {
    "t": 0.58,
    "kind": "tick",
-   "v": 0.4,
-   "real": "S-KEN-COINS2",
-   "label": "tien-xu",
-   "rate": 1.0324,
-   "gain_db": -1.13,
-   "offset": 0.0
+   "v": 0.4
   },
   {
    "t": 5.201,
@@ -980,12 +977,7 @@
   {
    "t": 7.553,
    "kind": "tick",
-   "v": 0.5,
-   "real": "S-KEN-COINS1",
-   "label": "tien-xu",
-   "rate": 0.9968,
-   "gain_db": 1.19,
-   "offset": 0.0
+   "v": 0.5
   },
   {
    "t": 10.538,
@@ -1001,12 +993,7 @@
    "t": 17.906,
    "kind": "whoosh_mode",
    "dur": 0.8,
-   "gain": 0.6,
-   "real": "S-OGA-AIRWHOOSH",
-   "label": "chuyen-canh",
-   "rate": 0.9894,
-   "gain_db": -1.46,
-   "offset": 2.206
+   "gain": 0.6
   },
   {
    "t": 18.706,
@@ -1132,7 +1119,9 @@
   "f3.assumption": "major",
   "f4.none": "major",
   "f5.stability": "major",
-  "f6.card": "major"
+  "f6.card": "major",
+  "f6.taxes": "major",
+  "f6.renters": "major"
  },
  "chapter": [
   0.3,
@@ -1267,7 +1256,9 @@
     "t0": 30.527,
     "t1": 40.627,
     "cues": {
-     "card": 31.795
+     "card": 31.795,
+     "taxes": 35.347,
+     "renters": 38.067
     }
    },
    {
@@ -1434,7 +1425,9 @@
   "f3.assumption",
   "f4.none",
   "f5.stability",
-  "f6.card"
+  "f6.card",
+  "f6.taxes",
+  "f6.renters"
  ],
  "checks": {
   "rule2_rule3_rule7": "OK"
@@ -1485,27 +1478,21 @@
     "kind": "tick",
     "scene": "S22",
     "label": "tien-xu",
-    "file": "S-KEN-COINS2",
-    "rate": 1.0324,
-    "gain_db": -1.13
+    "kept_synth": true
    },
    {
     "t": 457.453,
     "kind": "tick",
     "scene": "S22",
     "label": "tien-xu",
-    "file": "S-KEN-COINS1",
-    "rate": 0.9968,
-    "gain_db": 1.19
+    "kept_synth": true
    },
    {
     "t": 467.806,
     "kind": "whoosh_mode",
     "scene": "S22",
     "label": "chuyen-canh",
-    "file": "S-OGA-AIRWHOOSH",
-    "rate": 0.9894,
-    "gain_db": -1.46
+    "kept_synth": true
    },
    {
     "t": 468.606,

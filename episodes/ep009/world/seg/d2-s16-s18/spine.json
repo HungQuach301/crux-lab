@@ -1483,7 +1483,8 @@
    "t0": 25.723,
    "t1": 30.753,
    "cues": {
-    "lower": 26.806
+    "lower": 26.806,
+    "held": 29.745
    }
   },
   {
@@ -1502,6 +1503,7 @@
    "t0": 31.453,
    "t1": 37.233,
    "cues": {
+    "shorter": 31.763,
     "half": 36.193
    }
   },
@@ -1671,10 +1673,10 @@
    "t": 36.193,
    "kind": "tick",
    "v": 0.5,
-   "real": "S-KEN-DOOROPEN1",
+   "real": "S-KEN-DOORCLOSE1",
    "label": "cua",
-   "rate": 1.0432,
-   "gain_db": -0.14,
+   "rate": 1.0195,
+   "gain_db": 1.1,
    "offset": 0.0
   },
   {
@@ -1832,6 +1834,8 @@
   "d13.stretches": "major",
   "d13.dark": "major",
   "d14.lower": "major",
+  "d14.held": "major",
+  "d15.shorter": "major",
   "d15.half": "major",
   "d16.longer": "major",
   "d17.stay": "major",
@@ -2123,7 +2127,8 @@
     "t0": 25.723,
     "t1": 30.753,
     "cues": {
-     "lower": 26.806
+     "lower": 26.806,
+     "held": 29.745
     }
    },
    {
@@ -2142,6 +2147,7 @@
     "t0": 31.453,
     "t1": 37.233,
     "cues": {
+     "shorter": 31.763,
      "half": 36.193
     }
    },
@@ -2334,6 +2340,8 @@
   "d13.stretches",
   "d13.dark",
   "d14.lower",
+  "d14.held",
+  "d15.shorter",
   "d15.half",
   "d16.longer",
   "d17.stay",
@@ -2395,9 +2403,9 @@
     "kind": "tick",
     "scene": "S17",
     "label": "cua",
-    "file": "S-KEN-DOOROPEN1",
-    "rate": 1.0432,
-    "gain_db": -0.14
+    "file": "S-KEN-DOORCLOSE1",
+    "rate": 1.0195,
+    "gain_db": 1.1
    }
   ]
  }

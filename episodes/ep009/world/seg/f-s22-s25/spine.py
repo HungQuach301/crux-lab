@@ -16,7 +16,7 @@ B = [
  ('f3', 'S22.4', 'chart', 'Đáp án nằm trên thẻ, và thẻ là giả định.', 'thẻ đung đưa; dấu "assumption".', {'tag': '@S22.4:tag', 'assumption': '@S22.4:assumption'}, [], 0.6, 'rõ', 'CHUYỂN CHẾ ĐỘ → thế giới'),
  ('f4', 'S23.1', 'world', 'Không xếp hạng cổ phiếu hay nhà.', 'cửa Nina, đèn trong cửa sổ.', {'none': '@S23.1:None'}, [], 0.45, 'lắng', '—'),
  ('f5', 'S23.2', 'world', 'Ổn định, quyền tự quyết không đếm được.', 'đèn của Nina; nhãn những thứ không đo.', {'stability': '@S23.2:stability'}, [], 0.4, 'ấm', 'CHUYỂN CHẾ ĐỘ → đồ thị'),
- ('f6', 'S24.1', 'chart', 'Giới hạn trên thẻ.', 'thẻ giới hạn V7.', {'card': '@S24.1:card'}, [], 0.35, 'bình thản', '—'),
+ ('f6', 'S24.1', 'chart', 'Giới hạn trên thẻ.', 'thẻ giới hạn V7.', {'card': '@S24.1:card', 'taxes': '@S24.1:taxes', 'renters': '@S24.1:renters'}, [], 0.35, 'bình thản', '—'),
  ('f7', 'S25.1', 'chart', 'Về câu hỏi của Nina.', 'bảng điểm hiện.', {'back': '@S25.1:back'}, [], 0.45, 'lắng', '—'),
  ('f8', 'S25.2', 'chart', 'Tiền mặt: phần lớn sáng; cổ phiếu: nửa; 15 năm: phần lớn tối.', 'các dòng bảng điểm theo màu.', {'cash': '@S25.2:cash', 'stocks': '@S25.2:stocks', 'fifteen': '@S25.2:fifteen'}, ['tick ×3'], 0.55, 'rõ', 'CHUYỂN CHẾ ĐỘ → thế giới'),
  ('f9', 'S25.3', 'world', 'Cùng con phố lúc mở đầu, đọc lại với đống trong thị trường.', 'khung 0:00, nay nửa sáng.', {'same': '@S25.3:same'}, [], 0.45, 'vòng lại', 'lia máy'),
