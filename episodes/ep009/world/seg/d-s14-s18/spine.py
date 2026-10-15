@@ -5,7 +5,7 @@ tầm mắt, đống của tháng November 2007 tụt tới $54,310, người th
 lên, vẫn sáng; cọc vốn trên cả giá nhà. B24 (S17.1–S17.3): khối 2009–2016 sáng phần lớn. B24b (S17.4–S17.6): ba cột "ở 5 / 10 / 15 năm" tỉ lệ sáng
 giảm dần. B25 (S18): phố 15 năm (247 nhà): tiền mặt sáng hết, cổ phiếu tắt gần hết. Giữ 1,5 s + MR2."""
 import os, sys
-HERE = os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
+HERE = globals().get('HERE_OVERRIDE') or os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W9)
 import kit as K
 SV = K.SV

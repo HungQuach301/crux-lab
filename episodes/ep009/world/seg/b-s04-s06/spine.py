@@ -4,7 +4,7 @@ B07 (S04.1–S04.3, số neo S04.3, lặng 0,75 s): nhà January 1991 cận th�
 mỗi tháng, chợ làm lớn cả bó. S05.4: về nhà đầu phố, cửa sáng → tối. B09 (S06.1): đường thẳng một mức tăng cố định cạnh bản ghi thật răng cưa, cùng đầu
 cùng cuối. B10 (giữ 1,5 s + MR1): thẻ V7 "Same costs as before"."""
 import os, sys
-HERE = os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
+HERE = globals().get('HERE_OVERRIDE') or os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W9)
 import kit as K
 SV = K.SV

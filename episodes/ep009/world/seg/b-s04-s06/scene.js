@@ -4,7 +4,7 @@
 import { setup, Street, Home8, figure, MoneyStack, StockPile, Line, nameTag, label, chrome, v7Card, chapterCard, legend, followLight, modeLook,
   show, pulse, ease, lin, xOf, zOf, LIT, STK, C } from '/episodes/ep009/world/w9.js';
 
-const SEG = '/episodes/ep009/world/seg/b-s04-s06/';
+const SEG = `/${new URLSearchParams(location.search).get('seg')}/`;   // đoạn con (re-export) đọc spine.json của chính thư mục nó
 const SZ = 1.3, XB = -2.7, XC = -1.95, XP = -1.0, PS = 0.35, UNIT = 0.07 * 1e5 / PS;   // cùng thang: $ → chiều cao như đống N6 (s = PS)
 const LX = -36, LW = 12, LY = 0.3, LSY = 0.62;   // vùng đồ thị đường $1
 

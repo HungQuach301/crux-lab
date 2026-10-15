@@ -5,7 +5,7 @@
 import { setup, Street, Home8, figure, GlassBox, StockPile, GrowthPairs, nameTag, label, chrome, seg2, dip, chapterCard, legend, followLight, modeLook,
   show, pulse, ease, lin, sweep, xOf, zOf, colOf, END_X, APT, NINA, BOX, SHELF, LIT, STK, C } from '/episodes/ep009/world/w9.js';
 
-const SEG = '/episodes/ep009/world/seg/a-s01-s03/';
+const SEG = `/${new URLSearchParams(location.search).get('seg')}/`;   // đoạn con (re-export) đọc spine.json của chính thư mục nó
 const WZ = -12;   // tường cột sau phố
 
 export async function boot(res) {

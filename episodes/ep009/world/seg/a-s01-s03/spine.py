@@ -7,7 +7,7 @@ B01 (S01.1, thế giới 5 s đầu): phố chạng vạng chưa sáng; sau ph�
 S03.4 gạch chân "history, not a forecast". B06 (S03.5–S03.7): phố hiện từng nhà, chú giải sáng/tối → đống N6: khối $92,000 + bó mỗi tháng, một tháng
 đống tụt mà bó vẫn rơi vào. Ident: thế giới tối dần."""
 import os, sys
-HERE = os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
+HERE = globals().get('HERE_OVERRIDE') or os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W9)
 import kit as K
 SV = K.SV

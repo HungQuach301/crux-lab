@@ -4,7 +4,7 @@ người mua (cọc LIT) lớn hơn đống cổ phiếu → cửa sổ sáng; �
 cuối phố. B14 (S10): khối 1990s hiện, phần lớn sáng; nhà đầu tiên tối nhất. B15 (S11): 16 tháng quanh March 1999 ($1 ra dưới $1) vẫn sáng. B16 (S12):
 2002–2007 tối hết; 6 bóng sáng (bản tiền mặt) tắt nốt. B17 (S13): nhà June 2006 nhấc lên: bóng chồng tiền mặt, rồi đống cổ phiếu cao hơn."""
 import os, sys
-HERE = os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
+HERE = globals().get('HERE_OVERRIDE') or os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W9)
 import kit as K
 SV = K.SV

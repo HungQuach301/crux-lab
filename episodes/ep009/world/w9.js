@@ -18,17 +18,20 @@ export const SHELF = { x: END_X + 0.9, z: 1.9 };   // kệ N6 trước căn hộ
 export async function setup(seg, res, poses, { shadowBox = 30 } = {}) {
   const [S, CL, DATA] = await Promise.all([loadJSON(seg + 'spine.json'), loadJSON('/episodes/ep009/world/claims.json'), loadJSON('/episodes/ep009/world/data.json')]);
   await fonts();
-  const cue = {}; for (const b of S.beats) cue[b.id] = { ...b.cues, t0: b.t0, t1: b.t1 };
-  const MV = {}; for (const m of S.moves) MV[m.id] = m;
+  // đoạn con (kit._subset): nhịp + động tác ĐỦ của đoạn chương (dời giờ) ở S.ghost → logic cảnh và máy quay liền như đoạn chương
+  const GB = S.ghost ? S.ghost.beats : S.beats, GM = S.ghost ? S.ghost.moves : S.moves;
+  S.chapter = S.chapter || [-99, '']; S.ident = S.ident || [1e9, 1e9]; S.card = S.card || [1e9, 1e9];
+  const cue = {}; for (const b of GB) cue[b.id] = { ...b.cues, t0: b.t0, t1: b.t1 };
+  const MV = {}; for (const m of GM) MV[m.id] = m;
   const st = Stage(res), scene = new THREE.Scene(), { floor, key } = Studio(scene, { shadowBox });
   const grey = !!S.grey;
   const compose0 = st.compose.bind(st);
   st.compose = () => { compose0(); if (!grey || CK.on) return; const c = st.out.getContext('2d'), w = st.out.width, h = st.out.height, im = c.getImageData(0, 0, w, h), p = im.data;
     for (let i = 0; i < p.length; i += 4) { const y = 0.2126 * p[i] + 0.7152 * p[i + 1] + 0.0722 * p[i + 2]; p[i] = p[i + 1] = p[i + 2] = y; } c.putImageData(im, 0, 0); };
-  for (const m of S.moves) for (const n of [m.from, m.to]) if (n.endsWith('~') && !poses[n]) {
+  for (const m of GM) for (const n of [m.from, m.to]) if (n.endsWith('~') && !poses[n]) {
     const b = poses[n.slice(0, -1)], f = 0.9; poses[n] = { ...b, pos: b.pos.map((v, j) => b.tgt[j] + (v - b.tgt[j]) * f) };
   }
-  const CAM = Camera(poses, S.moves);
+  const CAM = Camera(poses, GM);
   if (!grey) { const apply0 = CAM.apply.bind(CAM); CAM.apply = (t) => { grade(scene, key, (S.episode_t0 || 0) + t); return apply0(t); }; }
   return { S, CL, D: (k) => CL[k].display, DATA, cue, MV, st, O: st.O, renderer: st.renderer, scene, floor, key, CAM, grey };
 }

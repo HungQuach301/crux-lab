@@ -4,7 +4,7 @@
 import { setup, Street, Home8, figure, RentTag, GrowthPairs, StockPile, nameTag, label, chrome, v7Card, chapterCard, legend, followLight, modeLook,
   show, pulse, ease, lin, sweep, END_X, APT, NINA, LIT, STK, C } from '/episodes/ep009/world/w9.js';
 
-const SEG = '/episodes/ep009/world/seg/f-s22-s25/';
+const SEG = `/${new URLSearchParams(location.search).get('seg')}/`;   // đoạn con (re-export) đọc spine.json của chính thư mục nó
 export const STOCK_SRC = 'Stock returns: Kenneth R. French Data Library (Fama/French factors, total return); cross-checked with Robert Shiller data.';   // chủ dự án 15/10 (G1 câu 1 sửa)
 
 export async function boot(res) {

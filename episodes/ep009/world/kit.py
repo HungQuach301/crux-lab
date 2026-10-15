@@ -38,6 +38,31 @@ def timeline():
     return json.load(open(p))
 
 
+def scenes(default):
+    """Tập 9 M3: đoạn con (cine trên cảnh đinh) chạy spine.py của đoạn chương với CRUX_SCENES='S04' — chỉ các cảnh đó."""
+    v = os.environ.get('CRUX_SCENES')
+    return [x for x in default if x in v.split(',')] if v else list(default)
+
+
+class Cue(dict):
+    """cue[beat][key] → giờ; nhịp không có trong đoạn con → None (động tác/sự kiện dùng nó bị bỏ)."""
+    def __missing__(self, k):
+        return _NoCue()
+
+
+class _NoCue(dict):
+    def __missing__(self, k):
+        return None
+
+
+def cues(beats):
+    return Cue({b['id']: b['cues'] for b in beats})
+
+
+def beats_in(B, S):
+    return [b for b in B if b[1][:3] in S.scenes]
+
+
 class Seg:
     def __init__(self, scenes):
         tl = timeline()
@@ -141,7 +166,10 @@ HOLD_PUSH = {'world': [0.008, 0.08], 'chart': [0.005, 0.025], 'breathe': True, '
 def moves_of(specs, eps=0.01):
     """specs: (id, verb, from, to, after, before, dur, lý do, âm, {late|start}) → động tác (cửa sổ của spine.window)."""
     out = []
-    for mid, verb, a, b, after, before, dur, reason, snd, kw in specs:
+    for sp in specs:
+        if sp is None or sp[4] is None or sp[5] is None:   # đoạn con: động tác của nhịp ngoài đoạn
+            continue
+        mid, verb, a, b, after, before, dur, reason, snd, kw = sp
         kw = dict(kw); ch = kw.pop('change', None)   # M5 vòng nhịp 1: cú đẩy/lùi ở từ mở ý khai change: major (F-14 (b))
         t0, t1 = SV.window(after, before, dur, PAD, eps=eps, **kw)
         out.append({'id': mid, 'verb': verb, 'from': a, 'to': b, 't0': t0, 't1': t1, 'reason': reason, 'sound': snd, **({'change': ch} if ch else {})})
@@ -150,6 +178,8 @@ def moves_of(specs, eps=0.01):
 
 def reframe(S, beats, mid, verb, a, b, word, reason, dur=1.2, snd='whoosh_soft'):
     """M5 vòng nhịp 1: cú đẩy/lùi (change: major) bắt đầu ở từ MỞ ý `word` (@Sxx.n:w), xong trước từ khoá kế (quy tắc 2: ±PAD quanh cue)."""
+    if word[:3] not in S.scenes:
+        return None
     t = S.at('@' + word)
     nxt = min([c for b_ in beats for c in b_['cues'].values() if c > t + 0.05] + [S.total + PAD])
     return (mid, verb, a, b, t - PAD, nxt, dur, reason, snd, {'start': t, 'change': 'major'})
@@ -183,6 +213,11 @@ def midroll(S, k):
 def finish(here, S, name, beats, moves, events, extra, label_cues, visual_cues, accents=(), anchors=(), silences=(), inputs=()):
     """Ghép spine.json, tự kiểm quy tắc 2/3/7 (mọi đoạn: verify đòi 5 s đầu thế giới), không sfx/whoosh trong lặng (neo, mid-roll), không 'land'
     ngoài chạm đổi chế độ (episode.md §5b), ghi inputs.json; thoát 1 nếu vi phạm."""
+    events = [e for e in events if e.get('t') is not None]
+    moves = [m for m in moves if m]
+    if os.environ.get('CRUX_SCENES'):   # đoạn con: cắt từ spine ĐỦ của đoạn chương; nhịp/động tác đủ (dời giờ) đi kèm ở `ghost` cho scene.js
+        S, beats, moves, events, extra, label_cues, visual_cues, anchors, silences, inputs = _subset(S, beats, moves, events, extra, label_cues, visual_cues,
+                                                                                                  anchors, silences, inputs)
     ev = sorted(events + SV.move_sounds(moves, lambda m: {'mode': 0.6, 'pan': 0.8, 'push': 0.7, 'pull': 0.9}[m['verb']]), key=lambda e: e['t'])
     errs = SV.check_rules(beats, moves, PAD, episode_t0=S.t0)   # F-14 (c): quy tắc 7 chỉ 5 s đầu TẬP (episode.yaml f14: true)
     aw = anchor_windows(S, anchors)
@@ -208,6 +243,7 @@ def finish(here, S, name, beats, moves, events, extra, label_cues, visual_cues, 
                      'silences': [list(x) for x in silences]},
              'anchor_silences': aw, 'start': S.start, 'end': S.end, 'last': {k: round(v, 3) for k, v in S.last.items()},
              'f14': True, 'hold_push': HOLD_PUSH, 'changes': {k: 'major' for k in visual_cues}, **extra, 'label_cues': label_cues, 'visual_cues': visual_cues, 'checks': {'rule2_rule3_rule7': errs or 'OK'}}
+    m3(spine, S)
     json.dump(spine, open(os.path.join(here, 'spine.json'), 'w'), indent=1, ensure_ascii=False)
     json.dump(INPUTS + list(inputs), open(os.path.join(here, 'inputs.json'), 'w'))
     sfx = [e['t'] for e in ev if e['kind'] != 'data']
@@ -225,3 +261,56 @@ def stub(here, scenes, name):
     B = [(f"s{i}", sid, 'world', '(lượt 2)', '(lượt 2: chưa dựng)', {}, [], 0.3, '—', '—') for i, sid in enumerate(sorted(S.lines, key=lambda x: S.at('@' + x)))]
     beats = SV.beats_from(B, S.A, S.lines)
     finish(here, S, name + ' · KHUNG (lượt 2)', beats, [], [], {'stub': True}, {}, [])
+
+
+# ---------------------------------------------------------------- Tập 9 M3–M4 (lệnh chặng 15/10): J/L-cut 7 chuyển · `cine` 5 cảnh đinh · SFX ghi âm thật
+# Khoá theo CẢNH ĐẦU của đoạn (đoạn vào). J/L: splice.py (F-18), chuyển hồi offset ≤ 0,5 s. cine (F-17): chỉ 1080p; S01–S02 (H1), S04 (H2), S14–S15
+# (H3 + H4), S25 (H6) ≈ 25 % thời lượng (≤ 30 %). SFX thật: sfx_labels.thin_events + plan_real (kho CC0 RIGHTS §G1), nhãn theo cảnh (TAM-NHIN §7).
+CUTS = {'S05': {'cut': 'L', 'offset': 0.4}, 'S08': {'cut': 'J', 'offset': 0.4}, 'S14': {'cut': 'J', 'offset': 0.4}, 'S16': {'cut': 'L', 'offset': 0.4},
+        'S19': {'cut': 'J', 'offset': 0.4}, 'S22': {'cut': 'J', 'offset': 0.4}, 'S25': {'cut': 'L', 'offset': 0.4}}
+CINE = {'S01': {'look': 'dusk'}, 'S04': {'look': 'afternoon'}, 'S14': {'look': 'afternoon', 'shots': {}}, 'S25': {'look': 'dusk'}}
+SFX_LABELS = {'S01': ['go-nhe'], 'S02': ['giay'], 'S03': ['giay', 'cua'], 'S04': ['giay', 'cua'], 'S05': ['giay'], 'S06': ['may-chu'], 'S08': ['tien-xu'],
+              'S09': ['cua', 'go-nhe'], 'S10': ['cua'], 'S11': ['cua'], 'S12': ['cua'], 'S13': ['giay', 'cua'], 'S14': ['giay'], 'S15': ['cua'],
+              'S16': ['cua'], 'S17': ['cua'], 'S18': ['cua'], 'S19': ['giay'], 'S20': ['giay'], 'S21': ['giay'], 'S22': ['tien-xu'], 'S23': ['va-mem'],
+              'S24': ['may-chu'], 'S25': ['tien-xu', 'va-mem']}
+USED = os.path.join(EP, 'work', 'factory', 'sfx-used.json')
+
+
+def m3(spine, S):
+    first = S.scenes[0]
+    if first in CUTS:
+        spine['cuts'] = {first: CUTS[first]}
+    if first in CINE and os.environ.get('CRUX_GREY') != '1':
+        spine['cine'] = CINE[first]
+    import sfx_labels as SL
+    man = json.load(open(os.path.join(ROOT, 'toolkit', 'factory', 'world', 'sfx', 'manifest.json')))
+    used = {} if first == 'S01' or not os.path.exists(USED) else json.load(open(USED))
+    sp = SL.thin_events(spine)
+    sp = SL.plan_real(sp, {k: v for k, v in SFX_LABELS.items() if k in S.scenes}, man, used=used)
+    os.makedirs(os.path.dirname(USED), exist_ok=True); json.dump(used, open(USED, 'w'))
+    spine.clear(); spine.update(sp)
+
+
+def _subset(S, beats, moves, events, extra, label_cues, visual_cues, anchors, silences, inputs):
+    sub = os.environ['CRUX_SCENES'].split(',')
+    S2 = Seg([x for x in S.scenes if x in sub]); off, T = round(S2.t0 - S.t0, 4), S2.total
+    sh = lambda t: round(t - off, 4)
+    inn = lambda t: -1e-6 <= t - off <= T + 1e-6
+    shb = lambda b: {**b, 't0': sh(b['t0']), 't1': sh(b['t1']), 'cues': {k: sh(v) for k, v in b['cues'].items()}}
+    shm = lambda m: {**m, 't0': sh(m['t0']), 't1': sh(m['t1'])}
+    ghost = {'beats': [shb(b) for b in beats], 'moves': [shm(m) for m in moves], 'parent_t0': S.t0}
+    keep = {b['id'] for b in beats if b['sid'][:3] in S2.scenes}
+    x = dict(extra)
+    for k in ('chapter',):
+        if k in x: x[k] = [sh(x[k][0]), x[k][1]] if inn(x[k][0]) else [-99, '']
+    for k in ('ident', 'card'):
+        if k in x: x[k] = [sh(x[k][0]), sh(x[k][1])] if inn(x[k][1]) else [1e9, 1e9]
+    if 'midroll' in x:
+        x['midroll'] = sh(x['midroll']) if inn(x['midroll']) else None
+        if x['midroll'] is None: x.pop('midroll')
+    x['ghost'] = ghost
+    par = os.environ.get('CRUX_PARENT')
+    return (S2, [shb(b) for b in beats if b['id'] in keep], [shm(m) for m in moves if inn(m['t0']) and inn(m['t1'])],
+            [{**e, 't': sh(e['t'])} for e in events if inn(e['t'])], x, {k: v for k, v in label_cues.items() if k.split('.')[0] in keep},
+            [k for k in visual_cues if k.split('.')[0] in keep], [a for a in anchors if a[:3] in S2.scenes],
+            [[sh(a), sh(b)] for a, b in silences if inn(a) and inn(b)], list(inputs) + ([par] if par else []))

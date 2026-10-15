@@ -4,7 +4,7 @@
 import { setup, Street, Home8, figure, MoneyStack, StockPile, nameTag, label, chrome, chapterCard, legend, followLight, modeLook,
   show, pulse, ease, lin, mix, xOf, zOf, colOf, SHELF, END_X, NINA, LIT, STK, C, THREE } from '/episodes/ep009/world/w9.js';
 
-const SEG = '/episodes/ep009/world/seg/d-s14-s18/';
+const SEG = `/${new URLSearchParams(location.search).get('seg')}/`;   // đoạn con (re-export) đọc spine.json của chính thư mục nó
 const BX = -40, BW = 14, BZ = -2, BU = 1 / 1e5;   // hàng đống nhỏ: x = tháng, cao = $ × BU
 const PS = 0.35, UNIT = 0.07 * 1e5 / PS;
 

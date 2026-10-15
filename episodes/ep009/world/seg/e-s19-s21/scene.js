@@ -3,7 +3,7 @@
 import { setup, Street, Home8, MoneyStack, StockPile, label, chrome, chapterCard, legend, followLight, modeLook, show, ease, lin, sweep,
   LIT, STK, C } from '/episodes/ep009/world/w9.js';
 
-const SEG = '/episodes/ep009/world/seg/e-s19-s21/';
+const SEG = `/${new URLSearchParams(location.search).get('seg')}/`;   // đoạn con (re-export) đọc spine.json của chính thư mục nó
 const PS = 0.3, UNIT = 0.07 * 1e5 / PS, HX = -6.2, PX = -4.6, Z = 1.6;
 
 export async function boot(res) {

@@ -4,7 +4,7 @@ B29 (S22.1–S22.2): cận thẻ thuê trên cửa Nina, phố phía sau; mỗi 
 thẻ giới hạn V7 (+ câu nguồn cổ phiếu của chủ dự án 15/10). B33 (S25.1–S25.2): bảng điểm 4 dòng theo màu lựa chọn. B34 (S25.3): đúng khung 0:00,
 nay nửa sáng. B35 (S25.4): lô trống của Nina qua cuối phố. B36 (S25.5): Nina cạnh cửa, thẻ đung đưa — câu trả lời của cô."""
 import os, sys
-HERE = os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
+HERE = globals().get('HERE_OVERRIDE') or os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W9)
 import kit as K
 SV = K.SV

@@ -3,7 +3,7 @@ B26 (S19): khối nhà $400,000 (LIT) cạnh đống $92,000 (STK); cả hai l�
 đống (đuổi kịp bằng chênh lệch + thời gian). B27 (S20): bó mỗi tháng dừng; phố nhìn thẳng từ trên sáng lại (chỉ $92,000 đầu tư: khoảng 2/3). B28 (S21):
 phí 1 %/năm: phố sáng thêm (55,0 %)."""
 import os, sys
-HERE = os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
+HERE = globals().get('HERE_OVERRIDE') or os.path.dirname(os.path.abspath(__file__)); W9 = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, W9)
 import kit as K
 SV = K.SV
