@@ -12,10 +12,10 @@
 | master đối trọng "Nina and her twins are illustrative · real prices, rents, rates and stock returns" | TRƯỢT | 0 | ≥ 30 khung (1 s) |  |
 | master đối trọng "Not advice to buy, rent or invest" | TRƯỢT | 0 | ≥ 30 khung (1 s) |  |
 | trục từ 0 | ĐẠT | 0 | 0 shot bars/line có min > 0 | swarm: vị trí chấm, không phải độ dài |
-| freezedetect d=3 ∩ lời | TRƯỢT | 184.27 | 0 s | 40 đoạn đứng yên ≥ 3 s cả phim: [[36.8, 42.8667], [42.8667, 47.5333], [83.2333, 87.6]] |
+| freezedetect d=3 ∩ lời | TRƯỢT | 152.35 | 0 s | 34 đoạn đứng yên ≥ 3 s cả phim: [[36.7667, 42.8667], [42.8667, 47.5333], [83.1, 87.6]] |
 | mốc hình ≥ mốc từ | ĐẠT | 0 | 0 | 0 mốc |
-| loudness | ĐẠT | -14.0 LUFS / -2.2 dBTP | -14 ± 1 LUFS, ≤ -2.0 dBTP |  |
-| kích thước phần | ĐẠT | 57.76 | ≤ 90 MB mỗi phần | 3 phần 720p |
+| loudness | ĐẠT | -14.1 LUFS / -2.2 dBTP | -14 ± 1 LUFS, ≤ -2.0 dBTP |  |
+| kích thước phần | ĐẠT | 62.65 | ≤ 90 MB mỗi phần | 3 phần 720p |
 | luật format | ĐẠT | lab | scope full | lab: 524 s < soft minimum 540 s (không độn: shorter is fine, never pad) |
 
 **Sát ngưỡng ±5 %:** không có

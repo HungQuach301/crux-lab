@@ -3,49 +3,89 @@
  "fps": 30,
  "segments": [
   {
-   "id": "a-s01-s03",
+   "id": "a1-s01-s02",
    "scenes": [
     "S01",
-    "S02",
-    "S03"
+    "S02"
    ],
    "t0": 0.0,
-   "t1": 75.3333,
+   "t1": 22.7,
    "f0": 0,
-   "f1": 2260,
-   "frames": 2260,
-   "video": "episodes/ep009/work/factory/world/a-s01-s03-540.mp4",
-   "video_sha256": "50a13ccf7ab474cb2cf700e899e37a1fa0a53ca17f33839dacd5dcc3f10d23ff",
+   "f1": 681,
+   "frames": 681,
+   "video": "episodes/ep009/work/factory/world/a1-s01-s02-540.mp4",
+   "video_sha256": "cc48034e152933c8aca549cc03170adf38f81ad071039d181f6ee13310d9a023",
    "stems": {
-    "data": "f96ef7a196b33623aeebc29f5732edea7a965a7da7d662f9e71e0a77a64b2e56",
-    "music": "abfcaf7ae9d9301b01607f196c6bcc953d7bc7cb1a91d9378609c7d037a0f602",
-    "room": "991a9ea5b7c179c1118c28d8de8bb78be464d7a0ac6e3420d7d33feeb451414a",
-    "sfx": "a41fef2d187163369e20974b7a49999d9797e228c421e852ea8587d5f7d6ab28",
-    "voice": "11c12fd60c8f0a3875dc005cec056933cbe6ac8f61a3e44d7da40d3d728cd77e",
-    "whoosh": "d5dcde9e52088cf73f555e2543e3270ebabcac89db94e02e4f1ed55c8d4ca3eb"
+    "data": "27e197fe014eab66fe918088119ce22854e8fe10bc2adc30254efbccb7d729d6",
+    "music": "e5d1ddb1282046b0be5328fb6e4f8a11124eb1a633f4ad2ca672d0b334486174",
+    "room": "d879005f45acb0ad842a70d25f4bb8788faecf1dca7638f65d3ccf021b13773f",
+    "sfx": "928ed4ff3e34a88f48f56d3ba2d7459419a55531adef7b4ce8f2cae7ebb43c2c",
+    "voice": "38659466709c3fc1d51df026fda477850e7865fbb5899e12b55ec50617f2cea0",
+    "whoosh": "91f021175214513bd2fff2da63a482b622891af90a8102c954f695a2f2490cab"
    }
   },
   {
-   "id": "b-s04-s06",
+   "id": "a2-s03",
    "scenes": [
-    "S04",
+    "S03"
+   ],
+   "t0": 22.7,
+   "t1": 75.3333,
+   "f0": 681,
+   "f1": 2260,
+   "frames": 1579,
+   "video": "episodes/ep009/work/factory/world/a2-s03-540.mp4",
+   "video_sha256": "820fe7c4ae1573d2dd482f22b4cd348892139f740d816a409d9bd048b19ef76e",
+   "stems": {
+    "data": "e82ee5595b1eb909ecc7c52e3a00f5a4bf687e5a30208d359396dad1d6029a7a",
+    "music": "b32b1834e7d9520c32b30b64c49e208ef9cb151a056084a9108270bb4ee1b2fc",
+    "room": "5ac8611f061a1287d7b6929b63a7409261a9bf082513435486ceb6c728885185",
+    "sfx": "390628ae85c8ba0e32a062f7c749f9d1a7476bb1c7efdc1d949fa9e3fca54679",
+    "voice": "d7206e913bb9471f7fcdca4ba12e42ccabbd1e101767233e687b75e556f1967a",
+    "whoosh": "baea56eb80a936f26378495f8bfbbb95bb71075df7716279d8728e8a7ecd2475"
+   }
+  },
+  {
+   "id": "b1-s04",
+   "scenes": [
+    "S04"
+   ],
+   "t0": 75.3333,
+   "t1": 107.7333,
+   "f0": 2260,
+   "f1": 3232,
+   "frames": 972,
+   "video": "episodes/ep009/work/factory/world/b1-s04-540.mp4",
+   "video_sha256": "e2360fe6a2355a8e03b2f9fdbd3e39aa53d3a32cccc544756ba8d05482c9c1f8",
+   "stems": {
+    "data": "d0d25cd82c6a7e995fb0a87ddef318de1c9ff7d6187fbd4afcfc604dad90b31b",
+    "music": "bad87ff1615701ffc6a1dd34b94fdef00f099c356a3fae5b0dc56046d3a00b3f",
+    "room": "87fd0bdfd1289c0dadd77175bab803757ec7e8f408316bb677acfe90afd5936b",
+    "sfx": "49f06c0257c969f85ec9e9c31bba328c50826ee19ca101fc03861bb5ec37f6d8",
+    "voice": "8cd206d212c2ed977f137f307916914ade5bd84dcc0cbd26505679da7cd0b791",
+    "whoosh": "053fdf6434d58f48fb0207a789044ecad9ee398944525d663cf610b394b559a7"
+   }
+  },
+  {
+   "id": "b2-s05-s06",
+   "scenes": [
     "S05",
     "S06"
    ],
-   "t0": 75.3333,
+   "t0": 107.7333,
    "t1": 146.6999,
-   "f0": 2260,
+   "f0": 3232,
    "f1": 4401,
-   "frames": 2141,
-   "video": "episodes/ep009/work/factory/world/b-s04-s06-540.mp4",
-   "video_sha256": "50e1c0940e5edf25ad863ae73f00a6f2d65ab0c28ad15bbdd00874491a121f90",
+   "frames": 1169,
+   "video": "episodes/ep009/work/factory/world/b2-s05-s06-540.mp4",
+   "video_sha256": "e151ad412e449631e5c45c425fe0600870572491f1b99abd9c5ad54da3ed5045",
    "stems": {
-    "data": "e4c3a0c8731227675f9b26dcd0f0c4e5dbcb33f6eef9b5d0ef092f2ab31b87bc",
-    "music": "961fe2bd5f2fa4c27eff0327c3a588277df7b8fa65b51d88d3afa216a590f50d",
-    "room": "f96af5c73ec301028695e8a53e9e093beb554699e9a0e6cd0b5038b448e05d43",
-    "sfx": "d421bb99ce2f31271e2ec06e6dbdbe4840f04956eb5127858231fe2b72fbb5cd",
-    "voice": "ebbf2be3716a3d673e7862bd8e24b1fd834eef072ec613e4018009b439b47105",
-    "whoosh": "56c7b8a5b7dae37035bee631f3a4027e1eee8660f8e922f50d961c7e5498261f"
+    "data": "581882f638d4118b7af198638979e6658625c46521a16b1d0c5b411c9a5c65a0",
+    "music": "3d32a9c612ccb2d6c85d2d892532724f82e7adabfd9507f7145aa29fed0d7f2a",
+    "room": "532e1676d17631783e43607dab19f4ed9329963a8d3aa031b5a295bc8db3a743",
+    "sfx": "e99d79d2e800f72b5d5ddba8f2e7b7037f62b69712f1ff49976caa8166a3eb53",
+    "voice": "d5a9799cd178ab83cb7080f365561e0fc762ae039c1ced9afb0bdab2f58c117f",
+    "whoosh": "73d90f97b83497c49170caad1eba63627278507cb0c04a8140dabf116512bfe1"
    }
   },
   {
@@ -64,7 +104,7 @@
    "f1": 7833,
    "frames": 3432,
    "video": "episodes/ep009/work/factory/world/c-s08-s13-540.mp4",
-   "video_sha256": "6d4a439d877eda190d08280928a4e094fb7aeaea148c2c480569ebbdd4816742",
+   "video_sha256": "7fcbe410f187545c171f9b82bb3477ff831fd32ca7f026f20351063cd36239eb",
    "stems": {
     "data": "61f58dfff8242490094f7f7daa14229f2f7d699d6851f90753b893e1661d6fc1",
     "music": "60ad1394b330f6cfba68548d3364fadd52df0a67a03d1b977fcc79c0969abd23",
@@ -75,28 +115,48 @@
    }
   },
   {
-   "id": "d-s14-s18",
+   "id": "d1-s14-s15",
    "scenes": [
     "S14",
-    "S15",
+    "S15"
+   ],
+   "t0": 261.0999,
+   "t1": 309.8999,
+   "f0": 7833,
+   "f1": 9297,
+   "frames": 1464,
+   "video": "episodes/ep009/work/factory/world/d1-s14-s15-540.mp4",
+   "video_sha256": "065b9539fe94b5e84cc9e0e3255d23ab1626d82cf14d5a7d27ac761be75d5a43",
+   "stems": {
+    "data": "fa9a5bb58a56f8b1c85dbb2293738b179133c69773a788860300c2b2364e0ce7",
+    "music": "296b23bbafe6a998c48eefaad90beed39b70f3b54f869f66ff700436f47ac818",
+    "room": "1dd2bac9d05e4a9992a410611e2e743aeed2b7e68a370346469d718039f30a44",
+    "sfx": "fba193ec2d7819fb73bee16ea3aace71d687bae556657504c8a0c4753b7d518d",
+    "voice": "778ba3d77e9374b3fb515f99cb91f24b46c7765b666ffe467ba2f30796a051e3",
+    "whoosh": "30fc85f656553220f10af177ad1dd064a02f61ac8e87996fa9ed250daf9d8f4b"
+   }
+  },
+  {
+   "id": "d2-s16-s18",
+   "scenes": [
     "S16",
     "S17",
     "S18"
    ],
-   "t0": 261.0999,
+   "t0": 309.8999,
    "t1": 387.6332,
-   "f0": 7833,
+   "f0": 9297,
    "f1": 11629,
-   "frames": 3796,
-   "video": "episodes/ep009/work/factory/world/d-s14-s18-540.mp4",
-   "video_sha256": "a64c4f2a9f8f41e164da38253eb76d3f82d3ec3962a8b3c58bf468e5a68e39ce",
+   "frames": 2332,
+   "video": "episodes/ep009/work/factory/world/d2-s16-s18-540.mp4",
+   "video_sha256": "5e1bbedddb23e4e3de10368860d76846d370d65c766c924983e54a31a5c55af8",
    "stems": {
-    "data": "68850024a17f9f65fed8eaceaa906728e9df4468f9219faa1b72514a5226efa6",
-    "music": "16881810dc9d255fe8f672b2fadbd9eb31dce17406d3f9e87d5c7181a2dbca9e",
-    "room": "f132425428c93aaf5b83710b933e99cc8ed5c678106b017e20f7c2ec5e069af8",
-    "sfx": "103a4b6c14fa580ae82e13852315c21516f3895dc104be4e32101de0fcec6e54",
-    "voice": "2eb49eaacd7dbd41aad4de52787019964245fcbe629a1939e51707c025c2b5c2",
-    "whoosh": "a42b12ff707a1387c69dcefaca9dfa107312b0610e5ba6b97957ac2b11d1ddb8"
+    "data": "baa999343cdffdeb9192186ba88dca8650ef493adc14577014a7bc60e84c7f1e",
+    "music": "e7ecb4e350bfea0ea5c4ee3ea28f9daaaef90c5d48098d0d82dac631d2dfec9b",
+    "room": "842d8104692e82abe0d66ea024d482ae6a25cc439d123b18e1c9c5a2d00980a5",
+    "sfx": "bab684b0762eca70469ae1fe6624bad366990501e4d5034e5e2abcf23f537415",
+    "voice": "b6d6d7cd32f74694e2050f0be78de2e62de141aa0d18376e6801b6409bee7a07",
+    "whoosh": "50a404ca0d6e60961548417c1a2a188c6d0fe8beca541e2d9c628f3651993066"
    }
   },
   {
@@ -112,7 +172,7 @@
    "f1": 13497,
    "frames": 1868,
    "video": "episodes/ep009/work/factory/world/e-s19-s21-540.mp4",
-   "video_sha256": "7e929803a72ccdcb38756c6056e8c60e47daef412f967819eb81426c9354a5ca",
+   "video_sha256": "53449679ff30eb14a93d366efbb1611dec6412bfedb9e7f82e072e2fe25543a9",
    "stems": {
     "data": "87b3ef0850eb7b8918e48f81ebe61490092807b2a07bff150866425b02af35e9",
     "music": "0b7955a94dcedd7b4e880c556ae4f9abe12600b775a51b676a7df65c8d43cbf0",
@@ -123,27 +183,47 @@
    }
   },
   {
-   "id": "f-s22-s25",
+   "id": "f1-s22-s24",
    "scenes": [
     "S22",
     "S23",
-    "S24",
-    "S25"
+    "S24"
    ],
    "t0": 449.8998,
-   "t1": 523.9332,
+   "t1": 491.5332,
    "f0": 13497,
-   "f1": 15718,
-   "frames": 2221,
-   "video": "episodes/ep009/work/factory/world/f-s22-s25-540.mp4",
-   "video_sha256": "05a437be502f7dc079b526571489c1e11f7e708a8f22ed1e223f1f7e1551631e",
+   "f1": 14746,
+   "frames": 1249,
+   "video": "episodes/ep009/work/factory/world/f1-s22-s24-540.mp4",
+   "video_sha256": "5951aea4fb777602cfcfbe6d9e5f0d9e5d8516c780f2912ad1f81b93124b6caf",
    "stems": {
-    "data": "46d574fa0c5856a6369e1083f133e87c29fb69ddda1b75c4fc53c19ecd4e9c9a",
-    "music": "8cad6708f80954ebf7799305cd9e15da48575218c51c4e909fc996570e6670d2",
-    "room": "0eb129cd06d4f0933eedf284d7d2216191a3d0c3b17878260c37aac782861fd0",
-    "sfx": "f5c19af39fa938ccfc728534661e13ec93aa0a0e7931ae9f76481e16ebc08cfe",
-    "voice": "5b29116925fc36438e842dbda1362fa63cb1bc648bee7e79e319e83d10794da4",
-    "whoosh": "13f3fc52bb7aa148f84e218e860bcd7f33b2aeb09275227b38e600887a37cb67"
+    "data": "6198e00e40bc52348c29f425282a10c79333cd6bba56b38a0e28eca8ec46e15e",
+    "music": "0ff893b0ea69e0b08328da1961d5a1bf239751d96b2b931ee16d0ebb3479cf17",
+    "room": "ba648987370b5f45648981fcd835c748df237dca71c548946fd6676e0e364732",
+    "sfx": "5916ed1a59e87a90334c45de8063488e8a1f8339de1960e9f06c3c21234cc29d",
+    "voice": "1068af76d720bc7461e956825654d8b7a6b6bf7d9fc8bd61e4b8417f4d14adfe",
+    "whoosh": "51c107e68fb00152840e33f8572a551107c572c1987d6b70ce262c6b8f74a31f"
+   }
+  },
+  {
+   "id": "f2-s25",
+   "scenes": [
+    "S25"
+   ],
+   "t0": 491.5332,
+   "t1": 523.9332,
+   "f0": 14746,
+   "f1": 15718,
+   "frames": 972,
+   "video": "episodes/ep009/work/factory/world/f2-s25-540.mp4",
+   "video_sha256": "b6313226e4540848e532e91edf89299f756a5ac6ffefcd860dcc7ed5103fdb74",
+   "stems": {
+    "data": "976a6c29726b2e261c7f17b8bd72ac916e3626f098d2af904a1474084539eea7",
+    "music": "61c921f44eaf1613185a3d9e0c1304e4c2db8d4eff18d4fb506e9a1ccc172cab",
+    "room": "659530bcc0f54080317e37cc839abd4de0597b2b855f9dee207d58716cc6f0d4",
+    "sfx": "05888e9fca0ca3d3a5a47ccc902cc48a206300e63cda959d813f49fe6255004a",
+    "voice": "cd4ecf360e0126ef511c305f41a91cb80e006add58e0eaa1e8e55461cbcd525e",
+    "whoosh": "e0257a30d832b496ff94664ef7433489b3d5f0ad5a3d8c295a50ffbcd345344e"
    }
   }
  ],
@@ -151,7 +231,7 @@
   "in": "episodes/ep009/work/factory/picture.mp4",
   "in_sha256": "32ee6a7cf4a347a1e0997f6ea1afa0fef48e260507299ba163df90a6e3d786f0",
   "out": "episodes/ep009/work/factory/picture-spliced.mp4",
-  "out_sha256": "8e7562b767b0d587de1a68a9f3c4c1439ce3632780d7036ae5c2d2410637c1f8",
+  "out_sha256": "0bdf2cf08c7bf374688063cc08afea45215194792476e788e28b3a6b90c12873",
   "frames": 15718,
   "encode": {
    "cbr": "17M",
@@ -162,27 +242,53 @@
  "audio": {
   "segments": [
    {
-    "id": "a-s01-s03",
-    "gain_db": -4.02,
+    "id": "a1-s01-s02",
+    "gain_db": -4.26,
     "gain_basis": "voice_rms",
     "layers_rms_dbfs": {
-     "music": -39.2,
-     "sonify": -61.3,
-     "sfx": -54.4,
-     "whoosh": -61.5,
-     "room": -64.5
+     "music": -41.5,
+     "sonify": -63.2,
+     "sfx": -51.4,
+     "whoosh": -61.0,
+     "room": -65.0
     },
     "bed_off": true
    },
    {
-    "id": "b-s04-s06",
-    "gain_db": -5.01,
+    "id": "a2-s03",
+    "gain_db": -3.89,
     "gain_basis": "voice_rms",
     "layers_rms_dbfs": {
-     "music": -39.2,
-     "sonify": -61.5,
-     "sfx": -53.5,
-     "whoosh": -63.7,
+     "music": -38.5,
+     "sonify": -59.7,
+     "sfx": -56.4,
+     "whoosh": -61.4,
+     "room": -64.3
+    },
+    "bed_off": true
+   },
+   {
+    "id": "b1-s04",
+    "gain_db": -6.19,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -39.4,
+     "sonify": -61.8,
+     "sfx": -52.6,
+     "whoosh": -63.3,
+     "room": -64.7
+    },
+    "bed_off": true
+   },
+   {
+    "id": "b2-s05-s06",
+    "gain_db": -4.45,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -39.0,
+     "sonify": -62.1,
+     "sfx": -54.1,
+     "whoosh": -64.2,
      "room": -64.6
     },
     "bed_off": true
@@ -201,15 +307,28 @@
     "bed_off": true
    },
    {
-    "id": "d-s14-s18",
-    "gain_db": -4.72,
+    "id": "d1-s14-s15",
+    "gain_db": -4.92,
     "gain_basis": "voice_rms",
     "layers_rms_dbfs": {
-     "music": -38.5,
-     "sonify": -62.4,
-     "sfx": -58.4,
-     "whoosh": -70.9,
-     "room": -64.7
+     "music": -39.3,
+     "sonify": -62.5,
+     "sfx": -55.5,
+     "whoosh": -66.7,
+     "room": -64.6
+    },
+    "bed_off": true
+   },
+   {
+    "id": "d2-s16-s18",
+    "gain_db": -4.61,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -38.0,
+     "sonify": -62.6,
+     "sfx": -62.3,
+     "whoosh": -81.4,
+     "room": -64.8
     },
     "bed_off": true
    },
@@ -227,15 +346,28 @@
     "bed_off": true
    },
    {
-    "id": "f-s22-s25",
-    "gain_db": -4.73,
+    "id": "f1-s22-s24",
+    "gain_db": -4.81,
     "gain_basis": "voice_rms",
     "layers_rms_dbfs": {
-     "music": -40.7,
-     "sonify": -64.6,
-     "sfx": -57.1,
-     "whoosh": -64.1,
-     "room": -64.4
+     "music": -39.6,
+     "sonify": -64.3,
+     "sfx": -57.9,
+     "whoosh": -65.8,
+     "room": -64.6
+    },
+    "bed_off": true
+   },
+   {
+    "id": "f2-s25",
+    "gain_db": -4.78,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -42.4,
+     "sonify": -240.0,
+     "sfx": -56.8,
+     "whoosh": -62.2,
+     "room": -64.0
     },
     "bed_off": true
    }
@@ -251,8 +383,37 @@
   "peak_scale": 1.0,
   "joins": [
    {
+    "scene": "S05",
+    "from": "b1-s04",
+    "to": "b2-s05-s06",
+    "cut": "L",
+    "offset": 0.4,
+    "frames": 12,
+    "t_sound": 107.7333,
+    "t_picture": 107.3333,
+    "zone": [
+     107.3333,
+     107.7333
+    ],
+    "freeze": {
+     "segment": "b2-s05-s06",
+     "frame": "first",
+     "frames": 12
+    },
+    "hidden": {
+     "segment": "b1-s04",
+     "local": [
+      32.0,
+      32.4
+     ]
+    },
+    "voice_lead": -0.46,
+    "voice_lag": -0.586,
+    "moves_hidden": []
+   },
+   {
     "scene": "S08",
-    "from": "b-s04-s06",
+    "from": "b2-s05-s06",
     "to": "c-s08-s13",
     "cut": "J",
     "offset": 0.4,
@@ -264,7 +425,7 @@
      147.1
     ],
     "freeze": {
-     "segment": "b-s04-s06",
+     "segment": "b2-s05-s06",
      "frame": "last",
      "frames": 12
     },
@@ -282,7 +443,7 @@
    {
     "scene": "S14",
     "from": "c-s08-s13",
-    "to": "d-s14-s18",
+    "to": "d1-s14-s15",
     "cut": "J",
     "offset": 0.4,
     "frames": 12,
@@ -298,7 +459,7 @@
      "frames": 12
     },
     "hidden": {
-     "segment": "d-s14-s18",
+     "segment": "d1-s14-s15",
      "local": [
       0.0,
       0.4
@@ -309,8 +470,37 @@
     "moves_hidden": []
    },
    {
+    "scene": "S16",
+    "from": "d1-s14-s15",
+    "to": "d2-s16-s18",
+    "cut": "L",
+    "offset": 0.4,
+    "frames": 12,
+    "t_sound": 309.9,
+    "t_picture": 309.5,
+    "zone": [
+     309.5,
+     309.9
+    ],
+    "freeze": {
+     "segment": "d2-s16-s18",
+     "frame": "first",
+     "frames": 12
+    },
+    "hidden": {
+     "segment": "d1-s14-s15",
+     "local": [
+      48.4,
+      48.8
+     ]
+    },
+    "voice_lead": -0.5,
+    "voice_lag": -0.59,
+    "moves_hidden": []
+   },
+   {
     "scene": "S19",
-    "from": "d-s14-s18",
+    "from": "d2-s16-s18",
     "to": "e-s19-s21",
     "cut": "J",
     "offset": 0.4,
@@ -322,7 +512,7 @@
      388.0333
     ],
     "freeze": {
-     "segment": "d-s14-s18",
+     "segment": "d2-s16-s18",
      "frame": "last",
      "frames": 12
     },
@@ -340,7 +530,7 @@
    {
     "scene": "S22",
     "from": "e-s19-s21",
-    "to": "f-s22-s25",
+    "to": "f1-s22-s24",
     "cut": "J",
     "offset": 0.4,
     "frames": 12,
@@ -356,7 +546,7 @@
      "frames": 12
     },
     "hidden": {
-     "segment": "f-s22-s25",
+     "segment": "f1-s22-s24",
      "local": [
       0.0,
       0.4
@@ -365,21 +555,50 @@
     "voice_lead": 0.34,
     "voice_lag": -1.394,
     "moves_hidden": []
+   },
+   {
+    "scene": "S25",
+    "from": "f1-s22-s24",
+    "to": "f2-s25",
+    "cut": "L",
+    "offset": 0.4,
+    "frames": 12,
+    "t_sound": 491.5333,
+    "t_picture": 491.1333,
+    "zone": [
+     491.1333,
+     491.5333
+    ],
+    "freeze": {
+     "segment": "f2-s25",
+     "frame": "first",
+     "frames": 12
+    },
+    "hidden": {
+     "segment": "f1-s22-s24",
+     "local": [
+      41.2333,
+      41.6333
+     ]
+    },
+    "voice_lead": -0.44,
+    "voice_lag": -0.606,
+    "moves_hidden": []
    }
   ],
   "stems_sha256": {
-   "music": "724705977050abb558272ab182924785fd04193b15ddf3f78e19dcbc6aaafba0",
-   "room": "5d0d01b804ad84954c4b06d63f588e0c3d640f1ee111ea24a10b005692ddb3a8",
-   "sfx": "d2d1b2ca9204b1e6a4946cb2580cd3519b9dbc78c1e1739220fb2216a60766a6",
-   "sonify": "9a37bf4b7a49981eb94f4eefb0d020ab6e5d655ba32be77f3c46fafc556b4909",
+   "music": "ce11e885fd1f8727bc90d4ad3144568a52310553b513e47a18911d0bf3a31fca",
+   "room": "d7288cb8f6a7b6b3a5dfdf90d567d1b5673a4b7872c61abe1dbc51f28efdacee",
+   "sfx": "75679b630e0cbd61d4e32795417d6bd0bebe3b7ec0836345d53d6c682d4d5768",
+   "sonify": "9dbecd62c6e2bff7199bdbddfa6d4500c9286c95b47fa9af480223d8802d9430",
    "voice": "eb514543f59141b6cafc1b643a9b4e9a105c25166c67609d7bba86bc559121e0",
-   "whoosh": "528767364f8efc85f0642613cef899b88525bbc3b5acefa57cfff28043947a63"
+   "whoosh": "06882d0729232cbed1d07537eb5c98a6f45cc3cc09c9d9563c92979b85398f82"
   },
-  "mix_raw_sha256": "9699b687d91594abc3601c30074e52cf8fee36b791130da21dbc68facfc97773",
-  "master_wav_sha256": "6992f99df710ad477b3914f4f3aa12a2b85cc6d96b9798764aea7f012f6ffb6f"
+  "mix_raw_sha256": "c0ff90e659f2b22eb6cd1d65e64b5a603a469683a70fd4186eeb132e1a4fdded",
+  "master_wav_sha256": "89f35af0771d08d6ef624de0ce6919cfe6e2d9029fa3eae5c677329656abd676"
  },
  "video": {
   "file": "episodes/ep009/work/factory/video.mp4",
-  "sha256": "5a04d5b783fbc4961547e532f4657bb24e34eb50d5f4362767fe4e629d83e913"
+  "sha256": "2704585928ea7d2e065873159b274f9eb04a62f0a798a59e24770a19ac1fc170"
  }
 }

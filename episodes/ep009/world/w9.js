@@ -33,6 +33,33 @@ export async function setup(seg, res, poses, { shadowBox = 30 } = {}) {
   }
   const CAM = Camera(poses, GM);
   if (!grey) { const apply0 = CAM.apply.bind(CAM); CAM.apply = (t) => { grade(scene, key, (S.episode_t0 || 0) + t); return apply0(t); }; }
+  // M5 nhịp (Editor, như Tập 8 vòng nhịp 1–2): máy tiến chậm khi đứng giữa hai động tác (spine.hold_push)
+  if (S.hold_push) {
+    const HP = S.hold_push, ms = [...GM].sort((a, b) => a.t0 - b.t0), apply1 = CAM.apply, pad = S.pad ?? 0.25;
+    const cw = (S.beats || []).flatMap((b) => Object.values(b.cues || {})).sort((a, b) => a - b);
+    const run = (a, b) => cw.reduce((q, c) => q - Math.max(0, Math.min(b, c + pad) - Math.max(a, c - pad)), Math.max(0, b - a));   // giờ đứng trừ ±pad quanh cue
+    const holds = ms.map((m, i) => [i ? ms[i - 1].t1 : 0, m.t0]).concat([[ms.length ? ms[ms.length - 1].t1 : 0, S.total]]);
+    // vòng 2 (đồ thị): k "thở" tam giác 0 ↔ trần với tốc độ r (trần nhỏ vì nhãn sát chrome; đẩy một chiều trải cả quãng dài quá chậm cho freezedetect)
+    const tri = (x) => 1 - Math.abs(1 - (x % 2));
+    const kOf = holds.map(([h0, h1]) => {
+      if (h1 - h0 < 3) return () => 0;
+      const pn = ms.length ? (h0 > 0 ? ms.find((m) => m.t1 === h0)?.to : ms[0].from) : null;   // tư thế của quãng đứng
+      const chart = CAM.poseAt((h0 + h1) / 2).chart > 0.5, [r, cap0] = chart ? HP.chart : HP.world, L = run(h0, h1);
+      const cap = chart && HP.caps && pn && HP.caps[pn] !== undefined ? HP.caps[pn] : cap0;   // nhãn dưới sát dòng chrome (verify F-2: cStacks "rent")
+      if (chart && HP.breathe) return (t) => cap * tri(r * run(h0, t) / cap);
+      const K = Math.min(r * L, cap); return (t) => (L > 0 ? K * run(h0, t) / L : 0);
+    });
+    CAM.apply = (t) => {
+      const p = apply1(t); let k = 0;
+      for (let i = 0; i < holds.length; i++) {
+        const [h0, h1] = holds[i];
+        if (t >= h0 && t < h1) { k = kOf[i](t); break; }
+        if (i < ms.length && t >= ms[i].t0 && t < ms[i].t1) { k = kOf[i](ms[i].t0) * (1 - ease(t, ms[i].t0, ms[i].t1)); break; }
+      }
+      if (k > 0) { const c = CAM.cam; c.position.set(...p.pos.map((v, j) => p.tgt[j] + (v - p.tgt[j]) * (1 - k))); c.lookAt(...p.tgt); c.updateMatrixWorld(); }
+      return p;
+    };
+  }
   return { S, CL, D: (k) => CL[k].display, DATA, cue, MV, st, O: st.O, renderer: st.renderer, scene, floor, key, CAM, grey };
 }
 

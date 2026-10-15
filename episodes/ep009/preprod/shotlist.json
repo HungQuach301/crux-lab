@@ -1,0 +1,214 @@
+{
+ "shots": [
+  {
+   "id": "a1-s01-s02:m_push",
+   "scene": "S01",
+   "size": "world",
+   "move": "push",
+   "moveReason": "mở: đẩy nhẹ vào phố chưa sáng, tường cột đang mọc"
+  },
+  {
+   "id": "a1-s01-s02:m_c1",
+   "scene": "S01",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "tỉ lệ chỉ ở đồ thị (quy tắc 1), sau 5 s thế giới (quy tắc 7)"
+  },
+  {
+   "id": "a1-s01-s02:m_nina",
+   "scene": "S02",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "từ tường cột sang người: Nina và tiền để dành"
+  },
+  {
+   "id": "a1-s01-s02:m_st",
+   "scene": "S02",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "lùi lên phố: tiền của Nina đặt cạnh con phố"
+  },
+  {
+   "id": "a2-s03:m_w",
+   "scene": "S03",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "câu hỏi của Nina: về thế giới, ở cửa cô"
+  },
+  {
+   "id": "a2-s03:m_wall",
+   "scene": "S03",
+   "size": "world",
+   "move": "pull",
+   "moveReason": "nghịch lý: lùi thấy cả phố và tường cột phía sau"
+  },
+  {
+   "id": "a2-s03:m_c2",
+   "scene": "S03",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "định nghĩa đống: số chỉ ở đồ thị, cận kệ N6"
+  },
+  {
+   "id": "b1-s04:m_c1",
+   "scene": "S04",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "số chỉ ở đồ thị: nhà + cọc + hộp chính diện"
+  },
+  {
+   "id": "b1-s04:m_g",
+   "scene": "S04",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "vì sao: đường $1 trong cổ phiếu"
+  },
+  {
+   "id": "b2-s05-s06:m_p",
+   "scene": "S05",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "đống của người thuê: khối đầu + bó mỗi tháng"
+  },
+  {
+   "id": "b2-s05-s06:m_w",
+   "scene": "S05",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "kết hồi: về nhà đầu phố (thế giới)"
+  },
+  {
+   "id": "b2-s05-s06:m_c2",
+   "scene": "S05",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "đối thủ: một mức tăng cố định vs bản ghi thật (đồ thị)"
+  },
+  {
+   "id": "c-s08-s13:m_w1",
+   "scene": "S08",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "câu hỏi hồi 2: về phố (thế giới)"
+  },
+  {
+   "id": "c-s08-s13:m_demo",
+   "scene": "S08",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "luật đèn trên hai nhà mẫu cạnh phố"
+  },
+  {
+   "id": "c-s08-s13:m_c1",
+   "scene": "S09",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "đếm cả phố: nhìn cao, số chỉ ở đồ thị"
+  },
+  {
+   "id": "c-s08-s13:m_n",
+   "scene": "S09",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "tháng của Nina: lô trống qua cuối phố"
+  },
+  {
+   "id": "c-s08-s13:m_s",
+   "scene": "S09",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "đi dọc phố từ 1991"
+  },
+  {
+   "id": "c-s08-s13:m_r1",
+   "scene": "S12",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "phố tối: lại gần khối giữa phố"
+  },
+  {
+   "id": "c-s08-s13:m_06",
+   "scene": "S12",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "một nhà: June 2006 nhấc khỏi phố"
+  },
+  {
+   "id": "d1-s14-s15:m_sh",
+   "scene": "S14",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "từ hàng đống sang một đống: kệ N6 ngang tầm mắt"
+  },
+  {
+   "id": "d1-s14-s15:m_g",
+   "scene": "S14",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "câu hỏi đếm: lùi lên nhìn thẳng cả phố"
+  },
+  {
+   "id": "d1-s14-s15:m_12",
+   "scene": "S15",
+   "size": "chart",
+   "move": "pan",
+   "moveReason": "nhà sáng nhất lần trước: April 2012 nhấc lên"
+  },
+  {
+   "id": "d2-s16-s18:m_g2",
+   "scene": "S16",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "về cả phố: khối 2009–2016"
+  },
+  {
+   "id": "e-s19-s21:m_r1",
+   "scene": "S19",
+   "size": "chart",
+   "move": "push",
+   "moveReason": "nền lớn: lại gần khối nhà"
+  },
+  {
+   "id": "e-s19-s21:m_g",
+   "scene": "S20",
+   "size": "chart",
+   "move": "pull",
+   "moveReason": "hệ quả trên cả phố: nhìn thẳng từ trên"
+  },
+  {
+   "id": "f1-s22-s24:m_w",
+   "scene": "S22",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "giới hạn của số: về cửa Nina (thế giới)"
+  },
+  {
+   "id": "f1-s22-s24:m_c",
+   "scene": "S23",
+   "size": "chart",
+   "move": "mode",
+   "moveReason": "thẻ giới hạn + bảng điểm (đồ thị)"
+  },
+  {
+   "id": "f2-s25:m_w2",
+   "scene": "S25",
+   "size": "world",
+   "move": "mode",
+   "moveReason": "quay lại khung 0:00 (thế giới)"
+  },
+  {
+   "id": "f2-s25:m_lot",
+   "scene": "S25",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "chuyền: lô trống của Nina qua cuối phố"
+  },
+  {
+   "id": "f2-s25:m_door",
+   "scene": "S25",
+   "size": "world",
+   "move": "pan",
+   "moveReason": "câu cuối là của Nina: ở cửa cô"
+  }
+ ]
+}
