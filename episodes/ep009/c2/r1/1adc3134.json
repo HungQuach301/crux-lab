@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wants to know whether renting and investing the difference beats buying a $400,000 home. It replays two \"twins\", a buyer and a renter, from every start month since 1991 with real home prices, rents, mortgage rates and stock returns. Each house on the \"street\" is lit if the buyer ends ahead and dark if the renter does. It starts from the earlier cash-pile result (buyer ahead most of the time), then moves the renter's pile into stocks and tests the assumptions that could change the outcome.\n\n2. The answer is that it is about a coin flip, and it depends on the assumed rent. With stocks over ten years, the buyer ended ahead in 152 of 307 start months, about half. 80 months flipped from buyer to renter and none flipped the other way. The lit share is 78 percent for starts from 2009 to mid-2016, and zero of 72 for 2002 to 2007. Over fifteen years, only about 1 in 5 starts left the buyer ahead. If the renter doesn't save the monthly gap and invests only the $92,000, the buyer leads in about 2 in 3 months. With a 1 percent annual fee, the buyer leads in 55 percent of months. At a 5 percent rent-to-price tag the street splits almost exactly in half. Above about 5.1 percent, most houses are lit (the buyer wins), and below it most go dark.\n\n3. One passage confused me: \"Above about 5.1 percent, most houses light up; below it, most go dark. Public asking-rent data from the Census Bureau put the tag on both sides of that line, and the card shows the range.\" It doesn't say which side is more plausible for a typical renter, so I can't tell where my own rent falls. A smaller point is the lit/dark metaphor, which I had to keep translating as \"buyer ahead\" or \"renter ahead\" until it settled in. \"Half a street, lit in stretches; now, a longer stay\" also read as a fragment.\n\n4. My attention dropped most here: \"The renting twin's rent comes from one assumption, the tag on her door: a year's rent equal to 5 percent of the price, as of July 2026. Her stocks earn their returns before fees and taxes, with dividends reinvested.\" It's a dense stack of assumptions delivered in a row, with no number I could compare to my own situation. It also comes right after a similar paragraph on the buyer's costs.\n\n5. No to both. The video says \"It's history, not a forecast,\" that \"None of this ranks stocks above a house, or a house above stocks,\" and that Nina's own ten years are still ahead of her. It also lists its limits: US only, no taxes on gains or on the home, and renters who never skip a month.\n\n6. There is no direct advice. A viewer could take away that \"rent and invest the difference\" is not a sure win. It depends on the rent-to-price ratio where they live, on whether they invest every month, on fees and taxes, and on how long they will stay. A viewer might also conclude that the monthly saving habit matters more than the lump sum, and that a longer stay favors the investing renter in this data.\n\n7. Mostly my own conclusion. The narration deliberately declines to recommend anything. It does point to which levers matter (rent tag, monthly discipline, fees, horizon), so the takeaway about what to check follows from its emphasis, but the \"what to do\" part is mine.\n\n8. Partly. It answered the question as asked. No, she doesn't reliably end up ahead: stocks beat home prices almost every time, yet the buyer still came out ahead in half of the ten-year windows, because the mortgage lets the house grow on the full $400,000. It did not tell me what to do in my own case. It never says where a typical rent tag falls relative to 5.1 percent, how taxes and the mortgage interest deduction would change things, or how long I should plan to stay. The ending hands the decision back to the rent tag, which is the one number I would have to look up myself.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3920,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 3920,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4050,
+   "cache_read": 1496,
+   "output": 2375,
+   "in": 5548,
+   "out": 2375
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0405061
+}

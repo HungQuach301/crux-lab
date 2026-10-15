@@ -1,0 +1,5 @@
+# C2 — Ý đồ kiểm mù lời (ghi TRƯỚC khi chạy)
+
+Ngày 2026-10-15. Kịch bản C2 v1 (`story/script.md`, WRITER headless; kiểm máy ĐẠT, ước 9:40). Mẫu `c2/sample.txt` = lời nói nguyên văn theo cảnh (không ghi chú, không bảng nhịp). Giao thức `episode.md` §2 + §1b.4: **6 người đọc headless Sonnet (5 T + 1 G) + 1 người đọc Haiku (T)** — Tập 9 là lượt "model khác mỗi 3 tập"; Haiku chấm cùng rubric, báo riêng, không tính ngưỡng — **1 người chấm** headless Sonnet độc lập, nhãn ngẫu nhiên. Vai T = người hỏi câu 4 hồ sơ cầu ("rent and invest the difference"). Câu hỏi cố định + câu "Did the video answer the question you came with?". Dự kiến 8 lượt (≈ $0,5).
+**Ngưỡng (6 người Sonnet):** đúng ≥ 5/6; `advice_stated` 0; không loại khối mất chú ý nào ≥ 4/6 (chặn); loại khối ≥ 2/6 → WRITER mới sửa khối đó (≤ 2 vòng). `advice_inferred` báo, không chặn (A28). Haiku lệch đạt/trượt hoặc lệch loại khối → nêu ở G1.
+**Điểm cần soát (điều phối ghi trước):** S03.3 "stocks outgrew the house almost every time" (claim 88,9 %) — nếu người đọc/REVIEWER đọc thành "luôn" → sửa thành "about 9 in 10".

@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who is deciding whether to buy a $400,000 home or keep renting and invest the difference. It replays a buying twin and a renting twin from every start month since 1991, using real home prices, rents, mortgage rates and stock returns. The renter's pile is the $92,000 plus every month's gap between owning costs and rent, all put into the US stock market. It first shows that cash left the buyer ahead most of the time. Then it shows that stocks made it about half, tests which assumptions move that half (horizon, the monthly deposits, fees, the rent level), and ends on Nina's own case.\n\n2. Over ten years, with the renter's pile in stocks, the buyer finished ahead in 152 of 307 start months (about half). With the pile in cash, the buyer was ahead about 3 in 4 times, and 80 months switched from buyer to renter with none going the other way. Over fifteen years, the buyer was ahead only about 1 in 5 times with stocks. The result is lumpy: starts from 2002 to 2007 were all renter wins, and 2009 to mid-2016 starts were 78% buyer wins. It also depends heavily on the rent assumption of 5% of price per year. Above about 5.1% most buyers win, and below it most renters win. So the answer is roughly a coin flip over ten years that the rent level tips, and renting and investing wins more often the longer the stay.\n\n3. \"Over fifteen years, the street turns over.\" and \"Longer stays favored the pile; one assumption is still untouched.\" Both are cryptic transitions, and I couldn't tell what \"turns over\" or \"untouched\" was pointing to until later. \"June 2006 was the darkest house last time\" and \"April 2012 was the brightest house last time\" also assume I saw a previous video. The \"lit/dark\" metaphor is also only defined partway through, after the opening already used its results. \"Half a street, lit in stretches; now, a longer stay.\" is a fragment that I had to read twice.\n\n4. \"Everything else is as it was last time on this street. The buying twin's $92,000 becomes the down payment and closing costs on a $400,000 home.\" My attention dropped here. It is a stretch of setup detail (mortgage, tax, insurance, repairs, 6% selling cost, rent tag, fees) delivered as a list with no new insight, and it leans on a previous video.\n\n5. No. The video says it is \"history, not a forecast.\" It says \"None of this ranks stocks above a house, or a house above stocks.\" It also notes that stability and control are not counted. It never predicts future prices, rents or returns, and it names its limits: US only, no taxes on gains or on the home, and renters who never skip a month.\n\n6. The video gives no direct advice. A viewer could take away that \"rent and invest the difference\" is not a sure win, because buying came out ahead about half the time even when stocks beat home prices nearly every time. The result depends on the rent-to-price ratio, how long you stay, and whether you really invest every month. A viewer might therefore check their own rent against the cost of owning, and consider their time horizon.\n\n7. That takeaway is my own conclusion. The narration deliberately avoids recommending anything, though \"the answer sits on the rent tag\" points the viewer toward checking their own rent.\n\n8. Partly. It answered the question for past data: renting and investing does not reliably beat buying, and over ten years it was about even. It explained why, since the mortgage lets the house grow on all $400,000 while the pile starts at $92,000. It could not say whether I would come out ahead, because the answer depends on rent level, my stay, and future markets. The rent-tag section and the fifteen-year section gave me the most useful guidance for my own case.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3920,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 3920,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4050,
+   "cache_read": 1496,
+   "output": 2280,
+   "in": 5548,
+   "out": 2280
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0395566
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who is deciding whether to buy a $400,000 home or keep renting and invest the difference. It replays two \"twins\" (a buyer and a renter) across 307 start months from 1991 to 2016, using actual home prices, rents, mortgage rates and stock returns. With the renter's pile in cash, the buyer mostly comes out ahead. With the pile in stocks, the buyer wins only about half the time, and over fifteen years the renter mostly wins. It then explains why, tests a few assumptions (no monthly saving, fees, rent level), and ends on the caveats.\n\n2. Investing the difference makes it roughly a coin flip. Over ten years, the buyer was ahead in 152 of 307 start months (about half), and 80 months flipped from buyer to renter versus none the other way. Over fifteen years, the buyer led in only about 1 in 5 of 247 starts. The result is sensitive to the rent assumption: at 5% of price per year the street splits evenly, above about 5.1% most buyers win, below it most renters win. Stocks beat home prices in about 9 in 10 ten-year windows, yet buying still wins half the time because the mortgage lets the house grow on all $400,000, while the pile starts at $92,000.\n\n3. \"Nina rents, with $92,000 saved and one twin for each choice.\" It was hard to parse on a first listen. It introduces the twins in the middle of a sentence about Nina's savings, and the \"cash vs. stocks\" comparison arrives before I knew what was being compared. Also: \"Half a street, lit in stretches; now, a longer stay.\" The phrasing is clipped and the transition is cryptic. And \"lit\" and \"dark\" are never defined until partway through, so the opening statistics (3 in 4, half, 1 in 5) were hard to anchor.\n\n4. \"A lot of rent-versus-buy math picks one growth rate for stocks and one for homes, then lets them run. That gives a single, tidy answer, and it hides the order in which the good and bad years arrived.\" My attention dropped here because it is a methodological aside, and it interrupts the story of the street and the houses just as the results were building.\n\n5. No. It says explicitly that it is history, not a forecast, and that it doesn't rank stocks above a house or the reverse. It says the half is \"a count of what already happened, not a promise about Nina's month.\" It also notes that stability and control aren't counted, and lists limits: US only, no taxes on gains or the home, and renters who never skip a month.\n\n6. A viewer would take away that \"rent and invest the difference\" is not a sure win: it depends on the rent-to-price ratio, on how long you stay, on whether you invest the monthly savings consistently, on fees, and on when you start. A viewer might also conclude to check their own local rent-to-price ratio and expected time horizon before deciding.\n\n7. That is my own conclusion. The video states no advice and ends on \"investing the difference made her street a coin flip, and her rent tag tips it.\" That is a finding, not a recommendation. The takeaways about checking rent ratio and time horizon are inferences I drew from the sensitivity tests.\n\n8. Partly. It answered the \"does she really end up ahead\" question: not reliably, about a coin flip over ten years, and the renter tends to win over fifteen. It also explained why the intuition \"stocks beat homes, so renting wins\" fails: leverage on the larger base. It did not tell me what would happen for my own situation. It never says where Nina's rent tag falls, only that Census data put it on both sides of the 5.1% line, so my specific answer depends on my local rent and how long I'd stay.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3920,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 3920,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4048,
+   "cache_read": 1496,
+   "output": 1202,
+   "in": 5546,
+   "out": 1202
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0287681
+}
