@@ -11,7 +11,7 @@ const LX = -36, LW = 12, LY = 0.3, LSY = 0.62;   // vùng đồ thị đường 
 export async function boot(res) {
   const poses = {
     wHouse: { pos: [-0.6, 0.75, 3.2], tgt: [0.2, 0.45, 0], fov: 40, chart: 0 },
-    cHouse: { pos: [-1.3, 1.6, 10.5], tgt: [-1.3, 1.45, SZ], fov: 24, chart: 1 },
+    cHouse: { pos: [-1.1, 1.6, 10.5], tgt: [-1.1, 1.45, SZ], fov: 28, chart: 1 },
     cLines: { pos: [LX + LW / 2, LY + 1.7, 16], tgt: [LX + LW / 2, LY + 1.7, -2], fov: 26, chart: 1 },
   };
   const { S, DATA, cue: b, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
@@ -56,6 +56,8 @@ export async function boot(res) {
     label(O, 'stocks', px + 30, Math.min(by + 50, 850), { align: 'center', kind: 'name', px: 40, alpha: nm * show(t, b.b2.stocks), color: STK });
     label(O, 'with cash: $48,410 ahead', 960, 320, { align: 'center', kind: 'number', px: 52, alpha: hA * show(t, b.b1.ahead, b.b2.stocks - 0.3), color: C.warn, claims: ['adv_1991-01_cash_10y'] });
     label(O, 'with stocks: $485,063 behind', 960, 320, { align: 'center', kind: 'number', px: 56, alpha: hA * show(t, b.b2.behind, MV.m_g.t0), color: STK, claims: ['adv_1991-01_stocks_10y'] });
+    const [h0x, h0y] = O.toScreen(0.15, 0.9, 0);
+    label(O, d0 > 0.5 ? 'first house: dark' : 'first house: lit', h0x + 30, h0y - 20, { align: 'left', kind: 'name', px: 40, alpha: hA * show(t, b.b1.ahead) * (t < MV.m_g.t0 ? 1 : 0), color: d0 > 0.5 ? STK : LIT });
     label(O, 'same house, same mortgage, same rent', 960, 400, { align: 'center', kind: 'name', px: 44, alpha: hA * show(t, b.b3.only - 0.4, MV.m_g.t0) });
     log.roi['b1.ahead'] = [500, 270, 1420, 360]; log.roi['b2.behind'] = [460, 270, 1460, 360];
     const lA = ok * (t > MV.m_g.t1 - 0.2 && t < MV.m_p.t0 + 0.2 ? 1 : 0), [ex, ey] = O.toScreen(LX + LW, LY + g1 * LSY, -2), [sx, sy] = O.toScreen(LX, LY + LSY, -2);

@@ -46,7 +46,11 @@ def keydir(run):
 def do_strips(video, run):
     se = {s['id']: s for s in tl()['sentences']}; bt = beats(); o = rdir(run); o.mkdir(parents=True, exist_ok=True)
     def span(b):   # Tập 9: dải = từ đầu câu đầu tới hết câu cuối của nhịp (+0,4 s), tối thiểu 3 s
-        a, z = se[bt[b]['first']]['start'], se[bt[b]['last']]['end'] + 0.4
+        sc = bt[b]['scene']; ids = sorted((k for k in se if k[:3] == sc), key=lambda k: int(k[4:]))
+        num = lambda k: int(k.split('.')[1])
+        f = next((k for k in ids if num(k) >= num(bt[b]['first'])), ids[-1]); l = [k for k in ids if num(k) <= num(bt[b]['last'])][-1] if bt[b]['last'][:3] == sc else bt[b]['last']
+        l = l if l in se else max((k for k in se if k[:3] == l[:3] and num(k) <= num(l)), key=num)   # câu đã gộp ở C2 v4/v5 → câu gần nhất còn lại
+        a, z = se[f]['start'], se[l]['end'] + 0.4
         if z - a < 3.0: a, z = a - (3.0 - (z - a)) / 2, z + (3.0 - (z - a)) / 2
         return [round(max(0, a), 3), round(z, 3)]
     spans = {b: span(b) for b in IMAGE}

@@ -1,0 +1,111 @@
+{
+ "items": [
+  {
+   "item": "master sàn chữ",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 40 px",
+   "note": "0 lần engine nâng cỡ"
+  },
+  {
+   "item": "master tương phản",
+   "result": "ĐẠT",
+   "value": null,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "master vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "master va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "master nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "master nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "0 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "master đối trọng \"US only · history, not a forecast\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"Nina and her twins are illustrative · real prices, rents, rates and stock returns\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "master đối trọng \"Not advice to buy, rent or invest\"",
+   "result": "TRƯỢT",
+   "value": 0,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "trục từ 0",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 shot bars/line có min > 0",
+   "note": "swarm: vị trí chấm, không phải độ dài"
+  },
+  {
+   "item": "freezedetect d=3 ∩ lời",
+   "result": "TRƯỢT",
+   "value": 184.55,
+   "threshold": "0 s",
+   "note": "40 đoạn đứng yên ≥ 3 s cả phim: [[36.8, 42.8667], [42.8667, 47.5333], [83.1667, 87.6]]"
+  },
+  {
+   "item": "mốc hình ≥ mốc từ",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": "0 mốc"
+  },
+  {
+   "item": "loudness",
+   "result": "ĐẠT",
+   "value": "-14.0 LUFS / -2.2 dBTP",
+   "threshold": "-14 ± 1 LUFS, ≤ -2.0 dBTP",
+   "note": ""
+  },
+  {
+   "item": "kích thước phần",
+   "result": "ĐẠT",
+   "value": 57.6,
+   "threshold": "≤ 90 MB mỗi phần",
+   "note": "3 phần 720p"
+  },
+  {
+   "item": "luật format",
+   "result": "ĐẠT",
+   "value": "lab",
+   "threshold": "scope full",
+   "note": "lab: 524 s < soft minimum 540 s (không độn: shorter is fine, never pad)"
+  }
+ ],
+ "near": [],
+ "pass": false
+}

@@ -1,0 +1,56 @@
+{
+ "candidate_set": "ep009",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep009",
+   "id": "B11",
+   "kind": "image",
+   "scores": [
+    0.5
+   ],
+   "readers": 1,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "NEED_MORE",
+   "why": [
+    "Rent as assumption captured; lit-street reading speculative, incomplete / Captures rent assumption and stock pile question; misses that assumption is the point; no advice."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    0.5
+   ],
+   "readers": 1,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "NEED_MORE",
+   "why": [
+    "Outcome near coin-flip, assumption-sensitive; 'data on both sides' only partly / Grasps assumption sensitivity, but not 'public data on both sides of line'; own inference."
+   ]
+  }
+ ],
+ "gate_beats": 2,
+ "gate_pass": 0,
+ "pending": [
+  "B11",
+  "B30"
+ ],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "verdict": "PENDING",
+ "verdict_old": "PENDING",
+ "verdict_new": "PENDING",
+ "advice_beats_old": [
+  "B30"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 2
+}

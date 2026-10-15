@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea.** The frames show a grid of small house icons. Each icon seems to stand for one starting month, from January 1991 to July 2016, and the sources cited are FHFA, BLS, Freddie Mac and K. R. French (CRSP). A lit icon means the buyer was ahead after ten years. A dark icon means the renter who invested the difference had the bigger pile. The point is that buy-versus-rent comes out differently depending on when you start.\n\n2. **What changes over time.** The icons light up in columns, moving left to right across the grid. Frames 1 to 3 show a growing share of lit icons, and the frame 1 caption reads \"1990s: about 2 in 3 lit.\" In frames 4 to 6 a label reads \"darkest: January 1991.\" It sits near the bottom-left, where the starting months are mostly dark. The grid fills in gradually. It does not flip all at once.\n\n3. **What it means.** Looking back over history, the winner depended on the start date. Buying beat renting-and-investing for some starting months, and renting beat buying for others. Neither side won every time. In the 1990s the buyer was ahead about two-thirds of the time. A January 1991 start was one of the worst cases for the buyer. The frames don't show how big the gaps were, only which side was ahead.\n\n4. **Advice a viewer would take.** The frames give no direct advice. A viewer would likely come away thinking that \"rent and invest the difference\" doesn't reliably win, and that buying doesn't either. The outcome depends on timing and on what happens in markets, so neither choice is a sure thing.\n\n5. **Source of that takeaway.** It is my own conclusion. The on-screen text says only \"ILLUSTRATIVE,\" \"US only · history, not a forecast,\" and the lit/dark legend. It does not tell the viewer what to do, and it explicitly says the history is not a forecast.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1470,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 201,
+   "in": 1470,
+   "out": 201
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3862,
+   "cache_read": 6695,
+   "output": 704,
+   "in": 10561,
+   "out": 704
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.023413
+}

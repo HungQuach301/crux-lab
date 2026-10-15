@@ -10,7 +10,7 @@ const WZ = -12;   // tường cột sau phố
 
 export async function boot(res) {
   const poses = {
-    w0: { pos: [12, 3.6, 10.5], tgt: [12, 1.6, -8], fov: 50, chart: 0 },
+    w0: { pos: [12, 3.2, 3.5], tgt: [12, 2.6, -12], fov: 58, chart: 0 },
     cWall: { pos: [12, 3.4, WZ + 22], tgt: [12, 2.6, WZ], fov: 34, chart: 1 },
     cNina: { pos: [(BOX.x + NINA.x) / 2, 1.2, 8.5], tgt: [(BOX.x + NINA.x) / 2, 0.6, 0.4], fov: 26, chart: 1 },
     cStreet: { pos: [17, 17, 14], tgt: [16, 0, -4.5], fov: 44, chart: 1 },
@@ -78,6 +78,7 @@ export async function boot(res) {
     label(O, 'with cash: buyer ahead about 3 in 4', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a2.ahead, b.a3.half - 0.2), color: C.warn, claims: ['share_buyer_ahead_cash_10y'] });
     label(O, 'with stocks: about half', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a3.half, b.a4.fifteen - 0.2), color: STK, claims: ['share_buyer_ahead_stocks_10y'] });
     label(O, '15 years · cash: every one', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a4.every, b.a4.stocks - 0.2), color: C.warn, claims: ['hold_15y', 'share_buyer_ahead_cash_15y'] });
+    label(O, 'longer stay: the answer flips', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: sA * show(t, b.a4.stocks + 0.6) });
     label(O, '15 years · stocks: about 1 in 5', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a4.stocks), color: STK, claims: ['hold_15y', 'share_buyer_ahead_stocks_15y'] });
     const [cx, cy] = O.toScreen(BOX.x, 1.2, BOX.z);
     label(O, sw < 0.5 ? "renter's money: cash" : "renter's money: stocks", cx, cy - 40, { align: 'right', kind: 'name', px: 40, alpha: sA * show(t, b.a2.cash - 0.1), color: sw < 0.5 ? C.warn : STK });
@@ -93,7 +94,8 @@ export async function boot(res) {
     const pA = ok * (t > MV.m_c2.t1 - 0.2 ? 1 : 0), [px, py] = O.toScreen(SHELF.x + 1.0, pile.lineY(), SHELF.z + 0.55);
     label(O, '$92,000', px + 10, py, { align: 'left', kind: 'number', px: 48, alpha: pA * show(t, b.a9.pile), claims: ['savings_usd'] });
     label(O, '+ the monthly gap', 960, 250, { align: 'center', kind: 'name', px: 52, alpha: pA * show(t, b.a9.plus) });
-    label(O, 'every month, even in drops (assumption)', 960, 330, { align: 'center', kind: 'name', px: 48, alpha: pA * show(t, b.a10.drop) });
+    label(O, 'every month, even in drops (assumption)', 960, 330, { align: 'center', kind: 'name', px: 48, alpha: pA * show(t, b.a10.market - 0.6) });
+    label(O, usd < 92000 ? 'below $92,000 — still adding' : '', 960, 880, { align: 'center', kind: 'number', px: 44, alpha: pA * (t > b.a10.market - 0.6 ? 1 : 0), color: C.warn, claims: ['savings_usd'] });
     label(O, "renting twin's pile: whole US stock market", 960, 880, { align: 'center', kind: 'name', px: 44, alpha: pA * show(t, b.a10.market, S.ident[0]), color: STK });
     log.roi['a9.pile'] = [px, py - 50, px + 300, py + 30]; log.roi['a9.plus'] = [500, 200, 1420, 290];
     const cwA = show(t, b.a2.cash) * (1 - ease(t, S.ident[0], S.ident[0] + 0.6));

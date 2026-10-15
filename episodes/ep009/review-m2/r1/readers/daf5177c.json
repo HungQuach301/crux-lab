@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea:** The animation sets up a rent-versus-buy comparison. A building has a \"RENT 5%\" sign. The caption says the rent is assumed to be 5% of the home's price per year, as of July 2026. The scene then cuts to a wide view of a large grid of identical small houses. The closing text asks: \"with the pile in stocks: how much of the street stays lit?\" In other words, if the renter invests the money in stocks, how much of the neighborhood could she afford to keep living in?\n\n2. **What changes over time:**\n   - The rent sign swings at first (frame 1), then settles and becomes steady.\n   - The caption fades in on the rent assumption.\n   - The view switches from the building to a street of houses, and the camera pulls back so the rows shrink toward the horizon (frames 4–5).\n   - A new question appears in frame 6.\n   - The source line, the \"ILLUSTRATIVE\" tag and \"US only · history, not a forecast\" stay on screen the whole time.\n\n3. **What it means:** The animation is setting up a thought experiment. It starts with a rent cost of 5% of the home price a year. It then asks how much of the housing \"street\" a renter's invested savings could keep paying for. The lit houses seem to stand for the share of rent the stock portfolio could cover. The frames end on the question and show no answer. The sources named are FHFA (house prices), BLS (rents and inflation), Freddie Mac (mortgage rates) and Kenneth R. French (CRSP, stock returns). The tags say it is illustrative, US-only, and based on history rather than a forecast.\n\n4. **Advice a viewer would take:** None. These frames show no verdict on whether renting and investing beats buying. The only message is that the result depends on the assumptions, and the frames don't say which way it goes.\n\n5. **Source of the conclusion:** None. I gave no advice in answer 4. The on-screen text only states the assumption and the question, and adds the \"history, not a forecast\" caveat. My reading of the lit street as the share of rent covered is my own inference. The animation never says it outright.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1468,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 217,
+   "in": 1468,
+   "out": 217
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3862,
+   "cache_read": 6697,
+   "output": 768,
+   "in": 10563,
+   "out": 768
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.024061
+}

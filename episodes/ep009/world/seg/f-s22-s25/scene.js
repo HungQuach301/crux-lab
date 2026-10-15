@@ -12,7 +12,7 @@ export async function boot(res) {
     cTag: { pos: [APT.x + 1.5, 0.8, APT.z + 2.6], tgt: [APT.x - 7, 0.4, -4], fov: 42, chart: 1 },
     wDoor: { pos: [APT.x + 0.9, 1.15, APT.z + 4.2], tgt: [APT.x + 0.6, 0.7, APT.z + 0.6], fov: 36, chart: 0 },
     cGrid: { pos: [11.9, 30, 3.0], tgt: [11.9, 0, -5.2], fov: 36, chart: 1 },
-    w0: { pos: [12, 3.6, 10.5], tgt: [12, 1.6, -8], fov: 50, chart: 0 },   // = đoạn A, khung 0:00
+    w0: { pos: [12, 3.2, 3.5], tgt: [12, 2.6, -12], fov: 58, chart: 0 },   // = đoạn A, khung 0:00
     wLot: { pos: [END_X + 0.2, 1.7, 5.4], tgt: [NINA.x + 0.6, 0.5, -0.8], fov: 42, chart: 0 },
   };
   const { S, DATA, cue: b, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
@@ -42,7 +42,7 @@ export async function boot(res) {
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     chapterCard(O, S.chapter[1], t, S.chapter[0]);
     const tA = ok * (t < MV.m_w.t0 + 0.2 ? 1 : 0);
-    label(O, 'rent tag on her door', 960, 900, { align: 'center', kind: 'name', px: 44, alpha: tA * show(t, b.f0.tag, b.f1.five) });
+    label(O, "rent tag: the renter's yearly rent as a % of the price", 960, 900, { align: 'center', kind: 'name', px: 44, alpha: tA * show(t, b.f0.tag, b.f1.five) });
     label(O, '5%: about half lit', 960, 240, { align: 'center', kind: 'number', alpha: tA * show(t, b.f1.half, b.f2.five - 0.2), claims: ['yield5_tag', 'share_buyer_ahead_stocks_10y'] });
     label(O, 'flip point: about 5.1%', 960, 240, { align: 'center', kind: 'number', alpha: tA * show(t, b.f2.five, MV.m_w.t0), claims: ['flip_yield_stocks_10y'] });
     label(O, 'Census range: 4.83% to 5.59% a year · 47.2% to 58.3% lit', 960, 320, { align: 'center', kind: 'number', px: 46, alpha: tA * show(t, b.f2.both, MV.m_w.t0),
@@ -66,7 +66,7 @@ export async function boot(res) {
       rows.forEach(([s, c, tt, cl], i) => label(O, s, 230, 370 + 100 * i, { kind: 'number', px: 44, alpha: sb * show(t, tt), plate: null, color: c, claims: cl })); }
     log.roi['f8.cash'] = [170, 200, 1750, 760];
     label(O, 'same street as the start · pile in the market', 960, 240, { align: 'center', kind: 'name', px: 48, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f9.same, MV.m_lot.t0) });
-    label(O, 'how long will Nina stay?', 960, 240, { align: 'center', kind: 'name', px: 56, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f10.how, MV.m_door.t0) });
+    label(O, "Nina's own month: not on this street", 960, 240, { align: 'center', kind: 'name', px: 52, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.f10.how, MV.m_door.t0) });
     legend(O, (cw < 0.05 ? 1 : 0) * show(t, b.f9.same, MV.m_lot.t0));
     chrome(O, { illus: 1 });
     st.compose(); log.camMoving = CAM.moving(t); return log;

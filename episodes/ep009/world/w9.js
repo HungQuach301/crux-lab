@@ -65,9 +65,9 @@ export function StockPile(scene, { x = SHELF.x, z = SHELF.z, s = 1, name = 'stoc
 // ---------------------------------------------------------------- B01 cặp cột tăng trưởng: mỗi tháng bắt đầu hai cột mảnh (nhà = ink-muted, cổ phiếu = STK),
 // x = tháng (trái 1991 → phải 2016), cao = $1 thành bao nhiêu sau 10 năm. set({k ∈ [0,1] phần đã mọc, hiS: tô cột cổ phiếu cao hơn, a})
 export function GrowthPairs(scene, gS, gH, { x0 = -30, w = 14, z = -2, unit = 0.55, name = 'growth' } = {}) {
-  const n = gS.length, bw = w / n * 0.42, geo = new THREE.BoxGeometry(bw, 1, 0.12);
+  const n = gS.length, bw = w / n * 0.48, geo = new THREE.BoxGeometry(bw, 1, 0.12);
   const mk = (c) => { const im = new THREE.InstancedMesh(geo, new THREE.MeshStandardMaterial({ color: c, roughness: 0.7, transparent: true }), n); im.frustumCulled = false; scene.add(im); return im; };
-  const H = mk('#9AA4B2'), Sx = mk(STK), M4 = new THREE.Matrix4(), col = new THREE.Color();
+  const H = mk('#4A505A'), Sx = mk('#DCE6FF'), M4 = new THREE.Matrix4(), col = new THREE.Color();
   const X = (i) => x0 + w * i / (n - 1);
   const g = { H, Sx, X, top: (v) => v * unit, n };
   H.userData.checks = { role: 'bar', series: 'house-growth', key: `${name}-house` }; Sx.userData.checks = { role: 'bar', series: 'stock-growth', key: `${name}-stocks` };

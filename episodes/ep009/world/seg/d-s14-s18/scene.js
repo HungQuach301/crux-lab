@@ -80,6 +80,7 @@ export async function boot(res) {
     label(O, 'lowest pile: $54,310', 960, 240, { align: 'center', kind: 'number', px: 60, alpha: aS * show(t, b.d2.sank), color: C.warn, claims: ['min_pot_stocks_10y'] });
     label(O, 'November 2007 start', 960, 320, { align: 'center', kind: 'number', px: 44, alpha: aS * show(t, b.d2.sank, b.d3.every - 0.3), color: C.muted, claims: ['low_start'] });
     label(O, 'assumption: invests every month, through every drop', 960, 320, { align: 'center', kind: 'name', px: 44, alpha: aS * show(t, b.d3.every) });
+    label(O, 'she keeps adding a bundle every month', 960, 400, { align: 'center', kind: 'name', px: 44, alpha: aS * show(t, b.d2.kept, b.d3.every) });
     label(O, 'selling in a crash: not on this street', 960, 400, { align: 'center', kind: 'name', px: 48, alpha: aS * show(t, b.d4.sells) });
     if (sA > 0.05 && cw > 0.9) nameTag(O, twin, aS, { dy: -20 });
     log.roi['d2.sank'] = [500, 190, 1420, 360];
@@ -92,9 +93,11 @@ export async function boot(res) {
     log.roi['d6.lit'] = [300, 180, 1620, 950]; log.roi['d7.not'] = [300, 180, 1620, 950];
     const a12 = ok * (t > MV.m_12.t1 - 0.2 && t < MV.m_g2.t0 + 0.2 ? 1 : 0);
     label(O, 'April 2012 · with stocks: $237,632 ahead', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: a12 * show(t, b.d10.ahead), color: LIT, claims: ['adv_2012-04_stocks_10y'] });
+    label(O, 'brightest house last time: still lit', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: a12 * show(t, b.d9.glows - 0.3) });
     label(O, 'the whole house grew, not just $92,000 of it', 960, 880, { align: 'center', kind: 'name', px: 44, alpha: a12 * show(t, b.d11.whole), claims: ['savings_usd'] });
     log.roi['d10.ahead'] = [400, 190, 1520, 280];
     label(O, '2009 to mid-2016: nearly 4 in 5 lit', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d12.four, b.d15.half - 0.3), color: LIT, claims: ['era_2009-2016_span', 'era_2009-2016_share_stocks'] });
+    label(O, 'after the crash: lit again', 960, 400, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d12.nine, b.d15.half - 0.3) });
     label(O, 'lit in stretches · one long dark stretch', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d13.stretches, b.d15.half - 0.3) });
     // B24b: ba cột tỉ lệ sáng theo thời gian ở (5 / 10 / 15 năm) trên tấm nền
     const cA = ok * show(t, b.d15.half - 0.2, b.d18.longer - 0.2);
@@ -106,6 +109,7 @@ export async function boot(res) {
     log.roi['d15.half'] = [560, 260, 1360, 860];
     label(O, '247 fifteen-year starts · cash: every one', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d19.every, b.d20.stocks - 0.2), color: C.warn, claims: ['n_15y', 'share_buyer_ahead_cash_15y'] });
     label(O, '15 years · stocks: about 1 in 5', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d20.one), color: STK, claims: ['hold_15y', 'share_buyer_ahead_stocks_15y'] });
+    label(O, 'longer stay: most lights go out', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d20.stocks, b.d22.tag) });
     label(O, 'next: the rent tag', 960, 880, { align: 'center', kind: 'name', px: 44, alpha: aG * show(t, b.d22.tag) });
     log.roi['d19.every'] = [300, 180, 1620, 950]; log.roi['d20.one'] = [300, 180, 1620, 950];
     legend(O, aG * show(t, b.d6.lit - 0.3) * (cA < 0.5 ? 1 : 0));
