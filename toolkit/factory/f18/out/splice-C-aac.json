@@ -1,0 +1,394 @@
+{
+ "aac_true_peak": {
+  "ceiling": -2.0,
+  "tries": [
+   {
+    "master_tp_target": -2.3,
+    "master_tp": -2.3,
+    "aac_tp": -2.2
+   }
+  ]
+ },
+ "segments": [
+  {
+   "id": "a-s01-s03",
+   "scenes": [
+    "S01",
+    "S02",
+    "S03"
+   ],
+   "t0": 0.0,
+   "t1": 54.9334,
+   "f0": 0,
+   "f1": 1648
+  },
+  {
+   "id": "b-s04-s09",
+   "scenes": [
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09"
+   ],
+   "t0": 54.9334,
+   "t1": 192.0667,
+   "f0": 1648,
+   "f1": 5762
+  },
+  {
+   "id": "c-s10-s15",
+   "scenes": [
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14",
+    "S15"
+   ],
+   "t0": 192.0667,
+   "t1": 297.1667,
+   "f0": 5762,
+   "f1": 8915
+  },
+  {
+   "id": "d-s16-s20",
+   "scenes": [
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S20"
+   ],
+   "t0": 297.1667,
+   "t1": 361.6001,
+   "f0": 8915,
+   "f1": 10848
+  },
+  {
+   "id": "e-s21-s24",
+   "scenes": [
+    "S21",
+    "S22",
+    "S23",
+    "S24"
+   ],
+   "t0": 361.6001,
+   "t1": 444.2,
+   "f0": 10848,
+   "f1": 13326
+  },
+  {
+   "id": "f-s25-s28",
+   "scenes": [
+    "S25",
+    "S26",
+    "S27",
+    "S28"
+   ],
+   "t0": 444.2,
+   "t1": 492.7668,
+   "f0": 13326,
+   "f1": 14783
+  },
+  {
+   "id": "g-s29-s33",
+   "scenes": [
+    "S29",
+    "S30",
+    "S31",
+    "S32",
+    "S33"
+   ],
+   "t0": 492.7668,
+   "t1": 606.7335,
+   "f0": 14783,
+   "f1": 18202
+  }
+ ],
+ "audio": {
+  "segments": [
+   {
+    "id": "a-s01-s03",
+    "gain_db": -2.13,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -39.4,
+     "sonify": -49.7,
+     "sfx": -54.2,
+     "whoosh": -57.0,
+     "room": -61.3
+    },
+    "bed_off": false
+   },
+   {
+    "id": "b-s04-s09",
+    "gain_db": -1.99,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -38.2,
+     "sonify": -48.8,
+     "sfx": -49.3,
+     "whoosh": -57.2,
+     "room": -61.8
+    },
+    "bed_off": false
+   },
+   {
+    "id": "c-s10-s15",
+    "gain_db": -1.94,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -36.2,
+     "sonify": -51.2,
+     "sfx": -51.1,
+     "whoosh": -59.5,
+     "room": -62.0
+    },
+    "bed_off": false
+   },
+   {
+    "id": "d-s16-s20",
+    "gain_db": -1.7,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -35.6,
+     "sonify": -48.6,
+     "sfx": -50.2,
+     "whoosh": -70.8,
+     "room": -61.8
+    },
+    "bed_off": false
+   },
+   {
+    "id": "e-s21-s24",
+    "gain_db": -1.69,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -36.5,
+     "sonify": -45.7,
+     "sfx": -54.5,
+     "whoosh": -59.4,
+     "room": -61.8
+    },
+    "bed_off": false
+   },
+   {
+    "id": "f-s25-s28",
+    "gain_db": -2.32,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -36.0,
+     "sonify": -51.0,
+     "sfx": -49.5,
+     "whoosh": -61.6,
+     "room": -61.8
+    },
+    "bed_off": false
+   },
+   {
+    "id": "g-s29-s33",
+    "gain_db": -1.83,
+    "gain_basis": "voice_rms",
+    "layers_rms_dbfs": {
+     "music": -35.4,
+     "sonify": -48.0,
+     "sfx": -53.8,
+     "whoosh": -59.9,
+     "room": -62.0
+    },
+    "bed_off": false
+   }
+  ],
+  "stems": [
+   "music",
+   "room",
+   "sfx",
+   "sonify",
+   "voice",
+   "whoosh"
+  ],
+  "peak_scale": 1.0,
+  "joins": [
+   {
+    "scene": "S04",
+    "from": "a-s01-s03",
+    "to": "b-s04-s09",
+    "cut": "J",
+    "offset": 0.5,
+    "frames": 15,
+    "t_sound": 54.9333,
+    "t_picture": 55.4333,
+    "zone": [
+     54.9333,
+     55.4333
+    ],
+    "freeze": {
+     "segment": "a-s01-s03",
+     "frame": "last",
+     "frames": 15
+    },
+    "hidden": {
+     "segment": "b-s04-s09",
+     "local": [
+      0.0,
+      0.5
+     ]
+    },
+    "voice_lead": 0.41,
+    "voice_lag": -4.486,
+    "moves_hidden": []
+   },
+   {
+    "scene": "S10",
+    "from": "b-s04-s09",
+    "to": "c-s10-s15",
+    "cut": "J",
+    "offset": 0.5,
+    "frames": 15,
+    "t_sound": 192.0667,
+    "t_picture": 192.5667,
+    "zone": [
+     192.0667,
+     192.5667
+    ],
+    "freeze": {
+     "segment": "b-s04-s09",
+     "frame": "last",
+     "frames": 15
+    },
+    "hidden": {
+     "segment": "c-s10-s15",
+     "local": [
+      0.0,
+      0.5
+     ]
+    },
+    "voice_lead": 0.46,
+    "voice_lag": -2.013,
+    "moves_hidden": []
+   },
+   {
+    "scene": "S16",
+    "from": "c-s10-s15",
+    "to": "d-s16-s20",
+    "cut": "J",
+    "offset": 0.5,
+    "frames": 15,
+    "t_sound": 297.1667,
+    "t_picture": 297.6667,
+    "zone": [
+     297.1667,
+     297.6667
+    ],
+    "freeze": {
+     "segment": "c-s10-s15",
+     "frame": "last",
+     "frames": 15
+    },
+    "hidden": {
+     "segment": "d-s16-s20",
+     "local": [
+      0.0,
+      0.5
+     ]
+    },
+    "voice_lead": 0.46,
+    "voice_lag": -1.487,
+    "moves_hidden": []
+   },
+   {
+    "scene": "S21",
+    "from": "d-s16-s20",
+    "to": "e-s21-s24",
+    "cut": "J",
+    "offset": 0.5,
+    "frames": 15,
+    "t_sound": 361.6,
+    "t_picture": 362.1,
+    "zone": [
+     361.6,
+     362.1
+    ],
+    "freeze": {
+     "segment": "d-s16-s20",
+     "frame": "last",
+     "frames": 15
+    },
+    "hidden": {
+     "segment": "e-s21-s24",
+     "local": [
+      0.0,
+      0.5
+     ]
+    },
+    "voice_lead": 0.44,
+    "voice_lag": -1.493,
+    "moves_hidden": []
+   },
+   {
+    "scene": "S25",
+    "from": "e-s21-s24",
+    "to": "f-s25-s28",
+    "cut": "J",
+    "offset": 0.5,
+    "frames": 15,
+    "t_sound": 444.2,
+    "t_picture": 444.7,
+    "zone": [
+     444.2,
+     444.7
+    ],
+    "freeze": {
+     "segment": "e-s21-s24",
+     "frame": "last",
+     "frames": 15
+    },
+    "hidden": {
+     "segment": "f-s25-s28",
+     "local": [
+      0.0,
+      0.5
+     ]
+    },
+    "voice_lead": 0.45,
+    "voice_lag": -2.013,
+    "moves_hidden": []
+   },
+   {
+    "scene": "S29",
+    "from": "f-s25-s28",
+    "to": "g-s29-s33",
+    "cut": "J",
+    "offset": 0.5,
+    "frames": 15,
+    "t_sound": 492.7667,
+    "t_picture": 493.2667,
+    "zone": [
+     492.7667,
+     493.2667
+    ],
+    "freeze": {
+     "segment": "f-s25-s28",
+     "frame": "last",
+     "frames": 15
+    },
+    "hidden": {
+     "segment": "g-s29-s33",
+     "local": [
+      0.0,
+      0.5
+     ]
+    },
+    "voice_lead": 0.41,
+    "voice_lag": -1.507,
+    "moves_hidden": []
+   }
+  ]
+ },
+ "picture": {
+  "sha256": "27175a280ecea4c4e217800afc00fe3c2a6d9586d749fc3584663d7085323754"
+ },
+ "master_wav_sha256": "f7a7de10e583691c771a4fb5167a6295133d3ef471c1cca5cf7907decaeeb682"
+}

@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation compares a homeowner's fixed outcome with a spread of historical outcomes. The homeowner is \"Tessa\" (marked illustrative), shown beside a house and a single stack of coins. The jagged gold bars are labeled \"Freddie Mac weekly mortgage survey\". The footer reads \"US only · history, not a forecast\". Each bar seems to be one week's result, so the chart shows how much outcomes varied depending on the week.\n\n2. In frame 1 the bar chart and Tessa's coin stack appear together. Frame 2 adds a vertical marker for the \"median week: $16,631\". Frame 3 adds a dashed line at the height of Tessa's stack, with the text \"as tall or taller: fewer than 1 in 5 weeks\". Frame 4 gives Tessa's stack a value of $21,622 and shows only the bars at or above that line still bright. In frames 5 and 6 the camera pulls in and the scene brightens, with the house, Tessa and the stack growing larger against the bars.\n\n3. Tessa's $21,622 beats the median week ($16,631), and only fewer than 1 in 5 historical weeks did as well or better. It means her result sits in the upper part of the historical range. The footer says this is history, not a forecast.\n\n4. The animation gives no explicit advice, and nothing on screen says whether to pay extra on the mortgage or invest. A viewer could loosely infer that outcomes depend heavily on timing, that the median is lower than the high weeks, and that a single result like Tessa's is not typical. The frames do not say which option Tessa chose. They also do not say what the bars measure, so I can't tell how this relates to extra payments versus investing.\n\n5. The advice in 4 is my own conclusion. The picture and text only present the distribution, the median, Tessa's value and the \"history, not a forecast\" disclaimer. They never recommend an action.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1445,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 153,
+   "in": 1445,
+   "out": 153
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3879,
+   "cache_read": 6696,
+   "output": 693,
+   "in": 10579,
+   "out": 693
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0233446
+}

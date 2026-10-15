@@ -1,0 +1,13 @@
+ok   V14/segment bad  want FAIL got FAIL
+ok   V14/segment good want PASS got PASS
+python self-test: 448/448 as expected; rules without a python fixture: []
+page self-test: 67/67 as expected
+PASS change seg A module: changed A=true B=false A+B=true (want true,false,true)
+PASS change seg A spine: changed A=true B=false A+B=true (want true,false,true)
+PASS change seg B module: changed A=false B=true A+B=true (want false,true,true)
+PASS add a module to seg B (indices shift): changed A=false B=true A+B=true (want false,true,true)
+PASS change shared module (core): changed A=true B=true A+B=true (want true,true,true)
+PASS change shared JSON: changed A=true B=true A+B=true (want true,true,true)
+PASS change the HTML outside the blob (runtime, fonts): changed A=true B=true A+B=true (want true,true,true)
+PASS spine t0 matching no segment → null (whole-file check)
+PASS no page → null (whole-file check)

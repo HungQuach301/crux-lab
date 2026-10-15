@@ -47,6 +47,18 @@ File nặng (video, cache đoạn, wav) ở `episodes/epNNN/work/factory/` (khô
 **Nhạc nền:** `audio.music` (+ `music_cmd` để sinh lại) → `music.py`: nhạc dưới lời 20 dB (cách đo A07), dải 1–4 kHz né lời 13 dB, như Tập 1–3; rồi loudnorm 2 lượt. Đã chạy trên S04 Tập 3: A07 19,99 dB, A08 né 7,9 dB, −14,0 LUFS, −1,5 dBTP.
 **Nhạc hiệu kênh (F-12, C3 Tập 6 08/10: theme A):** `toolkit/factory/theme/` = `ident-A.wav` (3,0 s, −16 LUFS), `close-A.wav` (khúc đóng 10,5 s, chạm 8,42 s), `theme.json` — đúng từng byte bản duyệt (nhánh ep006 `episodes/ep006/world/music/out/`, sinh bằng `theme.py` của tập). Opt-in trong `audio:`, `music.post` chạy sau trộn/ghép đoạn thế giới, trước loudnorm (2D và thế giới như nhau): `ident: {after: S03, wav?, db?}` → `IDENT_S` 3 s cuối đuôi cảnh `after` phát WAV (mặc định ident-A, đường dẫn từ gốc repo; đuôi ≥ 3 s, lời lấn vào → dừng), mức = lời của tập + `db` (−2 LU), nhạc nền nhường 0,25 s; `close_lift_db: 12` (+ `close_lift_s: 0.5`, `close_lift_delay_s: 0`) → sau chữ cuối (mốc từ cuối ∨ lời tắt trên stem voice) stem music lên +12 dB trong 0,5 s, khi còn lời nhạc không đổi. Khúc đóng tự đặt vào bed của tập (`music_cmd`). Không khai → không chạm file (master trùng byte). Test `toolkit/tests/test_factory_f12.py`: −14,0 LUFS, −1,0 dBTP, A07 19,97 dB sau khi nâng.
 
+**F-18 (Editor + Sound; `f18/REPORT.md`) — opt-in, không khai = trùng byte bản cũ:**
+- **J/L-cut qua biên đoạn** (`world/splice.py`): spine.json của đoạn VÀO khai `cuts: {<cảnh đầu đoạn>: {cut: J|L|hard, offset: 0.3–1.0}}`. Tiếng không dời
+  (đồng bộ lời–hình trong cảnh nguyên vẹn); chỉ điểm cắt hình dời: J = hình cắt ở T + offset (khung cuối đoạn trước giữ), L = T − offset (khung đầu
+  đoạn sau giữ). Từ khoá (beats[].cues) rơi vào phần không lên hình → dừng. J/L chỉ ở biên đoạn (trong đoạn hình liền). Mối nối → `splice.json audio.joins`;
+  `python3 toolkit/factory/world/splice.py --transitions out/factory/splice.json out/transitions.json` ghi điểm cắt hình (audio j/l) cho checks.
+  **Chuyển hồi: offset ≤ 0,5 s** — R09 chỉ tìm điểm cắt trong ±0,5 s quanh đầu cảnh.
+- **SFX ghi âm thật** (`world/sfx/`, RIGHTS §G): `sfx_fetch.py` (nguồn = CC0 Kenney/OpenGameArt tải không cần tài khoản, kiểm giấy phép TỪNG tệp; Sonniss CHƯA DÙNG — mã
+  `--sonniss*` tắt, chủ dự án 15/10; ElevenLabs Sound Effects tắt; **không Freesound**), `manifest.json` (SHA-256, nhãn), `--verify` lúc dựng. `sfx_labels.plan_real(spine, {cảnh: [nhãn]}, manifest)`
+  gắn tệp cho tick/land/whoosh (không tệp nào dùng lại trong 60 s giờ tập; hết tệp → giữ tiếng tổng hợp; độ cao ±1 nửa cung, mức ±1,5 dB, theo hạt cố định),
+  `sfx_labels.thin_events` tỉa tick trên từ thường và tick thừa (> 4/10 s). `audio.py` phát tệp khi spine có `sfx_real` (cùng năng lượng tiếng tổng hợp nó thay).
+- Khung xét nhạc người sáng tác CC BY cho G1 Tập 9: `f18/MUSIC-CCBY.md` (chưa vào tập; không nhạc AI).
+
 ## Thế giới 3D (D-010, Mốc V) — `toolkit/factory/world/`
 "Một thế giới, hai chế độ máy quay". Khai trong `episode.yaml`: `world: [{id, dir, scenes: [S04, S05]}]` (`dir` chứa `spine.py` + `scene.js` của đoạn).
 `spec.py` chặn khi thiếu file hoặc cảnh lạ; `build.py` bước `world` gọi `world/build_seg.py` cho từng đoạn (spine đọc lời từ `out/factory/timeline.json`
@@ -92,6 +104,20 @@ hiện thanh mới ≈ nửa, người đọc mù đọc thành "giá tăng cộ
 track còn đi sau mốc nhãn + 0,2 s. (e) **neo nhãn vào từ MỞ ý**, không vào từ cuối câu (B08 v1: "starting sizes: not modeled" neo vào "model" → ra
 khỏi dải nhịp): `check_f14` CẢNH BÁO nhãn chữ (không chứa số) neo vào từ ở 30 % cuối câu > 1 s (nhãn số neo vào chính từ đọc số: không cảnh báo).
 Cả hai chỉ cảnh báo (chưa hiệu chuẩn). Đổi hình chỉ để qua thước (biên độ, nhịp mọc) phải ghi trong REPORT là "đổi vì thước" và soát nghĩa ở cổng gốc.
+
+**Lớp ánh sáng điện ảnh (F-17, `world/cine/`, `f17/INTENT.md`, `f17/REPORT.md`; opt-in: spine.json có khoá `cine`, mặc định TẮT):** HDRI Poly Haven
+theo hồi (`cine/looks.js`: `day`/`afternoon`/`dusk`, bảng `ACT` của Tập 7) + vân CC0 theo màu vật liệu + bóng mềm + grade + hạt phim tất định; **DOF và AO
+chỉ ở shot khai `shot: 'close'`** (AO nửa độ phân giải; DOF nới độ sâu 3×3 — hết vệt sáng trên đầu của v4); mái < `roof.minPx` không vân ngói. Khai trong
+spine.py: `S['cine'] = {look, sky?, shots?: {<id shot>: {shot: 'close', focus: 'char'|'center'|m, aperture?, silhouette?: true, override?: {keyAz, keyEl…}}}}`.
+**Chỉ bật ở 1080p ngang** (`render_shots.js` mở `cine/cine.html`; nháp `--res 540` của F-15, `--spp`, Short dọc và trang kiểm `CK.on` **không** bật lớp →
+không khai = trùng byte bản cũ, khoá cache cũ không đổi). **Khoá màu dữ liệu:** vật `userData.checks.role` ∈ series/bar/grid (và con) không nhận vân,
+phản xạ ≤ 0,15; ảnh lớp không vẽ chúng (vẫn đổ bóng), một pass riêng vẽ lại chúng dưới ánh sáng gốc của cảnh, tone-map + sRGB trong shader (pha trộn như ra canvas) và ghép sau OutputPass; grade/viền tối bỏ qua điểm ảnh đó, DOF không làm mờ chúng. Luật mới (bước `cine` của build_seg, chỉ
+1080p + `cine`): `cine/cine_check.js` (trang không lớp vs có lớp, cùng t, 3 mẫu/shot, mặt nạ màu dữ liệu co 2 px) → `cine/cine_color.py`:
+**ΔE2000 > 5 hoặc đảo thứ tự độ sáng (|ΔL\*| ≥ 1 trước, ≥ 0,5 sau) = CHẶN**. Người (`checks.char`): giữ màu nhận diện, viền = Fresnel × max(0, n·đèn) (phía
+xa đèn = 0); thân sẫm chỉ khi shot khai `silhouette: true`. `v4: true` = cấu hình nguyên mẫu (chỉ để đối chứng). Tài sản: `cine/assets/` (18 tệp CC0 ≤ 2 MB
+trong git, `fetch.py --verify` kiểm SHA-256; tệp > 2 MB tải vào `dl/`), RIGHTS §F9. Chữ serif: `O.text(s, x, y, px, {font: 'serif'})` (vào `log.texts` +
+trang kiểm; phông hệ thống DejaVu Serif). Thử: `toolkit/factory/f17/trial/` (cảnh Tập 7 re-export + spine có `cine`).
+**Quy ước dùng `cine` (chủ dự án 15/10, khi merge F-17 theo phương án a — opt-in, TẮT mặc định):** chỉ cho **cảnh đinh**, tổng thời lượng các đoạn khai `cine` **≤ 30 % thời lượng tập** (giờ render có lớp ≈ 5,8× không lớp — T11); **lần dùng đầu ở Tập 9 phải chạy checks ĐỦ BỘ** (gồm bộ lấy mẫu trang) trên bản 1080p có lớp để đo **V12** (chưa đo ở F-17: nền sau chữ trên video có lớp khác trang kiểm không lớp); **lệch đã biết T6:** viền người phía xa đèn = 12 % phía gần (> 10 % đích, ≤ 0,15 L\* tuyệt đối — điểm mép MSAA), không chặn. Tối ưu giờ máy: BACKLOG F-17b.
 
 **Shorts từ đoạn thế giới (F-9):** Short có khoảng nằm trọn trong một đoạn `world:` được DỰNG LẠI 1080×1920 từ scene.js của đoạn
 (`world/shorts.py`, `render_shots.js --span a,b --orient v`): cùng máy quay, khung = cửa sổ dọc của mặt phẳng thiết kế rộng 1080/`scale` px

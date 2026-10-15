@@ -8,6 +8,13 @@ Tiếng: lời vẫn là track lời của tập (stem voice của đoạn KHÔN
       lời-đoạn → lời-tập (RMS lời trong khoảng). Nhạc nền của tập (nếu có) tắt trong khoảng đoạn (fade 0,5 s ngoài mép).
       mix-raw = tổng đúng các stem (48 kHz stereo, cùng gốc thời gian); loudnorm 2 lượt của build.py chạy sau trên toàn bản.
 Báo cáo: out/factory/splice.json (đoạn, cảnh, t0/t1, khung, sha256 đầu vào/đầu ra).
+J/L-cut qua biên đoạn (F-18, opt-in): spine.json của đoạn VÀO khai `cuts: {<cảnh đầu đoạn>: {cut: J|L|hard, offset: 0.3–1.0}}`. Tiếng KHÔNG dời
+      (lời, nhạc, sfx của mỗi đoạn giữ đúng đồng hồ của nó → đồng bộ lời–hình trong cảnh nguyên vẹn); chỉ điểm cắt HÌNH dời khỏi biên tiếng T:
+      J = hình cắt ở T + offset (tiếng đoạn sau vào trước; khung cuối đoạn trước giữ nguyên `offset` s, `offset` s đầu đoạn sau không lên hình),
+      L = hình cắt ở T − offset (tiếng đoạn trước kéo sang; khung đầu đoạn sau giữ `offset` s, `offset` s cuối đoạn trước không lên hình).
+      Từ khoá (beats[].cues) của đoạn rơi vào phần không lên hình → dừng (lệch lời–hình). Không khai = đồ thị lọc, master, stem trùng byte bản cũ.
+      Bản ghi mỗi mối nối: merge_audio → splice.json audio.joins; `python3 splice.py --transitions <splice.json> <out/transitions.json>` ghi điểm cắt hình
+      (t = mốc cắt hình, audio j/l) cho checks (R09, V10, R06).
 """
 import hashlib
 import json
@@ -21,6 +28,8 @@ SR = 48000
 LAYERS = {'music': 'music', 'data': 'sonify', 'sfx': 'sfx', 'whoosh': 'whoosh', 'room': 'room'}   # stem của đoạn → stem của tập (checks/CONTRACT.md)
 OPTIONAL = {'whoosh'}   # đoạn dựng trước khi audio.py tách whoosh: không có stem này (tiếng máy quay nằm trong sfx); có ở ≥ 1 đoạn → stem whoosh của tập
 BED_FADE = 0.5
+JL_RANGE = (0.3, 1.0)   # s: độ lệch tiếng–hình hợp lệ của J/L (BAN-DO-LIEN-MACH: "tiếng cảnh sau vào trước 0,3–1,0 s")
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..'))
 
 
 def sha_file(p):
@@ -66,12 +75,80 @@ def encode_args(enc, fps):
             '-video_track_timescale', '15360']
 
 
+def seg_spine(s):
+    """Spine của đoạn: s['spine'] (dict hoặc đường dẫn), không có thì <mp4>.build.json → <thư mục đoạn>/spine.json; không tìm thấy → None."""
+    sp = s.get('spine')
+    if isinstance(sp, dict):
+        return sp
+    if sp is None:
+        bj = s['mp4'] + '.build.json'
+        if not os.path.exists(bj):
+            return None
+        seg = json.load(open(bj)).get('segment')
+        sp = os.path.join(ROOT, seg, 'spine.json') if seg else None
+    return json.load(open(sp)) if sp and os.path.exists(sp) else None
+
+
+def plan_joins(segs, fps):
+    """Đọc `cuts` của spine mỗi đoạn → mối nối J/L giữa hai đoạn liền khung. Trả {id: {'trim': (a, b), 'pad': (trước, sau)}} (khung cục bộ của
+    đoạn) và danh sách mối nối; khai sai → SystemExit. Không đoạn nào khai J/L → ({}, [])."""
+    cut, joins = {}, []
+    sp = {s['id']: seg_spine(s) for s in segs}
+    for i, s in enumerate(segs):
+        decl = ((sp[s['id']] or {}).get('cuts') or {})
+        first = (s.get('scenes') or [None])[0]
+        for sc, d in decl.items():
+            kind = str((d or {}).get('cut', 'hard')).upper()
+            if kind not in ('J', 'L', 'HARD'):
+                raise SystemExit(f"splice {s['id']}: cuts.{sc}.cut = {d.get('cut')!r} (J|L|hard)")
+            if kind == 'HARD':
+                continue
+            if sc != first:
+                raise SystemExit(f"splice {s['id']}: J/L chỉ ở biên đoạn (cảnh đầu {first}); {sc} nằm trong đoạn — hình liền một lần render, đổi nhịp ở spine/scene.js")
+            prev = segs[i - 1] if i else None
+            if prev is None or prev['f1'] != s['f0']:
+                raise SystemExit(f"splice {s['id']}: J/L ở {sc} cần một đoạn thế giới liền ngay trước (khung {s['f0']})")
+            o = float(d.get('offset', 0))
+            if not JL_RANGE[0] <= o <= JL_RANGE[1]:
+                raise SystemExit(f"splice {s['id']}: cuts.{sc}.offset = {o} ngoài {JL_RANGE[0]}–{JL_RANGE[1]} s")
+            n = int(round(o * fps))
+            hid, hs = (s, sp[s['id']]) if kind == 'J' else (prev, sp[prev['id']])
+            tot = (hid['f1'] - hid['f0']) / fps
+            win = (0.0, n / fps) if kind == 'J' else (tot - n / fps, tot)   # khoảng (giây cục bộ) của đoạn không lên hình
+            bad = sorted(round(t, 3) for b in (hs or {}).get('beats', []) for t in (b.get('cues') or {}).values() if win[0] <= float(t) <= win[1])
+            if bad:
+                raise SystemExit(f"splice {s['id']}: {kind}-cut {o} s giấu từ khoá {bad} s của {hid['id']} (khoảng {win[0]:.3f}–{win[1]:.3f} s) — lệch lời–hình; giảm offset")
+            T = s['f0'] / fps
+            tp = (s['f0'] + (n if kind == 'J' else -n)) / fps
+            W = lambda x: [w for w in (x or {}).get('words', []) if not str(w['w']).startswith('[') and w['e'] > w['s']]
+            wi, wo = W(sp[s['id']]), W(sp[prev['id']])
+            joins.append({'scene': sc, 'from': prev['id'], 'to': s['id'], 'cut': kind, 'offset': round(n / fps, 4), 'frames': n,
+                          't_sound': round(T, 4), 't_picture': round(tp, 4), 'zone': [round(min(T, tp), 4), round(max(T, tp), 4)],
+                          'freeze': {'segment': prev['id'] if kind == 'J' else s['id'], 'frame': 'last' if kind == 'J' else 'first', 'frames': n},
+                          'hidden': {'segment': hid['id'], 'local': [round(win[0], 4), round(win[1], 4)]},
+                          # lời đoạn sau bắt đầu trước điểm cắt hình (J) / lời đoạn trước kết thúc sau điểm cắt hình (L), giây; V10 đòi ≥ 0,2 s
+                          'voice_lead': round(tp - (T + wi[0]['s']), 3) if wi else None,
+                          'voice_lag': round((prev['f0'] / fps + wo[-1]['e']) - tp, 3) if wo else None,
+                          'moves_hidden': [m.get('id') for m in (hs or {}).get('moves', []) if win[0] <= float(m.get('t0', -1)) < win[1]]})
+            cp = cut.setdefault(prev['id'], {'trim': [0, prev['f1'] - prev['f0']], 'pad': [0, 0]})
+            cs = cut.setdefault(s['id'], {'trim': [0, s['f1'] - s['f0']], 'pad': [0, 0]})
+            if kind == 'J':
+                cp['pad'][1] += n; cs['trim'][0] += n
+            else:
+                cp['trim'][1] -= n; cs['pad'][0] += n
+    return cut, joins
+
+
 def splice_video(master, segs, out, fps, enc):
-    """segs: [{id, mp4, f0, f1}] (khung của tập, không chồng nhau). Thay khung [f0, f1) của master bằng đoạn; mã hoá lại một lần."""
+    """segs: [{id, mp4, f0, f1}] (khung của tập, không chồng nhau). Thay khung [f0, f1) của master bằng đoạn; mã hoá lại một lần.
+    J/L (F-18): mối nối khai trong spine → mỗi seg mang 'join_in' (bản ghi mối nối), merge_audio trả lại trong 'joins'."""
     M = probe_video(master)
     if abs(M['fps'] - fps) > 1e-3:
         raise SystemExit(f"splice: master {M['fps']} fps ≠ tập {fps} fps")
     segs = sorted(segs, key=lambda s: s['f0'])
+    cut, joins = plan_joins(segs, fps)
+    for j in joins:
+        next(s for s in segs if s['id'] == j['to'])['join_in'] = j
     ins, flt, parts, cur = ['-i', master], [], [], 0
     for k, s in enumerate(segs, 1):
         V = probe_video(s['mp4'])
@@ -86,7 +163,13 @@ def splice_video(master, segs, out, fps, enc):
             flt.append(f"[0:v]trim=start_frame={cur}:end_frame={s['f0']},setpts=PTS-STARTPTS[p{len(parts)}]"); parts.append(None)
         ins += ['-i', s['mp4']]
         fit = '' if (V['w'], V['h']) == (M['w'], M['h']) else f",scale={M['w']}:{M['h']}:flags=lanczos"
-        flt.append(f"[{k}:v]trim=end_frame={want},setpts=PTS-STARTPTS{fit},setsar=1,format=yuv420p[p{len(parts)}]"); parts.append(None)
+        c = cut.get(s['id'])
+        if c:   # J/L: bớt khung không lên hình, giữ khung đầu/cuối (tpad clone) — tổng khung của đoạn vẫn = want ± phần của đoạn bên cạnh
+            a, b = c['trim']; pre, post = c['pad']
+            pad = f",tpad=start={pre}:start_mode=clone:stop={post}:stop_mode=clone" if pre or post else ''
+            flt.append(f"[{k}:v]trim=start_frame={a}:end_frame={b},setpts=PTS-STARTPTS{fit}{pad},setsar=1,format=yuv420p[p{len(parts)}]"); parts.append(None)
+        else:
+            flt.append(f"[{k}:v]trim=end_frame={want},setpts=PTS-STARTPTS{fit},setsar=1,format=yuv420p[p{len(parts)}]"); parts.append(None)
         s['probe'] = V
         cur = s['f1']
     if cur < M['frames']:
@@ -166,4 +249,36 @@ def merge_audio(stems_dir, segs, total, raw_out, fps):
     for name, x in S.items():
         sf.write(os.path.join(stems_dir, name + '.flac'), x * sc, SR, subtype='PCM_24')
     sf.write(raw_out, mix * sc, SR, subtype='PCM_24')
-    return {'segments': info, 'stems': sorted(S), 'peak_scale': round(sc, 4)}
+    out = {'segments': info, 'stems': sorted(S), 'peak_scale': round(sc, 4)}
+    joins = [s['join_in'] for s in segs if s.get('join_in')]
+    if joins:   # F-18: tiếng không dời ở J/L — chỉ ghi mối nối (splice_video đặt 'join_in') để splice.json mang nó
+        out['joins'] = joins
+    return out
+
+
+def transitions(splice_json, trans_json):
+    """F-18: ghi điểm cắt HÌNH của mỗi mối nối J/L (splice.json audio.joins) vào out/transitions.json (checks/CONTRACT.md): thay mục cùng
+    from/to (biên đoạn), không có thì thêm. t = mốc cắt hình; audio = j|l; reason ghi độ lệch."""
+    rec = json.load(open(splice_json))
+    joins = (rec.get('audio') or {}).get('joins') or []
+    tr = json.load(open(trans_json)) if os.path.exists(trans_json) else {'cuts': []}
+    for j in joins:
+        c = {'t': j['t_picture'], 'from': j['from'], 'to': j['to'], 'type': 'cut', 'match': None, 'audio': j['cut'].lower(),
+             'reason': f"{j['cut']}-cut {j['offset']} s at the segment boundary ({j['scene']}): sound of the "
+                       f"{'next' if j['cut'] == 'J' else 'previous'} segment carries across the picture cut; sound not moved (F-18)"}
+        k = next((i for i, x in enumerate(tr['cuts']) if x.get('from') == j['from'] and x.get('to') == j['to']), None)
+        if k is None:
+            tr['cuts'].append(c)
+        else:
+            tr['cuts'][k] = c
+    tr['cuts'].sort(key=lambda x: x['t'])
+    json.dump(tr, open(trans_json, 'w'), indent=1, ensure_ascii=False)
+    return len(joins)
+
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) == 4 and sys.argv[1] == '--transitions':
+        print(f'transitions: {transitions(sys.argv[2], sys.argv[3])} mối nối J/L → {sys.argv[3]}')
+    else:
+        raise SystemExit('python3 splice.py --transitions <out/factory/splice.json> <out/transitions.json>')

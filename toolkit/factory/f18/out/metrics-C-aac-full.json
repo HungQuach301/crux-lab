@@ -1,0 +1,28 @@
+{
+ "window": [
+  null,
+  null
+ ],
+ "lufs_master_wav": -14.0,
+ "peak_master_wav_dbfs": -2.3,
+ "lufs_aac": -14.0,
+ "peak_aac_dbfs": -2.2,
+ "voice_vs_sonify_1_4k (L1 a)": {
+  "p10_db": 21.6,
+  "median_db": 35.1,
+  "windows": 85
+ },
+ "voice_vs_sfx_whoosh_1_4k": {
+  "p10_db": 22.8,
+  "median_db": 41.2,
+  "windows": 362
+ },
+ "voice_vs_all_bed_1_4k": {
+  "p10_db": 18.1,
+  "median_db": 33.4,
+  "windows": 4588
+ },
+ "sfx_events": 143,
+ "sfx_max_in_10s": 5,
+ "true_peak_dbtp": -2.3
+}

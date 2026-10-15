@@ -10,6 +10,8 @@ Các bước (mỗi bước dừng cả lệnh nếu trượt):
   render  render_shots.js theo cảnh có cache (chỉ cảnh đổi mới render; chạy lại = resume); lỗi trang = dừng
   audio   audio.py: lời + nhạc theo bản đồ căng + âm dữ liệu + sfx từ spine.events → mix.wav (−14 LUFS)
   mux     hình + tiếng → <out>
+  cine    (F-17, chỉ khi spine.json có `cine` và res ≥ 1080) cine/cine_check.js + cine/cine_color.py: màu dữ liệu trước/sau lớp ánh sáng
+          (ΔE2000 > 5 hoặc đảo thứ tự độ sáng = CHẶN) → <out>.cine.json, <out>.cine-color.json
   verify  verify_seg.py: quy tắc 1/2/3, cắt cứng, tỉ lệ chế độ, C14 (bản 1080p), F-2 (mật độ sfx, nhãn đè nhau) → <out>.verify.json;
           quy tắc 1/2/3, cắt cứng, C14 hoặc F-2 cấp BLOCK trượt = thoát 1 (F-2 WARN chỉ báo)
 Báo cáo giờ render thật (wall, s/giây phim) trong <out>.build.json (quy tắc 8: "báo giờ render và token thực").
@@ -135,8 +137,24 @@ def main():
         return ok, {**fail, 'C14': v['C14'], 'modes': v['modes'], 'F2': {**f2['summary'], 'block': f2['block'], 'warn': f2['warn']},
                     **({'labels': v['labels']} if 'labels' in v else {})}
 
-    for name, fn in (('lint', lint), ('spine', spine), ('render', render), ('audio', audio), ('mux', mux), ('verify', verify)):
+    def cine():   # F-17: luật khoá màu dữ liệu (mẫu 3 / shot, trang không lớp vs có lớp)
+        env = {**os.environ, 'NODE_PATH': subprocess.run(['npm', 'root', '-g'], capture_output=True, text=True).stdout.strip()}
+        cj = out + '.cine.json'
+        r = run(['node', os.path.join(HERE, 'cine', 'cine_check.js'), seg, str(res), cj, '--rim'], env=env)
+        if r.returncode:
+            return False, {'error': 'cine_check'}
+        r = run([sys.executable, os.path.join(HERE, 'cine', 'cine_color.py'), cj, out + '.cine-color.json'])
+        if not os.path.exists(out + '.cine-color.json'):
+            return False, {'error': 'cine_color'}
+        c = json.load(open(out + '.cine-color.json'))
+        for m in c['block'][:10]: print('  F-17 CHẶN: ' + m)
+        return r.returncode == 0, {k: c[k] for k in ('level', 'samples', 'groups', 'max_dE')}
+
+    for name, fn in (('lint', lint), ('spine', spine), ('render', render), ('audio', audio), ('mux', mux)):
         step(name, fn)
+    if json.load(open(os.path.join(ROOT, seg, 'spine.json'))).get('cine') and res >= 1080 and arg('--spp') is None:   # cùng điều kiện bật lớp của render_shots.js (nháp 540p, --spp: không lớp)
+        step('cine', cine)
+    step('verify', verify)
     rep['total_seconds'] = round(time.time() - T, 1)
     json.dump(rep, open(out + '.build.json', 'w'), indent=1, ensure_ascii=False)
     promote(stage, os.path.dirname(final), base)

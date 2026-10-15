@@ -1,0 +1,101 @@
+{
+ "root": "<scratch>/root-C",
+ "contract": "<scratch>/root-C/contract.json",
+ "lock": "b45516422eb936f244f7e5f5c77504974a94a6b0fec19e05254a0126f0c7f9d6",
+ "video_sha256": "f118a67018541d9777bc8d9d7d9423f791076589c5301608c0d9eb14d506c0c6",
+ "episode": "ĐẠT",
+ "tiers": {
+  "BLOCK": {
+   "label": "CHẶN",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "byNature": {
+    "real": [],
+    "legal": [],
+    "procedure": []
+   }
+  },
+  "MAJOR": {
+   "label": "CHÍNH",
+   "rules": 1,
+   "pass": 1,
+   "notPass": [],
+   "byNature": {
+    "real": [],
+    "legal": [],
+    "procedure": []
+   },
+   "explained": {},
+   "unexplained": []
+  },
+  "REFERENCE": {
+   "label": "THAM KHẢO",
+   "rules": 0,
+   "pass": 0,
+   "notPass": [],
+   "byNature": {
+    "real": [],
+    "legal": [],
+    "procedure": []
+   }
+  }
+ },
+ "counts": {
+  "PASS": 1,
+  "FAIL": 0,
+  "MISSING": 0,
+  "ERROR": 0
+ },
+ "near": [],
+ "results": [
+  {
+   "id": "L1",
+   "status": "PASS",
+   "metrics": [
+    {
+     "name": "voice-active windows",
+     "value": 4588,
+     "op": ">=",
+     "threshold": 1,
+     "unit": "",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "voice/data 1–4 kHz ratio, 10th percentile (dB)",
+     "value": 23.437277,
+     "op": ">=",
+     "threshold": 20.0,
+     "unit": "dB",
+     "pass": true,
+     "near": false
+    },
+    {
+     "name": "key words lost to the data sounds",
+     "value": 0,
+     "op": "<=",
+     "threshold": 0,
+     "unit": "",
+     "pass": true,
+     "near": false
+    }
+   ],
+   "details": [
+    {
+     "windowsWithDataSound": 149,
+     "medianRatioDb": 37.5,
+     "minRatioDb": -25.0,
+     "keyWords": 152
+    }
+   ],
+   "note": null,
+   "section": "DX-A1, DX-A9 (sổ gu G-006)",
+   "threshold": "PROVISIONAL: 10th-percentile voice/data ratio in 1–4 kHz ≥ 20 dB (no window with a data sound = pass); 0 key words lost to the data sounds",
+   "fingerprint": "01832a4e805c145e",
+   "tier": "MAJOR",
+   "nature": null,
+   "seconds": 676.0
+  }
+ ]
+}

@@ -57,6 +57,132 @@ def keywords(spine):
     return sorted(out, key=lambda k: k['t'])
 
 
+def thin_events(spine, max10s=4, kinds=('tick',), plain=True, plain_kinds=('tick', 'land')):
+    """F-18 (sfx dày — D-010 §6, T4): bản spine bớt dấu nhấn thừa, TẤT ĐỊNH. Chỉ bỏ sự kiện thuộc `kinds` (mặc định tick: dấu nhấn rời, không
+    gắn cú máy — whoosh/rise gắn động tác máy quay theo quy tắc 3 thì giữ). (1) plain=True: bỏ sự kiện thuộc `plain_kinds` bắt đầu trong một
+    từ THƯỜNG (không phải từ khoá; cùng định nghĩa với checks T4) — gồm `land` (tiếng chạm khi máy tới: whoosh của cú máy vẫn còn, tiếng chạm
+    giữa từ thường tranh với lời, G-006); (2) còn cửa sổ 10 s nào > max10s sự kiện (mọi kind trừ data/nền) → bỏ sự kiện `kinds`
+    MUỘN NHẤT của cửa sổ dày nhất, lặp tới khi hết hoặc cửa sổ không còn sự kiện bỏ được (báo `stuck`).
+    Trả spine mới (events đã bớt + `sfx_thin` ghi sự kiện bỏ và lý do); spine gốc không đổi. Ghi spine này ra spine.json của đoạn = khai
+    trên spine (checks T4 và audio.py cùng đọc một danh sách)."""
+    W = spoken(spine)
+    kw = {round(t, 3) for b in spine.get('beats', []) for t in (b.get('cues') or {}).values()}
+    on_plain = lambda t: any(w['s'] <= t < w['e'] and not any(abs(w['s'] - k) <= 0.02 or w['s'] <= k < w['e'] for k in kw) for w in W)
+    ev = list(spine.get('events', []))
+    counted = lambda e: e['kind'] != 'data' and e['kind'] not in SFX_BEDS
+    drop = []
+    if plain:
+        for e in ev:
+            if e['kind'] in plain_kinds and on_plain(float(e['t'])):
+                drop.append({'t': e['t'], 'kind': e['kind'], 'why': 'plain word'})
+        ids = {(d['t'], d['kind']) for d in drop}
+        ev = [e for e in ev if (e['t'], e['kind']) not in ids]
+    stuck = []
+    while True:
+        ts = sorted(float(e['t']) for e in ev if counted(e))
+        best = max(((sum(1 for x in ts if t <= x < t + SFX_WINDOW_S), t) for t in ts), default=(0, 0.0))
+        if best[0] <= max10s:
+            break
+        t0 = best[1]
+        cand = [e for e in ev if e['kind'] in kinds and t0 <= float(e['t']) < t0 + SFX_WINDOW_S]
+        if not cand:
+            stuck.append(round(t0, 3)); break
+        e = max(cand, key=lambda e: float(e['t']))
+        drop.append({'t': e['t'], 'kind': e['kind'], 'why': f'>{max10s} in 10 s from {round(t0, 3)}'})
+        ev.remove(e)
+    out = dict(spine)
+    out['events'] = ev
+    out['sfx_thin'] = {'max10s': max10s, 'kinds': list(kinds), 'plain': plain, 'plain_kinds': list(plain_kinds), 'dropped': drop, 'stuck': stuck}
+    return out
+
+
+# ---- F-18 (chủ dự án 15/10, mục 2e): nhãn cảnh → tệp ghi âm thật, không lặp ----
+ACCENT_KINDS = ('tick', 'land')            # dấu nhấn rời → tiếng foley theo nhãn cảnh
+MOVE_KINDS = ('whoosh_mode', 'whoosh_push', 'whoosh_soft', 'whoosh_air', 'swish')   # tiếng động tác máy quay → 'chuyen-canh'
+KIND_DEFAULT = {'tick': 'go-nhe', 'land': 'va-mem'}   # cảnh không khai nhãn
+REUSE_S = 60.0                              # một tệp không dùng lại trong 60 s (giờ của tập)
+PITCH_ST = 1.0                              # biến thể độ cao ± 1 nửa cung (đổi tốc độ phát)
+GAIN_JITTER_DB = 1.5
+
+
+def _scene_spans(spine):
+    """{cảnh: (a, b)} theo giờ của đoạn: từ từ đầu tiên của cảnh tới từ đầu tiên của cảnh sau (cảnh đầu từ 0, cảnh cuối tới total)."""
+    first = {}
+    for w in spoken(spine):
+        sc = str(w.get('sid', '')).split('.')[0]
+        if sc and sc not in first:
+            first[sc] = float(w['s'])
+    ids = [sc for sc in spine.get('scenes', []) if sc in first] or sorted(first, key=first.get)
+    out = {}
+    for i, sc in enumerate(ids):
+        out[sc] = (0.0 if i == 0 else first[sc], first[ids[i + 1]] if i + 1 < len(ids) else float(spine.get('total') or 1e9))
+    return out
+
+
+def plan_real(spine, labels, manifest, seed=1807, used=None, reuse_s=REUSE_S, only_scenes=None):
+    """Gắn tệp thật cho sự kiện sfx của spine, TẤT ĐỊNH (rng = hạt + id đoạn). labels = {cảnh: [nhãn…]} (nhãn = tags của manifest:
+    giay, tien-xu, dong-ho, may-chu, cua, chuyen-canh, …). tick/land trong cảnh có nhãn → xoay vòng các nhãn của cảnh; cảnh không nhãn →
+    KIND_DEFAULT; whoosh → 'chuyen-canh'. Tệp chọn ngẫu nhiên (hạt cố định) trong các tệp của nhãn CHƯA dùng trong `reuse_s` s (giờ của tập =
+    episode_t0 + t; `used` {id: giờ dùng cuối} truyền qua các đoạn); không còn tệp → giữ tiếng tổng hợp (ghi `kept_synth`), không lặp tệp.
+    Biến thể: tốc độ 2^(±PITCH_ST/12), mức ± GAIN_JITTER_DB, điểm bắt đầu trong tệp dài (≥ 3 s). Trả spine mới: events có
+    {real, rate, gain_db, offset, label} + `sfx_real: {planned: true, labels, seed, reuse_s, plan}` (audio.py chỉ phát tệp cho sự kiện có `real`).
+    only_scenes: chỉ thay ở các cảnh này (cảnh khác giữ tiếng tổng hợp, không vào kế hoạch)."""
+    import hashlib
+    used = {} if used is None else used
+    t0 = float(spine.get('episode_t0') or 0)
+    rng = np.random.default_rng(int(hashlib.sha256(f"{seed}|{spine.get('segment', '')}".encode()).hexdigest()[:12], 16))
+    pool = {}
+    for r in sorted(manifest.values(), key=lambda r: r['id']):
+        for tg in r.get('tags', []):
+            pool.setdefault(tg, []).append(r)
+    spans = _scene_spans(spine)
+    scene_of = lambda t: next((sc for sc, (a, b) in spans.items() if a <= t < b), None)
+    turn = {}
+    ev, plan = [], []
+    for e in sorted(spine.get('events', []), key=lambda e: (float(e['t']), e['kind'])):
+        e = dict(e)
+        k, t = e['kind'], float(e['t'])
+        sc = scene_of(t)
+        if only_scenes is not None and sc not in only_scenes:
+            ev.append(e); continue
+        if k in ACCENT_KINDS:
+            labs = list((labels or {}).get(sc) or []) or [KIND_DEFAULT[k]]
+            i = turn.get(sc, 0); turn[sc] = i + 1
+            label = labs[i % len(labs)]
+        elif k in MOVE_KINDS:
+            label = 'chuyen-canh'
+        else:
+            ev.append(e); continue
+        T = t0 + t
+        free = [r for r in pool.get(label, []) if T - used.get(r['id'], -1e9) >= reuse_s]
+        if not free:
+            plan.append({'t': round(T, 3), 'kind': k, 'scene': sc, 'label': label, 'kept_synth': True})
+            ev.append(e); continue
+        r = free[int(rng.integers(len(free)))]
+        used[r['id']] = T
+        e.update({'real': r['id'], 'label': label, 'rate': round(float(2 ** (rng.uniform(-PITCH_ST, PITCH_ST) / 12)), 4),
+                  'gain_db': round(float(rng.uniform(-GAIN_JITTER_DB, GAIN_JITTER_DB)), 2),
+                  'offset': round(float(rng.uniform(0, max(0.0, r['dur'] - 3.0))), 3) if r['dur'] >= 3.0 else 0.0})
+        plan.append({'t': round(T, 3), 'kind': k, 'scene': sc, 'label': label, 'file': r['id'], 'rate': e['rate'], 'gain_db': e['gain_db']})
+        ev.append(e)
+    out = dict(spine)
+    out['events'] = ev
+    out['sfx_real'] = {'planned': True, 'labels': labels, 'seed': seed, 'reuse_s': reuse_s, 'plan': plan}
+    return out
+
+
+def repeat_report(plan, reuse_s=REUSE_S):
+    """Đo lặp tệp trên kế hoạch (giờ của tập): số lần cùng tệp dùng lại trong reuse_s s, số tệp khác nhau / số sự kiện phát tệp."""
+    last, rep = {}, 0
+    real = [p for p in plan if p.get('file')]
+    for p in sorted(real, key=lambda p: p['t']):
+        if p['t'] - last.get(p['file'], -1e9) < reuse_s:
+            rep += 1
+        last[p['file']] = p['t']
+    return {'events_real': len(real), 'files': len({p['file'] for p in real}), 'reused_within': rep,
+            'kept_synth': sum(1 for p in plan if p.get('kept_synth'))}
+
+
 def _load_stems(audio_dir):
     if not audio_dir: return None
     p = {k: os.path.join(audio_dir, 'stems', k + '.wav') for k in ('voice', 'sfx')}
