@@ -71,12 +71,16 @@ counterweights:
   - {id: us-only, text: "US only · history, not a forecast", when: historical}
   - {id: illustrative, text: "Nina and her twins are illustrative · real prices, rents, rates and stock returns", claims: [price, down_usd, closing_usd, savings_usd]}
   - {id: no-advice, text: "Not advice to buy, rent or invest", claims: [share_buyer_ahead_stocks_10y, share_buyer_ahead_cash_10y, share_buyer_ahead_stocks_15y, flip_yield_stocks_10y]}
-world:    # sáu đoạn = sáu chương (script.md >>> CHAPTER)
-  - {id: a-s01-s03, dir: world/seg/a-s01-s03, scenes: [S01, S02, S03]}
-  - {id: b-s04-s06, dir: world/seg/b-s04-s06, scenes: [S04, S05, S06]}
+world:    # M3 (15/10): mười đoạn — sáu chương, bốn chương tách ở cảnh đinh (cine: a1 b1 d1 f2 = 26 %; J/L ở biên đoạn, kit.CUTS). Đoạn chương gốc = nguồn mã.
+  - {id: a1-s01-s02, dir: world/seg/a1-s01-s02, scenes: [S01, S02]}
+  - {id: a2-s03, dir: world/seg/a2-s03, scenes: [S03]}
+  - {id: b1-s04, dir: world/seg/b1-s04, scenes: [S04]}
+  - {id: b2-s05-s06, dir: world/seg/b2-s05-s06, scenes: [S05, S06]}
   - {id: c-s08-s13, dir: world/seg/c-s08-s13, scenes: [S08, S09, S10, S11, S12, S13]}
-  - {id: d-s14-s18, dir: world/seg/d-s14-s18, scenes: [S14, S15, S16, S17, S18]}
+  - {id: d1-s14-s15, dir: world/seg/d1-s14-s15, scenes: [S14, S15]}
+  - {id: d2-s16-s18, dir: world/seg/d2-s16-s18, scenes: [S16, S17, S18]}
   - {id: e-s19-s21, dir: world/seg/e-s19-s21, scenes: [S19, S20, S21]}
-  - {id: f-s22-s25, dir: world/seg/f-s22-s25, scenes: [S22, S23, S24, S25]}
+  - {id: f1-s22-s24, dir: world/seg/f1-s22-s24, scenes: [S22, S23, S24]}
+  - {id: f2-s25, dir: world/seg/f2-s25, scenes: [S25]}
 shorts:   # 1 Short, không thumbnail (D-013); mô tả + mốc duyệt ở G2, dựng ở M6
   - {id: SH1, from: "@S14.2", to: "@S15.2$", hook: "The pile that sank", end: "Stocks pile, ten years: buyer still ahead in about half of 307 start months · history, not a forecast"}

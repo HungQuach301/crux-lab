@@ -1,7 +1,7 @@
 {
  "segment": "ep009 · B = S04–S06 (chương 2, hồi 1)",
  "version": 8,
- "grey": true,
+ "grey": false,
  "total": 32.4,
  "fps": 30,
  "pad": 0.25,
@@ -552,7 +552,7 @@
    "t": 2.03,
    "kind": "tick",
    "v": 0.4,
-   "real": "S-OGA-PAGEFLIP4",
+   "real": "S-OGA-PAGEFLIP3",
    "label": "giay",
    "rate": 0.9754,
    "gain_db": 1.08,
@@ -963,6 +963,9 @@
  "checks": {
   "rule2_rule3_rule7": "OK"
  },
+ "cine": {
+  "look": "afternoon"
+ },
  "sfx_thin": {
   "max10s": 4,
   "kinds": [
@@ -992,7 +995,7 @@
     "kind": "tick",
     "scene": "S04",
     "label": "giay",
-    "file": "S-OGA-PAGEFLIP4",
+    "file": "S-OGA-PAGEFLIP3",
     "rate": 0.9754,
     "gain_db": 1.08
    },
