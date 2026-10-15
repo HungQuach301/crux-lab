@@ -1,0 +1,5 @@
+# Bảng vật thể — nhận dạng mù (M2, 15/10)
+
+Vật thể dùng lại từ Tập 8 (đã qua nhận dạng mù ở Tập 8, không vẽ lại): N1 con phố 307 nhà, N2 thẻ tiền thuê, N3 đèn Nina, N4 hộp CASH, E1 cọc equity, E2 cặp song sinh, V7 thẻ phương pháp, SB bảng điểm (`BANG-VAT-THE.md`).
+**Mới: N6 đống cổ phiếu** — kệ mở (khác hộp kính CASH), đống bó tiền theo **quỹ thật** cửa sổ 11/2007 (đáy $54,310 ở 02/2009 = `min_pot_stocks_10y`), vạch "$92,000 start", dưới vạch đổi màu cảnh báo, mỗi tháng một bó rơi vào. Clip `objclip/N6-pile-3s.mp4` (3 s, tắt tiếng; bản 7 s `N6-pile.mp4`), mã `objclip/page.html` + `data.py`.
+**Nhận dạng mù** (2 headless Sonnet khoá Console, dải 6 khung `read-n6-r1/strip.png`, $0,04): **2/2 gọi đúng vật thể và ý** — "Nina's invested money, starts at $92,000", "fell below the line in the crash, then recovered and grew"; 2/2 thấy bó nhỏ rơi vào ("may be a new contribution"). Việc cho M3: khung cuối đống chạy ra khỏi khung hình (máy lùi theo chiều cao); màu renter-stocks (`accent` tạm) do Thiết kế hình chốt, khác renter-cash.

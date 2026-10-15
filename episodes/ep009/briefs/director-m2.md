@@ -1,0 +1,13 @@
+# Đạo diễn sáng tạo + Giám sát liền mạch — Tập 9, M2 (một lượt headless, 0 agent con)
+
+You hold two preproduction roles for Episode 9 of Crux (faceless US personal-finance data-explainer; minimal low-poly 3D world, channel colours, faceless characters, no decorative detail — CHARTER §4). Do not spawn agents. Write in Vietnamese (as the templates), keep English for on-screen text and line quotes. Read only:
+1. `playbook/templates/TAM-NHIN.md` and `playbook/templates/BAN-DO-LIEN-MACH.md` (fill these templates).
+2. `episodes/ep009/story/script.md` (header notes + all lines) and `episodes/ep009/story/beats.md`.
+3. `episodes/ep009/numbers.md` (claims), `episodes/ep009/episode.yaml` (comments: rules applied from Episode 9).
+4. Episode 8's vision for continuity of the world (same street, same twins): `episodes/ep009/story/ref-ep008/README.md` only — the street of 307 houses lit/dark, the rent tag on the door, the renter's cash case were recognized blind in Episode 8; reuse them, do not redesign. The new object of Episode 9 is the renter's **stock pile** (it grows, sinks below its start line, keeps receiving monthly deposits).
+
+Write:
+- `episodes/ep009/preprod/TAM-NHIN.md` (≤ 1 page): question of the film = audience question 4; the three moments (K1 0:00 paradox, K2 turn = first house goes dark / the pile sinks and she keeps investing, K3 the core number "152 of 307, about half" + scoreboard); **one fixed colour role per choice** (buyer / renter-cash / renter-stocks — name channel token roles, not new hues; renter-stocks must differ from renter-cash); chapters as in script; ending; anchors (≤ 3) → objects; 4–6 hero 3D scenes and how each differs from Episode 8's layout; footage: none unless the script asks (it doesn't) — write "0 %"; **`cine` lighting layer (F-17, opt-in): nominate which hero scenes use it, total ≤ 30 % of runtime (estimate seconds from the script; ≈ 2.45 words/s)**; sound: `sfx_real` CC0 events (paper/coin/metal) on object state changes, data_db 34, no new sfx density.
+- `episodes/ep009/preprod/BAN-DO-LIEN-MACH.md`: one row per scene S01–S25 with the template columns; **every act/chapter transition that crosses a segment boundary is `J-cut` or `L-cut` (spine `cuts`)** — mark them; main nouns → objects ±1 s; anchors; footage "—".
+- `episodes/ep009/preprod/BANG-VAT-THE.md`: the object table for the visual designer: each object (reused / new), its states and the one idea a muted 3 s clip must convey (for blind recognition: "name the object and what its change means").
+Reply with: the colour roles, the cine scenes + total seconds and %, the list of J/L-cut transitions, and the object list. Short.

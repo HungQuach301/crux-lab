@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Tập 9 · clip vật thể MỚI N6 (đống cổ phiếu của người thuê) cho nhận dạng mù M2 — khung trang chép từ Tập 8 (episodes/ep008/preprod/objclip/page.html). -->
+<style>
+ html,body{margin:0;background:#0E1116;overflow:hidden}
+ #ov{position:absolute;left:0;top:0;width:960px;height:540px;pointer-events:none;font-family:Inter,Arial,sans-serif;color:#F2F4F7}
+ .lab{position:absolute;font-weight:700;font-size:24px;padding:6px 12px;border-radius:8px;background:rgba(14,17,22,.72);white-space:nowrap}
+ .muted{color:#9AA4B2}
+</style>
+<script type="importmap">{"imports":{"three":"/toolkit/factory/world/vendor/node_modules/three/build/three.module.js"}}</script>
+</head><body>
+<div id="ov"></div>
+<script type="module">
+import * as THREE from 'three';
+import { PALETTE, Studio, Person, Apartment, Stack } from '/toolkit/factory/world/lib3d.js';
+const data = await (await fetch('/episodes/ep009/preprod/objclip/data.json')).json();
+const W = 960, H = 540;
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.shadowMap.enabled = true; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.prepend(renderer.domElement);
+const scene = new THREE.Scene(); Studio(scene, { shadowBox: 20 });
+const cam = new THREE.PerspectiveCamera(38, W / H, 0.1, 200);
+const ov = document.getElementById('ov');
+const lab = (html, x, y, cls = '') => { const d = document.createElement('div'); d.className = 'lab ' + cls; d.innerHTML = html; d.style.left = x + 'px'; d.style.top = y + 'px'; ov.appendChild(d); return d; };
+const lerp = (a, b, k) => a + (b - a) * k;
+const STOCKS = PALETTE.accent;   // vai màu renter-stocks (Thiết kế hình chốt ở M3; khác renter-cash)
+// N6: kệ mở (không kính — khác hộp CASH của Tập 8), đống bó tiền theo quỹ thật từng tháng; vạch $92,000 xuất phát; mỗi tháng một bó nhỏ rơi vào
+const shelf = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.06, 1.0), new THREE.MeshStandardMaterial({ color: STOCKS, roughness: 0.6 })); shelf.position.y = 0.03; scene.add(shelf);
+const post = new THREE.Mesh(new THREE.BoxGeometry(0.05, 4.2, 0.05), new THREE.MeshStandardMaterial({ color: STOCKS })); post.position.set(-0.85, 2.1, -0.45); scene.add(post);
+const pile = Stack({ unitUsd: 1e5, bundleUsd: 10000, w: 1.1, d: 0.7, maxUsd: 4e5 }); pile.position.y = 0.06; scene.add(pile);
+const line = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.025, 1.1), new THREE.MeshStandardMaterial({ color: PALETTE.ink, transparent: true, opacity: 0.85 })); line.position.y = 0.06 + 0.92; scene.add(line);
+const apt = Apartment({ w: 1.6, floors: 3 }); apt.position.set(-3.2, 0, -1.2); scene.add(apt);
+const nina = Person({ h: 1.0 }); nina.position.set(-1.7, 0, 0.6); scene.add(nina);
+const drop = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.08, 0.24), new THREE.MeshStandardMaterial({ color: PALETTE.bill })); scene.add(drop);
+const lStart = lab('$92,000 start', 0, 0, 'muted'), lName = lab('Nina · ILLUSTRATIVE', 20, 20), lYear = lab('', 20, 64, 'muted');
+const T0 = 0.4, T1 = 6.4, N = data.pot.length - 1;
+const ym = (k) => { const y = +data.start.slice(0, 4), m = +data.start.slice(5) - 1 + k; return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m % 12] + ' ' + (y + Math.floor(m / 12)); };
+window.seek = (t) => {
+  const f = Math.min(N, Math.max(0, (t - T0) / (T1 - T0) * N)), k = Math.floor(f), fr = f - k;
+  const usd = lerp(data.pot[k], data.pot[Math.min(N, k + 1)], fr);
+  const h = pile.set({ usd, tintBelowUsd: 92000, tint: PALETTE.warn, tintA: usd < 92000 ? 0.6 : 0 });
+  drop.visible = t > T0 && t < T1; drop.position.set(0, 0.06 + h + (1 - fr) * 1.2, 0);
+  lYear.textContent = ym(k);
+  cam.position.set(lerp(1.6, 1.2, t / 7), 2.2, 5.6); cam.lookAt(-0.4, 1.1, 0); cam.updateMatrixWorld();
+  const v = new THREE.Vector3(0.95, 0.06 + 0.92, 0.55).project(cam); lStart.style.left = ((v.x + 1) / 2 * W + 8) + 'px'; lStart.style.top = ((1 - v.y) / 2 * H - 18) + 'px';
+  renderer.render(scene, cam);
+};
+window.ready = true;
+</script></body></html>
