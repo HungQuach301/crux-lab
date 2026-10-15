@@ -1,0 +1,274 @@
+episode: ep009
+format: lab
+topic: 'tiếp Tập 8 — nếu người thuê đầu tư phần chênh lệch (gần queue #21); trả lời câu chuyền S33.1 Tập 8'
+title: Rent and Invest the Difference? We Replayed Every Start Month Since 1991
+pillar: vay nợ
+tokenCeiling:
+  episode: 15000000
+  consoleUsd: 45
+  p1HardUsd: 12
+  note: lab (episode.md §8); chặng tới G1 trần CỨNG $12 Console (chủ dự án 15/10)
+voice:
+  provider: elevenlabs
+  voice: cjVigY5qzO86Huf0OWal
+  model: eleven_v3
+  seed: 1009
+  settings:
+    stability: 0.5
+    speed: 0.9
+music:
+  source: M-BUCKLEY-ORIGAMI
+  file: work/external/sb-Origami.mp3
+  sha256: 8b8edd81ee2110a62169b48e3233e1556c0f9de10003b21f41a28e5b4bcbfe14
+f14: true
+asr_hotwords:
+- Nina
+footage:
+  max_share: 0.2
+  rights: RIGHTS.md
+  map: preprod/BAN-DO-LIEN-MACH.md
+dossier:
+  numbers: numbers.md
+  model: out/model.json
+  sources: data/sources.json
+  market: market/topics/s1-rent-vs-buy-history.md
+audio:
+  lufs: -14
+  true_peak: -2.0
+  aac_true_peak: -2.0
+  mix:
+    data_db: 34
+  music: work/factory/music/bed.wav
+  music_cmd: python3 episodes/ep009/world/music/bed.py {total} {out} --timeline episodes/ep009/out/factory/timeline.json
+  ident:
+    after: S03
+  close_lift_db: 12
+fps: 30
+res: 540
+scope: full
+script: prod/gen/script.json
+claims: prod/gen/claims.json
+tokens: prod/gen/tokens.json
+data:
+  file: prod/gen/data.json
+acts:
+- id: cold-open
+  scenes:
+  - S01
+  - S02
+  - S03
+- id: ident
+  scenes:
+  - S03
+- id: act1
+  scenes:
+  - S04
+  - S05
+  - S06
+- id: act2
+  scenes:
+  - S08
+  - S09
+  - S10
+  - S11
+  - S12
+  - S13
+  - S14
+  - S15
+  - S16
+  - S17
+  - S18
+- id: act3
+  scenes:
+  - S19
+  - S20
+  - S21
+  - S22
+  - S23
+- id: method
+  scenes:
+  - S24
+  - S25
+scenes:
+- id: S01
+  tail: 1.0
+  shots: []
+- id: S02
+  tail: 1.0
+  shots: []
+- id: S03
+  tail: 4.0
+  shots: []
+- id: S04
+  tail: 1.0
+  shots: []
+- id: S05
+  tail: 1.0
+  shots: []
+- id: S06
+  tail: 1.5
+  shots: []
+- id: S08
+  tail: 1.0
+  shots: []
+- id: S09
+  tail: 1.0
+  shots: []
+- id: S10
+  tail: 1.0
+  shots: []
+- id: S11
+  tail: 1.0
+  shots: []
+- id: S12
+  tail: 1.0
+  shots: []
+- id: S13
+  tail: 1.0
+  shots: []
+- id: S14
+  tail: 1.0
+  shots: []
+- id: S15
+  tail: 1.0
+  shots: []
+- id: S16
+  tail: 1.0
+  shots: []
+- id: S17
+  tail: 1.0
+  shots: []
+- id: S18
+  tail: 1.5
+  shots: []
+- id: S19
+  tail: 1.0
+  shots: []
+- id: S20
+  tail: 1.0
+  shots: []
+- id: S21
+  tail: 1.0
+  shots: []
+- id: S22
+  tail: 1.0
+  shots: []
+- id: S23
+  tail: 1.0
+  shots: []
+- id: S24
+  tail: 1.0
+  shots: []
+- id: S25
+  tail: 2.0
+  shots: []
+midrolls:
+- after_act: act1
+  scene: S06
+  t: 147.27
+- after_act: act2
+  scene: S18
+  t: 428.17
+counterweights:
+- id: us-only
+  text: US only · history, not a forecast
+  when: historical
+- id: illustrative
+  text: Nina and her twins are illustrative · real prices, rents, rates and stock returns
+  claims:
+  - price
+  - down_usd
+  - closing_usd
+  - savings_usd
+- id: no-advice
+  text: Not advice to buy, rent or invest
+  claims:
+  - share_buyer_ahead_stocks_10y
+  - share_buyer_ahead_cash_10y
+  - share_buyer_ahead_stocks_15y
+  - flip_yield_stocks_10y
+world:
+- id: a-s01-s03
+  dir: world/seg/a-s01-s03
+  scenes:
+  - S01
+  - S02
+  - S03
+- id: b-s04-s06
+  dir: world/seg/b-s04-s06
+  scenes:
+  - S04
+  - S05
+  - S06
+- id: c-s08-s13
+  dir: world/seg/c-s08-s13
+  scenes:
+  - S08
+  - S09
+  - S10
+  - S11
+  - S12
+  - S13
+- id: d-s14-s18
+  dir: world/seg/d-s14-s18
+  scenes:
+  - S14
+  - S15
+  - S16
+  - S17
+  - S18
+- id: e-s19-s21
+  dir: world/seg/e-s19-s21
+  scenes:
+  - S19
+  - S20
+  - S21
+- id: f-s22-s25
+  dir: world/seg/f-s22-s25
+  scenes:
+  - S22
+  - S23
+  - S24
+  - S25
+voice_overrides:
+  S05:
+    take: dry-43b2cd87657864e2
+  S06:
+    take: dry-a1210ecf51f1df99
+  S08:
+    take: dry-3d95c7e42759ec48
+  S09:
+    take: dry-606055578c3b7e72
+  S10:
+    take: dry-977c37853ea8f67f
+  S11:
+    take: dry-5886611d9aa2308b
+  S12:
+    take: dry-3b5e8aa07b004483
+  S13:
+    take: dry-7cbe44aa745a6992
+  S14:
+    take: dry-22abedff9d4ca14b
+  S15:
+    take: dry-262b8a26a54f784a
+  S16:
+    take: dry-f99a06e7f28326f1
+  S17:
+    take: dry-23839e8867793a04
+  S18:
+    take: dry-b7b23e7c610bf1bf
+  S19:
+    take: dry-f3ed68afc2a21c2d
+  S20:
+    take: dry-b02c3982cb2d965a
+  S21:
+    take: dry-2813c81c6c90d650
+  S22:
+    take: dry-5ecd3284316f829e
+  S23:
+    take: dry-3dcdee432f515b58
+  S24:
+    take: dry-ff2d3189202b491a
+  S25:
+    take: dry-e31b25fd38720f71
+_animatic: SINH BỞI prod/dry_takes.py — episode.yaml + take khô (0 ký tự EL); không sửa tay

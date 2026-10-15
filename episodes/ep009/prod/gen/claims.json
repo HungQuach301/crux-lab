@@ -1,0 +1,4293 @@
+{
+ "claims": [
+  {
+   "claimId": "hpi_last",
+   "value": "2026-07",
+   "display": "July 2026",
+   "unit": "month",
+   "formula": "Last month of the FHFA index file.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    }
+   ]
+  },
+  {
+   "claimId": "stocks_last",
+   "value": "2026-08",
+   "display": "August 2026",
+   "unit": "month",
+   "formula": "Last month of the Fama/French monthly file.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_first_used",
+   "value": "1991-01",
+   "display": "1991-01",
+   "unit": "month",
+   "formula": "First month of stock returns used.",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_5y",
+   "value": 367,
+   "display": "367",
+   "unit": "windows",
+   "formula": "5-year windows from 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "last_5y",
+   "value": "2021-07",
+   "display": "2021-07",
+   "unit": "month",
+   "formula": "last start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_cash_5y",
+   "value": 74.4,
+   "display": "74.4",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_renter_ahead_cash_5y",
+   "value": 94,
+   "display": "94",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_cash_5y",
+   "value": 79931,
+   "display": "79931",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_cash_5y",
+   "value": "2017-05",
+   "display": "2017-05",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_cash_5y",
+   "value": 213918,
+   "display": "213918",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_cash_5y",
+   "value": "2006-05",
+   "display": "2006-05",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_cash_5y",
+   "value": -149392,
+   "display": "-149392",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_5y",
+   "value": 53.4,
+   "display": "53.4%",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S17",
+     "sentence": "S17.4"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.5"
+    }
+   ]
+  },
+  {
+   "claimId": "n_renter_ahead_stocks_5y",
+   "value": 171,
+   "display": "171",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_stocks_5y",
+   "value": 15350,
+   "display": "15350",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_stocks_5y",
+   "value": "2017-10",
+   "display": "2017-10",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_stocks_5y",
+   "value": 146477,
+   "display": "146477",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_stocks_5y",
+   "value": "1995-01",
+   "display": "1995-01",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_stocks_5y",
+   "value": -267548,
+   "display": "-267548",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_lump_5y",
+   "value": 60.5,
+   "display": "60.5",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_renter_ahead_lump_5y",
+   "value": 145,
+   "display": "145",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_lump_5y",
+   "value": 27299,
+   "display": "27299",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_lump_5y",
+   "value": "2000-09",
+   "display": "2000-09",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_lump_5y",
+   "value": 178523,
+   "display": "178523",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_lump_5y",
+   "value": "2009-03",
+   "display": "2009-03",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_lump_5y",
+   "value": -166466,
+   "display": "-166466",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_fee_5y",
+   "value": 54.0,
+   "display": "54.0",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_renter_ahead_stocks_fee_5y",
+   "value": 169,
+   "display": "169",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_stocks_fee_5y",
+   "value": 24056,
+   "display": "24056",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_stocks_fee_5y",
+   "value": "2017-10",
+   "display": "2017-10",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_stocks_fee_5y",
+   "value": 153681,
+   "display": "153681",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_stocks_fee_5y",
+   "value": "1995-01",
+   "display": "1995-01",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_stocks_fee_5y",
+   "value": -249215,
+   "display": "-249215",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_10y",
+   "value": 307,
+   "display": "307 start months",
+   "unit": "windows",
+   "formula": "10-year windows from 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.5"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.4"
+    },
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    },
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    }
+   ]
+  },
+  {
+   "claimId": "last_10y",
+   "value": "2016-07",
+   "display": "July 2016",
+   "unit": "month",
+   "formula": "last start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    }
+   ]
+  },
+  {
+   "claimId": "share_buyer_ahead_cash_10y",
+   "value": 75.6,
+   "display": "about 3 in 4",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.2"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.2"
+    }
+   ]
+  },
+  {
+   "claimId": "n_renter_ahead_cash_10y",
+   "value": 75,
+   "display": "75",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_cash_10y",
+   "value": 157104,
+   "display": "157104",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_cash_10y",
+   "value": "2012-04",
+   "display": "2012-04",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_cash_10y",
+   "value": 483975,
+   "display": "483975",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_cash_10y",
+   "value": "2006-06",
+   "display": "2006-06",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_cash_10y",
+   "value": -82385,
+   "display": "-82385",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_10y",
+   "value": 49.5,
+   "display": "about half",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "core": true,
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.3"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    },
+    {
+     "scene": "S15",
+     "sentence": "S15.4"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.2"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.5"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.2"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.4"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.2"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.5"
+    }
+   ]
+  },
+  {
+   "claimId": "n_renter_ahead_stocks_10y",
+   "value": 155,
+   "display": "155 of 307",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_stocks_10y",
+   "value": -5827,
+   "display": "$5,827 behind",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "best_start_stocks_10y",
+   "value": "2012-10",
+   "display": "October 2012",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_stocks_10y",
+   "value": 297855,
+   "display": "$297,855 ahead",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "worst_start_stocks_10y",
+   "value": "1991-01",
+   "display": "January 1991",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.2"
+    }
+   ]
+  },
+  {
+   "claimId": "worst_adv_stocks_10y",
+   "value": -485063,
+   "display": "-485063",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_lump_10y",
+   "value": 63.8,
+   "display": "about 2 in 3",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S20",
+     "sentence": "S20.2"
+    }
+   ]
+  },
+  {
+   "claimId": "n_renter_ahead_lump_10y",
+   "value": 111,
+   "display": "111",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_lump_10y",
+   "value": 90280,
+   "display": "90280",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_lump_10y",
+   "value": "2013-11",
+   "display": "2013-11",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_lump_10y",
+   "value": 263345,
+   "display": "263345",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_lump_10y",
+   "value": "1991-01",
+   "display": "1991-01",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_lump_10y",
+   "value": -194366,
+   "display": "-194366",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_fee_10y",
+   "value": 55.0,
+   "display": "55.0%",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.2"
+    }
+   ]
+  },
+  {
+   "claimId": "n_renter_ahead_stocks_fee_10y",
+   "value": 138,
+   "display": "138",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_stocks_fee_10y",
+   "value": 20685,
+   "display": "20685",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_stocks_fee_10y",
+   "value": "2012-10",
+   "display": "2012-10",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_stocks_fee_10y",
+   "value": 321916,
+   "display": "321916",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_stocks_fee_10y",
+   "value": "1991-01",
+   "display": "1991-01",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_stocks_fee_10y",
+   "value": -424088,
+   "display": "-424088",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_15y",
+   "value": 247,
+   "display": "247",
+   "unit": "windows",
+   "formula": "15-year windows from 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S18",
+     "sentence": "S18.2"
+    }
+   ]
+  },
+  {
+   "claimId": "last_15y",
+   "value": "2011-07",
+   "display": "2011-07",
+   "unit": "month",
+   "formula": "last start",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_cash_15y",
+   "value": 100.0,
+   "display": "every one",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.2"
+    }
+   ]
+  },
+  {
+   "claimId": "n_renter_ahead_cash_15y",
+   "value": 0,
+   "display": "0",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_cash_15y",
+   "value": 187511,
+   "display": "187511",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_cash_15y",
+   "value": "2011-05",
+   "display": "2011-05",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_cash_15y",
+   "value": 663211,
+   "display": "663211",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_cash_15y",
+   "value": "2005-11",
+   "display": "2005-11",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_cash_15y",
+   "value": 79829,
+   "display": "79829",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_15y",
+   "value": 21.9,
+   "display": "about 1 in 5",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.1"
+    },
+    {
+     "scene": "S17",
+     "sentence": "S17.5"
+    },
+    {
+     "scene": "S18",
+     "sentence": "S18.3"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.2"
+    }
+   ]
+  },
+  {
+   "claimId": "n_renter_ahead_stocks_15y",
+   "value": 193,
+   "display": "193",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_stocks_15y",
+   "value": -132131,
+   "display": "-132131",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_stocks_15y",
+   "value": "2011-04",
+   "display": "2011-04",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_stocks_15y",
+   "value": 162481,
+   "display": "162481",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_stocks_15y",
+   "value": "2006-07",
+   "display": "2006-07",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_stocks_15y",
+   "value": -611861,
+   "display": "-611861",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_lump_15y",
+   "value": 71.3,
+   "display": "71.3",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_renter_ahead_lump_15y",
+   "value": 71,
+   "display": "71",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_lump_15y",
+   "value": 95860,
+   "display": "95860",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_lump_15y",
+   "value": "1994-03",
+   "display": "1994-03",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_lump_15y",
+   "value": 230305,
+   "display": "230305",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_lump_15y",
+   "value": "2009-03",
+   "display": "2009-03",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_lump_15y",
+   "value": -247835,
+   "display": "-247835",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_fee_15y",
+   "value": 32.0,
+   "display": "32.0",
+   "unit": "%",
+   "formula": "share of windows with buyer advantage > 0, renter pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_renter_ahead_stocks_fee_15y",
+   "value": 168,
+   "display": "168",
+   "unit": "windows",
+   "formula": "windows with advantage <= 0, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "median_adv_stocks_fee_15y",
+   "value": -65808,
+   "display": "-65808",
+   "unit": "USD",
+   "formula": "median buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_start_stocks_fee_15y",
+   "value": "2011-04",
+   "display": "2011-04",
+   "unit": "month",
+   "formula": "start with largest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "best_adv_stocks_fee_15y",
+   "value": 243650,
+   "display": "243650",
+   "unit": "USD",
+   "formula": "largest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_start_stocks_fee_15y",
+   "value": "2006-07",
+   "display": "2006-07",
+   "unit": "month",
+   "formula": "start with smallest buyer advantage (best for renter), pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "worst_adv_stocks_fee_15y",
+   "value": -501662,
+   "display": "-501662",
+   "unit": "USD",
+   "formula": "smallest buyer advantage, pot = stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_flip_to_renter_10y",
+   "value": 80,
+   "display": "80 start months",
+   "unit": "windows",
+   "formula": "buyer ahead with cash pot, renter ahead with stock pot",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    }
+   ]
+  },
+  {
+   "claimId": "n_flip_to_buyer_10y",
+   "value": 0,
+   "display": "none",
+   "unit": "windows",
+   "formula": "renter ahead with cash pot, buyer ahead with stock pot",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.3"
+    }
+   ]
+  },
+  {
+   "claimId": "era_1990s_n",
+   "value": 108,
+   "display": "108",
+   "unit": "windows",
+   "formula": "era windows",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_1990s_share_cash",
+   "value": 100.0,
+   "display": "100.0",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_1990s_median_cash",
+   "value": 187313,
+   "display": "187313",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_1990s_share_stocks",
+   "value": 67.6,
+   "display": "about 2 in 3",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era_1990s_median_stocks",
+   "value": 62134,
+   "display": "62134",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_1990s_share_lump",
+   "value": 86.1,
+   "display": "86.1",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_1990s_median_lump",
+   "value": 159187,
+   "display": "159187",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2002-2007_n",
+   "value": 72,
+   "display": "72",
+   "unit": "windows",
+   "formula": "era windows",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2002-2007_share_cash",
+   "value": 8.3,
+   "display": "6 of 72",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.3"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2002-2007_median_cash",
+   "value": -32538,
+   "display": "-32538",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2002-2007_share_stocks",
+   "value": 0.0,
+   "display": "none of 72",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S12",
+     "sentence": "S12.2"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2002-2007_median_stocks",
+   "value": -214136,
+   "display": "-214136",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2002-2007_share_lump",
+   "value": 8.3,
+   "display": "8.3",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2002-2007_median_lump",
+   "value": -60508,
+   "display": "-60508",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_n",
+   "value": 91,
+   "display": "91",
+   "unit": "windows",
+   "formula": "era windows",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_share_cash",
+   "value": 100.0,
+   "display": "100.0",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_median_cash",
+   "value": 408914,
+   "display": "408914",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_share_stocks",
+   "value": 78.0,
+   "display": "nearly 4 in 5",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S17",
+     "sentence": "S17.1"
+    }
+   ]
+  },
+  {
+   "claimId": "era_2009-2016_median_stocks",
+   "value": 144711,
+   "display": "144711",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_share_lump",
+   "value": 80.2,
+   "display": "80.2",
+   "unit": "%",
+   "formula": "era share buyer ahead, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_median_lump",
+   "value": 141365,
+   "display": "141365",
+   "unit": "USD",
+   "formula": "era median buyer advantage, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_median_10y",
+   "value": 2.46,
+   "display": "about 2.5 times",
+   "unit": "x",
+   "formula": "median 10-year growth of $1 in US stocks (total return), over start months",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_best_start_10y",
+   "value": "1991-01",
+   "display": "1991-01",
+   "unit": "month",
+   "formula": "start with the largest 10-year stock growth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_best_10y",
+   "value": 4.92,
+   "display": "4.92",
+   "unit": "x",
+   "formula": "largest 10-year growth of $1",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_worst_start_10y",
+   "value": "1999-03",
+   "display": "March 1999",
+   "unit": "month",
+   "formula": "start with the smallest 10-year stock growth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    }
+   ]
+  },
+  {
+   "claimId": "stocks_growth_worst_10y",
+   "value": 0.77,
+   "display": "0.77x",
+   "unit": "x",
+   "formula": "smallest 10-year growth of $1",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_stocks_lost_10y",
+   "value": 16,
+   "display": "16 start months",
+   "unit": "windows",
+   "formula": "10-year windows where $1 in stocks ended below $1",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S11",
+     "sentence": "S11.2"
+    }
+   ]
+  },
+  {
+   "claimId": "n_stocks_lost_buyer_ahead_10y",
+   "value": 16,
+   "display": "all 16 stay lit",
+   "unit": "windows",
+   "formula": "of the windows where $1 in stocks ended below $1, buyer ahead (stock pot)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "n_stocks_beat_house_10y",
+   "value": 273,
+   "display": "273",
+   "unit": "windows",
+   "formula": "windows where 10-year stock growth > house index growth",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "share_stocks_beat_house_10y",
+   "value": 88.9,
+   "display": "about 9 in 10",
+   "unit": "%",
+   "formula": "share of windows, stocks grew more than house index",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S01",
+     "sentence": "S01.1"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.3"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.1"
+    }
+   ]
+  },
+  {
+   "claimId": "adv_2006-06_cash_10y",
+   "value": -82385,
+   "display": "$82,385 behind",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2006-06, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "adv_2006-06_stocks_10y",
+   "value": -261689,
+   "display": "$261,689 behind",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2006-06, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S13",
+     "sentence": "S13.2"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "adv_2006-06_lump_10y",
+   "value": -75445,
+   "display": "-75445",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2006-06, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_2006-06_stocks_10y",
+   "value": 377063,
+   "display": "377063",
+   "unit": "USD",
+   "formula": "renter stock pot at the end, start 2006-06",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_2006-06_cash_10y",
+   "value": 197760,
+   "display": "197760",
+   "unit": "USD",
+   "formula": "renter cash pot at the end, start 2006-06",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "equity_2006-06_10y",
+   "value": 115374,
+   "display": "115374",
+   "unit": "USD",
+   "formula": "buyer net equity at the end, start 2006-06",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_2006-06_10y",
+   "value": 2.07,
+   "display": "2.07",
+   "unit": "x",
+   "formula": "10-year growth of $1 in stocks from 2006-06",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "adv_2012-04_cash_10y",
+   "value": 483975,
+   "display": "$483,975 ahead",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2012-04, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "adv_2012-04_stocks_10y",
+   "value": 237632,
+   "display": "$237,632 ahead",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2012-04, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.2"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "adv_2012-04_lump_10y",
+   "value": 195877,
+   "display": "195877",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2012-04, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_2012-04_stocks_10y",
+   "value": 316617,
+   "display": "316617",
+   "unit": "USD",
+   "formula": "renter stock pot at the end, start 2012-04",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_2012-04_cash_10y",
+   "value": 70273,
+   "display": "70273",
+   "unit": "USD",
+   "formula": "renter cash pot at the end, start 2012-04",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "equity_2012-04_10y",
+   "value": 554248,
+   "display": "554248",
+   "unit": "USD",
+   "formula": "buyer net equity at the end, start 2012-04",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_2012-04_10y",
+   "value": 3.9,
+   "display": "3.9",
+   "unit": "x",
+   "formula": "10-year growth of $1 in stocks from 2012-04",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "adv_2000-01_cash_10y",
+   "value": 35725,
+   "display": "35725",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2000-01, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "adv_2000-01_stocks_10y",
+   "value": 27126,
+   "display": "27126",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2000-01, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "adv_2000-01_lump_10y",
+   "value": 144621,
+   "display": "144621",
+   "unit": "USD",
+   "formula": "buyer advantage for start 2000-01, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_2000-01_stocks_10y",
+   "value": 206058,
+   "display": "206058",
+   "unit": "USD",
+   "formula": "renter stock pot at the end, start 2000-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_2000-01_cash_10y",
+   "value": 197459,
+   "display": "197459",
+   "unit": "USD",
+   "formula": "renter cash pot at the end, start 2000-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "equity_2000-01_10y",
+   "value": 233184,
+   "display": "233184",
+   "unit": "USD",
+   "formula": "buyer net equity at the end, start 2000-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_2000-01_10y",
+   "value": 0.96,
+   "display": "0.96",
+   "unit": "x",
+   "formula": "10-year growth of $1 in stocks from 2000-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "adv_1991-01_cash_10y",
+   "value": 48410,
+   "display": "$48,410 ahead",
+   "unit": "USD",
+   "formula": "buyer advantage for start 1991-01, pot = cash",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.2"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "adv_1991-01_stocks_10y",
+   "value": -485063,
+   "display": "$485,063 behind",
+   "unit": "USD",
+   "formula": "buyer advantage for start 1991-01, pot = stocks",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S04",
+     "sentence": "S04.3"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "adv_1991-01_lump_10y",
+   "value": -194366,
+   "display": "-194366",
+   "unit": "USD",
+   "formula": "buyer advantage for start 1991-01, pot = lump",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_1991-01_stocks_10y",
+   "value": 743385,
+   "display": "743385",
+   "unit": "USD",
+   "formula": "renter stock pot at the end, start 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "pot_1991-01_cash_10y",
+   "value": 209912,
+   "display": "209912",
+   "unit": "USD",
+   "formula": "renter cash pot at the end, start 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "equity_1991-01_10y",
+   "value": 258322,
+   "display": "258322",
+   "unit": "USD",
+   "formula": "buyer net equity at the end, start 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "stocks_growth_1991-01_10y",
+   "value": 4.92,
+   "display": "almost 5 times",
+   "unit": "x",
+   "formula": "10-year growth of $1 in stocks from 1991-01",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S05",
+     "sentence": "S05.1"
+    }
+   ]
+  },
+  {
+   "claimId": "min_pot_stocks_10y",
+   "value": 54310,
+   "display": "$54,310",
+   "unit": "USD",
+   "formula": "lowest month-end stock pot in any window",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.3"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "n_pot_below_start_stocks_10y",
+   "value": 183,
+   "display": "183 of 307",
+   "unit": "windows",
+   "formula": "windows where the stock pot dipped below $92,000 at some month-end",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    }
+   ]
+  },
+  {
+   "claimId": "lump_monthly_spent_median_10y",
+   "value": 69498,
+   "display": "69498",
+   "unit": "USD",
+   "formula": "median total monthly gap spent (not saved) over 10 years, lump variant",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "hvs_yield_2025Q4",
+   "value": 4.83,
+   "display": "4.83% a year",
+   "unit": "%",
+   "formula": "Census HVS 12 x median asking rent / median asking sales price, 2025Q4",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.3"
+    }
+   ]
+  },
+  {
+   "claimId": "share_hvs_2025Q4_stocks_10y",
+   "value": 47.2,
+   "display": "47.2%",
+   "unit": "%",
+   "formula": "share buyer ahead, stock pot, that anchor",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "hvs_yield_2026Q1",
+   "value": 5.59,
+   "display": "5.59% a year",
+   "unit": "%",
+   "formula": "Census HVS 12 x median asking rent / median asking sales price, 2026Q1",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.3"
+    }
+   ]
+  },
+  {
+   "claimId": "share_hvs_2026Q1_stocks_10y",
+   "value": 58.3,
+   "display": "58.3%",
+   "unit": "%",
+   "formula": "share buyer ahead, stock pot, that anchor",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "flip_yield_stocks_10y",
+   "value": 5.06,
+   "display": "about 5.1%",
+   "unit": "%",
+   "formula": "anchor yield at which buyer-ahead share (stock pot) falls to 50% (10y)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "conditional": "history-not-forecast",
+   "decisive": true,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S22",
+     "sentence": "S22.3"
+    },
+    {
+     "scene": "S25",
+     "sentence": "S25.5"
+    }
+   ]
+  },
+  {
+   "claimId": "price",
+   "value": 400000.0,
+   "display": "$400,000",
+   "unit": "USD",
+   "formula": "model parameter (as Episode 8)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.2"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "savings_usd",
+   "value": 92000,
+   "display": "$92,000",
+   "unit": "USD",
+   "formula": "model parameter (as Episode 8)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S02",
+     "sentence": "S02.1"
+    },
+    {
+     "scene": "S03",
+     "sentence": "S03.6"
+    },
+    {
+     "scene": "S05",
+     "sentence": "S05.2"
+    },
+    {
+     "scene": "S14",
+     "sentence": "S14.2"
+    },
+    {
+     "scene": "S16",
+     "sentence": "S16.3"
+    },
+    {
+     "scene": "S19",
+     "sentence": "S19.2"
+    },
+    {
+     "scene": "S20",
+     "sentence": "S20.1"
+    }
+   ],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "down_usd",
+   "value": 80000,
+   "display": "$80,000",
+   "unit": "USD",
+   "formula": "model parameter (as Episode 8)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "closing_usd",
+   "value": 12000,
+   "display": "$12,000",
+   "unit": "USD",
+   "formula": "model parameter (as Episode 8)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "basis": "nominal"
+  },
+  {
+   "claimId": "down_pct",
+   "value": 20,
+   "display": "20",
+   "unit": "%",
+   "formula": "down payment share",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "closing_pct",
+   "value": 3,
+   "display": "3",
+   "unit": "%",
+   "formula": "closing cost share",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": true,
+   "character": "nina",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "sell_pct",
+   "value": 6,
+   "display": "6 percent",
+   "unit": "%",
+   "formula": "selling cost share",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "owner_cost_pct",
+   "value": 2.5,
+   "display": "2.5 percent a year",
+   "unit": "% a year",
+   "formula": "property tax 1.0 + insurance 0.5 + repairs 1.0 (Episode 8 assumption)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "yield_anchor_pct",
+   "value": 5.0,
+   "display": "5 percent",
+   "unit": "%",
+   "formula": "anchor yield (assumption, Episode 8)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S08",
+     "sentence": "S08.1"
+    },
+    {
+     "scene": "S22",
+     "sentence": "S22.2"
+    }
+   ]
+  },
+  {
+   "claimId": "fee_pct",
+   "value": 1.0,
+   "display": "1 percent a year",
+   "unit": "% a year",
+   "formula": "fee/tax-drag variant stocks_fee",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "illustrative": false,
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [
+    {
+     "scene": "S21",
+     "sentence": "S21.2"
+    }
+   ]
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_10y_n",
+   "value": 49.5,
+   "display": "152 of 307",
+   "unit": "%",
+   "formula": "same quantity as share_buyer_ahead_stocks_10y: about half (49.5%; 152 of 307)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_buyer_ahead_stocks_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_10y_pct",
+   "value": 49.5,
+   "display": "49.5%",
+   "unit": "%",
+   "formula": "same quantity as share_buyer_ahead_stocks_10y: about half (49.5%; 152 of 307)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_buyer_ahead_stocks_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "share_buyer_ahead_cash_10y_pct",
+   "value": 75.6,
+   "display": "75.6%",
+   "unit": "%",
+   "formula": "same quantity as share_buyer_ahead_cash_10y: about 3 in 4 (75.6%) — Episode 8 result, reproduced",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_buyer_ahead_cash_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "share_buyer_ahead_stocks_15y_pct",
+   "value": 21.9,
+   "display": "21.9%",
+   "unit": "%",
+   "formula": "same quantity as share_buyer_ahead_stocks_15y: about 1 in 5 (21.9%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_buyer_ahead_stocks_15y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "share_buyer_ahead_lump_10y_pct",
+   "value": 63.8,
+   "display": "63.8%",
+   "unit": "%",
+   "formula": "same quantity as share_buyer_ahead_lump_10y: about 2 in 3 (63.8%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_buyer_ahead_lump_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "share_stocks_beat_house_10y_pct",
+   "value": 88.9,
+   "display": "88.9%",
+   "unit": "%",
+   "formula": "same quantity as share_stocks_beat_house_10y: 88.9% (about 9 in 10)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "share_stocks_beat_house_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "era_1990s_share_stocks_pct",
+   "value": 67.6,
+   "display": "67.6%",
+   "unit": "%",
+   "formula": "same quantity as era_1990s_share_stocks: about 2 in 3 (67.6%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "era_1990s_share_stocks",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "era_2009-2016_share_stocks_pct",
+   "value": 78.0,
+   "display": "78.0%",
+   "unit": "%",
+   "formula": "same quantity as era_2009-2016_share_stocks: nearly 4 in 5 (78.0%)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "era_2009-2016_share_stocks",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "stocks_growth_1991-01_10y_x",
+   "value": 4.92,
+   "display": "4.92x",
+   "unit": "x",
+   "formula": "same quantity as stocks_growth_1991-01_10y: almost 5 times (4.92x)",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "stocks_growth_1991-01_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ],
+   "conditional": "history-not-forecast"
+  },
+  {
+   "claimId": "yield_anchor_tag",
+   "value": 5.0,
+   "display": "5",
+   "unit": "%",
+   "formula": "same quantity as yield_anchor_pct: 5 percent",
+   "source": {
+    "id": "model",
+    "url": null
+   },
+   "historical": true,
+   "illustrative": false,
+   "of": "yield_anchor_pct",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": [],
+   "dataYears": [
+    1991,
+    2026
+   ]
+  },
+  {
+   "claimId": "yield5_tag",
+   "value": 5,
+   "display": "5%",
+   "unit": "const",
+   "formula": "same quantity as params.yield5_tag: rent tag 5% of the price a year (assumption, numbers.md yield_anchor_pct)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.yield5_tag",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_1990s_span",
+   "value": "1991-1999",
+   "display": "1990s",
+   "unit": "const",
+   "formula": "same quantity as params.era_1990s_span: start months 1991 through 1999",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.era_1990s_span",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2002-2007_span",
+   "value": "2002-2007",
+   "display": "2002 to 2007",
+   "unit": "const",
+   "formula": "same quantity as params.era_2002-2007_span: start months 2002 through 2007",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.era_2002-2007_span",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "era_2009-2016_span",
+   "value": "2009-2016",
+   "display": "2009 to mid-2016",
+   "unit": "const",
+   "formula": "same quantity as params.era_2009-2016_span: start months 2009 through July 2016",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.era_2009-2016_span",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "hold_15y",
+   "value": 15,
+   "display": "15 years",
+   "unit": "const",
+   "formula": "same quantity as params.hold_15y: held fifteen years",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.hold_15y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "hold_10y",
+   "value": 10,
+   "display": "10 years",
+   "unit": "const",
+   "formula": "same quantity as params.hold_10y: held ten years",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.hold_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "first_10y",
+   "value": "1991-01",
+   "display": "January 1991",
+   "unit": "const",
+   "formula": "same quantity as params.first_10y: first start month January 1991",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.first_10y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "low_start",
+   "value": "2007-11",
+   "display": "November 2007 start",
+   "unit": "const",
+   "formula": "same quantity as params.low_start: start month of the lowest stock pot (world/data.json lowStart)",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.low_start",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  }
+ ]
+}

@@ -17,6 +17,60 @@ audio:
   true_peak: -2.0
   aac_true_peak: -2.0
   mix: {data_db: 34}
+  music: work/factory/music/bed.wav
+  music_cmd: "python3 episodes/ep009/world/music/bed.py {total} {out} --timeline episodes/ep009/out/factory/timeline.json"
   ident: {after: S03}
+  close_lift_db: 12
 fps: 30
 res: 540     # M2–M5; 1080 ở M6
+scope: full
+script: prod/gen/script.json
+claims: prod/gen/claims.json
+tokens: prod/gen/tokens.json
+data: {file: prod/gen/data.json}
+acts:   # theo các dòng `=== … ===` của story/script.md
+  - {id: cold-open, scenes: [S01, S02, S03]}
+  - {id: ident, scenes: [S03]}
+  - {id: act1, scenes: [S04, S05, S06]}
+  - {id: act2, scenes: [S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18]}
+  - {id: act3, scenes: [S19, S20, S21, S22, S23]}
+  - {id: method, scenes: [S24, S25]}   # giới hạn + kết (checks S02 đọc hồi "method")
+scenes:
+  - {id: S01, tail: 1.0, shots: []}
+  - {id: S02, tail: 1.0, shots: []}
+  - {id: S03, tail: 4.0, shots: []}     # + ident A 3 s
+  - {id: S04, tail: 1.0, shots: []}
+  - {id: S05, tail: 1.0, shots: []}
+  - {id: S06, tail: 1.5, shots: []}     # MR1
+  - {id: S08, tail: 1.0, shots: []}
+  - {id: S09, tail: 1.0, shots: []}
+  - {id: S10, tail: 1.0, shots: []}
+  - {id: S11, tail: 1.0, shots: []}
+  - {id: S12, tail: 1.0, shots: []}
+  - {id: S13, tail: 1.0, shots: []}
+  - {id: S14, tail: 1.0, shots: []}
+  - {id: S15, tail: 1.0, shots: []}
+  - {id: S16, tail: 1.0, shots: []}
+  - {id: S17, tail: 1.0, shots: []}
+  - {id: S18, tail: 1.5, shots: []}     # MR2
+  - {id: S19, tail: 1.0, shots: []}
+  - {id: S20, tail: 1.0, shots: []}
+  - {id: S21, tail: 1.0, shots: []}
+  - {id: S22, tail: 1.0, shots: []}
+  - {id: S23, tail: 1.0, shots: []}
+  - {id: S24, tail: 1.0, shots: []}
+  - {id: S25, tail: 2.0, shots: []}
+midrolls:   # giờ = timeline nhà máy (prod/build_inputs.py --timeline); lặng [t − 0,65; hết cảnh] ≥ 1 s sau chữ cuối — cập nhật khi giờ đổi
+  - {after_act: act1, scene: S06, t: 147.27}   # M2 giờ khô (animatic); M3 tính lại trên lời thật
+  - {after_act: act2, scene: S18, t: 428.17}   # M2 giờ khô
+counterweights:
+  - {id: us-only, text: "US only · history, not a forecast", when: historical}
+  - {id: illustrative, text: "Nina and her twins are illustrative · real prices, rents, rates and stock returns", claims: [price, down_usd, closing_usd, savings_usd]}
+  - {id: no-advice, text: "Not advice to buy, rent or invest", claims: [share_buyer_ahead_stocks_10y, share_buyer_ahead_cash_10y, share_buyer_ahead_stocks_15y, flip_yield_stocks_10y]}
+world:    # sáu đoạn = sáu chương (script.md >>> CHAPTER)
+  - {id: a-s01-s03, dir: world/seg/a-s01-s03, scenes: [S01, S02, S03]}
+  - {id: b-s04-s06, dir: world/seg/b-s04-s06, scenes: [S04, S05, S06]}
+  - {id: c-s08-s13, dir: world/seg/c-s08-s13, scenes: [S08, S09, S10, S11, S12, S13]}
+  - {id: d-s14-s18, dir: world/seg/d-s14-s18, scenes: [S14, S15, S16, S17, S18]}
+  - {id: e-s19-s21, dir: world/seg/e-s19-s21, scenes: [S19, S20, S21]}
+  - {id: f-s22-s25, dir: world/seg/f-s22-s25, scenes: [S22, S23, S24, S25]}

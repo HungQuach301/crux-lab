@@ -39,3 +39,7 @@ checks-runs/K40/cache/
 # F-17: tài sản cine > 2 MB tải lúc dựng (fetch.py, SHA-256); sản phẩm thử của phiên
 toolkit/factory/world/cine/assets/dl/
 toolkit/factory/f17/work/
+
+# Tập 9 M2: take khô của animatic (prod/dry_takes.py; giờ ước, im lặng) — không phải lời thật
+episodes/*/voice-takes/dry-*
+episodes/*/work/external/
