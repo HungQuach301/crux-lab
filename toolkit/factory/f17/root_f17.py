@@ -94,7 +94,7 @@ def read(run, slots):
 
 
 def pack(run):
-    o = ROOT / run; rub = BC.rubric(); rub['items'] = {b: rub['items'][b] for b in BEATS}
+    o = ROOT / run; rub = BC.rubric(); rub['items'] = {b: rub['items'][b] for b in BEATS}; rub['items'].update({f'ctrl:{b}': rub['items'][b] for b in BEATS})   # cùng nghĩa kỳ vọng hai bản (như f14)
     json.dump(rub, open(o / 'rubric.json', 'w'), indent=1, ensure_ascii=False)
     for f in ('rubric-key.json', 'packet.json'): (o / f).unlink(missing_ok=True)
     labs = packets.packet(str(o / 'KEY.json'), str(o / 'answers.json'), str(o / 'rubric.json'), str(o / 'packet.json'), str(o / 'rubric-key.json'))

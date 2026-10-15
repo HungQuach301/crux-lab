@@ -1,0 +1,29 @@
+{
+ "rules": "Score the MEANING against the expected reading. Advice flags (gates/C4-intent.md, new rubric): advice_stated = the reader says the VIDEO itself (picture, on-screen text or narration) states or implies a financial action: pick the 15-year or the 30-year, pay extra principal, invest instead, pay monthly rather than yearly (or the reverse), wait for or lock a rate, a rate forecast. advice_inferred = the reader drew that action themself (answer 5 says own conclusion, or says the video does not say it). caution_only = general care only (check your own numbers, ask the lender or an adviser, compare your loan rate with other uses of the money, know the price of the fallback) — not advice. Quote the reader verbatim for any flag. Also return \"q5\": \"video\" | \"own\" | \"none\" from the reader's answer 5. Some items ask for one more flag in their meaning text: return it for that item.",
+ "items": {
+  "B01": {
+   "meaning": "A faceless figure by her house; a stack of bills beside the house carries a monthly price: the price of her fallback.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B15": {
+   "meaning": "A median line crosses the row; Tessa's stack at the right end stands above it, and only a thin slice of weeks (lit) is as tall. Hold.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "B29": {
+   "meaning": "A second faceless figure and house appear left of Tessa's, dated January 2021; his stack is visibly shorter.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "ctrl:B01": {
+   "meaning": "A faceless figure by her house; a stack of bills beside the house carries a monthly price: the price of her fallback.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "ctrl:B15": {
+   "meaning": "A median line crosses the row; Tessa's stack at the right end stands above it, and only a thin slice of weeks (lit) is as tall. Hold.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  },
+  "ctrl:B29": {
+   "meaning": "A second faceless figure and house appear left of Tessa's, dated January 2021; his stack is visibly shorter.",
+   "description_only": "lists shapes, colours, numbers or labels without the idea above"
+  }
+ }
+}
