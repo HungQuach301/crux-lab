@@ -26,6 +26,7 @@
 | Chặng | Console | Theo mốc | EL | Giờ máy |
 |---|---|---|---|---|
 | sau G1 → G2 | **$11,10** / $25 (`logs/usage/spend_leg.py`) | M2 ≈ $5,74 (WRITER cold open $3,37, kiểm mù, cổng gốc ×2) · M3–M4 $0 · M5 ≈ $5,36 (REVIEWER ý đồ $0,69, cổng gốc, nhớ lại/tua ×2, đạo diễn $0,26, REVIEWER G2 ×2 $1,74) | đã dùng 98.214 / 144.034 (còn 45.820, làm mới 01/11) | nháp 4 lần ≈ 6 h; checks ≈ 6,5 h; 2 lần container khởi động lại |
+| sau G2 → G3 (14–15/10) | **≈ $2,03** (spend_leg 13,13 − 11,10) · **cả tập ≈ $19,4** / $25 | M6: cổng gốc 1080p ≈ $1,6 · nhớ lại/tua ≈ $0,45 · dựng/checks $0 (máy) · REVIEWER G3 chưa chạy | 1.943 ký tự (6 cảnh sinh lại); còn ≈ 42.700 | dựng 1080p ≈ 6,5 h; checks 1080p ≈ 8 h+ |
 Token phiên: đọc ở chặng sau bằng `list_events(session_id="session_01D3z2xMwUwt9NXv8xLDkV6d", kinds=["result"])` → `toolkit/usage/from_events.py`. Agent con 0 (api.sh `--disallowedTools "Task,Agent"`).
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
