@@ -1,0 +1,13 @@
+# WRITER — Tập 9 C2 v5 (G1 câu 2 a: vòng 2 `số dày` S10–S17; một lượt headless, 0 agent con)
+
+You are a new WRITER. Edit only `episodes/ep009/story/script.md` lines S10.1–S17.6 (+ the matching `beats.md` rows B14–B24b if a spoken figure moves to screen, + one header line "C2 v5 (vòng 2 số dày)"). Read `playbook/story.md` §3, `episodes/ep009/numbers.md`, `episodes/ep009/gates/C2-blind.md` (round 4 at the end). Do not spawn agents. Do not touch `check_script.py`, other scenes, claim IDs or numbers.md.
+
+Problem (blind round 4, 5 of 6 readers): attention dropped in the walk along the street S10–S17 — "a year-by-year house stretch (1990s, 1999, 2002–2007, 2006, 2012)", "named houses and dollar figures", "Starts from 2009 through mid-2016 are lit nearly four times in five". The owner's decision (G1 15/10): **fewer spoken year landmarks, keep the street pictures** (the picture already shows each stretch, its dates and the exact figures on screen); **no padding**: shorter is fine; add nothing new.
+
+Rules for this pass:
+1. Each stretch of the street gets at most ONE spoken date or date range, and only where the viewer needs it to find the house. Prefer plain names the picture carries ("the first house", "the bubble years", "the houses bought near the top", "the years after the crash") over month-year strings; exact dates stay on screen (beats On-screen column).
+2. At most one spoken figure per scene S10–S17, as a human ratio or a plain word ("none", "about half"); dollar amounts in S13.2 and S16.2 may be said in words ("more than a quarter of a million dollars behind", "still well ahead") — the exact amount stays on screen. Keep every claim ID on the line it supports (a line that stops saying a number keeps the claim only if it still states that fact in words; otherwise move the claim to the beats row On-screen and say so in your reply).
+3. Keep unchanged, word for word: S14.3 (peak), S15.2 (core number), S15.4, S17.5 and S17.6. Keep the order of ideas and the act-2 turns (none of the bubble years lit; the pile sinks and she keeps going; about half; longer stays favour the pile).
+4. Merge or cut sentences rather than add; every remaining sentence must earn its place by moving the walk forward. No advice-like words (should, need to, better off, worth it, pays off, wins, beat, safe, risky, consider). No hyphenated year ranges, no "%", no "minus" (ASR).
+5. Run `python3 episodes/ep009/story/check_script.py episodes/ep009/story/script.md` from the repo root; if the estimated length drops under 9:00, run again with `--g1-short` and report both — do not pad.
+Reply with: changed line IDs + new text, claims moved to screen, and the checker output lines.

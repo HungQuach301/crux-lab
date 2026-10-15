@@ -43,6 +43,10 @@ out = {'starts10': s10, 'starts5': s5, 'starts15': s15,
        'ahead5s': [run(s, 5, 'stocks')['adv'] > 0 for s in s5],
        'ahead15s': [run(s, 15, 'stocks')['adv'] > 0 for s in s15], 'ahead15c': [run(s, 15, 'cash')['adv'] > 0 for s in s15],
        'lowStart': s10[iLow], 'traj': {s: traj(s) for s in ('1991-01', '2006-06', '2012-04', s10[iLow], '1999-03')}}
+g = [1.0]
+for k in range(120):
+    g.append(g[-1] * (1 + stk[M.mo('1991-01', k)]))
+out['g1991'] = [round(v, 4) for v in g]   # $1 trong cổ phiếu từ 1991-01, theo tháng (S05.1, S06.1)
 out['traj'][s10[iLow]]['lowIdx'] = min(range(121), key=lambda k: out['traj'][s10[iLow]]['stocks'][k])
 pct = lambda a: round(100 * sum(a) / len(a), 1)
 chk = [(len(s10), Q['n_10y']['value']), (len(s15), Q['n_15y']['value']), (len(s5), Q['n_5y']['value']),

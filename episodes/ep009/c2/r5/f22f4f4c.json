@@ -1,0 +1,23 @@
+{
+ "answer": "1. **Summary.** The video follows Nina, a renter with $92,000 saved, who asks whether renting and investing the difference beats buying a roughly $400,000 house. It replays every start month from 1991 through July 2016 (307 ten-year windows) as a street of houses. A house is lit if the buyer ends ahead and dark if the renter does. It first shows the renter holding cash, where the buyer mostly wins. Then it puts the renter's money in the whole US stock market, where the street splits roughly in half. It finishes by testing the longer stay, fees, no monthly saving, and the rent assumption.\n\n2. **The answer.** It depends, and on a ten-year stay it is close to a coin flip.\n   - **Ten years, stocks:** the buyer was ahead in 152 of 307 start months, about half.\n   - **Ten years, cash:** the buyer was ahead in about 3 in 4.\n   - **Fifteen years, stocks:** the buyer was ahead in only about 1 in 5. With cash, the buyer was ahead in all 247 windows.\n   - **Why the split:** stocks beat home prices about 9 times in 10, but the mortgage lets the house grow on the full $400,000 while the renter starts with $92,000. The renter catches up through monthly investing and time.\n   - **What tips it:** the rent assumption of 5% of price per year. The break-even is near 5.1%.\n   - **Other tests:** no monthly saving puts the buyer ahead in about 2 in 3 windows, and a 1% fee puts the lit share at 55%.\n\n3. **Confusing passages.**\n   - \"For a short run of start months, a dollar in stocks was worth less than a dollar ten years on.\" It's unclear whether this means stocks lost money over ten years, and whether that is in real or nominal terms.\n   - \"Last time, with the pile in cash, the darkest house was one bought near the top.\" Also \"The brightest house last time still glows.\" I haven't seen a previous video, so these references to \"last time\" mean nothing to me.\n   - \"The split sits near 5.1 percent, and public rent data from the Census Bureau falls on both sides of it.\" This doesn't tell me which side I'm likely on.\n   - $92,000 saved against a $400,000 house isn't explained, since 20% down would be $80,000. I assume the rest covers closing costs, but it isn't said.\n\n4. **Where attention dropped most.** \"Last time, with the pile in cash, the darkest house was one bought near the top. With stocks, that buyer ends more than a quarter of a million dollars behind. The dark house got darker.\" The \"last time\" callbacks lean on a video I haven't seen. The walkthrough of individual houses is also long and pulls me away from the central question.\n\n5. **Does it advise or predict?** No. It says directly that it is \"history, not a forecast.\" It says \"None of this ranks stocks above a house, or a house above stocks,\" and it lists its limits: US only, no taxes, and renters who never skip a month. It describes what happened and does not say what will happen.\n\n6. **Advice a viewer could take.**\n   - Don't assume \"rent and invest the difference\" automatically wins. Historically it was roughly even over ten years.\n   - The renter's edge comes mostly from investing the monthly gap consistently, and from a longer horizon.\n   - Check how your own rent compares with about 5% of the home price per year.\n   - Remember that fees, taxes, and stopping during a crash all hurt the renter.\n   - Non-financial factors like stability and control also matter.\n\n7. **Source of the advice.** Mostly my own conclusion. The video states facts and conditions: longer stays favored the pile, the rent tag decides, and the monthly habit did most of the work. It avoids telling the viewer what to do, so the practical takeaways are my inference.\n\n8. **Did it answer my question?** Partly. It answered \"does the renter really end up ahead?\" with \"about half the time at ten years, usually yes at fifteen, depending on rent.\" That is a clear, honest answer to the general question, and the explanation of why a slower-growing house keeps up was the most useful part. It didn't answer it for my situation, because it never helps me work out whether my local rent-to-price ratio is above or below 5.1%. It also doesn't say how long I should expect to stay.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3677,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 19,
+   "in": 3677,
+   "out": 19
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4647,
+   "cache_read": 649,
+   "output": 2491,
+   "in": 5298,
+   "out": 2491
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.04394410000000001
+}

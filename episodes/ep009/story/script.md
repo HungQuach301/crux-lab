@@ -1,5 +1,7 @@
 # Script — Episode 9 (format `lab`, C2 v3, WRITER, 2026-10-15)
 
+**C2 v5 (vòng 2 số dày, WRITER):** S10–S17: only spoken year left is "1990s" (S10.1); other dates on screen only (B14–B24b); ≤ 1 spoken figure per scene; S14.3, S15.2, S15.4, S17.5, S17.6 unchanged. Claims off the line (already on screen): `stocks_growth_worst_start_10y` (B15), `savings_usd` S14.2 (B18), `n_flip_to_renter_10y` (B22); `n_10y` off S13.2 (stay length no longer spoken; 307 on B21).
+
 **C2 v4 (REVIEWER G1):** S01.1/S03.3 "almost nine times" (88.9 %; S01.1 still 11 words, "out of ten" → "in ten" to fit 5.0 s — re-check ASR); S17.5 rewritten as a replay statement + `share_buyer_ahead_stocks_5y/_10y/_15y`; S25.5 + `flip_yield_stocks_10y`; method round 2: S06.1 + S07.1 merged into one line S06.1 (S07 removed, "same costs as before" on card V7/B10 only, hold + mid-roll 1 now after S06.1; older notes citing S07.1 now mean S06.1/B10). `check_script.py` not run; needs a blind re-read of the method block.
 
 **Table-read fix (Eric 0.9, `review-g1/table-read.json`):** cold open cut ≈ 12 s before the promise end — S01.1+S01.2 → one hook (S01.2 removed; expectation moved to S02.1 "So renting looks smart"), twins named inside S02.2, S03.3 promise reduced to the paradox only ("since 1991" + `n_10y` moved to S03.5), "9 in 10" → "nine times out of ten" (ASR heard "nine and ten"). Estimated (2.45 w/s, real gaps): S01.1 end ≈ 4.7 s · M7 third fact ≈ 30.0 s · M3 question ≈ 36.3 s · M2 promise ≈ 44.2 s. `check_script.py` not run (no shell).
@@ -132,27 +134,27 @@ S09.4 Nina's own month isn't on the street; its ten years are still ahead of her
 
 ## S10 — The 1990s
 
-S10.1 Most of the 1990s houses stay lit: about two in three of them. <!-- claims: era_1990s_share_stocks -->
-S10.2 But the darkest house on the whole street is the very first one, January 1991. <!-- claims: worst_start_stocks_10y -->
+S10.1 About two in three of the 1990s houses stay lit. <!-- claims: era_1990s_share_stocks -->
+S10.2 But the darkest house on the whole street is the very first one. <!-- claims: worst_start_stocks_10y -->
 S10.3 Its renting twin caught the long stock boom from its first month. <!-- claims: — -->
 
 ## S11 — Where stocks went nowhere
 
 S11.1 A few years later, the market itself stalled. <!-- claims: — -->
-S11.2 In a short run of start months around March 1999, a dollar in stocks was worth less than a dollar ten years on. <!-- claims: n_stocks_lost_10y, stocks_growth_worst_start_10y, n_10y -->
+S11.2 For a short run of start months, a dollar in stocks was worth less than a dollar ten years on. <!-- claims: n_stocks_lost_10y, n_10y -->
 S11.3 Those houses stay lit: the pile lost ground while the buyer kept paying down her loan. <!-- claims: — -->
 
 ## S12 — 2002 through 2007
 
 S12.1 Then the street goes dark, and stays dark. <!-- claims: — -->
-S12.2 For starts from 2002 through 2007, the buyer ended ahead in none of them. <!-- claims: era_2002-2007_share_stocks; hold: 1.0 -->
-S12.3 With cash, a handful of them had stayed lit; with stocks, those lights go out too. <!-- claims: era_2002-2007_share_cash -->
+S12.2 For houses bought in the bubble years, the buyer ended ahead in none of them. <!-- claims: era_2002-2007_share_stocks; hold: 1.0 -->
+S12.3 With cash, some of them had stayed lit; with stocks, those lights go out too. <!-- claims: era_2002-2007_share_cash -->
 S12.4 These buyers paid near the peak of home prices, while their twins kept buying stocks through the market's fall and rebound. <!-- claims: — -->
 
 ## S13 — The darkest house from last time
 
-S13.1 June 2006 was the darkest house last time, with the pile in cash. <!-- claims: adv_2006-06_cash_10y -->
-S13.2 With stocks, that buyer ends ten years more than a quarter of a million dollars behind. <!-- claims: adv_2006-06_stocks_10y, n_10y; hold: 1.5 -->
+S13.1 Last time, with the pile in cash, the darkest house was one bought near the top. <!-- claims: adv_2006-06_cash_10y -->
+S13.2 With stocks, that buyer ends more than a quarter of a million dollars behind. <!-- claims: adv_2006-06_stocks_10y; hold: 1.5 -->
 S13.3 The dark house got darker. <!-- claims: —; hold: 0.5 -->
 
 >>> CHAPTER 4: "The pile that sank" (on screen + YouTube chapter)
@@ -160,7 +162,7 @@ S13.3 The dark house got darker. <!-- claims: —; hold: 0.5 -->
 ## S14 — Below where she started (discipline)
 
 S14.1 Dark doors don't mean the renting twins had an easy ride. <!-- claims: — -->
-S14.2 In more than half the windows, the stock pile dipped below the $92,000 it started with. <!-- claims: n_pot_below_start_stocks_10y, savings_usd -->
+S14.2 Along the way, many of the stock piles dipped below where they started. <!-- claims: n_pot_below_start_stocks_10y -->
 S14.3 {peak} [serious] One renting twin's pile sank to $54,310, and she kept investing. <!-- claims: min_pot_stocks_10y; hold: 1.5 -->
 S14.4 The replay assumes every renting twin did exactly that, every month, through every drop. <!-- claims: — -->
 S14.5 Real people sometimes stop, and a renter who sells in a crash is not on this street. <!-- claims: —; hold: 0.5 -->
@@ -169,21 +171,21 @@ S14.5 Real people sometimes stop, and a renter who sells in a crash is not on th
 
 S15.1 So, after the whole walk, how many houses are lit? <!-- claims: — -->
 S15.2 Lit: 152 of the 307, about half. <!-- claims: share_buyer_ahead_stocks_10y; hold: 1.5 -->
-S15.3 80 start months switched from the buyer to the renter, and not one switched the other way. <!-- claims: n_flip_to_renter_10y, n_flip_to_buyer_10y -->
+S15.3 Every house that changed sides went from the buyer to the renter, never the other way. <!-- claims: n_flip_to_buyer_10y -->
 S15.4 That half is a count of what already happened, not a promise about Nina's month. <!-- claims: share_buyer_ahead_stocks_10y -->
 
 ## S16 — The brightest house from last time
 
-S16.1 April 2012 was the brightest house last time, and it still glows. <!-- claims: adv_2012-04_cash_10y -->
-S16.2 With stocks, that buyer still ends $237,632 ahead. <!-- claims: adv_2012-04_stocks_10y -->
+S16.1 The brightest house last time still glows. <!-- claims: adv_2012-04_cash_10y -->
+S16.2 With stocks, that buyer still ends well ahead. <!-- claims: adv_2012-04_stocks_10y -->
 S16.3 She bought after prices had fallen, and her house rose on its whole price, not just on her $92,000. <!-- claims: price, savings_usd -->
 
 ## S17 — Lit again
 
-S17.1 Starts from 2009 through mid-2016 are lit nearly four times in five. <!-- claims: era_2009-2016_share_stocks -->
+S17.1 In the years after the crash, most of the lights come back on. <!-- claims: era_2009-2016_share_stocks -->
 S17.2 So the half isn't spread evenly: whole stretches are lit, and one long stretch is dark. <!-- claims: share_buyer_ahead_stocks_10y -->
 S17.3 Those buyers started with lower prices and low mortgage rates, and that held the lights on. <!-- claims: — -->
-S17.4 Over a stay half as long, with the pile in stocks, the buyer was ahead a little more than half the time. <!-- claims: share_buyer_ahead_stocks_5y -->
+S17.4 Over a shorter stay, with the pile in stocks, the buyer was ahead a little more than half the time. <!-- claims: share_buyer_ahead_stocks_5y -->
 S17.5 In this replay, the longer the stay, the more often the pile finished ahead. <!-- claims: share_buyer_ahead_stocks_5y, share_buyer_ahead_stocks_10y, share_buyer_ahead_stocks_15y -->
 S17.6 Half a street, lit in stretches; now, a longer stay. <!-- claims: —; hold: 0.5 -->
 

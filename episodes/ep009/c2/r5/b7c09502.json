@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wonders whether renting and investing the difference beats buying. It compares a \"buying twin\" with a \"renting twin\" across every start month since 1991, drawn as a street of houses that are lit if the buyer ends ahead and dark if not. It first shows that the renter's pile is the down payment plus every monthly savings gap, then that outcomes depend on the era, the length of stay, and the assumed rent. It ends by saying the result is roughly a coin flip, with the rent assumption tipping it.\n\n2. Over 10 years, with the renter's money in the whole US stock market, the buyer ended ahead in 152 of 307 start months (about half). With the pile in cash, the buyer won about 3 in 4. Over 15 years, with stocks, the buyer won only about 1 in 5 of 247 starts, and with cash, in all of them. The result is sensitive to the assumptions:\n   - Rent set at 5% of the price per year splits the street almost exactly in half, with the break-even near 5.1%.\n   - Investing only the $92,000, with no monthly gap, puts the buyer ahead in about 2 in 3 start months.\n   - A 1% annual fee on the renter's pile raises the buyer's lit share to 55%.\n   \n   So investing the difference does not reliably leave you ahead.\n\n3. Several passages confused me:\n   - \"Last time, with the pile in cash, the darkest house was one bought near the top.\" Also \"The brightest house last time still glows.\" They refer to a previous video I haven't seen.\n   - \"For a short run of start months, a dollar in stocks was worth less than a dollar ten years on.\" It reads backwards, and I had to reinterpret it as stocks being lower after ten years.\n   - The $92,000 is described as a 20% down payment on a roughly $400,000 house, but 20% would be $80,000. The extra $12,000 (presumably closing costs) is never explained.\n   - \"Those houses stay lit\" and \"the street goes dark\" are hard to track alongside \"about two in three of the 1990s houses stay lit\" and \"the darkest house is the very first one.\"\n\n4. \"The rest of the limits are on the card: US only, history, not a forecast, no taxes on gains or on the home, and renters who never skip a month.\" My attention dropped there because it's a rapid list of disclaimers that depends on an on-screen card, so spoken alone it blurs.\n\n5. No. It says outright that this is \"history, not a forecast.\" It also says \"None of this ranks stocks above a house, or a house above stocks,\" and that stability and control aren't counted. It makes no predictions about prices, rents, or returns.\n\n6. The video gives no direct advice. A viewer could take away that \"rent and invest the difference\" is not a sure win. The outcome depends on:\n   - the local rent-to-price ratio;\n   - how long you'll stay;\n   - whether you really invest the monthly gap through crashes;\n   - fees and taxes.\n   \n   The best use is to plug your own rent and time horizon into a calculator.\n\n7. That advice is my own conclusion. The narration lays out the findings and the sensitivities, such as \"the answer sits on the rent tag, and the tag is an assumption.\" It never tells the viewer what to do.\n\n8. Partly. It answered \"does she really end up ahead?\" with: not reliably, about half the time over 10 years and mostly not over 15 years when the buyer has the mortgage leverage. It explained why with the point that the house grows on the full $400,000 while the pile starts at $92,000. It did not tell me what happens for my own city's rent-to-price ratio or for how long I'd stay, so I'd have to work that out myself.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3677,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 3677,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4649,
+   "cache_read": 649,
+   "output": 2293,
+   "in": 5300,
+   "out": 2293
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.041973100000000006
+}

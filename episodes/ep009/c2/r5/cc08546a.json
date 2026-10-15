@@ -1,0 +1,23 @@
+{
+ "answer": "1. **Summary:** The video follows Nina, a renter with $92,000 saved, who wonders whether renting and investing the difference beats buying a $400,000 home. It replays every start month from January 1991 to July 2016, 307 ten-year windows, as houses on a street. A house is lit if the buyer ends ahead and dark if the renting twin's pile does. It compares the renter holding cash, holding stocks, and then tests other stay lengths and assumptions (no monthly investing, 1% fees, different rents). The conclusion is that with stocks the result is about a coin flip, and the assumed rent decides it.\n\n2. **The answer:** It depends, and by history it is roughly even. Over ten years with the pile in stocks, the buyer ended ahead in 152 of 307 start months (about half). With the pile in cash, the buyer won about 3 in 4. Over fifteen years, the buyer won every time against cash and only about 1 in 5 times against stocks. The result is sensitive to the assumptions:\n   - Investing only the $92,000, with no monthly gap, puts the buyer ahead about 2 in 3 times.\n   - A 1% annual fee on the pile raises the buyer's lit share to 55%.\n   - The split is almost exactly 50/50 at a rent of 5% of price per year, with the break-even near 5.1%.\n\n3. **Confusing passages:**\n   - \"Over ten years, stocks outgrew homes almost nine times in ten.\" This is followed by \"the buyer led only about half the time.\" On first hearing it sounds contradictory. The explanation (leverage, a $400,000 base versus $92,000) only comes near the end.\n   - \"Last time, with the pile in cash, the darkest house was one bought near the top. With stocks, that buyer ends more than a quarter of a million dollars behind.\" It refers to a previous video I haven't seen. It also sits oddly next to the earlier claim that the first house, at $485,063 behind, is the darkest on the street.\n   - \"The split sits near 5.1 percent, and public rent data from the Census Bureau falls on both sides of it.\" It never says which real rents fall on which side, so I can't tell where I land.\n   - \"no taxes on gains or on the home\" is vague about whether property tax and mortgage interest are included.\n\n4. **Attention drop:** \"The rest of the limits are on the card: US only, history, not a forecast, no taxes on gains or on the home, and renters who never skip a month.\" It is a quick spoken list that points to an on-screen card, and it follows several abstract passages in a row, so it was easy to tune out.\n\n5. **Buy/rent/invest advice or predictions:** No. It says \"None of this ranks stocks above a house, or a house above stocks,\" and it labels the work \"history, not a forecast.\" It does not predict home prices, rents, or stock returns. It says a home also brings stability and control, which numbers don't capture.\n\n6. **Advice a viewer might take:**\n   - \"Rent and invest the difference\" is not a guaranteed win. It was roughly a coin flip over ten years and favored the investor over longer stays.\n   - Check your local rent-to-price ratio against about 5% a year.\n   - Think about how long you will stay.\n   - Rent-and-invest only works if you keep investing every month, even through drops, and the monthly habit did most of the work.\n   - Fees and taxes tilt things toward buying.\n\n7. **Source of the advice:** It is my own conclusion. The narration avoids recommending anything and presents only the levers (rent tag, horizon, monthly investing, fees). The final line, \"investing the difference made her street a coin flip, and her rent tag tips it,\" is a finding, not a recommendation.\n\n8. **Did it answer my question?** Partly. It answered \"does she really end up ahead?\": not reliably. Historically it was about half the time over ten years, and more often over fifteen. It did not tell me what to do, and it can't say whether my rent falls above or below the break-even without my own rent and price figures. The best parts were the explanation of why buying holds up (the house grows on the full price, not just the down payment) and the test showing that the monthly investing habit matters most.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3677,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 19,
+   "in": 3677,
+   "out": 19
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 821,
+   "cache_read": 4473,
+   "output": 2416,
+   "in": 5296,
+   "out": 2416
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.028272500000000002
+}

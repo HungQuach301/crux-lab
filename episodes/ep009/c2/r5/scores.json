@@ -1,0 +1,96 @@
+[
+ {
+  "file": "19fdf4a1",
+  "sample": "v5",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "advice_words": [],
+  "attention_block": "khác",
+  "attention_where": "Last time, with the pile in cash, the darkest house was one bought near the top.",
+  "answered_own": "partly",
+  "why": "Right question; ~half at 10 years with stocks, plus 15-year, rent-tag, no-monthly-saving and leverage points; advice is the reader's own inference."
+ },
+ {
+  "file": "b7c09502",
+  "sample": "v5",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "advice_words": [],
+  "attention_block": "khác",
+  "attention_where": "The rest of the limits are on the card: US only, history, not a forecast, no taxes",
+  "answered_own": "partly",
+  "why": "Right question and answer (152/307, 15-year 1 in 5, 5.1% threshold, 2 in 3 without monthly saving); advice is self-derived."
+ },
+ {
+  "file": "bb8267a1",
+  "sample": "v5",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "advice_words": [
+   "her rent tag tips it"
+  ],
+  "attention_block": "số dày",
+  "attention_where": "One renting twin's pile sank to $54,310, and she kept investing.",
+  "answered_own": "partly",
+  "why": "Correct question and answer including leverage and the rent threshold; reader calls the advice mostly their own inference, with a light nudge from the closing line."
+ },
+ {
+  "file": "cc08546a",
+  "sample": "v5",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "advice_words": [],
+  "attention_block": "khác",
+  "attention_where": "The rest of the limits are on the card: US only, history, not a forecast, no taxes on gains or on the home",
+  "answered_own": "partly",
+  "why": "Covers about half at 10 years, 15 years, 5.1% break-even, no-monthly-saving 2/3, leverage; explicitly says the advice is their own conclusion."
+ },
+ {
+  "file": "f22f4f4c",
+  "sample": "v5",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "advice_words": [],
+  "attention_block": "khác",
+  "attention_where": "Last time, with the pile in cash, the darkest house was one bought near the top.",
+  "answered_own": "partly",
+  "why": "Correct question and answer with 15-year, leverage, rent-tag and no-monthly-saving points; takeaways are the reader's inference."
+ },
+ {
+  "file": "f689495f",
+  "sample": "v5",
+  "role": "G",
+  "model": "sonnet",
+  "score": 1,
+  "advice_stated": false,
+  "advice_inferred": true,
+  "caution_only": false,
+  "advice_words": [
+   "her rent tag tips it"
+  ],
+  "attention_block": "khác",
+  "attention_where": "The brightest house last time still glows.",
+  "answered_own": "true",
+  "why": "Right question; about half at 10 years, mostly renter at 15, rent sensitivity; reader calls advice largely their own conclusion."
+ }
+]
