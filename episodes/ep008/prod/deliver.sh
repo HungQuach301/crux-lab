@@ -17,10 +17,10 @@ import glob, os, sys
 sys.path.insert(0, os.path.join(sys.argv[1], 'toolkit/deliver'))
 import deliver
 d = sys.argv[2]
-big = [f for f in glob.glob(f'{d}/*') if os.path.getsize(f) > 90 * 1024 * 1024]
-assert not big, f'file > 90 MB: {big}'
 files = sorted(glob.glob(f'{d}/ep008-youtube.mp4.part*')) + [f'{d}/SHA256SUMS', f'{d}/JOIN.md', f'{d}/ep008-short-SH1.mp4'] + \
         sorted(glob.glob(f'{d}/ep008-review-720p-*.mp4')) + [f'{d}/ep008-captions.srt', f'{d}/ep008-description.md', f'{d}/ep008-tags.txt']
+big = [f for f in files if os.path.getsize(f) > 90 * 1024 * 1024]   # file đẩy lên ≤ 90 MB (master ghép ở thư mục tạm không đẩy)
+assert not big, f'file > 90 MB: {big}'
 deliver.branch_free(sys.argv[1], 'ep008-delivery', remote=True)
 sha = deliver.commit_branch(sys.argv[1], 'ep008-delivery', files, push=True,
                             message='ep008-delivery: master 1080p nguyên byte (phần 90 MB) + SHA256SUMS + Short SH1, phụ đề, mô tả, tag, xem trước 720p 3 phần (xoá nhánh sau khi tải)')
