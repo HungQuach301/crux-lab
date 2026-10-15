@@ -1,0 +1,1 @@
+Kịch bản, bảng nhịp, móc của Tập 8 (nhánh `ep008` @ 4001fb68, đã đăng 15/10) — chép để WRITER Tập 9 đọc **định dạng dòng** và **điều Tập 8 đã nói** (tập nối tiếp; câu chuyền S33.1). Không chép câu (episode.md §3.7). Không sửa.

@@ -1,0 +1,22 @@
+episode: ep009
+format: "lab"          # chủ dự án 15/10
+topic: "tiếp Tập 8 — nếu người thuê đầu tư phần chênh lệch (gần queue #21); trả lời câu chuyền S33.1 Tập 8"
+title: null           # nháp ở G1
+pillar: vay nợ
+tokenCeiling: {episode: 15000000, consoleUsd: 45, p1HardUsd: 12, note: "lab (episode.md §8); chặng tới G1 trần CỨNG $12 Console (chủ dự án 15/10)"}
+voice: {provider: elevenlabs, voice: cjVigY5qzO86Huf0OWal, model: eleven_v3, seed: 1009, settings: {stability: 0.5, speed: 0.9}}   # Eric (mặc định)
+music: {style: C}      # nhạc bằng mã (mặc định); phương án CC BY trình ở G1 (toolkit/factory/f18/MUSIC-CCBY.md)
+f14: true
+asr_hotwords: [Nina]
+footage: {max_share: 0.20, rights: RIGHTS.md, map: preprod/BAN-DO-LIEN-MACH.md}   # ≤ 20 % (CHARTER §4); chương lịch sử (nếu có): ảnh LoC/phim PD + vật thể số liệu 3D + chữ serif, không vẽ người
+dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json, market: market/topics/s1-rent-vs-buy-history.md}
+# Áp từ Tập 9 (chủ dự án 15/10): công thức mở D-013; dựng trước kết quả đầu ≤ 60 s; data_db 34 (L1 ≥ 20 dB); audio.aac_true_peak;
+# J/L-cut (spine `cuts`) ở mọi chuyển hồi qua biên đoạn; sfx_real (kho CC0 RIGHTS §G1); `cine` (F-17, đã vào main fced0bd6) chỉ cảnh đinh ≤ 30 % thời lượng.
+audio:
+  lufs: -14
+  true_peak: -2.0
+  aac_true_peak: -2.0
+  mix: {data_db: 34}
+  ident: {after: S03}
+fps: 30
+res: 540     # M2–M5; 1080 ở M6

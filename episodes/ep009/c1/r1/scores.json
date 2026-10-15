@@ -1,0 +1,62 @@
+[
+ {
+  "file": "4a1dc963",
+  "sample": "L2",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "States buy vs rent-and-invest, 307 real start months since 1991 with actual data, and how often the buyer is ahead at 10/15 years, including the no-invest variant; no advice taken away."
+ },
+ {
+  "file": "57a0c501",
+  "sample": "L2",
+  "role": "G",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers all three ideas: renter invests down payment and monthly savings, historical replay across 307 start months since 1991, how often the buyer is ahead at 10 and 15 years; Q5 is only a caution."
+ },
+ {
+  "file": "57d91631",
+  "sample": "L1",
+  "role": "G",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers the decision, the 307-start-month real-data replay since 1991, and the share where the buyer is ahead at 10/15 years, including the shift if the renter doesn't invest; explicitly no advice."
+ },
+ {
+  "file": "8aada1fa",
+  "sample": "L1",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers the decision, the real-history replay of 307 start months since 1991, and the share of months the buyer is ahead at 10/15 years, including the no-invest variant; no advice or forecast claimed."
+ },
+ {
+  "file": "8b7e5381",
+  "sample": "L2",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Describes buy vs rent-and-invest, the 307-start-month real-data replay since 1991, and how often the buyer is ahead at 10/15 years; takeaway is only about assumptions."
+ },
+ {
+  "file": "96475db9",
+  "sample": "L1",
+  "role": "T",
+  "model": "sonnet",
+  "score": 1,
+  "advice": false,
+  "overclaim": false,
+  "why": "Covers all three ideas (decision, 307 historical start months since 1991 with real data, share where the buyer is ahead at 10/15 years, including the no-invest case); Q5 says no direct advice."
+ }
+]

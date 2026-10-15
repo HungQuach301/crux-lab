@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"States buy vs rent-and-invest, 307 real start months since 1991 with actual data, and how often the buyer is ahead at 10/15 years, including the no-invest variant; no advice taken away.\"}, \"R2\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers all three ideas: renter invests down payment and monthly savings, historical replay across 307 start months since 1991, how often the buyer is ahead at 10 and 15 years; Q5 is only a caution.\"}, \"R3\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers the decision, the 307-start-month real-data replay since 1991, and the share where the buyer is ahead at 10/15 years, including the shift if the renter doesn't invest; explicitly no advice.\"}, \"R4\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers the decision, the real-history replay of 307 start months since 1991, and the share of months the buyer is ahead at 10/15 years, including the no-invest variant; no advice or forecast claimed.\"}, \"R5\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Describes buy vs rent-and-invest, the 307-start-month real-data replay since 1991, and how often the buyer is ahead at 10/15 years; takeaway is only about assumptions.\"}, \"R6\": {\"score\": 1, \"advice\": false, \"overclaim\": false, \"why\": \"Covers all three ideas (decision, 307 historical start months since 1991 with real data, share where the buyer is ahead at 10/15 years, including the no-invest case); Q5 says no direct advice.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 4869,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 387,
+   "in": 4869,
+   "out": 387
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4997,
+   "cache_read": 1496,
+   "output": 1094,
+   "in": 6495,
+   "out": 1094
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.031762
+}

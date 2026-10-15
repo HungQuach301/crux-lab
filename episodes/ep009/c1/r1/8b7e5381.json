@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video is for a renter with enough saved for a down payment who wonders whether \"rent and invest the difference\" really beats buying. It takes two identical people, one buying a $400,000 home and one renting and investing the down payment plus the monthly savings in the total US stock market, and replays them through 307 historical start months since 1991 using real home prices, rents, mortgage rates and stock returns. It answers by showing how often the buyer was still ahead after 10 and 15 years, what happens if the renter stops investing, and how the result shifts with the rent assumed.\n\n2. I expect to know how often, in past US data, the buyer or the renter-investor came out ahead after 10 and 15 years, and how sensitive that is to investing discipline and rent level.\n\n3. Nothing really blocks understanding. The only mildly fuzzy bits are \"307 real start months\" (I'd want a quick note that these are overlapping windows, not 307 independent trials) and \"the difference\" (I assume it means monthly ownership cost minus rent, but the video should say so). Neither is confusing enough to lose me.\n\n4. No. The description says outright that it is \"History, not a forecast: no advice to buy, rent or invest.\" It is framed as a replay of past outcomes, so it won't tell me what to do or predict future prices, rents or returns.\n\n5. Essentially none, and that's by design. A viewer might take away that the answer depends on assumptions, especially whether the renter keeps investing and what rent is, so \"rent and invest the difference\" isn't automatically a win. They'd have to apply that to their own situation, since the video doesn't tell them what to do.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1652,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 1652,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2629,
+   "cache_read": 649,
+   "output": 523,
+   "in": 3280,
+   "out": 523
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0159906
+}
