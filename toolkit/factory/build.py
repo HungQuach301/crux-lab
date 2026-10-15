@@ -676,7 +676,7 @@ def run_steps(B):
     if B.S.get('world'):
         B.step('artefacts', B.do_artefacts)   # out/camera.json, out/sonify-events.json, out/page.json (+ work/factory/page/index.html)
     B.step('parts', B.do_parts)
-    if '--no-shorts' not in argv:   # nháp/animatic 540p (Tập 8): Short 1080×1920 chỉ dựng sau G2
+    if '--no-shorts' not in sys.argv:   # (Tập 9 M2: `argv` chưa định nghĩa → NameError khi ghép; sửa CHẶN giữa tập) nháp/animatic 540p (Tập 8): Short 1080×1920 chỉ dựng sau G2
         B.step('shorts', B.do_shorts)
     else:
         B.shorts = []
