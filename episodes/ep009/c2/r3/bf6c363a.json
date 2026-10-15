@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wonders whether \"rent and invest the difference\" beats buying a roughly $400,000 house. It replays twin buyers and renters from every start month since 1991, with the renter putting her savings and the monthly cost gap into the whole US stock market. Each start month is a lit house (buyer ends ahead) or a dark one (renter ahead). It then tests how the result changes with the holding period, fees, no monthly saving, and the assumed rent.\n\n2. Over ten years with the renter's pile in stocks, the buyer ended ahead in 152 of 307 start months, about half. Over fifteen years the buyer led in only about 1 in 5 of 247 starts. With the pile in cash, the buyer led about 3 in 4 times over ten years and every time over fifteen. The result is sensitive to the assumed rent: at 5% of price per year the street splits almost exactly in half, and the tipping point is near 5.1%. So at ten years it's a coin flip that the rent tag tips, and longer stays favor the renter.\n\n3. Nothing seriously confused me, but a few lines were a little slippery:\n - \"Over ten years, stocks outgrew home prices about 9 in 10 times. So you'd expect renting and investing to come out ahead of buying a house.\" It sets up the paradox cleanly, but \"the dark house got darker\" and \"lit/dark\" are easy to mix up with the earlier \"cash\" version.\n - \"Nina's own month isn't on the street; its ten years are still ahead of her.\" This is clear once read, but on first hearing it's a bit abrupt.\n\n4. Where my attention dropped most: \"Most of the 1990s houses stay lit: about two in three of them. But the darkest house on the whole street is the very first one, January 1991. Its renting twin caught the long stock boom from its first month.\" This starts a long run of start-month by start-month anecdotes (1991, 1999, 2002–2007, 2006, 2012) with many numbers, and the thread of the main question gets harder to hold.\n\n5. No on both counts. The video says outright that it \"ranks\" neither stocks nor housing, that it's \"history, not a forecast,\" and that a home also offers stability and control that numbers don't count. It doesn't predict home prices, rents or stock returns, and it doesn't tell the viewer to buy or rent.\n\n6. Only conditional, cautious takeaways: don't assume \"rent and invest the difference\" automatically wins; the outcome depends on how long you'd stay, your actual rent-to-price ratio, fees and taxes, and whether you'd really keep investing every month through drops. A viewer would likely conclude that for a short stay it's close to a toss-up, while for a long stay the investing renter has historically done better.\n\n7. Mostly the narration itself, which states these dependencies directly (\"longer stays tilt toward the pile,\" \"the answer sits on the rent tag,\" the monthly habit did most of the catching up). The practical advice in my answer to Q6 is my own light synthesis, since the video explicitly avoids telling anyone what to do.\n\n8. Largely yes. My question was whether a renter who invests the difference really ends up ahead. The answer, \"about half at ten years, mostly yes at fifteen, and it hinges on the rent tag,\" came in the 152-of-307 count, the fifteen-year result, and the rent-sensitivity section. It's less complete on my personal situation, since it can't say how long I'd stay or what my actual rent would be relative to a house price.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3784,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 19,
+   "in": 3784,
+   "out": 19
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3914,
+   "cache_read": 1496,
+   "output": 1152,
+   "in": 5412,
+   "out": 1152
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.027717500000000003
+}

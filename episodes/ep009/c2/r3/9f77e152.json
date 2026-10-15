@@ -1,0 +1,23 @@
+{
+ "answer": "1. The video follows Nina, a renter with $92,000 saved, who wonders whether renting and investing the difference beats buying a roughly $400,000 house. It replays twin scenarios (one buys, one rents and invests everything in US stocks monthly) from every start month since 1991 and marks each as lit (buyer ahead) or dark (renter ahead). It shows how the result shifts with the renter's pile in cash vs. stocks, with the stay length (10 vs. 15 years), and with assumptions like fees and the rent level. It ends by saying the outcome hinges on how long she stays and on her rent assumption.\n\n2. Over ten years, with the pile in stocks, the buyer ended ahead in 152 of 307 start months (about half), so it's a coin flip. Over fifteen years, the buyer led only about 1 in 5 times (cash: every time). With no monthly investing of the gap, the buyer led about 2 in 3. With 1% annual fees, the buyer led 55%. The split sits near a rent of 5.1% of price per year; at 5% it's about even. Short answer: investing the difference makes her roughly even over ten years and likely ahead over longer stays, but the rent assumption tips it.\n\n3. \"Over fifteen years, cash kept the buyer ahead every time; stocks, only about 1 in 5.\" Not confusing in itself, but it appears in the opening before the setup, so the terms (cash vs. stocks pile, twins) aren't defined yet. More genuinely confusing: \"Those houses stay lit: the pile lost ground while the buyer kept paying down her loan.\" and \"Nina's own month isn't on the street; its ten years are still ahead of her.\" The latter is clear only on rereading. Also, \"Over a stay half as long, with the pile in stocks, the buyer was ahead a little more than half the time\" sits oddly against the earlier \"about half,\" and \"Dark doors don't mean the renting twins had an easy ride\" is slightly cryptic until the next sentence. Also the final line, \"Nina's answer: investing the difference made her street a coin flip, and her rent tag tips it,\" is a bit abstract, since her actual rent isn't given.\n\n4. \"A lot of rent-versus-buy math assumes one growth rate; this replays the real record, month by month.\" Attention dropped there: it's a brief methodological aside that interrupts the story just as the result is landing. A second dip: \"Every cost of owning stays the same, and the card lists each one.\" The viewer is told about a card without any of its content being narrated.\n\n5. No. The video says explicitly \"It's history, not a forecast\" and \"None of this ranks stocks above a house, or a house above stocks,\" and it doesn't predict prices, rents or returns. It counts what happened in past start months and notes that a home also brings stability and control.\n\n6. A viewer would take away that \"rent and invest the difference\" is not a sure win: it depends on the stay length (longer favors renting and investing), on the actual rent-to-price ratio, on never skipping monthly investing through drops, and on fees. Over a short stay it's close to a coin toss, and over a long one the pile tends to win. Her own rent and expected stay should drive the decision.\n\n7. Mostly my own synthesis. The narration supplies the conditional findings (stay length, rent tag, fees, discipline), but it declines to give advice and explicitly disclaims ranking. The \"longer stay favors renting and investing\" line comes close to a lesson (\"Longer stays favored the pile\"), but it is framed as a historical count.\n\n8. Partly. It answers \"does she really end up ahead?\" with: about half the time over ten years, mostly yes over fifteen, and it depends on rent. It doesn't give a verdict for Nina's own case, since her rent, stay and future market are unknown, and the ten-year result depends on an assumed rent. The most useful parts were the stay-length comparison and the finding that the monthly investing of the gap, not the $92,000, did most of the catching up.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3784,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 21,
+   "in": 3784,
+   "out": 21
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 3912,
+   "cache_read": 1496,
+   "output": 1299,
+   "in": 5410,
+   "out": 1299
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0291805
+}

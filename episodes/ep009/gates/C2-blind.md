@@ -26,3 +26,16 @@ WRITER v2 ($0,86; S06–S08 13 → 4 câu, lit/dark định nghĩa ở S03.5, S0
 | T | 1 | 0 | 1 | số dày · "In 183 of the 307 windows, the stock pile dipped below the $92,000" a | partly | the tag decides; how long Nina herself will stay |
 **Đúng 6/6 · advice_stated 0/6 · `phương pháp` 6/6 → 1/6 (lỗi vòng 1 đã sửa) · `số dày` 4/6 — TRƯỢT (≥ 4/6 chặn), lỗi mới** (S04 hai số đô, S10–S13 chuỗi 67.6 % / 16 / 72 / 6 / $261,689, S14.2 183/307, S17.1 78 %). advice_words (suy, không phải khuyên nêu): "the tag decides", "longer stays tilt toward the pile", "the monthly habit… did most of the renter's catching up" → nêu ở G1.
 → Vòng 3 (lỗi `số dày` vòng 1 của nó): WRITER mới, `briefs/writer-c2-r3.md`.
+
+## Vòng 3 (15/10, C2 v3; 6 Sonnet mới + chấm mới, `c2/r3/`, $0,27)
+WRITER v3 ($0,30): số nói → tỉ lệ con người / lên hình ở S10.1, S11.2, S12.2–3, S13.2, S14.2, S17.1, S17.4 (điều phối thêm dạng "about 2 in 3" / "nearly 4 in 5" vào cột Hiển thị của 2 claim). Kiểm máy ĐẠT, ước 9:07.
+| Vai | Điểm | advice_stated | advice_inferred | Mất chú ý (loại · chỗ) | answered_own | advice_words |
+|---|---|---|---|---|---|---|
+| T | 1 | 0 | 1 | phương pháp · "Every cost of owning stays the same, and the card lists each one" | partly | A short stay is close to a coin toss; longer stays tilt toward the pile; the monthly habit, not the one big deposit, did most of the renter's catching up |
+| T | 1 | 0 | 1 | phương pháp · "Every cost of owning stays the same, and the card lists each one"; as | partly | — |
+| T | 1 | 0 | 1 | số dày · era-by-era walk ("around March 1999...") felt like trivia | partly | longer stays tilt toward the pile; her rent tag tips it |
+| G | 1 | 0 | 1 | phương pháp · "Every cost of owning stays the same, and the card lists each one" | partly | longer stays favored the pile; the rent tag tips it |
+| T | 1 | 0 | 1 | phương pháp · "A lot of rent-versus-buy math assumes one growth rate; this replays t | partly | Longer stays favored the pile |
+| T | 1 | 0 | 0 | số dày · start-month anecdotes (1991, 1999, 2002-2007, 2006, 2012) with many nu | true | longer stays tilt toward the pile; the answer sits on the rent tag |
+**Đúng 6/6 · advice_stated 0/6 · `số dày` 4/6 → 2/6 (hết chặn) · `phương pháp` 1/6 → 4/6** — cùng 2 câu còn lại của khối cũ: S07.1 "Every cost of owning stays the same, and the card lists each one" (3/6) và S06.1 câu khoảng trống đối thủ (1/6).
+**Hết vòng cho lỗi `phương pháp`** (vòng 1 → v2: 6/6 → 1/6; vòng 2 → v3: 1/6 → 4/6 trên 2 câu ngắn). Luật ≤ 2 vòng mỗi lỗi (D-013) → **dừng, đưa trước/sau lên G1** (câu 2): v2 (phương pháp 1/6, số dày 4/6) · v3 (phương pháp 4/6, số dày 2/6). Ghi chú điều phối: câu 4 buộc mỗi người chọn "chỗ tụt nhiều nhất" — khi bớt số, chỗ nhiều nhất dời về 2 câu phương pháp; biên nhiễu A32 chưa khoá. Bản đang dùng: **v3** (không loại khối nào ≥ 4/6 ngoài 2 câu này; số dày đã hết chặn).

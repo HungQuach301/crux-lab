@@ -27,8 +27,8 @@ Dữ liệu (`data/fetch.py`, tải 2026-10-15; không commit): 4 chuỗi FRED c
 | `share_buyer_ahead_stocks_5y` | 53.4 | 53.4% | share of windows with buyer advantage > 0, renter pot = stocks |
 | `era_2002-2007_share_stocks` | 0.0 | none of 72 (0%) | era share buyer ahead, pot = stocks |
 | `era_2002-2007_share_cash` | 8.3 | 6 of 72 (8.3%) | era share buyer ahead, pot = cash |
-| `era_1990s_share_stocks` | 67.6 | 67.6% | era share buyer ahead, pot = stocks |
-| `era_2009-2016_share_stocks` | 78.0 | 78.0% | era share buyer ahead, pot = stocks |
+| `era_1990s_share_stocks` | 67.6 | about 2 in 3 (67.6%) | era share buyer ahead, pot = stocks |
+| `era_2009-2016_share_stocks` | 78.0 | nearly 4 in 5 (78.0%) | era share buyer ahead, pot = stocks |
 | `adv_2006-06_stocks_10y` | -261689 | $261,689 behind | buyer advantage for start 2006-06, pot = stocks |
 | `adv_2006-06_cash_10y` | -82385 | $82,385 behind | buyer advantage for start 2006-06, pot = cash |
 | `adv_2012-04_stocks_10y` | 237632 | $237,632 ahead | buyer advantage for start 2012-04, pot = stocks |
