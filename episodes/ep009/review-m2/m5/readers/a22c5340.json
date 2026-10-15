@@ -1,0 +1,23 @@
+{
+ "answer": "1. **Idea:** The animation compares buying a home with renting and investing the difference. It uses a grid of many small house icons, one per historical scenario. A lit icon means the buyer was ahead after ten years. A dark icon means the renter's pile was bigger. It is labeled \"illustrative\", with US-only data from FHFA, BLS, Freddie Mac and CRSP (K. R. French).\n\n2. **What changes:** In frames 1–2 every icon is dark. The renter's money is shown as cash, with a small cash icon beside the houses. In frames 3–4 many icons light up, and the caption reads \"with cash: buyer ahead about 3 in 4\". In frame 5 the renter's money switches to stocks, shown as a green stock icon. In frame 6 the caption becomes \"with stocks: about half\", and the lit and dark icons are roughly evenly split.\n\n3. **Meaning:** Over past ten-year periods in US history, a buyer beat a renter who kept the savings in cash about three times out of four. If the renter invested in stocks instead, the buyer came out ahead only about half the time. So \"rent and invest\" is not a sure win. It depends heavily on what the renter actually invests in, and with stocks it was about a coin flip.\n\n4. **Advice:** None. The on-screen text says \"Not advice to buy, rent or invest\" and \"history, not a forecast.\" A viewer could take away that the result depends on the investment and that neither choice has always won. The animation does not tell anyone what to do.\n\n5. **Source:** None.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1468,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 239,
+   "in": 1468,
+   "out": 239
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 4705,
+   "cache_read": 5846,
+   "output": 587,
+   "in": 10555,
+   "out": 587
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0255489
+}

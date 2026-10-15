@@ -75,8 +75,8 @@ export async function boot(res) {
     log.roi['a1.saved'] = [600, 190, 1320, 280];
     // phố nhìn cao: nhãn theo bản
     const sA = ok * (t > MV.m_st.t1 - 0.2 && t < MV.m_w.t0 + 0.2 ? 1 : 0);
-    label(O, 'with cash: buyer ahead about 3 in 4', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a2.ahead, b.a3.half - 0.2), color: C.warn, claims: ['share_buyer_ahead_cash_10y'] });
-    label(O, 'with stocks: about half', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a3.half, b.a4.fifteen - 0.2), color: STK, claims: ['share_buyer_ahead_stocks_10y'] });
+    label(O, 'with cash: buyer ahead about 3 in 4', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a2.ahead, b.a3.stocks - 0.1), color: C.warn, claims: ['share_buyer_ahead_cash_10y'] });
+    label(O, 'with stocks: about half', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a3.stocks, b.a4.fifteen - 0.2), color: STK, claims: ['share_buyer_ahead_stocks_10y'] });
     label(O, '15 years · cash: every one', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a4.every, b.a4.stocks - 0.2), color: C.warn, claims: ['hold_15y', 'share_buyer_ahead_cash_15y'] });
     label(O, 'longer stay: the answer flips', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: sA * show(t, b.a4.stocks + 0.6) });
     label(O, '15 years · stocks: about 1 in 5', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.a4.stocks), color: STK, claims: ['hold_15y', 'share_buyer_ahead_stocks_15y'] });

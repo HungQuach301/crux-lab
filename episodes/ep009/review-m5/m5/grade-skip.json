@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"skip\": [\"S03\", \"S24\", \"S25\"], \"engaged\": [\"S04\", \"S19\"], \"why\": \"Skips the repeated hook at 0:22 (to the street at 0:46), the limits card at 8:00 and the recap at 8:11; engaged at 1:19 (first house) and 6:27 (the $400k vs $92k explanation).\"}, \"R2\": {\"skip\": [\"S03\", \"S22\", \"S23\", \"S24\", \"S25\"], \"engaged\": [\"S04\", \"S12\"], \"why\": \"Skips the restated question at 0:31, the dense limits text from 7:48 to 8:11 and the short recap at 8:13; engaged at 1:30 (cash vs stocks flip) and 3:42 to 3:57 (dark street).\"}, \"R3\": {\"skip\": [\"S03\", \"S23\", \"S24\", \"S25\"], \"engaged\": [\"S04\", \"S14\"], \"why\": \"Would jump from 0:31 to 0:46, and skip the limits card from 7:49 and the recap from 8:11; engaged at 1:30 (the $485,063 behind reveal) and 4:21 (the renter's pile sinks).\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2795,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 187,
+   "in": 2795,
+   "out": 187
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2920,
+   "cache_read": 1496,
+   "output": 1872,
+   "in": 4418,
+   "out": 1872
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.0309266
+}

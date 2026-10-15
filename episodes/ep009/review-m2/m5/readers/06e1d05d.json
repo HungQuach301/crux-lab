@@ -1,0 +1,23 @@
+{
+ "answer": "1. The animation is setting up a rent-versus-buy comparison. Frames 1–3 show a building with a \"RENT 5%\" sign. The caption reads \"rent tag: 5% of the price a year · July 2026 · assumption\", so rent is taken as 5% of a home's price per year. Frames 4–6 show a street of identical houses. The caption asks, \"with the pile in stocks: how much of the street stays lit?\" That frames the question as whether a renter who invests the money she would have put into a house ends up able to afford the homes.\n\n2. In the first three frames the rent sign swings and settles, and the caption fades in. After that the scene cuts from the building to a wide view of the houses. The street looks fully there in frame 4 and shrinks toward a thin strip in frames 5 and 6, with a question caption added at the end. The source labels, the \"ILLUSTRATIVE\" badge and the \"US only · history, not a forecast\" note stay the same throughout.\n\n3. The rent figure is an assumption, not a measured number. The houses are a visual stand-in for how much housing a stock portfolio could cover. The frames don't show how many houses remain \"lit\", so they give no answer. The \"ILLUSTRATIVE\" badge and the \"history, not a forecast\" note say the picture is a schematic built on past US data (FHFA, BLS, Freddie Mac, CRSP), not a prediction.\n\n4. None. The frames pose a question and state assumptions, but they don't say whether renting and investing beats buying. They also give no recommendation.\n\n5. None.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3864,
+   "cache_read": 6698,
+   "output": 590,
+   "in": 10566,
+   "out": 590
+  },
+  "claude-haiku-5-5": {
+   "input": 1469,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 219,
+   "in": 1469,
+   "out": 219
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0222902
+}

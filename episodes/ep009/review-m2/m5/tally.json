@@ -1,0 +1,520 @@
+{
+ "candidate_set": "ep009",
+ "threshold": 0.8,
+ "rows": [
+  {
+   "set": "ep009",
+   "id": "B01",
+   "kind": "image",
+   "scores": [
+    0,
+    0
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Unlabeled chart; cannot tell which pile is ahead / Cannot tell which pile leads; no stocks-vs-homes idea.",
+    "Unlabeled bands; cannot say which pile leads / Unlabeled piles; no stocks-beat-homes idea."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B03",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Cash 3 in 4 to stocks about half / Cash 3 in 4 to stocks about half.",
+    "Cash 3 in 4 to stocks about half / Cash 3 in 4 to stocks about half."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B04",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Cash every one, stocks 1 in 5, answer flips / Cash every one, stocks 1 in 5, answer flips.",
+    "Cash every one, stocks 1 in 5, answer flips / Cash every one, stocks 1 in 5, longer stay flips."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B06",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Down payment plus monthly gap invested through drops / Down payment plus monthly gap invested through drops.",
+    "Down payment plus monthly gap invested even in drops / Down payment plus monthly gap invested through drops."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B07",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "FAIL",
+   "why": [
+    "Sees stock tower dwarf house; misses the flip from ahead / Sees stocks tower dwarf house; flip not fully linked.",
+    "Sees stock tower, misreads $48,410 ahead; misses the flip / Stock tower captured; cash-ahead figure misread."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B09",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Smooth fixed rate versus real month-by-month record / Smooth fixed rate versus real month-by-month record.",
+    "Fixed rate hides variation; real record noisy / Fixed rate hides variation; real months replayed."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B11",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "5% rent tag as July 2026 assumption / Rent tag 5% is an assumption.",
+    "Rent tag 5% labelled assumption / Rent tag 5% labelled as an assumption."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B12",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Lit means buyer's equity bigger; renter's pile larger / Lit means buyer's equity bigger; green pile larger.",
+    "Lit means buyer's equity bigger; renter's green larger / Lit means buyer's equity bigger; renter pile bigger."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B14",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "1990s about 2 in 3 lit; January 1991 darkest / 1990s 2 in 3 lit, January 1991 darkest.",
+    "1990s about 2 in 3 lit; January 1991 darkest / 1990s about 2 in 3 lit, January 1991 darkest."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B15",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Gets 16 losing months, buyer stays ahead; infers renting wins / Reads 16 loss months where buyer stays ahead.",
+    "16 losing months, buyer stays lit / Loss months, buyer stays ahead in all 16."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B16",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "2002 to 2007 none of 72 lit / 2002-2007 none of 72 buyer ahead.",
+    "2002 to 2007 none of 72 lit; cash caption confused / 2002-2007: none of 72 buyer ahead."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B17",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Reports behind amounts, notes stocks worse, confused / Numbers read; unsure what 'behind' means.",
+    "Notes stocks case more behind than cash; definition unclear / Numbers read; stock case worse noted but confused."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B18",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "183 of 307 piles dipped below $92,000 / 183 of 307 piles dipped below start.",
+    "183 of 307 piles dipped below $92,000 / 183 of 307 piles dipped below $92,000."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B19",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Pile sank to $54,310, she kept adding monthly / Lowest pile $54,310, keeps adding monthly.",
+    "Pile fell, she kept adding monthly; reader infers keep investing / Lowest pile plus continued monthly investing both captured."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B21",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "152 of 307 lit, about half / 152 of 307, about half lit.",
+    "152 of 307 lit, about half / 152 of 307, about half lit."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B22",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "80 switched to renter, none to buyer / 80 switched to renter, none to buyer.",
+    "80 switched to renter, none to buyer / 80 switched to renter, none to buyer."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B23",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Quotes brightest house caption; treats as renter case / Has label and case; reads renter ahead, misses stays lit.",
+    "Notes highlighted house, but reads it as renter ahead / Sees the label, but reads the case as renter ahead."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B24",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Gets post-crash starts mostly lit (nearly 4 in 5) / Captures post-crash starts mostly lit (4 in 5).",
+    "After crash, 2009-2016 nearly 4 in 5 lit / Post-crash 2009-2016 nearly 4 in 5 lit."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B24b",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "53.4, 49.5, 21.9%; longer stays favor renter pile / Buyer ahead 53.4%, 49.5%, 21.9% by stay.",
+    "Buyer ahead 53.4, 49.5, 21.9% by stay length / Bars 53.4%, 49.5%, 21.9% by stay length."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B25",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Cash all lit, stocks 1 in 5, most lights go out / Cash all lit, stocks 1 in 5, lights go out.",
+    "Cash every one; stocks 1 in 5; most lights go out / Cash every one, stocks 1 in 5, lights go out."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B26",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 2,
+   "status": "PASS",
+   "why": [
+    "Slower growth on bigger base; renter catches up / Slower growth on bigger base; renter catches up.",
+    "Slower on bigger base; renter catches up / Smaller growth on bigger base; renter catches up."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B27",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "FAIL",
+   "why": [
+    "Notes monthly gap helps; reads 2 in 3 as renter / Sees $92,000-only caption, unsure which side leads.",
+    "Sees buyer majority but misreads caption; unresolved / Caption and picture conflict; unresolved reading."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B29",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Sees 4% versus 5%, half lit; misses flip at tag / Tag sensitivity seen; flip near tag missed.",
+    "Tag 4% versus 5% half lit; no flip point / Rent tag sensitivity seen; flip at tag missed."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B30",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "PASS",
+   "why": [
+    "Census range brackets flip point; close to toss-up / Flip near 5.1%, Census range straddles it.",
+    "Flip 5.1%, Census range straddles it, 47-58% lit / Flip about 5.1%, Census range straddles it."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B33",
+   "kind": "image",
+   "scores": [
+    1,
+    1
+   ],
+   "readers": 2,
+   "correct": 2,
+   "advice": 0,
+   "advice_inferred": 1,
+   "status": "PASS",
+   "why": [
+    "Row-by-row results, no verdict / Row-by-row results, rent tag tips it, no verdict.",
+    "Row-by-row frequencies, no verdict given / Row-by-row frequencies, rent tag tips it."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B34",
+   "kind": "image",
+   "scores": [
+    0.5,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Notes same-street caption but gives only timing reading / Quotes caption, mostly generic timing-dependence reading.",
+    "Quotes same-street caption, pile in market; meaning vague / Notes pile in the market; mostly describes grid."
+   ]
+  },
+  {
+   "set": "ep009",
+   "id": "B35",
+   "kind": "image",
+   "scores": [
+    0,
+    0.5
+   ],
+   "readers": 2,
+   "correct": 0,
+   "advice": 0,
+   "advice_inferred": 0,
+   "status": "FAIL",
+   "why": [
+    "Misreads Nina's month as personal costs, not stay length / Misreads caption as personal costs, not length of stay.",
+    "Sees her own case differs, not the stay length / Notes Nina's own timing differs; misses length of stay."
+   ]
+  }
+ ],
+ "gate_beats": 27,
+ "gate_pass": 19,
+ "pending": [],
+ "advice_beats": [],
+ "classes": null,
+ "advice_rubric": "new",
+ "share": 0.704,
+ "verdict": "FAIL",
+ "near_threshold": false,
+ "verdict_old": "FAIL",
+ "verdict_new": "FAIL",
+ "advice_beats_old": [
+  "B04",
+  "B07",
+  "B15",
+  "B16",
+  "B19",
+  "B21",
+  "B23",
+  "B24b",
+  "B25",
+  "B26",
+  "B27",
+  "B33"
+ ],
+ "advice_beats_new": [],
+ "rubric_disagree": true,
+ "graders": 2
+}

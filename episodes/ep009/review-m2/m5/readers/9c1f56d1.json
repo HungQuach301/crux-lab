@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea.** The frames compare buying a house with renting and investing the money you would have put into the house. The setup is a first house bought in January 1991. A stack of \"buyer's equity cash\" sits beside a green \"stocks\" bar that starts small. The sources cited are FHFA, BLS, Freddie Mac and K. R. French (CRSP). The animation is labeled \"ILLUSTRATIVE\", \"US only · history, not a forecast\", and \"All $ in dollars of the day\".\n\n2. **What changes over time.** The stocks bar grows from a tiny stub in frames 2–4 to a very tall tower in frames 5–6. It ends up far taller than the house and the cash stacks. The date label reads January 1991 in frames 2–4. The text \"with cash: $48,410 ahead\" appears in frame 4. The \"first house: lit\" label also appears in frame 4 and stays through frame 6. The house and the cash stacks stay about the same size throughout.\n\n3. **What it means.** The picture suggests that, over this historical stretch, money invested in stocks grew much more than the house's value. The renter-investor's pile ends up far larger than the home. The \"$48,410 ahead\" label is a little unclear. It is tied to \"with cash\" and January 1991, so it seems to describe the buyer's starting position, but I can't tell from the frames whether it is a final result or an early snapshot. The frames don't show an end date or the final dollar values.\n\n4. **Advice a viewer would take.** The animation gives no explicit advice. A viewer would probably infer that renting and investing the difference beats buying. The \"history, not a forecast\" and \"illustrative\" labels cut against treating that as a guarantee.\n\n5. **Source of the conclusion.** The inference in 4 is mine, not the animation's. The picture implies it through the tall stocks bar, but no on-screen text recommends renting or buying. The only on-screen text that points the other way is the caveat labels.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1470,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 22,
+   "in": 1470,
+   "out": 22
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3866,
+   "cache_read": 6699,
+   "output": 723,
+   "in": 10569,
+   "out": 723
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0235299
+}

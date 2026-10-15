@@ -1,0 +1,23 @@
+{
+ "answer": "1. **The idea.** The frames set up the \"rent and invest the difference\" comparison as a metaphor. A building with lit windows has a \"RENT 5%\" sign. The caption says the rent is assumed to be 5% of the home price per year (a July 2026 assumption). The scene then switches to a wide view of a neighborhood of identical small houses. The closing caption asks: \"with the pile in stocks: how much of the street stays lit?\" The renter's invested savings seem to be shown as a street of houses, and the question is how much of that street stays lit over time.\n\n2. **What changes.** The sign first hangs crooked and swinging, then settles straight. The rent caption fades in. The scene then cuts from the building to the street of houses. The rows of houses look smaller and flatter from frame 4 to frame 6, as if the camera is pulling back or the view is receding. The lit windows in the building are the only \"lit\" element shown. The frames don't show any houses actually going dark.\n\n3. **What it means.** The animation poses a question without answering it. It uses a 5% annual rent cost as the assumption and asks how much of the \"street\" a stock portfolio can keep lit, which seems to mean how much of the housing cost the portfolio can cover. The footer labels it \"US only · history, not a forecast.\" The \"ILLUSTRATIVE\" tag and the data sources (FHFA, BLS, Freddie Mac, CRSP/K. R. French) say it is based on historical US data and not a prediction.\n\n4. **Advice.** None. A viewer would take away a question to think about, not a recommendation to rent or buy. The frames show no result, no winner and no number comparing the two paths.\n\n5. **Source of the conclusion.** None. The caveats on screen are the animation's own: the 5% rent assumption, \"history, not a forecast,\" and \"illustrative.\" My reading of the houses as the renter's invested portfolio is an interpretation. No advice was given in 4, so there is nothing to attribute.",
+ "tokens": {
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3864,
+   "cache_read": 6699,
+   "output": 727,
+   "in": 10567,
+   "out": 727
+  },
+  "claude-haiku-5-5": {
+   "input": 1468,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 398,
+   "in": 1468,
+   "out": 398
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.0237497
+}

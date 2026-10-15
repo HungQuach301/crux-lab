@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"moments\": [\"K1\", \"K2\", \"K3\"], \"question_ok\": true, \"why\": \"Recalls the 307-house street going from mostly lit with cash to about half with stocks (K1), and '152 of 307 lit, about half' (K3). Also recalls the Jan 1991 flip to '$485,063 behind' (K2a), but not the $54,310 drawdown (K2b). The question is correct: Nina rents and invests the difference, does she end up ahead of owning.\"}, \"R2\": {\"moments\": [\"K1\", \"K2\", \"K3\"], \"question_ok\": true, \"why\": \"Recalls the Jan 1991 flip to '$485,063 behind' (K2a, no K2b), '152 of 307 lit' with the half in stretches (K3), and the 'stocks outgrew homes ~9 in 10, yet buyer ahead in half' contrast (K1). The question is correct.\"}, \"R3\": {\"moments\": [\"K1\", \"K2\", \"K3\"], \"question_ok\": true, \"why\": \"Recalls '152 of the 307, about half' on the street (K3) and the Jan 1991 flip to '$485,063 behind' (K2a, no K2b). The K1 paradox shows only as 'stocks usually outgrow homes' plus cash vs stocks, so it is weaker. The question is correct.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3883,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 279,
+   "in": 3883,
+   "out": 279
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4010,
+   "cache_read": 1496,
+   "output": 1114,
+   "in": 5508,
+   "out": 1114
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.027861399999999998
+}

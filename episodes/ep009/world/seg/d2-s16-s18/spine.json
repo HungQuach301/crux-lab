@@ -1673,10 +1673,10 @@
    "t": 36.193,
    "kind": "tick",
    "v": 0.5,
-   "real": "S-KEN-DOORCLOSE1",
+   "real": "S-KEN-DOOROPEN1",
    "label": "cua",
-   "rate": 1.0195,
-   "gain_db": 1.1,
+   "rate": 1.0432,
+   "gain_db": -0.14,
    "offset": 0.0
   },
   {
@@ -2403,9 +2403,9 @@
     "kind": "tick",
     "scene": "S17",
     "label": "cua",
-    "file": "S-KEN-DOORCLOSE1",
-    "rate": 1.0195,
-    "gain_db": 1.1
+    "file": "S-KEN-DOOROPEN1",
+    "rate": 1.0432,
+    "gain_db": -0.14
    }
   ]
  }

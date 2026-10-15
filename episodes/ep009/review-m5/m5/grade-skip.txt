@@ -1,0 +1,23 @@
+# Grading packet (blind). You are an independent grader. Grade each reader label literally.
+
+Scenes with start/end seconds: [["S01", 0.0, 5.9], ["S02", 5.9, 22.7], ["S03", 22.7, 75.3], ["S04", 75.3, 107.7], ["S05", 107.7, 137.4], ["S06", 137.4, 146.7], ["S08", 146.7, 162.9], ["S09", 162.9, 192.6], ["S10", 192.6, 205.0], ["S11", 205.0, 222.1], ["S12", 222.1, 246.9], ["S13", 246.9, 261.1], ["S14", 261.1, 290.1], ["S15", 290.1, 309.9], ["S16", 309.9, 324.7], ["S17", 324.7, 358.2], ["S18", 358.2, 387.6], ["S19", 387.6, 418.9], ["S20", 418.9, 435.1], ["S21", 435.1, 449.9], ["S22", 449.9, 469.0], ["S23", 469.0, 480.4], ["S24", 480.4, 491.5], ["S25", 491.5, 523.9]]
+For each label return {"skip": [scene ids the reader would skip ahead in, from the times they give; [] if none], "engaged": [scene ids], "why": "<one line>"}.
+
+### R1
+1. **Skip-ahead point:** I'd skip ahead at **0:22**. The opening spends about 45 seconds on stats before the video gets to Nina's question. The 0:22 stretch, cash over fifteen years and then stocks at about 1 in 5, gives away the ending. The same numbers return at 6:03 and in the recap at 8:11. At 0:31 the narrator asks the question again, and then there's a second hook at 0:36. I'd skip from the first few lines to the street at 0:46. The shot on screen there is a static grid of houses, with a "cash: 3 in 4" label that I'd already heard.
+
+   A second, smaller skip is the limits card at **8:00**. The narration reads out a dense text card of limits, and I'd rather read it myself. I'd also skip the recap at 8:11, since it repeats earlier numbers.
+
+2. **Most engaged:** I was most engaged at **1:19**, where the first house gets $48,410 ahead with cash and $485,063 behind with stocks. The two stacks of money sit side by side, and "same house, same mortgage, same rent" shows that only the renter's pile changed. That was the first time the idea became concrete for me. I was also drawn in at **6:27**. The question of how stocks can win 9 in 10 times while the buyer still finishes ahead in half is answered with a $400,000 block next to a $92,000 stack, so it clicks right away.
+
+### R2
+1. I'd skip ahead at 0:31, where the narration restates the question ("So if Nina rents and invests the difference, does she end up ahead of owning?"). The hook already covered the cash and stocks results by then, so the recap and the repeated "stocks outgrew the house almost nine times out of ten, yet buying still came out ahead in half" (0:36) feel like padding. I'd also skip the limits section at 7:48 to 8:11. The screen shows a dense block of small text while the narration lists the same caveats, so it's hard to follow both. The closing recap at 8:13 mostly repeats what I've already heard, though it's short.
+
+2. I was most engaged at 1:30, when the first house goes from "$48,410 ahead" with cash to "$485,063 behind" with stocks. The same house, mortgage and rent flip to dark with only the renter's pile changed. The stacks of money beside the house make that easy to see. I was also hooked at 3:42 to 3:57, when the street goes dark and stays dark for the bubble-year buyers.
+
+### R3
+1. I'd skip ahead at 7:49, where the limits section starts ("None of this ranks stocks above a house…"). It runs about three and a half minutes, and the frames show a static text card of limits. The ending (8:11 onward) mostly repeats the 3-in-4, half and 1-in-5 results I've already heard. The hook at the start (0:00–0:44) also sums up the whole result, then restates it at 0:31 and 0:36, so I'd skim that part too. I'd probably jump from about 0:31 to 0:46, where the actual replay begins.
+
+2. I was most engaged at 1:30. The line is "With the pile in stocks, the same buyer finished $485,063 behind," right after the cash result of $48,410 ahead. The frames show the green stack of stocks towering over the buyer's equity stack, and the first house turns dark. It's the clearest "wait, what?" moment. A close second is 4:21, where the renter's pile sinks to $54,310 and she keeps investing.
+
+Output JSON only: {"R1": {...}, ...}

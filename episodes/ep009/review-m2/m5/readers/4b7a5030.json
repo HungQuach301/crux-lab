@@ -1,0 +1,23 @@
+{
+ "answer": "1. The frames compare a house with a renter's invested pile of money. The house starts at a $400,000 base. The renter's pile starts at $92,000. The title is \"Why the house holds half.\" On-screen text says stocks grew more in 88.9% of start months. It also says the house has \"slower growth on a bigger base.\" The sources shown are FHFA, BLS, Freddie Mac and K. R. French (CRSP). The frames are labeled \"ILLUSTRATIVE,\" \"US only · history, not a forecast,\" and \"All $ in dollars of the day.\"\n\n2. The house stack appears in frame 3 and grows taller by frame 6. The small green pile of money is barely visible at first. It also grows, and by frame 6 it is taller, though it is still much smaller than the house stack. The text changes from \"stocks grew more\" to \"slower growth on a bigger base\" to \"the renter catches up: the monthly gap + time.\"\n\n3. The renter's invested pile tends to grow faster in percentage terms than the house. The house starts from a much larger base, so it still holds a big share of the wealth, which is probably what \"the house holds half\" refers to. The renter narrows the gap over time by investing the money saved each month (the \"monthly gap\"). The gap is the difference between owning costs and rent. The renter catching up is not the same as passing the house. In frame 6 the house stack is still taller.\n\n4. The animation gives no explicit advice. A viewer might take away that renting and investing can close much of the gap with buying, but only with time and steady monthly investing. A viewer might also take away that owning is not clearly worse. The labels \"history, not a forecast\" and \"illustrative\" warn against treating this as a prediction.\n\n5. The takeaway in 4 is my own conclusion. The animation's text and pictures only describe the comparison and do not tell the viewer what to do. The only direct cautions are the disclaimers.",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 1469,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 215,
+   "in": 1469,
+   "out": 215
+  },
+  "claude-sonnet-5-5": {
+   "input": 4,
+   "cache_write": 3862,
+   "cache_read": 6696,
+   "output": 696,
+   "in": 10562,
+   "out": 696
+  }
+ },
+ "turns": 2,
+ "cost_usd": 0.02334
+}

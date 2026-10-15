@@ -105,7 +105,7 @@ export async function boot(res) {
       const vals = [[53.4, '5 years', b.d15.half, 'share_buyer_ahead_stocks_5y'], [49.5, '10 years', b.d16.longer, 'share_buyer_ahead_stocks_10y_pct'], [21.9, '15 years', b.d16.longer + 0.5, 'share_buyer_ahead_stocks_15y_pct']], c = O.ctx;
       vals.forEach(([v, nm, tt, cid], j) => { const k2 = ease(t, tt - 0.1, tt + 0.6), x = 660 + j * 230, h = 380 * v / 60 * k2; c.save(); c.globalAlpha = cA; c.fillStyle = STK; c.fillRect(x, 780 - h, 150, h); c.restore();
         label(O, nm, x + 75, 830, { align: 'center', kind: 'number', px: 40, alpha: cA, plate: null, claims: [] }); label(O, `${v.toFixed(1)}%`, x + 75, 760 - h, { align: 'center', kind: 'number', px: 44, alpha: cA * k2, plate: null, claims: [cid] }); });
-      label(O, 'buyer ahead, pile in stocks, by length of stay', 960, 320, { align: 'center', kind: 'name', px: 40, alpha: cA, plate: null }); }
+      label(O, 'buyer ahead, by length of stay', 960, 330, { align: 'center', kind: 'name', px: 40, alpha: cA, plate: null }); }
     log.roi['d15.half'] = [560, 260, 1360, 860];
     label(O, '247 fifteen-year starts · cash: every one', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d19.every, b.d20.stocks - 0.2), color: C.warn, claims: ['n_15y', 'share_buyer_ahead_cash_15y'] });
     label(O, '15 years · stocks: about 1 in 5', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d20.one), color: STK, claims: ['hold_15y', 'share_buyer_ahead_stocks_15y'] });

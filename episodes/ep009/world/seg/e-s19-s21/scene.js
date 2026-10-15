@@ -8,7 +8,7 @@ const PS = 0.3, UNIT = 0.07 * 1e5 / PS, HX = -6.2, PX = -4.6, Z = 1.6;
 
 export async function boot(res) {
   const poses = {
-    cBase: { pos: [(HX + PX) / 2, 1.9, Z + 9.5], tgt: [(HX + PX) / 2, 1.6, Z], fov: 26, chart: 1 },
+    cBase: { pos: [(HX + PX) / 2, 1.9, Z + 9.5], tgt: [(HX + PX) / 2, 1.6, Z], fov: 32, chart: 1 },
     cGrid: { pos: [11.9, 30, 3.0], tgt: [11.9, 0, -5.2], fov: 36, chart: 1 },
   };
   const { S, DATA, cue: b, MV, st, O, renderer, scene, floor, key, CAM } = await setup(SEG, res, poses);
@@ -24,8 +24,8 @@ export async function boot(res) {
     followLight(key, pose.tgt); modeLook(scene, floor, cw);
     const g = ease(t, b.e2.base - 0.2, b.e2.base + 1.8), dep = lin(t, b.e3.monthly, b.e4.nobody) * 12;
     const bA = show(t, 0, MV.m_g.t1);
-    house.set({ usd: 400000 * ease(t, b.e1.four - 0.3, b.e1.four + 0.5) * (1 + (GH - 1) * g), a: bA });
-    const pu = 92000 * ease(t, b.e1.ninety - 0.3, b.e1.ninety + 0.5) * (1 + (GS - 1) * g) + 6000 * Math.min(dep, 12);
+    house.set({ usd: 400000 * (0.6 + 0.4 * ease(t, b.e1.four - 0.3, b.e1.four + 0.5)) * (1 + (GH - 1) * g), a: bA });
+    const pu = 92000 * (0.6 + 0.4 * ease(t, b.e1.ninety - 0.3, b.e1.ninety + 0.5)) * (1 + (GS - 1) * g) + 6000 * Math.min(dep, 12);
     pile.set({ usd: Math.max(1, pu), a: bA, line: 0, dropK: t > b.e3.monthly - 0.3 && t < b.e4.nobody ? dep % 1 : -1 });
     let L = sweep(AS, AS, 1, st10);
     if (t > b.e5.two - 0.2 && t < b.e7.fees) L = sweep(AS, AL, lin(t, b.e5.two - 0.2, b.e5.two + 1.4), st10);
