@@ -65,7 +65,7 @@ CAST = ['Nina']     # TẬP: tên nhân vật minh hoạ của tập (nhân vậ
 if '--cast' in sys.argv:
     CAST = [x for x in sys.argv[sys.argv.index('--cast') + 1].split(',') if x]
 PERSON_PROMISE = re.compile(r'\b(meet|buyers?|people|person|illustrative|retirees?|borrowers?|families|workers?|savers?)\b', re.I)
-CORE = []           # TẬP: [(claim_id, regex số đọc lên)] số cốt lõi — đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
+CORE = [('share_buyer_ahead_stocks_10y', r'\b152\b')]   # TẬP: [(claim_id, regex số đọc lên)] số cốt lõi — đọc bằng số 1 lần, nhắc lại ≥ 3 lần bằng lời
 FULL_FORM = {}      # TẬP: {'PMI': 'private mortgage insurance'} viết tắt phải có dạng đầy đủ ở lần đầu
 ROLES = ('hook', 'promise', 'question', 'constraint', 'define', 'promise_character', 'peak', 'fact')  # fact: sự thật lật kỳ vọng (M7, story §1)
 IMPERATIVE = re.compile(r'(^|[.!?;:]\s+|^(so|and|but|now),?\s+)(say|take|imagine|picture|look|think|remember|check|compare|ask|wait|buy|sell|keep|consider|make|avoid|'
@@ -74,7 +74,7 @@ ADVICE_EXTRA = re.compile(r"\b(you should|you need|you'd want|it's time to|best 
                           r"right move|smart move|better to (buy|wait|rent))\b", re.I)
 WORDNUM = {'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12,
            'twenty': 20, 'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60, 'hundred': 100, 'thousand': 1000}
-WORD_EXEMPT = []    # TẬP: cụm số không phải số liệu (vd r'\bthree illustrative buyers\b')
+WORD_EXEMPT = [r'\b2002 through 2007\b', r'\b2009 through mid-2016\b', r'\b1990s\b']    # TẬP: era names (years live in claim ids era_*, not in their value column) cụm số không phải số liệu (vd r'\bthree illustrative buyers\b')
 TEMPLATES = {'101': {'hook': 8, 'concept': 25, 'experiment': 30, 'buyers': 25, 'limits': 12},   # khuôn 101 (story §4)
              'lab': {'hook': 8, 'concept': 15, 'experiment': 45, 'buyers': 20, 'limits': 12},   # khuôn lab (story §4): móc · bối cảnh/nhân vật · hành trình · đáp án + ngưỡng · giới hạn (Tập 7)
              # deep (D-012, episode.md §9): móc · khái niệm + hai nhân vật · phát lại nhiều cửa sổ · nhân vật 2 / ca đối chứng · câu hỏi khán giả · giới hạn

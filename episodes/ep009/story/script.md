@@ -1,0 +1,252 @@
+# Script — Episode 9 (format `lab`, C2 v1, WRITER, 2026-10-15)
+
+Working title: *Rent and Invest the Difference: Every Month Since 1991, Replayed* · Logline **L1** (C1). Hook used: **H-B "Nghịch lý"** (`hooks.md`). Sequel of Episode 8; answers its hand-off S33.1.
+
+**Checker (`python3 episodes/ep009/story/check_script.py episodes/ep009/story/script.md`, repo root, run 3 — exit 0, no `--g1-short`):**
+
+```
+số cốt lõi share_buyer_ahead_stocks_10y: đọc ['S15.2'], nhắc bằng lời ['S15.4', 'S17.2', 'S19.1', 'S22.2', 'S22.5', 'S25.2', 'S25.5']
+móc script: M1 4.5 s ĐẠT · M2 47.3 s ĐẠT · M3 37.5 s ĐẠT · M4 5.2 s ĐẠT · M5 4.5 s ĐẠT · M6 0.0 s ĐẠT · M7 31.9 s ĐẠT · M8 1.0 câu ĐẠT
+93 câu, 1314 từ viết (1393 từ đọc), độ dài ước 9:40 (1393 / 2.4 từ/s, lab); trục mốc giây 9:09
+| hook 13.1 % (+5.1) | concept 18.5 % (+3.5) | experiment 43.2 % (-1.8) | buyers 17.4 % (-2.6) | limits 7.8 % (-4.2) |
+mid-roll ≈ 2:53 sau S07.4 (hold 1.5 s): ĐẠT · mid-roll ≈ 6:51 sau S18.5 (hold 1.5 s), cách cuối 138 s: ĐẠT
+beats.md: 36 nhịp · hooks HA/HB/HC: M1–M8 ĐẠT (M2 41.7 / 47.0 / 41.7 s)
+ĐẠT — cảnh báo: khuôn tỉ lệ hook +5.1 điểm
+```
+**Named for C2 (THAM KHẢO):** hook share +5.1 points, because the cold open carries the pile definition (S03.6–S03.7, C1 finding) so act 1 can open on a result; M2 47.3 s is within 5 % of 50 s (named, CHARTER §4); M8 = 1 sentence (at the limit). Checker rule note: era years (2002, 2009, 1990s) cannot be matched because they live only in claim ids — handled with WORD_EXEMPT (narration) and unquoted era labels (beats), as Episode 8 did.
+
+**Summary.** Cold open (stands alone, no "last time"): 0:00 paradox — over ten years, stocks outgrew home prices about 9 in 10 times (S01.1), so the viewer expects renting and investing to come out ahead (S01.2); Nina rents with $92,000 saved and one twin for each choice (S02.1); three facts that push against that expectation — with the renting twin holding cash, the buyer ended ahead about 3 in 4 times (S02.2, Nina-tied) · with the same money in stocks, only about half (S02.3) · over fifteen years cash kept the buyer ahead every time, stocks only about 1 in 5 (S03.1); Nina's question (S03.2, audience Q4); the promise as a paradox (S03.3); one spoken limit (S03.4); the street (S03.5); the renter's pile defined in one sentence + picture (S03.6–S03.7, C1 finding). Act 1: the first house, January 1991 — first spoken result 4 s after S03 (S04.2), then why (stocks almost quintupled, the pile = $92,000 + monthly gap), the competitor gap (fixed growth rates → the real record), the costs and the one assumption (rent tag), all after the first result. Act 2: walking the street with the pile in stocks — 1990s mostly lit, January 1991 the darkest, 16 starts around March 1999 where stocks lost, 2002 through 2007 none of 72, June 2006 darker; the pile sank below its start in 183 of 307 windows (peak: $54,310, she kept investing); the count 152 of 307 (core), 80 switched, none back; April 2012 still lit; 2009 through mid-2016 78 percent lit; fifteen years turns the street over. Act 3: the paradox resolved (the house grows on all $400,000, the pile starts at $92,000; the renter's catch-up = monthly gap + time) → no monthly gap: about 2 in 3; 1 percent fee: 55 percent; the rent tag decides (flip at about 5.1 percent, right on the 5 percent assumption; Census range on screen). Limits, scoreboard, the 0:00 street returns, hand-off to an open question, Nina's answer last.
+
+**Characters (ILLUSTRATIVE, badge on every frame).** **Nina** = lead (dossier situation 1, as Episode 8). Cold open S02.1, S02.2, S03.2; through the method S09.4 (her month is not on the street), S14 (the renting twin who kept investing), S22.1 (the tag on her door), S25 (answer). No counterweight characters (the two Episode 8 houses, June 2006 and April 2012, act as counterweights without new people). No `promise_character` (M6 = 0).
+
+**Core number:** `share_buyer_ahead_stocks_10y` — in digits once, S15.2 "152 of the 307, about half" (fact). Recalled in words (claim on the line, no digits): S15.4 "that half is a count … not a promise" (meaning) · S17.2 "the half isn't spread evenly" (comparison across eras) · S19.1 the paradox question (stocks outgrow homes, yet half) · S22.2 / S22.5 "at 5 percent … almost exactly in half … the answer sits on the rent tag" (threshold: the half sits on the assumption) · S25.2 scoreboard · S25.5 Nina's "coin flip". Said in words in the cold open too (S02.3, S03.3, before the digits).
+
+**Peak** (S14.3, `{peak}`, 11 words): *"One renting twin's pile sank to $54,310, and she kept investing."*
+**Nina's answer (answers S03.2, last line):** S25.5 *"Nina's answer: investing the difference made her street a coin flip, and her rent tag tips it."*
+**Hand-off (story §1c, next topic not approved):** S25.4 *"What no house on this street can show is how long Nina herself will stay."* — open question, no episode named, no date; picture: Nina's bare lot past the end of the street (B37).
+
+**The paradox (promise S03.3):** *"stocks outgrew the house almost every time, yet buying still came out ahead in half."* (worded without "buyer" so the checker does not read it as a character promise) Resolved S19 (base: $400,000 vs $92,000) + S20 (without the monthly gap the buyer leads about 2 in 3) + S22 (where the half falls depends on the rent tag).
+
+**Act questions / turns.**
+- Act 1: *What changes when the renter's pile is invested?* Turn S04.3 (the same first house flips from $48,410 ahead to $485,063 behind).
+- Act 2: *How much of the street stays lit?* Turns S12.2 (none of 72), S14.3 (peak: the pile sinks, she keeps going), S15.2 (core: about half), S18.3 (fifteen years: about one in five).
+- Act 3: *Why does the house still hold half, and what tips it?* Turns S19.2 (the base), S20.2 (no monthly gap), S22.3 (the tag); S25 answers S03.2.
+
+**First spoken result after the cold open (owner rule 15/10, T8-2):** **S04.2** ("…finished ten years $48,410 ahead"), estimated start ≈ 3 s ident + 3.4 s (S04.1) ≈ **6–7 s after the end of S03** (≤ 60 s). Costs, assumption and data source come after it (S06–S08 + V7 cards).
+
+**Viewer questions answered (dossier): 4 of 5, main = Q4.**
+- **Q4** (is the renter's money invested, and does it beat home equity?) → S03.6–S03.7 (the pile, invested), S04–S05 (first house), S09–S18 (the whole street, 10 and 15 years), S19–S21 (why; lump variant; fees), S25.
+- **Q1** (cost once interest, taxes, insurance, maintenance count) → S07.3 (all counted), V7 card B07.
+- **Q2** (different rates, prices, rents) → real rates/prices replayed S09–S17 (eras), S22 (the rent tag turned; Census range on screen).
+- **Q3** (hidden costs) → S07.2–S07.3 (closing, selling 6 percent), S21.1–S21.2 (fees on the renter's side), S24.1 (taxes not counted).
+- **Q5** (non-financial) → S23.2: named as not measured.
+
+**Competitor gap (one beat, no channel named):** S06.1–S06.3 — fixed growth rates give one answer and hide the order of good and bad years → every month replayed from the real record (B06).
+
+**Claim-risk applied (`numbers.md` "Luật nói"):** no advice: no imperatives, conclusions as "in X of Y start months, the buyer ended ahead" + counterweight (S04.4, S11.3, S15.4, S17.2, S21.3, S23.1); on screen B03 "Not advice to buy, rent or invest"; "history, not a forecast": S03.4 (only spoken limit in 0:00–1:00), S24.1; "US only": S24.1 + corner tag from B01; stocks "the whole US stock market", no index brand, "before fees and taxes" S08.2 + fee variant S21; no capital-gains or home taxes S24.1; discipline is an assumption: S03.7, S08.3, S14.4–S14.5; lump variant S20; rent tag is an assumption S08.1, S22.5; Census range on screen only (B33); stocks pile ≠ advice to buy stocks S23.1; illustrative people: badge + B03 "Nina and her twins: ILLUSTRATIVE · prices, rents, rates, stock returns: real"; episode not called "first"; Episode 8 referenced only as "last time" after the cold open (S07.1, S13.1, S16.1).
+
+**Advice-like word list:** none of should / need to / have to / better off / worth it / pays off / wins / beat / safe / risky / consider / make sure in narration or on screen. "invests"/"investing" only as description of the replay (S03.2 question, S08.3, S14.3, S20.1, S25.5).
+
+**Statements without a numbers.md number (qualitative, for REVIEWER):** S05.3 pile mechanics; S06.1–S06.2 competitor weakness; S11.3 the buyer kept paying down her loan; S12.4 buyers paid near the peak of home prices; twins kept buying through the market's fall; S16.3 April 2012 bought after prices had fallen; S17.3 low prices and rates at start; S18.4 longer stays give the pile time to compound; S19.3–S19.4 base effect; S21.3 any renter-side cost moves houses back toward the buyer (direction shown by the fee variant).
+
+**Checker notes:** `# TẬP:` lines only — CORE = `share_buyer_ahead_stocks_10y` / `\b152\b`; WORD_EXEMPT = era names `2002 through 2007`, `2009 through mid-2016`, `1990s` (the years live in claim ids `era_*`, not in the value column, so the checker cannot match them); FULL_FORM empty (no abbreviation spoken; CRSP on screen only). CAST/BANNED_NAMES unchanged.
+
+**Line format.** As Episode 8. Emotion tags (3): S03.2 `[worried]`, S14.3 `[serious]` (`{peak}`), S25.5 `[thoughtful]`. ASR: no hyphenated year ranges, no "%", no "minus"; "Census Bureau" in full.
+
+---
+
+=== COLD OPEN ===
+
+>>> CHAPTER 1: "Two piles, one street" (on screen + YouTube chapter)
+
+## S01 — The paradox (hook)
+
+S01.1 {hook} Over ten years, stocks outgrew home prices about 9 in 10 times. <!-- claims: share_stocks_beat_house_10y, n_10y -->
+S01.2 {hook} So you'd expect renting and investing to come out ahead of buying a house. <!-- claims: —; hold: 0.3 -->
+
+## S02 — Nina, and two facts
+
+S02.1 {hook} Nina rents, with $92,000 saved and one twin for each choice. <!-- claims: savings_usd -->
+S02.2 {fact} With Nina's renting twin holding cash, the buyer ended ahead about 3 in 4 times. <!-- claims: share_buyer_ahead_cash_10y -->
+S02.3 {fact} With that cash in stocks instead, the buyer led only about half the time. <!-- claims: share_buyer_ahead_stocks_10y -->
+
+## S03 — Fact three, the question, the promise, the street (shared continuation for all three hooks)
+
+S03.1 {fact} Over fifteen years, cash kept the buyer ahead every time; stocks, only about 1 in 5. <!-- claims: share_buyer_ahead_cash_15y, share_buyer_ahead_stocks_15y -->
+S03.2 {question} [worried] So if Nina rents and invests the difference, does she end up ahead of owning? <!-- claims: — -->
+S03.3 {promise} We replayed the twins in every start month since 1991: stocks outgrew the house almost every time, yet buying still came out ahead in half. <!-- claims: n_10y, share_stocks_beat_house_10y, share_buyer_ahead_stocks_10y -->
+S03.4 {constraint} It's history, not a forecast. <!-- claims: — -->
+S03.5 {hook} Each start month is a house on one long street, with the same twins inside. <!-- claims: — -->
+S03.6 {define} The renting twin's pile is the $92,000, plus whatever owning would have cost each month beyond her rent. <!-- claims: savings_usd -->
+S03.7 {hook} All of it goes into the whole US stock market, every month, through every drop. <!-- claims: —; hold: 0.8 -->
+
+=== IDENT (3 s, no narration) ===
+
+=== ACT 1 — CONTEXT: one change on the same street ===
+
+>>> CHAPTER 2: "The first house" (on screen + YouTube chapter)
+
+## S04 — The first house (first spoken result; Q4)
+
+S04.1 The first house on that street is January 1991. <!-- claims: n_10y -->
+S04.2 With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead. <!-- claims: adv_1991-01_cash_10y, n_10y -->
+S04.3 With the pile in stocks, the same buyer finished $485,063 behind. <!-- claims: adv_1991-01_stocks_10y; hold: 1.5 -->
+S04.4 Same house, same mortgage, same rent; the only thing that moved was the renter's pile. <!-- claims: — -->
+
+## S05 — Almost five times
+
+S05.1 In those ten years, a dollar in the whole US stock market grew almost five times. <!-- claims: stocks_growth_1991-01_10y, n_10y -->
+S05.2 And the renter's pile was never a single dollar: it was the $92,000 on day one, plus a deposit every month. <!-- claims: savings_usd -->
+S05.3 Whenever owning cost more than renting that month, the gap went into her pile, and the market grew that too. <!-- claims: — -->
+S05.4 So one change, stocks instead of cash, turned the first house from lit to dark. <!-- claims: —; hold: 0.8 -->
+
+## S06 — One growth rate, or the real record (competitor gap; Q2)
+
+S06.1 A lot of rent-versus-buy math picks one growth rate for stocks and one for homes, then lets them run. <!-- claims: — -->
+S06.2 That gives a single, tidy answer, and it hides the order in which the good and bad years arrived. <!-- claims: — -->
+S06.3 Here, every month uses what actually happened: US home prices, rents, mortgage rates, and stock returns. <!-- claims: — -->
+S06.4 The stock series and its source are on the card. <!-- claims: — -->
+
+## S07 — Same twins, same costs
+
+S07.1 Everything else is as it was last time on this street. <!-- claims: — -->
+S07.2 The buying twin's $92,000 becomes the down payment and closing costs on a $400,000 home. <!-- claims: savings_usd, price, down_usd, closing_usd -->
+S07.3 She pays the mortgage, property tax, insurance and repairs, and 6 percent to sell when the ten years end. <!-- claims: sell_pct, owner_cost_pct, n_10y -->
+S07.4 Same costs, same street, one change: the pile now rides the market. <!-- claims: —; hold: 1.5 -->
+
+>>> MID-ROLL 1 (in the 1.5 s hold after S07.4; end of act 1, act-2 question opens at S08.4)
+
+=== ACT 2 — JOURNEY: walking the street with the pile in stocks ===
+
+>>> CHAPTER 3: "The lights go out" (on screen + YouTube chapter)
+
+## S08 — The tag on the door
+
+S08.1 The renting twin's rent comes from one assumption, the tag on her door: a year's rent equal to 5 percent of the price, as of July 2026. <!-- claims: yield_anchor_pct, hpi_last -->
+S08.2 Her stocks earn their returns before fees and taxes, with dividends reinvested. <!-- claims: — -->
+S08.3 And she buys more every single month, even while the pile is falling. <!-- claims: — -->
+S08.4 So, with the pile in stocks, how much of the street stays lit? <!-- claims: —; hold: 1.0 -->
+
+## S09 — The street
+
+S09.1 After ten years, a house is lit if the buying twin's equity, after selling costs, is bigger than the renting twin's pile. <!-- claims: n_10y -->
+S09.2 If the pile is bigger, the door goes dark. <!-- claims: — -->
+S09.3 That's 307 houses, from January 1991 to the last start with ten full years of data, July 2016. <!-- claims: n_10y, last_10y -->
+S09.4 Nina's own month isn't on the street; its ten years are still ahead of her. <!-- claims: n_10y; hold: 0.5 -->
+
+## S10 — The 1990s
+
+S10.1 Most of the 1990s houses stay lit: 67.6 percent of them. <!-- claims: era_1990s_share_stocks -->
+S10.2 But the darkest house on the whole street is the very first one, January 1991. <!-- claims: worst_start_stocks_10y -->
+S10.3 Its renting twin caught the long stock boom from its first month. <!-- claims: — -->
+
+## S11 — Where stocks went nowhere
+
+S11.1 A few years later, the market itself stalled. <!-- claims: — -->
+S11.2 In 16 start months around March 1999, a dollar in stocks was worth less than a dollar ten years on. <!-- claims: n_stocks_lost_10y, stocks_growth_worst_start_10y, n_10y -->
+S11.3 Those houses stay lit: the pile lost ground while the buyer kept paying down her loan. <!-- claims: — -->
+
+## S12 — 2002 through 2007
+
+S12.1 Then the street goes dark, and stays dark. <!-- claims: — -->
+S12.2 For starts from 2002 through 2007, the buyer ended ahead in none of 72. <!-- claims: era_2002-2007_share_stocks; hold: 1.0 -->
+S12.3 With cash, 6 of them had stayed lit; with stocks, those lights go out too. <!-- claims: era_2002-2007_share_cash -->
+S12.4 These buyers paid near the peak of home prices, while their twins kept buying stocks through the market's fall and rebound. <!-- claims: — -->
+
+## S13 — The darkest house from last time
+
+S13.1 June 2006 was the darkest house last time, with the pile in cash. <!-- claims: adv_2006-06_cash_10y -->
+S13.2 With stocks, that buyer ends ten years $261,689 behind. <!-- claims: adv_2006-06_stocks_10y, n_10y; hold: 1.5 -->
+S13.3 The dark house got darker. <!-- claims: —; hold: 0.5 -->
+
+>>> CHAPTER 4: "The pile that sank" (on screen + YouTube chapter)
+
+## S14 — Below where she started (discipline)
+
+S14.1 Dark doors don't mean the renting twins had an easy ride. <!-- claims: — -->
+S14.2 In 183 of the 307 windows, the stock pile dipped below the $92,000 it started with. <!-- claims: n_pot_below_start_stocks_10y, savings_usd -->
+S14.3 {peak} [serious] One renting twin's pile sank to $54,310, and she kept investing. <!-- claims: min_pot_stocks_10y; hold: 1.5 -->
+S14.4 The replay assumes every renting twin did exactly that, every month, through every drop. <!-- claims: — -->
+S14.5 Real people sometimes stop, and a renter who sells in a crash is not on this street. <!-- claims: —; hold: 0.5 -->
+
+## S15 — The count (core number)
+
+S15.1 So, after the whole walk, how many houses are lit? <!-- claims: — -->
+S15.2 Lit: 152 of the 307, about half. <!-- claims: share_buyer_ahead_stocks_10y; hold: 1.5 -->
+S15.3 80 start months switched from the buyer to the renter, and not one switched the other way. <!-- claims: n_flip_to_renter_10y, n_flip_to_buyer_10y -->
+S15.4 That half is a count of what already happened, not a promise about Nina's month. <!-- claims: share_buyer_ahead_stocks_10y -->
+
+## S16 — The brightest house from last time
+
+S16.1 April 2012 was the brightest house last time, and it still glows. <!-- claims: adv_2012-04_cash_10y -->
+S16.2 With stocks, that buyer still ends $237,632 ahead. <!-- claims: adv_2012-04_stocks_10y -->
+S16.3 She bought after prices had fallen, and her house rose on its whole price, not just on her $92,000. <!-- claims: price, savings_usd -->
+
+## S17 — Lit again
+
+S17.1 Starts from 2009 through mid-2016 are 78 percent lit. <!-- claims: era_2009-2016_share_stocks -->
+S17.2 So the half isn't spread evenly: whole stretches are lit, and one long stretch is dark. <!-- claims: share_buyer_ahead_stocks_10y -->
+S17.3 Those buyers started with lower prices and low mortgage rates, and that held the lights on. <!-- claims: — -->
+S17.4 Half a street, lit in stretches; now, a longer stay. <!-- claims: —; hold: 0.5 -->
+
+## S18 — Fifteen years
+
+S18.1 Over fifteen years, the street turns over. <!-- claims: — -->
+S18.2 With cash, every one of the 247 fifteen-year starts left the buyer ahead. <!-- claims: n_15y, share_buyer_ahead_cash_15y -->
+S18.3 With stocks, only about one in five did. <!-- claims: share_buyer_ahead_stocks_15y -->
+S18.4 The longer the stay, the longer the pile has to compound, and the further it pulls ahead. <!-- claims: — -->
+S18.5 Longer stays favored the pile; one assumption is still untouched. <!-- claims: —; hold: 1.5 -->
+
+>>> MID-ROLL 2 (in the 1.5 s hold after S18.5; end of act 2, act-3 question open)
+
+=== ACT 3 — ANSWER: why the house still holds half, and what tips it ===
+
+>>> CHAPTER 5: "Why the house holds half" (on screen + YouTube chapter)
+
+## S19 — The paradox, resolved
+
+S19.1 So how can stocks outgrow home prices almost every time, and the buyer still finish ahead in half? <!-- claims: share_stocks_beat_house_10y, share_buyer_ahead_stocks_10y -->
+S19.2 Because the buyer's house grows on all $400,000 of it, while the renter's pile starts at $92,000. <!-- claims: price, savings_usd -->
+S19.3 The mortgage lets a slower thing grow on a much bigger base. <!-- claims: — -->
+S19.4 The renter catches up only through the monthly gap, and through time. <!-- claims: —; hold: 0.5 -->
+
+## S20 — Without the monthly gap (Q4)
+
+S20.1 So what if nobody saves that gap, and only the $92,000 is invested? <!-- claims: savings_usd -->
+S20.2 Then the buyer is ahead in about 2 in 3 start months. <!-- claims: share_buyer_ahead_lump_10y; hold: 1.0 -->
+S20.3 The monthly habit, not the one big deposit, did most of the renter's catching up. <!-- claims: — -->
+
+## S21 — Fees
+
+S21.1 The pile in this replay also pays no fees and no taxes. <!-- claims: — -->
+S21.2 With 1 percent a year taken out, the lit share rises to 55 percent. <!-- claims: fee_pct, share_buyer_ahead_stocks_fee_10y -->
+S21.3 Each real cost on the renter's side moves houses back toward the buyer. <!-- claims: —; hold: 0.5 -->
+
+>>> CHAPTER 6: "The tag on her door" (on screen + YouTube chapter)
+
+## S22 — The rent tag decides
+
+S22.1 And then there's the tag on Nina's door. <!-- claims: — -->
+S22.2 At 5 percent, the street splits almost exactly in half. <!-- claims: yield_anchor_pct, share_buyer_ahead_stocks_10y -->
+S22.3 Above about 5.1 percent, most houses light up; below it, most go dark. <!-- claims: flip_yield_stocks_10y; hold: 1.0 -->
+S22.4 Public asking-rent data from the Census Bureau put the tag on both sides of that line, and the card shows the range. <!-- claims: hvs_yield_2025Q4, hvs_yield_2026Q1 -->
+S22.5 So the answer sits on the rent tag, and the tag is an assumption. <!-- claims: share_buyer_ahead_stocks_10y; hold: 1.5 -->
+
+## S23 — What the street can't count (Q5)
+
+S23.1 None of this ranks stocks above a house, or a house above stocks. <!-- claims: — -->
+S23.2 A home is also stability and control, and no street of numbers counts those. <!-- claims: —; hold: 0.5 -->
+
+=== LIMITS ===
+
+## S24 — Limits and method
+
+S24.1 The rest of the limits are on the card: US only, history, not a forecast, no taxes on gains or on the home, and renters who never skip a month. <!-- claims: —; hold: 0.8 -->
+
+## S25 — Nina's answer (scoreboard on screen, B36)
+
+S25.1 So, back to Nina's question. <!-- claims: — -->
+S25.2 With the pile in cash, most of her street was lit; in stocks, about half; over fifteen years, most of it dark. <!-- claims: share_buyer_ahead_cash_10y, share_buyer_ahead_stocks_10y, share_buyer_ahead_stocks_15y -->
+S25.3 It's the same street as at the start, read again with the pile in the market. <!-- claims: — -->
+S25.4 What no house on this street can show is how long Nina herself will stay. <!-- claims: —; hold: 1.0 -->
+S25.5 [thoughtful] Nina's answer: investing the difference made her street a coin flip, and her rent tag tips it. <!-- claims: share_buyer_ahead_stocks_10y; hold: 1.5 -->

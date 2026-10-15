@@ -156,6 +156,7 @@ def main():
     put('stocks_growth_worst_start_10y', gw, 'month', 'start with the smallest 10-year stock growth')
     put('stocks_growth_worst_10y', round(g[gw], 2), 'x', 'smallest 10-year growth of $1')
     put('n_stocks_lost_10y', sum(v < 1 for v in g.values()), 'windows', '10-year windows where $1 in stocks ended below $1')
+    put('n_stocks_lost_buyer_ahead_10y', sum(g[s] < 1 and s10[s]['adv'] > 0 for s in ss), 'windows', 'of the windows where $1 in stocks ended below $1, buyer ahead (stock pot)')
     house = {s: hpi[mo(s, 120)] / hpi[s] for s in ss}
     put('n_stocks_beat_house_10y', sum(g[s] > house[s] for s in ss), 'windows', 'windows where 10-year stock growth > house index growth')
     put('share_stocks_beat_house_10y', round(100 * sum(g[s] > house[s] for s in ss) / len(ss), 1), '%', 'share of windows, stocks grew more than house index')

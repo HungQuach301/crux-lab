@@ -43,6 +43,7 @@ Dữ liệu (`data/fetch.py`, tải 2026-10-15; không commit): 4 chuỗi FRED c
 | `n_stocks_lost_10y` | 16 | 16 start months | 10-year windows where $1 in stocks ended below $1 |
 | `stocks_growth_worst_start_10y` | 1999-03 | March 1999 | start with the smallest 10-year stock growth |
 | `stocks_growth_worst_10y` | 0.77 | 0.77x (down 23%) | smallest 10-year growth of $1 |
+| `n_stocks_lost_buyer_ahead_10y` | 16 | all 16 stay lit | of the windows where $1 in stocks ended below $1, buyer ahead (stock pot) |
 | `n_pot_below_start_stocks_10y` | 183 | 183 of 307 (more than half) | windows where the stock pot dipped below $92,000 at some month-end |
 | `min_pot_stocks_10y` | 54310 | $54,310 | lowest month-end stock pot in any window |
 | `share_stocks_beat_house_10y` | 88.9 | 88.9% (about 9 in 10) | share of windows, stocks grew more than house index |

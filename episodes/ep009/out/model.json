@@ -626,6 +626,11 @@
    "unit": "windows",
    "definition": "10-year windows where $1 in stocks ended below $1"
   },
+  "n_stocks_lost_buyer_ahead_10y": {
+   "value": 16,
+   "unit": "windows",
+   "definition": "of the windows where $1 in stocks ended below $1, buyer ahead (stock pot)"
+  },
   "n_stocks_beat_house_10y": {
    "value": 273,
    "unit": "windows",
