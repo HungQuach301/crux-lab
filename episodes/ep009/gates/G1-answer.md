@@ -7,6 +7,11 @@
 > Tiêu đề: T1 "Rent and Invest the Difference? We Replayed Every Start Month Since 1991".
 > Chép vào gates/G1-answer.md, taste-ledger, AUTHORSHIP, ledger; commit, push, đóng chặng. Mở chặng sau bằng phiên mới (lượt phiên này gần 150). Trần chi chặng sau G1 → G2: $15 cứng. Kiểm hạn mức ElevenLabs trước khi sinh lời cả tập; còn < 15.000 ký tự → dừng, báo. Ràng buộc giữ nguyên (không in khoá, 0 agent con, dừng bằng PID đã xem trong ps, push sau mỗi bước lớn, không thumbnail tự dựng, không nhà cung cấp video/ảnh/nhạc AI).
 
+## Sửa câu 1 (chủ dự án 15/10, chặng sau G1) — chép nguyên văn
+> Chủ dự án 15/10 — SỬA G1 câu 1: KHÔNG gửi thư cho French/CRSP. Chọn (a): dùng Kenneth R. French Data Library, chỉ công bố kết quả suy ra (tỉ lệ, giá trị danh mục giả định), không phân phối lại tệp gốc; ghi nguồn trên hình + mô tả: "Stock returns: Kenneth R. French Data Library (Fama/French factors, total return); cross-checked with Robert Shiller data." Ghi vào gates/G1-answer.md (phần sửa), AUTHORSHIP.md, RIGHTS D-FRENCH; bỏ mục treo "thư French/CRSP" khỏi PLAN; xoá hoặc đánh dấu gates/thu-french-crsp.md là "không dùng". Không dừng việc đang chạy.
+
+Việc: RIGHTS `D-FRENCH` (dòng sửa) · AUTHORSHIP (dòng 15/10 sửa câu 1) · PLAN bỏ mục treo thư · `gates/thu-french-crsp.md` đánh dấu KHÔNG DÙNG · dòng nguồn trên hình (thẻ phương pháp/giới hạn) + mô tả M6 dùng đúng câu trên. Câu 1 b trong bảng dưới **bị thay** bởi phần sửa này.
+
 ## Bảng quyết định → việc
 | # | Quyết định | Việc | Trạng thái |
 |---|---|---|---|

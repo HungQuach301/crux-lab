@@ -9,7 +9,7 @@
 1. **Bước ĐẦU (trước M3):** animatic 540p xám cả tập (dùng lại thế giới Tập 8: `episodes/ep008/world/` trên nhánh `ep008` — w8.js, kit.py, wlib.py, seg a–f; dữ liệu `out/model.json windows10y`; vật thể mới N6 `preprod/objclip/`) + cổng gốc tắt tiếng; trượt → trước/sau vào G2.
 2. **Vòng 2 `số dày`** S10–S17 (bớt mốc năm nói, giữ hình phố; WRITER mới) + kiểm mù lời lại **trước khi sinh lời**; độ dài: không độn, `--g1-short` nếu vẫn < 9:00. Rồi **kiểm hạn mức EL** (`GET /v1/user/subscription`): còn < 15.000 ký tự → **dừng, báo**; đủ → sinh lời cả tập (≈ 8.000 ký tự).
 3. M3–M5: nhạc "Origami" (`work/external/sb-Origami.mp3`, tải lại từ trang bài, so SHA trong RIGHTS) theo bản đồ căng + dò phách cho T2; `cuts` J/L ở 7 chuyển; `cine` 5 cảnh ≤ 30 %; `data_db` 34; `aac_true_peak`; `sfx_real`; N6 không ra khỏi khung; khung "Nov 2007 start" cho câu đỉnh S14.3. **Điều kiện G2:** kiểm Content ID của "Origami"; ghi công đúng mẫu (`gates/G1-answer.md`).
-- Treo: **thư French/CRSP** (nháp `gates/thu-french-crsp.md`, chủ dự án gửi; chưa trả lời trước M6 → dùng chỉ số suy ra + ghi nguồn); `ep008` chưa gộp `main`; lô K A46–A48.
+- Treo: lô K A47–A49. (Thư French/CRSP: **bỏ** — chủ dự án 15/10 sửa G1 câu 1 → (a), `gates/G1-answer.md` phần sửa.)
 
 ## 3. Quyết định đã có
 - 15/10 lệnh mở Tập 9: đề tài, `lab`, kiểm quyền dữ liệu trước khi viết, luật áp từ Tập 9, trần $12 tới G1.

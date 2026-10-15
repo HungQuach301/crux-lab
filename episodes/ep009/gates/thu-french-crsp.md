@@ -1,3 +1,5 @@
+> **KHÔNG DÙNG** — chủ dự án 15/10 sửa G1 câu 1: không gửi thư French/CRSP; chọn (a) kết quả suy ra + ghi nguồn (`G1-answer.md`, phần sửa). Giữ tệp làm lịch sử.
+
 # Thư hỏi quyền dữ liệu (nháp — chủ dự án gửi; G1 Tập 9 câu 1)
 
 Gửi: Kenneth R. French (trang Data Library: https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html — địa chỉ liên hệ trên trang của ông) · bản sao: CRSP (Center for Research in Security Prices, liên hệ qua crsp.org).
