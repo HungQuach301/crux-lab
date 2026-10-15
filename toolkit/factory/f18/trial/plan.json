@@ -1,0 +1,360 @@
+{
+ "cuts": {
+  "b-s04-s09": {
+   "S04": {
+    "cut": "J",
+    "offset": 0.5
+   }
+  },
+  "c-s10-s15": {
+   "S10": {
+    "cut": "J",
+    "offset": 0.5
+   }
+  },
+  "d-s16-s20": {
+   "S16": {
+    "cut": "J",
+    "offset": 0.5
+   }
+  },
+  "e-s21-s24": {
+   "S21": {
+    "cut": "J",
+    "offset": 0.5
+   }
+  },
+  "f-s25-s28": {
+   "S25": {
+    "cut": "J",
+    "offset": 0.5
+   }
+  },
+  "g-s29-s33": {
+   "S29": {
+    "cut": "J",
+    "offset": 0.5
+   }
+  }
+ },
+ "skipped": [],
+ "segments": {
+  "a-s01-s03": {
+   "events_before": 27,
+   "events_after": 24,
+   "dropped": [
+    {
+     "t": 44.0,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 23.22,
+     "kind": "tick",
+     "why": ">4 in 10 s from 19.913"
+    },
+    {
+     "t": 6.63,
+     "kind": "tick",
+     "why": ">4 in 10 s from 0.25"
+    }
+   ],
+   "plan": []
+  },
+  "b-s04-s09": {
+   "events_before": 71,
+   "events_after": 65,
+   "dropped": [
+    {
+     "t": 27.11,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 48.451,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 71.377,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 79.73,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 119.6,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 84.15,
+     "kind": "tick",
+     "why": ">4 in 10 s from 81.666"
+    }
+   ],
+   "plan": []
+  },
+  "c-s10-s15": {
+   "events_before": 46,
+   "events_after": 42,
+   "dropped": [
+    {
+     "t": 75.462,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 100.27,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 73.227,
+     "kind": "tick",
+     "why": ">4 in 10 s from 69.112"
+    },
+    {
+     "t": 10.606,
+     "kind": "tick",
+     "why": ">4 in 10 s from 5.0"
+    }
+   ],
+   "plan": []
+  },
+  "d-s16-s20": {
+   "events_before": 30,
+   "events_after": 26,
+   "dropped": [
+    {
+     "t": 5.78,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 24.359,
+     "kind": "tick",
+     "why": ">4 in 10 s from 14.411"
+    },
+    {
+     "t": 15.431,
+     "kind": "tick",
+     "why": ">4 in 10 s from 6.12"
+    },
+    {
+     "t": 14.411,
+     "kind": "tick",
+     "why": ">4 in 10 s from 5.0"
+    }
+   ],
+   "plan": []
+  },
+  "e-s21-s24": {
+   "events_before": 121,
+   "events_after": 113,
+   "dropped": [
+    {
+     "t": 11.583,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 40.158,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 44.053,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 62.207,
+     "kind": "tick",
+     "why": ">4 in 10 s from 52.587"
+    },
+    {
+     "t": 57.7,
+     "kind": "tick",
+     "why": ">4 in 10 s from 49.967"
+    },
+    {
+     "t": 54.631,
+     "kind": "tick",
+     "why": ">4 in 10 s from 49.967"
+    },
+    {
+     "t": 40.906,
+     "kind": "tick",
+     "why": ">4 in 10 s from 34.017"
+    },
+    {
+     "t": 18.52,
+     "kind": "tick",
+     "why": ">4 in 10 s from 9.264"
+    }
+   ],
+   "plan": [
+    {
+     "t": 411.567,
+     "kind": "tick",
+     "scene": "S23",
+     "label": "giay",
+     "file": "S-KEN-BOOKFLIP1",
+     "rate": 1.0398,
+     "gain_db": 1.25
+    },
+    {
+     "t": 414.187,
+     "kind": "whoosh_air",
+     "scene": "S23",
+     "label": "chuyen-canh",
+     "file": "S-OGA-AIRWHOOSH",
+     "rate": 1.0515,
+     "gain_db": -0.56
+    },
+    {
+     "t": 416.981,
+     "kind": "whoosh_air",
+     "scene": "S23",
+     "label": "chuyen-canh",
+     "kept_synth": true
+    },
+    {
+     "t": 428.007,
+     "kind": "tick",
+     "scene": "S24",
+     "label": "tien-xu",
+     "file": "S-KEN-COINS1",
+     "rate": 0.9662,
+     "gain_db": 1.34
+    },
+    {
+     "t": 433.467,
+     "kind": "tick",
+     "scene": "S24",
+     "label": "giay",
+     "file": "S-KEN-BOOKFLIP3",
+     "rate": 0.9878,
+     "gain_db": -0.32
+    },
+    {
+     "t": 436.387,
+     "kind": "whoosh_mode",
+     "scene": "S24",
+     "label": "chuyen-canh",
+     "kept_synth": true
+    },
+    {
+     "t": 437.887,
+     "kind": "land",
+     "scene": "S24",
+     "label": "tien-xu",
+     "file": "S-KEN-COINS2",
+     "rate": 0.9588,
+     "gain_db": 1.03
+    }
+   ]
+  },
+  "f-s25-s28": {
+   "events_before": 22,
+   "events_after": 22,
+   "dropped": [],
+   "plan": [
+    {
+     "t": 451.625,
+     "kind": "whoosh_mode",
+     "scene": "S25",
+     "label": "chuyen-canh",
+     "kept_synth": true
+    },
+    {
+     "t": 452.925,
+     "kind": "land",
+     "scene": "S25",
+     "label": "tien-xu",
+     "kept_synth": true
+    },
+    {
+     "t": 453.96,
+     "kind": "tick",
+     "scene": "S25",
+     "label": "may-chu",
+     "file": "S-OGA-TYPEWRITER3",
+     "rate": 0.9477,
+     "gain_db": -0.51
+    },
+    {
+     "t": 458.164,
+     "kind": "tick",
+     "scene": "S25",
+     "label": "tien-xu",
+     "kept_synth": true
+    },
+    {
+     "t": 464.08,
+     "kind": "tick",
+     "scene": "S25",
+     "label": "may-chu",
+     "file": "S-OGA-TYPEWRITER1",
+     "rate": 0.9518,
+     "gain_db": -0.96
+    },
+    {
+     "t": 464.88,
+     "kind": "tick",
+     "scene": "S25",
+     "label": "tien-xu",
+     "kept_synth": true
+    },
+    {
+     "t": 469.27,
+     "kind": "tick",
+     "scene": "S25",
+     "label": "may-chu",
+     "file": "S-OGA-TYPEWRITER4",
+     "rate": 1.0592,
+     "gain_db": 0.6
+    },
+    {
+     "t": 473.794,
+     "kind": "whoosh_soft",
+     "scene": "S25",
+     "label": "chuyen-canh",
+     "kept_synth": true
+    }
+   ]
+  },
+  "g-s29-s33": {
+   "events_before": 47,
+   "events_after": 44,
+   "dropped": [
+    {
+     "t": 6.2,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 85.145,
+     "kind": "land",
+     "why": "plain word"
+    },
+    {
+     "t": 89.698,
+     "kind": "land",
+     "why": "plain word"
+    }
+   ],
+   "plan": []
+  }
+ },
+ "repeat": {
+  "events_real": 8,
+  "files": 8,
+  "reused_within": 0,
+  "kept_synth": 7
+ }
+}

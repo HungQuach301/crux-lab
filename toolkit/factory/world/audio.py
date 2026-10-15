@@ -50,6 +50,9 @@ def add(buf, t, sig, pan=0.0, g=1.0):
     buf[i0:i0 + n, 1] += sig[s0:s0 + n] * np.sin(a) * g * np.sqrt(2)
 
 
+_add = add   # F-18: sfx_layer che `add` bằng bản phát tệp thật khi spine khai sfx_real
+
+
 def mixs(*xs):
     n = max(len(x) for x in xs); return sum(np.pad(x, (0, n - len(x))) for x in xs)
 
@@ -291,13 +294,74 @@ def is_whoosh(kind, spine=None):
     return kind.startswith(WHOOSH_KINDS) or any(m.get('sound') == kind for m in (spine or {}).get('moves') or [])
 
 
-def sfx_layer(spine, N, split=False):
+class RealSfx:
+    """F-18 (D-013 2b, RIGHTS §G): phát tệp ghi âm thật (manifest `toolkit/factory/world/sfx/manifest.json`, SHA-256 kiểm khi nạp) thay cho tiếng
+    tổng hợp. Opt-in: spine `sfx_real: {...}`.
+      - planned (sfx_labels.plan_real): chỉ sự kiện có `real` (id tệp) phát tệp, với `rate` (độ cao), `gain_db`, `offset` (s, tệp dài);
+      - không planned: `map` {kind: [id…]} (mặc định = `kinds` của manifest), xoay vòng biến thể theo kind.
+    Tiếng tổng hợp VẪN được sinh (thứ tự gọi rng giữ nguyên → sự kiện không thay trùng từng mẫu bản cũ) và làm thước: tệp thật cùng NĂNG LƯỢNG
+    với tiếng nó thay (đỉnh ≤ đỉnh tổng hợp + 6 dB) → cân bằng trộn giữ nguyên. Tệp dài hơn 1,5 × tiếng cần → lát dài đúng, nhân đường bao."""
+    def __init__(self, cfg):
+        sys.path.insert(0, os.path.join(HERE, 'sfx'))
+        import sfx_fetch as SF
+        man = json.load(open(os.path.join(ROOT, cfg.get('manifest', 'toolkit/factory/world/sfx/manifest.json'))))
+        self.planned = bool(cfg.get('planned'))
+        mp = {} if self.planned else dict(cfg.get('map') or {})
+        if not mp and not self.planned:
+            for r in man.values():
+                for k in r.get('kinds', []):
+                    mp.setdefault(k, []).append(r['id'])
+        self.map = {k: sorted(v) for k, v in mp.items()}
+        need = {i for v in self.map.values() for i in v} | {e['real'] for e in cfg.get('_events', []) if e.get('real')}
+        self.lp = float(cfg.get('lowpass', 0) or 0)
+        self.wav, self.n, self.used = {}, {}, {}
+        for i in sorted(need):
+            if i not in man:
+                raise SystemExit(f'sfx_real: {i} không có trong manifest')
+            self.wav[i] = load(SF.resolve(man[i]))
+
+    def wants(self, e):
+        return bool(e.get('real')) if self.planned else e['kind'] in self.map
+
+    def sound(self, e, synth):
+        kind = e['kind']
+        if self.planned:
+            i = e['real']; c = 0
+        else:
+            ids = self.map[kind]
+            c = self.n.get(kind, 0); self.n[kind] = c + 1
+            i = ids[c % len(ids)]
+        self.used.setdefault(kind, []).append(i)
+        x = self.wav[i]
+        rate = float(e.get('rate', 1.0)) if self.planned else 1.0
+        if rate != 1.0:   # đổi độ cao bằng tốc độ phát (nội suy tuyến tính, tất định)
+            x = np.interp(np.arange(0, len(x) - 1, rate), np.arange(len(x)), x)
+        n = len(synth)
+        if len(x) > 1.5 * n:                         # tệp dài (gió): lát dài đúng tiếng cần, nhân đường bao tiếng tổng hợp
+            off = int(round(float(e.get('offset', 0)) * SR)) if self.planned else int(round(1.31 * SR * c))
+            off = off % max(1, len(x) - n)
+            env = uniform_filter1d(np.abs(synth), int(0.03 * SR))
+            y = x[off:off + n] * env / (env.max() + 1e-12)
+        else:
+            y = x.copy()
+        if self.lp:
+            y = lp1(lp1(y, self.lp), self.lp)
+        es, er = float(np.sum(synth ** 2)), float(np.sum(y ** 2))
+        g = np.sqrt(es / er) if er > 1e-12 else 0.0
+        ps, pr = np.abs(synth).max(), np.abs(y).max() * g
+        if pr > 2 * ps > 0:
+            g *= 2 * ps / pr
+        return y * g * 10 ** (float(e.get('gain_db', 0.0)) / 20 if self.planned else 0.0)
+
+
+def sfx_layer(spine, N, split=False, real=None):
     """Lớp hiệu ứng. split=True → (sfx, whoosh): tiếng động tác máy quay (is_whoosh) vào bộ đệm riêng; thứ tự gọi rng không đổi → sfx + whoosh
-    trùng đúng lớp split=False."""
+    trùng đúng lớp split=False. real = RealSfx (F-18) → kind có trong real.map phát tệp ghi âm thật thay cho tiếng tổng hợp."""
     sfx, wh = np.zeros((N, 2)), np.zeros((N, 2))
     for e in spine['events']:
         k, t = e['kind'], e['t']
         out = wh if split and is_whoosh(k, spine) else sfx
+        add = _add if real is None or not real.wants(e) else (lambda buf, tt, sig, pan=0.0, g=1.0, _e=e: _add(buf, tt, real.sound(_e, sig * g), pan))
         if k == 'riser':
             d = e['to'] - t; add(out, t, mixs(noise_sweep(d, 400, 3500, 0.10, att=d * 0.8), glide(57, 62, d, 0.05)))
         elif k == 'whoosh_air':                      # đẩy chậm (máy quay "thở"): gió rất nhẹ, dải hẹp, không cao độ
@@ -413,7 +477,8 @@ def main():
     mus = mus[:N]
     data_events = []
     data, shifts = data_layer(spine, N, venv, data_events) if '--no-data' not in sys.argv else (np.zeros((N, 2)), [])
-    sfx, whoosh = sfx_layer(spine, N, split=True) if '--no-sfx' not in sys.argv else (np.zeros((N, 2)), np.zeros((N, 2)))
+    real = RealSfx({**(spine['sfx_real'] or {}), '_events': spine['events']}) if 'sfx_real' in spine else None   # F-18 opt-in: tệp ghi âm thật
+    sfx, whoosh = sfx_layer(spine, N, split=True, real=real) if '--no-sfx' not in sys.argv else (np.zeros((N, 2)), np.zeros((N, 2)))
     # mức: nhạc 20 dB dưới lời (RMS lúc có lời, A07); âm dữ liệu −16 dB, sfx −14 dB dưới lời TRƯỚC side-chain (mọi lớp cùng cách đo)
     vr = rms_active(voice, venv)
     def level(x, db):
@@ -462,6 +527,8 @@ def main():
     os.remove(tmp)
     g = 10 ** ((-14.0 - float(m['input_i'])) / 20)
     I, P = lufs(os.path.join(out, 'mix.wav'))
+    if real is not None:
+        rep['sfx_real'] = {k: {'events': len(v), 'files': sorted(set(v))} for k, v in sorted(real.used.items())}
     rep.update({'lufs': I, 'peak_dbfs': P, 'data_events': data_events, 'whoosh_kinds': sorted({e['kind'] for e in spine['events'] if is_whoosh(e['kind'], spine)})})
     for name, x in (('voice', v2), ('music', mus_d), ('data', data_d), ('sfx', sfx_d), ('whoosh', wh_d), ('room', room)):
         write(os.path.join(out, 'stems', name + '.wav'), x * 0.5 * g)

@@ -51,7 +51,15 @@ sys.path.insert(1, os.path.join(HERE, 'world'))
 import spec as SPEC  # noqa: E402
 import voice as VOICE  # noqa: E402
 
-ENCODE_H = {'cbr': '17M', 'preset': 'fast'}   # master picture (render.js encoder; world/splice.py re-encodes with the same)
+ENCODE_H = {'cbr': '17M', 'preset': 'fast'}
+AAC_HEADROOM = 0.3   # F-18: AAC 384k vượt đỉnh thật của master ≈ 0,1–0,3 dB (Tập 7: −2,0 → −1,8/−1,9) → master đích = trần AAC − 0,3
+
+
+def true_peak(path):
+    """Đỉnh thật (dBTP, ebur128 peak=true) của luồng tiếng đầu tiên."""
+    r = subprocess.run(['ffmpeg', '-hide_banner', '-i', path, '-map', '0:a:0', '-af', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True)
+    t = r.stderr[r.stderr.rfind('True peak'):]
+    return float(t.split('Peak:')[1].split('dBFS')[0])   # master picture (render.js encoder; world/splice.py re-encodes with the same)
 CHUNK = 150  # frames per segment (5 s at 30 fps): enough pieces for 4 workers on a 70 s scene
 CODE = ['lib/engine.js', 'lib/templates.js', 'page.html', 'render.js']
 
@@ -495,10 +503,26 @@ class Build:
             import music as MUSIC
             info = {**info, **MUSIC.post(stems, raw, self.tl, A, ROOT)}
         self.master_wav = os.path.join(self.work, 'master.wav')
-        self.loudnorm(raw, self.master_wav, lufs, tp)
         self.video = os.path.join(self.work, 'video.mp4')
-        sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', self.picture, '-i', self.master_wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
-            '-c:a', 'aac', '-b:a', '384k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', '-shortest', self.video])
+        mux = lambda: sh(['ffmpeg', '-y', '-loglevel', 'error', '-i', self.picture, '-i', self.master_wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
+                          '-c:a', 'aac', '-b:a', '384k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', '-shortest', self.video])
+        ceil = A.get('aac_true_peak')
+        if ceil is None:   # mặc định: như cũ (trùng byte)
+            self.loudnorm(raw, self.master_wav, lufs, tp)
+            mux()
+        else:              # F-18 (chủ dự án 15/10): trần đỉnh thật của AAC bản giao; limiter master đích = trần − AAC_HEADROOM, đo lại AAC, vượt → hạ thêm
+            ceil, tgt, tries = float(ceil), min(float(tp), float(ceil) - AAC_HEADROOM), []
+            for _ in range(3):
+                self.loudnorm(raw, self.master_wav, lufs, round(tgt, 2))
+                mux()
+                got = true_peak(self.video)
+                tries.append({'master_tp_target': round(tgt, 2), 'master_tp': true_peak(self.master_wav), 'aac_tp': got})
+                if got <= ceil:
+                    break
+                tgt -= got - ceil + 0.05
+            else:
+                raise SystemExit(f'master: AAC {tries[-1]["aac_tp"]} dBTP > trần {ceil} sau 3 lần hạ ({tries})')
+            info = {**info, 'aac_true_peak': {'ceiling': ceil, 'tries': tries}}
         self.report['music'] = info
         if getattr(self, 'splice_rec', None):
             import splice as SPLICE

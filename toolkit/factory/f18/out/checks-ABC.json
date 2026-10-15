@@ -1,0 +1,1164 @@
+{
+ "A": {
+  "A07": {
+   "status": "PASS",
+   "metrics": {
+    "voice − music dB": 19.443005
+   },
+   "details": []
+  },
+  "A09": {
+   "status": "PASS",
+   "metrics": {
+    "silences 0.8-1.5 s": 3
+   },
+   "details": [
+    {
+     "spans": [
+      [
+       98.4,
+       0.95
+      ],
+      [
+       315.76,
+       0.92
+      ],
+      [
+       487.17,
+       0.93
+      ]
+     ],
+     "otherSpans": [
+      [
+       3.95,
+       0.27
+      ],
+      [
+       7.36,
+       0.06
+      ],
+      [
+       7.39,
+       0.05
+      ],
+      [
+       7.43,
+       0.05
+      ],
+      [
+       7.51,
+       0.05
+      ],
+      [
+       7.54,
+       0.06
+      ],
+      [
+       7.58,
+       0.05
+      ],
+      [
+       8.97,
+       0.06
+      ],
+      [
+       10.62,
+       0.07
+      ],
+      [
+       10.66,
+       0.06
+      ]
+     ]
+    }
+   ]
+  },
+  "R06": {
+   "status": "PASS",
+   "metrics": {
+    "cuts": 5,
+    "cuts visible in picture (%)": 100.0
+   },
+   "details": [
+    {
+     "notVisible": []
+    }
+   ]
+  },
+  "R09": {
+   "status": "FAIL",
+   "metrics": {
+    "act turns": 5,
+    "act turns with a hard cut": 5,
+    "most used view share (%)": 24.090759,
+    "longest same-layout run (scenes)": 1,
+    "declared map joins not measured": 0
+   },
+   "details": [
+    {
+     "hardTurns": [
+      {
+       "t": 51.933,
+       "from": "cold-open",
+       "to": "ident",
+       "scene": "IDENT",
+       "cut": null
+      },
+      {
+       "t": 54.933,
+       "from": "ident",
+       "to": "act1",
+       "scene": "S04",
+       "cut": "dissolve"
+      },
+      {
+       "t": 192.067,
+       "from": "act1",
+       "to": "act2",
+       "scene": "S10",
+       "cut": "cut"
+      },
+      {
+       "t": 444.2,
+       "from": "act2",
+       "to": "act3",
+       "scene": "S25",
+       "cut": "cut"
+      },
+      {
+       "t": 567.134,
+       "from": "act3",
+       "to": "limits",
+       "scene": "S32",
+       "cut": null
+      }
+     ],
+     "joinedTurns": [],
+     "topView": [
+      1,
+      2,
+      0
+     ],
+     "mapMismatch": []
+    }
+   ]
+  },
+  "T2": {
+   "status": "PASS",
+   "metrics": {
+    "phrases measured": 66,
+    "repeated phrases (%)": 1.515152,
+    "longest run of repeated phrases": 1
+   },
+   "details": [
+    {
+     "medianSimilarity": 0.8276,
+     "maxSimilarity": 0.9165,
+     "repeats": [
+      [
+       431.74,
+       3,
+       0.9165
+      ]
+     ]
+    }
+   ]
+  },
+  "T3": {
+   "status": "FAIL",
+   "metrics": {
+    "silences measured": 3,
+    "entries outside 150–400 ms": 1,
+    "silences without a room-tone floor": 0
+   },
+   "details": [
+    {
+     "start": 98.4,
+     "dur": 0.95,
+     "bedRef": -31.9,
+     "bedInside": -200.0,
+     "entry": 0.165,
+     "masterMin": -57.8,
+     "room": -57.1,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    },
+    {
+     "start": 315.76,
+     "dur": 0.92,
+     "bedRef": -28.4,
+     "bedInside": -200.0,
+     "entry": 0.11,
+     "masterMin": -58.6,
+     "room": -57.2,
+     "judged": true,
+     "entryOk": false,
+     "floorOk": true
+    },
+    {
+     "start": 487.17,
+     "dur": 0.93,
+     "bedRef": -27.9,
+     "bedInside": -200.0,
+     "entry": 0.15,
+     "masterMin": -59.2,
+     "room": -57.3,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    }
+   ]
+  },
+  "T4": {
+   "status": "PASS",
+   "metrics": {
+    "segments over a density limit": 0,
+    "highest events/min": 20.3,
+    "most events in 10 s": 6,
+    "highest share on plain words (%)": 28.0
+   },
+   "details": [
+    {
+     "segment": "a-s01-s03",
+     "t0": 0.0,
+     "events": 18,
+     "perMin": 19.7,
+     "max10s": 6,
+     "onPlainWords": 5,
+     "onPlainShare": 27.8
+    },
+    {
+     "segment": "b-s04-s09",
+     "t0": 54.93,
+     "events": 39,
+     "perMin": 17.1,
+     "max10s": 5,
+     "onPlainWords": 9,
+     "onPlainShare": 23.1
+    },
+    {
+     "segment": "c-s10-s15",
+     "t0": 192.07,
+     "events": 27,
+     "perMin": 15.4,
+     "max10s": 6,
+     "onPlainWords": 6,
+     "onPlainShare": 22.2
+    },
+    {
+     "segment": "d-s16-s20",
+     "t0": 297.17,
+     "events": 19,
+     "perMin": 17.7,
+     "max10s": 6,
+     "onPlainWords": 1,
+     "onPlainShare": 5.3
+    },
+    {
+     "segment": "e-s21-s24",
+     "t0": 361.6,
+     "events": 28,
+     "perMin": 20.3,
+     "max10s": 6,
+     "onPlainWords": 6,
+     "onPlainShare": 21.4
+    },
+    {
+     "segment": "f-s25-s28",
+     "t0": 444.2,
+     "events": 15,
+     "perMin": 18.5,
+     "max10s": 4,
+     "onPlainWords": 1,
+     "onPlainShare": 6.7
+    },
+    {
+     "segment": "g-s29-s33",
+     "t0": 492.77,
+     "events": 25,
+     "perMin": 13.2,
+     "max10s": 6,
+     "onPlainWords": 7,
+     "onPlainShare": 28.0
+    }
+   ]
+  }
+ },
+ "B": {
+  "A07": {
+   "status": "PASS",
+   "metrics": {
+    "voice − music dB": 19.443005
+   },
+   "details": []
+  },
+  "A09": {
+   "status": "PASS",
+   "metrics": {
+    "silences 0.8-1.5 s": 3
+   },
+   "details": [
+    {
+     "spans": [
+      [
+       98.4,
+       0.95
+      ],
+      [
+       315.76,
+       0.92
+      ],
+      [
+       487.17,
+       0.93
+      ]
+     ],
+     "otherSpans": [
+      [
+       3.95,
+       0.27
+      ],
+      [
+       7.36,
+       0.06
+      ],
+      [
+       7.39,
+       0.05
+      ],
+      [
+       7.43,
+       0.05
+      ],
+      [
+       7.51,
+       0.05
+      ],
+      [
+       7.54,
+       0.06
+      ],
+      [
+       7.58,
+       0.05
+      ],
+      [
+       8.97,
+       0.06
+      ],
+      [
+       10.62,
+       0.07
+      ],
+      [
+       10.66,
+       0.06
+      ]
+     ]
+    }
+   ]
+  },
+  "R06": {
+   "status": "PASS",
+   "metrics": {
+    "cuts": 6,
+    "cuts visible in picture (%)": 100.0
+   },
+   "details": [
+    {
+     "notVisible": []
+    }
+   ]
+  },
+  "R09": {
+   "status": "FAIL",
+   "metrics": {
+    "act turns": 5,
+    "act turns with a hard cut": 2,
+    "most used view share (%)": 24.090759,
+    "longest same-layout run (scenes)": 1,
+    "declared map joins not measured": 0
+   },
+   "details": [
+    {
+     "hardTurns": [
+      {
+       "t": 51.933,
+       "from": "cold-open",
+       "to": "ident",
+       "scene": "IDENT",
+       "cut": null
+      },
+      {
+       "t": 567.134,
+       "from": "act3",
+       "to": "limits",
+       "scene": "S32",
+       "cut": null
+      }
+     ],
+     "joinedTurns": [
+      {
+       "t": 54.933,
+       "from": "ident",
+       "to": "act1",
+       "scene": "S04",
+       "cut": "cut"
+      },
+      {
+       "t": 192.067,
+       "from": "act1",
+       "to": "act2",
+       "scene": "S10",
+       "cut": "cut"
+      },
+      {
+       "t": 444.2,
+       "from": "act2",
+       "to": "act3",
+       "scene": "S25",
+       "cut": "cut"
+      }
+     ],
+     "topView": [
+      1,
+      2,
+      0
+     ],
+     "mapMismatch": []
+    }
+   ]
+  },
+  "T2": {
+   "status": "PASS",
+   "metrics": {
+    "phrases measured": 66,
+    "repeated phrases (%)": 1.515152,
+    "longest run of repeated phrases": 1
+   },
+   "details": [
+    {
+     "medianSimilarity": 0.8276,
+     "maxSimilarity": 0.9165,
+     "repeats": [
+      [
+       431.74,
+       3,
+       0.9165
+      ]
+     ]
+    }
+   ]
+  },
+  "T3": {
+   "status": "FAIL",
+   "metrics": {
+    "silences measured": 3,
+    "entries outside 150–400 ms": 1,
+    "silences without a room-tone floor": 0
+   },
+   "details": [
+    {
+     "start": 98.4,
+     "dur": 0.95,
+     "bedRef": -31.9,
+     "bedInside": -200.0,
+     "entry": 0.165,
+     "masterMin": -57.8,
+     "room": -57.1,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    },
+    {
+     "start": 315.76,
+     "dur": 0.92,
+     "bedRef": -28.4,
+     "bedInside": -200.0,
+     "entry": 0.11,
+     "masterMin": -58.6,
+     "room": -57.2,
+     "judged": true,
+     "entryOk": false,
+     "floorOk": true
+    },
+    {
+     "start": 487.17,
+     "dur": 0.93,
+     "bedRef": -27.9,
+     "bedInside": -200.0,
+     "entry": 0.15,
+     "masterMin": -59.2,
+     "room": -57.3,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    }
+   ]
+  },
+  "T4": {
+   "status": "PASS",
+   "metrics": {
+    "segments over a density limit": 0,
+    "highest events/min": 20.3,
+    "most events in 10 s": 6,
+    "highest share on plain words (%)": 28.0
+   },
+   "details": [
+    {
+     "segment": "a-s01-s03",
+     "t0": 0.0,
+     "events": 18,
+     "perMin": 19.7,
+     "max10s": 6,
+     "onPlainWords": 5,
+     "onPlainShare": 27.8
+    },
+    {
+     "segment": "b-s04-s09",
+     "t0": 54.93,
+     "events": 39,
+     "perMin": 17.1,
+     "max10s": 5,
+     "onPlainWords": 9,
+     "onPlainShare": 23.1
+    },
+    {
+     "segment": "c-s10-s15",
+     "t0": 192.07,
+     "events": 27,
+     "perMin": 15.4,
+     "max10s": 6,
+     "onPlainWords": 6,
+     "onPlainShare": 22.2
+    },
+    {
+     "segment": "d-s16-s20",
+     "t0": 297.17,
+     "events": 19,
+     "perMin": 17.7,
+     "max10s": 6,
+     "onPlainWords": 1,
+     "onPlainShare": 5.3
+    },
+    {
+     "segment": "e-s21-s24",
+     "t0": 361.6,
+     "events": 28,
+     "perMin": 20.3,
+     "max10s": 6,
+     "onPlainWords": 6,
+     "onPlainShare": 21.4
+    },
+    {
+     "segment": "f-s25-s28",
+     "t0": 444.2,
+     "events": 15,
+     "perMin": 18.5,
+     "max10s": 4,
+     "onPlainWords": 1,
+     "onPlainShare": 6.7
+    },
+    {
+     "segment": "g-s29-s33",
+     "t0": 492.77,
+     "events": 25,
+     "perMin": 13.2,
+     "max10s": 6,
+     "onPlainWords": 7,
+     "onPlainShare": 28.0
+    }
+   ]
+  }
+ },
+ "C": {
+  "A07": {
+   "status": "PASS",
+   "metrics": {
+    "voice − music dB": 19.443005
+   },
+   "details": []
+  },
+  "A09": {
+   "status": "PASS",
+   "metrics": {
+    "silences 0.8-1.5 s": 3
+   },
+   "details": [
+    {
+     "spans": [
+      [
+       98.4,
+       0.95
+      ],
+      [
+       315.76,
+       0.92
+      ],
+      [
+       487.17,
+       0.93
+      ]
+     ],
+     "otherSpans": [
+      [
+       3.95,
+       0.27
+      ],
+      [
+       7.36,
+       0.06
+      ],
+      [
+       7.39,
+       0.05
+      ],
+      [
+       7.43,
+       0.05
+      ],
+      [
+       7.51,
+       0.05
+      ],
+      [
+       7.54,
+       0.06
+      ],
+      [
+       7.58,
+       0.05
+      ],
+      [
+       8.97,
+       0.06
+      ],
+      [
+       10.62,
+       0.1
+      ],
+      [
+       10.92,
+       0.05
+      ]
+     ]
+    }
+   ]
+  },
+  "R06": {
+   "status": "PASS",
+   "metrics": {
+    "cuts": 6,
+    "cuts visible in picture (%)": 100.0
+   },
+   "details": [
+    {
+     "notVisible": []
+    }
+   ]
+  },
+  "R09": {
+   "status": "FAIL",
+   "metrics": {
+    "act turns": 5,
+    "act turns with a hard cut": 2,
+    "most used view share (%)": 24.090759,
+    "longest same-layout run (scenes)": 1,
+    "declared map joins not measured": 0
+   },
+   "details": [
+    {
+     "hardTurns": [
+      {
+       "t": 51.933,
+       "from": "cold-open",
+       "to": "ident",
+       "scene": "IDENT",
+       "cut": null
+      },
+      {
+       "t": 567.134,
+       "from": "act3",
+       "to": "limits",
+       "scene": "S32",
+       "cut": null
+      }
+     ],
+     "joinedTurns": [
+      {
+       "t": 54.933,
+       "from": "ident",
+       "to": "act1",
+       "scene": "S04",
+       "cut": "cut"
+      },
+      {
+       "t": 192.067,
+       "from": "act1",
+       "to": "act2",
+       "scene": "S10",
+       "cut": "cut"
+      },
+      {
+       "t": 444.2,
+       "from": "act2",
+       "to": "act3",
+       "scene": "S25",
+       "cut": "cut"
+      }
+     ],
+     "topView": [
+      1,
+      2,
+      0
+     ],
+     "mapMismatch": []
+    }
+   ]
+  },
+  "T2": {
+   "status": "PASS",
+   "metrics": {
+    "phrases measured": 66,
+    "repeated phrases (%)": 1.515152,
+    "longest run of repeated phrases": 1
+   },
+   "details": [
+    {
+     "medianSimilarity": 0.8276,
+     "maxSimilarity": 0.9165,
+     "repeats": [
+      [
+       431.74,
+       3,
+       0.9165
+      ]
+     ]
+    }
+   ]
+  },
+  "T3": {
+   "status": "FAIL",
+   "metrics": {
+    "silences measured": 3,
+    "entries outside 150–400 ms": 1,
+    "silences without a room-tone floor": 0
+   },
+   "details": [
+    {
+     "start": 98.4,
+     "dur": 0.95,
+     "bedRef": -31.9,
+     "bedInside": -200.0,
+     "entry": 0.165,
+     "masterMin": -57.9,
+     "room": -57.2,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    },
+    {
+     "start": 315.76,
+     "dur": 0.92,
+     "bedRef": -28.4,
+     "bedInside": -200.0,
+     "entry": 0.11,
+     "masterMin": -58.2,
+     "room": -57.1,
+     "judged": true,
+     "entryOk": false,
+     "floorOk": true
+    },
+    {
+     "start": 487.17,
+     "dur": 0.93,
+     "bedRef": -27.9,
+     "bedInside": -200.0,
+     "entry": 0.15,
+     "masterMin": -59.2,
+     "room": -57.3,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    }
+   ]
+  },
+  "T4": {
+   "status": "PASS",
+   "metrics": {
+    "segments over a density limit": 0,
+    "highest events/min": 18.5,
+    "most events in 10 s": 5,
+    "highest share on plain words (%)": 26.7
+   },
+   "details": [
+    {
+     "segment": "a-s01-s03",
+     "t0": 0.0,
+     "events": 15,
+     "perMin": 16.4,
+     "max10s": 5,
+     "onPlainWords": 4,
+     "onPlainShare": 26.7
+    },
+    {
+     "segment": "b-s04-s09",
+     "t0": 54.93,
+     "events": 33,
+     "perMin": 14.4,
+     "max10s": 4,
+     "onPlainWords": 4,
+     "onPlainShare": 12.1
+    },
+    {
+     "segment": "c-s10-s15",
+     "t0": 192.07,
+     "events": 23,
+     "perMin": 13.1,
+     "max10s": 4,
+     "onPlainWords": 4,
+     "onPlainShare": 17.4
+    },
+    {
+     "segment": "d-s16-s20",
+     "t0": 297.17,
+     "events": 15,
+     "perMin": 14.0,
+     "max10s": 4,
+     "onPlainWords": 0,
+     "onPlainShare": 0.0
+    },
+    {
+     "segment": "e-s21-s24",
+     "t0": 361.6,
+     "events": 20,
+     "perMin": 14.5,
+     "max10s": 4,
+     "onPlainWords": 3,
+     "onPlainShare": 15.0
+    },
+    {
+     "segment": "f-s25-s28",
+     "t0": 444.2,
+     "events": 15,
+     "perMin": 18.5,
+     "max10s": 4,
+     "onPlainWords": 1,
+     "onPlainShare": 6.7
+    },
+    {
+     "segment": "g-s29-s33",
+     "t0": 492.77,
+     "events": 22,
+     "perMin": 11.6,
+     "max10s": 4,
+     "onPlainWords": 4,
+     "onPlainShare": 18.2
+    }
+   ]
+  }
+ },
+ "C_aac": {
+  "A01": {
+   "status": "PASS",
+   "metrics": {
+    "integrated LUFS": -14.0
+   },
+   "details": []
+  },
+  "A02": {
+   "status": "PASS",
+   "metrics": {
+    "true peak dBTP": -2.2
+   },
+   "details": []
+  },
+  "A07": {
+   "status": "PASS",
+   "metrics": {
+    "voice − music dB": 19.443005
+   },
+   "details": []
+  },
+  "A09": {
+   "status": "PASS",
+   "metrics": {
+    "silences 0.8-1.5 s": 3
+   },
+   "details": [
+    {
+     "spans": [
+      [
+       98.4,
+       0.95
+      ],
+      [
+       315.76,
+       0.92
+      ],
+      [
+       487.17,
+       0.93
+      ]
+     ],
+     "otherSpans": [
+      [
+       3.95,
+       0.27
+      ],
+      [
+       7.36,
+       0.06
+      ],
+      [
+       7.39,
+       0.05
+      ],
+      [
+       7.51,
+       0.05
+      ],
+      [
+       7.54,
+       0.06
+      ],
+      [
+       7.58,
+       0.05
+      ],
+      [
+       8.97,
+       0.06
+      ],
+      [
+       10.62,
+       0.05
+      ],
+      [
+       10.66,
+       0.06
+      ],
+      [
+       10.92,
+       0.05
+      ]
+     ]
+    }
+   ]
+  },
+  "R06": {
+   "status": "PASS",
+   "metrics": {
+    "cuts": 6,
+    "cuts visible in picture (%)": 100.0
+   },
+   "details": [
+    {
+     "notVisible": []
+    }
+   ]
+  },
+  "R09": {
+   "status": "FAIL",
+   "metrics": {
+    "act turns": 5,
+    "act turns with a hard cut": 2,
+    "most used view share (%)": 24.090759,
+    "longest same-layout run (scenes)": 1,
+    "declared map joins not measured": 0
+   },
+   "details": [
+    {
+     "hardTurns": [
+      {
+       "t": 51.933,
+       "from": "cold-open",
+       "to": "ident",
+       "scene": "IDENT",
+       "cut": null
+      },
+      {
+       "t": 567.134,
+       "from": "act3",
+       "to": "limits",
+       "scene": "S32",
+       "cut": null
+      }
+     ],
+     "joinedTurns": [
+      {
+       "t": 54.933,
+       "from": "ident",
+       "to": "act1",
+       "scene": "S04",
+       "cut": "cut"
+      },
+      {
+       "t": 192.067,
+       "from": "act1",
+       "to": "act2",
+       "scene": "S10",
+       "cut": "cut"
+      },
+      {
+       "t": 444.2,
+       "from": "act2",
+       "to": "act3",
+       "scene": "S25",
+       "cut": "cut"
+      }
+     ],
+     "topView": [
+      1,
+      2,
+      0
+     ],
+     "mapMismatch": []
+    }
+   ]
+  },
+  "T2": {
+   "status": "PASS",
+   "metrics": {
+    "phrases measured": 66,
+    "repeated phrases (%)": 1.515152,
+    "longest run of repeated phrases": 1
+   },
+   "details": [
+    {
+     "medianSimilarity": 0.8276,
+     "maxSimilarity": 0.9165,
+     "repeats": [
+      [
+       431.74,
+       3,
+       0.9165
+      ]
+     ]
+    }
+   ]
+  },
+  "T3": {
+   "status": "FAIL",
+   "metrics": {
+    "silences measured": 3,
+    "entries outside 150–400 ms": 1,
+    "silences without a room-tone floor": 0
+   },
+   "details": [
+    {
+     "start": 98.4,
+     "dur": 0.95,
+     "bedRef": -31.9,
+     "bedInside": -200.0,
+     "entry": 0.165,
+     "masterMin": -57.8,
+     "room": -57.2,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    },
+    {
+     "start": 315.76,
+     "dur": 0.92,
+     "bedRef": -28.4,
+     "bedInside": -200.0,
+     "entry": 0.11,
+     "masterMin": -58.1,
+     "room": -57.1,
+     "judged": true,
+     "entryOk": false,
+     "floorOk": true
+    },
+    {
+     "start": 487.17,
+     "dur": 0.93,
+     "bedRef": -27.9,
+     "bedInside": -200.0,
+     "entry": 0.15,
+     "masterMin": -59.1,
+     "room": -57.3,
+     "judged": true,
+     "entryOk": true,
+     "floorOk": true
+    }
+   ]
+  },
+  "T4": {
+   "status": "PASS",
+   "metrics": {
+    "segments over a density limit": 0,
+    "highest events/min": 18.5,
+    "most events in 10 s": 5,
+    "highest share on plain words (%)": 26.7
+   },
+   "details": [
+    {
+     "segment": "a-s01-s03",
+     "t0": 0.0,
+     "events": 15,
+     "perMin": 16.4,
+     "max10s": 5,
+     "onPlainWords": 4,
+     "onPlainShare": 26.7
+    },
+    {
+     "segment": "b-s04-s09",
+     "t0": 54.93,
+     "events": 33,
+     "perMin": 14.4,
+     "max10s": 4,
+     "onPlainWords": 4,
+     "onPlainShare": 12.1
+    },
+    {
+     "segment": "c-s10-s15",
+     "t0": 192.07,
+     "events": 23,
+     "perMin": 13.1,
+     "max10s": 4,
+     "onPlainWords": 4,
+     "onPlainShare": 17.4
+    },
+    {
+     "segment": "d-s16-s20",
+     "t0": 297.17,
+     "events": 15,
+     "perMin": 14.0,
+     "max10s": 4,
+     "onPlainWords": 0,
+     "onPlainShare": 0.0
+    },
+    {
+     "segment": "e-s21-s24",
+     "t0": 361.6,
+     "events": 20,
+     "perMin": 14.5,
+     "max10s": 4,
+     "onPlainWords": 3,
+     "onPlainShare": 15.0
+    },
+    {
+     "segment": "f-s25-s28",
+     "t0": 444.2,
+     "events": 15,
+     "perMin": 18.5,
+     "max10s": 4,
+     "onPlainWords": 1,
+     "onPlainShare": 6.7
+    },
+    {
+     "segment": "g-s29-s33",
+     "t0": 492.77,
+     "events": 22,
+     "perMin": 11.6,
+     "max10s": 4,
+     "onPlainWords": 4,
+     "onPlainShare": 18.2
+    }
+   ]
+  }
+ },
+ "_note": "A/B/C: khoá checks b4551642 (trước rebase); C_aac: bản C với audio.aac_true_peak −2,0 (master −2,3), khoá eb6d0fce sau rebase lên main 57b0994"
+}

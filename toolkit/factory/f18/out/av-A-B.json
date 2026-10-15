@@ -1,0 +1,82 @@
+{
+ "audio_identical": true,
+ "frames": 18202,
+ "zone_frames": 90,
+ "moving_frames_checked": 1551,
+ "offset_hist": {
+  "0": 1551
+ },
+ "max_abs_offset_frames": 0,
+ "outside_zone_mean_abs_diff": {
+  "mean": 0.006,
+  "max": 0.29
+ },
+ "zones": [
+  {
+   "to": "b-s04-s09",
+   "cut": "J",
+   "zone": [
+    54.9333,
+    55.4333
+   ],
+   "frames": 15,
+   "frozen": true,
+   "voice_lead_s": 0.41
+  },
+  {
+   "to": "c-s10-s15",
+   "cut": "J",
+   "zone": [
+    192.0667,
+    192.5667
+   ],
+   "frames": 15,
+   "frozen": true,
+   "voice_lead_s": 0.46
+  },
+  {
+   "to": "d-s16-s20",
+   "cut": "J",
+   "zone": [
+    297.1667,
+    297.6667
+   ],
+   "frames": 15,
+   "frozen": true,
+   "voice_lead_s": 0.46
+  },
+  {
+   "to": "e-s21-s24",
+   "cut": "J",
+   "zone": [
+    361.6,
+    362.1
+   ],
+   "frames": 15,
+   "frozen": true,
+   "voice_lead_s": 0.44
+  },
+  {
+   "to": "f-s25-s28",
+   "cut": "J",
+   "zone": [
+    444.2,
+    444.7
+   ],
+   "frames": 15,
+   "frozen": true,
+   "voice_lead_s": 0.45
+  },
+  {
+   "to": "g-s29-s33",
+   "cut": "J",
+   "zone": [
+    492.7667,
+    493.2667
+   ],
+   "frames": 15,
+   "frozen": true,
+   "voice_lead_s": 0.41
+  }
+ ]
+}
