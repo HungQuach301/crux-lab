@@ -4,7 +4,9 @@ Mỗi mẫu t, mỗi màu dữ liệu (vật role series/bar/grid, mặt nạ co
   - ΔE2000 (CIEDE2000, D65, kL = kC = kH = 1) giữa trước/sau > DE_MAX → CHẶN
   - thứ tự độ sáng: cặp màu có |ΔL*| trước ≥ ORDER_MIN mà sau lớp đổi dấu với |ΔL*| sau ≥ ORDER_FLIP → CHẶN (vd v4 cảnh c: cột "hi" tối hơn
     cột vàng trước lớp, sáng hơn sau lớp)
-Ngưỡng ghi trước trong toolkit/factory/f17/INTENT.md (T4/T5); không nới sau khi đo.
+DE_MAX = 5 ghi trước trong toolkit/factory/f17/INTENT.md (T4/T5). INTENT ghi "đảo thứ tự sáng → CHẶN" không kèm vùng chết; ORDER_MIN/ORDER_FLIP là ĐỊNH
+NGHĨA THÊM khi viết luật (trước lần đo đầu, commit 4ccffcab): cặp gần bằng sáng (|ΔL*| < 1 trước) không có thứ tự để đảo, và đổi dấu < 0,5 L* sau lớp là
+nhiễu lượng tử/hạt. Cặp đảo nhỏ hơn các mức này không bị chặn (REVIEWER F-17).
 """
 import json, math, sys
 

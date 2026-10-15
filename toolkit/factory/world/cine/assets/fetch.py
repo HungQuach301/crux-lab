@@ -18,7 +18,7 @@ if __name__ == '__main__':
         p = os.path.join(HERE, 'cc0' if m['commit'] else 'dl', m['file'])
         if not os.path.exists(p):
             if '--verify' in sys.argv: print('THIẾU', k); bad += 1; continue
-            os.makedirs(os.path.dirname(p), exist_ok=True); urllib.request.urlretrieve(m['url'], p + '.part'); os.replace(p + '.part', p)
+            os.makedirs(os.path.dirname(p), exist_ok=True); open(p + '.part', 'wb').write(urllib.request.urlopen(m['url'], timeout=60).read()); os.replace(p + '.part', p)
         h = sha(p)
         if h != m['sha256']: print('SHA-256 LỆCH', k, h); bad += 1; continue
         print(k, m['bytes'], h[:16])

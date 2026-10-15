@@ -7,16 +7,16 @@ trùng SHA bản giao `57c57cae…`).
 
 **Kết luận: TRƯỢT** (theo INTENT §2, không hạ đích): **T11 giờ máy 5,8× > 3,0×** (đích chính) và **T6 viền: tỉ lệ xa/gần đèn 12 % > 10 %** (đích chính;
 phía xa đèn 0,15 L\* ≤ 0,5 thì đạt). Mọi đích chính khác ĐẠT, gồm cả luật màu mới (đối chứng K2 v4 CHẶN, bản sửa và 3 cảnh Tập 7 ĐẠT) và verify của
-đoạn 1080p có lớp. Luật màu và verify đã **bắt thật** năm lỗi của chính F-17 trong lúc thử (§3) — đã sửa, đo lại. Điều phối/chủ dự án quyết merge.
+đoạn 1080p có lớp. Luật màu và verify đã **bắt thật** bốn lỗi của chính F-17 trong lúc thử, thước viền bắt thêm một (§3) — đã sửa, đo lại. Điều phối/chủ dự án quyết merge.
 
 | # | Thước | Đích | Đo | Kết quả |
 |---|---|---|---|---|
 | T1 | không khai `cine`, mã F-17 vs `main` acdd14d6 (Tập 7 đoạn a, cảnh s1 + s4, 540p **và** 1080p) | mp4 + nhật ký trùng byte | **8/8 tệp trùng MD5** (`out/T1-T3-md5.txt`; tên tệp cache khác vì khoá gồm `core.js`/`render_shots.js` đã đổi) | **ĐẠT** |
 | T2 | khai `cine`, `--res 540` | trùng byte bản không khai | test `test_factory_f17.F17Render.test_c`: mp4 + nhật ký trùng; `render.json` không có `cine`; ở 1080p thì khác (lớp chạy), nhật ký chữ vẫn trùng. Chạy 3 lượt liên tiếp đạt | **ĐẠT** |
 | T3 | tất định: cảnh cận s4 (đủ lớp: AO + DOF + khoá màu) dựng 2 tiến trình | trùng MD5 | `230c544b…` cả hai (`out/T1-T3-md5.txt`) | **ĐẠT** |
-| T4 | luật màu trên **đối chứng K2 cấu hình v4** (`trial/k2-v4`, `v4: true`) | CHẶN | **CHẶN**: kem `#C9C2B0` ΔE2000 **13,74**, xanh `#4C8DFF` **9,05** (`out/cine/still-k2-v4.color.json`) | **ĐẠT** |
+| T4 | luật màu trên **đối chứng K2 cấu hình v4** (`trial/k2-v4`: cảnh K2 của v4 + nhánh `v4: true` trong mã F-17 — không phải mã v4 gốc; cùng cảnh với `trial/k2`, chỉ khác cờ) | CHẶN | **CHẶN**: kem `#C9C2B0` ΔE2000 **13,74**, xanh `#4C8DFF` **9,05** (`out/cine/still-k2-v4.color.json`) | **ĐẠT** |
 | T5 | luật màu: K2 đã sửa + 3 cảnh Tập 7 + đoạn 30 s | ĐẠT mọi mẫu | K2 sửa ΔE max **0,26**. Đoạn a (chứa đoạn 30 s): bước `cine` của build 1080p lần 3, **24 mẫu, 89 nhóm, ΔE max 1,8**; c: 15 mẫu (3/shot) ΔE max **2,93** + 10 mẫu (2/shot) 2,94; g: 15 mẫu **0,20** + 10 mẫu 1,81; 0 đảo thứ tự sáng. (Build lần 1 và 2 của đoạn a: CHẶN/TRƯỢT — §3) | **ĐẠT** (sau sửa) |
-| T6 | viền người: ΔL\* (viền bật − tắt) phía xa đèn (n·đèn ≤ 0) | ≤ 0,5 **và** ≤ 10 % phía gần | xa max **0,15** (a), 0,11 (c), 0,04 (g); gần min 1,18; **xa/gần max 0,12** (a, t = 21,8 s: 0,15 / 1,19) · chẩn đoán "lõi xa đèn" (cả ô 3×3 xa đèn — bỏ điểm mép MSAA nơi tay đè thân): **≤ 0,01** | **TRƯỢT** (tỉ lệ) |
+| T6 | viền người: ΔL\* (viền bật − tắt) phía xa đèn (n·đèn ≤ 0) | ≤ 0,5 **và** ≤ 10 % phía gần | xa max **0,15** (a), 0,11 (c), 0,04 (g); gần min 1,18; **xa/gần max 0,12** (a, t = 21,8 s: 0,15 / 1,19) · **thước khác INTENT** ("nửa khối"): gần = n·đèn > 0,2, xa = n·đèn ≤ 0, dải (0; 0,2] bỏ ra — thuận lợi hơn hai nửa, kết luận vẫn TRƯỢT · chẩn đoán "lõi xa đèn" (cả ô 3×3 xa đèn — bỏ điểm mép MSAA nơi tay đè thân): **≤ 0,01** | **TRƯỢT** (tỉ lệ) |
 | T7 | màu thân người ΔE2000 trước/sau (không khai silhouette) | ≤ 15 (chỉ báo) | max **16,3** (a, cảnh rộng ngày), 11,0 (c), 16,1 (g hoàng hôn); khung cận 27 s: 5,7 | chỉ báo: vượt nhẹ ở cảnh rộng |
 | T8 | vệt DOF trên đầu (dải 1–6 px trên mép đầu, max theo cột ΔL\* DOF bật − tắt) | giảm ≥ 50 % so fragment v4 | **1,4 vs 11,2 L\*** (−87 %); p95 0,82 vs 6,12 (`out/cine/a.cine.json`) | **ĐẠT** |
 | T9 | mái < ngưỡng px không vân | 0 mái dưới ngưỡng có vân | 0 (cơ chế mỗi khung); đếm khung-mái trơn/vân: c 8/32, g 9/55, K2 2/0 | **ĐẠT** |
@@ -39,7 +39,8 @@ phía xa đèn 0,15 L\* ≤ 0,5 thì đạt). Mọi đích chính khác ĐẠT, 
    bóng); `LockPass` vẽ lại chúng dưới **đèn/sương/bóng gốc** của cảnh, tone-map + sRGB trong shader (pha trộn như ra canvas), ghép **sau** OutputPass;
    grade/viền tối bỏ qua điểm ảnh đó, DOF không làm mờ chúng. Trời theo shot (`sky: 0`) cho shot có dữ liệu bán trong suốt trên nền trời.
    Luật: `cine_check.js` (trang không lớp vs có lớp, cùng t, 3 mẫu/shot; mặt nạ theo màu gốc, co 2 px, ≥ 200 điểm) → `cine_color.py`: **ΔE2000 > 5 hoặc
-   đảo thứ tự L\* (|ΔL\*| ≥ 1 trước, ≥ 0,5 sau, đổi dấu) = CHẶN**.
+   đảo thứ tự L\* (|ΔL\*| ≥ 1 trước, ≥ 0,5 sau, đổi dấu) = CHẶN**. Vùng chết thứ tự sáng (1 / 0,5 L\*) là **định nghĩa thêm khi viết luật**, không có
+   trong INTENT (INTENT: "đảo thứ tự sáng → CHẶN"); cặp đảo nhỏ hơn không bị chặn.
 5. **Nhân vật:** chỉ Person của lib3d (thân viên nang + đầu cầu cùng vật liệu); giữ màu nhận diện, viền = Fresnel × max(0, n·đèn) (phía xa đèn = 0, v4 sàn
    0,15); thân sẫm chỉ khi shot khai `silhouette: true`.
 6. **Giới hạn v4 đã sửa:** DOF nới độ sâu 3×3 trước khi gom mẫu (hết vệt mép MSAA trên đầu); mái < `roof.minPx` (260 px ở 1080, đường kính cầu bao chiếu)
@@ -69,7 +70,7 @@ Một khung 1080p, một trang, máy rỗi (`measure_layers.js`, đoạn a t = 1
 1. **Vật dữ liệu bán trong suốt vẽ hai lần** (lượt đo 1, cảnh c t = 26,4 s: đường lãi mờ dần ΔE 15–18, đảo thứ tự sáng) → ảnh lớp không vẽ vật dữ liệu.
 2. **Pha trộn ở không gian tuyến tính** trong composer vs không gian sRGB đã tone-map trên canvas (cùng chỗ, sau sửa 1 còn ΔE 15,6) → `LockPass`
    vẽ như ra canvas (cờ `isXRRenderTarget` trên RT riêng: three tone-map + mã sRGB trong shader), ghép sau OutputPass. Đo lại: ΔE max 2,94.
-3. **Chồng tiền của Leo mang `checks.char`** nên bị gắn viền như người (lượt đo đầu cảnh g) → chỉ Person (viên nang + cầu cùng vật liệu).
+3. **Chồng tiền của Leo mang `checks.char`** nên bị gắn viền như người (thước viền bắt, không phải luật màu — lượt đo đầu cảnh g) → chỉ Person (viên nang + cầu cùng vật liệu).
 4. **Build 1080p lần 1 (đoạn a): bước `cine` CHẶN** ở mẫu mới (3/shot): t = 24,1 s dải tuần tối 8 % (pass khoá dùng tham số bóng mềm — bias/normalBias/radius —
    thay vì bóng gốc) và t = 26,2 s (cận) dải tuần **bán trong suốt trên nền trời HDRI** đọc sáng hơn (ΔE 6,6–6,9). Sửa: khôi phục tham số bóng gốc trong
    pass khoá; tắt trời ở shot có dữ liệu trong suốt trên nền trời.
@@ -111,5 +112,23 @@ Hệ quả thiết kế: **dữ liệu bán trong suốt + trời HDRI** không 
 Console (headless khoá Console, 0 agent con — `headless.sh --tools Read|"" --disallowedTools Task,Agent,Workflow`): cổng gốc 12 đọc + 2 chấm
 **$0,41**; REVIEWER: §7. Sổ chi `spend.json`, trần cứng $4. Không gọi API nào khác (0 ký tự EL, không ảnh/video AI, không mô hình người tải về).
 
-<!--REVIEWER-->
+## 7. REVIEWER (headless khoá Console, `api.sh review`, trần $3, chi **$1,86**; `reviewer/REVIEWER-out.md`): ĐẠT có sửa — đã sửa
+- **CHÍNH `cine.js` `keyScenePos`**: vị trí đèn gốc chụp mỗi khung nên từ khung thứ hai, với cảnh đặt đèn một lần (Studio của lib3d, K2), pass khoá vẽ dữ
+  liệu theo đèn của lớp. Sửa: chỉ nhận vị trí khi cảnh vừa đặt lại (khác vị trí lớp ghi khung trước). Đo lại: K2 4 khung liên tiếp ΔE max **0,10** (ĐẠT),
+  K2 v4 vẫn CHẶN 13,75, đoạn a 5 mẫu 0,78 (`out/cine/review-*.color.json`). Các cảnh Tập 7 đặt đèn mỗi khung (`followLight`) nên số T5 của chúng không
+  bị ảnh hưởng; build lần 3 chạy trên mã trước sửa này.
+- **CHÍNH** vùng chết thứ tự sáng không có trong INTENT → ghi rõ ở §1.4 và docstring `cine_color.py`.
+- **PHỤ đã sửa:** `build_seg` không chạy bước `cine` khi `--spp` (cùng điều kiện `render_shots`); `cine_color.py` lỗi trước khi ghi JSON → trượt gọn;
+  `fetch.py` timeout 60 s; chú thích hạt phim vẫn cộng lên điểm ảnh dữ liệu; REPORT: T6 thước khác INTENT, T4 dùng nhánh `v4: true`, "năm lỗi" → bốn + một.
+- **PHỤ để lại** (ghi để điều phối quyết): `mapSize` 2048 của bóng mềm không trả về trong pass khoá (mép bóng trên dữ liệu khác gốc nhẹ; luật đo lõi co
+  2 px); pass khoá ẩn vật trong suốt/đường không phải dữ liệu nên dữ liệu đè lên kính/đường phủ trước nó; `headless.sh` thêm `--disallowedTools` cho mọi
+  lượt (không đổi hành vi vì `--tools` đã giới hạn); REVIEWER không chạy được Bash nên chưa tự tính lại SHA tài sản (đã kiểm ở test `test_b_assets`).
+
+**Chi cả phiên: $0,41 (cổng gốc) + $1,86 (REVIEWER) = $2,26 / trần $4.** Token headless: `root/*.json`, `reviewer/REVIEWER.jsonl`.
+
+## 8. Đề xuất
+**Đề xuất merge `factory-f17` vào main** với trạng thái thử **TRƯỢT (T11 giờ máy 5,8×, T6 tỉ lệ viền 12 %)** — lớp là opt-in, không khai thì trùng byte
+(T1), luật màu và verify đã chứng minh chặn được lỗi thật. Dùng cho tập thật cần (chủ dự án quyết): (1) chấp nhận ≈ 10 giờ máy render/tập 10 phút hoặc
+một vòng tối ưu (§2); (2) một lượt checks đủ bộ trên tập có lớp (V12 chưa đo); (3) quyết khoá màu cho role `mark` mang `series`.
+
 

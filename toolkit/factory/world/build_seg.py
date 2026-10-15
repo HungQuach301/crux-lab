@@ -144,13 +144,15 @@ def main():
         if r.returncode:
             return False, {'error': 'cine_check'}
         r = run([sys.executable, os.path.join(HERE, 'cine', 'cine_color.py'), cj, out + '.cine-color.json'])
+        if not os.path.exists(out + '.cine-color.json'):
+            return False, {'error': 'cine_color'}
         c = json.load(open(out + '.cine-color.json'))
         for m in c['block'][:10]: print('  F-17 CHẶN: ' + m)
         return r.returncode == 0, {k: c[k] for k in ('level', 'samples', 'groups', 'max_dE')}
 
     for name, fn in (('lint', lint), ('spine', spine), ('render', render), ('audio', audio), ('mux', mux)):
         step(name, fn)
-    if json.load(open(os.path.join(ROOT, seg, 'spine.json'))).get('cine') and res >= 1080:   # khoá cine do spine.py ghi; nháp 540p không bật lớp
+    if json.load(open(os.path.join(ROOT, seg, 'spine.json'))).get('cine') and res >= 1080 and arg('--spp') is None:   # cùng điều kiện bật lớp của render_shots.js (nháp 540p, --spp: không lớp)
         step('cine', cine)
     step('verify', verify)
     rep['total_seconds'] = round(time.time() - T, 1)

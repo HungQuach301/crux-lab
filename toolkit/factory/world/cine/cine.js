@@ -59,7 +59,7 @@ const GradeShader = {
       c = mix(c, c * c * (3.0 - 2.0 * c), contrast);
       float l = dot(c, vec3(0.2126, 0.7152, 0.0722)); c = mix(vec3(l), c, sat);
       vec2 q = vUv - 0.5; q.x *= res.x / res.y; c *= 1.0 - vignette * smoothstep(0.35, 1.05, length(q));
-      c = mix(c, c0, useLock * texture2D(tLock, vUv).a);                       // khoá màu: điểm ảnh dữ liệu giữ màu trước grade/viền tối
+      c = mix(c, c0, useLock * texture2D(tLock, vUv).a);                       // khoá màu: điểm ảnh dữ liệu giữ màu trước grade/viền tối (hạt phim VẪN cộng, trung bình 0)
       vec2 px = floor(vUv * res / max(1.0, res.y / 1080.0));
       float n = (h(px) + h(px + 17.0) - 1.0);
       float lc = dot(c, vec3(0.2126, 0.7152, 0.0722)), w = 4.0 * lc * (1.0 - lc) + 0.15;
@@ -344,9 +344,12 @@ export function install(opts = {}) {
         if (visibleChain(r.o)) { if (big) state.stats.roofTex++; else state.stats.roofPlain++; }
       }
     }
-    if (state.key) state.keyScenePos = state.key.position.clone();   // vị trí đèn cảnh đặt (khoá màu vẽ dưới đèn này)
+    // vị trí đèn CẢNH đặt (khoá màu vẽ dưới đèn này): chỉ nhận khi cảnh vừa đặt lại (khác vị trí lớp ghi ở khung trước) — cảnh đặt đèn một lần
+    // (Studio của lib3d, K2) giữ vị trí ghi ở prepare (REVIEWER F-17: trước đây khung thứ hai trở đi lấy nhầm vị trí của lớp)
+    if (state.key && !(state.keyCinePos && state.key.position.equals(state.keyCinePos))) state.keyScenePos = state.key.position.clone();
     if (state.key && O.layers.hdri) { const k = state.key, tg = k.target.position; const el = L.keyEl * Math.PI / 180, az = L.keyAz * Math.PI / 180, r = 18;
-      k.position.set(tg.x + r * Math.cos(el) * Math.sin(az), tg.y + r * Math.sin(el), tg.z + r * Math.cos(el) * Math.cos(az)); k.target.updateMatrixWorld(); }
+      k.position.set(tg.x + r * Math.cos(el) * Math.sin(az), tg.y + r * Math.sin(el), tg.z + r * Math.cos(el) * Math.cos(az)); k.target.updateMatrixWorld();
+      state.keyCinePos = k.position.clone(); }
     if (state.key) { k2.copy(state.key.position).sub(state.key.target.position).normalize(); RIMDIR.copy(k2).transformDirection(cam.matrixWorldInverse); }
     if (state.passes.grade) state.passes.grade.uniforms.seed.value = (Math.round(state.t * 30) % 997) * 0.618034;
   }
