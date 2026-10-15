@@ -26,7 +26,7 @@ audio:
   ident: {after: S03}
   close_lift_db: 12
 fps: 30
-res: 540     # M2–M5; 1080 ở M6
+res: 1080    # M5 (b): 1080p có `cine` cho checks đủ bộ đo V12 (ý đồ M5); nháp 540p lưu ở work/draft/
 scope: full
 script: prod/gen/script.json
 claims: prod/gen/claims.json
