@@ -15,4 +15,4 @@
 | 4 | gộp `ep008` → `main` (squash) + PLAN đóng tập | **chờ chủ dự án báo đã đăng** | chờ |
 | L3 | để trống (chủ dự án không điền) | — | — |
 | Tập 9 | `data_db` mặc định 34 (L1 ≥ 20 dB); phần dựng trước kết quả đầu ≤ 60 s | `playbook/lessons.md` T8-1, T8-2; `playbook/episode.md` §3, §5b | xong (ghi) |
-| Lô K | V09 lỗi công cụ (`mainColour` None) · kind `rent-buy-twin-replay` (S01/S04/S05) · A14 tách "mid -2016" | `checks-appeal.md` A46, A47, A48 | xong (ghi) |
+| Lô K | V09 lỗi công cụ (`mainColour` None) · kind `rent-buy-twin-replay` (S01/S04/S05) · A14 tách "mid -2016" | `checks-appeal.md` A47, A48, A49 | xong (ghi) |

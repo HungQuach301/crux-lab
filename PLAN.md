@@ -12,6 +12,7 @@ PLAN từng tập: `episodes/epNNN/PLAN.md` (mẫu `playbook/templates/PLAN-tap.
 
 ## Tiếp
 1. **Tổng kết Tập 7 đã áp (D-013, chủ dự án 13/10: 1a · 2b · 3a):** mô hình xưởng 6 mốc, `playbook/prompts/CHAY-TAP-N.md`, 1 Short, 0 thumbnail, footage ngoài (`RIGHTS.md` §F), SFX CC0/CC BY, công thức mở–chương–kết (`story.md`). **Tập 8 vào mô hình mới sau G1** (P1 đang chạy mẫu cũ); bộ lấy mẫu trang chạy **trước G2** dù mẫu nào.
+0. **Tập 8 (rent-buy-1, `lab`, T1):** duyệt phát hành G3 15/10, chờ chủ dự án đăng; `ep008-delivery` giữ tới khi tải (`episodes/ep008/gates/G3-answer.md`, `HUONG-DAN-DANG.md`). Gộp `main` squash 15/10. Cho Tập 9: `data_db` 34, dựng trước kết quả đầu ≤ 60 s (lessons T8-1, T8-2); lô K A47–A49.
 2. **Lô K Tập 8:** A34–A37 + A38 (1 Short, 0 thumbnail) + A39 (quyền footage, trước M3 Tập 8 nếu dùng footage) + A40 (nguyên tắc, duyệt) + A41a; A32, A33, A29 mang sang. `ep008` đổi số khiếu nại của mình thành A42–A45.
 3. **Đường thử trên tập cũ** (`factory-t7lab`, `tongket-t7/REPORT.md` §6b): animatic S21/S25, hiệu chuẩn "nhớ lại", J/L-cut + màu hồi + SFX thật, checks nháp vs 1080p — song song P1 Tập 8, không chạm `ep008`. Nhạc người sáng tác CC BY: xét ở G1 Tập 9.
 

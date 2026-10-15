@@ -2,13 +2,13 @@
 
 **Nhánh:** `ep008` · **Đề tài:** #20 · **Format:** `lab` · **Mô hình:** xưởng 6 mốc (D-013) · **Chặng vừa đóng:** sau G1 → **dừng ở G2** (`session_01D3z2xMwUwt9NXv8xLDkV6d`)
 
-## 1. Trạng thái
-**G3 ĐÃ DUYỆT ĐĂNG (15/10, `gates/G3-answer.md`)** — master 1080p `98833a2a…` (10:06) + Short SH1 trên `ep008-delivery` @ `8c1ece7`; L1 18,5 dB (CHÍNH) chấp nhận là ngoại lệ của chủ dự án, không trộn lại; giữ 6 chương truyện. Checks 1080p khoá K4.4b: ĐẠT 59 (`gates/M6-checks.md`).
+## 1. Trạng thái — **TẬP ĐÓNG (15/10)**
+**Duyệt phát hành G3 15/10, chờ chủ dự án tự đăng** (`gates/G3-answer.md`; gộp `main` squash 15/10 theo lệnh chủ dự án, trước khi đăng). Master 1080p `98833a2a…` (10:06) + Short SH1 trên nhánh tạm `ep008-delivery` @ `8c1ece7` — **GIỮ tới khi chủ dự án báo đã tải master**. L1 18,5 dB (CHÍNH) = ngoại lệ chủ dự án; checks 1080p khoá K4.4b `b4551642…`: ĐẠT 59 (`gates/M6-checks.md`).
 
 ## 2. Việc tiếp (≤ 3) và việc treo
-1. **Chờ chủ dự án báo đã tải + đăng** → xoá nhánh `ep008-delivery` (local + remote).
-2. Sau đó: gộp `ep008` → `main` (squash) + PLAN đóng tập (chủ dự án G3 câu 4).
-3. Đã ghi cho Tập 9: `data_db` 34, phần dựng trước kết quả đầu ≤ 60 s (`playbook/lessons.md` T8-1, T8-2; `playbook/episode.md`); lô K: A46 (V09 lỗi công cụ), A47 (kind `rent-buy-twin-replay` S01/S04/S05), A48 (A14 "mid -2016").
+1. Chủ dự án báo đã tải master → xoá `ep008-delivery` (local + remote). Không xoá trước.
+2. Chủ dự án tự đăng (`HUONG-DAN-DANG.md`); sau đăng: §10 playbook (số liệu 7/28 ngày).
+3. Đã chuyển: Tập 9 `data_db` 34, dựng trước kết quả đầu ≤ 60 s (`playbook/lessons.md` T8-1, T8-2); lô K A47 (V09 lỗi công cụ), A48 (kind `rent-buy-twin-replay` S01/S04/S05), A49 (A14 "mid -2016").
 - Treo: J/L-cut qua biên đoạn (nhà máy), tiếng ghi thật (Freesound).
 
 ## 3. Quyết định đã có (chủ dự án)
