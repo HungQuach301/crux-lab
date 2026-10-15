@@ -1,0 +1,248 @@
+{
+ "ctl": {
+  "candidate_set": "ctl",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "ctl",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     0.5,
+     1
+    ],
+    "readers": 2,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "NEED_3RD",
+    "why": [
+     "Price $120/month noted but fallback framed as cushion, vague / Fallback stack with $120 monthly price identified.",
+     "Cost in monthly dollars attached to fallback; correct, no advice / Stack beside house with monthly price of fallback identified."
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B15",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Median line, Tessa above, under 1 in 5 weeks as tall / Median line, Tessa above, fewer than 1 in 5 weeks.",
+     "Median line, Tessa above median, minority of weeks equal / Median, Tessa above, under 1 in 5 weeks."
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B29",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Second figure/house Jan 2021, shorter stack captured / Second figure Leo, Jan 2021, shorter stack described.",
+     "Second house, Jan 2021, shorter stack identified; advice self-inferred / Second figure Leo, Jan 2021, shorter stack described; advice self-inferred."
+    ]
+   },
+   {
+    "set": "cine",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Cash stack beside house priced $120/month as fallback cost / Cash beside house with monthly price of fallback; no advice.",
+     "Cash beside house with monthly price of fallback; correct / Cash beside house priced $120/month as fallback; no advice."
+    ]
+   },
+   {
+    "set": "cine",
+    "id": "B15",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Median marker, Tessa above, fewer than 1 in 5 weeks / Median line, Tessa's stack above, few weeks as tall.",
+     "Stack above median, fewer than 1 in 5 weeks; correct / Median line, Tessa above, under 1 in 5 weeks captured."
+    ]
+   },
+   {
+    "set": "cine",
+    "id": "B29",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Leo's Jan 2021 house, smaller stack than Tessa's / Leo's house, Jan 2021, shorter stack than Tessa.",
+     "Leo's shorter stack, Jan 2021 mortgage identified / Leo's shorter stack, 2.65% Jan 2021 captured."
+    ]
+   }
+  ],
+  "gate_beats": 3,
+  "gate_pass": 2,
+  "pending": [
+   "B01"
+  ],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "verdict": "PENDING"
+ },
+ "cine": {
+  "candidate_set": "cine",
+  "threshold": 0.8,
+  "rows": [
+   {
+    "set": "cine",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 0,
+    "status": "PASS",
+    "why": [
+     "Cash stack beside house priced $120/month as fallback cost / Cash beside house with monthly price of fallback; no advice.",
+     "Cash beside house with monthly price of fallback; correct / Cash beside house priced $120/month as fallback; no advice."
+    ]
+   },
+   {
+    "set": "cine",
+    "id": "B15",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Median marker, Tessa above, fewer than 1 in 5 weeks / Median line, Tessa's stack above, few weeks as tall.",
+     "Stack above median, fewer than 1 in 5 weeks; correct / Median line, Tessa above, under 1 in 5 weeks captured."
+    ]
+   },
+   {
+    "set": "cine",
+    "id": "B29",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Leo's Jan 2021 house, smaller stack than Tessa's / Leo's house, Jan 2021, shorter stack than Tessa.",
+     "Leo's shorter stack, Jan 2021 mortgage identified / Leo's shorter stack, 2.65% Jan 2021 captured."
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B01",
+    "kind": "image",
+    "scores": [
+     0.5,
+     1
+    ],
+    "readers": 2,
+    "correct": 1,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "NEED_3RD",
+    "why": [
+     "Price $120/month noted but fallback framed as cushion, vague / Fallback stack with $120 monthly price identified.",
+     "Cost in monthly dollars attached to fallback; correct, no advice / Stack beside house with monthly price of fallback identified."
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B15",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 1,
+    "status": "PASS",
+    "why": [
+     "Median line, Tessa above, under 1 in 5 weeks as tall / Median line, Tessa above, fewer than 1 in 5 weeks.",
+     "Median line, Tessa above median, minority of weeks equal / Median, Tessa above, under 1 in 5 weeks."
+    ]
+   },
+   {
+    "set": "ctl",
+    "id": "B29",
+    "kind": "image",
+    "scores": [
+     1,
+     1
+    ],
+    "readers": 2,
+    "correct": 2,
+    "advice": 0,
+    "advice_inferred": 2,
+    "status": "PASS",
+    "why": [
+     "Second figure/house Jan 2021, shorter stack captured / Second figure Leo, Jan 2021, shorter stack described.",
+     "Second house, Jan 2021, shorter stack identified; advice self-inferred / Second figure Leo, Jan 2021, shorter stack described; advice self-inferred."
+    ]
+   }
+  ],
+  "gate_beats": 3,
+  "gate_pass": 3,
+  "pending": [],
+  "advice_beats": [],
+  "classes": null,
+  "advice_rubric": "new",
+  "share": 1.0,
+  "verdict": "PASS",
+  "near_threshold": false
+ }
+}

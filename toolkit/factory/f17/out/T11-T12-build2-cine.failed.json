@@ -1,0 +1,90 @@
+{
+ "segment": "toolkit/factory/f17/trial/a",
+ "res": 1080,
+ "out": "../out/a-1080.mp4",
+ "steps": {
+  "lint": {
+   "seconds": 0.3,
+   "ok": true,
+   "problems": [],
+   "files": 24
+  },
+  "spine": {
+   "seconds": 0.0,
+   "ok": true,
+   "stdout": [
+    "spine a-s01-s03 cine 54.9334"
+   ]
+  },
+  "render": {
+   "seconds": 3423.2,
+   "ok": true,
+   "shots": 8,
+   "rendered": [
+    "s0",
+    "s4",
+    "s1",
+    "s3",
+    "s7",
+    "s6",
+    "s2",
+    "s5"
+   ],
+   "cached": 0,
+   "wall_s": 3422.7,
+   "film_s": 54.9334,
+   "wall_per_film_s_rendered": 223.59,
+   "cores": 4
+  },
+  "audio": {
+   "seconds": 24.9,
+   "ok": true
+  },
+  "mux": {
+   "seconds": 2.3,
+   "ok": true
+  },
+  "cine": {
+   "seconds": 256.6,
+   "ok": true,
+   "level": "PASS",
+   "samples": 24,
+   "groups": 89,
+   "max_dE": 1.8
+  },
+  "verify": {
+   "seconds": 70.3,
+   "ok": false,
+   "rule1": 0,
+   "rule2": 0,
+   "rule3": 0,
+   "hard_cuts": 2,
+   "first_5s_world": true,
+   "C14": {
+    "samples": 1486,
+    "violations": 0,
+    "examples": []
+   },
+   "modes": {
+    "world_share": 0.305,
+    "chart_share": 0.695,
+    "first_5s_world": true
+   },
+   "F2": {
+    "level": "OK",
+    "sfx_per_min": 19.7,
+    "sfx_max_10s": 6,
+    "sfx_on_speech": 15,
+    "sfx_on_plain_words": 5,
+    "sfx_events": 18,
+    "keyword_hits": 9,
+    "min_keyword_snr_db": 16.4,
+    "label_overlaps": 0,
+    "line_crossings": 0,
+    "block": [],
+    "warn": []
+   }
+  }
+ },
+ "staging": "../out/.staging-a-1080-17009"
+}

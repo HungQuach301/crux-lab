@@ -16,6 +16,9 @@
 //   --resume     dựng tiếp THEO KHUNG (cine-lab #94): mỗi khung ghi JPEG + nhật ký vào <cảnh>.frames/ rồi mới mã hoá từ tệp; lượt bị ngắt (trần 2 h,
 //                dừng theo PID) chạy lại cùng lệnh → giữ khung đã có (trừ khung cuối, có thể ghi dở), chỉ render phần còn lại. Mã hoá cùng thông số
 //                → tệp cảnh trùng byte với lượt không ngắt (test_factory_f15.py). Thư mục khung xoá khi cảnh xong.
+// F-17 (opt-in; spine.json không có `cine` = như cũ, khoá cache cũ không đổi): spine có `cine` VÀ res ≥ 1080 VÀ khung ngang VÀ không --spp → trang
+//   cine/cine.html (lớp ánh sáng điện ảnh); mã cine + tài sản (manifest SHA) vào khoá cache. Nháp 540p (F-15), Short dọc: KHÔNG bật lớp.
+//   --cine 0 ép tắt (bản "trước" của cùng thư mục đoạn).
 const { chromium } = require('playwright');
 const { spawn, execFileSync } = require('child_process');
 const fs = require('fs'), path = require('path'), crypto = require('crypto'), os = require('os');
@@ -31,6 +34,9 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
   if (arg('--dither') !== undefined) vq.set('dither', arg('--dither'));
   if (arg('--spp') !== undefined) vq.set('spp', arg('--spp'));
   const RESUME = process.argv.includes('--resume');
+  const spine0 = JSON.parse(fs.readFileSync(path.join(ROOT, segDir, 'spine.json'), 'utf8'));
+  const CINE = !!spine0.cine && res >= 1080 && orient === 'h' && arg('--spp') === undefined && arg('--cine') !== '0';
+  if (CINE) vq.set('cine', 'on');
   const view = vq.toString();
   const spine = JSON.parse(fs.readFileSync(path.join(ROOT, segDir, 'spine.json'), 'utf8'));
   const LIB = 'toolkit/factory/world/', inputs = path.join(ROOT, segDir, 'inputs.json');
@@ -38,6 +44,7 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
     `${segDir}/spine.json`, ...(fs.existsSync(inputs) ? JSON.parse(fs.readFileSync(inputs)) : [])];
   // F-15: cảnh dùng plate.js (footage) → mã plate vào khoá; cảnh không dùng → danh sách như cũ (khoá cache đoạn cũ không đổi)
   if (/plate\.js/.test(fs.readFileSync(path.join(ROOT, segDir, 'scene.js'), 'utf8')) && !files.includes(LIB + 'plate.js')) files.push(LIB + 'plate.js');
+  if (CINE) for (const f of ['cine/cine.html', 'cine/cine.js', 'cine/looks.js', 'cine/assets/manifest.json']) files.push(LIB + f);
   const codeHash = crypto.createHash('sha256'); for (const f of files) codeHash.update(f + '\0' + fs.readFileSync(path.join(ROOT, f)));
   codeHash.update('view\0' + view); const codeKey = codeHash.digest('hex');
   const cacheDir = arg('--cache') ? path.resolve(arg('--cache')) : path.join(ROOT, segDir, '..', '..', 'work', 'cache', seg, String(res)); fs.mkdirSync(cacheDir, { recursive: true });
@@ -53,7 +60,7 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
     const page = await ctx.newPage();
     page.on('pageerror', (e) => { console.error('pageerror:', e.message); process.exitCode = 1; process.exit(1); });   // lỗi trang = dừng ngay (không để video cũ bị dùng lại)
     page.on('console', (m) => { if (m.type() === 'error') console.error('page:', m.text()); });
-    await page.goto(`http://mocv.local/toolkit/factory/world/page.html?seg=${encodeURIComponent(segDir)}&res=${res}${view ? '&' + view : ''}`);
+    await page.goto(`http://mocv.local/toolkit/factory/world/${CINE ? 'cine/cine.html' : 'page.html'}?seg=${encodeURIComponent(segDir)}&res=${res}${view ? '&' + view : ''}`);
     await page.waitForFunction('window.READY === true', null, { timeout: 180000 });
     return page;
   };
@@ -131,7 +138,7 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
   const cams = jobs.flatMap((j) => { const p = j.file.replace(/\.mp4$/, '.cam.json'); return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : []; });
   fs.writeFileSync(out.replace(/\.mp4$/, '.cam.json'), JSON.stringify(cams));
   const wall = (Date.now() - t0all) / 1000, film = span ? span[1] - span[0] : spine.total;
-  const rep = { seg, res, orient, span, shots: jobs.length, rendered: Object.keys(times), cached: jobs.length - todo.length, shot_wall_s: times,
+  const rep = { seg, res, orient, span, ...(CINE ? { cine: true } : {}), shots: jobs.length, rendered: Object.keys(times), cached: jobs.length - todo.length, shot_wall_s: times,
     wall_s: +wall.toFixed(1), film_s: film, wall_per_film_s_rendered: todo.length ? +(Object.values(times).reduce((a, b) => a + b, 0) / todo.reduce((a, j) => a + j.t1 - j.t0, 0)).toFixed(2) : 0,
     cores: os.cpus().length, codeKey: codeKey.slice(0, 16) };
   fs.writeFileSync(out + '.render.json', JSON.stringify(rep, null, 1)); console.log(JSON.stringify(rep));

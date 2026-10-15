@@ -1,0 +1,173 @@
+{
+ "a": {
+  "color": {
+   "level": "PASS",
+   "samples": 16,
+   "groups": 30,
+   "max_dE": 1.57,
+   "block": []
+  },
+  "rim_far_max": 0.14761512472553723,
+  "rim_far_core_max": 0.005025034346339756,
+  "rim_near_min": 1.1824894526816163,
+  "rim_far_near_ratio_max": 0.1243704199210895,
+  "body_dE_max": 16.252324017282294,
+  "streak_fixed_max": 1.4064139240288114,
+  "streak_v4_max": 11.178644621657437,
+  "roof": {
+   "roofPlain": 0,
+   "roofTex": 72,
+   "roofSmallTex": 0
+  }
+ },
+ "c": {
+  "color": {
+   "level": "PASS",
+   "samples": 10,
+   "groups": 32,
+   "max_dE": 2.94,
+   "block": []
+  },
+  "rim_far_max": 0.11468056811841008,
+  "rim_far_core_max": 0,
+  "rim_near_min": 1.3201675185311985,
+  "rim_far_near_ratio_max": 0.08210492072341577,
+  "body_dE_max": 11.047069246398207,
+  "streak_fixed_max": null,
+  "streak_v4_max": null,
+  "roof": {
+   "roofPlain": 8,
+   "roofTex": 32,
+   "roofSmallTex": 0
+  }
+ },
+ "g": {
+  "color": {
+   "level": "PASS",
+   "samples": 10,
+   "groups": 20,
+   "max_dE": 1.81,
+   "block": []
+  },
+  "rim_far_max": 0.042498230674740074,
+  "rim_far_core_max": 0,
+  "rim_near_min": 1.1840070955694257,
+  "rim_far_near_ratio_max": 0.035532636529324466,
+  "body_dE_max": 16.061383184477496,
+  "streak_fixed_max": null,
+  "streak_v4_max": null,
+  "roof": {
+   "roofPlain": 9,
+   "roofTex": 55,
+   "roofSmallTex": 0
+  }
+ },
+ "still-a": {
+  "color": {
+   "level": "PASS",
+   "samples": 1,
+   "groups": 2,
+   "max_dE": 0.77,
+   "block": []
+  },
+  "rim_far_max": 0.0015046583573984221,
+  "rim_far_core_max": 1.1836005446853905e-05,
+  "rim_near_min": 1.8471760836125994,
+  "rim_far_near_ratio_max": 0.0008145722385359706,
+  "body_dE_max": 5.6523345511947936,
+  "streak_fixed_max": 1.4261139254625719,
+  "streak_v4_max": 8.224888735716773,
+  "roof": {
+   "roofPlain": 0,
+   "roofTex": 8,
+   "roofSmallTex": 0
+  }
+ },
+ "still-c": {
+  "color": {
+   "level": "PASS",
+   "samples": 1,
+   "groups": 3,
+   "max_dE": 0.53,
+   "block": []
+  },
+  "rim_far_max": 0.06320384474399385,
+  "rim_far_core_max": 0,
+  "rim_near_min": 1.3201354332723967,
+  "rim_far_near_ratio_max": 0.04787678835899587,
+  "body_dE_max": 6.5131948211748565,
+  "streak_fixed_max": null,
+  "streak_v4_max": null,
+  "roof": {
+   "roofPlain": 0,
+   "roofTex": 4,
+   "roofSmallTex": 0
+  }
+ },
+ "still-g": {
+  "color": {
+   "level": "PASS",
+   "samples": 1,
+   "groups": 2,
+   "max_dE": 1.83,
+   "block": []
+  },
+  "rim_far_max": 0.04210710777071452,
+  "rim_far_core_max": 0,
+  "rim_near_min": 1.1867764029388135,
+  "rim_far_near_ratio_max": 0.035175100036818174,
+  "body_dE_max": 15.413754856691492,
+  "streak_fixed_max": null,
+  "streak_v4_max": null,
+  "roof": {
+   "roofPlain": 5,
+   "roofTex": 3,
+   "roofSmallTex": 0
+  }
+ },
+ "still-k2": {
+  "color": {
+   "level": "PASS",
+   "samples": 1,
+   "groups": 2,
+   "max_dE": 0.26,
+   "block": []
+  },
+  "rim_far_max": null,
+  "rim_far_core_max": null,
+  "rim_near_min": null,
+  "rim_far_near_ratio_max": null,
+  "body_dE_max": null,
+  "streak_fixed_max": null,
+  "streak_v4_max": null,
+  "roof": {
+   "roofPlain": 2,
+   "roofTex": 0,
+   "roofSmallTex": 0
+  }
+ },
+ "still-k2-v4": {
+  "color": {
+   "level": "BLOCK",
+   "samples": 1,
+   "groups": 2,
+   "max_dE": 13.74,
+   "block": [
+    "t=1 màu #4c8dff: ΔE2000 9.05 > 5.0",
+    "t=1 màu #c9c2b0: ΔE2000 13.74 > 5.0"
+   ]
+  },
+  "rim_far_max": null,
+  "rim_far_core_max": null,
+  "rim_near_min": null,
+  "rim_far_near_ratio_max": null,
+  "body_dE_max": null,
+  "streak_fixed_max": null,
+  "streak_v4_max": null,
+  "roof": {
+   "roofPlain": 0,
+   "roofTex": 0,
+   "roofSmallTex": 0
+  }
+ }
+}

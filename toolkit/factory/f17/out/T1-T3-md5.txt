@@ -1,0 +1,33 @@
+# T1 (mã F-17 không cine vs main acdd14d6) + T3 (cine, cảnh cận s4 đoạn a, 2 tiến trình)
+# tên tệp cache: <shot>-<khoá 16 hex>; khoá khác nhau giữa main và F-17 là đúng (core.js/render_shots.js đổi), so nội dung
+== main-540
+9d989a52728f81f790d0f7f89a9f8d5a  s1-bc0d2dcc78656f34.mp4
+14bcf2bd053d966603846bf982f9065e  s4-4db0333e77f0bd62.mp4
+24c24fc07af15240544df46219d30612  s1-bc0d2dcc78656f34.log.json
+edc1192ed30e4d6c589e5a8fafa9210e  s4-4db0333e77f0bd62.log.json
+== f17-540
+9d989a52728f81f790d0f7f89a9f8d5a  s1-93a851111da5c1fd.mp4
+14bcf2bd053d966603846bf982f9065e  s4-f84835ab71193bd5.mp4
+24c24fc07af15240544df46219d30612  s1-93a851111da5c1fd.log.json
+edc1192ed30e4d6c589e5a8fafa9210e  s4-f84835ab71193bd5.log.json
+== main-1080
+7286ee162c3826cf91fbedd254526032  s1-a14e348ad8b3ded6.mp4
+e05cb80f346bba385f0646a9c2030c48  s4-f11b8e645cbdad1e.mp4
+24c24fc07af15240544df46219d30612  s1-a14e348ad8b3ded6.log.json
+edc1192ed30e4d6c589e5a8fafa9210e  s4-f11b8e645cbdad1e.log.json
+== f17-1080
+7286ee162c3826cf91fbedd254526032  s1-7a62099543ec4f55.mp4
+e05cb80f346bba385f0646a9c2030c48  s4-5d314f0a51d3ea98.mp4
+24c24fc07af15240544df46219d30612  s1-7a62099543ec4f55.log.json
+edc1192ed30e4d6c589e5a8fafa9210e  s4-5d314f0a51d3ea98.log.json
+== det1
+230c544b22f8b6e23d42fabfce675b1b  s4-ace4f6fdf37e6c85.mp4
+edc1192ed30e4d6c589e5a8fafa9210e  s4-ace4f6fdf37e6c85.log.json
+== det2
+230c544b22f8b6e23d42fabfce675b1b  s4-ace4f6fdf37e6c85.mp4
+edc1192ed30e4d6c589e5a8fafa9210e  s4-ace4f6fdf37e6c85.log.json
+
+shot s1 0.25–5 done in 48.9 s (10.29 s/s)
+shot s1 0.25–5 done in 118.6 s (24.97 s/s)
+shot s4 25.447–28.507 done in 448.9 s (146.70 s/s)
+shot s4 25.447–28.507 done in 451 s (147.39 s/s)
