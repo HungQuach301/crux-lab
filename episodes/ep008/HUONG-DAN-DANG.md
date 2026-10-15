@@ -11,7 +11,12 @@
 | `out/package/description.md` | mô tả + chương + `[METHOD AND SOURCES]` | `2d8d83e47d94e8431dc31d94bf2a0777bf4e65cc67daaa3758705349538aac81` |
 | `out/package/tags.txt` | 5 tag | `7d8815d34525345ad467261577b5059c45e750b648870a969e99cdd889149070` |
 
-Giao master: Tập 7 dùng nhánh tạm `ep007-delivery` (phần 90 MB + `SHA256SUMS`). Đẩy nhánh khác `ep008` cần anh cho phép — G3 câu 2.
+## Giao file — nhánh tạm `ep008-delivery` @ `8c1ece7` (chủ dự án cho phép 15/10; xoá sau khi tải)
+- 15 phần master `ep008-youtube.mp4.part01…part15` (90 MB, cắt byte — master giữ nguyên từng byte) + [`SHA256SUMS`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/SHA256SUMS) + [`JOIN.md`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/JOIN.md).
+- [`ep008-short-SH1.mp4`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/ep008-short-SH1.mp4) · [`ep008-captions.srt`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/ep008-captions.srt) · [`ep008-description.md`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/ep008-description.md) · [`ep008-tags.txt`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/ep008-tags.txt).
+- **Xem trước 720p ≈ 2,5 Mbps** (cùng nội dung master, 3 phần mở riêng được, mỗi phần ≈ 3:25): [`ep008-review-720p-1.mp4`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/ep008-review-720p-1.mp4) · [`-2.mp4`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/ep008-review-720p-2.mp4) · [`-3.mp4`](https://github.com/HungQuach301/crux-lab/raw/ep008-delivery/ep008-review-720p-3.mp4).
+- **Đã kiểm (15/10):** 22/22 file khớp `SHA256SUMS`; ghép 15 phần → SHA-256 `98833a2a…` = `out/video.mp4`.
+- Ghép: Mac/Linux `cat ep008-youtube.mp4.part* > ep008-youtube.mp4 && shasum -a 256 -c SHA256SUMS` · Windows `copy /b ep008-youtube.mp4.part01+…+ep008-youtube.mp4.part15 ep008-youtube.mp4` (xem `JOIN.md`).
 
 ## Điền trên YouTube Studio
 - **Tiêu đề (G1 T1):** Rent vs Buy: Every Month Since 1991, Replayed
