@@ -14,3 +14,4 @@
 | 15/10 | REVIEWER | soát gói G1: ĐẠT có sửa (5 CHÍNH, 5 PHỤ) | headless Opus | 0,68 | `gates/REVIEW-G1.md` |
 | 15/10 | WRITER + kiểm mù | C2 v4 theo REVIEWER + C2 r4 + đọc thử r3 | headless + EL | 0,56 | phương pháp 0/6, số dày 5/6; EL 701 ký tự |
 | 15/10 | chủ dự án | trả lời G1 (1 b có sửa · 2 a · 3 b-Z · T1; trần $15 chặng sau) | chủ dự án | — | ≈ 15 phút ước; `gates/G1-answer.md` |
+| 2026-10-15–16 | chặng sau G1 → G2 (`session_01KBz3MgLiozdsrE1ZXPmEMX`) | dựng + kiểm định | animatic + cổng gốc ×2, C2 v5 + kiểm mù, lời 5.772 ký tự, nháp 540p ×2, 1080p có cine, checks đủ bộ, nhớ lại/tua ×2, đạo diễn, REVIEWER ý đồ + G2 | Console ≈ $8,51 · EL 5.772 · 0 agent con | token phiên: đọc ở chặng sau (`list_events` → `from_events.py`) |
