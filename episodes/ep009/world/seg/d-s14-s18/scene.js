@@ -26,6 +26,7 @@ export async function boot(res) {
   const line = new THREE.Mesh(new THREE.BoxGeometry(BW + 0.6, 0.02, 0.35), new THREE.MeshStandardMaterial({ color: C.ink, transparent: true })); line.position.set(BX + BW / 2, 92000 * BU, BZ + 0.05); scene.add(line);
   const M4 = new THREE.Matrix4(), col = new THREE.Color(), BX_ = (i) => BX + BW * i / (n - 1);
   const pile = StockPile(scene, {}), TL = DATA.traj[DATA.lowStart], li = TL.lowIdx;
+  pile.children[3].material.color.set('#9AA4B2');   // vạch $92,000: xám trung (1080 + cine: ink #F2F4F7 đảo độ sáng với đai bó #E9E3D3 — bước cine CHẶN 16/10)
   const i12 = st10.indexOf('2012-04'), T12 = DATA.traj['2012-04'], N = T12.stocks.length - 1;
   const eq12 = MoneyStack(scene, { x: X12 - 0.75, z: 1.7, color: LIT, unit: UNIT, name: 'equity-2012', max: 60 });
   const pile12 = StockPile(scene, { x: X12 + 0.55, z: 1.7, s: PS, name: 'stocks-2012' });
@@ -98,7 +99,7 @@ export async function boot(res) {
     log.roi['d10.ahead'] = [400, 190, 1520, 280];
     label(O, '2009 to mid-2016: nearly 4 in 5 lit', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d12.four, b.d15.half - 0.3), color: LIT, claims: ['era_2009-2016_span', 'era_2009-2016_share_stocks'] });
     label(O, 'after the crash: lit again', 960, 400, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d12.nine, b.d15.half - 0.3) });
-    label(O, 'lit in stretches · one long dark stretch', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d13.stretches, b.d15.half - 0.3) });
+    label(O, 'lit in stretches · one long dark stretch', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d13.stretches, b.d15.shorter - 0.3) });
     // B24b: ba cột tỉ lệ sáng theo thời gian ở (5 / 10 / 15 năm) trên tấm nền
     const cA = ok * show(t, b.d15.shorter - 0.2, b.d18.longer - 0.2);
     if (cA > 0.01) { O.card(560, 260, 800, 600, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.95 * cA });
