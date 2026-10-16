@@ -126,8 +126,8 @@ export function legend(O, a = 1, { what = 'buyer ahead after ten years', dark = 
   c.save(); c.font = '600 36px Inter'; const w2 = c.measureText(t2).width, w1 = c.measureText(t1).width; c.restore();
   const x2 = 1820 - w2, x1 = x2 - 56 - w1 - 40;
   for (const [x, col] of [[x1 - 38, LIT], [x2 - 38, DARKW]]) { c.save(); c.globalAlpha = a; c.fillStyle = col; c.fillRect(x, y - 28, 28, 28); c.restore(); }
-  label(O, t1, x1, y, { align: 'left', kind: 'name', px: 36, w: 600, alpha: a, plate: null, color: '#D5DAE2' });
-  label(O, t2, x2, y, { align: 'left', kind: 'name', px: 36, w: 600, alpha: a, plate: null, color: '#D5DAE2' });
+  label(O, t1, x1, y, { align: 'left', kind: 'name', px: 36, w: 600, alpha: a, color: '#D5DAE2' });   // 1080 + cine: có nền chữ (C14)
+  label(O, t2, x2, y, { align: 'left', kind: 'name', px: 36, w: 600, alpha: a, color: '#D5DAE2' });
 }
 
 // ---------------------------------------------------------------- tiện: tháng ↔ chỉ số; đèn của phố theo một mảng ahead (true = sáng)

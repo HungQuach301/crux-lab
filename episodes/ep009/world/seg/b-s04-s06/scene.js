@@ -52,7 +52,7 @@ export async function boot(res) {
     const [bx, by] = O.toScreen(XB, 0, SZ), [cx] = O.toScreen(XC, 0, SZ), [px] = O.toScreen(XP, 0, SZ);
     const nm = hA * (t < MV.m_g.t0 ? 1 : 0);
     label(O, "buyer's equity", bx - 20, Math.min(by + 50, 850), { align: 'center', kind: 'name', px: 40, alpha: nm * show(t, b.b1.cash), color: LIT });
-    label(O, 'cash', cx, Math.min(by + 50, 850), { align: 'center', kind: 'name', px: 40, alpha: nm * show(t, b.b1.cash), color: C.warn });
+    label(O, 'cash', cx, Math.min(by + 50, 850) - 58, { align: 'center', kind: 'name', px: 40, alpha: nm * show(t, b.b1.cash), color: C.warn });
     label(O, 'stocks', px + 30, Math.min(by + 50, 850), { align: 'center', kind: 'name', px: 40, alpha: nm * show(t, b.b2.stocks), color: STK });
     label(O, 'with cash: $48,410 ahead', 960, 320, { align: 'center', kind: 'number', px: 52, alpha: hA * show(t, b.b1.ahead, b.b2.stocks - 0.3), color: C.warn, claims: ['adv_1991-01_cash_10y'] });
     label(O, 'with stocks: $485,063 behind', 960, 320, { align: 'center', kind: 'number', px: 56, alpha: hA * show(t, b.b2.behind, MV.m_g.t0), color: STK, claims: ['adv_1991-01_stocks_10y'] });

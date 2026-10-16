@@ -59,7 +59,7 @@ export async function boot(res) {
     const LIM = ['US only', 'history, not a forecast', 'no taxes on gains or on the home', 'renters who never skip a month'];   // đúng 4 giới hạn đã nói, hiện theo lời (M5: chỗ muốn tua S24)
     const lA = ok * show(t, b.f6.card, b.f7.back - 0.2);
     v7Card(O, 'Limits', LIM.slice(0, t < b.f6.taxes ? 2 : t < b.f6.renters ? 3 : 4), lA, { y: 200, w: 1100, x: 410 });
-    STOCK_SRC.forEach((s, i) => label(O, s, 960, 760 + 48 * i, { align: 'center', kind: 'name', px: 36, alpha: lA, color: C.muted, plate: null }));
+    STOCK_SRC.forEach((s, i) => label(O, s, 960, 760 + 48 * i, { align: 'center', kind: 'name', px: 36, alpha: lA, color: C.muted }));
     // bảng điểm (B33): mỗi dòng một màu lựa chọn, không phán quyết
     const sb = ok * show(t, b.f7.back, MV.m_w2.t0);
     if (sb > 0.01) { O.card(170, 190, 1580, 470, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.88 * sb });
