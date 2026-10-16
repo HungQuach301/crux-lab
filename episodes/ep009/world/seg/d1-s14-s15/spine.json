@@ -1115,7 +1115,7 @@
    "t": 13.424,
    "kind": "tick",
    "v": 0.45,
-   "real": "S-OGA-PAGEFLIP4",
+   "real": "S-OGA-PAGEFLIP2",
    "label": "giay",
    "rate": 1.0432,
    "gain_db": -0.14,
@@ -1794,10 +1794,6 @@
    "offset": 0.4
   }
  },
- "cine": {
-  "look": "afternoon",
-  "shots": {}
- },
  "sfx_thin": {
   "max10s": 4,
   "kinds": [
@@ -1836,7 +1832,7 @@
     "kind": "tick",
     "scene": "S14",
     "label": "giay",
-    "file": "S-OGA-PAGEFLIP4",
+    "file": "S-OGA-PAGEFLIP2",
     "rate": 1.0432,
     "gain_db": -0.14
    },
