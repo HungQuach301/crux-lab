@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"moments\": [\"K1\", \"K2\", \"K3\"], \"question_ok\": true, \"why\": \"Recalls the $485,063 flip, the $54,310 pile with continued investing, and 152 of 307 lit. K1 is only the opening 9-in-10 paradox, mentioned under the question rather than as a moment; no visuals. Question matches S03.2.\"}, \"R2\": {\"moments\": [\"K1\", \"K2\", \"K3\"], \"question_ok\": true, \"why\": \"Recalls the $485,063 flip, the $54,310 pile while she keeps adding, and 152 of 307 lit. K1 is only the 9-in-10 paradox, with no opening visuals. Question matches S03.2.\"}, \"R3\": {\"moments\": [\"K2\", \"K3\"], \"question_ok\": true, \"why\": \"Recalls the Jan 1991 house flipping to $485,063 behind (K2a only, no $54,310 moment) and 152 of 307 lit. No opening paradox. Question matches S03.2.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 3960,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 399,
+   "in": 3960,
+   "out": 399
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 4932,
+   "cache_read": 649,
+   "output": 1013,
+   "in": 5583,
+   "out": 1013
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.030522399999999998
+}

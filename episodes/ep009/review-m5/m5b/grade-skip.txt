@@ -1,0 +1,21 @@
+# Grading packet (blind). You are an independent grader. Grade each reader label literally.
+
+Scenes with start/end seconds: [["S01", 0.0, 5.9], ["S02", 5.9, 22.7], ["S03", 22.7, 75.3], ["S04", 75.3, 107.7], ["S05", 107.7, 137.4], ["S06", 137.4, 146.7], ["S08", 146.7, 162.9], ["S09", 162.9, 192.6], ["S10", 192.6, 205.0], ["S11", 205.0, 222.1], ["S12", 222.1, 246.9], ["S13", 246.9, 261.1], ["S14", 261.1, 290.1], ["S15", 290.1, 309.9], ["S16", 309.9, 324.7], ["S17", 324.7, 358.2], ["S18", 358.2, 387.6], ["S19", 387.6, 418.9], ["S20", 418.9, 435.1], ["S21", 435.1, 449.9], ["S22", 449.9, 469.0], ["S23", 469.0, 480.4], ["S24", 480.4, 491.5], ["S25", 491.5, 523.9]]
+For each label return {"skip": [scene ids the reader would skip ahead in, from the times they give; [] if none], "engaged": [scene ids], "why": "<one line>"}.
+
+### R1
+1. I'd skip ahead at 7:48, the "None of this ranks stocks above a house" section, which runs through the limits list to about 8:11. I'd also skip 0:31 to 0:44. I'd skip the limits because the "US only, history, not a forecast" line has been on screen the whole time. The limits card then reads out the same points again, over a mostly static grid. The 0:31 to 0:44 stretch restates the opening hook ("stocks outgrew the house almost nine times out of ten, yet buying still came out ahead in half"). I'd also skim the 5:58 to 6:26 fifteen-year section, because the 15-year numbers were already given at 0:22.
+
+2. I was most engaged at 1:30. The same January 1991 house goes from $48,410 ahead with cash to $485,063 behind with stocks, and "the only thing that moved was the renter's pile." The stack-versus-stack visual makes the point clear. A second peak was at 6:33, where the puzzle of stocks winning 9 in 10 times while the buyer still leads half the time is answered with "$400,000 vs $92,000."
+
+### R2
+1. I'd skip ahead at 0:22. The opening already gives the 10-year cash and stock results, and then the 15-year figures at 0:22–0:31. It then asks Nina's question (0:31) and repeats "stocks outgrew the house almost nine times out of ten, yet buying still came out ahead in half" (0:36–0:44). That's a lot of numbers before I know what a "house on the street" is. I'd also skip the recap from 8:11, because it repeats the numbers from the card on screen. The earlier skip point is 2:17. The "one growth rate" aside and the rent-tag assumption at 2:26 slow things down before the street is shown. The 4:20 stretch, where the renter's pile dips to $54,310, is a smaller candidate for the same reason.
+
+2. I was most engaged at 3:12–3:56. The street goes from lit to dark, and the narration explains why: the first house is the darkest, the market stalls, and then the street goes dark and stays dark. That is where the rows of houses and the narration fit together best. The 6:27 "how can stocks win 9 in 10 and the buyer still finish ahead in half" explanation ($400,000 base against $92,000) was a close second. It resolves the tension set up in the opening.
+
+### R3
+1. I'd skip ahead at 4:20 ("Dark doors don't mean the renting twins had an easy ride"). That stretch is about the $54,310 low point, and it mostly repeats the "she kept investing" caveat. The same caveat comes back at 0:57 and again at 8:00 in the limits. I'd also skip 6:20 to 6:27, the "longer stays favored the pile, the rent tag is the one assumption left" recap, because the next section starts by restating the 9-in-10 paradox. The cash-versus-stocks numbers at 0:10 to 0:44 are repeated nearly word for word in the opening and again at 8:11. I'd skip some of the early part (1:30 to 2:17) for the same reason. The long stretch of near-identical grid frames in the limits section (8:00 to 8:11) drags a bit too.
+
+2. I was most engaged at 6:27, the "how can stocks outgrow homes 9 in 10 times and the buyer still finish ahead in half?" section. The $400,000 house stack beside the tiny $92,000 pile makes the "slower growth on a bigger base" point click right away. The 7:29 rent-tag reveal, where the street splits near 5.1% against the 5% tag, was a close second. It gives the video a payoff and ties back to Nina's question.
+
+Output JSON only: {"R1": {...}, ...}

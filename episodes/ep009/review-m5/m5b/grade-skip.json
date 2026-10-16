@@ -1,0 +1,23 @@
+{
+ "answer": "{\"R1\": {\"skip\": [\"S03\", \"S18\", \"S23\", \"S24\"], \"engaged\": [\"S04\", \"S19\"], \"why\": \"Skips the repeated opening hook, the 15-year section and the limits card, which restate earlier points; engaged by the 1:30 same-house cash vs stocks reversal and the 6:33 $400k vs $92k resolution.\"}, \"R2\": {\"skip\": [\"S03\", \"S06\", \"S08\", \"S14\", \"S25\"], \"engaged\": [\"S10\", \"S11\", \"S12\", \"S19\"], \"why\": \"Skips the number-heavy opening, the early growth-rate and rent-tag asides, the $54,310 dip and the closing recap; engaged by the street going dark (3:12-3:56) and the 6:27 explanation.\"}, \"R3\": {\"skip\": [\"S02\", \"S03\", \"S04\", \"S05\", \"S14\", \"S18\", \"S24\"], \"engaged\": [\"S19\", \"S21\"], \"why\": \"Skips stretches that repeat the opening numbers, the 'kept investing' caveat and the static limits grid; engaged by the 6:27 paradox resolution and the 7:29 rent-tag reveal.\"}}",
+ "tokens": {
+  "claude-haiku-5-5": {
+   "input": 2867,
+   "cache_write": 0,
+   "cache_read": 0,
+   "output": 293,
+   "in": 2867,
+   "out": 293
+  },
+  "claude-sonnet-5-5": {
+   "input": 2,
+   "cache_write": 2992,
+   "cache_read": 1496,
+   "output": 1276,
+   "in": 4490,
+   "out": 1276
+  }
+ },
+ "turns": 1,
+ "cost_usd": 0.025314800000000002
+}

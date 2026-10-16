@@ -1,0 +1,61 @@
+# Grading packet (blind). You are an independent grader. Grade each reader label literally.
+
+Expected moments (the film plan, in Vietnamese):
+## 1. Ba khoảnh khắc phải nhớ
+| # | Mốc ước | Thấy gì | Nghe gì | Cảm xúc |
+|---|---|---|---|---|
+| K1 | 0:00–0:22 | Hai cột leo (cổ phiếu cao hơn nhà gần mọi cặp) → con phố 307 nhà: vali tiền mặt đặt cạnh, đa số nhà sáng; vali đổi thành đống cổ phiếu, nửa số đèn tắt | "nine times out of ten" … "only about half"; SFX giấy khi vali đổi | nghịch lý, tò mò |
+| K2 | ≈ 1:20 và ≈ 4:40 (ngoặt) | (a) nhà Tháng 1/1991 tắt cửa khi đống cổ phiếu vượt cọc buyer; (b) đống cổ phiếu tụt xuống dưới vạch $92,000 tới $54,310 — vẫn có một bó tiền được đặt thêm | lặng 0,8 s → "$485,063 behind"; lặng 0,8 s → "sank to $54,310, and she kept investing" `[serious]`; SFX giấy đặt bó lên đống đang thấp | bất ngờ → nể, lo |
+| K3 | ≈ 5:05 + 8:40 | Toàn cảnh trên cao: đúng nửa phố sáng; về sau bảng điểm 4 dòng theo màu lựa chọn | lặng 0,8 s → "Lit: 152 of the 307, about half." | vỡ lẽ: tung đồng xu |
+
+
+Expected question of the film (Vietnamese): *"So if Nina rents and invests the difference, does she end up ahead of owning?"* (S03.2)
+For each label return {"moments": [which of K1,K2,K3 the reader clearly recalls], "question_ok": true|false, "why": "<one line>"}.
+
+### R1
+**1. The three moments I remember most**
+
+- **The first house going from lit to dark.** A small house stands beside a stack of cash. The narrator says that with the renter's pile in cash, the buyer finished $48,410 ahead. Then the pile switches to stocks, a green stack shoots up, and the label reads "with stocks: $485,063 behind." The caption says "same house, same mortgage, same rent." The only change is what the renter does with the money, and that one change flips the result. I found that striking.
+
+- **The long street of houses, lit and dark.** Hundreds of little houses sit in a grid. Tan lit ones mean the buyer ended ahead, and dark ones mean the renter's pile was bigger. The lit houses cluster in the 1990s, then a long dark stretch follows for the bubble-era buyers. After the crash most of the lights come back on. The count appears on screen: "152 of 307 lit," which the narrator calls about half. I also remember the renter whose pile fell to $54,310 and who kept investing anyway. The narrator said real people sometimes stop, and that those people aren't on this street.
+
+- **The rent tag on the door.** Near the end the camera moves close to an apartment door with a "RENT 5%" sign. The narrator says the street splits almost exactly in half at 5 percent. The flip point is about 5.1 percent, and Census rent data falls on both sides of it. So the answer depends on an assumption. The narrator also says the street can't measure stability and control, and the closing line is "a coin flip, and her rent tag tips it."
+
+**2. The question the video asked**
+
+The video asked whether Nina, who rents and has $92,000 saved, ends up ahead of owning if she invests the difference in stocks. It checked this by replaying every start month since 1991 in US history. It opened with the puzzle that stocks beat home prices almost 9 times in 10, yet the buyer still came out ahead about half the time. The answer it gave:
+- Over ten years the street is about half lit.
+- Over five years the buyer is a little more than half ahead (53.4%).
+- Over fifteen years the buyer is ahead only about 1 time in 5.
+- If the renter doesn't invest the monthly gap and only the $92,000 goes in, the buyer is ahead about 2 times in 3.
+- The result hinges on the rent assumption.
+
+It is history, not a forecast.
+
+### R2
+**1. The three moments I remember most**
+
+- **The first house flipping from lit to dark.** I saw a long street of small houses, with a stack of cash beside the first one. The label read "with stocks: $485,063 behind," and the first house went dark. The narrator said the buyer had finished $48,410 ahead when the renter held cash. With the same house, mortgage and rent, but the renter's pile in stocks, the buyer finished $485,063 behind. The narration stressed that "the only thing that moved was the renter's pile."
+
+- **The grid of 307 houses: "152 of 307 lit."** The street became a checkerboard of cream (lit) and brown (dark) squares. It showed whole stretches lit, then one long dark stretch around the bubble years, then the lights coming back on after the crash. The caption was "152 of 307 lit," and the narrator said about half. A related scene showed a renter's pile sinking to $54,310 while she "keeps adding a bundle every month." The narrator added that "dark doors don't mean the renting twins had an easy ride."
+
+- **The rent sign flipping at 5.1%.** Near the end, a grey apartment building with a "RENT 5%" sign on its door appeared. The sign changed to 4.83% at one point. The narrator said the street splits almost exactly in half at about 5.1% and that "the answer sits on the rent tag, and the tag is an assumption." The closing line was that investing the difference made Nina's street "a coin flip, and her rent tag tips it."
+
+**2. The question the video was asking**
+
+The video asked whether Nina, who rents and has $92,000 saved, ends up ahead of owning if she invests the difference in stocks. It answered by replaying every start month since 1991 as a street of houses, lit if the buyer ends ahead and dark if not. It also asked how stocks can outgrow home prices almost 9 times in 10 and still leave the buyer ahead about half the time. Its answer was that the mortgage lets the house grow on the full $400,000 while the renter's pile starts at $92,000.
+
+### R3
+**1. The three moments I remember most**
+
+- **The first house flipping from lit to dark.** A long street of tiny houses appeared, with lit ones where the buyer ended ahead and dark ones where the renter did. The narrator said the January 1991 buyer finished $48,410 ahead when the renter held cash. With the renter's pile in stocks, that same buyer finished $485,063 behind. The caption read "same house, same mortgage, same rent." I remember a green stack of money towering next to a small stack for the buyer's equity.
+
+- **The street as a grid, "152 of 307 lit."** The houses turned into a flat grid of cream and brown tiles. It was lit in stretches, with one long dark band for the bubble-era buyers, and the lights came back on after the crash. The narrator said about half the houses were lit, and that this was a count of what already happened, not a promise about Nina's month. Right after that, a bar chart showed the buyer ahead 53%, 49% and 22% of the time for 5-, 10- and 15-year stays.
+
+- **The rent tag on the apartment door.** Near the end, a grey apartment building showed a "RENT 5%" sign, which flickered to 4.83% at one point. The narrator said the street splits almost exactly in half at 5 percent. The flip point is about 5.1 percent, and public rent data falls on both sides of it. So the answer depends on the rent tag, which is an assumption. The video closed on that: investing the difference made Nina's street "a coin flip," and her rent tag tips it.
+
+**2. The question the video asked**
+
+Nina rents and has $92,000 saved. If she invests the difference, meaning her savings plus the monthly gap between owning and renting, in the whole US stock market, does she end up ahead of owning a home? The video answered by replaying every start month since 1991 and counting how often the buyer finished ahead.
+
+Output JSON only: {"R1": {...}, ...}

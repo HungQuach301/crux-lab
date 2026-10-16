@@ -1,0 +1,54 @@
+{
+ "labels": {
+  "R1": "2a7480e7",
+  "R2": "865ecb6d",
+  "R3": "d6ed16f1"
+ },
+ "scores": {
+  "R1": {
+   "skip": [
+    "S03",
+    "S18",
+    "S23",
+    "S24"
+   ],
+   "engaged": [
+    "S04",
+    "S19"
+   ],
+   "why": "Skips the repeated opening hook, the 15-year section and the limits card, which restate earlier points; engaged by the 1:30 same-house cash vs stocks reversal and the 6:33 $400k vs $92k resolution."
+  },
+  "R2": {
+   "skip": [
+    "S03",
+    "S06",
+    "S08",
+    "S14",
+    "S25"
+   ],
+   "engaged": [
+    "S10",
+    "S11",
+    "S12",
+    "S19"
+   ],
+   "why": "Skips the number-heavy opening, the early growth-rate and rent-tag asides, the $54,310 dip and the closing recap; engaged by the street going dark (3:12-3:56) and the 6:27 explanation."
+  },
+  "R3": {
+   "skip": [
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S14",
+    "S18",
+    "S24"
+   ],
+   "engaged": [
+    "S19",
+    "S21"
+   ],
+   "why": "Skips stretches that repeat the opening numbers, the 'kept investing' caveat and the static limits grid; engaged by the 6:27 paradox resolution and the 7:29 rent-tag reveal."
+  }
+ }
+}
