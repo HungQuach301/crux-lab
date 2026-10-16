@@ -268,7 +268,8 @@ def stub(here, scenes, name):
 # (H3 + H4), S25 (H6) ≈ 25 % thời lượng (≤ 30 %). SFX thật: sfx_labels.thin_events + plan_real (kho CC0 RIGHTS §G1), nhãn theo cảnh (TAM-NHIN §7).
 CUTS = {'S05': {'cut': 'L', 'offset': 0.4}, 'S08': {'cut': 'J', 'offset': 0.4}, 'S14': {'cut': 'J', 'offset': 0.4}, 'S16': {'cut': 'L', 'offset': 0.4},
         'S19': {'cut': 'J', 'offset': 0.4}, 'S22': {'cut': 'J', 'offset': 0.4}, 'S25': {'cut': 'L', 'offset': 0.4}}
-CINE = {'S01': {'look': 'dusk'}, 'S04': {'look': 'afternoon'}, 'S14': {'look': 'afternoon', 'shots': {}}, 'S25': {'look': 'dusk'}}
+# S14–S15 (d1): bước cine CHẶN 2 vòng (16/10: vạch $92,000 đảo độ sáng → xám trung ΔE 5,29 > 5) → TẮT lớp ở d1, trước/sau vào G2 (ý đồ M5 CH2/P10)
+CINE = {'S01': {'look': 'dusk'}, 'S04': {'look': 'afternoon'}, 'S25': {'look': 'dusk'}}
 SFX_LABELS = {'S01': ['go-nhe'], 'S02': ['giay'], 'S03': ['giay', 'cua'], 'S04': ['giay', 'cua'], 'S05': ['giay'], 'S06': ['may-chu'], 'S08': ['tien-xu'],
               'S09': ['cua', 'go-nhe'], 'S10': ['cua'], 'S11': ['cua'], 'S12': ['cua'], 'S13': ['giay', 'cua'], 'S14': ['giay'], 'S15': ['cua'],
               'S16': ['cua'], 'S17': ['cua'], 'S18': ['cua'], 'S19': ['giay'], 'S20': ['giay'], 'S21': ['giay'], 'S22': ['tien-xu'], 'S23': ['va-mem'],

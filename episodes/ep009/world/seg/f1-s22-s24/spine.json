@@ -967,12 +967,7 @@
   {
    "t": 0.58,
    "kind": "tick",
-   "v": 0.4,
-   "real": "S-KEN-COINS2",
-   "label": "tien-xu",
-   "rate": 1.0324,
-   "gain_db": -1.13,
-   "offset": 0.0
+   "v": 0.4
   },
   {
    "t": 5.201,
@@ -982,12 +977,7 @@
   {
    "t": 7.553,
    "kind": "tick",
-   "v": 0.5,
-   "real": "S-KEN-COINS1",
-   "label": "tien-xu",
-   "rate": 0.9968,
-   "gain_db": 1.19,
-   "offset": 0.0
+   "v": 0.5
   },
   {
    "t": 10.538,
@@ -1003,12 +993,7 @@
    "t": 17.906,
    "kind": "whoosh_mode",
    "dur": 0.8,
-   "gain": 0.6,
-   "real": "S-OGA-AIRWHOOSH",
-   "label": "chuyen-canh",
-   "rate": 0.9894,
-   "gain_db": -1.46,
-   "offset": 2.206
+   "gain": 0.6
   },
   {
    "t": 18.706,
@@ -1493,27 +1478,21 @@
     "kind": "tick",
     "scene": "S22",
     "label": "tien-xu",
-    "file": "S-KEN-COINS2",
-    "rate": 1.0324,
-    "gain_db": -1.13
+    "kept_synth": true
    },
    {
     "t": 457.453,
     "kind": "tick",
     "scene": "S22",
     "label": "tien-xu",
-    "file": "S-KEN-COINS1",
-    "rate": 0.9968,
-    "gain_db": 1.19
+    "kept_synth": true
    },
    {
     "t": 467.806,
     "kind": "whoosh_mode",
     "scene": "S22",
     "label": "chuyen-canh",
-    "file": "S-OGA-AIRWHOOSH",
-    "rate": 0.9894,
-    "gain_db": -1.46
+    "kept_synth": true
    },
    {
     "t": 468.606,

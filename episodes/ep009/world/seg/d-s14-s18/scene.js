@@ -98,7 +98,7 @@ export async function boot(res) {
     label(O, 'the whole house grew, not just $92,000 of it', 960, 880, { align: 'center', kind: 'name', px: 44, alpha: a12 * show(t, b.d11.whole), claims: ['savings_usd'] });
     log.roi['d10.ahead'] = [400, 190, 1520, 280];
     label(O, '2009 to mid-2016: nearly 4 in 5 lit', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d12.four, b.d15.half - 0.3), color: LIT, claims: ['era_2009-2016_span', 'era_2009-2016_share_stocks'] });
-    label(O, 'after the crash: lit again', 960, 400, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d12.nine, b.d15.half - 0.3) });
+    label(O, 'after the crash: lit again', 960, 400, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d12.nine, b.d15.shorter - 0.3) });
     label(O, 'lit in stretches · one long dark stretch', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: aG * show(t, b.d13.stretches, b.d15.shorter - 0.3) });
     // B24b: ba cột tỉ lệ sáng theo thời gian ở (5 / 10 / 15 năm) trên tấm nền
     const cA = ok * show(t, b.d15.shorter - 0.2, b.d18.longer - 0.2);
