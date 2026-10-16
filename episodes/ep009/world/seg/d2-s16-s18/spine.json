@@ -1672,7 +1672,12 @@
   {
    "t": 36.193,
    "kind": "tick",
-   "v": 0.5
+   "v": 0.5,
+   "real": "S-KEN-DOOROPEN1",
+   "label": "cua",
+   "rate": 1.0432,
+   "gain_db": -0.14,
+   "offset": 0.0
   },
   {
    "t": 39.519,
@@ -2398,7 +2403,9 @@
     "kind": "tick",
     "scene": "S17",
     "label": "cua",
-    "kept_synth": true
+    "file": "S-KEN-DOOROPEN1",
+    "rate": 1.0432,
+    "gain_db": -0.14
    }
   ]
  }

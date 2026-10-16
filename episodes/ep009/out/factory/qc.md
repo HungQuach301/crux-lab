@@ -15,7 +15,7 @@
 | freezedetect d=3 ∩ lời | ĐẠT | 0 | 0 s | 0 đoạn đứng yên ≥ 3 s cả phim: [] |
 | mốc hình ≥ mốc từ | ĐẠT | 0 | 0 | 0 mốc |
 | loudness | ĐẠT | -14.1 LUFS / -2.2 dBTP | -14 ± 1 LUFS, ≤ -2.0 dBTP |  |
-| kích thước phần | TRƯỢT | 112.32 | ≤ 90 MB mỗi phần | 3 phần 720p |
+| kích thước phần | TRƯỢT | 114.4 | ≤ 90 MB mỗi phần | 3 phần 720p |
 | luật format | ĐẠT | lab | scope full | lab: 524 s < soft minimum 540 s (không độn: shorter is fine, never pad) |
 
 **Sát ngưỡng ±5 %:** không có
