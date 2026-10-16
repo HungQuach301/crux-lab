@@ -15,3 +15,4 @@
 | 15/10 | WRITER + kiểm mù | C2 v4 theo REVIEWER + C2 r4 + đọc thử r3 | headless + EL | 0,56 | phương pháp 0/6, số dày 5/6; EL 701 ký tự |
 | 15/10 | chủ dự án | trả lời G1 (1 b có sửa · 2 a · 3 b-Z · T1; trần $15 chặng sau) | chủ dự án | — | ≈ 15 phút ước; `gates/G1-answer.md` |
 | 2026-10-15–16 | chặng sau G1 → G2 (`session_01KBz3MgLiozdsrE1ZXPmEMX`) | dựng + kiểm định | animatic + cổng gốc ×2, C2 v5 + kiểm mù, lời 5.772 ký tự, nháp 540p ×2, 1080p có cine, checks đủ bộ, nhớ lại/tua ×2, đạo diễn, REVIEWER ý đồ + G2 | Console ≈ $8,51 · EL 5.772 · 0 agent con | token phiên: đọc ở chặng sau (`list_events` → `from_events.py`) |
+| 17/10 | chủ dự án | trả lời G2 (Content ID 0 claim tự kiểm · đổi/cắt lời 2,3,6 · giữ 8:44 ngoại lệ F07 · SH1 · L3 ở G3; trần M6 $8) | chủ dự án | — | ≈ 20 phút ước (gồm tải YouTube Studio); `gates/G2-answer.md` |
