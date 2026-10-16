@@ -101,7 +101,8 @@ def build(segs, claims, out_html, fps=30, view=None):
     entries = [core] + [os.path.join(s['dir'], 'scene.js') for s in segs]
     mods, order, index = graph(entries)
     data = {'mods': [{'src': m['src']} for m in mods], 'order': order, 'core': index[os.path.abspath(core)], 'fps': fps,
-            'segs': [{'id': s['id'], 'mod': index[os.path.abspath(os.path.join(s['dir'], 'scene.js'))], 't0': s['t0'], 't1': s['t1']} for s in segs],
+            'segs': [{'id': s['id'], 'mod': index[os.path.abspath(os.path.join(s['dir'], 'scene.js'))], 't0': s['t0'], 't1': s['t1'],
+                     'dir': os.path.relpath(s['dir'], ROOT)} for s in segs],   # Tập 9: ?seg= cho mã cảnh đọc thư mục đoạn từ URL
             'json': collect_json(mods, [s['dir'] for s in segs]), 'claims': claims, 'view': view}
     blob = json.dumps(data, ensure_ascii=False).replace('</', '<\\/')
     runtime = open(os.path.join(HERE, 'episode_page.js'), encoding='utf-8').read()

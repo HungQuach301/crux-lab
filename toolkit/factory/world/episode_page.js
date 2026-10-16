@@ -21,7 +21,16 @@ if (B.view) CK.view = B.view;   // test / xem trước khung dọc (core.CK.view
 await document.fonts.ready;
 const segs = [];
 for (const s of B.segs) {
-  const m = await import(urls[s.mod]);
+  // Tập 9 (sửa CHẶN 16/10): mã cảnh đọc thư mục đoạn từ ?seg= (page.html của render_shots đặt sẵn) — ở đây đặt ?seg= cho TỪNG đoạn và nạp
+  // lại riêng các module có đọc location.search (bản riêng mỗi đoạn; module dùng chung khác — three, core, lib — giữ một bản).
+  let su = urls;
+  if (s.dir) {
+    history.replaceState(null, '', location.pathname + '?seg=' + encodeURIComponent(s.dir) + '&res=' + res);
+    su = [];
+    const salt = (i) => B.mods[i].src.includes('location.search') || /__CRUXMOD_\d+__/.test(B.mods[i].src) && B.mods[i].src.length < 600;
+    for (const i of B.order) su[i] = salt(i) ? URL.createObjectURL(new Blob([B.mods[i].src.replace(/__CRUXMOD_(\d+)__/g, (_, k) => su[+k]) + `\n// seg ${s.id}`], { type: 'text/javascript' })) : urls[i];
+  }
+  const m = await import(su[s.mod]);
   const S = await m.boot(res);
   S.canvas.style.display = 'none';
   segs.push({ ...s, S });
