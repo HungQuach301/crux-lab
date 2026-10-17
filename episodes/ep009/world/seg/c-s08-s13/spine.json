@@ -5,7 +5,7 @@
  "total": 114.4,
  "fps": 30,
  "pad": 0.25,
- "episode_t0": 146.6999,
+ "episode_t0": 149.6666,
  "scenes": [
   "S08",
   "S09",
@@ -2730,7 +2730,7 @@
  "music_plan": {
   "bed": {
    "wav": "episodes/ep009/work/factory/music/bed.wav",
-   "offset": 146.6999,
+   "offset": 149.6666,
    "fade": 0.0
   },
   "stop": 114.4,
@@ -2738,7 +2738,7 @@
   "accents": []
  },
  "mix": {
-  "music_db": 15.34,
+  "music_db": 15.19,
   "data_db": 34.0,
   "silences": []
  },
@@ -2914,7 +2914,7 @@
   "reuse_s": 60.0,
   "plan": [
    {
-    "t": 150.612,
+    "t": 153.579,
     "kind": "tick",
     "scene": "S08",
     "label": "tien-xu",
@@ -2923,7 +2923,7 @@
     "gain_db": -0.93
    },
    {
-    "t": 155.024,
+    "t": 157.991,
     "kind": "whoosh_mode",
     "scene": "S08",
     "label": "chuyen-canh",
@@ -2932,7 +2932,7 @@
     "gain_db": -1.02
    },
    {
-    "t": 156.324,
+    "t": 159.291,
     "kind": "land",
     "scene": "S08",
     "label": "tien-xu",
@@ -2941,35 +2941,35 @@
     "gain_db": -0.83
    },
    {
-    "t": 162.178,
+    "t": 165.145,
     "kind": "whoosh_soft",
     "scene": "S08",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 175.455,
+    "t": 178.422,
     "kind": "whoosh_mode",
     "scene": "S09",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 185.363,
+    "t": 188.33,
     "kind": "whoosh_soft",
     "scene": "S09",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 189.45,
+    "t": 192.417,
     "kind": "whoosh_soft",
     "scene": "S09",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 222.177,
+    "t": 225.144,
     "kind": "whoosh_soft",
     "scene": "S12",
     "label": "chuyen-canh",
@@ -2978,14 +2978,14 @@
     "gain_db": -0.34
    },
    {
-    "t": 242.787,
+    "t": 245.754,
     "kind": "whoosh_soft",
     "scene": "S12",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 259.38,
+    "t": 262.347,
     "kind": "tick",
     "scene": "S13",
     "label": "giay",

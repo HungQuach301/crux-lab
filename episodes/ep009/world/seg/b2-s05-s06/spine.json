@@ -5,7 +5,7 @@
  "total": 38.9666,
  "fps": 30,
  "pad": 0.25,
- "episode_t0": 107.7333,
+ "episode_t0": 110.7,
  "scenes": [
   "S05",
   "S06"
@@ -675,11 +675,11 @@
    "music": 0.5,
    "emotion": "ngạc nhiên",
    "next": "lia máy",
-   "t0": 0.06,
-   "t1": 5.36,
+   "t0": 0.0597,
+   "t1": 5.3597,
    "cues": {
-    "dollar": 1.349,
-    "five": 3.93
+    "dollar": 1.3487,
+    "five": 3.9297
    }
   },
   {
@@ -695,11 +695,11 @@
    "music": 0.45,
    "emotion": "rõ",
    "next": "—",
-   "t0": 5.42,
-   "t1": 14.32,
+   "t0": 5.4197,
+   "t1": 14.3197,
    "cues": {
-    "day": 11.26,
-    "deposit": 12.96
+    "day": 11.2597,
+    "deposit": 12.9597
    }
   },
   {
@@ -715,11 +715,11 @@
    "music": 0.5,
    "emotion": "rõ",
    "next": "CHUYỂN CHẾ ĐỘ → thế giới",
-   "t0": 15.156,
-   "t1": 21.44,
+   "t0": 15.1557,
+   "t1": 21.4397,
    "cues": {
-    "gap": 17.94,
-    "grew": 20.666
+    "gap": 17.9397,
+    "grew": 20.6657
    }
   },
   {
@@ -735,11 +735,11 @@
    "music": 0.5,
    "emotion": "vỡ lẽ",
    "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
-   "t0": 22.443,
-   "t1": 28.64,
+   "t0": 22.4427,
+   "t1": 28.6397,
    "cues": {
-    "lit": 27.38,
-    "dark": 28.096
+    "lit": 27.3797,
+    "dark": 28.0957
    }
   },
   {
@@ -755,11 +755,11 @@
    "music": 0.45,
    "emotion": "rõ",
    "next": "MR1",
-   "t0": 29.693,
-   "t1": 37.473,
+   "t0": 29.6937,
+   "t1": 37.4737,
    "cues": {
-    "one": 32.133,
-    "actually": 34.786
+    "one": 32.1337,
+    "actually": 34.7867
    }
   }
  ],
@@ -769,8 +769,8 @@
    "verb": "pan",
    "from": "cLines",
    "to": "cHouse",
-   "t0": 6.89,
-   "t1": 8.29,
+   "t0": 6.8897,
+   "t1": 8.2897,
    "reason": "đống của người thuê: khối đầu + bó mỗi tháng",
    "sound": "whoosh_soft"
   },
@@ -779,8 +779,8 @@
    "verb": "mode",
    "from": "cHouse",
    "to": "wHouse",
-   "t0": 23.368,
-   "t1": 24.668,
+   "t0": 23.3677,
+   "t1": 24.6677,
    "reason": "kết hồi: về nhà đầu phố (thế giới)",
    "sound": "whoosh_mode"
   },
@@ -789,31 +789,31 @@
    "verb": "mode",
    "from": "wHouse",
    "to": "cLines",
-   "t0": 29.46,
-   "t1": 30.76,
+   "t0": 29.4597,
+   "t1": 30.7597,
    "reason": "đối thủ: một mức tăng cố định vs bản ghi thật (đồ thị)",
    "sound": "whoosh_mode"
   }
  ],
  "events": [
   {
-   "t": 1.349,
+   "t": 1.3487,
    "kind": "rise",
    "dur": 2.0
   },
   {
-   "t": 3.93,
+   "t": 3.9297,
    "kind": "data",
    "v": 0.8
   },
   {
-   "t": 6.89,
+   "t": 6.8897,
    "kind": "whoosh_soft",
    "dur": 1.4,
    "gain": 0.8
   },
   {
-   "t": 12.96,
+   "t": 12.9597,
    "kind": "tick",
    "v": 0.35,
    "real": "S-OGA-PAGEFLIP4",
@@ -823,29 +823,29 @@
    "offset": 0.0
   },
   {
-   "t": 20.666,
+   "t": 20.6657,
    "kind": "rise",
    "dur": 1.2
   },
   {
-   "t": 23.368,
+   "t": 23.3677,
    "kind": "whoosh_mode",
    "dur": 1.3,
    "gain": 0.6
   },
   {
-   "t": 28.096,
+   "t": 28.0957,
    "kind": "data",
    "v": 0.2
   },
   {
-   "t": 29.46,
+   "t": 29.4597,
    "kind": "whoosh_mode",
    "dur": 1.3,
    "gain": 0.6
   },
   {
-   "t": 34.786,
+   "t": 34.7867,
    "kind": "data",
    "v": 0.5
   }
@@ -856,23 +856,23 @@
    0.2
   ],
   [
-   0.06,
+   0.0597,
    0.5
   ],
   [
-   5.42,
+   5.4197,
    0.47000000000000003
   ],
   [
-   15.156,
+   15.1557,
    0.5
   ],
   [
-   22.443,
+   22.4427,
    0.5
   ],
   [
-   29.693,
+   29.6937,
    0.47000000000000003
   ],
   [
@@ -905,7 +905,7 @@
  "music_plan": {
   "bed": {
    "wav": "episodes/ep009/work/factory/music/bed.wav",
-   "offset": 107.7333,
+   "offset": 110.7,
    "fade": 0.0
   },
   "stop": 38.9666,
@@ -913,11 +913,11 @@
   "accents": []
  },
  "mix": {
-  "music_db": 15.96,
+  "music_db": 16.52,
   "data_db": 34.0,
   "silences": [
    [
-    37.547,
+    37.5397,
     38.9666
    ]
   ]
@@ -966,9 +966,9 @@
   -99,
   ""
  ],
- "midroll": 38.197,
+ "midroll": 38.1897,
  "card": [
-  35.986,
+  35.9867,
   38.9666
  ],
  "ghost": {
@@ -986,11 +986,11 @@
     "music": 0.4,
     "emotion": "tò mò",
     "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
-    "t0": -32.34,
-    "t1": -28.08,
+    "t0": -33.3733,
+    "t1": -29.2733,
     "cues": {
-     "first": -32.267,
-     "january": -30.37
+     "first": -33.3003,
+     "january": -31.4333
     }
    },
    {
@@ -999,18 +999,18 @@
     "mode": "chart",
     "idea": "Tiền mặt: người mua hơn $48,410.",
     "visual": "cọc vốn người mua cao hơn hộp tiền mặt.",
-    "line": "With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead.",
+    "line": "With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead, in dollars of the day.",
     "sound": [
      "giấy"
     ],
     "music": 0.45,
     "emotion": "rõ",
     "next": "—",
-    "t0": -26.98,
-    "t1": -18.64,
+    "t0": -28.2493,
+    "t1": -17.7533,
     "cues": {
-     "cash": -25.248,
-     "ahead": -19.247
+     "cash": -26.3453,
+     "ahead": -20.2863
     }
    },
    {
@@ -1026,11 +1026,11 @@
     "music": 0.75,
     "emotion": "bất ngờ",
     "next": "—",
-    "t0": -17.02,
-    "t1": -9.226,
+    "t0": -16.0233,
+    "t1": -8.6113,
     "cues": {
-     "stocks": -16.415,
-     "behind": -10.01
+     "stocks": -15.3313,
+     "behind": -9.2913
     }
    },
    {
@@ -1044,10 +1044,10 @@
     "music": 0.5,
     "emotion": "rõ",
     "next": "lia máy",
-    "t0": -8.246,
-    "t1": -0.986,
+    "t0": -7.7933,
+    "t1": -1.0113,
     "cues": {
-     "only": -4.778
+     "only": -3.9393
     }
    },
    {
@@ -1063,11 +1063,11 @@
     "music": 0.5,
     "emotion": "ngạc nhiên",
     "next": "lia máy",
-    "t0": 0.06,
-    "t1": 5.36,
+    "t0": 0.0597,
+    "t1": 5.3597,
     "cues": {
-     "dollar": 1.349,
-     "five": 3.93
+     "dollar": 1.3487,
+     "five": 3.9297
     }
    },
    {
@@ -1083,11 +1083,11 @@
     "music": 0.45,
     "emotion": "rõ",
     "next": "—",
-    "t0": 5.42,
-    "t1": 14.32,
+    "t0": 5.4197,
+    "t1": 14.3197,
     "cues": {
-     "day": 11.26,
-     "deposit": 12.96
+     "day": 11.2597,
+     "deposit": 12.9597
     }
    },
    {
@@ -1103,11 +1103,11 @@
     "music": 0.5,
     "emotion": "rõ",
     "next": "CHUYỂN CHẾ ĐỘ → thế giới",
-    "t0": 15.156,
-    "t1": 21.44,
+    "t0": 15.1557,
+    "t1": 21.4397,
     "cues": {
-     "gap": 17.94,
-     "grew": 20.666
+     "gap": 17.9397,
+     "grew": 20.6657
     }
    },
    {
@@ -1123,11 +1123,11 @@
     "music": 0.5,
     "emotion": "vỡ lẽ",
     "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
-    "t0": 22.443,
-    "t1": 28.64,
+    "t0": 22.4427,
+    "t1": 28.6397,
     "cues": {
-     "lit": 27.38,
-     "dark": 28.096
+     "lit": 27.3797,
+     "dark": 28.0957
     }
    },
    {
@@ -1143,11 +1143,11 @@
     "music": 0.45,
     "emotion": "rõ",
     "next": "MR1",
-    "t0": 29.693,
-    "t1": 37.473,
+    "t0": 29.6937,
+    "t1": 37.4737,
     "cues": {
-     "one": 32.133,
-     "actually": 34.786
+     "one": 32.1337,
+     "actually": 34.7867
     }
    }
   ],
@@ -1157,8 +1157,8 @@
     "verb": "mode",
     "from": "wHouse",
     "to": "cHouse",
-    "t0": -28.464,
-    "t1": -27.164,
+    "t0": -29.5443,
+    "t1": -28.2443,
     "reason": "số chỉ ở đồ thị: nhà + cọc + hộp chính diện",
     "sound": "whoosh_mode"
    },
@@ -1167,8 +1167,8 @@
     "verb": "pan",
     "from": "cHouse",
     "to": "cLines",
-    "t0": -2.419,
-    "t1": -1.019,
+    "t0": -2.0003,
+    "t1": -0.6003,
     "reason": "vì sao: đường $1 trong cổ phiếu",
     "sound": "whoosh_soft"
    },
@@ -1177,8 +1177,8 @@
     "verb": "pan",
     "from": "cLines",
     "to": "cHouse",
-    "t0": 6.89,
-    "t1": 8.29,
+    "t0": 6.8897,
+    "t1": 8.2897,
     "reason": "đống của người thuê: khối đầu + bó mỗi tháng",
     "sound": "whoosh_soft"
    },
@@ -1187,8 +1187,8 @@
     "verb": "mode",
     "from": "cHouse",
     "to": "wHouse",
-    "t0": 23.368,
-    "t1": 24.668,
+    "t0": 23.3677,
+    "t1": 24.6677,
     "reason": "kết hồi: về nhà đầu phố (thế giới)",
     "sound": "whoosh_mode"
    },
@@ -1197,13 +1197,13 @@
     "verb": "mode",
     "from": "wHouse",
     "to": "cLines",
-    "t0": 29.46,
-    "t1": 30.76,
+    "t0": 29.4597,
+    "t1": 30.7597,
     "reason": "đối thủ: một mức tăng cố định vs bản ghi thật (đồ thị)",
     "sound": "whoosh_mode"
    }
   ],
-  "parent_t0": 75.3333
+  "parent_t0": 77.2667
  },
  "label_cues": {
   "b4.five": "$1 in 1991 → almost 5 times",
@@ -1245,12 +1245,12 @@
   ],
   "dropped": [
    {
-    "t": 24.668,
+    "t": 24.6677,
     "kind": "land",
     "why": "plain word"
    },
    {
-    "t": 30.76,
+    "t": 30.7597,
     "kind": "land",
     "why": "plain word"
    }
@@ -1271,14 +1271,14 @@
   "reuse_s": 60.0,
   "plan": [
    {
-    "t": 114.623,
+    "t": 117.59,
     "kind": "whoosh_soft",
     "scene": "S05",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 120.693,
+    "t": 123.66,
     "kind": "tick",
     "scene": "S05",
     "label": "giay",
@@ -1287,14 +1287,14 @@
     "gain_db": 1.08
    },
    {
-    "t": 131.101,
+    "t": 134.068,
     "kind": "whoosh_mode",
     "scene": "S05",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 137.193,
+    "t": 140.16,
     "kind": "whoosh_mode",
     "scene": "S05",
     "label": "chuyen-canh",

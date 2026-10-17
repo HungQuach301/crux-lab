@@ -587,7 +587,7 @@
    "t": 2.0,
    "kind": "tick",
    "v": 0.4,
-   "real": "S-OGA-PAGEFLIP3",
+   "real": "S-OGA-PAGEFLIP2",
    "label": "giay",
    "rate": 0.9754,
    "gain_db": 1.08,
@@ -597,12 +597,7 @@
    "t": 3.889,
    "kind": "whoosh_mode",
    "dur": 1.3,
-   "gain": 0.6,
-   "real": "S-OGA-AIRWHOOSH",
-   "label": "chuyen-canh",
-   "rate": 1.036,
-   "gain_db": -0.91,
-   "offset": 1.941
+   "gain": 0.6
   },
   {
    "t": 7.088,
@@ -1026,7 +1021,7 @@
     "kind": "tick",
     "scene": "S04",
     "label": "giay",
-    "file": "S-OGA-PAGEFLIP3",
+    "file": "S-OGA-PAGEFLIP2",
     "rate": 0.9754,
     "gain_db": 1.08
    },
@@ -1035,9 +1030,7 @@
     "kind": "whoosh_mode",
     "scene": "S04",
     "label": "chuyen-canh",
-    "file": "S-OGA-AIRWHOOSH",
-    "rate": 1.036,
-    "gain_db": -0.91
+    "kept_synth": true
    },
    {
     "t": 108.7,
