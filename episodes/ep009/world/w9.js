@@ -10,8 +10,10 @@ import { grade } from '/episodes/ep009/world/grade9.js';
 import * as W8 from '/episodes/ep008/world/w8.js';
 
 export { THREE, C, ease, lin, mix, setOpacity, PALETTE, Ribbon, Person };
-export const { Street, Home8, figure, MoneyStack, GlassBox, label, nameTag, chapterCard, v7Card, seg2, dip, show, pulse, kf, followLight, modeLook,
+export const { Street, Home8, figure, GlassBox, label, nameTag, chapterCard, v7Card, seg2, dip, show, pulse, kf, followLight, modeLook,
   GAP, ROW, xOf, zOf, colOf, END_X, APT, NINA, BUY, BOX, LIT, DARKW, PLATE, FIG, byMonth } = W8;
+// M6 C07 (chỉ dữ liệu kiểm, không đổi điểm ảnh): chồng tiền là cột đứng — trục giá trị = chiều cao
+export function MoneyStack(scene, o) { const g = W8.MoneyStack(scene, o); g.userData.checks.orient = 'v'; return g; }
 export const STK = PALETTE.accent, CASH = C.warn;
 export const SHELF = { x: END_X + 0.9, z: 1.9 };   // kệ N6 trước căn hộ Nina, cạnh hộp CASH (BOX)
 
@@ -76,12 +78,12 @@ export function StockPile(scene, { x = SHELF.x, z = SHELF.z, s = 1, name = 'stoc
   const pile = Stack({ unitUsd: 1e5, bundleUsd: 10000, w: 1.1, d: 0.7, maxUsd: 1.6e6 }); pile.position.y = 0.06; g.add(pile);
   const line = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.025, 1.1), m(PALETTE.ink, { opacity: 0.85 })); line.position.y = 0.06 + 0.92; g.add(line);
   const drop = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.08, 0.24), m(PALETTE.bill)); g.add(drop);
-  g.userData.checks = { role: 'bar', series: 'renter-stocks', key: `pile-${name}` };
+  pile.userData.checks = { role: 'bar', orient: 'v', series: 'renter-stocks', key: `pile-${name}` };   // M6 C07: chỉ các bó (cột giá trị), không gồm cọc/kệ
   g.set = ({ usd = 92000, a = 1, line: la = 1, dropK = -1 } = {}) => {
     const h = pile.set({ usd, tintBelowUsd: 92000, tint: PALETTE.warn, tintA: usd < 92000 ? 0.6 : 0 });
     setOpacity(g, a); line.material.opacity = 0.85 * a * la; line.visible = a * la > 0.01;
     drop.visible = dropK >= 0 && dropK < 1 && a > 0.01; drop.position.set(0, 0.06 + h + (1 - Math.max(0, dropK)) * 1.2, 0);
-    g.userData.checks.value = Math.round(usd); return h * s;
+    pile.userData.checks.value = Math.round(usd); return h * s;
   };
   g.top = (usd) => [x, (0.06 + usd / 1e5) * s, z];
   g.lineY = () => (0.06 + 0.92) * s;
@@ -97,16 +99,23 @@ export function GrowthPairs(scene, gS, gH, { x0 = -30, w = 14, z = -2, unit = 0.
   const H = mk('#4A505A'), Sx = mk('#DCE6FF'), M4 = new THREE.Matrix4(), col = new THREE.Color();
   const X = (i) => x0 + w * i / (n - 1);
   const g = { H, Sx, X, top: (v) => v * unit, n };
-  H.userData.checks = { role: 'bar', orient: 'v', series: 'house-growth', key: `${name}-house` }; Sx.userData.checks = { role: 'bar', orient: 'v', series: 'stock-growth', key: `${name}-stocks` };   // M6 C07: cột đứng — hộp bao cả tường rộng hơn khung không phải cột tràn trục giá trị
+  // M6 C07 (đo, không đổi điểm ảnh): hộp bao của cả khối InstancedMesh phủ mọi cột → trang kiểm thấy "cột tràn" khi tường rộng hơn khung. Trang kiểm
+  // đọc K khúc bóng (cùng ma trận từng cột, colorWrite/depthWrite tắt → không vẽ điểm ảnh) — mỗi khúc là hộp bao thật của nhóm cột đó.
+  const K = 16, per = Math.ceil(n / K), ghost = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: false }), GH = [], GS = [];
+  for (const [arr, series] of [[GH, 'house-growth'], [GS, 'stock-growth']]) for (let q = 0; q * per < n; q++) {
+    const im = new THREE.InstancedMesh(geo, ghost, Math.min(per, n - q * per)); im.frustumCulled = false; im.renderOrder = -1; scene.add(im);
+    im.userData.checks = { role: 'bar', orient: 'v', series, key: `${name}-${series}-${q}` }; arr.push(im); }
   g.set = ({ k = 1, a = 1, hiS = 0 } = {}) => {
     for (let i = 0; i < n; i++) {
       const f = ease(k * 1.15 - i / n * 0.15, 0, 1);
-      M4.makeScale(1, Math.max(1e-3, gH[i] * unit * f), 1).setPosition(X(i) - bw * 0.55, gH[i] * unit * f / 2, z); H.setMatrixAt(i, M4);
-      M4.makeScale(1, Math.max(1e-3, gS[i] * unit * f), 1).setPosition(X(i) + bw * 0.55, gS[i] * unit * f / 2, z); Sx.setMatrixAt(i, M4);
+      const q = Math.floor(i / per), r = i - q * per;
+      M4.makeScale(1, Math.max(1e-3, gH[i] * unit * f), 1).setPosition(X(i) - bw * 0.55, gH[i] * unit * f / 2, z); H.setMatrixAt(i, M4); GH[q].setMatrixAt(r, M4);
+      M4.makeScale(1, Math.max(1e-3, gS[i] * unit * f), 1).setPosition(X(i) + bw * 0.55, gS[i] * unit * f / 2, z); Sx.setMatrixAt(i, M4); GS[q].setMatrixAt(r, M4);
       col.set(STK).lerp(new THREE.Color('#FFFFFF'), gS[i] > gH[i] ? 0.35 * hiS : 0).lerp(new THREE.Color('#3A3E46'), gS[i] > gH[i] ? 0 : 0.6 * hiS); Sx.setColorAt(i, col);
     }
     H.instanceMatrix.needsUpdate = Sx.instanceMatrix.needsUpdate = true; if (Sx.instanceColor) Sx.instanceColor.needsUpdate = true;
     for (const im of [H, Sx]) { im.material.opacity = a; im.visible = a > 0.01; }
+    for (const im of [...GH, ...GS]) { im.instanceMatrix.needsUpdate = true; im.visible = a > 0.3; }
   };
   g.set({ k: 0, a: 0 });
   return g;
