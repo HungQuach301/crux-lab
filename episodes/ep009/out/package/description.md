@@ -11,7 +11,7 @@ With the renter's money in cash (last episode), the buyer ended ahead about 3 ou
 6:17 Why the house holds half
 7:19 The tag on her door
 
-[METHOD AND SOURCES]
+
 - Stock returns: Kenneth R. French Data Library (Fama/French factors, total return); cross-checked with Robert Shiller data. US market total return = Mkt-RF + RF, monthly, data through August 2026: https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
 - Housing data: FHFA purchase-only house price index, United States, monthly; consumer price index for rent of primary residence (BLS); Freddie Mac Primary Mortgage Market Survey 30-year fixed rate (monthly average of weekly rates). All retrieved from FRED, Federal Reserve Bank of St. Louis: https://fred.stlouisfed.org/series/HPIPONM226N · https://fred.stlouisfed.org/series/CUUR0000SEHA · https://fred.stlouisfed.org/series/MORTGAGE30US. Data through July 2026 (house prices), August 2026 (rents), October 8, 2026 (rates).
 - Method (same as Episode 8, one change): in every start month, the buyer pays 20% down and 3% closing costs ($92,000 together), takes a 30-year fixed mortgage at that month's average rate, and pays interest plus property tax, insurance and repairs (2.5% of the home's value a year); at year ten the home is sold at a 6% cost of selling. Both twins spend the same each month; the renter's difference goes into the pile at the start of each month, every month, including when the pile is down. The one change from Episode 8: the pile earns the US stock market's total return instead of sitting in cash.
