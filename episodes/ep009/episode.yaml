@@ -65,8 +65,8 @@ scenes:
   - {id: S24, tail: 1.0, shots: []}
   - {id: S25, tail: 2.0, shots: []}
 midrolls:   # giờ = timeline nhà máy (prod/build_inputs.py --timeline); lặng [t − 0,65; hết cảnh] ≥ 1 s sau chữ cuối — cập nhật khi giờ đổi
-  - {after_act: act1, scene: S06, t: 145.93}   # M3 giờ lời thật (timeline 15/10)
-  - {after_act: act2, scene: S18, t: 386.84}   # M3 giờ lời thật (timeline 15/10)
+  - {after_act: act1, scene: S06, t: 148.89}   # M6 giờ lời thật (timeline 17/10)
+  - {after_act: act2, scene: S18, t: 376.3}   # M6 giờ lời thật (timeline 17/10)
 counterweights:
   - {id: us-only, text: "US only · history, not a forecast", when: historical}
   - {id: illustrative, text: "Nina and her twins are illustrative · real prices, rents, rates and stock returns", claims: [price, down_usd, closing_usd, savings_usd]}
