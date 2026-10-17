@@ -5,7 +5,7 @@
  "total": 62.2666,
  "fps": 30,
  "pad": 0.25,
- "episode_t0": 387.6332,
+ "episode_t0": 377.0666,
  "scenes": [
   "S19",
   "S20",
@@ -1393,7 +1393,7 @@
  "music_plan": {
   "bed": {
    "wav": "episodes/ep009/work/factory/music/bed.wav",
-   "offset": 387.6332,
+   "offset": 377.0666,
    "fade": 0.0
   },
   "stop": 62.2666,
@@ -1401,7 +1401,7 @@
   "accents": []
  },
  "mix": {
-  "music_db": 15.1,
+  "music_db": 14.93,
   "data_db": 34.0,
   "silences": []
  },
@@ -1520,7 +1520,7 @@
   "reuse_s": 60.0,
   "plan": [
    {
-    "t": 407.533,
+    "t": 396.967,
     "kind": "whoosh_soft",
     "scene": "S19",
     "label": "chuyen-canh",
@@ -1529,7 +1529,7 @@
     "gain_db": -0.34
    },
    {
-    "t": 415.053,
+    "t": 404.487,
     "kind": "tick",
     "scene": "S19",
     "label": "giay",
@@ -1538,7 +1538,7 @@
     "gain_db": -1.4
    },
    {
-    "t": 422.01,
+    "t": 411.444,
     "kind": "whoosh_soft",
     "scene": "S20",
     "label": "chuyen-canh",
