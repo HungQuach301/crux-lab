@@ -48,7 +48,7 @@ export async function boot(res) {
     label(O, "rent tag: the renter's yearly rent as a % of the price", 960, 900, { align: 'center', kind: 'name', px: 44, alpha: tA * show(t, b.f0.tag, b.f1.five) });
     label(O, '5%: about half lit', 960, 240, { align: 'center', kind: 'number', alpha: tA * show(t, b.f1.half, b.f2.five - 0.2), claims: ['yield5_tag', 'share_buyer_ahead_stocks_10y'] });
     label(O, 'flip point: about 5.1%', 960, 240, { align: 'center', kind: 'number', alpha: tA * show(t, b.f2.five, b.f2.census - 0.2), claims: ['flip_yield_stocks_10y'] });
-    label(O, 'Census range: 4.83% to 5.59% a year · 47.2% to 58.3% lit', 960, 320, { align: 'center', kind: 'number', px: 46, alpha: tA * show(t, b.f2.both, MV.m_w.t0),
+    label(O, 'Census range: 4.83% a year to 5.59% a year · 47.2% to 58.3% lit', 960, 320, { align: 'center', kind: 'number', px: 46, alpha: tA * show(t, b.f2.both, MV.m_w.t0),
       claims: ['hvs_yield_2025Q4', 'hvs_yield_2026Q1', 'share_hvs_2025Q4_stocks_10y', 'share_hvs_2026Q1_stocks_10y'] });
     label(O, 'the tag is an assumption', 960, 900, { align: 'center', kind: 'name', px: 48, alpha: tA * show(t, b.f3.assumption) });
     log.roi['f1.half'] = [200, 180, 1720, 950]; log.roi['f2.both'] = [200, 180, 1720, 950];

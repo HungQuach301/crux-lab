@@ -62,7 +62,7 @@ export async function boot(res) {
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     chapterCard(O, S.chapter[1], t, S.chapter[0]);
     const tA = ok * (t < MV.m_w1.t0 + 0.2 ? 1 : 0);
-    label(O, 'rent tag: 5% of the price a year · July 2026 · assumption', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: tA * show(t, b.c0.five), claims: ['yield_anchor_pct', 'hpi_last'] });
+    label(O, 'rent tag: 5% of the price a year · July 2026 · assumption', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: tA * show(t, b.c0.five), claims: ['yield5_tag', 'hpi_last'] });
     log.roi['c0.five'] = [200, 190, 1720, 290];
     if (cw < 0.05) nameTag(O, nina, show(t, 0, MV.m_demo.t0) * 0);
     label(O, 'with the pile in stocks: how much of the street stays lit?', 960, 300, { align: 'center', kind: 'name', px: 52, alpha: (cw < 0.05 ? 1 : 0) * show(t, b.c1.street - 0.3, MV.m_demo.t1) });
@@ -75,21 +75,21 @@ export async function boot(res) {
     const sA = ok * (t > MV.m_c1.t1 - 0.2 && (t < MV.m_n.t0 || t > MV.m_s.t1 - 0.2) && t < MV.m_06.t0 + 0.2 ? 1 : 0);
     const [fx, fy] = O.toScreen(0, 0, 1.2), [lx] = O.toScreen(25 * 0.95, 0, 1.2);
     label(O, '307 start months', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.c4.three, b.c6.most - 0.3), claims: ['n_10y'] });
-    label(O, 'January 1991', fx, fy + 50, { align: 'center', kind: 'number', px: 44, alpha: sA * show(t, b.c4.july, MV.m_06.t0), color: C.muted, claims: ['first_10y'] });
-    label(O, 'July 2016', lx, fy + 50, { align: 'center', kind: 'number', px: 44, alpha: sA * show(t, b.c4.july, MV.m_06.t0), color: C.muted, claims: ['last_10y'] });
+    label(O, 'January 1991', Math.max(fx, 260), fy + 50, { align: 'center', kind: 'number', px: 44, alpha: sA * show(t, b.c4.july, MV.m_06.t0), color: C.muted, claims: ['first_10y'] });
+    label(O, 'July 2016', Math.min(lx, 1700), fy + 50, { align: 'center', kind: 'number', px: 44, alpha: sA * show(t, b.c4.july, MV.m_06.t0), color: C.muted, claims: ['last_10y'] });
     log.roi['c4.three'] = [600, 180, 1320, 270]; log.roi['c4.july'] = [fx - 200, fy, lx + 200, fy + 90];
     label(O, "Nina's month: not on the street yet", 960, 260, { align: 'center', kind: 'name', px: 52, alpha: ok * show(t, b.c5.nina, MV.m_s.t0 + 0.3) });
     label(O, '1990s: about 2 in 3 lit', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.c6.two, b.c7.darkest - 0.2), claims: ['era_1990s_span', 'era_1990s_share_stocks'] });
     const [hx, hy] = O.toScreen(0, 0.8, 0);
     label(O, 'darkest: January 1991', hx + 40, hy - 50, { align: 'left', kind: 'number', px: 48, alpha: sA * show(t, b.c7.first, b.c9.stalled - 0.2), color: STK, claims: ['worst_start_stocks_10y'] });
-    label(O, '16 start months: $1 ended below $1 · all 16 stay lit', 960, 230, { align: 'center', kind: 'number', px: 50, alpha: sA * show(t, b.c10.less, b.c12.dark - 0.2), claims: ['n_stocks_lost_10y', 'n_stocks_lost_buyer_ahead_10y'] });
+    label(O, '16 start months ended below where they started · all 16 stay lit', 960, 230, { align: 'center', kind: 'number', px: 50, alpha: sA * show(t, b.c10.less, b.c12.dark - 0.2), claims: ['n_stocks_lost_10y', 'n_stocks_lost_buyer_ahead_10y'] });
     label(O, '2002 to 2007: none of 72', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.c13.none, b.c14.cash - 0.2), color: STK, claims: ['era_2002-2007_span', 'era_2002-2007_share_stocks'] });
     label(O, 'with cash: 6 of 72', 960, 230, { align: 'center', kind: 'number', alpha: sA * show(t, b.c14.cash, MV.m_06.t0), color: C.warn, claims: ['era_2002-2007_share_cash'] });
     log.roi['c6.two'] = [500, 180, 1420, 900]; log.roi['c10.less'] = [300, 180, 1620, 900]; log.roi['c13.none'] = [500, 180, 1420, 900];
     legend(O, sA * show(t, b.c6.most - 0.3));
     // June 2006
     const jA = ok * (t > MV.m_06.t1 - 0.2 ? 1 : 0);
-    label(O, 'June 2006 · with cash: $82,385 behind', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: jA * show(t, b.c16.cash), color: C.warn, claims: ['adv_2006-06_cash_10y'] });
+    label(O, 'June 2006 · with cash: $82,385 behind', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: jA * show(t, b.c16.cash), color: C.warn, claims: ['start_2006_06', 'adv_2006-06_cash_10y'] });
     label(O, 'with stocks: $261,689 behind', 960, 320, { align: 'center', kind: 'number', px: 56, alpha: jA * show(t, b.c17.quarter), color: STK, claims: ['adv_2006-06_stocks_10y'] });
     log.roi['c16.cash'] = [400, 190, 1520, 280]; log.roi['c17.quarter'] = [460, 270, 1460, 360];
     chrome(O, { illus: 1 });

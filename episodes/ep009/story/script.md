@@ -88,7 +88,7 @@ S03.1 {fact} Over fifteen years, cash kept the buyer ahead every time; stocks, o
 S03.2 {question} [worried] So if Nina rents and invests the difference, does she end up ahead of owning? <!-- claims: — -->
 S03.3 {promise} Stocks outgrew the house almost nine times out of ten, yet buying still came out ahead in half. <!-- claims: share_stocks_beat_house_10y, share_buyer_ahead_stocks_10y -->
 S03.4 {constraint} It's history, not a forecast. <!-- claims: — -->
-S03.5 {hook} We replayed every start month since 1991 as a house on one long street: lit if the buyer ends ahead, dark if not. <!-- claims: n_10y -->
+S03.5 {hook} We replayed every start month since 1991 as a house on one long street: lit if the buyer ends ahead, dark if not. <!-- claims: n_10y, first_10y -->
 S03.6 {define} The renting twin's pile is the $92,000, plus whatever owning would have cost each month beyond her rent. <!-- claims: savings_usd -->
 S03.7 {hook} All of it goes into the whole US stock market, every month, through every drop. <!-- claims: —; hold: 0.8 -->
 
@@ -100,7 +100,7 @@ S03.7 {hook} All of it goes into the whole US stock market, every month, through
 
 ## S04 — The first house (first spoken result; Q4)
 
-S04.1 The first house on that street is January 1991. <!-- claims: n_10y -->
+S04.1 The first house on that street is January 1991. <!-- claims: n_10y, first_10y -->
 S04.2 With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead, in dollars of the day. <!-- claims: adv_1991-01_cash_10y, n_10y -->
 S04.3 With the pile in stocks, the same buyer finished $485,063 behind. <!-- claims: adv_1991-01_stocks_10y; hold: 1.5 -->
 S04.4 Same house, same mortgage, same rent; the only thing that moved was the renter's pile. <!-- claims: — -->
@@ -131,12 +131,12 @@ S08.2 So, with the pile in stocks, how much of the street stays lit? <!-- claims
 
 S09.1 After ten years, a house is lit if the buying twin's equity, after selling costs, is bigger than the renting twin's pile. <!-- claims: n_10y -->
 S09.2 If the pile is bigger, the door goes dark. <!-- claims: — -->
-S09.3 That's 307 houses, from January 1991 to the last start with ten full years of data, July 2016. <!-- claims: n_10y, last_10y -->
+S09.3 That's 307 houses, from January 1991 to the last start with ten full years of data, July 2016. <!-- claims: n_10y, first_10y, last_10y -->
 S09.4 Nina's own month isn't on the street; its ten years are still ahead of her. <!-- claims: n_10y; hold: 0.5 -->
 
 ## S10 — The 1990s
 
-S10.1 About two in three of the 1990s houses stay lit. <!-- claims: era_1990s_share_stocks -->
+S10.1 About two in three of the 1990s houses stay lit. <!-- claims: era_1990s_span, era_1990s_share_stocks -->
 S10.2 But the darkest house on the whole street is the very first one. <!-- claims: worst_start_stocks_10y -->
 S10.3 Its renting twin caught the long stock boom from its first month. <!-- claims: — -->
 
@@ -171,7 +171,7 @@ S14.4 The replay assumes every renting twin kept investing; one who sells in a c
 ## S15 — The count (core number)
 
 S15.1 So, after the whole walk, how many houses are lit? <!-- claims: — -->
-S15.2 Lit: 152 of the 307, about half. <!-- claims: share_buyer_ahead_stocks_10y; hold: 1.5 -->
+S15.2 Lit: 152 of the 307, about half. <!-- claims: share_buyer_ahead_stocks_10y, share_buyer_ahead_stocks_10y_n; hold: 1.5 -->
 S15.3 Every house that changed sides went from the buyer to the renter, never the other way. <!-- claims: n_flip_to_buyer_10y -->
 S15.4 That half is a count of what already happened, not a promise about Nina's month. <!-- claims: share_buyer_ahead_stocks_10y -->
 

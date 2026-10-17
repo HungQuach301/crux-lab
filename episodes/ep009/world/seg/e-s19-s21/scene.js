@@ -46,7 +46,7 @@ export async function boot(res) {
     log.roi['e1.four'] = [hx - 250, hy - 500, hx + 250, hy + 100]; log.roi['e1.ninety'] = [px - 200, hy - 300, px + 300, hy + 100];
     const gA = ok * (t > MV.m_g.t1 - 0.2 ? 1 : 0);
     label(O, 'only the $92,000 invested: about 2 in 3', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.e5.two, b.e7.fees - 0.2), claims: ['savings_usd', 'share_buyer_ahead_lump_10y'] });
-    label(O, '1% a year in fees: 55.0% lit', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.e8.fifty), claims: ['fee_pct', 'share_buyer_ahead_stocks_fee_10y'] });
+    label(O, '1 percent a year in fees: 55.0% lit', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.e8.fifty), claims: ['fee_pct', 'share_buyer_ahead_stocks_fee_10y'] });
     label(O, "each cost on the renter's side relights houses", 960, 320, { align: 'center', kind: 'name', px: 48, alpha: gA * show(t, b.e9.back) });
     log.roi['e5.two'] = [300, 180, 1620, 950]; log.roi['e8.fifty'] = [300, 180, 1620, 950];
     legend(O, gA);

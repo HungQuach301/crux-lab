@@ -11,7 +11,7 @@ const PS = 0.35, UNIT = 0.07 * 1e5 / PS;
 export async function boot(res) {
   const X12 = xOf('2012-04');
   const poses = {
-    cBars: { pos: [BX + BW / 2, 1.2, BZ + 15], tgt: [BX + BW / 2, 0.9, BZ], fov: 30, chart: 1 },
+    cBars: { pos: [BX + BW / 2, 1.2, BZ + 17], tgt: [BX + BW / 2, 0.9, BZ], fov: 34, chart: 1 },   // M6 C07: khung rộng hơn, cả hàng trong khung
     cShelf: { pos: [SHELF.x + 0.4, 1.0, SHELF.z + 5.2], tgt: [SHELF.x, 0.85, SHELF.z], fov: 30, chart: 1 },
     cGrid: { pos: [11.9, 30, 3.0], tgt: [11.9, 0, -5.2], fov: 36, chart: 1 },
     c2012: { pos: [X12, 2.6, 9], tgt: [X12, 1.5, -1], fov: 32, chart: 1 },
@@ -22,7 +22,7 @@ export async function boot(res) {
   const twin = figure(scene, { x: SHELF.x - 1.25, z: SHELF.z + 0.3, char: 'twin' });
   // hàng đống nhỏ (InstancedMesh): mỗi cửa sổ một cột, cao = $92,000 → tụt xuống đáy thấp nhất (low10) ở "dipped"
   const g = new THREE.BoxGeometry(BW / n * 0.7, 1, 0.3), bars = new THREE.InstancedMesh(g, new THREE.MeshStandardMaterial({ color: STK, roughness: 0.7, transparent: true }), n);
-  bars.frustumCulled = false; scene.add(bars); bars.userData.checks = { role: 'bar', series: 'lowest-pile', key: 'low-piles' };
+  bars.frustumCulled = false; scene.add(bars); bars.userData.checks = { role: 'bar', orient: 'v', series: 'lowest-pile', key: 'low-piles' };
   const line = new THREE.Mesh(new THREE.BoxGeometry(BW + 0.6, 0.02, 0.35), new THREE.MeshStandardMaterial({ color: C.ink, transparent: true })); line.position.set(BX + BW / 2, 92000 * BU, BZ + 0.05); scene.add(line);
   const M4 = new THREE.Matrix4(), col = new THREE.Color(), BX_ = (i) => BX + BW * i / (n - 1);
   const pile = StockPile(scene, {}), TL = DATA.traj[DATA.lowStart], li = TL.lowIdx;
@@ -89,11 +89,11 @@ export async function boot(res) {
     label(O, 'after the whole walk: how many lit?', 960, 230, { align: 'center', kind: 'name', alpha: aG * show(t, b.d5.how, b.d6.lit - 0.2) });
     label(O, '152 of 307 lit', 960, 230, { align: 'center', kind: 'number', px: 64, alpha: aG * show(t, b.d6.lit, b.d7.eighty - 0.2), color: LIT, claims: ['share_buyer_ahead_stocks_10y_n'] });
     label(O, 'about half', 960, 320, { align: 'center', kind: 'number', px: 56, alpha: aG * show(t, b.d6.half, b.d7.eighty - 0.2), claims: ['share_buyer_ahead_stocks_10y'] });
-    label(O, '80 switched to the renter · none to the buyer', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d7.not, b.d8.count - 0.2), claims: ['n_flip_to_renter_10y', 'n_flip_to_buyer_10y'] });
+    label(O, '80 start months switched to the renter · none to the buyer', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d7.not, b.d8.count - 0.2), claims: ['n_flip_to_renter_10y', 'n_flip_to_buyer_10y'] });
     label(O, 'a count of what happened, not a promise', 960, 230, { align: 'center', kind: 'name', alpha: aG * show(t, b.d8.count, MV.m_12.t0) });
     log.roi['d6.lit'] = [300, 180, 1620, 950]; log.roi['d7.not'] = [300, 180, 1620, 950];
     const a12 = ok * (t > MV.m_12.t1 - 0.2 && t < MV.m_g2.t0 + 0.2 ? 1 : 0);
-    label(O, 'April 2012 · with stocks: $237,632 ahead', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: a12 * show(t, b.d10.ahead), color: LIT, claims: ['adv_2012-04_stocks_10y'] });
+    label(O, 'April 2012 · with stocks: $237,632 ahead', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: a12 * show(t, b.d10.ahead), color: LIT, claims: ['start_2012_04', 'adv_2012-04_stocks_10y'] });
     label(O, 'brightest house last time: still lit', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: a12 * show(t, b.d9.glows - 0.3) });
     label(O, 'the whole house grew, not just $92,000 of it', 960, 880, { align: 'center', kind: 'name', px: 44, alpha: a12 * show(t, b.d11.whole), claims: ['savings_usd'] });
     log.roi['d10.ahead'] = [400, 190, 1520, 280];
@@ -103,9 +103,9 @@ export async function boot(res) {
     // B24b: ba cột tỉ lệ sáng theo thời gian ở (5 / 10 / 15 năm) trên tấm nền
     const cA = ok * show(t, b.d15.shorter - 0.2, b.d18.longer - 0.2);
     if (cA > 0.01) { O.card(560, 260, 800, 600, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.95 * cA });
-      const vals = [[53.4, '5 years', b.d15.half, 'share_buyer_ahead_stocks_5y'], [49.5, '10 years', b.d16.longer, 'share_buyer_ahead_stocks_10y_pct'], [21.9, '15 years', b.d16.longer + 0.5, 'share_buyer_ahead_stocks_15y_pct']], c = O.ctx;
-      vals.forEach(([v, nm, tt, cid], j) => { const k2 = ease(t, tt - 0.1, tt + 0.6), x = 660 + j * 230, h = 380 * v / 60 * k2; c.save(); c.globalAlpha = cA; c.fillStyle = STK; c.fillRect(x, 780 - h, 150, h); c.restore();
-        label(O, nm, x + 75, 830, { align: 'center', kind: 'number', px: 40, alpha: cA, plate: null, claims: [] }); label(O, `${v.toFixed(1)}%`, x + 75, 760 - h, { align: 'center', kind: 'number', px: 44, alpha: cA * k2, plate: null, claims: [cid] }); });
+      const vals = [[53.4, '5 years', b.d15.half, 'share_buyer_ahead_stocks_5y', 'hold_5y'], [49.5, '10 years', b.d16.longer, 'share_buyer_ahead_stocks_10y_pct', 'hold_10y'], [21.9, '15 years', b.d16.longer + 0.5, 'share_buyer_ahead_stocks_15y_pct', 'hold_15y']], c = O.ctx;
+      vals.forEach(([v, nm, tt, cid, hid], j) => { const k2 = ease(t, tt - 0.1, tt + 0.6), x = 660 + j * 230, h = 380 * v / 60 * k2; c.save(); c.globalAlpha = cA; c.fillStyle = STK; c.fillRect(x, 780 - h, 150, h); c.restore();
+        label(O, nm, x + 75, 830, { align: 'center', kind: 'number', px: 40, alpha: cA, plate: null, claims: [hid] }); label(O, `${v.toFixed(1)}%`, x + 75, 760 - h, { align: 'center', kind: 'number', px: 44, alpha: cA * k2, plate: null, claims: [cid] }); });
       label(O, 'buyer ahead, by length of stay', 960, 330, { align: 'center', kind: 'name', px: 40, alpha: cA, plate: null }); }
     log.roi['d15.half'] = [560, 260, 1360, 860];
     label(O, '247 fifteen-year starts · cash: every one', 960, 230, { align: 'center', kind: 'number', alpha: aG * show(t, b.d19.every, b.d20.stocks - 0.2), color: C.warn, claims: ['n_15y', 'share_buyer_ahead_cash_15y'] });

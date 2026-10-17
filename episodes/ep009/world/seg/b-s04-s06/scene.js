@@ -61,8 +61,7 @@ export async function boot(res) {
     label(O, 'same house, same mortgage, same rent', 960, 400, { align: 'center', kind: 'name', px: 44, alpha: hA * show(t, b.b3.only - 0.4, MV.m_g.t0) });
     log.roi['b1.ahead'] = [500, 270, 1420, 360]; log.roi['b2.behind'] = [460, 270, 1460, 360];
     const lA = ok * (t > MV.m_g.t1 - 0.2 && t < MV.m_p.t0 + 0.2 ? 1 : 0), [ex, ey] = O.toScreen(LX + LW, LY + g1 * LSY, -2), [sx, sy] = O.toScreen(LX, LY + LSY, -2);
-    label(O, '$1', sx - 20, sy, { align: 'right', kind: 'number', px: 48, alpha: lA, claims: [] });
-    label(O, '$1 in 1991 → almost 5 times', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: lA * show(t, b.b4.five), color: STK, claims: ['stocks_growth_1991-01_10y'] });
+    label(O, 'a dollar from January 1991 → almost 5 times', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: lA * show(t, b.b4.five), color: STK, claims: ['first_10y', 'stocks_growth_1991-01_10y'] });
     log.roi['b4.five'] = [480, 190, 1440, 280];
     label(O, '$92,000 on day one', 960, 240, { align: 'center', kind: 'number', px: 52, alpha: hA * show(t, b.b5.day, MV.m_w.t0), claims: ['savings_usd'] });
     label(O, '+ a deposit every month', 960, 320, { align: 'center', kind: 'name', px: 48, alpha: hA * show(t, b.b5.deposit, MV.m_w.t0) });
@@ -71,8 +70,12 @@ export async function boot(res) {
     label(O, 'one fixed growth rate', fx + 20, fy + 50, { align: 'left', kind: 'name', px: 44, alpha: fA * show(t, b.b8.one, S.card[0] - 0.2), color: '#C9CED6' });
     label(O, 'the real record, month by month', rx2 - 40, ry2 - 60, { align: 'right', kind: 'name', px: 44, alpha: fA * show(t, b.b8.actually, S.card[0] - 0.2), color: STK });
     log.roi['b8.one'] = [fx, fy, fx + 600, fy + 90]; log.roi['b8.actually'] = [rx2 - 760, ry2 - 110, rx2, ry2 - 10];
-    v7Card(O, 'Same costs as before', ['$400,000 home · $92,000 = down payment + closing', 'mortgage, tax, insurance, repairs: 2.5% a year', 'cost of selling: 6%'],
-      ok * show(t, S.card[0], S.total + 1));
+    // thẻ chi phí (V7) có claim từng dòng (M6, S07): v7Card của w8 không mang claim
+    const kA = ok * show(t, S.card[0], S.total + 1), KL = [['$400,000 home · $92,000 = down payment + closing', ['price', 'savings_usd']],
+      ['mortgage, tax, insurance, repairs: 2.5 percent a year', ['owner_cost_pct']], ['cost of selling: 6 percent', ['sell_pct']]];
+    if (kA > 0.01) { O.card(300, 210, 1320, 110 + 66 * KL.length, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.94 * kA });
+      label(O, 'Same costs as before', 348, 290, { kind: 'title', px: 56, w: 700, alpha: kA, plate: null, role: 'title' });
+      KL.forEach(([s, cl], i) => label(O, s, 348, 360 + 66 * i, { kind: 'number', px: 48, w: 600, alpha: kA, plate: null, color: '#D5DAE2', claims: cl })); }
     legend(O, (cw < 0.05 ? 1 : 0) * show(t, b.b7.lit - 0.3, MV.m_c2.t0));
     chrome(O, { illus: 1 });
     st.compose(); log.camMoving = CAM.moving(t); return log;

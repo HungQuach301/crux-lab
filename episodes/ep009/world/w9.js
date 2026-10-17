@@ -97,7 +97,7 @@ export function GrowthPairs(scene, gS, gH, { x0 = -30, w = 14, z = -2, unit = 0.
   const H = mk('#4A505A'), Sx = mk('#DCE6FF'), M4 = new THREE.Matrix4(), col = new THREE.Color();
   const X = (i) => x0 + w * i / (n - 1);
   const g = { H, Sx, X, top: (v) => v * unit, n };
-  H.userData.checks = { role: 'bar', series: 'house-growth', key: `${name}-house` }; Sx.userData.checks = { role: 'bar', series: 'stock-growth', key: `${name}-stocks` };
+  H.userData.checks = { role: 'bar', orient: 'v', series: 'house-growth', key: `${name}-house` }; Sx.userData.checks = { role: 'bar', orient: 'v', series: 'stock-growth', key: `${name}-stocks` };   // M6 C07: cột đứng — hộp bao cả tường rộng hơn khung không phải cột tràn trục giá trị
   g.set = ({ k = 1, a = 1, hiS = 0 } = {}) => {
     for (let i = 0; i < n; i++) {
       const f = ease(k * 1.15 - i / n * 0.15, 0, 1);

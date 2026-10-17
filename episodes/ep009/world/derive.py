@@ -43,6 +43,9 @@ cl['era_2002-2007_span'] = {'value': '2002-2007', 'display': '2002 to 2007', 'di
 cl['era_2009-2016_span'] = {'value': '2009-2016', 'display': '2009 to mid-2016', 'display_full': 'start months 2009 through July 2016', 'param': True}
 cl['hold_15y'] = {'value': 15, 'display': '15 years', 'display_full': 'held fifteen years', 'param': True}
 cl['hold_10y'] = {'value': 10, 'display': '10 years', 'display_full': 'held ten years', 'param': True}
+cl['hold_5y'] = {'value': 5, 'display': '5 years', 'display_full': 'held five years', 'param': True}
+cl['start_2006_06'] = {'value': '2006-06', 'display': 'June 2006', 'display_full': 'start month June 2006', 'param': True}
+cl['start_2012_04'] = {'value': '2012-04', 'display': 'April 2012', 'display_full': 'start month April 2012', 'param': True}
 cl['first_10y'] = {'value': '1991-01', 'display': 'January 1991', 'display_full': 'first start month January 1991', 'param': True}
 cl['low_start'] = {'value': '2007-11', 'display': 'November 2007 start', 'display_full': 'start month of the lowest stock pot (world/data.json lowStart)', 'param': True}
 for k, v in cl.items():

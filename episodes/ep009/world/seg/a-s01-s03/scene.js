@@ -63,8 +63,8 @@ export async function boot(res) {
     // tường (đồ thị): tên cột ở đáy, nhãn tỉ lệ ở "renting"
     const gA = ok * (t < MV.m_nina.t0 + 0.2 ? 1 : 0), [lx, ly] = O.toScreen(0, 0, WZ), [rx] = O.toScreen(24, 0, WZ);
     label(O, 'each pair: one ten-year stretch', 960, 860, { align: 'center', kind: 'name', px: 44, alpha: gA, color: C.muted });
-    label(O, 'home prices', lx + 40, ly + 70, { align: 'left', kind: 'name', px: 44, alpha: gA, color: '#C9CED6' });
-    label(O, 'stocks', rx - 40, ly + 70, { align: 'right', kind: 'name', px: 44, alpha: gA, color: STK });
+    label(O, 'home prices', Math.max(lx + 40, 110), ly + 70, { align: 'left', kind: 'name', px: 44, alpha: gA, color: '#C9CED6' });
+    label(O, 'stocks', Math.min(rx - 40, 1810), ly + 70, { align: 'right', kind: 'name', px: 44, alpha: gA, color: STK });
     label(O, 'stocks grew more than home prices: about 9 in 10', 960, 230, { align: 'center', kind: 'number', alpha: gA * show(t, b.a1.so), claims: ['share_stocks_beat_house_10y'] });
     log.roi['a1.so'] = [300, 180, 1620, 900];
     // Nina + hộp CASH
