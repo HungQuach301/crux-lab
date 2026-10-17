@@ -16,7 +16,7 @@
 | **M3 Sản xuất nháp 540p** | nhà máy dựng thế giới, giọng (sinh một lần), nhạc bằng mã, SFX ghi âm thật, footage | nháp 540p theo cảnh | verify đoạn, đồng bộ ±0,2 s | — |
 | **M4 Hậu kỳ** | Editor: J/L-cut, nhịp, lặng · màu theo hồi · mix | nháp 540p cả tập | nhịp trên nháp | — |
 | **M5 Kiểm định trên nháp** | REVIEWER ý đồ (trước) · **checks đủ bộ, gồm bộ lấy mẫu trang** · cổng gốc · nhớ lại (Đạo diễn sáng tạo) · liền mạch (Giám sát) · lượt đạo diễn (chẩn đoán) · REVIEWER gói G2 | gói G2 + nháp 540p + 3 khung tĩnh 1080p của cảnh đinh | **≤ 2 vòng mỗi lỗi** (dưới) | **G2**: phiếu L3 trên nháp (`templates/L3.md`) |
-| **M6 Giao** | **1080p một lần** + **1 Short** · L1 kỹ thuật trên 1080p (độ phân giải, loudness, C14, SSIM so nháp ≥ 0,97) · gói chữ (tiêu đề G1, mô tả, chương, tag — **không thumbnail**) · giao hàng · merge `main` squash | master, Short, `HUONG-DAN-DANG.md` | lệch kỹ thuật thì sửa, không mở lại G2 | **G3** đăng |
+| **M6 Giao** | **1080p một lần** + **1 Short** · L1 kỹ thuật trên 1080p (độ phân giải, loudness, C14, SSIM so nháp ≥ 0,97) · gói chữ (tiêu đề G1, mô tả, chương, tag) + **3 ảnh bìa** (D-015, §5) · giao hàng · merge `main` squash | master, Short, `HUONG-DAN-DANG.md` | lệch kỹ thuật thì sửa, không mở lại G2 | **G3** đăng |
 
 - **Chủ dự án chạm G1, G2, G3** (+ lệnh "Chạy Tập N"). Ngoài cổng chỉ hỏi khi gặp ngoại lệ CHARTER §5. Mỗi lượt chạm ghi vào PLAN tập §5 kèm phút ước.
 - **Mỗi chặng một phiên ngắn** (M1–M2 → G1; M3–M5 → G2; M6 → G3). Đóng chặng: PLAN tập ≤ 1 trang theo `templates/PLAN-tap.md` (mục 1 = mốc kế), commit, push, dừng. Phiên kế mở bằng "Chạy Tập N" — không viết prompt riêng. Tệp lớn ngoài git còn ở container thì chạy tiếp trong phiên đó sau `/compact` (sửa D-011, T6-3); không thì dựng lại theo `episode.yaml`.
@@ -69,8 +69,8 @@ Nguồn: `market/` (`CHANNELS.md`, `topics/<đề tài>.md` = hồ sơ cầu, `R
 2. **C1:** logline **trả lời câu hỏi trọng số cao nhất** của hồ sơ cầu (câu 1 mục "Câu hỏi khán giả"); kiểm mù kể lại giữ nguyên.
 3. **C2 (WRITER):** §3 mục 11. **REVIEWER:** `quality-framework.md` §7 mục 10 (trả lời ≥ 3/5 câu hỏi).
 4. **Kiểm mù lời C2:** vai người đọc = **người hỏi** câu hỏi trọng số cao nhất, nhập vai từ một hoàn cảnh điển hình của hồ sơ (thay vai khán giả chung; câu hỏi cố định giữ nguyên, thêm một câu: *"Did the video answer the question you came with? Which part?"*). Ghi vào ý đồ `gates/C2-intent.md` trước khi chạy như mọi ý đồ.
-5. **G1:** gói thêm **1 dòng** "trả lời câu hỏi X, Y, Z (hồ sơ cầu)" + **3 video vượt trội cùng đề tài** (liên kết, kênh, nhãn ≥ 3× / ≥ 5×) — không thêm câu hỏi cho chủ dự án (`templates/G1.md`). **Từ Tập 7 (D-012):** thêm dòng **"neo: …; khác biệt: …"** (`python3 toolkit/market/anchors.py anchors --topic <id> --question "<câu hỏi khán giả, không nêu phương pháp>"`, P1 Việc 0) và **tiêu đề chốt ở G1** (D-013: không thumbnail).
-6. **M6:** mô tả + chương + tag do máy viết, kiểm `package_check.py` (§5). Không thumbnail (D-013).
+5. **G1:** gói thêm **1 dòng** "trả lời câu hỏi X, Y, Z (hồ sơ cầu)" + **3 video vượt trội cùng đề tài** (liên kết, kênh, nhãn ≥ 3× / ≥ 5×) — không thêm câu hỏi cho chủ dự án (`templates/G1.md`). **Từ Tập 7 (D-012):** thêm dòng **"neo: …; khác biệt: …"** (`python3 toolkit/market/anchors.py anchors --topic <id> --question "<câu hỏi khán giả, không nêu phương pháp>"`, P1 Việc 0) và **tiêu đề chốt ở G1** theo cổng tiêu đề tìm kiếm (D-015, §5).
+6. **M6:** mô tả + chương + tag do máy viết, kiểm `package_check.py` (§5); 3 ảnh bìa + 1 đối chứng mã theo cổng G3 (D-015, §5).
 7. **Sau phát hành:** vòng tự hiệu chỉnh nhãn cầu §10.
 
 ## 2. Model, effort, số agent
@@ -146,10 +146,14 @@ WRITER **đọc `playbook/story.md` trước tiên**, rồi theo các luật sau
 - Phối nhạc style C, đo độ lặp T2 (Tham khảo).
 - Lời theo cảnh: tên take theo hash chữ; kiểm từ khoá ASR ngay khi sinh; chỉ sinh lại cảnh đổi chữ.
 
-## 5. Gói phát hành và Short (D-013: 1 Short, 0 thumbnail; G2 không còn ChatGPT/thumbnail)
+## 5. Gói phát hành và Short (D-013: 1 Short; D-015: cổng đóng gói — tiêu đề theo tìm kiếm ở G1, 3 ảnh bìa ở G3)
 - **Tiêu đề:** chốt ở G1 (so cặp một vòng, Tham khảo); M6 dùng đúng tiêu đề G1 trừ khi chủ dự án đổi ở G2.
 - **Mô tả, chương, tag: máy viết ở M6** từ claims, `out/timeline.json` (chương = tên chương gợi hình, `story.md` §1b) và hồ sơ cầu; kiểm bằng `python3 toolkit/market/package_check.py episodes/epNNN --title "…" --description <tệp>` (S21, claim-risk, chương khớp timeline ±2 s, ≥ 10 s/chương) + REVIEWER không cần (gói không tới chủ dự án trước G3; lệch thì sửa trước G3). Khối `[METHOD AND SOURCES]` + ghi công CC BY (RIGHTS) trong mô tả.
-- **Không thumbnail** (chủ dự án 13/10): không brief ChatGPT, không khung tham chiếu, không ảnh. YouTube tự chọn khung; `HUONG-DAN-DANG.md` ghi 3 khung 1080p đề nghị (mốc giây) để chủ dự án đặt nếu muốn. `toolkit/package/{text,thumbs}.py`, `toolkit/market/brief.py` là công cụ phụ, chỉ chạy khi chủ dự án yêu cầu. Checks: A38.
+- **Cổng đóng gói (D-015, chủ dự án 17/10 — thay "Không thumbnail" của D-013):**
+  - **G1 — tiêu đề theo tìm kiếm:** 3 tiêu đề ≤ 60 ký tự; cụm tìm kiếm có bằng chứng (gợi ý tìm kiếm YouTube lưu kèm ngày, hoặc từ khoá hồ sơ cầu) nằm trong **40 ký tự đầu**; có số hoặc hệ quả cụ thể; không thuật ngữ khó; `package_check` (số có claim, khuyên/dự báo) = 0 lỗi; bảng xếp hạng + lý do. Tiêu đề có số kèm điều kiện → điều kiện ở **dòng 1 mô tả**. Mẫu: `packaging/R1.md` §1, `packaging/r1/titles.json`.
+  - **G3 — duyệt 3 ảnh bìa:** 3 ảnh 1280×720 + 1 đối chứng dựng bằng mã. Phần hình: mô hình ảnh OpenAI vẽ **nền không chữ** theo STYLE chung của kênh (`packaging/r1/ai/prompts.json`: minh hoạ 3D đất sét/đồ chơi, 1 chủ thể ~40 % khung bên phải, sáng, tương phản mạnh) hoặc khung phim (`packaging/r1/make.py`); **chữ ≤ 4 từ (đối lập/câu hỏi có ngữ cảnh) + 1 con số + nhận diện kênh ghép bằng mã** (`packaging/r1/ai/compose.js` qua `final.py`/`round2.py`). Mỗi tập 6 phương án → Claude chấm bằng mắt ở 360 px + 168×94, giữ 3; **kiểm máy 168×94 ĐẠT** (chữ hoa ≥ 9 px, tương phản WCAG ≥ 4,5:1 chữ trắng và chữ màu trụ); **claim-risk 0**; chữ trên ảnh bổ sung, không lặp tiêu đề, số khớp tiêu đề.
+  - **Cấm trên ảnh bìa:** người thật/nhận diện được, ảnh chụp chân thực người, logo thương hiệu, cảnh/hứa hẹn video không có, chữ do mô hình ảnh vẽ. **Không nhãn ILLUSTRATIVE trên ảnh bìa** (giữ trong video và mô tả). Video giữ quy tắc không nhà cung cấp video/ảnh AI.
+  - **Sổ:** mỗi ảnh AI một dòng `RIGHTS.md` §H (công cụ, model, prompt, ngày, chi thật — `packaging/r1/ai/ledger.jsonl`); trần chi ảnh theo lệnh chặng. Chủ dự án chọn ảnh mặc định + thứ tự **Test & Compare** ở G3; `HUONG-DAN-DANG.md` ghi bộ 3 ảnh + dòng 1 mô tả. Luật checks P01 (token share) chờ khiếu nại A50.
 - **Không tóm tắt AI ở G2.**
 - **1 Short 9:16 mỗi tập**, cắt từ nhịp then chốt đã qua checks (thường là số neo hoặc nghịch lý mở đầu), dựng một lần ở M6:
   - ≤ 60 s;

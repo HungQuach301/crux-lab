@@ -48,7 +48,7 @@ Dòng 1 mô tả Tập 8 (gợi ý): `In about 3 out of 4 of 307 start months si
 
 | Video | Title | Test & Compare |
 |---|---|---|
-| `OEVfD-ywzLc` | `Should I Refinance? A $115,000 Loan Needed a 1.12-Point Cut` | `ep001-tc1.jpg`, `ep001-tc2.jpg` (WORTH IT? $5,124), `ep001-tc3.jpg` (FEES BACK? MONTH 30) |
+| `OEVfD-ywzLc` | `Should I Refinance? A $115,000 Loan Needed a 1.12-Point Cut` | `ep001-tc1.jpg` (RATE DROP NEEDED: 1.12), `ep001-tc2.jpg` (WORTH IT? $5,124 IN FEES), `ep001-tc3.jpg` (FEES BACK? MONTH 30) |
 | `-AwfRUE6UTI` | `Private Student Loans: Fixed or Variable? Since 1954` | `ep002-1-aic.jpg`, `ep002-2-aia.jpg`, `ep002-3-aib.jpg` |
 | `dn6-0g2RvD0` | `Annuity With a 2% Raise: It Kept Up in 17 of 715 Stretches` | `ep006-tc1.jpg` (minh hoạ), `ep006-tc2.jpg` (nền nghiêm/thực tế) — BUYING POWER LOSES 19%?; `ep006-tc3.jpg` (STILL BUYS 80.7%) |
 

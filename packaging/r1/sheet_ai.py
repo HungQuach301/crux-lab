@@ -36,8 +36,8 @@ R2 = {c['id']: c for c in json.loads((H / 'ai/checks-r2.json').read_text())}
 SC2 = {'ep005-tc1': (9, 'số khớp tiêu đề "8 Years"; khiên + đồng hồ cát'), 'ep005-tc2': (9, 'như #1, đồng hồ cát rõ nhất ở 168 px'),
        'ep005-tc3': (8.5, 'bản "23 MONTHS" giữ để đo lệch/khớp số với tiêu đề'),
        'ep008-tc1': (9, 'đúng câu hỏi tiêu đề; chữ màu lớn đọc ngay ở 168 px'), 'ep008-tc2': (8.5, 'bản cũ, có số — giữ để đo'),
-       'ep008-tc3': (8, 'câu hỏi trên nền phố sáng/tối'), 'ep001-tc1': (8.5, '"worth it" = cụm tìm kiếm; $5,124 = hoá đơn của Nora'),
-       'ep001-tc2': (8, 'nền thư đề nghị (cảnh 0:33)'), 'ep001-tc3': (8, 'bản cũ — giữ để đo'),
+       'ep008-tc3': (8, 'câu hỏi trên nền phố sáng/tối'), 'ep001-tc1': (8.5, 'vòng 3: số khớp tiêu đề T1 (1.12 điểm của Walt); đồng hồ = tháng hoàn phí'),
+       'ep001-tc2': (8, 'vòng 3: "worth it" = cụm tìm kiếm; $5,124 = hoá đơn của Nora, nền thư đề nghị (0:33); 5 từ > luật 4 từ (chữ chủ dự án chỉ định)'), 'ep001-tc3': (8, 'bản cũ — giữ để đo'),
        'ep007-tc1': (8.5, 'câu hỏi đúng lựa chọn; chồng vàng = khoản dự phòng'), 'ep007-tc2': (8, 'Leo vs Tessa'), 'ep007-tc3': (7.5, 'lưới an toàn'),
        'ep006-tc1': (8, 'khung mất mát rõ; séc leo bậc thấp hơn thùng hàng'),
        'ep006-tc2': (7.5, 'nền nghiêm/thực tế cho khán giả lớn tuổi; tấm séc bị chữ che — giỏ hàng là chủ thể'), 'ep006-tc3': (7.5, 'bản cũ — giữ để đo')}

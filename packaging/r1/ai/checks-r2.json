@@ -122,42 +122,42 @@
  {
   "id": "ep001-tc1",
   "texts": [
-   "WORTH IT?",
-   "$5,124"
+   "RATE DROP",
+   "NEEDED: 1.12"
   ],
-  "words": 3,
+  "words": 4,
   "cap_px_168": [
    9.2,
-   14.3
+   9.2
   ],
   "contrast": [
-   9.15,
+   16.99,
    10.2
   ],
   "claim_risk": [],
   "ok": true,
   "bg": "ep001-c",
-  "note": "Nora: hoá đơn refi $5,124 (median HMDA 2025, lời 0:33)"
+  "note": "vòng 3 (chủ dự án 17/10): Walt $115,000 cần lãi giảm 1.12 điểm để hoàn phí trong 3 năm (lời 7:10) — khớp tiêu đề T1"
  },
  {
   "id": "ep001-tc2",
   "texts": [
    "WORTH IT?",
-   "$5,124"
+   "$5,124 IN FEES"
   ],
-  "words": 3,
+  "words": 5,
   "cap_px_168": [
    9.2,
-   14.3
+   10.3
   ],
   "contrast": [
-   5.82,
-   6.14
+   6.79,
+   6.2
   ],
   "claim_risk": [],
-  "ok": true,
+  "ok": false,
   "bg": "ep001-a",
-  "note": "như trên, nền thư đề nghị"
+  "note": "vòng 3: hoá đơn refi của Nora $5,124 (median HMDA 2025, lời 0:33); 5 từ — chữ chủ dự án chỉ định, vượt luật ≤ 4 từ"
  },
  {
   "id": "ep001-tc3",

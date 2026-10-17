@@ -16,8 +16,8 @@ SET = [
  ('ep008', 'b', 'RENT =', 'WASTED?', 'debt', 'câu hỏi của Nina (0:26) = tiêu đề T1; chữ màu là chữ, không thêm số (75.6 % đứng một mình dễ đọc thành "75.6 % lãng phí")'),
  ('ep008', 'b', 'WORST CASE', '-$82,385', 'debt', 'adv_2006-06 — giữ để đo'),
  ('ep008', 'a', 'RENT =', 'WASTED?', 'debt', 'như dòng 1, nền phố'),
- ('ep001', 'c', 'WORTH IT?', '$5,124', 'debt', 'Nora: hoá đơn refi $5,124 (median HMDA 2025, lời 0:33)'),
- ('ep001', 'a', 'WORTH IT?', '$5,124', 'debt', 'như trên, nền thư đề nghị'),
+ ('ep001', 'c', 'RATE DROP', 'NEEDED: 1.12', 'debt', 'vòng 3 (chủ dự án 17/10): Walt $115,000 cần lãi giảm 1.12 điểm để hoàn phí trong 3 năm (lời 7:10) — khớp tiêu đề T1'),
+ ('ep001', 'a', 'WORTH IT?', '$5,124 IN FEES', 'debt', 'vòng 3: hoá đơn refi của Nora $5,124 (median HMDA 2025, lời 0:33); 5 từ — chữ chủ dự án chỉ định, vượt luật ≤ 4 từ'),
  ('ep001', 'c', 'FEES BACK?', 'MONTH 30', 'debt', 'bản cũ — giữ để đo'),
  ('ep007', 'a', '15 OR 30?', '', 'debt', 'số đã ở tiêu đề; câu hỏi của Tessa (0:11)'),
  ('ep007', 'd', '15 OR 30?', '', 'debt', 'như trên'),
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         n[ep] = n.get(ep, 0) + 1
         J.append(dict(id=f'{ep}-tc{n[ep]}', bg=str(H / 'raw' / f'{ep}-{v}.jpg'), out=str(tmp / f'{ep}-tc{n[ep]}.png'),
                       outBare=str(tmp / f'{ep}-tc{n[ep]}-bare.png'), cropY=80, l1=l1, l1Size=fit(l1, 96, 760 if l1 == 'BUYING POWER' else 700) if num else fit(l1, 130, 760), num=num,
-                      numSize=fit(num, 150, 620) if num else 1, pillar=pil, arrow=None, bgId=f'{ep}-{v}', note=note))
+                      numSize=fit(num, 150, 780 if num == '$5,124 IN FEES' else 620) if num else 1, pillar=pil, arrow=None, bgId=f'{ep}-{v}', note=note))
     (H / 'jobs-r2.json').write_text(json.dumps(J, indent=1, ensure_ascii=False))
     subprocess.run(['node', str(H / 'compose.js'), str(H / 'jobs-r2.json')], check=True, env=dict(os.environ, NODE_PATH='/opt/node-tools/node_modules'))
     R = []
