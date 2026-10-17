@@ -6,6 +6,7 @@ Chủ dự án: Hung Quach. v3 (05/10/2026, D-006): 3 cổng G1/G2/G3, rút gọ
 - **Kênh:** `us-personal-finance`, tiếng Anh Mỹ, không lộ mặt, data-explainer. Ba định dạng: `lab` (9–11 phút), `101` (8–9 phút), `deep` (14–17 phút, chỉ khi đủ ba điều kiện không độn và nhà máy đạt nhịp hình trước — D-012, `episode.md` §9), kèm **1 Short** mỗi tập (D-013).
 - **Định vị:** *phòng thí nghiệm quyết định tài chính*. Mỗi tập trả lời một quyết định cụ thể bằng mô phỏng trên dữ liệu thật; nguồn và phương pháp minh bạch.
 - **Ba trụ nội dung:** vay và nợ · nghỉ hưu và đầu tư dài hạn · thuế và chính sách.
+- **Khán giả lõi (chủ dự án 17/10, đề xuất `packaging/R1.md` §7c):** người Mỹ 25–40 tuổi đang thuê hoặc sắp mua nhà, bắt đầu đầu tư. Đề tài người lớn tuổi (annuity, EE bonds, quy tắc 4 %) là **vòng ngoài, không ưu tiên**; video cũ giữ công khai. Kiểm lại bằng nhân khẩu học Studio ở mốc **06/11**.
 - **Mục tiêu:** tập đạt chuẩn → khán giả → nhiều kênh → thương mại hoá phương pháp kiểm chứng.
 
 ## 2. Bất biến vận hành
