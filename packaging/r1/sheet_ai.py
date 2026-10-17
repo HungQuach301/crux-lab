@@ -30,3 +30,28 @@ for ep in ['ep005', 'ep008', 'ep009', 'ep001', 'ep002', 'ep006', 'ep007']:
                  f'<img src="final/small/{fn.replace(".jpg", ".png")}" width="168" height="94"> | {"—" if sc is None else sc}: {why} | {"ĐẠT" if ok else "**TRƯỢT**"}: {m} |')
     o.append('')
 (H / 'DUYET-AI.md').write_text('\n'.join(o)); print('DUYET-AI.md')
+
+# Vòng 2 (chủ dự án 17/10, rà khớp khán giả): bộ 3 ảnh T&C mới — chỉ đổi chữ (+ 1 nền Tập 6 nghiêm/thực tế); Tập 2, 9 giữ bộ vòng 1.
+R2 = {c['id']: c for c in json.loads((H / 'ai/checks-r2.json').read_text())}
+SC2 = {'ep005-tc1': (9, 'số khớp tiêu đề "8 Years"; khiên + đồng hồ cát'), 'ep005-tc2': (9, 'như #1, đồng hồ cát rõ nhất ở 168 px'),
+       'ep005-tc3': (8.5, 'bản "23 MONTHS" giữ để đo lệch/khớp số với tiêu đề'),
+       'ep008-tc1': (9, 'đúng câu hỏi tiêu đề; chữ màu lớn đọc ngay ở 168 px'), 'ep008-tc2': (8.5, 'bản cũ, có số — giữ để đo'),
+       'ep008-tc3': (8, 'câu hỏi trên nền phố sáng/tối'), 'ep001-tc1': (8.5, '"worth it" = cụm tìm kiếm; $5,124 = hoá đơn của Nora'),
+       'ep001-tc2': (8, 'nền thư đề nghị (cảnh 0:33)'), 'ep001-tc3': (8, 'bản cũ — giữ để đo'),
+       'ep007-tc1': (8.5, 'câu hỏi đúng lựa chọn; chồng vàng = khoản dự phòng'), 'ep007-tc2': (8, 'Leo vs Tessa'), 'ep007-tc3': (7.5, 'lưới an toàn'),
+       'ep006-tc1': (8, 'khung mất mát rõ; séc leo bậc thấp hơn thùng hàng'),
+       'ep006-tc2': (7.5, 'nền nghiêm/thực tế cho khán giả lớn tuổi; tấm séc bị chữ che — giỏ hàng là chủ thể'), 'ep006-tc3': (7.5, 'bản cũ — giữ để đo')}
+o2 = ['# Tờ duyệt ảnh bìa R1-AI — VÒNG 2 (bộ Test & Compare mới)', '',
+      'Chủ dự án 17/10: rà khớp khán giả, một vòng sửa chữ (`ai/round2.py`, cùng bố cục và phép kiểm). Mỗi video: **3 ảnh = bộ Test & Compare**, #1 = đề nghị mặc định. '
+      'Tập 2 và Tập 9 không đổi (bộ vòng 1 bên dưới). Kiểm 168×94: **15/15 ĐẠT**, claim-risk 0.', '']
+for ep in ['ep005', 'ep008', 'ep001', 'ep007', 'ep006']:
+    o2 += [f'## {NAME[ep]} — `{T[ep]["video"]}` · T1: {T[ep]["titles"][0]}', '', '| TC | cỡ thật (bấm mở) | điện thoại 360 px | 168×94 | điểm Claude | kiểm máy · nền · claim |', '|---|---|---|---|---|---|']
+    for i in (1, 2, 3):
+        k = f'{ep}-tc{i}'; c = R2[k]; fn = f'{k}.jpg'; sc, why = SC2[k]
+        Image.open(F / fn).resize((168, 94), Image.LANCZOS).save(F / 'small' / f'{k}.png')
+        o2.append(f'| **#{i}** | <a href="final/{fn}"><img src="final/{fn}" width="480"></a> | <img src="final/{fn}" width="360"> | <img src="final/small/{k}.png" width="168" height="94"> | '
+                  f'{sc}: {why} | {"ĐẠT" if c["ok"] else "**TRƯỢT**"}: "{" ".join(t for t in c["texts"] if t)}" · chữ {"/".join(map(str, c["cap_px_168"]))} px · '
+                  f'{" / ".join(map(str, c["contrast"]))}:1 · nền `{c["bg"]}` · {c["note"]} |')
+    o2.append('')
+(H / 'DUYET-AI.md').write_text('\n'.join(o2) + '\n\n---\n\n' + (H / 'DUYET-AI.md').read_text()); print('DUYET-AI.md + vòng 2')
+

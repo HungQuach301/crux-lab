@@ -21,7 +21,7 @@ def cost(u):
 
 
 def gen(i):
-    spec = P['items'][i]; prompt = P['style'] + ' SUBJECT: ' + spec['subject'] + ' ' + P['negative']
+    spec = P['items'][i]; prompt = spec.get('style', P['style']) + ' SUBJECT: ' + spec['subject'] + ' ' + P['negative']   # style riêng: vòng 2 (Tập 6 nghiêm/thực tế)
     body = json.dumps({'model': P['model'], 'prompt': prompt, 'size': '1536x1024', 'quality': spec.get('quality', P['quality']), 'n': 1}).encode()
     req = urllib.request.Request('https://api.openai.com/v1/images/generations', body, {'Content-Type': 'application/json'})
     try:

@@ -28,7 +28,7 @@ function svg(j, bare) {
     t += `<path d="M${x0},${y0} Q${mx},${my} ${x1},${y1}" fill="none" stroke="${BG}" stroke-width="24" stroke-linecap="round" opacity="0.6"/>
     <path d="M${x0},${y0} Q${mx},${my} ${x1},${y1}" fill="none" stroke="${c}" stroke-width="14" stroke-linecap="round" marker-end="url(#h)"/>`;
   }
-  t += `<g filter="url(#sh)"><text x="48" y="${Math.round(652 - j.numSize * 0.8 - 22)}" font-size="${j.l1Size}" fill="${INK}" stroke="${BG}" stroke-width="8" paint-order="stroke" letter-spacing="1">${esc(j.l1)}</text>`;
+  t += `<g filter="url(#sh)"><text x="48" y="${j.num ? Math.round(652 - j.numSize * 0.8 - 22) : 652}" font-size="${j.l1Size}" fill="${INK}" stroke="${BG}" stroke-width="8" paint-order="stroke" letter-spacing="1">${esc(j.l1)}</text>`;
   if (j.num) t += `<text x="44" y="652" font-size="${j.numSize}" fill="${c}" stroke="${BG}" stroke-width="12" paint-order="stroke" letter-spacing="-2">${esc(j.num)}</text>`;
   return t + '</g>';
 }

@@ -1,3 +1,50 @@
+# Tờ duyệt ảnh bìa R1-AI — VÒNG 2 (bộ Test & Compare mới)
+
+Chủ dự án 17/10: rà khớp khán giả, một vòng sửa chữ (`ai/round2.py`, cùng bố cục và phép kiểm). Mỗi video: **3 ảnh = bộ Test & Compare**, #1 = đề nghị mặc định. Tập 2 và Tập 9 không đổi (bộ vòng 1 bên dưới). Kiểm 168×94: **15/15 ĐẠT**, claim-risk 0.
+
+## Tập 5 · PMI — `1o-2RJ-DdfE` · T1: When Does PMI Go Away With 10% Down? 8 Years by Schedule
+
+| TC | cỡ thật (bấm mở) | điện thoại 360 px | 168×94 | điểm Claude | kiểm máy · nền · claim |
+|---|---|---|---|---|---|
+| **#1** | <a href="final/ep005-tc1.jpg"><img src="final/ep005-tc1.jpg" width="480"></a> | <img src="final/ep005-tc1.jpg" width="360"> | <img src="final/small/ep005-tc1.png" width="168" height="94"> | 9: số khớp tiêu đề "8 Years"; khiên + đồng hồ cát | ĐẠT: "PMI FOR 8 YEARS?" · chữ 9.2/12.2 px · 15.88 / 7.17:1 · nền `ep005-a` · lịch luật: xin huỷ ở payment 99 ≈ 8 năm (lời 0:10 "about 8 years") — khớp tiêu đề T1 |
+| **#2** | <a href="final/ep005-tc2.jpg"><img src="final/ep005-tc2.jpg" width="480"></a> | <img src="final/ep005-tc2.jpg" width="360"> | <img src="final/small/ep005-tc2.png" width="168" height="94"> | 9: như #1, đồng hồ cát rõ nhất ở 168 px | ĐẠT: "PMI FOR 8 YEARS?" · chữ 9.2/12.2 px · 17.12 / 9.9:1 · nền `ep005-d` · như trên |
+| **#3** | <a href="final/ep005-tc3.jpg"><img src="final/ep005-tc3.jpg" width="480"></a> | <img src="final/ep005-tc3.jpg" width="360"> | <img src="final/small/ep005-tc3.png" width="168" height="94"> | 8.5: bản "23 MONTHS" giữ để đo lệch/khớp số với tiêu đề | ĐẠT: "ON PAPER? 23 MONTHS" · chữ 9.2/9.7 px · 11.52 / 7.24:1 · nền `ep005-a` · medianB_months_to80 — giữ 1 bản để đo |
+
+## Tập 8 · rent vs buy — `26SfSIDPpzk` · T1: Is Renting a Waste of Money? Buying Led in 3 of 4 Months
+
+| TC | cỡ thật (bấm mở) | điện thoại 360 px | 168×94 | điểm Claude | kiểm máy · nền · claim |
+|---|---|---|---|---|---|
+| **#1** | <a href="final/ep008-tc1.jpg"><img src="final/ep008-tc1.jpg" width="480"></a> | <img src="final/ep008-tc1.jpg" width="360"> | <img src="final/small/ep008-tc1.png" width="168" height="94"> | 9: đúng câu hỏi tiêu đề; chữ màu lớn đọc ngay ở 168 px | ĐẠT: "RENT = WASTED?" · chữ 9.2/12.0 px · 16.43 / 8.5:1 · nền `ep008-b` · câu hỏi của Nina (0:26) = tiêu đề T1; chữ màu là chữ, không thêm số (75.6 % đứng một mình dễ đọc thành "75.6 % lãng phí") |
+| **#2** | <a href="final/ep008-tc2.jpg"><img src="final/ep008-tc2.jpg" width="480"></a> | <img src="final/ep008-tc2.jpg" width="360"> | <img src="final/small/ep008-tc2.png" width="168" height="94"> | 8.5: bản cũ, có số — giữ để đo | ĐẠT: "WORST CASE -$82,385" · chữ 9.2/12.6 px · 5.82 / 8.45:1 · nền `ep008-b` · adv_2006-06 — giữ để đo |
+| **#3** | <a href="final/ep008-tc3.jpg"><img src="final/ep008-tc3.jpg" width="480"></a> | <img src="final/ep008-tc3.jpg" width="360"> | <img src="final/small/ep008-tc3.png" width="168" height="94"> | 8: câu hỏi trên nền phố sáng/tối | ĐẠT: "RENT = WASTED?" · chữ 9.2/12.0 px · 13.22 / 8.2:1 · nền `ep008-a` · như dòng 1, nền phố |
+
+## Tập 1 · refi — `OEVfD-ywzLc` · T1: Should I Refinance? A $115,000 Loan Needed a 1.12-Point Cut
+
+| TC | cỡ thật (bấm mở) | điện thoại 360 px | 168×94 | điểm Claude | kiểm máy · nền · claim |
+|---|---|---|---|---|---|
+| **#1** | <a href="final/ep001-tc1.jpg"><img src="final/ep001-tc1.jpg" width="480"></a> | <img src="final/ep001-tc1.jpg" width="360"> | <img src="final/small/ep001-tc1.png" width="168" height="94"> | 8.5: "worth it" = cụm tìm kiếm; $5,124 = hoá đơn của Nora | ĐẠT: "WORTH IT? $5,124" · chữ 9.2/14.3 px · 9.15 / 10.2:1 · nền `ep001-c` · Nora: hoá đơn refi $5,124 (median HMDA 2025, lời 0:33) |
+| **#2** | <a href="final/ep001-tc2.jpg"><img src="final/ep001-tc2.jpg" width="480"></a> | <img src="final/ep001-tc2.jpg" width="360"> | <img src="final/small/ep001-tc2.png" width="168" height="94"> | 8: nền thư đề nghị (cảnh 0:33) | ĐẠT: "WORTH IT? $5,124" · chữ 9.2/14.3 px · 5.82 / 6.14:1 · nền `ep001-a` · như trên, nền thư đề nghị |
+| **#3** | <a href="final/ep001-tc3.jpg"><img src="final/ep001-tc3.jpg" width="480"></a> | <img src="final/ep001-tc3.jpg" width="360"> | <img src="final/small/ep001-tc3.png" width="168" height="94"> | 8: bản cũ — giữ để đo | ĐẠT: "FEES BACK? MONTH 30" · chữ 9.2/10.9 px · 8.29 / 10.2:1 · nền `ep001-c` · bản cũ — giữ để đo |
+
+## Tập 7 · 15 vs 30 — `p78Ca1OHTgM` · T1: 15 Year vs 30 Year Mortgage Paid in 15: $120 a Month More
+
+| TC | cỡ thật (bấm mở) | điện thoại 360 px | 168×94 | điểm Claude | kiểm máy · nền · claim |
+|---|---|---|---|---|---|
+| **#1** | <a href="final/ep007-tc1.jpg"><img src="final/ep007-tc1.jpg" width="480"></a> | <img src="final/ep007-tc1.jpg" width="360"> | <img src="final/small/ep007-tc1.png" width="168" height="94"> | 8.5: câu hỏi đúng lựa chọn; chồng vàng = khoản dự phòng | ĐẠT: "15 OR 30?" · chữ 12.4 px · 15.36:1 · nền `ep007-a` · số đã ở tiêu đề; câu hỏi của Tessa (0:11) |
+| **#2** | <a href="final/ep007-tc2.jpg"><img src="final/ep007-tc2.jpg" width="480"></a> | <img src="final/ep007-tc2.jpg" width="360"> | <img src="final/small/ep007-tc2.png" width="168" height="94"> | 8: Leo vs Tessa | ĐẠT: "15 OR 30?" · chữ 12.4 px · 12.67:1 · nền `ep007-d` · như trên |
+| **#3** | <a href="final/ep007-tc3.jpg"><img src="final/ep007-tc3.jpg" width="480"></a> | <img src="final/ep007-tc3.jpg" width="360"> | <img src="final/small/ep007-tc3.png" width="168" height="94"> | 7.5: lưới an toàn | ĐẠT: "15 OR 30?" · chữ 12.4 px · 14.38:1 · nền `ep007-b` · như trên |
+
+## Tập 6 · annuity — `dn6-0g2RvD0` · T1: Annuity With a 2% Raise: It Kept Up in 17 of 715 Stretches
+
+| TC | cỡ thật (bấm mở) | điện thoại 360 px | 168×94 | điểm Claude | kiểm máy · nền · claim |
+|---|---|---|---|---|---|
+| **#1** | <a href="final/ep006-tc1.jpg"><img src="final/ep006-tc1.jpg" width="480"></a> | <img src="final/ep006-tc1.jpg" width="360"> | <img src="final/small/ep006-tc1.png" width="168" height="94"> | 8: khung mất mát rõ; séc leo bậc thấp hơn thùng hàng | ĐẠT: "BUYING POWER LOSES 19%?" · chữ 9.2/9.5 px · 9.28 / 5.92:1 · nền `ep006-c` · 100 − 80.7 (median_real_value_2pct_payment_after_20y_pct) = 19.3 % sức mua mất ở mốc 20 năm, trung vị 715 giai đoạn; điều kiện ở dòng 1 mô tả |
+| **#2** | <a href="final/ep006-tc2.jpg"><img src="final/ep006-tc2.jpg" width="480"></a> | <img src="final/ep006-tc2.jpg" width="360"> | <img src="final/small/ep006-tc2.png" width="168" height="94"> | 7.5: nền nghiêm/thực tế cho khán giả lớn tuổi; tấm séc bị chữ che — giỏ hàng là chủ thể | ĐẠT: "BUYING POWER LOSES 19%?" · chữ 9.2/9.5 px · 10.71 / 5.22:1 · nền `ep006-g` · như trên — nền nghiêm/thực tế (séc + giỏ hàng, không người) |
+| **#3** | <a href="final/ep006-tc3.jpg"><img src="final/ep006-tc3.jpg" width="480"></a> | <img src="final/ep006-tc3.jpg" width="360"> | <img src="final/small/ep006-tc3.png" width="168" height="94"> | 7.5: bản cũ — giữ để đo | ĐẠT: "STILL BUYS 80.7%" · chữ 9.2/14.3 px · 6.58 / 6.48:1 · nền `ep006-c` · bản cũ — giữ để đo |
+
+
+---
+
 # Tờ duyệt ảnh bìa R1-AI (D-015)
 
 Mỗi video: **chọn 1 ảnh mặc định**; 3 ảnh vào **Test & Compare** (đề nghị: #1, #2, #3; đổi #3 lấy đối chứng mã #0 nếu muốn thử AI vs mã). Tiêu đề = **T1 đã duyệt 17/10**. Phần hình #1–#3: OpenAI `gpt-image-1` (không chữ, `RIGHTS.md` §H); chữ, số, logo: ghép bằng mã. Điểm /10 = Claude chấm bằng mắt ở 360 px và 168×94 (rõ chủ thể 4 + khớp video 4 + chữ không đè chủ thể 2). Kiểm máy 168×94: chữ hoa ≥ 9 px, tương phản ≥ 4,5:1 (chữ trắng / chữ màu trụ). Tập 3: giữ nguyên làm đối chứng tới 01/11 — không có ở tờ này.

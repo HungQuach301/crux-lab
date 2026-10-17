@@ -59,19 +59,21 @@ def jobs():
 
 def check(j):
     bare = Image.open(j['outBare']).convert('RGB'); k = 168 / 1280
-    yn = 652; y1 = round(652 - j['numSize'] * 0.8 - 22)
+    yn = 652; y1 = round(652 - j['numSize'] * 0.8 - 22) if j['num'] else 652
     boxes = [(48, y1 - j['l1Size'] * 0.75, 48 + thumbs.font(j['l1Size']).getlength(j['l1']), y1),
              (44, yn - j['numSize'] * 0.75, 44 + thumbs.font(j['numSize']).getlength(j['num']), yn)]
     cs = []
+    if not j['num']:   # chỉ một dòng chữ (vòng 2: "RENT = WASTED?")
+        boxes = boxes[:1]
     for (x0, y0, x1, y1_), col in zip(boxes, [thumbs.TOK['ink'], thumbs.PILLAR[j['pillar']]]):
         reg = bare.crop((int(x0), int(y0), int(x1), int(y1_))).resize((max(1, int((x1 - x0) * k)), max(1, int((y1_ - y0) * k))))
         px = sorted(reg.get_flattened_data(), key=lum); cs.append(round(contrast(hexrgb(col), px[int(len(px) * 0.9)]), 2))
-    caps = [round(j['l1Size'] * 0.727 * k, 1), round(j['numSize'] * 0.727 * k, 1)]
+    caps = [round(j['l1Size'] * 0.727 * k, 1)] + ([round(j['numSize'] * 0.727 * k, 1)] if j['num'] else [])
     ep = j['id'][:5]
     cl = json.loads((pathlib.Path(CLAIMS_ROOT.get(ep, ROOT)) / 'episodes' / ep / 'out/claims.json').read_text()); cl = cl['claims'] if isinstance(cl, dict) else cl
     txt = f"{j['l1']} {j['num']}".replace('-$', '$').replace('+', '')
     risk = [f'{a} "{b}"' for a, b in scan(txt)] + [f'số "{n}" không có claim' for n in bad_numbers(txt, claim_number_set(cl))]
-    words = len(f"{j['l1']} {j['num']}".split())
+    words = len(f"{j['l1']} {j['num']}".replace(' = ', ' ').split())
     return dict(id=j['id'], texts=[j['l1'], j['num']], words=words, cap_px_168=caps, contrast=cs, claim_risk=risk,
                 ok=bool(min(caps) >= 9 and min(cs) >= 4.5 and words <= 4 and not risk))
 
