@@ -5,7 +5,7 @@
  "total": 52.6333,
  "fps": 30,
  "pad": 0.25,
- "episode_t0": 22.7,
+ "episode_t0": 24.6334,
  "scenes": [
   "S03"
  ],
@@ -831,12 +831,12 @@
    "music": 0.6,
    "emotion": "lật",
    "next": "CHUYỂN CHẾ ĐỘ → thế giới",
-   "t0": 0.05,
-   "t1": 7.76,
+   "t0": 0.0496,
+   "t1": 7.7596,
    "cues": {
-    "fifteen": 0.23,
-    "every": 3.953,
-    "stocks": 5.3
+    "fifteen": 0.2296,
+    "every": 3.9526,
+    "stocks": 5.2996
    }
   },
   {
@@ -850,10 +850,10 @@
    "music": 0.45,
    "emotion": "lo",
    "next": "—",
-   "t0": 9.1,
-   "t1": 13.52,
+   "t0": 9.0996,
+   "t1": 13.5196,
    "cues": {
-    "invests": 10.389
+    "invests": 10.3886
    }
   },
   {
@@ -869,11 +869,11 @@
    "music": 0.5,
    "emotion": "nghịch lý",
    "next": "—",
-   "t0": 14.483,
-   "t1": 21.12,
+   "t0": 14.4826,
+   "t1": 21.1196,
    "cues": {
-    "outgrew": 14.86,
-    "half": 20.368
+    "outgrew": 14.8596,
+    "half": 20.3676
    }
   },
   {
@@ -887,10 +887,10 @@
    "music": 0.4,
    "emotion": "bình thản",
    "next": "—",
-   "t0": 21.793,
-   "t1": 23.84,
+   "t0": 21.7926,
+   "t1": 23.8396,
    "cues": {
-    "history": 21.9
+    "history": 21.8996
    }
   },
   {
@@ -906,11 +906,11 @@
    "music": 0.4,
    "emotion": "rõ",
    "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
-   "t0": 24.893,
-   "t1": 34.8,
+   "t0": 24.8926,
+   "t1": 34.7996,
    "cues": {
-    "replayed": 25.017,
-    "lit": 31.23
+    "replayed": 25.0166,
+    "lit": 31.2296
    }
   },
   {
@@ -926,11 +926,11 @@
    "music": 0.45,
    "emotion": "rõ",
    "next": "—",
-   "t0": 35.66,
-   "t1": 43.04,
+   "t0": 35.6596,
+   "t1": 43.0396,
    "cues": {
-    "pile": 36.64,
-    "plus": 39.35
+    "pile": 36.6396,
+    "plus": 39.3496
    }
   },
   {
@@ -946,11 +946,11 @@
    "music": 0.45,
    "emotion": "căng nhẹ",
    "next": "ident",
-   "t0": 43.95,
-   "t1": 48.8,
+   "t0": 43.9496,
+   "t1": 48.7996,
    "cues": {
-    "market": 45.966,
-    "drop": 48.32
+    "market": 45.9656,
+    "drop": 48.3196
    }
   }
  ],
@@ -960,8 +960,8 @@
    "verb": "mode",
    "from": "cStreet",
    "to": "wNina",
-   "t0": 7.14,
-   "t1": 8.539,
+   "t0": 7.1386,
+   "t1": 8.5386,
    "reason": "câu hỏi của Nina: về thế giới, ở cửa cô",
    "sound": "whoosh_mode"
   },
@@ -970,8 +970,8 @@
    "verb": "pull",
    "from": "wNina",
    "to": "wWide",
-   "t0": 11.82,
-   "t1": 13.42,
+   "t0": 11.8196,
+   "t1": 13.4196,
    "reason": "nghịch lý: lùi thấy cả phố và tường cột phía sau",
    "sound": "whoosh_soft"
   },
@@ -980,31 +980,31 @@
    "verb": "mode",
    "from": "wWide",
    "to": "cPile",
-   "t0": 33.33,
-   "t1": 34.53,
+   "t0": 33.3296,
+   "t1": 34.5296,
    "reason": "định nghĩa đống: số chỉ ở đồ thị, cận kệ N6",
    "sound": "whoosh_mode"
   }
  ],
  "events": [
   {
-   "t": 3.953,
+   "t": 3.9526,
    "kind": "data",
    "v": 0.8
   },
   {
-   "t": 5.3,
+   "t": 5.2996,
    "kind": "data",
    "v": 0.2
   },
   {
-   "t": 7.14,
+   "t": 7.1386,
    "kind": "whoosh_mode",
-   "dur": 1.399,
+   "dur": 1.4,
    "gain": 0.6
   },
   {
-   "t": 8.539,
+   "t": 8.5386,
    "kind": "land",
    "mode": true,
    "real": "S-OGA-PAGEFLIP4",
@@ -1014,29 +1014,29 @@
    "offset": 0.0
   },
   {
-   "t": 11.82,
+   "t": 11.8196,
    "kind": "whoosh_soft",
    "dur": 1.6,
    "gain": 0.9
   },
   {
-   "t": 20.368,
+   "t": 20.3676,
    "kind": "data",
    "v": 0.5
   },
   {
-   "t": 25.017,
+   "t": 25.0166,
    "kind": "rise",
    "dur": 1.6
   },
   {
-   "t": 33.33,
+   "t": 33.3296,
    "kind": "whoosh_mode",
    "dur": 1.2,
    "gain": 0.6
   },
   {
-   "t": 39.35,
+   "t": 39.3496,
    "kind": "tick",
    "v": 0.4,
    "real": "S-KEN-DOORCLOSE1",
@@ -1046,7 +1046,7 @@
    "offset": 0.0
   },
   {
-   "t": 48.32,
+   "t": 48.3196,
    "kind": "data",
    "v": 0.3
   }
@@ -1057,31 +1057,31 @@
    0.2
   ],
   [
-   0.05,
+   0.0496,
    0.56
   ],
   [
-   9.1,
+   9.0996,
    0.47000000000000003
   ],
   [
-   14.483,
+   14.4826,
    0.5
   ],
   [
-   21.793,
+   21.7926,
    0.44
   ],
   [
-   24.893,
+   24.8926,
    0.44
   ],
   [
-   35.66,
+   35.6596,
    0.47000000000000003
   ],
   [
-   43.95,
+   43.9496,
    0.47000000000000003
   ],
   [
@@ -1093,11 +1093,11 @@
   {
    "id": "s0",
    "t0": 0,
-   "t1": 7.14
+   "t1": 7.139
   },
   {
    "id": "s1",
-   "t0": 7.14,
+   "t0": 7.139,
    "t1": 11.82
   },
   {
@@ -1114,7 +1114,7 @@
  "music_plan": {
   "bed": {
    "wav": "episodes/ep009/work/factory/music/bed.wav",
-   "offset": 22.7,
+   "offset": 24.6334,
    "fade": 0.0
   },
   "stop": 52.6333,
@@ -1122,7 +1122,7 @@
   "accents": []
  },
  "mix": {
-  "music_db": 16.0,
+  "music_db": 16.14,
   "data_db": 34.0,
   "silences": []
  },
@@ -1167,7 +1167,7 @@
   "a10.drop": "major"
  },
  "ident": [
-  49.633,
+  49.6336,
   52.6333
  ],
  "chapter": [
@@ -1189,11 +1189,11 @@
     "music": 0.35,
     "emotion": "nghịch lý",
     "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
-    "t0": -22.6,
-    "t1": -17.82,
+    "t0": -24.5334,
+    "t1": -19.7534,
     "cues": {
-     "stocks": -21.493,
-     "nine": -19.74
+     "stocks": -23.4264,
+     "nine": -21.6734
     }
    },
    {
@@ -1209,11 +1209,11 @@
     "music": 0.4,
     "emotion": "tò mò",
     "next": "lia máy",
-    "t0": -16.813,
-    "t1": -11.953,
+    "t0": -18.7464,
+    "t1": -12.7664,
     "cues": {
-     "so": -16.523,
-     "saved": -12.366
+     "so": -18.4564,
+     "saved": -13.3264
     }
    },
    {
@@ -1222,18 +1222,18 @@
     "mode": "chart",
     "idea": "Người thuê giữ tiền mặt → người mua hơn khoảng 3/4.",
     "visual": "phố nhìn cao; hộp CASH; đèn sáng theo bản tiền mặt.",
-    "line": "If her renting twin held cash, her buying twin ended ahead about 3 in 4 times.",
+    "line": "If her renting twin held cash, her buying twin ended ahead about 3 out of 4 times.",
     "sound": [
      "tinh ×n"
     ],
     "music": 0.45,
     "emotion": "ngạc nhiên",
     "next": "—",
-    "t0": -11.656,
-    "t1": -6.033,
+    "t0": -12.1964,
+    "t1": -6.2864,
     "cues": {
-     "cash": -10.177,
-     "ahead": -8.153
+     "cash": -10.8304,
+     "ahead": -8.6194
     }
    },
    {
@@ -1250,11 +1250,11 @@
     "music": 0.55,
     "emotion": "bất ngờ",
     "next": "—",
-    "t0": -5.343,
-    "t1": -0.993,
+    "t0": -5.6664,
+    "t1": -1.0064,
     "cues": {
-     "stocks": -4.524,
-     "half": -1.969
+     "stocks": -4.8574,
+     "half": -1.9824
     }
    },
    {
@@ -1271,12 +1271,12 @@
     "music": 0.6,
     "emotion": "lật",
     "next": "CHUYỂN CHẾ ĐỘ → thế giới",
-    "t0": 0.05,
-    "t1": 7.76,
+    "t0": 0.0496,
+    "t1": 7.7596,
     "cues": {
-     "fifteen": 0.23,
-     "every": 3.953,
-     "stocks": 5.3
+     "fifteen": 0.2296,
+     "every": 3.9526,
+     "stocks": 5.2996
     }
    },
    {
@@ -1290,10 +1290,10 @@
     "music": 0.45,
     "emotion": "lo",
     "next": "—",
-    "t0": 9.1,
-    "t1": 13.52,
+    "t0": 9.0996,
+    "t1": 13.5196,
     "cues": {
-     "invests": 10.389
+     "invests": 10.3886
     }
    },
    {
@@ -1309,11 +1309,11 @@
     "music": 0.5,
     "emotion": "nghịch lý",
     "next": "—",
-    "t0": 14.483,
-    "t1": 21.12,
+    "t0": 14.4826,
+    "t1": 21.1196,
     "cues": {
-     "outgrew": 14.86,
-     "half": 20.368
+     "outgrew": 14.8596,
+     "half": 20.3676
     }
    },
    {
@@ -1327,10 +1327,10 @@
     "music": 0.4,
     "emotion": "bình thản",
     "next": "—",
-    "t0": 21.793,
-    "t1": 23.84,
+    "t0": 21.7926,
+    "t1": 23.8396,
     "cues": {
-     "history": 21.9
+     "history": 21.8996
     }
    },
    {
@@ -1346,11 +1346,11 @@
     "music": 0.4,
     "emotion": "rõ",
     "next": "CHUYỂN CHẾ ĐỘ → đồ thị",
-    "t0": 24.893,
-    "t1": 34.8,
+    "t0": 24.8926,
+    "t1": 34.7996,
     "cues": {
-     "replayed": 25.017,
-     "lit": 31.23
+     "replayed": 25.0166,
+     "lit": 31.2296
     }
    },
    {
@@ -1366,11 +1366,11 @@
     "music": 0.45,
     "emotion": "rõ",
     "next": "—",
-    "t0": 35.66,
-    "t1": 43.04,
+    "t0": 35.6596,
+    "t1": 43.0396,
     "cues": {
-     "pile": 36.64,
-     "plus": 39.35
+     "pile": 36.6396,
+     "plus": 39.3496
     }
    },
    {
@@ -1386,11 +1386,11 @@
     "music": 0.45,
     "emotion": "căng nhẹ",
     "next": "ident",
-    "t0": 43.95,
-    "t1": 48.8,
+    "t0": 43.9496,
+    "t1": 48.7996,
     "cues": {
-     "market": 45.966,
-     "drop": 48.32
+     "market": 45.9656,
+     "drop": 48.3196
     }
    }
   ],
@@ -1400,8 +1400,8 @@
     "verb": "push",
     "from": "w0",
     "to": "w0~",
-    "t0": -22.45,
-    "t1": -21.753,
+    "t0": -24.3834,
+    "t1": -23.6864,
     "reason": "mở: đẩy nhẹ vào phố chưa sáng, tường cột đang mọc",
     "sound": "whoosh_air"
    },
@@ -1410,8 +1410,8 @@
     "verb": "mode",
     "from": "w0~",
     "to": "cWall",
-    "t0": -17.7,
-    "t1": -16.95,
+    "t0": -19.6334,
+    "t1": -18.8834,
     "reason": "tỉ lệ chỉ ở đồ thị (quy tắc 1), sau 5 s thế giới (quy tắc 7)",
     "sound": "whoosh_mode"
    },
@@ -1420,8 +1420,8 @@
     "verb": "pan",
     "from": "cWall",
     "to": "cNina",
-    "t0": -15.15,
-    "t1": -13.75,
+    "t0": -16.5964,
+    "t1": -15.1964,
     "reason": "từ tường cột sang người: Nina và tiền để dành",
     "sound": "whoosh_soft"
    },
@@ -1430,8 +1430,8 @@
     "verb": "pull",
     "from": "cNina",
     "to": "cStreet",
-    "t0": -11.976,
-    "t1": -10.576,
+    "t0": -12.7834,
+    "t1": -11.3834,
     "reason": "lùi lên phố: tiền của Nina đặt cạnh con phố",
     "sound": "whoosh_soft"
    },
@@ -1440,8 +1440,8 @@
     "verb": "mode",
     "from": "cStreet",
     "to": "wNina",
-    "t0": 7.14,
-    "t1": 8.539,
+    "t0": 7.1386,
+    "t1": 8.5386,
     "reason": "câu hỏi của Nina: về thế giới, ở cửa cô",
     "sound": "whoosh_mode"
    },
@@ -1450,8 +1450,8 @@
     "verb": "pull",
     "from": "wNina",
     "to": "wWide",
-    "t0": 11.82,
-    "t1": 13.42,
+    "t0": 11.8196,
+    "t1": 13.4196,
     "reason": "nghịch lý: lùi thấy cả phố và tường cột phía sau",
     "sound": "whoosh_soft"
    },
@@ -1460,8 +1460,8 @@
     "verb": "mode",
     "from": "wWide",
     "to": "cPile",
-    "t0": 33.33,
-    "t1": 34.53,
+    "t0": 33.3296,
+    "t1": 34.5296,
     "reason": "định nghĩa đống: số chỉ ở đồ thị, cận kệ N6",
     "sound": "whoosh_mode"
    }
@@ -1506,7 +1506,7 @@
   ],
   "dropped": [
    {
-    "t": 34.53,
+    "t": 34.5296,
     "kind": "land",
     "why": "plain word"
    }
@@ -1525,14 +1525,14 @@
   "reuse_s": 60.0,
   "plan": [
    {
-    "t": 29.84,
+    "t": 31.772,
     "kind": "whoosh_mode",
     "scene": "S03",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 31.239,
+    "t": 33.172,
     "kind": "land",
     "scene": "S03",
     "label": "giay",
@@ -1541,21 +1541,21 @@
     "gain_db": -0.53
    },
    {
-    "t": 34.52,
+    "t": 36.453,
     "kind": "whoosh_soft",
     "scene": "S03",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 56.03,
+    "t": 57.963,
     "kind": "whoosh_mode",
     "scene": "S03",
     "label": "chuyen-canh",
     "kept_synth": true
    },
    {
-    "t": 62.05,
+    "t": 63.983,
     "kind": "tick",
     "scene": "S03",
     "label": "cua",
