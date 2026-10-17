@@ -1,0 +1,11 @@
+{
+ "_note": "market-r2, 17/10/2026. Điểm 1–3 mỗi tiêu chí (3 = tốt nhất), máy chấm theo market/r2/demand.json + RIGHTS.md + genre-spec/channel/topic-source-map.md; lý do ở market/R2-SERIES.md §2. Không phải dự báo lượt xem.",
+ "criteria": ["cau_tim_kiem", "khoang_trong", "hop_nha_may", "dong_goi", "chi_phi_tap"],
+ "directions": {
+  "B_then_now":        {"cau_tim_kiem": 3, "khoang_trong": 3, "hop_nha_may": 3, "dong_goi": 3, "chi_phi_tap": 3, "tong": 15, "hang": 1},
+  "A_home":            {"cau_tim_kiem": 2, "khoang_trong": 2, "hop_nha_may": 3, "dong_goi": 2, "chi_phi_tap": 2, "tong": 11, "hang": 2},
+  "C_retire_backtest": {"cau_tim_kiem": 3, "khoang_trong": 1, "hop_nha_may": 1, "dong_goi": 3, "chi_phi_tap": 1, "tong": 9,  "hang": 3},
+  "D_debt":            {"cau_tim_kiem": 1, "khoang_trong": 2, "hop_nha_may": 2, "dong_goi": 1, "chi_phi_tap": 3, "tong": 9,  "hang": "loại (cầu thấp, nội dung cũ chiếm chỗ)"},
+  "baseline_packaging_only": {"cau_tim_kiem": 2, "khoang_trong": 2, "hop_nha_may": 3, "dong_goi": 2, "chi_phi_tap": 3, "tong": 12, "hang": "phương án so sánh"}
+ }
+}
