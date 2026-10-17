@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Đóng gói R1 · ảnh bìa dựng bằng mã (không AI, không người thật) từ khung phim/thế giới có sẵn của từng tập.
   python3 packaging/r1/make.py --frames <thư mục khung> [--render]   → packaging/r1/<ep>-<A|B|C>.png + checks.json + sheet.html
-Lớp chữ = bộ nhận diện kênh của toolkit/package/thumbs.py (overlay: logo "M.", Inter Bold, dòng cuối màu trụ, ILLUSTRATIVE khi có nhân vật,
+Lớp chữ = bộ nhận diện kênh của toolkit/package/thumbs.py (overlay: logo "M.", Inter Bold, dòng cuối màu trụ, (D-015: không còn nhãn ILLUSTRATIVE trên ảnh bìa),
 chân "US only · history, not a forecast") — gọi như đường --no-api, không sửa toolkit. Chữ qua claim-risk của toolkit/market/package_check.py.
 Khung Tập 5–9: `--render` dựng lại bằng toolkit/factory/world/render_shots.js --stills (1080p; cần data/fetch.py + world/derive.py của tập,
 three.js ở toolkit/factory/world/vendor; Tập 9 từ worktree nhánh ccr-4d8bc942-73gdnl qua --ep9-root). Tập 1–3: ảnh có sẵn trong repo.

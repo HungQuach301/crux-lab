@@ -58,16 +58,14 @@ def api_edit(frame, keep, quality):
 
 
 def overlay(img, lines, pillar, character):
-    """Bộ nhận diện kênh: logo "M." trên trái · chữ lớn ≤ 4 từ, dưới trái, Inter Bold, dòng cuối màu trụ · ILLUSTRATIVE trên phải khi có
-    nhân vật · chân trang 'US only · history, not a forecast'. Vị trí cố định cho mọi tập."""
+    """Bộ nhận diện kênh: logo "M." trên trái · chữ lớn ≤ 4 từ, dưới trái, Inter Bold, dòng cuối màu trụ · chân trang
+    'US only · history, not a forecast'. Vị trí cố định cho mọi tập. D-015 (chủ dự án 17/10): ảnh bìa KHÔNG có nhãn ILLUSTRATIVE
+    (nhãn giữ trong video); `character` giữ trong chữ ký cho tương thích, không còn vẽ gì."""
     img = img.convert('RGBA'); ov = Image.new('RGBA', img.size, (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
     for y in range(H // 2, H):   # nền tối dần dưới chữ (đọc được ở 168×94)
         d.line([(0, y), (W, y)], fill=(14, 17, 22, int(200 * (y - H / 2) / (H / 2))))
     c = PILLAR[pillar]
     d.rounded_rectangle([32, 28, 112, 108], 14, fill=c); d.text((72, 70), 'M.', font=font(52), fill=TOK['bg'], anchor='mm')
-    if character:
-        f = font(26); tw = d.textlength('ILLUSTRATIVE', font=f)
-        d.rounded_rectangle([W - 40 - tw - 28, 34, W - 40, 80], 10, fill=TOK['warn']); d.text((W - 40 - tw / 2 - 14, 57), 'ILLUSTRATIVE', font=f, fill=TOK['bg'], anchor='mm')
     px = 112 if max(len(l) for l in lines) <= 14 else 96
     y = H - 64 - px * 1.05 * len(lines)
     for i, l in enumerate(lines):
@@ -88,7 +86,7 @@ if __name__ == '__main__':
     lines = o.text.split('|')
     if sum(len(l.split()) for l in lines) > 4:
         sys.exit('chữ lớn > 4 từ (packaging.md §7)')
-    o.character = not o.no_character   # mặc định có nhãn ILLUSTRATIVE: quên cờ thì khung có nhân vật thiếu nhãn (REVIEWER T6)
+    o.character = not o.no_character   # chỉ ghi vào .json (có nhân vật hay không); D-015: không vẽ nhãn ILLUSTRATIVE trên ảnh bìa
     if o.ep:   # claim-risk chữ trên ảnh: S10 + mọi số có claim (dùng lại package_check, luật khoá chỉ đọc)
         sys.path.insert(0, str(ROOT / 'toolkit' / 'market'))
         from package_check import scan, bad_numbers, claim_number_set

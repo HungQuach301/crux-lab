@@ -9,7 +9,7 @@ Kiểm (dùng lại luật khoá của checks/ — chỉ import, không sửa):
   2. Claim-risk trên tiêu đề, mô tả, chữ trên ảnh: regex ADVICE / FORECAST / FOUR / WE_BAD (S10); mọi số có claim (claim_number_set);
      cụm bắt buộc "history, not a forecast" và "US only" trong mô tả; "ILLUSTRATIVE" khi có nhân vật/số minh hoạ.
   3. Chương khớp timeline: mốc 0:00 đầu, mỗi mốc khác trùng đầu một hồi trong out/timeline.json (±2 s), tăng dần, mỗi chương ≥ 10 s.
-  4. Chữ trên ảnh: Sonnet đọc ảnh (tệp của chủ dự án, không lưu đi đâu) → ≤ 4 từ lớn, số có claim, nhãn ILLUSTRATIVE nếu số minh hoạ.
+  4. Chữ trên ảnh: Sonnet đọc ảnh (tệp của chủ dự án, không lưu đi đâu) → ≤ 4 từ lớn, số có claim, (D-015: không cần nhãn ILLUSTRATIVE trên ảnh bìa).
 Mỗi lỗi kèm **câu sửa sẵn** (tiếng Anh) để chủ dự án dán lại vào ChatGPT. Ghi out/package/package-check.md + .json; thoát 1 nếu có lỗi.
 """
 import base64, json, os, pathlib, re, subprocess, sys, urllib.request
@@ -156,8 +156,7 @@ def main(a):
             fail(f'thumb {pathlib.Path(t).name}', f'{k}: "{m}"', 'Replace the thumbnail text with a neutral question or comparison (no advice, no prediction).')
         for n in bad_numbers(text, ok):
             fail(f'thumb {pathlib.Path(t).name}', f'số "{n}" không có claim', f'Remove "{n}" from the thumbnail or use an exact figure from the brief.')
-        if illustrative and re.search(r'\d', text) and 'illustrative' not in text.lower():
-            notes.append(f'{pathlib.Path(t).name}: có số nhưng không thấy nhãn ILLUSTRATIVE — chỉ cần nếu số là của nhân vật minh hoạ (packaging.md §1.5).')
+        # D-015 (chủ dự án 17/10): ảnh bìa không mang nhãn ILLUSTRATIVE (giữ trong video và mô tả) — không nhắc nữa.
     res = {'pass': not fails, 'fails': fails, 'notes': notes}
     out = ep / 'out' / 'package'
     (out / 'package-check.json').write_text(json.dumps(res, ensure_ascii=False, indent=1))
