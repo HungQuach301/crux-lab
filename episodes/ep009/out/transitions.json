@@ -1,7 +1,7 @@
 {
  "cuts": [
   {
-   "t": 22.7,
+   "t": 24.633,
    "from": "a1-s01-s02",
    "to": "a2-s03",
    "type": "cut",
@@ -10,7 +10,7 @@
    "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
   },
   {
-   "t": 75.333,
+   "t": 77.267,
    "from": "a2-s03",
    "to": "b1-s04",
    "type": "cut",
@@ -19,67 +19,67 @@
    "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
   },
   {
-   "t": 107.733,
+   "t": 110.3,
    "from": "b1-s04",
    "to": "b2-s05-s06",
    "type": "cut",
    "match": null,
-   "audio": null,
-   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+   "audio": "l",
+   "reason": "L-cut 0.4 s at the segment boundary (S05): sound of the previous segment carries across the picture cut; sound not moved (F-18)"
   },
   {
-   "t": 146.7,
+   "t": 150.0667,
    "from": "b2-s05-s06",
    "to": "c-s08-s13",
    "type": "cut",
    "match": null,
-   "audio": null,
-   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+   "audio": "j",
+   "reason": "J-cut 0.4 s at the segment boundary (S08): sound of the next segment carries across the picture cut; sound not moved (F-18)"
   },
   {
-   "t": 261.1,
+   "t": 264.4667,
    "from": "c-s08-s13",
    "to": "d1-s14-s15",
    "type": "cut",
    "match": null,
-   "audio": null,
-   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+   "audio": "j",
+   "reason": "J-cut 0.4 s at the segment boundary (S14): sound of the next segment carries across the picture cut; sound not moved (F-18)"
   },
   {
-   "t": 309.9,
+   "t": 306.0,
    "from": "d1-s14-s15",
    "to": "d2-s16-s18",
    "type": "cut",
    "match": null,
-   "audio": null,
-   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+   "audio": "l",
+   "reason": "L-cut 0.4 s at the segment boundary (S16): sound of the previous segment carries across the picture cut; sound not moved (F-18)"
   },
   {
-   "t": 387.633,
+   "t": 377.4667,
    "from": "d2-s16-s18",
    "to": "e-s19-s21",
    "type": "cut",
    "match": null,
-   "audio": null,
-   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+   "audio": "j",
+   "reason": "J-cut 0.4 s at the segment boundary (S19): sound of the next segment carries across the picture cut; sound not moved (F-18)"
   },
   {
-   "t": 449.9,
+   "t": 439.7333,
    "from": "e-s19-s21",
    "to": "f1-s22-s24",
    "type": "cut",
    "match": null,
-   "audio": null,
-   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+   "audio": "j",
+   "reason": "J-cut 0.4 s at the segment boundary (S22): sound of the next segment carries across the picture cut; sound not moved (F-18)"
   },
   {
-   "t": 491.533,
+   "t": 478.6333,
    "from": "f1-s22-s24",
    "to": "f2-s25",
    "type": "cut",
    "match": null,
-   "audio": null,
-   "reason": "segment boundary at an act/scene turn; the next segment opens on its own first pose (short fade from the background)"
+   "audio": "l",
+   "reason": "L-cut 0.4 s at the segment boundary (S25): sound of the previous segment carries across the picture cut; sound not moved (F-18)"
   }
  ]
 }

@@ -87,25 +87,108 @@
   {
    "item": "loudness",
    "result": "ĐẠT",
-   "value": "-14.1 LUFS / -2.2 dBTP",
+   "value": "-14.0 LUFS / -2.2 dBTP",
    "threshold": "-14 ± 1 LUFS, ≤ -2.0 dBTP",
    "note": ""
   },
   {
    "item": "kích thước phần",
    "result": "TRƯỢT",
-   "value": 114.4,
+   "value": 111.56,
    "threshold": "≤ 90 MB mỗi phần",
    "note": "3 phần 720p"
+  },
+  {
+   "item": "SH1 thời lượng",
+   "result": "ĐẠT",
+   "value": 29.767,
+   "threshold": "≤ 60 s",
+   "note": ""
+  },
+  {
+   "item": "SH1 sàn chữ",
+   "result": "ĐẠT",
+   "value": 56,
+   "threshold": "≥ 56 px",
+   "note": "414 lần engine nâng cỡ"
+  },
+  {
+   "item": "SH1 tương phản",
+   "result": "ĐẠT",
+   "value": 7.5,
+   "threshold": "≥ 4.5:1",
+   "note": "0 lần đổi màu"
+  },
+  {
+   "item": "SH1 vùng an toàn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 hộp chữ ra ngoài (> 1 px)",
+   "note": ""
+  },
+  {
+   "item": "SH1 va chạm nhãn",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn giao nhau (F-2)",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 cặp hộp chữ giao nhau > 1 px (cảnh báo)",
+   "note": ""
+  },
+  {
+   "item": "SH1 nhãn ILLUSTRATIVE / history",
+   "result": "ĐẠT",
+   "value": 0,
+   "threshold": "0 khung thiếu nhãn",
+   "note": "150 khung log (mỗi 6 khung)"
+  },
+  {
+   "item": "SH1 đối trọng \"US only · history, not a forecast\"",
+   "result": "ĐẠT",
+   "value": 852,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Nina and her twins are illustrative · real prices, rents, rates and stock returns\"",
+   "result": "ĐẠT",
+   "value": 450,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 đối trọng \"Not advice to buy, rent or invest\"",
+   "result": "ĐẠT",
+   "value": 402,
+   "threshold": "≥ 30 khung (1 s)",
+   "note": ""
+  },
+  {
+   "item": "SH1 loudness",
+   "result": "ĐẠT",
+   "value": "-13.9 LUFS / -2.2 dBTP",
+   "threshold": "−14 ± 2 LUFS, ≤ −1 dBTP",
+   "note": ""
   },
   {
    "item": "luật format",
    "result": "ĐẠT",
    "value": "lab",
    "threshold": "scope full",
-   "note": "lab: 524 s < soft minimum 540 s (không độn: shorter is fine, never pad)"
+   "note": "lab: 511 s < soft minimum 540 s (không độn: shorter is fine, never pad)"
   }
  ],
- "near": [],
+ "near": [
+  {
+   "item": "SH1 sàn chữ",
+   "value": 56,
+   "threshold": 56
+  }
+ ],
  "pass": false
 }

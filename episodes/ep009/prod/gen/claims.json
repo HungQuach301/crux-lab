@@ -3931,7 +3931,12 @@
    "of": "share_buyer_ahead_stocks_10y",
    "callbacks": [],
    "shownIn": [],
-   "spoken": [],
+   "spoken": [
+    {
+     "scene": "S15",
+     "sentence": "S15.2"
+    }
+   ],
    "dataYears": [
     1991,
     2026
@@ -4167,7 +4172,12 @@
    "of": "params.era_1990s_span",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [
+    {
+     "scene": "S10",
+     "sentence": "S10.1"
+    }
+   ]
   },
   {
    "claimId": "era_2002-2007_span",
@@ -4238,6 +4248,57 @@
    "spoken": []
   },
   {
+   "claimId": "hold_5y",
+   "value": 5,
+   "display": "5 years",
+   "unit": "const",
+   "formula": "same quantity as params.hold_5y: held five years",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.hold_5y",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "start_2006_06",
+   "value": "2006-06",
+   "display": "June 2006",
+   "unit": "const",
+   "formula": "same quantity as params.start_2006_06: start month June 2006",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.start_2006_06",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
+   "claimId": "start_2012_04",
+   "value": "2012-04",
+   "display": "April 2012",
+   "unit": "const",
+   "formula": "same quantity as params.start_2012_04: start month April 2012",
+   "source": {
+    "id": "contract.json",
+    "url": null
+   },
+   "historical": false,
+   "illustrative": false,
+   "of": "params.start_2012_04",
+   "callbacks": [],
+   "shownIn": [],
+   "spoken": []
+  },
+  {
    "claimId": "first_10y",
    "value": "1991-01",
    "display": "January 1991",
@@ -4252,7 +4313,20 @@
    "of": "params.first_10y",
    "callbacks": [],
    "shownIn": [],
-   "spoken": []
+   "spoken": [
+    {
+     "scene": "S03",
+     "sentence": "S03.5"
+    },
+    {
+     "scene": "S04",
+     "sentence": "S04.1"
+    },
+    {
+     "scene": "S09",
+     "sentence": "S09.3"
+    }
+   ]
   },
   {
    "claimId": "low_start",

@@ -3,33 +3,33 @@
  "yaml": "episodes/ep009/episode.yaml",
  "steps": {
   "spec": {
-   "seconds": 0.96,
+   "seconds": 1.33,
    "problems": 0
   },
   "voice": {
-   "seconds": 2.85,
+   "seconds": 3.18,
    "scenes": 24,
    "cache_hits": 24,
    "el_chars_spent": 0
   },
   "resolve": {
-   "seconds": 4.39,
-   "total": 523.9332,
+   "seconds": 4.25,
+   "total": 511.4332,
    "shots": 0,
    "anchors": 0
   },
   "world": {
-   "seconds": 5023.51,
+   "seconds": 1657.85,
    "segments": {
     "a1-s01-s02": {
      "lint": {
-      "seconds": 0.4,
+      "seconds": 0.5,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 14.0,
+      "seconds": 15.0,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -40,26 +40,26 @@
       }
      },
      "render": {
-      "seconds": 6.3,
+      "seconds": 3.7,
       "ok": true,
       "shots": 5,
       "rendered": [],
       "cached": 5,
-      "wall_s": 5.6,
-      "film_s": 22.7,
+      "wall_s": 3.1,
+      "film_s": 24.6334,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 14.1,
+      "seconds": 15.1,
       "ok": true
      },
      "mux": {
-      "seconds": 1.4,
+      "seconds": 1.6,
       "ok": true
      },
      "cine": {
-      "seconds": 247.8,
+      "seconds": 268.6,
       "ok": true,
       "level": "PASS",
       "samples": 15,
@@ -67,7 +67,7 @@
       "max_dE": 1.71
      },
      "verify": {
-      "seconds": 35.3,
+      "seconds": 37.2,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -75,29 +75,29 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 589,
+       "samples": 646,
        "violations": 0,
        "examples": []
       },
       "modes": {
-       "world_share": 0.238,
-       "chart_share": 0.762,
+       "world_share": 0.219,
+       "chart_share": 0.781,
        "first_5s_world": true
       },
       "F2": {
        "level": "WARN",
-       "sfx_per_min": 18.5,
+       "sfx_per_min": 17.1,
        "sfx_max_10s": 5,
        "sfx_on_speech": 3,
        "sfx_on_plain_words": 0,
        "sfx_events": 7,
        "keyword_hits": 4,
-       "min_keyword_snr_db": 24.3,
+       "min_keyword_snr_db": 25.8,
        "label_overlaps": 2,
        "line_crossings": 0,
        "block": [],
        "warn": [
-        "with cash: buyer ahead about 3 in 4 × with stocks: about half 18.2–18.3 s (2 mẫu)"
+        "with cash: buyer ahead about 3 out of 4 × with stocks: about half 19.8–19.9 s (2 mẫu)"
        ]
       },
       "labels": {
@@ -106,8 +106,8 @@
        "late": [
         {
          "cue": "a3.half",
-         "t": 20.731,
-         "lag": -0.93
+         "t": 22.651,
+         "lag": -0.95
         }
        ]
       }
@@ -121,7 +121,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.4,
+      "seconds": 12.8,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -132,26 +132,26 @@
       }
      },
      "render": {
-      "seconds": 1.7,
+      "seconds": 1.9,
       "ok": true,
       "shots": 4,
       "rendered": [],
       "cached": 4,
-      "wall_s": 1,
+      "wall_s": 1.1,
       "film_s": 52.6333,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 27.5,
+      "seconds": 26.9,
       "ok": true
      },
      "mux": {
-      "seconds": 2.8,
+      "seconds": 2.9,
       "ok": true
      },
      "verify": {
-      "seconds": 70.2,
+      "seconds": 70.7,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -190,7 +190,7 @@
        "late": [
         {
          "cue": "a10.drop",
-         "t": 48.32,
+         "t": 48.3196,
          "lag": -0.92
         }
        ]
@@ -205,7 +205,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.0,
+      "seconds": 12.7,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -216,34 +216,34 @@
       }
      },
      "render": {
-      "seconds": 3.6,
+      "seconds": 3.4,
       "ok": true,
       "shots": 3,
       "rendered": [],
       "cached": 3,
       "wall_s": 2.9,
-      "film_s": 32.4,
+      "film_s": 33.4333,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 18.1,
+      "seconds": 18.6,
       "ok": true
      },
      "mux": {
-      "seconds": 2.1,
+      "seconds": 2.2,
       "ok": true
      },
      "cine": {
-      "seconds": 74.7,
+      "seconds": 82.1,
       "ok": true,
       "level": "PASS",
       "samples": 9,
-      "groups": 72,
-      "max_dE": 1.67
+      "groups": 73,
+      "max_dE": 1.65
      },
      "verify": {
-      "seconds": 48.2,
+      "seconds": 44.7,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -251,24 +251,24 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 1055,
+       "samples": 1109,
        "violations": 0,
        "examples": []
       },
       "modes": {
-       "world_share": 0.142,
-       "chart_share": 0.858,
+       "world_share": 0.137,
+       "chart_share": 0.863,
        "first_5s_world": true
       },
       "F2": {
        "level": "OK",
-       "sfx_per_min": 9.3,
-       "sfx_max_10s": 3,
-       "sfx_on_speech": 3,
-       "sfx_on_plain_words": 1,
-       "sfx_events": 5,
+       "sfx_per_min": 7.2,
+       "sfx_max_10s": 2,
+       "sfx_on_speech": 4,
+       "sfx_on_plain_words": 2,
+       "sfx_events": 4,
        "keyword_hits": 2,
-       "min_keyword_snr_db": 16.0,
+       "min_keyword_snr_db": 20.4,
        "label_overlaps": 0,
        "line_crossings": 0,
        "block": [],
@@ -280,8 +280,8 @@
        "late": [
         {
          "cue": "b0.january",
-         "t": 2.03,
-         "lag": 3.07
+         "t": 2.0,
+         "lag": 3.1
         }
        ]
       }
@@ -289,13 +289,13 @@
     },
     "b2-s05-s06": {
      "lint": {
-      "seconds": 0.4,
+      "seconds": 0.5,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 13.6,
+      "seconds": 13.2,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -311,17 +311,17 @@
       "shots": 4,
       "rendered": [],
       "cached": 4,
-      "wall_s": 0.9,
+      "wall_s": 1,
       "film_s": 38.9666,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 20.9,
+      "seconds": 22.2,
       "ok": true
      },
      "mux": {
-      "seconds": 2.1,
+      "seconds": 2.5,
       "ok": true
      },
      "verify": {
@@ -333,7 +333,7 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 958,
+       "samples": 887,
        "violations": 0,
        "examples": []
       },
@@ -355,14 +355,20 @@
        "line_crossings": 0,
        "block": [],
        "warn": [
-        "mortgage, tax, insurance, repairs: 2.5% a year × the real record, month by month 36–36 s (1 mẫu)",
-        "cost of selling: 6% × the real record, month by month 36–36 s (1 mẫu)"
+        "mortgage, tax, insurance, repairs: 2.5 percent a year × the real record, month by month 36–36 s (1 mẫu)",
+        "cost of selling: 6 percent × the real record, month by month 36–36 s (1 mẫu)"
        ]
       },
       "labels": {
        "n": 5,
-       "within_0_2": 5,
-       "late": []
+       "within_0_2": 4,
+       "late": [
+        {
+         "cue": "b4.five",
+         "t": 3.9297,
+         "lag": null
+        }
+       ]
       }
      }
     },
@@ -374,7 +380,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 14.8,
+      "seconds": 13.8,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -385,26 +391,26 @@
       }
      },
      "render": {
-      "seconds": 1.8,
+      "seconds": 1.9,
       "ok": true,
       "shots": 8,
       "rendered": [],
       "cached": 8,
-      "wall_s": 1.2,
+      "wall_s": 1.3,
       "film_s": 114.4,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 53.3,
+      "seconds": 56.7,
       "ok": true
      },
      "mux": {
-      "seconds": 6.1,
+      "seconds": 6.7,
       "ok": true
      },
      "verify": {
-      "seconds": 148.9,
+      "seconds": 149.5,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -412,7 +418,7 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 3200,
+       "samples": 3215,
        "violations": 0,
        "examples": []
       },
@@ -437,11 +443,16 @@
       },
       "labels": {
        "n": 10,
-       "within_0_2": 9,
+       "within_0_2": 8,
        "late": [
         {
          "cue": "c4.july",
          "t": 37.88,
+         "lag": null
+        },
+        {
+         "cue": "c10.less",
+         "t": 65.644,
          "lag": null
         }
        ]
@@ -456,7 +467,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.3,
+      "seconds": 13.4,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -467,31 +478,26 @@
       }
      },
      "render": {
-      "seconds": 907.7,
+      "seconds": 1.7,
       "ok": true,
       "shots": 4,
-      "rendered": [
-       "s0",
-       "s3",
-       "s2",
-       "s1"
-      ],
-      "cached": 0,
-      "wall_s": 907.1,
-      "film_s": 48.8,
-      "wall_per_film_s_rendered": 46.18,
+      "rendered": [],
+      "cached": 4,
+      "wall_s": 1,
+      "film_s": 42.3333,
+      "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 24.9,
+      "seconds": 20.4,
       "ok": true
      },
      "mux": {
-      "seconds": 3.2,
+      "seconds": 2.7,
       "ok": true
      },
      "verify": {
-      "seconds": 65.2,
+      "seconds": 52.2,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -499,7 +505,7 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 1491,
+       "samples": 1269,
        "violations": 0,
        "examples": []
       },
@@ -510,37 +516,42 @@
       },
       "F2": {
        "level": "WARN",
-       "sfx_per_min": 6.1,
+       "sfx_per_min": 7.1,
        "sfx_max_10s": 2,
-       "sfx_on_speech": 5,
-       "sfx_on_plain_words": 3,
+       "sfx_on_speech": 4,
+       "sfx_on_plain_words": 2,
        "sfx_events": 5,
        "keyword_hits": 2,
-       "min_keyword_snr_db": 20.0,
+       "min_keyword_snr_db": 20.5,
        "label_overlaps": 1,
        "line_crossings": 0,
        "block": [],
        "warn": [
-        "sfx đè từ thường 3/5 sự kiện > 50%: 5.802 whoosh_soft/'below', 26.861 whoosh_soft/'street.', 45.784 whoosh_soft/'happened,'",
-        "152 of 307 lit × after the whole walk: how many lit? 33.2–33.2 s (1 mẫu)"
+        "80 start months switched to the renter · none to the buyer × a count of what happened, not a promise 37.5–37.5 s (1 mẫu)"
        ]
       },
       "labels": {
        "n": 8,
-       "within_0_2": 8,
-       "late": []
+       "within_0_2": 7,
+       "late": [
+        {
+         "cue": "d7.not",
+         "t": 35.146,
+         "lag": null
+        }
+       ]
       }
      }
     },
     "d2-s16-s18": {
      "lint": {
-      "seconds": 0.4,
+      "seconds": 0.5,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 14.8,
+      "seconds": 14.4,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -551,29 +562,26 @@
       }
      },
      "render": {
-      "seconds": 1596.1,
+      "seconds": 1.8,
       "ok": true,
       "shots": 2,
-      "rendered": [
-       "s0",
-       "s1"
-      ],
-      "cached": 0,
-      "wall_s": 1595.5,
-      "film_s": 77.7333,
-      "wall_per_film_s_rendered": 26.88,
+      "rendered": [],
+      "cached": 2,
+      "wall_s": 1.1,
+      "film_s": 70.6667,
+      "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 35.9,
+      "seconds": 36.3,
       "ok": true
      },
      "mux": {
-      "seconds": 3.7,
+      "seconds": 4.1,
       "ok": true
      },
      "verify": {
-      "seconds": 89.3,
+      "seconds": 87.6,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -581,7 +589,7 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 2647,
+       "samples": 2411,
        "violations": 0,
        "examples": []
       },
@@ -592,13 +600,13 @@
       },
       "F2": {
        "level": "WARN",
-       "sfx_per_min": 2.3,
+       "sfx_per_min": 2.5,
        "sfx_max_10s": 1,
        "sfx_on_speech": 2,
        "sfx_on_plain_words": 0,
        "sfx_events": 3,
        "keyword_hits": 2,
-       "min_keyword_snr_db": 23.8,
+       "min_keyword_snr_db": 21.9,
        "label_overlaps": 2,
        "line_crossings": 0,
        "block": [],
@@ -612,12 +620,12 @@
        "late": [
         {
          "cue": "d15.half",
-         "t": 36.193,
+         "t": 36.1937,
          "lag": null
         },
         {
          "cue": "d20.one",
-         "t": 62.84,
+         "t": 61.9397,
          "lag": null
         }
        ]
@@ -626,13 +634,13 @@
     },
     "e-s19-s21": {
      "lint": {
-      "seconds": 0.4,
+      "seconds": 0.5,
       "ok": true,
       "problems": [],
       "files": 25
      },
      "spine": {
-      "seconds": 12.3,
+      "seconds": 13.1,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -643,26 +651,26 @@
       }
      },
      "render": {
-      "seconds": 1.6,
+      "seconds": 1.7,
       "ok": true,
       "shots": 3,
       "rendered": [],
       "cached": 3,
-      "wall_s": 0.9,
+      "wall_s": 1,
       "film_s": 62.2666,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 29.2,
+      "seconds": 31.9,
       "ok": true
      },
      "mux": {
-      "seconds": 3.7,
+      "seconds": 4.3,
       "ok": true
      },
      "verify": {
-      "seconds": 82.4,
+      "seconds": 82.1,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -697,12 +705,17 @@
       },
       "labels": {
        "n": 5,
-       "within_0_2": 4,
+       "within_0_2": 3,
        "late": [
         {
          "cue": "e0.stocks",
          "t": 0.663,
          "lag": 2.44
+        },
+        {
+         "cue": "e8.fifty",
+         "t": 55.166,
+         "lag": null
         }
        ]
       }
@@ -716,7 +729,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.6,
+      "seconds": 12.9,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -727,30 +740,26 @@
       }
      },
      "render": {
-      "seconds": 882.1,
+      "seconds": 1.4,
       "ok": true,
       "shots": 3,
-      "rendered": [
-       "s1",
-       "s2",
-       "s0"
-      ],
-      "cached": 0,
-      "wall_s": 881.5,
-      "film_s": 41.6334,
-      "wall_per_film_s_rendered": 54.57,
+      "rendered": [],
+      "cached": 3,
+      "wall_s": 0.8,
+      "film_s": 39.7,
+      "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 22.5,
+      "seconds": 20.5,
       "ok": true
      },
      "mux": {
-      "seconds": 2.2,
+      "seconds": 2.3,
       "ok": true
      },
      "verify": {
-      "seconds": 48.6,
+      "seconds": 44.9,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -758,18 +767,18 @@
       "hard_cuts": 0,
       "first_5s_world": true,
       "C14": {
-       "samples": 1207,
+       "samples": 1125,
        "violations": 0,
        "examples": []
       },
       "modes": {
-       "world_share": 0.24,
-       "chart_share": 0.76,
+       "world_share": 0.249,
+       "chart_share": 0.751,
        "first_5s_world": true
       },
       "F2": {
        "level": "WARN",
-       "sfx_per_min": 7.2,
+       "sfx_per_min": 7.6,
        "sfx_max_10s": 3,
        "sfx_on_speech": 4,
        "sfx_on_plain_words": 1,
@@ -785,12 +794,17 @@
       },
       "labels": {
        "n": 6,
-       "within_0_2": 4,
+       "within_0_2": 3,
        "late": [
         {
          "cue": "f1.five",
          "t": 2.513,
          "lag": 2.79
+        },
+        {
+         "cue": "f2.both",
+         "t": 12.209,
+         "lag": null
         },
         {
          "cue": "f5.stability",
@@ -809,7 +823,7 @@
       "files": 25
      },
      "spine": {
-      "seconds": 13.2,
+      "seconds": 12.3,
       "ok": true,
       "stdout": [
        "checks OK"
@@ -820,26 +834,26 @@
       }
      },
      "render": {
-      "seconds": 4.5,
+      "seconds": 4.1,
       "ok": true,
       "shots": 4,
       "rendered": [],
       "cached": 4,
-      "wall_s": 3.8,
+      "wall_s": 3.5,
       "film_s": 32.4,
       "wall_per_film_s_rendered": 0,
       "cores": 4
      },
      "audio": {
-      "seconds": 16.5,
+      "seconds": 15.3,
       "ok": true
      },
      "mux": {
-      "seconds": 2.0,
+      "seconds": 1.7,
       "ok": true
      },
      "cine": {
-      "seconds": 183.7,
+      "seconds": 187.1,
       "ok": true,
       "level": "PASS",
       "samples": 12,
@@ -847,7 +861,7 @@
       "max_dE": 2.52
      },
      "verify": {
-      "seconds": 43.2,
+      "seconds": 45.8,
       "ok": true,
       "rule1": 0,
       "rule2": 0,
@@ -890,15 +904,15 @@
    }
   },
   "render": {
-   "seconds": 119.77,
+   "seconds": 121.38,
    "segments": 0,
    "rendered": 0,
    "cache_hits": 0,
-   "frames": 15718,
+   "frames": 15343,
    "blank": true
   },
   "splice": {
-   "seconds": 411.57,
+   "seconds": 396.0,
    "segments": [
     "a1-s01-s02",
     "a2-s03",
@@ -911,60 +925,60 @@
     "f1-s22-s24",
     "f2-s25"
    ],
-   "frames": 15718,
+   "frames": 15343,
    "frame_log_dropped": 0
   },
   "mix": {
-   "seconds": 265.65,
-   "a07_gap_db": 20.01,
+   "seconds": 248.78,
+   "a07_gap_db": 19.98,
    "mid_duck_db": 13.0,
    "world": {
     "segments": [
      {
       "id": "a1-s01-s02",
-      "gain_db": -4.26,
+      "gain_db": -3.95,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -41.5,
-       "sonify": -63.2,
-       "sfx": -51.4,
-       "whoosh": -61.0,
+       "music": -40.3,
+       "sonify": -63.0,
+       "sfx": -51.6,
+       "whoosh": -61.2,
        "room": -65.0
       },
       "bed_off": true
      },
      {
       "id": "a2-s03",
-      "gain_db": -3.89,
+      "gain_db": -3.86,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
        "music": -38.5,
-       "sonify": -59.7,
+       "sonify": -59.6,
        "sfx": -56.4,
        "whoosh": -61.4,
-       "room": -64.3
+       "room": -64.2
       },
       "bed_off": true
      },
      {
       "id": "b1-s04",
-      "gain_db": -6.19,
+      "gain_db": -5.48,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -39.4,
-       "sonify": -61.8,
-       "sfx": -52.6,
-       "whoosh": -63.3,
+       "music": -39.6,
+       "sonify": -59.9,
+       "sfx": -56.1,
+       "whoosh": -63.0,
        "room": -64.7
       },
       "bed_off": true
      },
      {
       "id": "b2-s05-s06",
-      "gain_db": -4.45,
+      "gain_db": -4.47,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -39.0,
+       "music": -38.3,
        "sonify": -62.1,
        "sfx": -54.1,
        "whoosh": -64.2,
@@ -977,7 +991,7 @@
       "gain_db": -4.45,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -38.0,
+       "music": -37.8,
        "sonify": -63.2,
        "sfx": -54.7,
        "whoosh": -64.9,
@@ -987,36 +1001,36 @@
      },
      {
       "id": "d1-s14-s15",
-      "gain_db": -4.92,
+      "gain_db": -4.61,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -39.3,
-       "sonify": -62.5,
-       "sfx": -55.5,
-       "whoosh": -66.7,
-       "room": -64.6
+       "music": -39.7,
+       "sonify": -62.2,
+       "sfx": -55.4,
+       "whoosh": -67.2,
+       "room": -64.5
       },
       "bed_off": true
      },
      {
       "id": "d2-s16-s18",
-      "gain_db": -4.61,
+      "gain_db": -4.58,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -38.0,
-       "sonify": -62.6,
-       "sfx": -62.3,
-       "whoosh": -81.4,
+       "music": -38.1,
+       "sonify": -62.5,
+       "sfx": -62.0,
+       "whoosh": -81.1,
        "room": -64.8
       },
       "bed_off": true
      },
      {
       "id": "e-s19-s21",
-      "gain_db": -4.75,
+      "gain_db": -4.74,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -38.2,
+       "music": -38.1,
        "sonify": -61.5,
        "sfx": -54.5,
        "whoosh": -77.1,
@@ -1026,13 +1040,13 @@
      },
      {
       "id": "f1-s22-s24",
-      "gain_db": -4.81,
+      "gain_db": -4.7,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -39.6,
+       "music": -39.3,
        "sonify": -64.3,
-       "sfx": -57.9,
-       "whoosh": -65.8,
+       "sfx": -57.7,
+       "whoosh": -65.6,
        "room": -64.6
       },
       "bed_off": true
@@ -1042,7 +1056,7 @@
       "gain_db": -4.78,
       "gain_basis": "voice_rms",
       "layers_rms_dbfs": {
-       "music": -42.4,
+       "music": -42.3,
        "sonify": -240.0,
        "sfx": -56.8,
        "whoosh": -62.2,
@@ -1068,11 +1082,11 @@
       "cut": "L",
       "offset": 0.4,
       "frames": 12,
-      "t_sound": 107.7333,
-      "t_picture": 107.3333,
+      "t_sound": 110.7,
+      "t_picture": 110.3,
       "zone": [
-       107.3333,
-       107.7333
+       110.3,
+       110.7
       ],
       "freeze": {
        "segment": "b2-s05-s06",
@@ -1082,12 +1096,12 @@
       "hidden": {
        "segment": "b1-s04",
        "local": [
-        32.0,
-        32.4
+        33.0333,
+        33.4333
        ]
       },
       "voice_lead": -0.46,
-      "voice_lag": -0.586,
+      "voice_lag": -0.611,
       "moves_hidden": []
      },
      {
@@ -1097,11 +1111,11 @@
       "cut": "J",
       "offset": 0.4,
       "frames": 12,
-      "t_sound": 146.7,
-      "t_picture": 147.1,
+      "t_sound": 149.6667,
+      "t_picture": 150.0667,
       "zone": [
-       146.7,
-       147.1
+       149.6667,
+       150.0667
       ],
       "freeze": {
        "segment": "b2-s05-s06",
@@ -1126,11 +1140,11 @@
       "cut": "J",
       "offset": 0.4,
       "frames": 12,
-      "t_sound": 261.1,
-      "t_picture": 261.5,
+      "t_sound": 264.0667,
+      "t_picture": 264.4667,
       "zone": [
-       261.1,
-       261.5
+       264.0667,
+       264.4667
       ],
       "freeze": {
        "segment": "c-s08-s13",
@@ -1155,11 +1169,11 @@
       "cut": "L",
       "offset": 0.4,
       "frames": 12,
-      "t_sound": 309.9,
-      "t_picture": 309.5,
+      "t_sound": 306.4,
+      "t_picture": 306.0,
       "zone": [
-       309.5,
-       309.9
+       306.0,
+       306.4
       ],
       "freeze": {
        "segment": "d2-s16-s18",
@@ -1169,8 +1183,8 @@
       "hidden": {
        "segment": "d1-s14-s15",
        "local": [
-        48.4,
-        48.8
+        41.9333,
+        42.3333
        ]
       },
       "voice_lead": -0.5,
@@ -1184,11 +1198,11 @@
       "cut": "J",
       "offset": 0.4,
       "frames": 12,
-      "t_sound": 387.6333,
-      "t_picture": 388.0333,
+      "t_sound": 377.0667,
+      "t_picture": 377.4667,
       "zone": [
-       387.6333,
-       388.0333
+       377.0667,
+       377.4667
       ],
       "freeze": {
        "segment": "d2-s16-s18",
@@ -1203,7 +1217,7 @@
        ]
       },
       "voice_lead": 0.4,
-      "voice_lag": -1.913,
+      "voice_lag": -1.887,
       "moves_hidden": []
      },
      {
@@ -1213,11 +1227,11 @@
       "cut": "J",
       "offset": 0.4,
       "frames": 12,
-      "t_sound": 449.9,
-      "t_picture": 450.3,
+      "t_sound": 439.3333,
+      "t_picture": 439.7333,
       "zone": [
-       449.9,
-       450.3
+       439.3333,
+       439.7333
       ],
       "freeze": {
        "segment": "e-s19-s21",
@@ -1242,11 +1256,11 @@
       "cut": "L",
       "offset": 0.4,
       "frames": 12,
-      "t_sound": 491.5333,
-      "t_picture": 491.1333,
+      "t_sound": 479.0333,
+      "t_picture": 478.6333,
       "zone": [
-       491.1333,
-       491.5333
+       478.6333,
+       479.0333
       ],
       "freeze": {
        "segment": "f2-s25",
@@ -1256,12 +1270,12 @@
       "hidden": {
        "segment": "f1-s22-s24",
        "local": [
-        41.2333,
-        41.6333
+        39.3,
+        39.7
        ]
       },
       "voice_lead": -0.44,
-      "voice_lag": -0.606,
+      "voice_lag": -0.593,
       "moves_hidden": []
      }
     ]
@@ -1269,21 +1283,21 @@
    "ident": {
     "wav": "toolkit/factory/theme/ident-A.wav",
     "after": "S03",
-    "t0": 72.3333,
-    "t1": 75.3333,
-    "gain_db": -4.4,
-    "voice_lufs": -18.5,
+    "t0": 74.2667,
+    "t1": 77.2667,
+    "gain_db": -4.3,
+    "voice_lufs": -18.4,
     "ident_file_lufs": -16.1,
     "rel_db": -2.0
    },
    "close_lift": {
     "db": 12.0,
     "ramp_s": 0.5,
-    "t_last_word": 521.933,
-    "t_last_word_timeline": 521.933,
-    "t_voice_off": 521.761,
-    "t0": 521.933,
-    "t_full": 522.433,
+    "t_last_word": 509.433,
+    "t_last_word_timeline": 509.433,
+    "t_voice_off": 509.261,
+    "t0": 509.433,
+    "t_full": 509.933,
     "a07_gap_db_before": 19.6,
     "a07_gap_db": 19.6,
     "music_changed_while_voice": false
@@ -1300,13 +1314,13 @@
     ]
    },
    "video": "episodes/ep009/work/factory/video.mp4",
-   "sha256": "e6c92ae168e385828b4be380206c3e79cb7c91574c056a1a089c4fbdbeeefb72",
-   "mb": 1134.82
+   "sha256": "2becc731e168db1bdea61dd9adf09f2f297ad466d5ee856775807bdfeb34ba0b",
+   "mb": 1107.55
   },
   "artefacts": {
-   "seconds": 0.32,
+   "seconds": 0.45,
    "camera": {
-    "frames": 15718,
+    "frames": 15343,
     "world": [
      "a1-s01-s02",
      "a2-s03",
@@ -1376,35 +1390,74 @@
      "f1-s22-s24",
      "f2-s25"
     ],
-    "bytes": 3108496,
+    "bytes": 3106871,
     "page": "work/factory/page/index.html"
    }
   },
   "parts": {
-   "seconds": 253.77,
+   "seconds": 227.94,
    "parts": [
     {
      "file": "episodes/ep009/work/factory/ep009-part1-720p.mp4",
      "from": 0.0,
-     "to": 174.64440000000002,
-     "mb": 107.96
+     "to": 170.47773333333333,
+     "mb": 104.08
     },
     {
      "file": "episodes/ep009/work/factory/ep009-part2-720p.mp4",
-     "from": 174.64440000000002,
-     "to": 349.28880000000004,
-     "mb": 112.22
+     "from": 170.47773333333333,
+     "to": 340.95546666666667,
+     "mb": 108.85
     },
     {
      "file": "episodes/ep009/work/factory/ep009-part3-720p.mp4",
-     "from": 349.28880000000004,
-     "to": 523.9332,
-     "mb": 114.4
+     "from": 340.95546666666667,
+     "to": 511.4332,
+     "mb": 111.56
+    }
+   ]
+  },
+  "shorts": {
+   "seconds": 491.4,
+   "shorts": [
+    {
+     "id": "SH1",
+     "file": "episodes/ep009/work/factory/SH1.mp4",
+     "from": 267.1333,
+     "to": 295.4,
+     "duration": 29.767,
+     "world": "d1-s14-s15",
+     "render_world": {
+      "wall_s": 471.2,
+      "film_s": 28.2667,
+      "rendered": [
+       "span1",
+       "span2",
+       "span0",
+       "span5",
+       "span3",
+       "span4"
+      ],
+      "cached": 0
+     },
+     "endcard": {
+      "segments": 1,
+      "rendered": 1,
+      "cache_hits": 0,
+      "frames": 45,
+      "seconds": 3.09,
+      "fps": 14.55,
+      "workers": 3,
+      "fmt": "jpeg"
+     },
+     "audio": {
+      "measured_I": -14.09
+     }
     }
    ]
   },
   "qc": {
-   "seconds": 131.79,
+   "seconds": 120.33,
    "pass": false,
    "failed": [
     "master đối trọng \"US only · history, not a forecast\"",
@@ -1413,61 +1466,63 @@
     "kích thước phần"
    ],
    "warned": [],
-   "near": []
+   "near": [
+    "SH1 sàn chữ"
+   ]
   }
  },
- "started": "2026-10-16T09:45:40Z",
+ "started": "2026-10-17T14:59:47Z",
  "spec": [],
  "music": {
-  "a07_gap_db": 20.01,
+  "a07_gap_db": 19.98,
   "mid_duck_db": 13.0,
   "world": {
    "segments": [
     {
      "id": "a1-s01-s02",
-     "gain_db": -4.26,
+     "gain_db": -3.95,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -41.5,
-      "sonify": -63.2,
-      "sfx": -51.4,
-      "whoosh": -61.0,
+      "music": -40.3,
+      "sonify": -63.0,
+      "sfx": -51.6,
+      "whoosh": -61.2,
       "room": -65.0
      },
      "bed_off": true
     },
     {
      "id": "a2-s03",
-     "gain_db": -3.89,
+     "gain_db": -3.86,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
       "music": -38.5,
-      "sonify": -59.7,
+      "sonify": -59.6,
       "sfx": -56.4,
       "whoosh": -61.4,
-      "room": -64.3
+      "room": -64.2
      },
      "bed_off": true
     },
     {
      "id": "b1-s04",
-     "gain_db": -6.19,
+     "gain_db": -5.48,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -39.4,
-      "sonify": -61.8,
-      "sfx": -52.6,
-      "whoosh": -63.3,
+      "music": -39.6,
+      "sonify": -59.9,
+      "sfx": -56.1,
+      "whoosh": -63.0,
       "room": -64.7
      },
      "bed_off": true
     },
     {
      "id": "b2-s05-s06",
-     "gain_db": -4.45,
+     "gain_db": -4.47,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -39.0,
+      "music": -38.3,
       "sonify": -62.1,
       "sfx": -54.1,
       "whoosh": -64.2,
@@ -1480,7 +1535,7 @@
      "gain_db": -4.45,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -38.0,
+      "music": -37.8,
       "sonify": -63.2,
       "sfx": -54.7,
       "whoosh": -64.9,
@@ -1490,36 +1545,36 @@
     },
     {
      "id": "d1-s14-s15",
-     "gain_db": -4.92,
+     "gain_db": -4.61,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -39.3,
-      "sonify": -62.5,
-      "sfx": -55.5,
-      "whoosh": -66.7,
-      "room": -64.6
+      "music": -39.7,
+      "sonify": -62.2,
+      "sfx": -55.4,
+      "whoosh": -67.2,
+      "room": -64.5
      },
      "bed_off": true
     },
     {
      "id": "d2-s16-s18",
-     "gain_db": -4.61,
+     "gain_db": -4.58,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -38.0,
-      "sonify": -62.6,
-      "sfx": -62.3,
-      "whoosh": -81.4,
+      "music": -38.1,
+      "sonify": -62.5,
+      "sfx": -62.0,
+      "whoosh": -81.1,
       "room": -64.8
      },
      "bed_off": true
     },
     {
      "id": "e-s19-s21",
-     "gain_db": -4.75,
+     "gain_db": -4.74,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -38.2,
+      "music": -38.1,
       "sonify": -61.5,
       "sfx": -54.5,
       "whoosh": -77.1,
@@ -1529,13 +1584,13 @@
     },
     {
      "id": "f1-s22-s24",
-     "gain_db": -4.81,
+     "gain_db": -4.7,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -39.6,
+      "music": -39.3,
       "sonify": -64.3,
-      "sfx": -57.9,
-      "whoosh": -65.8,
+      "sfx": -57.7,
+      "whoosh": -65.6,
       "room": -64.6
      },
      "bed_off": true
@@ -1545,7 +1600,7 @@
      "gain_db": -4.78,
      "gain_basis": "voice_rms",
      "layers_rms_dbfs": {
-      "music": -42.4,
+      "music": -42.3,
       "sonify": -240.0,
       "sfx": -56.8,
       "whoosh": -62.2,
@@ -1571,11 +1626,11 @@
      "cut": "L",
      "offset": 0.4,
      "frames": 12,
-     "t_sound": 107.7333,
-     "t_picture": 107.3333,
+     "t_sound": 110.7,
+     "t_picture": 110.3,
      "zone": [
-      107.3333,
-      107.7333
+      110.3,
+      110.7
      ],
      "freeze": {
       "segment": "b2-s05-s06",
@@ -1585,12 +1640,12 @@
      "hidden": {
       "segment": "b1-s04",
       "local": [
-       32.0,
-       32.4
+       33.0333,
+       33.4333
       ]
      },
      "voice_lead": -0.46,
-     "voice_lag": -0.586,
+     "voice_lag": -0.611,
      "moves_hidden": []
     },
     {
@@ -1600,11 +1655,11 @@
      "cut": "J",
      "offset": 0.4,
      "frames": 12,
-     "t_sound": 146.7,
-     "t_picture": 147.1,
+     "t_sound": 149.6667,
+     "t_picture": 150.0667,
      "zone": [
-      146.7,
-      147.1
+      149.6667,
+      150.0667
      ],
      "freeze": {
       "segment": "b2-s05-s06",
@@ -1629,11 +1684,11 @@
      "cut": "J",
      "offset": 0.4,
      "frames": 12,
-     "t_sound": 261.1,
-     "t_picture": 261.5,
+     "t_sound": 264.0667,
+     "t_picture": 264.4667,
      "zone": [
-      261.1,
-      261.5
+      264.0667,
+      264.4667
      ],
      "freeze": {
       "segment": "c-s08-s13",
@@ -1658,11 +1713,11 @@
      "cut": "L",
      "offset": 0.4,
      "frames": 12,
-     "t_sound": 309.9,
-     "t_picture": 309.5,
+     "t_sound": 306.4,
+     "t_picture": 306.0,
      "zone": [
-      309.5,
-      309.9
+      306.0,
+      306.4
      ],
      "freeze": {
       "segment": "d2-s16-s18",
@@ -1672,8 +1727,8 @@
      "hidden": {
       "segment": "d1-s14-s15",
       "local": [
-       48.4,
-       48.8
+       41.9333,
+       42.3333
       ]
      },
      "voice_lead": -0.5,
@@ -1687,11 +1742,11 @@
      "cut": "J",
      "offset": 0.4,
      "frames": 12,
-     "t_sound": 387.6333,
-     "t_picture": 388.0333,
+     "t_sound": 377.0667,
+     "t_picture": 377.4667,
      "zone": [
-      387.6333,
-      388.0333
+      377.0667,
+      377.4667
      ],
      "freeze": {
       "segment": "d2-s16-s18",
@@ -1706,7 +1761,7 @@
       ]
      },
      "voice_lead": 0.4,
-     "voice_lag": -1.913,
+     "voice_lag": -1.887,
      "moves_hidden": []
     },
     {
@@ -1716,11 +1771,11 @@
      "cut": "J",
      "offset": 0.4,
      "frames": 12,
-     "t_sound": 449.9,
-     "t_picture": 450.3,
+     "t_sound": 439.3333,
+     "t_picture": 439.7333,
      "zone": [
-      449.9,
-      450.3
+      439.3333,
+      439.7333
      ],
      "freeze": {
       "segment": "e-s19-s21",
@@ -1745,11 +1800,11 @@
      "cut": "L",
      "offset": 0.4,
      "frames": 12,
-     "t_sound": 491.5333,
-     "t_picture": 491.1333,
+     "t_sound": 479.0333,
+     "t_picture": 478.6333,
      "zone": [
-      491.1333,
-      491.5333
+      478.6333,
+      479.0333
      ],
      "freeze": {
       "segment": "f2-s25",
@@ -1759,12 +1814,12 @@
      "hidden": {
       "segment": "f1-s22-s24",
       "local": [
-       41.2333,
-       41.6333
+       39.3,
+       39.7
       ]
      },
      "voice_lead": -0.44,
-     "voice_lag": -0.606,
+     "voice_lag": -0.593,
      "moves_hidden": []
     }
    ]
@@ -1772,21 +1827,21 @@
   "ident": {
    "wav": "toolkit/factory/theme/ident-A.wav",
    "after": "S03",
-   "t0": 72.3333,
-   "t1": 75.3333,
-   "gain_db": -4.4,
-   "voice_lufs": -18.5,
+   "t0": 74.2667,
+   "t1": 77.2667,
+   "gain_db": -4.3,
+   "voice_lufs": -18.4,
    "ident_file_lufs": -16.1,
    "rel_db": -2.0
   },
   "close_lift": {
    "db": 12.0,
    "ramp_s": 0.5,
-   "t_last_word": 521.933,
-   "t_last_word_timeline": 521.933,
-   "t_voice_off": 521.761,
-   "t0": 521.933,
-   "t_full": 522.433,
+   "t_last_word": 509.433,
+   "t_last_word_timeline": 509.433,
+   "t_voice_off": 509.261,
+   "t0": 509.433,
+   "t_full": 509.933,
    "a07_gap_db_before": 19.6,
    "a07_gap_db": 19.6,
    "music_changed_while_voice": false
@@ -1803,5 +1858,5 @@
    ]
   }
  },
- "total_seconds": 6214.59
+ "total_seconds": 3273.08
 }
