@@ -1,0 +1,207 @@
+{
+ "computedAt": "2026-10-17T05:10:15.712815+00:00",
+ "note": "tổng hợp nhóm 14 kênh (CHANNELS.md: hạt giống + vòng trực tiếp + mới nổi vòng trực tiếp), chỉ video dài; số từng kênh ở ~/market-cache ngoài git (III.E.4). Tự tính, không phải chỉ số YouTube.",
+ "channels": {
+  "UCKhpM-cu2Cod-GyG6KngNYg": {
+   "title": "Logical Money",
+   "group": "seed"
+  },
+  "UCZJnbHQTYBy1I8GpHlsAUMg": {
+   "title": "Jack Explains Money",
+   "group": "seed"
+  },
+  "UCNF5Np30COaoOZSYu9hKa7A": {
+   "title": "Hannah Invests",
+   "group": "direct"
+  },
+  "UCHpnFtErfky9Td9JIwypF8g": {
+   "title": "James Retires",
+   "group": "direct"
+  },
+  "UCDOCO-HOYrwDpIu_a-9f4KQ": {
+   "title": "Tom – Lazy Real Estate",
+   "group": "direct"
+  },
+  "UCjN2vUJcsQezdjFxSfJFxmw": {
+   "title": "Finance Flow",
+   "group": "direct"
+  },
+  "UCtsSIzNJVBR1Az9d5b5XTbw": {
+   "title": "Rich by Routine ",
+   "group": "direct"
+  },
+  "UC2TaG60rXcbrws_Wf7T601w": {
+   "title": "Devil in the Decimal",
+   "group": "emerging"
+  },
+  "UCDbMUAvYE7fPubKesEHrtmA": {
+   "title": "The Hidden Money Equation ",
+   "group": "emerging"
+  },
+  "UCWodeFwozcefCEW2l-MP_6w": {
+   "title": "Davidson Money Stories",
+   "group": "emerging"
+  },
+  "UCcg7VnTDboJDOIz3CMsve6g": {
+   "title": "Mr Finance Wise",
+   "group": "emerging"
+  },
+  "UChllrfC2MDdVnilJdVX4-sw": {
+   "title": "Worthspring",
+   "group": "emerging"
+  },
+  "UCjKDjHbyiChzOhV-WC8S0vg": {
+   "title": "Grayson Invests ",
+   "group": "emerging"
+  },
+  "UCuGKWV2U0dyfk89LtRxm5AQ": {
+   "title": "MoneyMechanics",
+   "group": "emerging"
+  }
+ },
+ "metrics": {
+  "m30": {
+   "mine": null,
+   "n": 12,
+   "p25": 180.375,
+   "median": 686.75,
+   "p75": 2901.75,
+   "min": 2,
+   "max": 10655,
+   "rankHighToLow": null,
+   "of": 13,
+   "emergingMedian": 167.5,
+   "emergingN": 5
+  },
+  "young15": {
+   "mine": 24,
+   "n": 12,
+   "p25": 58.125,
+   "median": 307.25,
+   "p75": 3160.0,
+   "min": 15.0,
+   "max": 6947.5,
+   "rankHighToLow": 12,
+   "of": 13,
+   "emergingMedian": 140.0,
+   "emergingN": 6
+  },
+  "m30PerSub": {
+   "mine": null,
+   "n": 12,
+   "p25": 0.7669759933774833,
+   "median": 1.4300441889769215,
+   "p75": 2.490277777777778,
+   "min": 0.05428391959798995,
+   "max": 4.38,
+   "rankHighToLow": null,
+   "of": 13,
+   "emergingMedian": 1.8611111111111112,
+   "emergingN": 5
+  },
+  "totalPerSub": {
+   "mine": 367.0,
+   "n": 14,
+   "p25": 92.58545878606219,
+   "median": 131.56417233560092,
+   "p75": 442.95833333333337,
+   "min": 18.40430904522613,
+   "max": 802.0,
+   "rankHighToLow": 4,
+   "of": 15,
+   "emergingMedian": 364.0,
+   "emergingN": 7
+  },
+  "perWeek90": {
+   "mine": 3.3641093224087877,
+   "n": 14,
+   "p25": 1.011111111111111,
+   "median": 2.061111111111111,
+   "p75": 3.878558221703328,
+   "min": 0.9333333333333333,
+   "max": 5.6000000000000005,
+   "rankHighToLow": 6,
+   "of": 15,
+   "emergingMedian": 1.5555555555555554,
+   "emergingN": 7
+  },
+  "gapMedDays": {
+   "mine": 2.1578240740740737,
+   "n": 14,
+   "p25": 1.0201359953703717,
+   "median": 1.991608796296295,
+   "p75": 4.054542824074073,
+   "min": 0.4390740740740746,
+   "max": 6.495937499999996,
+   "rankHighToLow": 6,
+   "of": 15,
+   "emergingMedian": 1.020972222222222,
+   "emergingN": 7
+  },
+  "durMedMin": {
+   "mine": 9.766666666666667,
+   "n": 14,
+   "p25": 9.670833333333334,
+   "median": 11.133333333333333,
+   "p75": 17.839583333333334,
+   "min": 8.058333333333334,
+   "max": 21.416666666666668,
+   "rankHighToLow": 11,
+   "of": 15,
+   "emergingMedian": 10.7,
+   "emergingN": 7
+  },
+  "likesPer1kViews": {
+   "mine": 33.70786516853933,
+   "n": 13,
+   "p25": 4.95899735250648,
+   "median": 13.404102917038234,
+   "p75": 16.720476289209444,
+   "min": 1.6778523489932886,
+   "max": 39.21568627450981,
+   "rankHighToLow": 2,
+   "of": 14,
+   "emergingMedian": 4.95899735250648,
+   "emergingN": 6
+  },
+  "commentsPer1kViews": {
+   "mine": 0.0,
+   "n": 13,
+   "p25": 0.5347593582887701,
+   "median": 1.7346501679598552,
+   "p75": 3.35695769992733,
+   "min": 0.0,
+   "max": 7.334963325183374,
+   "rankHighToLow": 11,
+   "of": 14,
+   "emergingMedian": 0.5347593582887701,
+   "emergingN": 6
+  },
+  "subs": {
+   "mine": 1,
+   "n": 14,
+   "p25": 40.0,
+   "median": 230.5,
+   "p75": 1882.5,
+   "min": 2,
+   "max": 79600,
+   "rankHighToLow": 15,
+   "of": 15,
+   "emergingMedian": 50,
+   "emergingN": 7
+  },
+  "ageDays": {
+   "mine": 14.56551951912037,
+   "n": 14,
+   "p25": 63.48724816282407,
+   "median": 130.73747042098958,
+   "p75": 1270.7168563797686,
+   "min": 19.843290624016205,
+   "max": 3762.3932374168403,
+   "rankHighToLow": 15,
+   "of": 15,
+   "emergingMedian": 124.59964531377315,
+   "emergingN": 7
+  }
+ }
+}
