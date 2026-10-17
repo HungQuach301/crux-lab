@@ -15,7 +15,7 @@ B = [
  ('d1', 'S14.2', 'chart', 'Hơn nửa số đống tụt dưới $92,000 ban đầu.', 'đống tụt xuống mức thấp nhất; 183 dưới vạch.', {'half': '@S14.2:many', 'dipped': '@S14.2:dipped'}, ['bịch ×n'], 0.65, 'lo', 'lia máy'),
  ('d2', 'S14.3', 'chart', 'Một đống tụt còn $54,310, và cô vẫn đầu tư.', 'kệ N6 ngang tầm mắt; đống tụt; người thuê vẫn đặt bó.', {'sank': '@S14.3:sank', 'kept': '@S14.3:kept'}, ['giấy'], 0.85, 'nể', '—'),
  ('d3', 'S14.4', 'chart', 'Phát lại giả định mọi người thuê làm vậy mỗi tháng.', 'bó rơi đều.', {'every': '@S14.4:every'}, [], 0.6, 'rõ', '—'),
- ('d4', 'S14.5', 'chart', 'Người bán lúc sập không có trên phố này.', 'nhãn giả định.', {'sells': '@S14.5:sells'}, [], 0.55, 'rõ', 'lia máy'),
+ ('d4', 'S14.4', 'chart', 'Người bán lúc sập không có trên phố này.', 'nhãn giả định.', {'sells': '@S14.4:sells'}, [], 0.55, 'rõ', 'lia máy'),
  ('d5', 'S15.1', 'chart', 'Sau cả con phố, bao nhiêu nhà sáng?', 'phố nhìn thẳng từ trên, chưa sáng.', {'how': '@S15.1:how'}, [], 0.6, 'hồi hộp', '—'),
  ('d6', 'S15.2', 'chart', 'Sáng: 152 trên 307, khoảng một nửa.', 'cả phố hiện: nửa sáng, nửa tối.', {'lit': '@S15.2:Lit', 'half': '@S15.2:half'}, ['tinh ×n'], 0.85, 'vỡ lẽ', '—'),
  ('d7', 'S15.3', 'chart', '80 tháng đổi sang người thuê, không tháng nào đổi ngược.', '80 nhà loé sáng → tối.', {'eighty': '@S15.3:Every', 'not': '@S15.3:never'}, ['tắt ×n'], 0.7, 'rõ', '—'),
@@ -32,7 +32,6 @@ B = [
  ('d18', 'S18.1', 'chart', 'Ở lâu hơn nữa, cổ phiếu tắt phần lớn.', 'phố rút còn 247 nhà.', {'longer': '@S18.1:longer'}, [], 0.6, 'lật', '—'),
  ('d19', 'S18.2', 'chart', 'Tiền mặt: cả 247 tháng 15 năm người mua hơn.', 'sáng hết.', {'cash': '@S18.2:cash', 'every': '@S18.2:every'}, ['tinh ×n'], 0.65, 'rõ', '—'),
  ('d20', 'S18.3', 'chart', 'Cổ phiếu: chỉ khoảng 1/5.', 'tắt gần hết.', {'stocks': '@S18.3:stocks', 'one': '@S18.3:one'}, ['tắt ×n'], 0.7, 'lật', '—'),
- ('d21', 'S18.4', 'chart', 'Ở lâu, đống có thời gian tích luỹ.', 'giữ.', {'compound': '@S18.4:compound'}, [], 0.55, 'rõ', '—'),
  ('d22', 'S18.5', 'chart', 'Còn một giả định: thẻ thuê.', 'giữ, nhãn chuyển.', {'tag': '@S18.5:tag'}, [], 0.5, 'chuyển', 'MR2'),
 ]
 beats = SV.beats_from(B, S.A, S.lines)

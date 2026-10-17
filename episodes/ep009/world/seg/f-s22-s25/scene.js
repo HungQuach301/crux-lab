@@ -64,7 +64,7 @@ export async function boot(res) {
     const sb = ok * show(t, b.f7.back, MV.m_w2.t0);
     if (sb > 0.01) { O.card(170, 190, 1580, 470, { fill: '#141922', stroke: C.muted, lw: 3, alpha: 0.88 * sb });
       label(O, "Nina's question, replayed", 220, 270, { kind: 'title', px: 52, alpha: sb, plate: null, role: 'title' });
-      const rows = [['cash: buyer ahead about 3 in 4 · 15 years: every one', C.warn, b.f8.cash, ['share_buyer_ahead_cash_10y', 'hold_15y', 'share_buyer_ahead_cash_15y']],
+      const rows = [['cash: buyer ahead about 3 out of 4 · 15 years: every one', C.warn, b.f8.cash, ['share_buyer_ahead_cash_10y', 'hold_15y', 'share_buyer_ahead_cash_15y']],
         ['stocks: about half (152 of 307) · 15 years: about 1 in 5', STK, b.f8.stocks, ['share_buyer_ahead_stocks_10y', 'share_buyer_ahead_stocks_10y_n', 'hold_15y', 'share_buyer_ahead_stocks_15y']],
         ['only the $92,000 invested: about 2 in 3', STK, b.f8.stocks + 0.8, ['savings_usd', 'share_buyer_ahead_lump_10y']],
         ['what tips it: the rent tag (flip about 5.1% vs 5 percent assumed)', '#D5DAE2', b.f8.fifteen, ['flip_yield_stocks_10y', 'yield_anchor_pct']]];

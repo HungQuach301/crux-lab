@@ -14,7 +14,7 @@ dossier: {numbers: numbers.md, model: out/model.json, sources: data/sources.json
 # J/L-cut (spine `cuts`) ở mọi chuyển hồi qua biên đoạn; sfx_real (kho CC0 RIGHTS §G1); `cine` (F-17, đã vào main fced0bd6) chỉ cảnh đinh ≤ 30 % thời lượng.
 # A14 (ASR small.en + medium.en): S02 "3 in 4" nghe thành "three and four" ở seed 1009 VÀ 1010 (thử 15/10, 235 ký tự, take f7f97d5a… giữ ở voice-takes, không dùng) → giữ take G1; G2 đề xuất "3 out of 4"
 voice_overrides:   # prod/anchor_gap.py: take dẫn xuất có lặng trước số neo giữa cảnh (chữ không đổi, 0 ký tự EL)
-  S04: {take: gap-191d9feb1f7118fd}
+  S04: {take: gap-e32fee02843000a2}
   S15: {take: gap-d748bbd41a6fece9}
 audio:
   lufs: -14

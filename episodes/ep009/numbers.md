@@ -13,7 +13,7 @@ Dữ liệu (`data/fetch.py`, tải 2026-10-15; không commit): 4 chuỗi FRED c
 |---|---|---|---|
 | `n_10y` | 307 | 307 start months | 10-year windows from 1991-01 |
 | `last_10y` | 2016-07 | July 2016 | last start |
-| `share_buyer_ahead_cash_10y` | 75.6 | about 3 in 4 (75.6%) — Episode 8 result, reproduced | share of windows with buyer advantage > 0, renter pot = cash |
+| `share_buyer_ahead_cash_10y` | 75.6 | about 3 out of 4 (75.6%) — Episode 8 result, reproduced | share of windows with buyer advantage > 0, renter pot = cash |
 | `share_buyer_ahead_stocks_10y` | 49.5 | about half (49.5%; 152 of 307) | share of windows with buyer advantage > 0, renter pot = stocks |
 | `n_renter_ahead_stocks_10y` | 155 | 155 of 307 | windows with advantage <= 0, pot = stocks |
 | `median_adv_stocks_10y` | -5827 | $5,827 behind (about even) | median buyer advantage, pot = stocks |

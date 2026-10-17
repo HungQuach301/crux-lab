@@ -1,5 +1,7 @@
 # Script — Episode 9 (format `lab`, C2 v3, WRITER, 2026-10-15)
 
+**M6 (G2 17/10, `gates/G2-answer.md`):** S02.2 "about 3 out of 4 times" (A14); S04.2 + ", in dollars of the day" (S09); S14.2 "many of the piles" (A14); S14.4 + S14.5 merged; S18.4 removed; S24.1 without "history, not a forecast" (said at S03.4). Owner: no re-view, length exception F07.
+
 **C2 v5 (vòng 2 số dày, WRITER):** S10–S17: only spoken year left is "1990s" (S10.1); other dates on screen only (B14–B24b); ≤ 1 spoken figure per scene; S14.3, S15.2, S15.4, S17.5, S17.6 unchanged. Claims off the line (already on screen): `stocks_growth_worst_start_10y` (B15), `savings_usd` S14.2 (B18), `n_flip_to_renter_10y` (B22); `n_10y` off S13.2 (stay length no longer spoken; 307 on B21).
 
 **C2 v4 (REVIEWER G1):** S01.1/S03.3 "almost nine times" (88.9 %; S01.1 still 11 words, "out of ten" → "in ten" to fit 5.0 s — re-check ASR); S17.5 rewritten as a replay statement + `share_buyer_ahead_stocks_5y/_10y/_15y`; S25.5 + `flip_yield_stocks_10y`; method round 2: S06.1 + S07.1 merged into one line S06.1 (S07 removed, "same costs as before" on card V7/B10 only, hold + mid-roll 1 now after S06.1; older notes citing S07.1 now mean S06.1/B10). `check_script.py` not run; needs a blind re-read of the method block.
@@ -77,7 +79,7 @@ S01.1 {hook} Over ten years, stocks outgrew homes almost nine times in ten. <!--
 ## S02 — Nina, and two facts
 
 S02.1 {hook} So renting looks smart. Nina rents, with $92,000 saved. <!-- claims: savings_usd -->
-S02.2 {fact} If her renting twin held cash, her buying twin ended ahead about 3 in 4 times. <!-- claims: share_buyer_ahead_cash_10y -->
+S02.2 {fact} If her renting twin held cash, her buying twin ended ahead about 3 out of 4 times. <!-- claims: share_buyer_ahead_cash_10y -->
 S02.3 {fact} With that cash in stocks instead, the buyer led only about half the time. <!-- claims: share_buyer_ahead_stocks_10y -->
 
 ## S03 — Fact three, the question, the promise, the street (shared continuation for all three hooks)
@@ -99,7 +101,7 @@ S03.7 {hook} All of it goes into the whole US stock market, every month, through
 ## S04 — The first house (first spoken result; Q4)
 
 S04.1 The first house on that street is January 1991. <!-- claims: n_10y -->
-S04.2 With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead. <!-- claims: adv_1991-01_cash_10y, n_10y -->
+S04.2 With the renting twin's pile kept in cash, the buyer finished ten years $48,410 ahead, in dollars of the day. <!-- claims: adv_1991-01_cash_10y, n_10y -->
 S04.3 With the pile in stocks, the same buyer finished $485,063 behind. <!-- claims: adv_1991-01_stocks_10y; hold: 1.5 -->
 S04.4 Same house, same mortgage, same rent; the only thing that moved was the renter's pile. <!-- claims: — -->
 
@@ -162,10 +164,9 @@ S13.3 The dark house got darker. <!-- claims: —; hold: 0.5 -->
 ## S14 — Below where she started (discipline)
 
 S14.1 Dark doors don't mean the renting twins had an easy ride. <!-- claims: — -->
-S14.2 Along the way, many of the stock piles dipped below where they started. <!-- claims: n_pot_below_start_stocks_10y -->
+S14.2 Along the way, many of the piles dipped below where they started. <!-- claims: n_pot_below_start_stocks_10y -->
 S14.3 {peak} [serious] One renting twin's pile sank to $54,310, and she kept investing. <!-- claims: min_pot_stocks_10y; hold: 1.5 -->
-S14.4 The replay assumes every renting twin did exactly that, every month, through every drop. <!-- claims: — -->
-S14.5 Real people sometimes stop, and a renter who sells in a crash is not on this street. <!-- claims: —; hold: 0.5 -->
+S14.4 The replay assumes every renting twin kept investing; one who sells in a crash is not on this street. <!-- claims: —; hold: 0.5 -->
 
 ## S15 — The count (core number)
 
@@ -194,7 +195,6 @@ S17.6 Half a street, lit in stretches; now, a longer stay. <!-- claims: —; hol
 S18.1 Stay longer still, and with stocks, most of the lights go out. <!-- claims: — -->
 S18.2 With cash, every one of the 247 fifteen-year starts left the buyer ahead. <!-- claims: n_15y, share_buyer_ahead_cash_15y -->
 S18.3 With stocks, only about one in five did. <!-- claims: share_buyer_ahead_stocks_15y -->
-S18.4 The longer the stay, the longer the pile has to compound, and the further it pulls ahead. <!-- claims: — -->
 S18.5 Longer stays favored the pile; the rent tag is the one assumption left to test. <!-- claims: —; hold: 1.5 -->
 
 >>> MID-ROLL 2 (in the 1.5 s hold after S18.5; end of act 2, act-3 question open)
@@ -240,7 +240,7 @@ S23.2 A home is also stability and control, and no street of numbers counts thos
 
 ## S24 — Limits and method
 
-S24.1 The rest of the limits are on the card: US only, history, not a forecast, no taxes on gains or on the home, and renters who never skip a month. <!-- claims: —; hold: 0.8 -->
+S24.1 The rest of the limits are on the card: US only, no taxes on gains or on the home, and renters who never skip a month. <!-- claims: —; hold: 0.8 -->
 
 ## S25 — Nina's answer (scoreboard on screen, B36)
 

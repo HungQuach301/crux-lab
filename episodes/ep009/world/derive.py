@@ -8,7 +8,7 @@ rows = {}
 for ln in open(os.path.join(EP, 'numbers.md'), encoding='utf-8'):
     m = re.match(r'^\| `([\w-]+)` \| ([^|]+) \| ([^|]+) \|', ln)
     if m: rows[m.group(1)] = (m.group(2).strip(), m.group(3).strip())
-short = {'share_buyer_ahead_cash_10y': 'about 3 in 4', 'share_buyer_ahead_stocks_10y': 'about half', 'share_buyer_ahead_lump_10y': 'about 2 in 3',
+short = {'share_buyer_ahead_cash_10y': 'about 3 out of 4', 'share_buyer_ahead_stocks_10y': 'about half', 'share_buyer_ahead_lump_10y': 'about 2 in 3',
          'share_buyer_ahead_cash_15y': 'every one', 'share_buyer_ahead_stocks_15y': 'about 1 in 5', 'era_2002-2007_share_stocks': 'none of 72',
          'era_2002-2007_share_cash': '6 of 72', 'era_1990s_share_stocks': 'about 2 in 3', 'era_2009-2016_share_stocks': 'nearly 4 in 5',
          'stocks_growth_1991-01_10y': 'almost 5 times', 'n_pot_below_start_stocks_10y': '183 of 307', 'share_stocks_beat_house_10y': 'about 9 in 10',

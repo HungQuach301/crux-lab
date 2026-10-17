@@ -39,5 +39,5 @@ K.finish(HERE, S, 'ep009 · F = S22–S25 (chương 6 + giới hạn + kết)', 
          {'chapter': [0.3, 'The tag on her door']},
          {'f1.five': '5%: about half lit', 'f2.five': 'flip point: about 5.1%', 'f2.both': 'Census range: 4.83% to 5.59% a year · 47.2% to 58.3% lit',
           'f3.assumption': 'the tag is an assumption', 'f5.stability': 'not measured: stability, control, family', 'f6.card': 'Limits',
-          'f8.cash': 'cash: buyer ahead about 3 in 4 · 15 years: every one', 'f8.stocks': 'stocks: about half (152 of 307) · 15 years: about 1 in 5'},
+          'f8.cash': 'cash: buyer ahead about 3 out of 4 · 15 years: every one', 'f8.stocks': 'stocks: about half (152 of 307) · 15 years: about 1 in 5'},
          [f"{b['id']}.{c}" for b in beats for c in b['cues']])

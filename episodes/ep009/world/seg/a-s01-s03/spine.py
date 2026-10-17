@@ -55,7 +55,7 @@ ev = [{'t': cue['a0']['stocks'], 'kind': 'rise', 'dur': 2.0}, {'t': cue['a0']['n
       {'t': cue['a9']['plus'], 'kind': 'tick', 'v': 0.4}, {'t': cue['a10']['drop'], 'kind': 'data', 'v': 0.3}]
 K.finish(HERE, S, 'ep009 · A = S01–S03 + ident (cold open, chương 1)', beats, moves, ev,
          {'ident': IDENT, 'chapter': [0.3, 'Two piles, one street']},
-         {'a1.so': 'stocks grew more than home prices: about 9 in 10', 'a1.saved': '$92,000 saved', 'a2.ahead': 'with cash: buyer ahead about 3 in 4',
+         {'a1.so': 'stocks grew more than home prices: about 9 in 10', 'a1.saved': '$92,000 saved', 'a2.ahead': 'with cash: buyer ahead about 3 out of 4',
           'a3.half': 'with stocks: about half', 'a4.every': '15 years · cash: every one', 'a4.stocks': '15 years · stocks: about 1 in 5',
           'a5.invests': 'Rent and invest the difference?', 'a9.pile': '$92,000', 'a9.plus': '+ the monthly gap', 'a10.drop': 'every month, even in drops (assumption)'},
          [f"{b['id']}.{c}" for b in beats for c in b['cues']])
