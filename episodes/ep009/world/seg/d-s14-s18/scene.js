@@ -72,7 +72,7 @@ export async function boot(res) {
     const log = O.begin(t, cw, cam), ok = cw >= 0.95 ? 1 : 0; log.roi = {};
     chapterCard(O, S.chapter[1], t, S.chapter[0]);
     const aB = ok * bA * (t < MV.m_sh.t0 + 0.2 ? 1 : 0), [lx, ly] = O.toScreen(BX + BW + 0.4, 92000 * BU, BZ), [x0, y0] = O.toScreen(BX, 0, BZ), [x1] = O.toScreen(BX + BW, 0, BZ);
-    label(O, '$92,000 start', lx + 10, ly, { align: 'left', kind: 'number', px: 40, alpha: aB, claims: ['savings_usd'] });
+    label(O, '$92,000 start', Math.min(lx + 10, 1540), ly - (lx + 10 > 1540 ? 44 : 0), { align: 'left', kind: 'number', px: 40, alpha: aB, claims: ['savings_usd'] });
     label(O, 'lowest point of each pile, one per start month', 960, 880, { align: 'center', kind: 'name', px: 44, alpha: aB, color: C.muted });
     label(O, '183 of 307 dipped below $92,000', 960, 240, { align: 'center', kind: 'number', alpha: aB * show(t, b.d1.dipped), color: C.warn, claims: ['n_pot_below_start_stocks_10y', 'savings_usd'] });
     log.roi['d1.dipped'] = [x0 - 20, 180, x1 + 20, y0 + 20];
