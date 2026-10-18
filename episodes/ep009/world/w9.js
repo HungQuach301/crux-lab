@@ -78,6 +78,7 @@ export function StockPile(scene, { x = SHELF.x, z = SHELF.z, s = 1, name = 'stoc
   const pile = Stack({ unitUsd: 1e5, bundleUsd: 10000, w: 1.1, d: 0.7, maxUsd: 1.6e6 }); pile.position.y = 0.06; g.add(pile);
   const line = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.025, 1.1), m(PALETTE.ink, { opacity: 0.85 })); line.position.y = 0.06 + 0.92; g.add(line);
   const drop = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.08, 0.24), m(PALETTE.bill)); g.add(drop);
+  g.userData.checks = { role: 'grid', series: 'renter-stocks', key: `pile-${name}-shelf` };   // M6: cả kệ vẫn là DỮ LIỆU với cine (như trước), không chấm C07
   pile.userData.checks = { role: 'bar', orient: 'v', series: 'renter-stocks', key: `pile-${name}` };   // M6 C07: chỉ các bó (cột giá trị), không gồm cọc/kệ
   g.set = ({ usd = 92000, a = 1, line: la = 1, dropK = -1 } = {}) => {
     const h = pile.set({ usd, tintBelowUsd: 92000, tint: PALETTE.warn, tintA: usd < 92000 ? 0.6 : 0 });
@@ -95,15 +96,17 @@ export function StockPile(scene, { x = SHELF.x, z = SHELF.z, s = 1, name = 'stoc
 // x = tháng (trái 1991 → phải 2016), cao = $1 thành bao nhiêu sau 10 năm. set({k ∈ [0,1] phần đã mọc, hiS: tô cột cổ phiếu cao hơn, a})
 export function GrowthPairs(scene, gS, gH, { x0 = -30, w = 14, z = -2, unit = 0.55, name = 'growth' } = {}) {
   const n = gS.length, bw = w / n * 0.48, geo = new THREE.BoxGeometry(bw, 1, 0.12);
-  const mk = (c) => { const im = new THREE.InstancedMesh(geo, new THREE.MeshStandardMaterial({ color: c, roughness: 0.7, transparent: true }), n); im.frustumCulled = false; scene.add(im); return im; };
-  const H = mk('#4A505A'), Sx = mk('#DCE6FF'), M4 = new THREE.Matrix4(), col = new THREE.Color();
+  // M6 C07: mỗi dãy nằm trong nhóm cha role 'grid' (vai DỮ LIỆU của cine như trước — cine nhận dữ liệu qua tổ tiên; trang kiểm không chấm C07 trên hộp gộp)
+  const mk = (c, series) => { const im = new THREE.InstancedMesh(geo, new THREE.MeshStandardMaterial({ color: c, roughness: 0.7, transparent: true }), n); im.frustumCulled = false;
+    const wrap = new THREE.Group(); wrap.add(im); scene.add(wrap); wrap.userData.checks = { role: 'grid', series, key: `${name}-${series}-wall` }; return im; };
+  const H = mk('#4A505A', 'house-growth'), Sx = mk('#DCE6FF', 'stock-growth'), M4 = new THREE.Matrix4(), col = new THREE.Color();
   const X = (i) => x0 + w * i / (n - 1);
   const g = { H, Sx, X, top: (v) => v * unit, n };
   // M6 C07 (đo, không đổi điểm ảnh): hộp bao của cả khối InstancedMesh phủ mọi cột → trang kiểm thấy "cột tràn" khi tường rộng hơn khung. Trang kiểm
-  // đọc K khúc bóng (cùng ma trận từng cột, colorWrite/depthWrite tắt → không vẽ điểm ảnh) — mỗi khúc là hộp bao thật của nhóm cột đó.
+  // đọc K khúc bóng (cùng ma trận từng cột, layer 31 + colorWrite/depthWrite tắt → không vẽ điểm ảnh, kể cả lượt độ sâu của cine) — mỗi khúc là hộp bao thật của nhóm cột đó.
   const K = 16, per = Math.ceil(n / K), ghost = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: false }), GH = [], GS = [];
   for (const [arr, series] of [[GH, 'house-growth'], [GS, 'stock-growth']]) for (let q = 0; q * per < n; q++) {
-    const im = new THREE.InstancedMesh(geo, ghost, Math.min(per, n - q * per)); im.frustumCulled = false; im.renderOrder = -1; scene.add(im);
+    const im = new THREE.InstancedMesh(geo, ghost, Math.min(per, n - q * per)); im.frustumCulled = false; im.layers.set(31); scene.add(im);   // layer 31: không camera/lượt cine/bóng đổ nào vẽ
     im.userData.checks = { role: 'bar', orient: 'v', series, key: `${name}-${series}-${q}` }; arr.push(im); }
   g.set = ({ k = 1, a = 1, hiS = 0 } = {}) => {
     for (let i = 0; i < n; i++) {
