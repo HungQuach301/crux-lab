@@ -32,7 +32,7 @@ Studio → **Analytics → Advanced mode** → tab **Content**, khoảng "Since 
 
 1. **Trước khi đăng:** đối chiếu số với `episodes/ep009/numbers.md` bản sau M6: 155/307 (tiêu đề), 49,5 % (ảnh). Số đổi → báo phiên để sửa chữ trên ảnh (`packaging/r1/ai/final.py`, 1 lệnh, không tạo lại hình).
 2. **Title:** `Rent and Invest vs Buy: Renter Ahead in 155 of 307 Months`
-3. **Thumbnail → Test & Compare:** `ep009-1-aia.jpg`, `ep009-2-aib.jpg`, `ep009-3-aif.jpg`.
+3. **Thumbnail → Test & Compare (vòng 4, 18/10 — chữ khớp số tiêu đề):** `ep009-tc1.jpg` (đồng xu, COIN FLIP? 155–152, mặc định), `ep009-tc2.jpg` (bập bênh, 155–152), `ep009-tc3.jpg` (đồng xu, COIN FLIP? 49.5% — bản cũ, giữ để đo). Bộ vòng 1 `ep009-1/2/3-ai*.jpg` thay thế.
 4. Mô tả theo gói M6 của tập (ghi công Origami, nguồn French).
 
 ## Bước 3 — Tập 7 và Tập 8, ≥ 3 ngày sau Bước 1
