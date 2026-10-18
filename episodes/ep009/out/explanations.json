@@ -1,0 +1,6 @@
+{
+ "F07": "Duration 8:31 is under the lab soft minimum of 9:00; the owner kept this length at G2 (17/10, gates/G2-answer.md) as an owner exception: cut lines a+b+c, nothing padded, shorter is fine, never pad.",
+ "V11": "Collisions are almost all the factory chrome lines (source line, 'US only · history, not a forecast', 'Not advice…') and plate-less card labels drawn over the 3D world behind them; the same kind as Episodes 6–8, readable on screen (contrast and safe area pass), not fixable in this episode without a factory change to the chrome layer.",
+ "V12": "Low NCC samples sit in moving shots and the chapter-card / cut frames where the one-file checks page and the encoded master differ by a frame of camera or fade phase (moving P05 0.916, static P05 0.982, static median 1.0); same kind as Episode 8, pixels of the master are the rendered ones.",
+ "L1": "Voice/data ratio P10 is 17.6 dB (< 20): data_db 34 was applied as the owner set after Episode 8 (T8-1), but only 4 windows carry data sound and the loudest of them sets the P10 (median 34.1 dB). Raising data_db now changes spine.json, which is in the render cache key, so all ten 1080p segments would re-render (about 10 h, outside the one-run M6); put to the owner at G3 with a proposal (data_db 38 or an episode-level data gain in the factory)."
+}
