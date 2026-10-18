@@ -15,7 +15,7 @@
 | freezedetect d=3 ∩ lời | ĐẠT | 0 | 0 s | 0 đoạn đứng yên ≥ 3 s cả phim: [] |
 | mốc hình ≥ mốc từ | ĐẠT | 0 | 0 | 0 mốc |
 | loudness | ĐẠT | -14.0 LUFS / -2.2 dBTP | -14 ± 1 LUFS, ≤ -2.0 dBTP |  |
-| kích thước phần | TRƯỢT | 111.56 | ≤ 90 MB mỗi phần | 3 phần 720p |
+| kích thước phần | TRƯỢT | 111.57 | ≤ 90 MB mỗi phần | 3 phần 720p |
 | SH1 thời lượng | ĐẠT | 29.767 | ≤ 60 s |  |
 | SH1 sàn chữ | ĐẠT | 56 | ≥ 56 px | 414 lần engine nâng cỡ |
 | SH1 tương phản | ĐẠT | 7.5 | ≥ 4.5:1 | 0 lần đổi màu |
