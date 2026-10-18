@@ -1,13 +1,12 @@
 # PLAN Tập 9 — Rent and invest the difference (tiếp Tập 8, gần #21) (≤ 1 trang)
 
 **Nhánh:** `ccr-4d8bc942-73gdnl` (lệnh phiên; main 5c8093ac đã merge) · **Format:** `lab` · **Mô hình:** xưởng 6 mốc (D-013) · **Chặng vừa đóng:** sau G1 → G2 (**G2 trả lời 17/10**) (`session_01KBz3## 1. Mốc hiện tại
-**G2 ĐÃ TRẢ LỜI (17/10, `gates/G2-answer.md`)** → chặng kế **M6 → G3**, phiên mới. **Trần M6 $8 cứng.**
+**CHỜ G3 (18/10, `gates/G3.md`)** — master `1a21c9e4…` + SH1 + 3 ảnh bìa trên `ep009-delivery` @ `ffa5c48`; checks 1080p 0 CHẶN thật (`gates/M6-checks.md`). Dừng.
 
 ## 2. Việc tiếp (≤ 3) và việc treo
-1. Lời: sửa `story/script.md` theo G2 câu 2, 3, 6 (S02.2, S04.2, S14.2, S14.4–5 gộp, bỏ S18.4, rút S24.1) + nhãn "3 out of 4" (đoạn a, f bảng điểm) → **kiểm EL trước** → `prod/voice.py` (S02 S04 S14 S18 S24) → `prod/anchor_gap.py` → `build_inputs.py --timeline` → mid-roll (S18 đổi) + nhạc `--bed` + SH1 from/to.
-2. Hình (một lượt 1080p, `CRUX_GREY=0 RES=1080 bash prod/animatic.sh`, chạy tiếp được): S07 gắn claim/tham số cho 14 số trên hình (`gates/checks-1080/report.json` S07) · C07 thang tường cột (a, f) + khung hàng đống (d) · V03/V11 nhãn · `splice.py --transitions out/factory/splice.json out/transitions.json` → `build_inputs.py --out` → checks đủ bộ 1080p (`RESUME=1 KEEP=1`, cache A29) — `cine` đo bằng bước `cine`, SSIM chỉ cảnh không lớp (ý đồ M5 CH6).
-3. Short SH1 (`build.sh` không `--no-shorts`) · gói chữ (mô tả: ghi công "Origami" đúng mẫu `G1-answer.md` + "Stock returns: Kenneth R. French Data Library (Fama/French factors, total return); cross-checked with Robert Shiller data.") · `package_check.py` · giao `deliver.py` nhánh tạm `ep009-delivery` (+ 720p) → gói G3 (phiếu L3 chủ dự án chấm ở G3; ngoại lệ F07 ghi sẵn).
-- Treo: lô K A47–A49 (A48: S01/S04/S05 MISSING) + đề xuất V12 theo đoạn (lessons T9-2); A32 nhiễu người chấm; lessons T9-3 (câu "chỗ muốn tua" vào kiểm mù C2) → Tổng kết.
+1. Chủ dự án trả lời G3 (đăng · ảnh bìa 49,5 % vs 155/307 · L1 · gộp main) → chép `gates/G3-answer.md`, AUTHORSHIP, sổ gu, ledger.
+2. Sau đăng: xoá `ep009-delivery`; gộp `main` (squash) nếu được phép; lessons (L1: `data_db` 38 hoặc nút mức tập; đổi `w9.js` làm mất cache cả tập → mã chỉ-đo đặt ngoài thư viện dùng chung).
+- Treo: lô K A47–A49 (S01/S04/S05 MISSING); V11 chrome × 3D (nhà máy).
 
 ## 3. Quyết định đã có
 - 15/10 G1 (`gates/G1-answer.md`) + sửa câu 1 15/10 (không thư; kết quả suy ra; câu nguồn trên hình S24 + mô tả).
@@ -34,7 +33,9 @@
 | M2 animatic | ≈ $3,3 | cổng gốc r1 + r2 + người 3 (headless) | 0 (take khô) | animatic ≈ 3 × 70 phút |
 | C2 v5 + lời | $1,05 | WRITER $0,75 · kiểm mù r5 ≈ $0,3 | **5.772** (5.537 + 235 thử seed) | |
 | M5 + G2 | ≈ $4.18 | REVIEWER ý đồ $0,37 · cổng gốc nháp ≈ $2,3 · nhớ lại/tua ×2 · đạo diễn $0,26 · REVIEWER G2 $0.88 | 0 | nháp 540p × 2 ≈ 2,3 h; 1080p ≈ 12 h (5 lượt); checks ≈ 8 h (4 lượt) |
-Cộng chặng ≈ **$8.51 / $15** (gồm REVIEWER G2). EL còn 22.183 (làm mới 01/11). Agent con 0. Lượt phiên > 150 (vượt mức cảnh báo — ghi ở G2). Container khởi động lại 3 lần (16/10). Sửa nhà máy giữa tập (CHẶN): build.py argv; episode_page ?seg=. Lượt chạm chủ dự án chặng này: 2 (lệnh mở, sửa G1 câu 1).
+| **M6 → G3** (17–18/10) | **$0** | không headless | 1.382 | ≈ 36 h (1080p × 2, checks × 2) |
+
+Cộng chặng sau G1 ≈ **$8.51 / $15**; **M6 $0 / $8** (gồm REVIEWER G2). EL còn 22.183 (làm mới 01/11). Agent con 0. Lượt phiên > 150 (vượt mức cảnh báo — ghi ở G2). Container khởi động lại 3 lần (16/10). Sửa nhà máy giữa tập (CHẶN): build.py argv; episode_page ?seg=. Lượt chạm chủ dự án chặng này: 2 (lệnh mở, sửa G1 câu 1).
 
 ## 6. Phiên sau đọc (≤ 8 tệp)
 1. `CHARTER.md` 2. `playbook/episode.md` 3. `episodes/ep009/PLAN.md` 4. `episodes/ep009/gates/G2-answer.md` 5. `episodes/ep009/gates/G2.md` 6. `episodes/ep009/gates/M5-checks.md` 7. `episodes/ep009/story/script.md` 8. `episodes/ep009/gates/G1-answer.md`
