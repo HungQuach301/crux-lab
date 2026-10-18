@@ -2,11 +2,6 @@
  "pass": false,
  "fails": [
   {
-   "where": "title",
-   "what": "72 ký tự > 60",
-   "fix": "Shorten the title to 60 characters or fewer; keep the viewer question and drop filler words."
-  },
-  {
    "where": "chapters",
    "what": "mốc 4:24 \"The pile that sank\" không khớp đầu hồi nào",
    "fix": "Change that chapter time to 6:17 (the act boundary in the final cut)."
