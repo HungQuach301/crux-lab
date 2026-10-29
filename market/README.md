@@ -8,9 +8,12 @@ Kênh mạnh cùng chủ đề và video vượt trội cho tài chính cá nhâ
 | `CHANNELS.md` | danh sách kênh theo ba vòng tròn + mới nổi (thử việc 90 ngày) + đã loại, kèm lý do |
 | `topics/<id>.md` | hồ sơ cầu mỗi đề tài (mức cầu, khoảng trống, 5 câu hỏi, 3 hoàn cảnh, điểm yếu đối thủ, dải thời lượng, video đối thủ, mẫu tiêu đề) · `labels.json` nhãn cho cột Cầu/Khoảng trống của `topics/queue.md` |
 | `teardowns/` | mổ xẻ video hạt giống của chủ dự án (chỉ phân tích, không chép lời) |
+| `R3-VIRAL-NEW.md` · `r3/` | R3 (29/10): video dài ≥ 1M trong 7 ngày của kênh ≤ 31 ngày tuổi, số thô ở `r3/*.json` (ngoại lệ luật dữ liệu bên dưới) |
 | `CALIBRATION.md` | vòng tự hiệu chỉnh: nhãn cầu so với lượt xem 28 ngày của Crux |
 
 **Luật dữ liệu (YouTube API Developer Policies III.E.4; repo public):** số liệu thô của kênh khác (lượt xem, người đăng ký, like, bình luận nguyên văn, tiêu đề, thumbnail, transcript) **không commit**. Chúng ở `~/market-cache/<ngày>/` ngoài git; `python3 toolkit/market/purge.py` xoá thư mục > 30 ngày, làm mới bằng cách chạy lại. Repo chỉ chứa mã (`toolkit/market/`), định danh kênh/video, nhãn (cao/vừa/thấp; ≥ 3×/≥ 5×), kết luận định tính và câu diễn giải lại. Mọi chỉ số tự tính ghi **"tự tính, không phải chỉ số YouTube"**.
+
+**Ngoại lệ R3 (chủ dự án 29/10):** `market/r3/*.json` và các bảng số trong `R3-VIRAL-NEW.md` được commit số thô, lấy ngày 29/10/2026; **hạn làm mới (chạy lại `toolkit/market/r3/`) hoặc xoá: 28/11/2026**.
 
 **Làm lại từ đầu** (≈ 7.700 đơn vị hạn mức, ≈ 67 search; hạn mức 10.000/ngày, ≤ 100 search):
 ```
